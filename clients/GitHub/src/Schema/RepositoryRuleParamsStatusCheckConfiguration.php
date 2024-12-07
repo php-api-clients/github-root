@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleParamsStatusCheckConfiguration
+final readonly class RepositoryRuleParamsStatusCheckConfiguration implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsStatusCheckConfiguration
 {
     public const SCHEMA_JSON         = '{
     "title": "StatusCheckConfiguration",

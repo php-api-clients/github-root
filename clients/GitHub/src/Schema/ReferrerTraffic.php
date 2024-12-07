@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ReferrerTraffic
+final readonly class ReferrerTraffic implements \ApiClients\Client\GitHub\Contract\ReferrerTraffic
 {
     public const SCHEMA_JSON         = '{
     "title": "Referrer Traffic",
@@ -39,9 +39,9 @@ final readonly class ReferrerTraffic
     public const SCHEMA_TITLE        = 'Referrer Traffic';
     public const SCHEMA_DESCRIPTION  = 'Referrer Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "referrer": "Google",
-    "count": 4,
-    "uniques": 3
+    "referrer": "generated",
+    "count": 5,
+    "uniques": 7
 }';
 
     public function __construct(public string $referrer, public int $count, public int $uniques)

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeFrequencyStat
+final readonly class CodeFrequencyStat implements \ApiClients\Client\GitHub\Contract\CodeFrequencyStat
 {
     public const SCHEMA_JSON         = '{
     "type": "integer"

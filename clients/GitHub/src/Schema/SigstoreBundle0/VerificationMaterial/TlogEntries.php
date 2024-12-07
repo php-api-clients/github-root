@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\InclusionPromise;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\KindVersion;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\LogId;
 
-final readonly class TlogEntries
+final readonly class TlogEntries implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial\TlogEntries
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -74,7 +76,7 @@ final readonly class TlogEntries
     "canonicalizedBody": "generated"
 }';
 
-    public function __construct(public string|null $logIndex, public Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\LogId|null $logId, public Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\KindVersion|null $kindVersion, public string|null $integratedTime, public Schema\SigstoreBundle0\VerificationMaterial\TlogEntries\InclusionPromise|null $inclusionPromise, public string|null $inclusionProof, public string|null $canonicalizedBody)
+    public function __construct(public string|null $logIndex, public LogId|null $logId, public KindVersion|null $kindVersion, public string|null $integratedTime, public InclusionPromise|null $inclusionPromise, public string|null $inclusionProof, public string|null $canonicalizedBody)
     {
     }
 }

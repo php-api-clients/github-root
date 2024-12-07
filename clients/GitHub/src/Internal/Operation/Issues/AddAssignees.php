@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Issues;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees;
+use ApiClients\Client\GitHub\Schema\Issue;
+use ApiClients\Client\GitHub\Schema\Issues\AddAssignees\Request\ApplicationJson;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class AddAssignees
 {
@@ -29,21 +31,24 @@ final class AddAssignees
     /**The number that identifies the issue. **/
     private int $issueNumber;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees $hydrator, string $owner, string $repo, int $issueNumber)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Assignees $hydrator, string $owner, string $repo, int $issueNumber)
     {
-        $this->owner       = $owner;
-        $this->repo        = $repo;
-        $this->issueNumber = $issueNumber;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->issueNumber             = $issueNumber;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\AddAssignees\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], '/repos/{owner}/{repo}/issues/{issue_number}/assignees'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/repos/{owner}/{repo}/issues/{issue_number}/assignees'))->expand(['issue_number' => $this->issueNumber, 'owner' => $this->owner, 'repo' => $this->repo]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Issue
+    public function createResponse(ResponseInterface $response): Issue
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +60,9 @@ final class AddAssignees
                      * Response
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Issue::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Issue::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Issue::class, $body);
+                        return $this->hydrator->hydrateObject(Issue::class, $body);
                 }
 
                 break;

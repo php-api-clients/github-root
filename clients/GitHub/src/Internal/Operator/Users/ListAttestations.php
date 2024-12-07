@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Users;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Attestations\SubjectDigest;
 use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Client\GitHub\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -22,7 +22,7 @@ final readonly class ListAttestations
     public const OPERATION_ID    = 'users/list-attestations';
     public const OPERATION_MATCH = 'GET /users/{username}/attestations/{subject_digest}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Users\Username\Attestations\SubjectDigest $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private SubjectDigest $hydrator)
     {
     }
 

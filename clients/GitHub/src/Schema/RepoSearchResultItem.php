@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepoSearchResultItem\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepoSearchResultItem
+final readonly class RepoSearchResultItem implements \ApiClients\Client\GitHub\Contract\RepoSearchResultItem
 {
     public const SCHEMA_JSON         = '{
     "title": "Repo Search Result Item",
@@ -701,26 +701,26 @@ final readonly class RepoSearchResultItem
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "private": false,
     "html_url": "https:\\/\\/example.com\\/",
@@ -739,7 +739,7 @@ final readonly class RepoSearchResultItem
     "open_issues_count": 17,
     "master_branch": "generated",
     "default_branch": "generated",
-    "score": 0.5,
+    "score": 5,
     "forks_url": "https:\\/\\/example.com\\/",
     "keys_url": "generated",
     "collaborators_url": "generated",
@@ -798,11 +798,11 @@ final readonly class RepoSearchResultItem
     "disabled": false,
     "visibility": "generated",
     "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-        "spdx_id": "MIT",
-        "node_id": "MDc6TGljZW5zZW1pdA==",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "spdx_id": "generated",
+        "node_id": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     },
     "permissions": {
@@ -875,7 +875,7 @@ final readonly class RepoSearchResultItem
      */
     public function __construct(public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string $name, #[MapFrom('full_name')]
-    public string $fullName, public Schema\SimpleUser|null $owner, public bool $private, #[MapFrom('html_url')]
+    public string $fullName, public SimpleUser|null $owner, public bool $private, #[MapFrom('html_url')]
     public string $htmlUrl, public string|null $description, public bool $fork, public string $url, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('pushed_at')]
@@ -933,7 +933,7 @@ final readonly class RepoSearchResultItem
     public bool $hasPages, #[MapFrom('has_wiki')]
     public bool $hasWiki, #[MapFrom('has_downloads')]
     public bool $hasDownloads, #[MapFrom('has_discussions')]
-    public bool|null $hasDiscussions, public bool $archived, public bool $disabled, public string|null $visibility, public Schema\LicenseSimple|null $license, public Schema\RepoSearchResultItem\Permissions|null $permissions, #[MapFrom('text_matches')]
+    public bool|null $hasDiscussions, public bool $archived, public bool $disabled, public string|null $visibility, public LicenseSimple|null $license, public Permissions|null $permissions, #[MapFrom('text_matches')]
     public array|null $textMatches, #[MapFrom('temp_clone_token')]
     public string|null $tempCloneToken, #[MapFrom('allow_merge_commit')]
     public bool|null $allowMergeCommit, #[MapFrom('allow_squash_merge')]

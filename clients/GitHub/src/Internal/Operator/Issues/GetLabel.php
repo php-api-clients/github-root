@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Issues;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Labels\Name;
 use ApiClients\Client\GitHub\Schema\Label;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetLabel
     public const OPERATION_ID    = 'issues/get-label';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/labels/{name}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Name $hydrator)
     {
     }
 

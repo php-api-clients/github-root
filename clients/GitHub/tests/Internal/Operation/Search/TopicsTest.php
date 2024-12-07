@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Search;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operation\Search\Topics;
+use ApiClients\Client\GitHub\Schema\Operations\Search\Topics\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -23,15 +23,15 @@ final class TopicsTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Search\Topics\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Ok::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/search/topics?q=generated&per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/search/topics?page=1&per_page=8&q=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Search\Topics::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(Topics::OPERATION_MATCH, (static function (array $data): array {
             $data['q']        = 'generated';
             $data['per_page'] = 8;
             $data['page']     = 1;
@@ -43,13 +43,13 @@ final class TopicsTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Search\Topics\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Ok::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/search/topics?q=generated&per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/search/topics?page=1&per_page=8&q=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->search()->topics('generated', 8, 1);
     }
@@ -63,9 +63,9 @@ final class TopicsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/search/topics?q=generated&per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/search/topics?page=1&per_page=8&q=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Search\Topics::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(Topics::OPERATION_MATCH, (static function (array $data): array {
             $data['q']        = 'generated';
             $data['per_page'] = 8;
             $data['page']     = 1;
@@ -83,7 +83,7 @@ final class TopicsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/search/topics?q=generated&per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/search/topics?page=1&per_page=8&q=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->search()->topics('generated', 8, 1);
         self::assertArrayHasKey('code', $result);

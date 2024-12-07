@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Codespaces\ListSecretsForAu
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -77,18 +77,18 @@ final readonly class Ok
     "total_count": 11,
     "secrets": [
         {
-            "name": "SECRET_NAME",
+            "name": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
             "updated_at": "1970-01-01T00:00:00+00:00",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/user\\/secrets\\/SECRET_NAME\\/repositories"
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         },
         {
-            "name": "SECRET_NAME",
+            "name": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
             "updated_at": "1970-01-01T00:00:00+00:00",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/user\\/secrets\\/SECRET_NAME\\/repositories"
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         }
     ]
 }';

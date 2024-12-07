@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\CreateFork;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\CreatePrivateVulnerabilityReport;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\CreateRepositoryAdvisory;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest;
 use ApiClients\Client\GitHub\Schema\FullRepository;
 use ApiClients\Client\GitHub\Schema\Operations\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHub\Schema\RepositoryAdvisory;
@@ -17,7 +21,7 @@ use function array_key_exists;
 
 final class SecurityAdvisories
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -37,7 +41,7 @@ final class SecurityAdvisories
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\SecurityAdvisories\CreatePrivateVulnerabilityReport($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀Reports());
+        $operator = new CreatePrivateVulnerabilityReport($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀Reports());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -58,7 +62,7 @@ final class SecurityAdvisories
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\SecurityAdvisories\CreateRepositoryAdvisory($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories());
+        $operator = new CreateRepositoryAdvisory($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -85,7 +89,7 @@ final class SecurityAdvisories
 
         $arguments['ghsa_id'] = $params['ghsa_id'];
         unset($params['ghsa_id']);
-        $operator = new Internal\Operator\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId🌀Cve());
+        $operator = new CreateRepositoryAdvisoryCveRequest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId🌀Cve());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ghsa_id']);
     }
@@ -112,7 +116,7 @@ final class SecurityAdvisories
 
         $arguments['ghsa_id'] = $params['ghsa_id'];
         unset($params['ghsa_id']);
-        $operator = new Internal\Operator\SecurityAdvisories\CreateFork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId🌀Forks());
+        $operator = new CreateFork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId🌀Forks());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ghsa_id']);
     }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Zero
+final readonly class Zero implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemEdited\Changes\Zero
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -190,13 +190,23 @@ final readonly class Zero
         "field_type": "generated",
         "field_name": "generated",
         "project_number": 14,
-        "from": null,
-        "to": null
+        "from": {
+            "id": "generated",
+            "title": "generated",
+            "duration": 8,
+            "start_date": "generated"
+        },
+        "to": {
+            "id": "generated",
+            "title": "generated",
+            "duration": 8,
+            "start_date": "generated"
+        }
     }
 }';
 
     public function __construct(#[MapFrom('field_value')]
-    public Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue $fieldValue,)
+    public FieldValue $fieldValue,)
     {
     }
 }

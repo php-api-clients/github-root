@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesEdited\Changes;
 
-final readonly class Title
+final readonly class Title implements \ApiClients\Client\GitHub\Contract\WebhookIssuesEdited\Changes\Title
 {
     public const SCHEMA_JSON         = '{
     "required": [

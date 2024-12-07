@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory\Cvss;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependabotAlertSecurityAdvisory
+final readonly class DependabotAlertSecurityAdvisory implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -350,7 +350,7 @@ final readonly class DependabotAlertSecurityAdvisory
                 "ecosystem": "generated",
                 "name": "generated"
             },
-            "severity": "critical",
+            "severity": "low",
             "vulnerable_version_range": "generated",
             "first_patched_version": {
                 "identifier": "generated"
@@ -361,26 +361,26 @@ final readonly class DependabotAlertSecurityAdvisory
                 "ecosystem": "generated",
                 "name": "generated"
             },
-            "severity": "critical",
+            "severity": "low",
             "vulnerable_version_range": "generated",
             "first_patched_version": {
                 "identifier": "generated"
             }
         }
     ],
-    "severity": "critical",
+    "severity": "low",
     "cvss": {
-        "score": 0.5,
+        "score": 5,
         "vector_string": "generated"
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": [
@@ -395,11 +395,11 @@ final readonly class DependabotAlertSecurityAdvisory
     ],
     "identifiers": [
         {
-            "type": "GHSA",
+            "type": "CVE",
             "value": "generated"
         },
         {
-            "type": "GHSA",
+            "type": "CVE",
             "value": "generated"
         }
     ],
@@ -433,8 +433,8 @@ final readonly class DependabotAlertSecurityAdvisory
      */
     public function __construct(#[MapFrom('ghsa_id')]
     public string $ghsaId, #[MapFrom('cve_id')]
-    public string|null $cveId, public string $summary, public string $description, public array $vulnerabilities, public string $severity, public Schema\DependabotAlertSecurityAdvisory\Cvss $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array $cwes, public array $identifiers, public array $references, #[MapFrom('published_at')]
+    public string|null $cveId, public string $summary, public string $description, public array $vulnerabilities, public string $severity, public Cvss $cvss, #[MapFrom('cvss_severities')]
+    public CvssSeverities|null $cvssSeverities, public array $cwes, public array $identifiers, public array $references, #[MapFrom('published_at')]
     public string $publishedAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('withdrawn_at')]
     public string|null $withdrawnAt,)

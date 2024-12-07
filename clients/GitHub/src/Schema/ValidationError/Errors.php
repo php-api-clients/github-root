@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ValidationError;
 
-final readonly class Errors
+final readonly class Errors implements \ApiClients\Client\GitHub\Contract\ValidationError\Errors
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -61,8 +61,7 @@ final readonly class Errors
     "field": "generated",
     "message": "generated",
     "code": "generated",
-    "index": 5,
-    "value": null
+    "index": 5
 }';
 
     public function __construct(public string|null $resource, public string|null $field, public string|null $message, public string $code, public int|null $index, public string|int|array|null $value)

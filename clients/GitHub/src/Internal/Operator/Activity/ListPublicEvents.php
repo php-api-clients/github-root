@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Activity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Events;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListPublicEvents
     public const OPERATION_ID    = 'activity/list-public-events';
     public const OPERATION_MATCH = 'GET /events';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Events $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Events $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Event>|WithoutBody */
+    /** @return Observable<Event>|WithoutBody */
     public function call(int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Activity\ListPublicEvents($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId;
+use ApiClients\Client\GitHub\Schema\ApiInsightsRouteStats;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -18,7 +19,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetRouteStatsByActor
 {
@@ -43,25 +43,27 @@ final class GetRouteStatsByActor
     /**The direction to sort the results by. **/
     private string $direction;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId $hydrator, string $org, string $actorType, int $actorId, string $minTimestamp, string $maxTimestamp, array $sort, int $page = 1, int $perPage = 30, string $direction = 'desc')
+    public function __construct(private SchemaValidator $responseSchemaValidator, private ActorId $hydrator, string $org, string $actorType, int $actorId, string $minTimestamp, string $maxTimestamp, array $sort, int $page = 1, int $perPage = 30, string $direction = 'desc')
     {
-        $this->org          = $org;
-        $this->actorType    = $actorType;
-        $this->actorId      = $actorId;
-        $this->minTimestamp = $minTimestamp;
-        $this->maxTimestamp = $maxTimestamp;
-        $this->sort         = $sort;
-        $this->page         = $page;
-        $this->perPage      = $perPage;
-        $this->direction    = $direction;
+        $this->org                     = $org;
+        $this->actorType               = $actorType;
+        $this->actorId                 = $actorId;
+        $this->minTimestamp            = $minTimestamp;
+        $this->maxTimestamp            = $maxTimestamp;
+        $this->sort                    = $sort;
+        $this->page                    = $page;
+        $this->perPage                 = $perPage;
+        $this->direction               = $direction;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{actor_type}', '{actor_id}', '{min_timestamp}', '{max_timestamp}', '{sort}', '{page}', '{per_page}', '{direction}'], [$this->org, $this->actorType, $this->actorId, $this->minTimestamp, $this->maxTimestamp, $this->sort, $this->page, $this->perPage, $this->direction], '/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}' . '?min_timestamp={min_timestamp}&max_timestamp={max_timestamp}&sort={sort}&page={page}&per_page={per_page}&direction={direction}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}{?direction,max_timestamp,min_timestamp,page,per_page,sort*}'))->expand(['actor_id' => $this->actorId, 'actor_type' => $this->actorType, 'direction' => $this->direction, 'max_timestamp' => $this->maxTimestamp, 'min_timestamp' => $this->minTimestamp, 'org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'sort' => $this->sort]));
     }
 
-    /** @return Observable<Schema\ApiInsightsRouteStats> */
+    /** @return Observable<ApiInsightsRouteStats> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -74,12 +76,12 @@ final class GetRouteStatsByActor
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ApiInsightsRouteStats {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): ApiInsightsRouteStats {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ApiInsightsRouteStats::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(ApiInsightsRouteStats::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\ApiInsightsRouteStats::class, $body);
+                                return $this->hydrator->hydrateObject(ApiInsightsRouteStats::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

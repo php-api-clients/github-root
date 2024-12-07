@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Artifact\WorkflowRun;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Artifact
+final readonly class Artifact implements \ApiClients\Client\GitHub\Contract\Artifact
 {
     public const SCHEMA_JSON         = '{
     "title": "Artifact",
@@ -132,22 +132,22 @@ final readonly class Artifact
     public const SCHEMA_TITLE        = 'Artifact';
     public const SCHEMA_DESCRIPTION  = 'An artifact';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 5,
-    "node_id": "MDEwOkNoZWNrU3VpdGU1",
-    "name": "AdventureWorks.Framework",
-    "size_in_bytes": 12345,
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5",
-    "archive_download_url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5\\/zip",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "size_in_bytes": 13,
+    "url": "generated",
+    "archive_download_url": "generated",
     "expired": false,
     "created_at": "1970-01-01T00:00:00+00:00",
     "expires_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "workflow_run": {
-        "id": 10,
-        "repository_id": 42,
-        "head_repository_id": 42,
-        "head_branch": "main",
-        "head_sha": "009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"
+        "id": 2,
+        "repository_id": 13,
+        "head_repository_id": 18,
+        "head_branch": "generated",
+        "head_sha": "generated"
     }
 }';
 
@@ -163,7 +163,7 @@ final readonly class Artifact
     public string|null $createdAt, #[MapFrom('expires_at')]
     public string|null $expiresAt, #[MapFrom('updated_at')]
     public string|null $updatedAt, #[MapFrom('workflow_run')]
-    public Schema\Artifact\WorkflowRun|null $workflowRun,)
+    public WorkflowRun|null $workflowRun,)
     {
     }
 }

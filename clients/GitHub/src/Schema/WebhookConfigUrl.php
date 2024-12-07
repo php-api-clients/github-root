@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookConfigUrl
+final readonly class WebhookConfigUrl implements \ApiClients\Client\GitHub\Contract\WebhookConfigUrl
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

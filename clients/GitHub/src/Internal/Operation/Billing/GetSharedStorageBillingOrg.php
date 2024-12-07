@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Billing;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Settings\Billing\SharedStorage;
+use ApiClients\Client\GitHub\Schema\CombinedBillingUsage;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetSharedStorageBillingOrg
 {
@@ -24,17 +25,19 @@ final class GetSharedStorageBillingOrg
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Settings\Billing\SharedStorage $hydrator, string $org)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private SharedStorage $hydrator, string $org)
     {
-        $this->org = $org;
+        $this->org                     = $org;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/settings/billing/shared-storage'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/settings/billing/shared-storage'))->expand(['org' => $this->org]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CombinedBillingUsage
+    public function createResponse(ResponseInterface $response): CombinedBillingUsage
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -46,9 +49,9 @@ final class GetSharedStorageBillingOrg
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CombinedBillingUsage::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(CombinedBillingUsage::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CombinedBillingUsage::class, $body);
+                        return $this->hydrator->hydrateObject(CombinedBillingUsage::class, $body);
                 }
 
                 break;

@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\EnforceAdmins;
+use ApiClients\Client\GitHub\Schema\ProtectedBranchAdminEnforced;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class SetAdminBranchProtection
 {
@@ -28,19 +29,21 @@ final class SetAdminBranchProtection
     /**The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql). **/
     private string $branch;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\EnforceAdmins $hydrator, string $owner, string $repo, string $branch)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private EnforceAdmins $hydrator, string $owner, string $repo, string $branch)
     {
-        $this->owner  = $owner;
-        $this->repo   = $repo;
-        $this->branch = $branch;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->branch                  = $branch;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('POST', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins'));
+        return new Request('POST', (string) (new UriTemplate('/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins'))->expand(['branch' => $this->branch, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ProtectedBranchAdminEnforced
+    public function createResponse(ResponseInterface $response): ProtectedBranchAdminEnforced
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +55,9 @@ final class SetAdminBranchProtection
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ProtectedBranchAdminEnforced::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ProtectedBranchAdminEnforced::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ProtectedBranchAdminEnforced::class, $body);
+                        return $this->hydrator->hydrateObject(ProtectedBranchAdminEnforced::class, $body);
                 }
 
                 break;

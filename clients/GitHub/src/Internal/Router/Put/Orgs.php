@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Put;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\AddSecurityManagerTeam;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\AssignTeamToOrgRole;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\AssignUserToOrgRole;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\BlockUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ConvertMemberToOutsideCollaborator;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CreateOrUpdateCustomProperty;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\SetMembershipForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\SetPublicMembershipForAuthenticatedUser;
 use ApiClients\Client\GitHub\Schema\CustomProperty;
 use ApiClients\Client\GitHub\Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHub\Schema\OrgMembership;
@@ -18,7 +26,7 @@ use function array_key_exists;
 
 final class Orgs
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -38,7 +46,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\BlockUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks🌀Username());
+        $operator = new BlockUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -59,7 +67,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\SetMembershipForUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
+        $operator = new SetMembershipForUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username'], $params);
     }
@@ -80,7 +88,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\ConvertMemberToOutsideCollaborator($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
+        $operator = new ConvertMemberToOutsideCollaborator($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username'], $params);
     }
@@ -101,7 +109,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\SetPublicMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers🌀Username());
+        $operator = new SetPublicMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -128,7 +136,7 @@ final class Orgs
 
         $arguments['role_id'] = $params['role_id'];
         unset($params['role_id']);
-        $operator = new Internal\Operator\Orgs\AssignTeamToOrgRole($this->browser, $this->authentication);
+        $operator = new AssignTeamToOrgRole($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role_id']);
     }
@@ -155,7 +163,7 @@ final class Orgs
 
         $arguments['role_id'] = $params['role_id'];
         unset($params['role_id']);
-        $operator = new Internal\Operator\Orgs\AssignUserToOrgRole($this->browser, $this->authentication);
+        $operator = new AssignUserToOrgRole($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username'], $arguments['role_id']);
     }
@@ -176,7 +184,7 @@ final class Orgs
 
         $arguments['custom_property_name'] = $params['custom_property_name'];
         unset($params['custom_property_name']);
-        $operator = new Internal\Operator\Orgs\CreateOrUpdateCustomProperty($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
+        $operator = new CreateOrUpdateCustomProperty($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
 
         return $operator->call($arguments['org'], $arguments['custom_property_name'], $params);
     }
@@ -197,7 +205,7 @@ final class Orgs
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operator = new Internal\Operator\Orgs\AddSecurityManagerTeam($this->browser, $this->authentication);
+        $operator = new AddSecurityManagerTeam($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }

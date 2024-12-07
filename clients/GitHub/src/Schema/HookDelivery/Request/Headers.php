@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\HookDelivery\Request;
 
-final readonly class Headers
+final readonly class Headers implements \ApiClients\Client\GitHub\Contract\HookDelivery\Request\Headers
 {
     public const SCHEMA_JSON         = '{
     "type": [

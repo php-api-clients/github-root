@@ -4,8 +4,29 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\CheckRepoIsStarredByAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\GetFeeds;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\GetRepoSubscription;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\GetThread;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\GetThreadSubscriptionForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListEventsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListNotificationsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListOrgEventsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListPublicEvents;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListPublicEventsForRepoNetwork;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListPublicEventsForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListPublicOrgEvents;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListReceivedEventsForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListReceivedPublicEventsForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListRepoEvents;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListRepoNotificationsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListReposStarredByAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListReposStarredByUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListReposWatchedByUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListStargazersForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListWatchedReposForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\ListWatchersForRepo;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\Feed;
 use ApiClients\Client\GitHub\Schema\Repository;
@@ -25,11 +46,11 @@ use function array_key_exists;
 
 final class Activity
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\Event>|WithoutBody */
+    /** @return Observable<Event>|WithoutBody */
     public function listPublicEvents(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -45,7 +66,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListPublicEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Events());
+        $operator = new ListPublicEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Events());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -53,12 +74,12 @@ final class Activity
     /** @return */
     public function getFeeds(array $params): Feed
     {
-        $operator = new Internal\Operator\Activity\GetFeeds($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Feeds());
+        $operator = new GetFeeds($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Feeds());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\Thread>|WithoutBody */
+    /** @return Observable<Thread>|WithoutBody */
     public function listNotificationsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -98,12 +119,12 @@ final class Activity
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Activity\ListNotificationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
+        $operator = new ListNotificationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
 
         return $operator->call($arguments['since'], $arguments['before'], $arguments['all'], $arguments['participating'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Repository>|WithoutBody */
+    /** @return Observable<Repository>|WithoutBody */
     public function listReposStarredByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -131,12 +152,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListReposStarredByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred());
+        $operator = new ListReposStarredByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred());
 
         return $operator->call($arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository>|WithoutBody */
+    /** @return Observable<MinimalRepository>|WithoutBody */
     public function listWatchedReposForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -152,7 +173,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListWatchedReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Subscriptions());
+        $operator = new ListWatchedReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Subscriptions());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -167,12 +188,12 @@ final class Activity
 
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        $operator = new Internal\Operator\Activity\GetThread($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId());
+        $operator = new GetThread($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId());
 
         return $operator->call($arguments['thread_id']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listPublicOrgEvents(array $params): iterable
     {
         $arguments = [];
@@ -194,12 +215,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListPublicOrgEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Events());
+        $operator = new ListPublicOrgEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Events());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listEventsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -221,12 +242,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListEventsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events());
+        $operator = new ListEventsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listReceivedEventsForUser(array $params): iterable
     {
         $arguments = [];
@@ -248,7 +269,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListReceivedEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀ReceivedEvents());
+        $operator = new ListReceivedEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀ReceivedEvents());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
@@ -287,12 +308,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListReposStarredByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Starred());
+        $operator = new ListReposStarredByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Starred());
 
         return $operator->call($arguments['username'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposWatchedByUser(array $params): iterable
     {
         $arguments = [];
@@ -314,12 +335,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListReposWatchedByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Subscriptions());
+        $operator = new ListReposWatchedByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Subscriptions());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Event>|Schema\BasicError|WithoutBody */
+    /** @return Observable<Event>|BasicError|WithoutBody */
     public function listPublicEventsForRepoNetwork(array $params): iterable|BasicError|WithoutBody
     {
         $arguments = [];
@@ -347,7 +368,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListPublicEventsForRepoNetwork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Networks🌀Owner🌀Repo🌀Events());
+        $operator = new ListPublicEventsForRepoNetwork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Networks🌀Owner🌀Repo🌀Events());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -362,12 +383,12 @@ final class Activity
 
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        $operator = new Internal\Operator\Activity\GetThreadSubscriptionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
+        $operator = new GetThreadSubscriptionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
 
         return $operator->call($arguments['thread_id']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listRepoEvents(array $params): iterable
     {
         $arguments = [];
@@ -395,12 +416,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListRepoEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Events());
+        $operator = new ListRepoEvents($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Events());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Thread> */
+    /** @return Observable<Thread> */
     public function listRepoNotificationsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -452,7 +473,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListRepoNotificationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Notifications());
+        $operator = new ListRepoNotificationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Notifications());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['since'], $arguments['before'], $arguments['all'], $arguments['participating'], $arguments['per_page'], $arguments['page']);
     }
@@ -485,12 +506,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListStargazersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stargazers());
+        $operator = new ListStargazersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stargazers());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listWatchersForRepo(array $params): iterable
     {
         $arguments = [];
@@ -518,7 +539,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListWatchersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscribers());
+        $operator = new ListWatchersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscribers());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -539,7 +560,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\GetRepoSubscription($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscription());
+        $operator = new GetRepoSubscription($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscription());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -560,12 +581,12 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\CheckRepoIsStarredByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
+        $operator = new CheckRepoIsStarredByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listPublicEventsForUser(array $params): iterable
     {
         $arguments = [];
@@ -587,12 +608,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListPublicEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events🌀Public_());
+        $operator = new ListPublicEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events🌀Public_());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listReceivedPublicEventsForUser(array $params): iterable
     {
         $arguments = [];
@@ -614,12 +635,12 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListReceivedPublicEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀ReceivedEvents🌀Public_());
+        $operator = new ListReceivedPublicEventsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀ReceivedEvents🌀Public_());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return Observable<Event> */
     public function listOrgEventsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -647,7 +668,7 @@ final class Activity
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Activity\ListOrgEventsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events🌀Orgs🌀Org());
+        $operator = new ListOrgEventsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events🌀Orgs🌀Org());
 
         return $operator->call($arguments['username'], $arguments['org'], $arguments['per_page'], $arguments['page']);
     }

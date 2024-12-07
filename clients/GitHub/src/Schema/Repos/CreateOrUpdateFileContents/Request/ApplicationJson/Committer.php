@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson;
 
-final readonly class Committer
+final readonly class Committer implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Committer
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Committer
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "email": "generated",
-    "date": "\\"2013-01-05T13:13:22+05:00\\""
+    "date": "generated"
 }';
 
     /**

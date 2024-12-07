@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Labels;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Manifest;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag;
 
-final readonly class ContainerMetadata
+final readonly class ContainerMetadata implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -50,7 +52,7 @@ final readonly class ContainerMetadata
     }
 }';
 
-    public function __construct(public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Labels|null $labels, public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Manifest|null $manifest, public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag|null $tag)
+    public function __construct(public Labels|null $labels, public Manifest|null $manifest, public Tag|null $tag)
     {
     }
 }

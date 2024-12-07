@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\PersonalAccessTokenRequest;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PersonalAccessTokenRequest\PermissionsResult\Organization;
+use ApiClients\Client\GitHub\Schema\PersonalAccessTokenRequest\PermissionsResult\Other;
+use ApiClients\Client\GitHub\Schema\PersonalAccessTokenRequest\PermissionsResult\Repository;
 
-final readonly class PermissionsResult
+final readonly class PermissionsResult implements \ApiClients\Client\GitHub\Contract\PersonalAccessTokenRequest\PermissionsResult
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -40,7 +42,7 @@ final readonly class PermissionsResult
     "other": []
 }';
 
-    public function __construct(public Schema\PersonalAccessTokenRequest\PermissionsResult\Organization|null $organization, public Schema\PersonalAccessTokenRequest\PermissionsResult\Repository|null $repository, public Schema\PersonalAccessTokenRequest\PermissionsResult\Other|null $other)
+    public function __construct(public Organization|null $organization, public Repository|null $repository, public Other|null $other)
     {
     }
 }

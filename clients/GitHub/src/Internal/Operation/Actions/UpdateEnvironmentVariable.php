@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Actions\UpdateEnvironmentVariable\Request\ApplicationJson;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function json_encode;
-use function str_replace;
 
 final class UpdateEnvironmentVariable
 {
@@ -29,19 +30,20 @@ final class UpdateEnvironmentVariable
     /**The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`. **/
     private string $environmentName;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $owner, string $repo, string $name, string $environmentName)
+    public function __construct(private SchemaValidator $requestSchemaValidator, string $owner, string $repo, string $name, string $environmentName)
     {
-        $this->owner           = $owner;
-        $this->repo            = $repo;
-        $this->name            = $name;
-        $this->environmentName = $environmentName;
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->owner                  = $owner;
+        $this->repo                   = $repo;
+        $this->name                   = $name;
+        $this->environmentName        = $environmentName;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\UpdateEnvironmentVariable\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{name}', '{environment_name}'], [$this->owner, $this->repo, $this->name, $this->environmentName], '/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}'))->expand(['environment_name' => $this->environmentName, 'name' => $this->name, 'owner' => $this->owner, 'repo' => $this->repo]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

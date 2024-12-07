@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\BranchesWhereHead;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListBranchesForHeadCommit
     public const OPERATION_ID    = 'repos/list-branches-for-head-commit';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\BranchesWhereHead $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private BranchesWhereHead $hydrator)
     {
     }
 
-    /** @return Observable<Schema\BranchShort> */
+    /** @return Observable<BranchShort> */
     public function call(string $owner, string $repo, string $commitSha): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\ListBranchesForHeadCommit($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commitSha);

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\BranchShort\Commit;
 
-final readonly class BranchShort
+final readonly class BranchShort implements \ApiClients\Client\GitHub\Contract\BranchShort
 {
     public const SCHEMA_JSON         = '{
     "title": "Branch Short",
@@ -52,7 +52,7 @@ final readonly class BranchShort
     "protected": false
 }';
 
-    public function __construct(public string $name, public Schema\BranchShort\Commit $commit, public bool $protected)
+    public function __construct(public string $name, public Commit $commit, public bool $protected)
     {
     }
 }

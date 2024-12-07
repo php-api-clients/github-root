@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\FileCommit\Commit;
+use ApiClients\Client\GitHub\Schema\FileCommit\Content;
 
-final readonly class FileCommit
+final readonly class FileCommit implements \ApiClients\Client\GitHub\Contract\FileCommit
 {
     public const SCHEMA_JSON         = '{
     "title": "File Commit",
@@ -234,7 +235,7 @@ final readonly class FileCommit
     }
 }';
 
-    public function __construct(public Schema\FileCommit\Content|null $content, public Schema\FileCommit\Commit $commit)
+    public function __construct(public Content|null $content, public Commit $commit)
     {
     }
 }

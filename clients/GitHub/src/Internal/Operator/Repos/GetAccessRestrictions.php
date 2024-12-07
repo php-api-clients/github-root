@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\Restrictions;
 use ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetAccessRestrictions
     public const OPERATION_ID    = 'repos/get-access-restrictions';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\Restrictions $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Restrictions $hydrator)
     {
     }
 

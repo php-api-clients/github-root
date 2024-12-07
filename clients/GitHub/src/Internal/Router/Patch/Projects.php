@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Patch;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\Update;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\UpdateCard;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\UpdateColumn;
 use ApiClients\Client\GitHub\Schema\Project;
 use ApiClients\Client\GitHub\Schema\ProjectCard;
 use ApiClients\Client\GitHub\Schema\ProjectColumn;
@@ -18,7 +21,7 @@ use function array_key_exists;
 
 final class Projects
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -32,7 +35,7 @@ final class Projects
 
         $arguments['column_id'] = $params['column_id'];
         unset($params['column_id']);
-        $operator = new Internal\Operator\Projects\UpdateColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId());
+        $operator = new UpdateColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId());
 
         return $operator->call($arguments['column_id'], $params);
     }
@@ -47,7 +50,7 @@ final class Projects
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Projects\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
+        $operator = new Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
 
         return $operator->call($arguments['project_id'], $params);
     }
@@ -62,7 +65,7 @@ final class Projects
 
         $arguments['card_id'] = $params['card_id'];
         unset($params['card_id']);
-        $operator = new Internal\Operator\Projects\UpdateCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId());
+        $operator = new UpdateCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId());
 
         return $operator->call($arguments['card_id'], $params);
     }

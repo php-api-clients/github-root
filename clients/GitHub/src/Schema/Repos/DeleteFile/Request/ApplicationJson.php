@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson\Author;
+use ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson\Committer;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\DeleteFile\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -80,7 +81,7 @@ final readonly class ApplicationJson
      * committer: object containing information about the committer.
      * author: object containing information about the author.
      */
-    public function __construct(public string $message, public string $sha, public string|null $branch, public Schema\Repos\DeleteFile\Request\ApplicationJson\Committer|null $committer, public Schema\Repos\DeleteFile\Request\ApplicationJson\Author|null $author)
+    public function __construct(public string $message, public string $sha, public string|null $branch, public Committer|null $committer, public Author|null $author)
     {
     }
 }

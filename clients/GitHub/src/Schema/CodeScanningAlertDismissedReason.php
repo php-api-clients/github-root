@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertDismissedReason
+final readonly class CodeScanningAlertDismissedReason implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertDismissedReason
 {
     public const SCHEMA_JSON         = '{
     "enum": [

@@ -4,7 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Patch;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\AcceptInvitationForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CreateOrUpdateCustomPropertiesValues;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\Update;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateInvitation;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdatePullRequestReviewProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateReleaseAsset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateStatusCheckProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateWebhookConfigForRepo;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\CommitComment;
 use ApiClients\Client\GitHub\Schema\FullRepository;
@@ -25,7 +36,7 @@ use function array_key_exists;
 
 final class Repos
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -45,7 +56,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
+        $operator = new Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -60,7 +71,7 @@ final class Repos
 
         $arguments['invitation_id'] = $params['invitation_id'];
         unset($params['invitation_id']);
-        $operator = new Internal\Operator\Repos\AcceptInvitationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations🌀InvitationId());
+        $operator = new AcceptInvitationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations🌀InvitationId());
 
         return $operator->call($arguments['invitation_id']);
     }
@@ -87,7 +98,7 @@ final class Repos
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Repos\UpdateCommitComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
+        $operator = new UpdateCommitComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
@@ -114,7 +125,7 @@ final class Repos
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Repos\UpdateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
+        $operator = new UpdateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $params);
     }
@@ -141,7 +152,7 @@ final class Repos
 
         $arguments['invitation_id'] = $params['invitation_id'];
         unset($params['invitation_id']);
-        $operator = new Internal\Operator\Repos\UpdateInvitation($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Invitations🌀InvitationId());
+        $operator = new UpdateInvitation($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Invitations🌀InvitationId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['invitation_id'], $params);
     }
@@ -162,7 +173,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\CreateOrUpdateCustomPropertiesValues($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values());
+        $operator = new CreateOrUpdateCustomPropertiesValues($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -189,7 +200,7 @@ final class Repos
 
         $arguments['release_id'] = $params['release_id'];
         unset($params['release_id']);
-        $operator = new Internal\Operator\Repos\UpdateRelease($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId());
+        $operator = new UpdateRelease($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $params);
     }
@@ -216,7 +227,7 @@ final class Repos
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Repos\UpdateWebhookConfigForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Config());
+        $operator = new UpdateWebhookConfigForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Config());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $params);
     }
@@ -243,7 +254,7 @@ final class Repos
 
         $arguments['asset_id'] = $params['asset_id'];
         unset($params['asset_id']);
-        $operator = new Internal\Operator\Repos\UpdateReleaseAsset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Assets🌀AssetId());
+        $operator = new UpdateReleaseAsset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Assets🌀AssetId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id'], $params);
     }
@@ -270,7 +281,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\UpdatePullRequestReviewProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
+        $operator = new UpdatePullRequestReviewProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
@@ -297,7 +308,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\UpdateStatusCheckProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks());
+        $operator = new UpdateStatusCheckProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }

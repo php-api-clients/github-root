@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MarketplaceAccount
+final readonly class MarketplaceAccount implements \ApiClients\Client\GitHub\Contract\MarketplaceAccount
 {
     public const SCHEMA_JSON         = '{
     "title": "Marketplace Account",

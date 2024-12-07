@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Reactions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber\Reactions;
+use ApiClients\Client\GitHub\Schema\Reaction;
+use ApiClients\Client\GitHub\Schema\Reactions\CreateForTeamDiscussionCommentInOrg\Request\ApplicationJson;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class CreateForTeamDiscussionCommentInOrg
 {
@@ -31,22 +33,25 @@ final class CreateForTeamDiscussionCommentInOrg
     /**The number that identifies the comment. **/
     private int $commentNumber;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber\Reactions $hydrator, string $org, string $teamSlug, int $discussionNumber, int $commentNumber)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Reactions $hydrator, string $org, string $teamSlug, int $discussionNumber, int $commentNumber)
     {
-        $this->org              = $org;
-        $this->teamSlug         = $teamSlug;
-        $this->discussionNumber = $discussionNumber;
-        $this->commentNumber    = $commentNumber;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->org                     = $org;
+        $this->teamSlug                = $teamSlug;
+        $this->discussionNumber        = $discussionNumber;
+        $this->commentNumber           = $commentNumber;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Reactions\CreateForTeamDiscussionCommentInOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{org}', '{team_slug}', '{discussion_number}', '{comment_number}'], [$this->org, $this->teamSlug, $this->discussionNumber, $this->commentNumber], '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions'))->expand(['comment_number' => $this->commentNumber, 'discussion_number' => $this->discussionNumber, 'org' => $this->org, 'team_slug' => $this->teamSlug]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Reaction
+    public function createResponse(ResponseInterface $response): Reaction
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,17 +63,17 @@ final class CreateForTeamDiscussionCommentInOrg
                      * Response when the reaction type has already been added to this team discussion comment
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Reaction::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
+                        return $this->hydrator->hydrateObject(Reaction::class, $body);
                     /**
                      * Response
                      **/
 
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Reaction::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
+                        return $this->hydrator->hydrateObject(Reaction::class, $body);
                 }
 
                 break;

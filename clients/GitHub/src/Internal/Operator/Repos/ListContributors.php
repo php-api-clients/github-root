@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Contributors;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListContributors
     public const OPERATION_ID    = 'repos/list-contributors';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/contributors';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Contributors $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Contributor>|WithoutBody */
+    /** @return Observable<Contributor>|WithoutBody */
     public function call(string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\ListContributors($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $anon, $perPage, $page);

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Projects;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Projects\ProjectId\Columns;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListColumns
     public const OPERATION_ID    = 'projects/list-columns';
     public const OPERATION_MATCH = 'GET /projects/{project_id}/columns';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Projects\ProjectId\Columns $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Columns $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ProjectColumn>|WithoutBody */
+    /** @return Observable<ProjectColumn>|WithoutBody */
     public function call(int $projectId, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Projects\ListColumns($this->responseSchemaValidator, $this->hydrator, $projectId, $perPage, $page);

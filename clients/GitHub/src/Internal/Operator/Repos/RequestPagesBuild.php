@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Pages\Builds;
 use ApiClients\Client\GitHub\Schema\PageBuildStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class RequestPagesBuild
     public const OPERATION_ID    = 'repos/request-pages-build';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/pages/builds';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Pages\Builds $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Builds $hydrator)
     {
     }
 

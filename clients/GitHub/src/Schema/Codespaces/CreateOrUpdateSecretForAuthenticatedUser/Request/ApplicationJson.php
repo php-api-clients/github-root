@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Codespaces\CreateOrUpdateSecretForAuth
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\CreateOrUpdateSecretForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -45,8 +45,8 @@ final readonly class ApplicationJson
     "encrypted_value": ":zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzzzzzz",
     "key_id": "generated",
     "selected_repository_ids": [
-        null,
-        null
+        24,
+        "generated"
     ]
 }';
 

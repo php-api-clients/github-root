@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial;
 
-final readonly class XFiveHundredNineCertificatechain
+final readonly class XFiveHundredNineCertificatechain implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial\XFiveHundredNineCertificatechain
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

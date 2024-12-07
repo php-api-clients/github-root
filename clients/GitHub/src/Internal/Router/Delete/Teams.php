@@ -4,7 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteDiscussionCommentInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteDiscussionCommentLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteDiscussionInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteDiscussionLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\DeleteLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveMemberLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveMembershipForUserInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveMembershipForUserLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveProjectInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveProjectLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveRepoInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\RemoveRepoLegacy;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +28,7 @@ use function array_key_exists;
 
 final class Teams
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -35,7 +48,7 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operator = new Internal\Operator\Teams\DeleteInOrg($this->browser, $this->authentication);
+        $operator = new DeleteInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
@@ -56,7 +69,7 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Teams\DeleteDiscussionLegacy($this->browser, $this->authentication);
+        $operator = new DeleteDiscussionLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number']);
     }
@@ -77,7 +90,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\RemoveMemberLegacy($this->browser, $this->authentication);
+        $operator = new RemoveMemberLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
@@ -98,7 +111,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\RemoveMembershipForUserLegacy($this->browser, $this->authentication);
+        $operator = new RemoveMembershipForUserLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
@@ -119,7 +132,7 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Teams\RemoveProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId());
+        $operator = new RemoveProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId());
 
         return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
@@ -134,7 +147,7 @@ final class Teams
 
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
-        $operator = new Internal\Operator\Teams\DeleteLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
+        $operator = new DeleteLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
 
         return $operator->call($arguments['team_id']);
     }
@@ -161,7 +174,7 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Teams\DeleteDiscussionInOrg($this->browser, $this->authentication);
+        $operator = new DeleteDiscussionInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
     }
@@ -188,7 +201,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\RemoveMembershipForUserInOrg($this->browser, $this->authentication);
+        $operator = new RemoveMembershipForUserInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['username']);
     }
@@ -215,7 +228,7 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Teams\RemoveProjectInOrg($this->browser, $this->authentication);
+        $operator = new RemoveProjectInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
@@ -242,7 +255,7 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Teams\DeleteDiscussionCommentLegacy($this->browser, $this->authentication);
+        $operator = new DeleteDiscussionCommentLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
@@ -269,7 +282,7 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Teams\RemoveRepoLegacy($this->browser, $this->authentication);
+        $operator = new RemoveRepoLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
@@ -302,7 +315,7 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Teams\RemoveRepoInOrg($this->browser, $this->authentication);
+        $operator = new RemoveRepoInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
@@ -335,7 +348,7 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Teams\DeleteDiscussionCommentInOrg($this->browser, $this->authentication);
+        $operator = new DeleteDiscussionCommentInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
     }

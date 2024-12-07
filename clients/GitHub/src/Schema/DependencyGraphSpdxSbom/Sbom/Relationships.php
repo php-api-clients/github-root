@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
-final readonly class Relationships
+final readonly class Relationships implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\Relationships
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -29,7 +29,7 @@ final readonly class Relationships
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "relationshipType": "DEPENDS_ON",
+    "relationshipType": "generated",
     "spdxElementId": "generated",
     "relatedSpdxElement": "generated"
 }';

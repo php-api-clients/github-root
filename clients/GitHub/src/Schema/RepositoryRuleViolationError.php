@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleViolationError
+final readonly class RepositoryRuleViolationError implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -72,7 +72,7 @@ final readonly class RepositoryRuleViolationError
 }';
 
     public function __construct(public string|null $message, #[MapFrom('documentation_url')]
-    public string|null $documentationUrl, public string|null $status, public Schema\RepositoryRuleViolationError\Metadata|null $metadata,)
+    public string|null $documentationUrl, public string|null $status, public Metadata|null $metadata,)
     {
     }
 }

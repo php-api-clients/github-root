@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Packages;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operation\Packages\ListPackagesForAuthenticatedUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -26,9 +26,9 @@ final class ListPackagesForAuthenticatedUserTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/user/packages?package_type=generated&visibility=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/user/packages?package_type=generated&page=1&per_page=8&visibility=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Packages\ListPackagesForAuthenticatedUser::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListPackagesForAuthenticatedUser::OPERATION_MATCH, (static function (array $data): array {
             $data['package_type'] = 'generated';
             $data['visibility']   = 'generated';
             $data['page']         = 1;
@@ -47,7 +47,7 @@ final class ListPackagesForAuthenticatedUserTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/user/packages?package_type=generated&visibility=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/user/packages?package_type=generated&page=1&per_page=8&visibility=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->packages()->listPackagesForAuthenticatedUser('generated', 'generated', 1, 8);
         self::assertArrayHasKey('code', $result);

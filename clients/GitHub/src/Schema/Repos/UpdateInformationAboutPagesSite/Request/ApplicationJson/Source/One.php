@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
 
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -32,7 +32,7 @@ final readonly class One
     public const SCHEMA_DESCRIPTION  = 'Update the source for the repository. Must include the branch name and path.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "branch": "generated",
-    "path": "\\/docs"
+    "path": "\\/"
 }';
 
     /**

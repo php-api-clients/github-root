@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Project
+final readonly class Project implements \ApiClients\Client\GitHub\Contract\Project
 {
     public const SCHEMA_JSON         = '{
     "title": "Project",
@@ -307,42 +306,42 @@ final readonly class Project
     public const SCHEMA_TITLE        = 'Project';
     public const SCHEMA_DESCRIPTION  = 'Projects are a way to organize columns and cards of work.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "owner_url": "https:\\/\\/api.github.com\\/repos\\/api-playground\\/projects-test",
-    "url": "https:\\/\\/api.github.com\\/projects\\/1002604",
-    "html_url": "https:\\/\\/github.com\\/api-playground\\/projects-test\\/projects\\/12",
-    "columns_url": "https:\\/\\/api.github.com\\/projects\\/1002604\\/columns",
-    "id": 1002604,
-    "node_id": "MDc6UHJvamVjdDEwMDI2MDQ=",
-    "name": "Week One Sprint",
-    "body": "This project represents the sprint of the first week in January",
-    "number": 1,
-    "state": "open",
+    "owner_url": "https:\\/\\/example.com\\/",
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "columns_url": "https:\\/\\/example.com\\/",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "body": "generated",
+    "number": 6,
+    "state": "generated",
     "creator": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "created_at": "2011-04-10T20:09:31Z",
-    "updated_at": "2014-03-03T18:58:10Z",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "organization_permission": "read",
     "private": false
 }';
@@ -358,7 +357,7 @@ final readonly class Project
     public string $ownerUrl, public string $url, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('columns_url')]
     public string $columnsUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, public string|null $body, public int $number, public string $state, public Schema\SimpleUser|null $creator, #[MapFrom('created_at')]
+    public string $nodeId, public string $name, public string|null $body, public int $number, public string $state, public SimpleUser|null $creator, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('organization_permission')]
     public string|null $organizationPermission, public bool|null $private,)

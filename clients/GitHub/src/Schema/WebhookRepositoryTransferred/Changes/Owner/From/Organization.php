@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\O
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Organization
+final readonly class Organization implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryTransferred\Changes\Owner\From\Organization
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization",

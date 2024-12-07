@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventRename
+final readonly class IssueEventRename implements \ApiClients\Client\GitHub\Contract\IssueEventRename
 {
     public const SCHEMA_JSON         = '{
     "title": "Issue Event Rename",

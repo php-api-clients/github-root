@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments;
 
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Environment\ProtectionRules;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\DeploymentBranchPolicySettings;
 use ApiClients\Client\GitHub\Schema\Environment;
@@ -135,6 +136,19 @@ class EnvironmentName implements ObjectMapper
 
             if ($value === null) {
                 $properties['protectionRules'] = null;
+                goto after_protectionRules;
+            }
+
+            static $protectionRulesCaster1;
+
+            if ($protectionRulesCaster1 === null) {
+                $protectionRulesCaster1 = new ProtectionRules(...[]);
+            }
+
+            $value = $protectionRulesCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $properties['protectionRules'] = null;
                 goto after_protectionRules;
             }
 

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\Authorization;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\HookDelivery;
@@ -13,6 +12,7 @@ use ApiClients\Client\GitHub\Schema\Installation;
 use ApiClients\Client\GitHub\Schema\InstallationToken;
 use ApiClients\Client\GitHub\Schema\Integration;
 use ApiClients\Client\GitHub\Schema\MarketplacePurchase;
+use ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHub\Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHub\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHub\Schema\WebhookConfig;
@@ -20,7 +20,7 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Apps
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
@@ -31,7 +31,7 @@ final class Apps
     }
 
     /** @return */
-    public function createFromManifest(string $code): Integration
+    public function createFromManifest(string $code): Created
     {
         return $this->operators->apps👷CreateFromManifest()->call($code);
     }
@@ -48,7 +48,7 @@ final class Apps
         return $this->operators->apps👷UpdateWebhookConfigForApp()->call($params);
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return Observable<HookDeliveryItem> */
     public function listWebhookDeliveries(string $cursor, int $perPage): iterable
     {
         return $this->operators->apps👷ListWebhookDeliveries()->call($cursor, $perPage);
@@ -66,28 +66,16 @@ final class Apps
         return $this->operators->apps👷RedeliverWebhookDelivery()->call($deliveryId);
     }
 
-    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
+    /** @return Observable<IntegrationInstallationRequest>|WithoutBody */
     public function listInstallationRequestsForAuthenticatedApp(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->apps👷ListInstallationRequestsForAuthenticatedApp()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
-    public function listInstallationRequestsForAuthenticatedAppListing(int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->apps👷ListInstallationRequestsForAuthenticatedAppListing()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\Installation> */
+    /** @return Observable<Installation> */
     public function listInstallations(string $since, string $outdated, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListInstallations()->call($since, $outdated, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Installation> */
-    public function listInstallationsListing(string $since, string $outdated, int $perPage, int $page): iterable
-    {
-        return $this->operators->apps👷ListInstallationsListing()->call($since, $outdated, $perPage, $page);
     }
 
     /** @return */
@@ -174,28 +162,16 @@ final class Apps
         return $this->operators->apps👷GetSubscriptionPlanForAccount()->call($accountId);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
+    /** @return Observable<MarketplaceListingPlan> */
     public function listPlans(int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListPlans()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
-    public function listPlansListing(int $perPage, int $page): iterable
-    {
-        return $this->operators->apps👷ListPlansListing()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\MarketplacePurchase> */
+    /** @return Observable<MarketplacePurchase> */
     public function listAccountsForPlan(int $planId, string $direction, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListAccountsForPlan()->call($planId, $direction, $sort, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\MarketplacePurchase> */
-    public function listAccountsForPlanListing(int $planId, string $direction, string $sort, int $perPage, int $page): iterable
-    {
-        return $this->operators->apps👷ListAccountsForPlanListing()->call($planId, $direction, $sort, $perPage, $page);
     }
 
     /** @return */
@@ -204,28 +180,16 @@ final class Apps
         return $this->operators->apps👷GetSubscriptionPlanForAccountStubbed()->call($accountId);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
+    /** @return Observable<MarketplaceListingPlan> */
     public function listPlansStubbed(int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListPlansStubbed()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
-    public function listPlansStubbedListing(int $perPage, int $page): iterable
-    {
-        return $this->operators->apps👷ListPlansStubbedListing()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\MarketplacePurchase> */
+    /** @return Observable<MarketplacePurchase> */
     public function listAccountsForPlanStubbed(int $planId, string $direction, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListAccountsForPlanStubbed()->call($planId, $direction, $sort, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\MarketplacePurchase> */
-    public function listAccountsForPlanStubbedListing(int $planId, string $direction, string $sort, int $perPage, int $page): iterable
-    {
-        return $this->operators->apps👷ListAccountsForPlanStubbedListing()->call($planId, $direction, $sort, $perPage, $page);
     }
 
     /** @return */
@@ -264,28 +228,16 @@ final class Apps
         return $this->operators->apps👷RemoveRepoFromInstallationForAuthenticatedUser()->call($installationId, $repositoryId);
     }
 
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
+    /** @return Observable<UserMarketplacePurchase>|WithoutBody */
     public function listSubscriptionsForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->apps👷ListSubscriptionsForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
-    public function listSubscriptionsForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->apps👷ListSubscriptionsForAuthenticatedUserListing()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
+    /** @return Observable<UserMarketplacePurchase>|WithoutBody */
     public function listSubscriptionsForAuthenticatedUserStubbed(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->apps👷ListSubscriptionsForAuthenticatedUserStubbed()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
-    public function listSubscriptionsForAuthenticatedUserStubbedListing(int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->apps👷ListSubscriptionsForAuthenticatedUserStubbedListing()->call($perPage, $page);
     }
 
     /** @return */

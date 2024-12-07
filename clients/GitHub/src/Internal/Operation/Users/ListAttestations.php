@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Users;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Attestations\SubjectDigest;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\EmptyObject;
+use ApiClients\Client\GitHub\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListAttestations
 {
@@ -34,21 +36,23 @@ final class ListAttestations
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Attestations\SubjectDigest $hydrator, string $before, string $after, string $username, string $subjectDigest, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private SubjectDigest $hydrator, string $before, string $after, string $username, string $subjectDigest, int $perPage = 30)
     {
-        $this->before        = $before;
-        $this->after         = $after;
-        $this->username      = $username;
-        $this->subjectDigest = $subjectDigest;
-        $this->perPage       = $perPage;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->username                = $username;
+        $this->subjectDigest           = $subjectDigest;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{before}', '{after}', '{username}', '{subject_digest}', '{per_page}'], [$this->before, $this->after, $this->username, $this->subjectDigest, $this->perPage], '/users/{username}/attestations/{subject_digest}' . '?before={before}&after={after}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/attestations/{subject_digest}{?after,before,per_page}'))->expand(['after' => $this->after, 'before' => $this->before, 'per_page' => $this->perPage, 'subject_digest' => $this->subjectDigest, 'username' => $this->username]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok|Schema\EmptyObject|WithoutBody
+    public function createResponse(ResponseInterface $response): Ok|EmptyObject|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,25 +64,25 @@ final class ListAttestations
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Ok::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Ok::class, $body);
                     /**
                      * Response
                      **/
 
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\EmptyObject::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(EmptyObject::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\EmptyObject::class, $body);
+                        return $this->hydrator->hydrateObject(EmptyObject::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

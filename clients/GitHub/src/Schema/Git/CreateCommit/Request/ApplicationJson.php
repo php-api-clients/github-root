@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateCommit\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Git\CreateCommit\Request\ApplicationJson\Author;
+use ApiClients\Client\GitHub\Schema\Git\CreateCommit\Request\ApplicationJson\Committer;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateCommit\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -108,7 +109,7 @@ final readonly class ApplicationJson
      * committer: Information about the person who is making the commit. By default, `committer` will use the information set in `author`. See the `author` and `committer` object below for details.
      * signature: The [PGP signature](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) of the commit. GitHub adds the signature to the `gpgsig` header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database. To pass a `signature` parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to [use the command line](https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work) to create signed commits.
      */
-    public function __construct(public string $message, public string $tree, public array|null $parents, public Schema\Git\CreateCommit\Request\ApplicationJson\Author|null $author, public Schema\Git\CreateCommit\Request\ApplicationJson\Committer|null $committer, public string|null $signature)
+    public function __construct(public string $message, public string $tree, public array|null $parents, public Author|null $author, public Committer|null $committer, public string|null $signature)
     {
     }
 }

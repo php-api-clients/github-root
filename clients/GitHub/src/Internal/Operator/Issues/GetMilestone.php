@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Issues;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber;
 use ApiClients\Client\GitHub\Schema\Milestone;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetMilestone
     public const OPERATION_ID    = 'issues/get-milestone';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/milestones/{milestone_number}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private MilestoneNumber $hydrator)
     {
     }
 

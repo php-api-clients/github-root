@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreatePagesSite\Request\ApplicationJson;
 
-final readonly class Source
+final readonly class Source implements \ApiClients\Client\GitHub\Contract\Repos\CreatePagesSite\Request\ApplicationJson\Source
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -32,7 +32,7 @@ final readonly class Source
     public const SCHEMA_DESCRIPTION  = 'The source branch and directory used to publish your Pages site.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "branch": "generated",
-    "path": "\\/docs"
+    "path": "\\/"
 }';
 
     /**

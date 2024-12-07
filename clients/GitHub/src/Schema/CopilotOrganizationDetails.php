@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CopilotOrganizationDetails
+final readonly class CopilotOrganizationDetails implements \ApiClients\Client\GitHub\Contract\CopilotOrganizationDetails
 {
     public const SCHEMA_JSON         = '{
     "title": "Copilot Organization Details",
@@ -121,7 +120,7 @@ final readonly class CopilotOrganizationDetails
         "inactive_this_cycle": 19
     },
     "public_code_suggestions": "allow",
-    "ide_chat": "unconfigured",
+    "ide_chat": "enabled",
     "platform_chat": "enabled",
     "cli": "enabled",
     "seat_management_setting": "assign_all",
@@ -138,7 +137,7 @@ final readonly class CopilotOrganizationDetails
      * planType: The Copilot plan of the organization, or the parent enterprise, when applicable.
      */
     public function __construct(#[MapFrom('seat_breakdown')]
-    public Schema\CopilotSeatBreakdown $seatBreakdown, #[MapFrom('public_code_suggestions')]
+    public CopilotSeatBreakdown $seatBreakdown, #[MapFrom('public_code_suggestions')]
     public string $publicCodeSuggestions, #[MapFrom('ide_chat')]
     public string|null $ideChat, #[MapFrom('platform_chat')]
     public string|null $platformChat, public string|null $cli, #[MapFrom('seat_management_setting')]

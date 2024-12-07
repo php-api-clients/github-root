@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CvssSeverities;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CvssVFour
+final readonly class CvssVFour implements \ApiClients\Client\GitHub\Contract\CvssSeverities\CvssVFour
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -41,7 +41,7 @@ final readonly class CvssVFour
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "vector_string": "generated",
-    "score": 0.5
+    "score": 5
 }';
 
     /**

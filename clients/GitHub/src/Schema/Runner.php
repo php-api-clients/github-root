@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Runner
+final readonly class Runner implements \ApiClients\Client\GitHub\Contract\Runner
 {
     public const SCHEMA_JSON         = '{
     "title": "Self hosted runners",
@@ -93,22 +93,22 @@ final readonly class Runner
     public const SCHEMA_TITLE        = 'Self hosted runners';
     public const SCHEMA_DESCRIPTION  = 'A self hosted runner';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 5,
-    "runner_group_id": 1,
-    "name": "iMac",
-    "os": "macos",
-    "status": "online",
+    "id": 2,
+    "runner_group_id": 15,
+    "name": "generated",
+    "os": "generated",
+    "status": "generated",
     "busy": false,
     "labels": [
         {
             "id": 2,
             "name": "generated",
-            "type": "custom"
+            "type": "read-only"
         },
         {
             "id": 2,
             "name": "generated",
-            "type": "custom"
+            "type": "read-only"
         }
     ]
 }';

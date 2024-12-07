@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReview\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReview\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -90,19 +90,19 @@ final readonly class ApplicationJson
             "path": "generated",
             "position": 8,
             "body": "generated",
-            "line": 28,
-            "side": "RIGHT",
-            "start_line": 26,
-            "start_side": "LEFT"
+            "line": 4,
+            "side": "generated",
+            "start_line": 10,
+            "start_side": "generated"
         },
         {
             "path": "generated",
             "position": 8,
             "body": "generated",
-            "line": 28,
-            "side": "RIGHT",
-            "start_line": 26,
-            "start_side": "LEFT"
+            "line": 4,
+            "side": "generated",
+            "start_line": 10,
+            "start_side": "generated"
         }
     ]
 }';

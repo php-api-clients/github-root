@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\Create;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\CreateComment;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\Fork;
 use ApiClients\Client\GitHub\Schema\BaseGist;
 use ApiClients\Client\GitHub\Schema\GistComment;
 use ApiClients\Client\GitHub\Schema\GistSimple;
@@ -18,7 +21,7 @@ use function array_key_exists;
 
 final class Gists
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -32,7 +35,7 @@ final class Gists
 
         $arguments['gist_id'] = $params['gist_id'];
         unset($params['gist_id']);
-        $operator = new Internal\Operator\Gists\CreateComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments());
+        $operator = new CreateComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments());
 
         return $operator->call($arguments['gist_id'], $params);
     }
@@ -47,7 +50,7 @@ final class Gists
 
         $arguments['gist_id'] = $params['gist_id'];
         unset($params['gist_id']);
-        $operator = new Internal\Operator\Gists\Fork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Forks());
+        $operator = new Fork($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Forks());
 
         return $operator->call($arguments['gist_id']);
     }
@@ -55,7 +58,7 @@ final class Gists
     /** @return */
     public function create(array $params): GistSimple|WithoutBody
     {
-        $operator = new Internal\Operator\Gists\Create($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists());
+        $operator = new Create($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists());
 
         return $operator->call($params);
     }

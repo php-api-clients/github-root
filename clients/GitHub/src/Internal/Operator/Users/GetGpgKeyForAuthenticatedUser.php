@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Users;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\GpgKeys\GpgKeyId;
 use ApiClients\Client\GitHub\Schema\GpgKey;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -21,7 +21,7 @@ final readonly class GetGpgKeyForAuthenticatedUser
     public const OPERATION_ID    = 'users/get-gpg-key-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/gpg_keys/{gpg_key_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\GpgKeys\GpgKeyId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private GpgKeyId $hydrator)
     {
     }
 

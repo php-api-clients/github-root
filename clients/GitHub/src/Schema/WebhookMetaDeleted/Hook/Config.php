@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookMetaDeleted\Hook;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Config
+final readonly class Config implements \ApiClients\Client\GitHub\Contract\WebhookMetaDeleted\Hook\Config
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -38,7 +38,7 @@ final readonly class Config
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "content_type": "form",
+    "content_type": "json",
     "insecure_ssl": "generated",
     "secret": "generated",
     "url": "https:\\/\\/example.com\\/"

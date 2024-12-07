@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository\Permissions\From;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Repository\Permissions
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -43,7 +43,7 @@ final readonly class Permissions
     }
 }';
 
-    public function __construct(public Schema\WebhookTeamEdited\Changes\Repository\Permissions\From $from)
+    public function __construct(public From $from)
     {
     }
 }

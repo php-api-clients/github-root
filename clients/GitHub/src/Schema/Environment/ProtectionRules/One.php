@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Environment\ProtectionRules;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\Environment\ProtectionRules\One
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -448,18 +448,88 @@ final readonly class One
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3755,
-    "node_id": "MDQ6R2F0ZTM3NTU=",
+    "id": 2,
+    "node_id": "generated",
     "prevent_self_review": false,
-    "type": "required_reviewers",
+    "type": "generated",
     "reviewers": [
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         },
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         }
     ]
 }';

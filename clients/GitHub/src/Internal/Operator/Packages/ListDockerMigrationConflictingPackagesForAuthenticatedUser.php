@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Packages;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Docker\Conflicts;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListDockerMigrationConflictingPackagesForAuthenticatedUser
     public const OPERATION_ID    = 'packages/list-docker-migration-conflicting-packages-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/docker/conflicts';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\Docker\Conflicts $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Conflicts $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Package> */
+    /** @return Observable<Package> */
     public function call(): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Packages\ListDockerMigrationConflictingPackagesForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator);

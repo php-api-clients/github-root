@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion\Author;
+use ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion\Release;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\WebhookPackageUpdated\Package\PackageVersion
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -497,7 +498,7 @@ final readonly class PackageVersion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -580,7 +581,7 @@ final readonly class PackageVersion
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -640,14 +641,14 @@ final readonly class PackageVersion
     "version": "generated"
 }';
 
-    public function __construct(public Schema\WebhookPackageUpdated\Package\PackageVersion\Author|null $author, public string $body, #[MapFrom('body_html')]
+    public function __construct(public Author|null $author, public string $body, #[MapFrom('body_html')]
     public string $bodyHtml, #[MapFrom('created_at')]
     public string $createdAt, public string $description, #[MapFrom('docker_metadata')]
     public array|null $dockerMetadata, public bool|null $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('installation_command')]
     public string $installationCommand, public string|null $manifest, public array $metadata, public string $name, #[MapFrom('package_files')]
     public array $packageFiles, #[MapFrom('package_url')]
-    public string|null $packageUrl, public bool|null $prerelease, public Schema\WebhookPackageUpdated\Package\PackageVersion\Release|null $release, #[MapFrom('rubygems_metadata')]
+    public string|null $packageUrl, public bool|null $prerelease, public Release|null $release, #[MapFrom('rubygems_metadata')]
     public array|null $rubygemsMetadata, #[MapFrom('source_url')]
     public string|null $sourceUrl, public string $summary, #[MapFrom('tag_name')]
     public string|null $tagName, #[MapFrom('target_commitish')]

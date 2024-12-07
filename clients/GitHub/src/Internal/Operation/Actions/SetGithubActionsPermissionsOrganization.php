@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Actions\SetGithubActionsPermissionsOrganization\Request\ApplicationJson;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function json_encode;
-use function str_replace;
 
 final class SetGithubActionsPermissionsOrganization
 {
@@ -23,16 +24,17 @@ final class SetGithubActionsPermissionsOrganization
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $org)
+    public function __construct(private SchemaValidator $requestSchemaValidator, string $org)
     {
-        $this->org = $org;
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->org                    = $org;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\SetGithubActionsPermissionsOrganization\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PUT', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/permissions'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', (string) (new UriTemplate('/orgs/{org}/actions/permissions'))->expand(['org' => $this->org]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

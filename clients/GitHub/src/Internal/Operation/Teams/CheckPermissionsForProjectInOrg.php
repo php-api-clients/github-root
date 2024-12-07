@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects\ProjectId;
+use ApiClients\Client\GitHub\Schema\TeamProject;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class CheckPermissionsForProjectInOrg
 {
@@ -29,19 +30,21 @@ final class CheckPermissionsForProjectInOrg
     /**The unique identifier of the project. **/
     private int $projectId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects\ProjectId $hydrator, string $org, string $teamSlug, int $projectId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private ProjectId $hydrator, string $org, string $teamSlug, int $projectId)
     {
-        $this->org       = $org;
-        $this->teamSlug  = $teamSlug;
-        $this->projectId = $projectId;
+        $this->org                     = $org;
+        $this->teamSlug                = $teamSlug;
+        $this->projectId               = $projectId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{team_slug}', '{project_id}'], [$this->org, $this->teamSlug, $this->projectId], '/orgs/{org}/teams/{team_slug}/projects/{project_id}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/teams/{team_slug}/projects/{project_id}'))->expand(['org' => $this->org, 'project_id' => $this->projectId, 'team_slug' => $this->teamSlug]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamProject|WithoutBody
+    public function createResponse(ResponseInterface $response): TeamProject|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,9 +56,9 @@ final class CheckPermissionsForProjectInOrg
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamProject::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamProject::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\TeamProject::class, $body);
+                        return $this->hydrator->hydrateObject(TeamProject::class, $body);
                 }
 
                 break;

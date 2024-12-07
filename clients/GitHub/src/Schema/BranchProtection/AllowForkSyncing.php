@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BranchProtection;
 
-final readonly class AllowForkSyncing
+final readonly class AllowForkSyncing implements \ApiClients\Client\GitHub\Contract\BranchProtection\AllowForkSyncing
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

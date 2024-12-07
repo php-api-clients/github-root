@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Activity;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Stargazers;
+use ApiClients\Client\GitHub\Schema\SimpleUser;
+use ApiClients\Client\GitHub\Schema\Stargazer;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListStargazersForRepo
 {
@@ -32,20 +34,22 @@ final class ListStargazersForRepo
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Stargazers $hydrator, string $owner, string $repo, int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Stargazers $hydrator, string $owner, string $repo, int $perPage = 30, int $page = 1)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
-        $this->perPage = $perPage;
-        $this->page    = $page;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], '/repos/{owner}/{repo}/stargazers' . '?per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/stargazers{?page,per_page}'))->expand(['owner' => $this->owner, 'page' => $this->page, 'per_page' => $this->perPage, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\SimpleUser|Schema\Stargazer
+    public function createResponse(ResponseInterface $response): SimpleUser|Stargazer
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -59,19 +63,19 @@ final class ListStargazersForRepo
                     case 200:
                         $error = new RuntimeException();
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SimpleUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(SimpleUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\SimpleUser::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(SimpleUser::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
 
                         items_application_json_two_hundred_aaaaa:
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Stargazer::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Stargazer::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\Stargazer::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(Stargazer::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaab;
                         }
 
@@ -81,9 +85,9 @@ final class ListStargazersForRepo
                      * Validation failed, or the endpoint has been spammed.
                      **/
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                 }
 
                 break;

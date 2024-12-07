@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T4BBA05CD\T5933E416\T4D07966A\TD8576581;
 
-final readonly class WebhooksReviewComment extends Schema\AliasAbstract\Tiet4BBA05CD\Tiet5933E416\Tiet4D07966A\TietD8576581
+final readonly class WebhooksReviewComment extends TD8576581
 {
 }

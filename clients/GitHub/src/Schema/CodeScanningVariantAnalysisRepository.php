@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningVariantAnalysisRepository
+final readonly class CodeScanningVariantAnalysisRepository implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysisRepository
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository Identifier",
@@ -67,12 +67,12 @@ final readonly class CodeScanningVariantAnalysisRepository
     public const SCHEMA_TITLE        = 'Repository Identifier';
     public const SCHEMA_DESCRIPTION  = 'Repository Identifier';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1296269,
-    "name": "Hello-World",
-    "full_name": "octocat\\/Hello-World",
+    "id": 2,
+    "name": "generated",
+    "full_name": "generated",
     "private": false,
-    "stargazers_count": 80,
-    "updated_at": "2011-01-26T19:14:43Z"
+    "stargazers_count": 16,
+    "updated_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**

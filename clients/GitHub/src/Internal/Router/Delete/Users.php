@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Users\DeleteEmailForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\DeleteGpgKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\DeletePublicSshKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\DeleteSocialAccountForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\DeleteSshSigningKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\Unblock;
+use ApiClients\Client\GitHub\Internal\Operator\Users\Unfollow;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +22,7 @@ use function array_key_exists;
 
 final class Users
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -29,7 +36,7 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Users\Unblock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks🌀Username());
+        $operator = new Unblock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks🌀Username());
 
         return $operator->call($arguments['username']);
     }
@@ -44,7 +51,7 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Users\Unfollow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
+        $operator = new Unfollow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
 
         return $operator->call($arguments['username']);
     }
@@ -59,7 +66,7 @@ final class Users
 
         $arguments['gpg_key_id'] = $params['gpg_key_id'];
         unset($params['gpg_key_id']);
-        $operator = new Internal\Operator\Users\DeleteGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
+        $operator = new DeleteGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
 
         return $operator->call($arguments['gpg_key_id']);
     }
@@ -74,7 +81,7 @@ final class Users
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        $operator = new Internal\Operator\Users\DeletePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
+        $operator = new DeletePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
 
         return $operator->call($arguments['key_id']);
     }
@@ -89,7 +96,7 @@ final class Users
 
         $arguments['ssh_signing_key_id'] = $params['ssh_signing_key_id'];
         unset($params['ssh_signing_key_id']);
-        $operator = new Internal\Operator\Users\DeleteSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀SshSigningKeyId());
+        $operator = new DeleteSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀SshSigningKeyId());
 
         return $operator->call($arguments['ssh_signing_key_id']);
     }
@@ -97,7 +104,7 @@ final class Users
     /** @return */
     public function deleteEmailForAuthenticatedUser(array $params): WithoutBody
     {
-        $operator = new Internal\Operator\Users\DeleteEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
+        $operator = new DeleteEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
 
         return $operator->call($params);
     }
@@ -105,7 +112,7 @@ final class Users
     /** @return */
     public function deleteSocialAccountForAuthenticatedUser(array $params): WithoutBody
     {
-        $operator = new Internal\Operator\Users\DeleteSocialAccountForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
+        $operator = new DeleteSocialAccountForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
 
         return $operator->call($params);
     }

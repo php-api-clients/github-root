@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHub\Schema\Project;
 use ApiClients\Client\GitHub\Schema\ProjectCard;
@@ -15,20 +14,14 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Projects
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForOrg(string $org, string $state, int $perPage, int $page): iterable
     {
         return $this->operators->projects👷ListForOrg()->call($org, $state, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Project> */
-    public function listForOrgListing(string $org, string $state, int $perPage, int $page): iterable
-    {
-        return $this->operators->projects👷ListForOrgListing()->call($org, $state, $perPage, $page);
     }
 
     /** @return */
@@ -79,16 +72,10 @@ final class Projects
         return $this->operators->projects👷UpdateColumn()->call($columnId, $params);
     }
 
-    /** @return Observable<Schema\ProjectCard>|WithoutBody */
+    /** @return Observable<ProjectCard>|WithoutBody */
     public function listCards(int $columnId, string $archivedState, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->projects👷ListCards()->call($columnId, $archivedState, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\ProjectCard>|WithoutBody */
-    public function listCardsListing(int $columnId, string $archivedState, int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->projects👷ListCardsListing()->call($columnId, $archivedState, $perPage, $page);
     }
 
     /** @return */
@@ -121,16 +108,10 @@ final class Projects
         return $this->operators->projects👷Update()->call($projectId, $params);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function listCollaborators(int $projectId, string $affiliation, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->projects👷ListCollaborators()->call($projectId, $affiliation, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
-    public function listCollaboratorsListing(int $projectId, string $affiliation, int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->projects👷ListCollaboratorsListing()->call($projectId, $affiliation, $perPage, $page);
     }
 
     /** @return */
@@ -151,16 +132,10 @@ final class Projects
         return $this->operators->projects👷GetPermissionForUser()->call($projectId, $username);
     }
 
-    /** @return Observable<Schema\ProjectColumn>|WithoutBody */
+    /** @return Observable<ProjectColumn>|WithoutBody */
     public function listColumns(int $projectId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->projects👷ListColumns()->call($projectId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\ProjectColumn>|WithoutBody */
-    public function listColumnsListing(int $projectId, int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->projects👷ListColumnsListing()->call($projectId, $perPage, $page);
     }
 
     /** @return */
@@ -169,16 +144,10 @@ final class Projects
         return $this->operators->projects👷CreateColumn()->call($projectId, $params);
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForRepo(string $owner, string $repo, string $state, int $perPage, int $page): iterable
     {
         return $this->operators->projects👷ListForRepo()->call($owner, $repo, $state, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Project> */
-    public function listForRepoListing(string $owner, string $repo, string $state, int $perPage, int $page): iterable
-    {
-        return $this->operators->projects👷ListForRepoListing()->call($owner, $repo, $state, $perPage, $page);
     }
 
     /** @return */
@@ -193,15 +162,9 @@ final class Projects
         return $this->operators->projects👷CreateForAuthenticatedUser()->call($params);
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForUser(string $username, string $state, int $perPage, int $page): iterable
     {
         return $this->operators->projects👷ListForUser()->call($username, $state, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Project> */
-    public function listForUserListing(string $username, string $state, int $perPage, int $page): iterable
-    {
-        return $this->operators->projects👷ListForUserListing()->call($username, $state, $perPage, $page);
     }
 }

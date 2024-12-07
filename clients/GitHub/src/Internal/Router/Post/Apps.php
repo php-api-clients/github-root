@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\CheckToken;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\CreateFromManifest;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\CreateInstallationAccessToken;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\RedeliverWebhookDelivery;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ScopeToken;
 use ApiClients\Client\GitHub\Schema\Authorization;
 use ApiClients\Client\GitHub\Schema\InstallationToken;
-use ApiClients\Client\GitHub\Schema\Integration;
+use ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHub\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -18,12 +23,12 @@ use function array_key_exists;
 
 final class Apps
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
     /** @return */
-    public function createFromManifest(array $params): Integration
+    public function createFromManifest(array $params): Created
     {
         $arguments = [];
         if (array_key_exists('code', $params) === false) {
@@ -32,7 +37,7 @@ final class Apps
 
         $arguments['code'] = $params['code'];
         unset($params['code']);
-        $operator = new Internal\Operator\Apps\CreateFromManifest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀AppManifests🌀Code🌀Conversions());
+        $operator = new CreateFromManifest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀AppManifests🌀Code🌀Conversions());
 
         return $operator->call($arguments['code']);
     }
@@ -47,7 +52,7 @@ final class Apps
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        $operator = new Internal\Operator\Apps\CheckToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token());
+        $operator = new CheckToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token());
 
         return $operator->call($arguments['client_id'], $params);
     }
@@ -62,7 +67,7 @@ final class Apps
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        $operator = new Internal\Operator\Apps\RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀DeliveryId🌀Attempts());
+        $operator = new RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀DeliveryId🌀Attempts());
 
         return $operator->call($arguments['delivery_id']);
     }
@@ -77,7 +82,7 @@ final class Apps
 
         $arguments['installation_id'] = $params['installation_id'];
         unset($params['installation_id']);
-        $operator = new Internal\Operator\Apps\CreateInstallationAccessToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId🌀AccessTokens());
+        $operator = new CreateInstallationAccessToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId🌀AccessTokens());
 
         return $operator->call($arguments['installation_id'], $params);
     }
@@ -92,7 +97,7 @@ final class Apps
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        $operator = new Internal\Operator\Apps\ScopeToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token🌀Scoped());
+        $operator = new ScopeToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token🌀Scoped());
 
         return $operator->call($arguments['client_id'], $params);
     }

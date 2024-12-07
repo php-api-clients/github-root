@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Issues;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operation\Issues\AddAssignees;
+use ApiClients\Client\GitHub\Schema\Issue;
+use ApiClients\Client\GitHub\Schema\Issues\AddAssignees\Request\ApplicationJson;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -23,34 +24,34 @@ final class AddAssigneesTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Issue::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Issue::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/issues/12/assignees', Argument::type('array'), json_encode(json_decode(Schema\Issues\AddAssignees\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/issues/12/assignees', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Issues\AddAssignees::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(AddAssignees::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['issue_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\Issues\AddAssignees\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Issue::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Issue::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/issues/12/assignees', Argument::type('array'), json_encode(json_decode(Schema\Issues\AddAssignees\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/issues/12/assignees', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->issues()->addAssignees('generated', 'generated', 12, json_decode(Schema\Issues\AddAssignees\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->issues()->addAssignees('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AlertInstancesUrl
+final readonly class AlertInstancesUrl implements \ApiClients\Client\GitHub\Contract\AlertInstancesUrl
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

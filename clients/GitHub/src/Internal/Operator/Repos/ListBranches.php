@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListBranches
     public const OPERATION_ID    = 'repos/list-branches';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Branches $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Branches $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ShortBranch> */
+    /** @return Observable<ShortBranch> */
     public function call(string $owner, string $repo, bool $protected, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\ListBranches($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $protected, $perPage, $page);

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ActionsCanApprovePullRequestReviews
+final readonly class ActionsCanApprovePullRequestReviews implements \ApiClients\Client\GitHub\Contract\ActionsCanApprovePullRequestReviews
 {
     public const SCHEMA_JSON         = '{
     "type": "boolean",

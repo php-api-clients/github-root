@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsCacheUsageOrgEnterprise
+final readonly class ActionsCacheUsageOrgEnterprise implements \ApiClients\Client\GitHub\Contract\ActionsCacheUsageOrgEnterprise
 {
     public const SCHEMA_JSON         = '{
     "required": [

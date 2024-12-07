@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHub\Schema\PullRequest;
 use ApiClients\Client\GitHub\Schema\PullRequestMergeResult;
@@ -17,20 +16,14 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Pulls
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\PullRequestSimple>|WithoutBody */
+    /** @return Observable<PullRequestSimple>|WithoutBody */
     public function list(string $owner, string $repo, string $head, string $base, string $direction, string $state, string $sort, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->pulls👷List_()->call($owner, $repo, $head, $base, $direction, $state, $sort, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\PullRequestSimple>|WithoutBody */
-    public function listListing(string $owner, string $repo, string $head, string $base, string $direction, string $state, string $sort, int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->pulls👷ListListing()->call($owner, $repo, $head, $base, $direction, $state, $sort, $perPage, $page);
     }
 
     /** @return */
@@ -39,16 +32,10 @@ final class Pulls
         return $this->operators->pulls👷Create()->call($owner, $repo, $params);
     }
 
-    /** @return Observable<Schema\PullRequestReviewComment> */
+    /** @return Observable<PullRequestReviewComment> */
     public function listReviewCommentsForRepo(string $owner, string $repo, string $sort, string $direction, string $since, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListReviewCommentsForRepo()->call($owner, $repo, $sort, $direction, $since, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\PullRequestReviewComment> */
-    public function listReviewCommentsForRepoListing(string $owner, string $repo, string $sort, string $direction, string $since, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListReviewCommentsForRepoListing()->call($owner, $repo, $sort, $direction, $since, $perPage, $page);
     }
 
     /** @return */
@@ -81,16 +68,10 @@ final class Pulls
         return $this->operators->pulls👷Update()->call($owner, $repo, $pullNumber, $params);
     }
 
-    /** @return Observable<Schema\PullRequestReviewComment> */
+    /** @return Observable<PullRequestReviewComment> */
     public function listReviewComments(string $owner, string $repo, int $pullNumber, string $direction, string $since, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListReviewComments()->call($owner, $repo, $pullNumber, $direction, $since, $sort, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\PullRequestReviewComment> */
-    public function listReviewCommentsListing(string $owner, string $repo, int $pullNumber, string $direction, string $since, string $sort, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListReviewCommentsListing()->call($owner, $repo, $pullNumber, $direction, $since, $sort, $perPage, $page);
     }
 
     /** @return */
@@ -105,28 +86,16 @@ final class Pulls
         return $this->operators->pulls👷CreateReplyForReviewComment()->call($owner, $repo, $pullNumber, $commentId, $params);
     }
 
-    /** @return Observable<Schema\Commit> */
+    /** @return Observable<Commit> */
     public function listCommits(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListCommits()->call($owner, $repo, $pullNumber, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Commit> */
-    public function listCommitsListing(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListCommitsListing()->call($owner, $repo, $pullNumber, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\DiffEntry> */
+    /** @return Observable<DiffEntry> */
     public function listFiles(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListFiles()->call($owner, $repo, $pullNumber, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\DiffEntry> */
-    public function listFilesListing(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListFilesListing()->call($owner, $repo, $pullNumber, $perPage, $page);
     }
 
     /** @return */
@@ -159,16 +128,10 @@ final class Pulls
         return $this->operators->pulls👷RemoveRequestedReviewers()->call($owner, $repo, $pullNumber, $params);
     }
 
-    /** @return Observable<Schema\PullRequestReview> */
+    /** @return Observable<PullRequestReview> */
     public function listReviews(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListReviews()->call($owner, $repo, $pullNumber, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\PullRequestReview> */
-    public function listReviewsListing(string $owner, string $repo, int $pullNumber, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListReviewsListing()->call($owner, $repo, $pullNumber, $perPage, $page);
     }
 
     /** @return */
@@ -195,16 +158,10 @@ final class Pulls
         return $this->operators->pulls👷DeletePendingReview()->call($owner, $repo, $pullNumber, $reviewId);
     }
 
-    /** @return Observable<Schema\ReviewComment> */
+    /** @return Observable<ReviewComment> */
     public function listCommentsForReview(string $owner, string $repo, int $pullNumber, int $reviewId, int $perPage, int $page): iterable
     {
         return $this->operators->pulls👷ListCommentsForReview()->call($owner, $repo, $pullNumber, $reviewId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\ReviewComment> */
-    public function listCommentsForReviewListing(string $owner, string $repo, int $pullNumber, int $reviewId, int $perPage, int $page): iterable
-    {
-        return $this->operators->pulls👷ListCommentsForReviewListing()->call($owner, $repo, $pullNumber, $reviewId, $perPage, $page);
     }
 
     /** @return */

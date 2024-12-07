@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Description;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Public_;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\ShortDescription;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Title;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ProjectEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -91,8 +94,8 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookProjectsV2ProjectEdited\Changes\Description|null $description, public Schema\WebhookProjectsV2ProjectEdited\Changes\Public_|null $public, #[MapFrom('short_description')]
-    public Schema\WebhookProjectsV2ProjectEdited\Changes\ShortDescription|null $shortDescription, public Schema\WebhookProjectsV2ProjectEdited\Changes\Title|null $title,)
+    public function __construct(public Description|null $description, public Public_|null $public, #[MapFrom('short_description')]
+    public ShortDescription|null $shortDescription, public Title|null $title,)
     {
     }
 }

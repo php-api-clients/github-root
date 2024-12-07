@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ContentTraffic
+final readonly class ContentTraffic implements \ApiClients\Client\GitHub\Contract\ContentTraffic
 {
     public const SCHEMA_JSON         = '{
     "title": "Content Traffic",
@@ -46,10 +46,10 @@ final readonly class ContentTraffic
     public const SCHEMA_TITLE        = 'Content Traffic';
     public const SCHEMA_DESCRIPTION  = 'Content Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "path": "\\/github\\/hubot",
-    "title": "github\\/hubot: A customizable life embetterment robot.",
-    "count": 3542,
-    "uniques": 2225
+    "path": "generated",
+    "title": "generated",
+    "count": 5,
+    "uniques": 7
 }';
 
     public function __construct(public string $path, public string $title, public int $count, public int $uniques)

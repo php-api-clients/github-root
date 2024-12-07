@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\DeploymentBranchPolicies\BranchPolicyId;
+use ApiClients\Client\GitHub\Schema\DeploymentBranchPolicy;
+use ApiClients\Client\GitHub\Schema\DeploymentBranchPolicyNamePattern;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class UpdateDeploymentBranchPolicy
 {
@@ -31,22 +33,25 @@ final class UpdateDeploymentBranchPolicy
     /**The unique identifier of the branch policy. **/
     private int $branchPolicyId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\DeploymentBranchPolicies\BranchPolicyId $hydrator, string $owner, string $repo, string $environmentName, int $branchPolicyId)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private BranchPolicyId $hydrator, string $owner, string $repo, string $environmentName, int $branchPolicyId)
     {
-        $this->owner           = $owner;
-        $this->repo            = $repo;
-        $this->environmentName = $environmentName;
-        $this->branchPolicyId  = $branchPolicyId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->environmentName         = $environmentName;
+        $this->branchPolicyId          = $branchPolicyId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\DeploymentBranchPolicyNamePattern::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(DeploymentBranchPolicyNamePattern::SCHEMA_JSON, Schema::class));
 
-        return new Request('PUT', str_replace(['{owner}', '{repo}', '{environment_name}', '{branch_policy_id}'], [$this->owner, $this->repo, $this->environmentName, $this->branchPolicyId], '/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}'))->expand(['branch_policy_id' => $this->branchPolicyId, 'environment_name' => $this->environmentName, 'owner' => $this->owner, 'repo' => $this->repo]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\DeploymentBranchPolicy
+    public function createResponse(ResponseInterface $response): DeploymentBranchPolicy
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,9 +63,9 @@ final class UpdateDeploymentBranchPolicy
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DeploymentBranchPolicy::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(DeploymentBranchPolicy::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\DeploymentBranchPolicy::class, $body);
+                        return $this->hydrator->hydrateObject(DeploymentBranchPolicy::class, $body);
                 }
 
                 break;

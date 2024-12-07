@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads;
+use ApiClients\Client\GitHub\Schema\RunnerApplication;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -18,7 +19,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListRunnerApplicationsForRepo
 {
@@ -29,18 +29,20 @@ final class ListRunnerApplicationsForRepo
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads $hydrator, string $owner, string $repo)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Downloads $hydrator, string $owner, string $repo)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/actions/runners/downloads'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runners/downloads'))->expand(['owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return Observable<RunnerApplication> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -53,12 +55,12 @@ final class ListRunnerApplicationsForRepo
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\RunnerApplication {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): RunnerApplication {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerApplication::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(RunnerApplication::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\RunnerApplication::class, $body);
+                                return $this->hydrator->hydrateObject(RunnerApplication::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

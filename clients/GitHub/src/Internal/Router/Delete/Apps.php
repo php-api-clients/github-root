@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\DeleteAuthorization;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\DeleteInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\DeleteToken;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\RemoveRepoFromInstallationForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\RevokeInstallationAccessToken;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\UnsuspendInstallation;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +21,7 @@ use function array_key_exists;
 
 final class Apps
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -29,7 +35,7 @@ final class Apps
 
         $arguments['installation_id'] = $params['installation_id'];
         unset($params['installation_id']);
-        $operator = new Internal\Operator\Apps\DeleteInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId());
+        $operator = new DeleteInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId());
 
         return $operator->call($arguments['installation_id']);
     }
@@ -44,7 +50,7 @@ final class Apps
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        $operator = new Internal\Operator\Apps\DeleteAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Grant());
+        $operator = new DeleteAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Grant());
 
         return $operator->call($arguments['client_id'], $params);
     }
@@ -59,7 +65,7 @@ final class Apps
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        $operator = new Internal\Operator\Apps\DeleteToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token());
+        $operator = new DeleteToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token());
 
         return $operator->call($arguments['client_id'], $params);
     }
@@ -74,7 +80,7 @@ final class Apps
 
         $arguments['installation_id'] = $params['installation_id'];
         unset($params['installation_id']);
-        $operator = new Internal\Operator\Apps\UnsuspendInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId🌀Suspended());
+        $operator = new UnsuspendInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId🌀Suspended());
 
         return $operator->call($arguments['installation_id']);
     }
@@ -82,7 +88,7 @@ final class Apps
     /** @return */
     public function revokeInstallationAccessToken(array $params): WithoutBody
     {
-        $operator = new Internal\Operator\Apps\RevokeInstallationAccessToken($this->browser, $this->authentication);
+        $operator = new RevokeInstallationAccessToken($this->browser, $this->authentication);
 
         return $operator->call();
     }
@@ -103,7 +109,7 @@ final class Apps
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Apps\RemoveRepoFromInstallationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations🌀InstallationId🌀Repositories🌀RepositoryId());
+        $operator = new RemoveRepoFromInstallationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations🌀InstallationId🌀Repositories🌀RepositoryId());
 
         return $operator->call($arguments['installation_id'], $arguments['repository_id']);
     }

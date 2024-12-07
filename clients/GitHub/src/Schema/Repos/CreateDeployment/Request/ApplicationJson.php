@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateDeployment\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload;
+use ApiClients\Client\GitHub\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload\Zero;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateDeployment\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -84,7 +84,7 @@ final readonly class ApplicationJson
         "generated",
         "generated"
     ],
-    "payload": null,
+    "payload": "generated",
     "environment": "generated",
     "description": "generated",
     "transient_environment": false,
@@ -104,7 +104,7 @@ final readonly class ApplicationJson
     public function __construct(public string $ref, public string|null $task, #[MapFrom('auto_merge')]
     public bool|null $autoMerge, #[MapFrom('required_contexts')]
     public array|null $requiredContexts, #[Payload]
-    public Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload\Zero|string|null $payload, public string|null $environment, public string|null $description, #[MapFrom('transient_environment')]
+    public Zero|string|null $payload, public string|null $environment, public string|null $description, #[MapFrom('transient_environment')]
     public bool|null $transientEnvironment, #[MapFrom('production_environment')]
     public bool|null $productionEnvironment,)
     {

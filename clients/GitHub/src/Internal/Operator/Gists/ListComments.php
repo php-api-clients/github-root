@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Gists;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Gists\GistId\Comments;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListComments
     public const OPERATION_ID    = 'gists/list-comments';
     public const OPERATION_MATCH = 'GET /gists/{gist_id}/comments';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Gists\GistId\Comments $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Comments $hydrator)
     {
     }
 
-    /** @return Observable<Schema\GistComment>|WithoutBody */
+    /** @return Observable<GistComment>|WithoutBody */
     public function call(string $gistId, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Gists\ListComments($this->responseSchemaValidator, $this->hydrator, $gistId, $perPage, $page);

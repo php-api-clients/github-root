@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Codespaces\CreateWithPrForAuthenticate
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\CreateWithPrForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [

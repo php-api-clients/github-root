@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Issues\Update\Request;
 
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Issues\Update\Request\ApplicationJson\Labels;
+use ApiClients\Client\GitHub\Schema\Issues\Update\Request\ApplicationJson\Labels\One;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Issues\Update\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -127,15 +129,20 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "title": null,
+    "title": 7,
     "body": "generated",
     "assignee": "generated",
     "state": "open",
-    "state_reason": "not_planned",
-    "milestone": null,
+    "state_reason": "completed",
+    "milestone": 11,
     "labels": [
-        null,
-        null
+        "generated",
+        {
+            "id": 2,
+            "name": "generated",
+            "description": "generated",
+            "color": "generated"
+        }
     ],
     "assignees": [
         "generated",
@@ -150,10 +157,13 @@ final readonly class ApplicationJson
      * state: The open or closed state of the issue.
      * stateReason: The reason for the state change. Ignored unless `state` is changed.
      * labels: Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.
+     *
+     * @param ?array<One> $labels
      * assignees: Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped.
      */
     public function __construct(public string|int|null $title, public string|null $body, public string|null $assignee, public string|null $state, #[MapFrom('state_reason')]
-    public string|null $stateReason, public string|int|null $milestone, public array|null $labels, public array|null $assignees,)
+    public string|null $stateReason, public string|int|null $milestone, #[Labels]
+    public array|null $labels, public array|null $assignees,)
     {
     }
 }

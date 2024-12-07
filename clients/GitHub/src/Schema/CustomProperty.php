@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CustomProperty
+final readonly class CustomProperty implements \ApiClients\Client\GitHub\Contract\CustomProperty
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization Custom Property",
@@ -115,11 +115,9 @@ final readonly class CustomProperty
     "property_name": "generated",
     "url": "https:\\/\\/example.com\\/",
     "source_type": "organization",
-    "value_type": "single_select",
+    "value_type": "string",
     "required": false,
-    "default_value": null,
     "description": "generated",
-    "allowed_values": null,
     "values_editable_by": "org_actors"
 }';
 

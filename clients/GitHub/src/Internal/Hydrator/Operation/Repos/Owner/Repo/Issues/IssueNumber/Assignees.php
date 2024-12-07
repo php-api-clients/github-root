@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber;
 
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Issue\Labels;
 use ApiClients\Client\GitHub\Schema\Integration;
 use ApiClients\Client\GitHub\Schema\Issue;
+use ApiClients\Client\GitHub\Schema\Issue\Labels\One;
 use ApiClients\Client\GitHub\Schema\Issue\PullRequest;
 use ApiClients\Client\GitHub\Schema\LicenseSimple;
 use ApiClients\Client\GitHub\Schema\Milestone;
@@ -25,6 +27,7 @@ use Generator;
 use LogicException;
 use Throwable;
 
+use function array_key_first;
 use function array_pop;
 use function assert;
 use function count;
@@ -60,6 +63,7 @@ class Assignees implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHub\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ReactionRollup($payload),
                 'ApiClients\Client\GitHub\Schema\SubIssuesSummary' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SubIssuesSummary($payload),
+                'ApiClients\Client\GitHub\Schema\Issue\Labels\One' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Issue⚡️Labels⚡️One($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -237,6 +241,28 @@ class Assignees implements ObjectMapper
             if ($value === null) {
                 $missingFields[] = 'labels';
                 goto after_labels;
+            }
+
+            static $labelsCaster1;
+
+            if ($labelsCaster1 === null) {
+                $labelsCaster1 = new Labels(...[]);
+            }
+
+            $value = $labelsCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $missingFields[] = 'labels';
+                goto after_labels;
+            }
+
+            if (is_array($value[array_key_first($value)] ?? false)) {
+                try {
+                    $this->hydrationStack[] = 'labels';
+                    $value                  = $this->hydrateObjects('ApiClients\Client\GitHub\Schema\Issue\Labels\One', $value)->toArray();
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['labels'] = $value;
@@ -2814,6 +2840,102 @@ class Assignees implements ObjectMapper
             return new SubIssuesSummary(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\SubIssuesSummary', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Issue⚡️Labels⚡️One(array $payload): One
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $properties['id'] = null;
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['color'] ?? null;
+
+            if ($value === null) {
+                $properties['color'] = null;
+                goto after_color;
+            }
+
+            $properties['color'] = $value;
+
+            after_color:
+
+            $value = $payload['default'] ?? null;
+
+            if ($value === null) {
+                $properties['default'] = null;
+                goto after_default;
+            }
+
+            $properties['default'] = $value;
+
+            after_default:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Issue\Labels\One', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(One::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new One(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Issue\Labels\One', $exception, stack: $this->hydrationStack);
         }
     }
 

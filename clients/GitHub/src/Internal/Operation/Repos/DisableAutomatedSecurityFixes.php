@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DisableAutomatedSecurityFixes
 {
@@ -29,7 +28,7 @@ final class DisableAutomatedSecurityFixes
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/automated-security-fixes'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/automated-security-fixes'))->expand(['owner' => $this->owner, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

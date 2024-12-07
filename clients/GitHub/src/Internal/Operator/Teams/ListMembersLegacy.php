@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Members;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListMembersLegacy
     public const OPERATION_ID    = 'teams/list-members-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/members';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Teams\TeamId\Members $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Members $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function call(int $teamId, string $role = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Teams\ListMembersLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $role, $perPage, $page);

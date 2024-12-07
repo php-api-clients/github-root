@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\SecretScanning;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
+use ApiClients\Client\GitHub\Internal\Operation\SecretScanning\UpdateAlert;
+use ApiClients\Client\GitHub\Schema\SecretScanning\UpdateAlert\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\SecretScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,71 +25,71 @@ final class UpdateAlertTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\SecretScanningAlert::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(SecretScanningAlert::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['alert_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\SecretScanningAlert::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(SecretScanningAlert::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
     public function call_httpCode_503_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['alert_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_503_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -100,15 +101,15 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['alert_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -120,9 +121,9 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(400, $result['code']);
     }
@@ -136,15 +137,15 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['alert_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -156,9 +157,9 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(404, $result['code']);
     }
@@ -172,15 +173,15 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateAlert::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']        = 'generated';
             $data['repo']         = 'generated';
             $data['alert_number'] = 12;
 
             return $data;
-        })(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -192,9 +193,9 @@ final class UpdateAlertTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/repos/generated/generated/secret-scanning/alerts/12', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(Schema\SecretScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->secretScanning()->updateAlert('generated', 'generated', 12, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(422, $result['code']);
     }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\EnvironmentApprovals;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Environments
+final readonly class Environments implements \ApiClients\Client\GitHub\Contract\EnvironmentApprovals\Environments
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -64,13 +64,13 @@ final readonly class Environments
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 56780428,
-    "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-    "name": "staging",
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-    "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-    "created_at": "2020-11-23T22:00:40Z",
-    "updated_at": "2020-11-23T22:00:40Z"
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "url": "generated",
+    "html_url": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**

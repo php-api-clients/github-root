@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SshSigningKey
+final readonly class SshSigningKey implements \ApiClients\Client\GitHub\Contract\SshSigningKey
 {
     public const SCHEMA_JSON         = '{
     "title": "SSH Signing Key",

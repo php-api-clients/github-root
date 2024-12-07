@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen\Parameters;
 
-final readonly class Fifteen
+final readonly class Fifteen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Fifteen
 {
     public const SCHEMA_JSON         = '{
     "title": "file_path_restriction",
@@ -51,7 +51,7 @@ final readonly class Fifteen
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Fifteen\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

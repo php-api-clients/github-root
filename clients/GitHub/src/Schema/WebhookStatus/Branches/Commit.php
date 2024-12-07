@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Branches;
 
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Branches\Commit
 {
     public const SCHEMA_JSON         = '{
     "required": [

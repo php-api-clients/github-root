@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\HookDelivery\Request;
+use ApiClients\Client\GitHub\Schema\HookDelivery\Response;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class HookDelivery
+final readonly class HookDelivery implements \ApiClients\Client\GitHub\Contract\HookDelivery
 {
     public const SCHEMA_JSON         = '{
     "title": "Webhook delivery",
@@ -189,19 +190,19 @@ final readonly class HookDelivery
     public const SCHEMA_TITLE        = 'Webhook delivery';
     public const SCHEMA_DESCRIPTION  = 'Delivery made by a webhook.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "guid": "58474f00-b361-11eb-836d-0e4f3503ccbe",
-    "delivered_at": "2021-05-12T20:33:44Z",
+    "id": 2,
+    "guid": "generated",
+    "delivered_at": "1970-01-01T00:00:00+00:00",
     "redelivery": false,
-    "duration": 0.03,
-    "status": "failed to connect",
-    "status_code": 502,
-    "event": "issues",
-    "action": "opened",
-    "installation_id": 123,
-    "repository_id": 123,
-    "throttled_at": "2021-05-12T20:33:44Z",
-    "url": "https:\\/\\/www.example.com",
+    "duration": 8,
+    "status": "generated",
+    "status_code": 11,
+    "event": "generated",
+    "action": "generated",
+    "installation_id": 15,
+    "repository_id": 13,
+    "throttled_at": "1970-01-01T00:00:00+00:00",
+    "url": "generated",
     "request": {
         "headers": [],
         "payload": []
@@ -232,7 +233,7 @@ final readonly class HookDelivery
     public int $statusCode, public string $event, public string|null $action, #[MapFrom('installation_id')]
     public int|null $installationId, #[MapFrom('repository_id')]
     public int|null $repositoryId, #[MapFrom('throttled_at')]
-    public string|null $throttledAt, public string|null $url, public Schema\HookDelivery\Request $request, public Schema\HookDelivery\Response $response,)
+    public string|null $throttledAt, public string|null $url, public Request $request, public Response $response,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\OrgHook;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Config
+final readonly class Config implements \ApiClients\Client\GitHub\Contract\OrgHook\Config
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -40,10 +40,10 @@ final readonly class Config
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "\\"http:\\/\\/example.com\\/2\\"",
-    "insecure_ssl": "\\"0\\"",
-    "content_type": "\\"form\\"",
-    "secret": "\\"********\\""
+    "url": "generated",
+    "insecure_ssl": "generated",
+    "content_type": "generated",
+    "secret": "generated"
 }';
 
     public function __construct(public string|null $url, #[MapFrom('insecure_ssl')]

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Projects\MoveCard\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Projects\MoveCard\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -34,8 +34,8 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "position": "bottom",
-    "column_id": 42
+    "position": "after:99999999999999999999999999",
+    "column_id": 9
 }';
 
     /**

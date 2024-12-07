@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleCommitStatus
+final readonly class SimpleCommitStatus implements \ApiClients\Client\GitHub\Contract\SimpleCommitStatus
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Commit Status",

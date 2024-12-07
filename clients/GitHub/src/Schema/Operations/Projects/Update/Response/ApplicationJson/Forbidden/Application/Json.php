@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Projects\Update\Response\ApplicationJson\Forbidden\Application;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TF694556E\T3CC88993\TA89F1ED7\TAFDF4E13;
 
-final readonly class Json extends Schema\AliasAbstract\TietF694556E\Tiet3CC88993\TietA89F1ED7\TietAFDF4E13
+final readonly class Json extends TAFDF4E13
 {
 }

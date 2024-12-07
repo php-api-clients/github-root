@@ -4,8 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageForOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageVersionForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageVersionForOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\GetPackageVersionForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListPackagesForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListPackagesForOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\ListPackagesForUser;
 use ApiClients\Client\GitHub\Schema\Package;
 use ApiClients\Client\GitHub\Schema\PackageVersion;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +32,11 @@ use function array_key_exists;
 
 final class Packages
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\Package>|WithoutBody */
+    /** @return Observable<Package>|WithoutBody */
     public function listPackagesForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -50,12 +64,12 @@ final class Packages
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Packages\ListPackagesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages());
+        $operator = new ListPackagesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages());
 
         return $operator->call($arguments['package_type'], $arguments['visibility'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Package>|WithoutBody */
+    /** @return Observable<Package>|WithoutBody */
     public function listPackagesForOrganization(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -89,20 +103,20 @@ final class Packages
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Packages\ListPackagesForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages());
+        $operator = new ListPackagesForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages());
 
         return $operator->call($arguments['package_type'], $arguments['org'], $arguments['visibility'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Package> */
+    /** @return Observable<Package> */
     public function listDockerMigrationConflictingPackagesForAuthenticatedUser(array $params): iterable
     {
-        $operator = new Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Docker🌀Conflicts());
+        $operator = new ListDockerMigrationConflictingPackagesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Docker🌀Conflicts());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\Package>|WithoutBody */
+    /** @return Observable<Package>|WithoutBody */
     public function listPackagesForUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -136,12 +150,12 @@ final class Packages
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Packages\ListPackagesForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages());
+        $operator = new ListPackagesForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages());
 
         return $operator->call($arguments['package_type'], $arguments['visibility'], $arguments['username'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Package> */
+    /** @return Observable<Package> */
     public function listDockerMigrationConflictingPackagesForOrganization(array $params): iterable
     {
         $arguments = [];
@@ -151,7 +165,7 @@ final class Packages
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Docker🌀Conflicts());
+        $operator = new ListDockerMigrationConflictingPackagesForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Docker🌀Conflicts());
 
         return $operator->call($arguments['org']);
     }
@@ -172,12 +186,12 @@ final class Packages
 
         $arguments['package_name'] = $params['package_name'];
         unset($params['package_name']);
-        $operator = new Internal\Operator\Packages\GetPackageForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName());
+        $operator = new GetPackageForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName());
 
         return $operator->call($arguments['package_type'], $arguments['package_name']);
     }
 
-    /** @return Observable<Schema\Package> */
+    /** @return Observable<Package> */
     public function listDockerMigrationConflictingPackagesForUser(array $params): iterable
     {
         $arguments = [];
@@ -187,7 +201,7 @@ final class Packages
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Docker🌀Conflicts());
+        $operator = new ListDockerMigrationConflictingPackagesForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Docker🌀Conflicts());
 
         return $operator->call($arguments['username']);
     }
@@ -214,12 +228,12 @@ final class Packages
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Packages\GetPackageForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName());
+        $operator = new GetPackageForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['org']);
     }
 
-    /** @return Observable<Schema\PackageVersion> */
+    /** @return Observable<PackageVersion> */
     public function getAllPackageVersionsForPackageOwnedByAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -253,7 +267,7 @@ final class Packages
 
         $arguments['state'] = $params['state'];
         unset($params['state']);
-        $operator = new Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions());
+        $operator = new GetAllPackageVersionsForPackageOwnedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['page'], $arguments['per_page'], $arguments['state']);
     }
@@ -280,12 +294,12 @@ final class Packages
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Packages\GetPackageForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName());
+        $operator = new GetPackageForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['username']);
     }
 
-    /** @return Observable<Schema\PackageVersion> */
+    /** @return Observable<PackageVersion> */
     public function getAllPackageVersionsForPackageOwnedByOrg(array $params): iterable
     {
         $arguments = [];
@@ -325,7 +339,7 @@ final class Packages
 
         $arguments['state'] = $params['state'];
         unset($params['state']);
-        $operator = new Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions());
+        $operator = new GetAllPackageVersionsForPackageOwnedByOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['org'], $arguments['page'], $arguments['per_page'], $arguments['state']);
     }
@@ -352,12 +366,12 @@ final class Packages
 
         $arguments['package_version_id'] = $params['package_version_id'];
         unset($params['package_version_id']);
-        $operator = new Internal\Operator\Packages\GetPackageVersionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
+        $operator = new GetPackageVersionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['package_version_id']);
     }
 
-    /** @return Observable<Schema\PackageVersion> */
+    /** @return Observable<PackageVersion> */
     public function getAllPackageVersionsForPackageOwnedByUser(array $params): iterable
     {
         $arguments = [];
@@ -379,7 +393,7 @@ final class Packages
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Packages\GetAllPackageVersionsForPackageOwnedByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions());
+        $operator = new GetAllPackageVersionsForPackageOwnedByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['username']);
     }
@@ -412,7 +426,7 @@ final class Packages
 
         $arguments['package_version_id'] = $params['package_version_id'];
         unset($params['package_version_id']);
-        $operator = new Internal\Operator\Packages\GetPackageVersionForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
+        $operator = new GetPackageVersionForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['org'], $arguments['package_version_id']);
     }
@@ -445,7 +459,7 @@ final class Packages
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Packages\GetPackageVersionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
+        $operator = new GetPackageVersionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['package_version_id'], $arguments['username']);
     }

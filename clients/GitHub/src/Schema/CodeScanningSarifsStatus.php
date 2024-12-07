@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningSarifsStatus
+final readonly class CodeScanningSarifsStatus implements \ApiClients\Client\GitHub\Contract\CodeScanningSarifsStatus
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -46,8 +46,7 @@ final readonly class CodeScanningSarifsStatus
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "processing_status": "pending",
-    "analyses_url": "https:\\/\\/example.com\\/",
-    "errors": null
+    "analyses_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

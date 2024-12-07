@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningSarifsReceipt
+final readonly class CodeScanningSarifsReceipt implements \ApiClients\Client\GitHub\Contract\CodeScanningSarifsReceipt
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -27,7 +27,7 @@ final readonly class CodeScanningSarifsReceipt
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53",
+    "id": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
 

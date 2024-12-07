@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\GetGlobalAdvisory;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\GetRepositoryAdvisory;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\ListGlobalAdvisories;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\ListOrgRepositoryAdvisories;
+use ApiClients\Client\GitHub\Internal\Operator\SecurityAdvisories\ListRepositoryAdvisories;
 use ApiClients\Client\GitHub\Schema\GlobalAdvisory;
 use ApiClients\Client\GitHub\Schema\RepositoryAdvisory;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -17,11 +21,11 @@ use function array_key_exists;
 
 final class SecurityAdvisories
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\GlobalAdvisory> */
+    /** @return Observable<GlobalAdvisory> */
     public function listGlobalAdvisories(array $params): iterable
     {
         $arguments = [];
@@ -133,7 +137,7 @@ final class SecurityAdvisories
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Internal\Operator\SecurityAdvisories\ListGlobalAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Advisories());
+        $operator = new ListGlobalAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Advisories());
 
         return $operator->call($arguments['ghsa_id'], $arguments['cve_id'], $arguments['ecosystem'], $arguments['severity'], $arguments['cwes'], $arguments['is_withdrawn'], $arguments['affects'], $arguments['published'], $arguments['updated'], $arguments['modified'], $arguments['epss_percentage'], $arguments['epss_percentile'], $arguments['before'], $arguments['after'], $arguments['type'], $arguments['direction'], $arguments['per_page'], $arguments['sort']);
     }
@@ -148,12 +152,12 @@ final class SecurityAdvisories
 
         $arguments['ghsa_id'] = $params['ghsa_id'];
         unset($params['ghsa_id']);
-        $operator = new Internal\Operator\SecurityAdvisories\GetGlobalAdvisory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Advisories🌀GhsaId());
+        $operator = new GetGlobalAdvisory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Advisories🌀GhsaId());
 
         return $operator->call($arguments['ghsa_id']);
     }
 
-    /** @return Observable<Schema\RepositoryAdvisory> */
+    /** @return Observable<RepositoryAdvisory> */
     public function listOrgRepositoryAdvisories(array $params): iterable
     {
         $arguments = [];
@@ -199,12 +203,12 @@ final class SecurityAdvisories
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\SecurityAdvisories\ListOrgRepositoryAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityAdvisories());
+        $operator = new ListOrgRepositoryAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityAdvisories());
 
         return $operator->call($arguments['org'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['direction'], $arguments['sort'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\RepositoryAdvisory> */
+    /** @return Observable<RepositoryAdvisory> */
     public function listRepositoryAdvisories(array $params): iterable
     {
         $arguments = [];
@@ -256,7 +260,7 @@ final class SecurityAdvisories
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\SecurityAdvisories\ListRepositoryAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories());
+        $operator = new ListRepositoryAdvisories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['direction'], $arguments['sort'], $arguments['per_page']);
     }
@@ -283,7 +287,7 @@ final class SecurityAdvisories
 
         $arguments['ghsa_id'] = $params['ghsa_id'];
         unset($params['ghsa_id']);
-        $operator = new Internal\Operator\SecurityAdvisories\GetRepositoryAdvisory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId());
+        $operator = new GetRepositoryAdvisory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecurityAdvisories🌀GhsaId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ghsa_id']);
     }

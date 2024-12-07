@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Licenses;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Licenses;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class GetAllCommonlyUsed
     public const OPERATION_ID    = 'licenses/get-all-commonly-used';
     public const OPERATION_MATCH = 'GET /licenses';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Licenses $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Licenses $hydrator)
     {
     }
 
-    /** @return Observable<Schema\LicenseSimple>|WithoutBody */
+    /** @return Observable<LicenseSimple>|WithoutBody */
     public function call(bool $featured, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Licenses\GetAllCommonlyUsed($this->responseSchemaValidator, $this->hydrator, $featured, $perPage, $page);

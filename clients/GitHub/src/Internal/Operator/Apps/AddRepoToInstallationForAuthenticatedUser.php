@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Apps;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Installations\InstallationId\Repositories\RepositoryId;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class AddRepoToInstallationForAuthenticatedUser
     public const OPERATION_ID    = 'apps/add-repo-to-installation-for-authenticated-user';
     public const OPERATION_MATCH = 'PUT /user/installations/{installation_id}/repositories/{repository_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\Installations\InstallationId\Repositories\RepositoryId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private RepositoryId $hydrator)
     {
     }
 

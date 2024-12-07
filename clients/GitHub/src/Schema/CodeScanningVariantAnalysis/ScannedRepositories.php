@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysisRepository;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ScannedRepositories
+final readonly class ScannedRepositories implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis\ScannedRepositories
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -102,12 +102,12 @@ final readonly class ScannedRepositories
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "repository": {
-        "id": 1296269,
-        "name": "Hello-World",
-        "full_name": "octocat\\/Hello-World",
+        "id": 2,
+        "name": "generated",
+        "full_name": "generated",
         "private": false,
-        "stargazers_count": 80,
-        "updated_at": "2011-01-26T19:14:43Z"
+        "stargazers_count": 16,
+        "updated_at": "1970-01-01T00:00:00+00:00"
     },
     "analysis_status": "pending",
     "result_count": 12,
@@ -122,7 +122,7 @@ final readonly class ScannedRepositories
      * artifactSizeInBytes: The size of the artifact. This is only available for successful analyses.
      * failureMessage: The reason of the failure of this repo task. This is only available if the repository task has failed.
      */
-    public function __construct(public Schema\CodeScanningVariantAnalysisRepository $repository, #[MapFrom('analysis_status')]
+    public function __construct(public CodeScanningVariantAnalysisRepository $repository, #[MapFrom('analysis_status')]
     public string $analysisStatus, #[MapFrom('result_count')]
     public int|null $resultCount, #[MapFrom('artifact_size_in_bytes')]
     public int|null $artifactSizeInBytes, #[MapFrom('failure_message')]

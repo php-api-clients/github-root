@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CopilotIdeCodeCompletions\Editors\Mode
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Languages
+final readonly class Languages implements \ApiClients\Client\GitHub\Contract\CopilotIdeCodeCompletions\Editors\Models\Languages
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

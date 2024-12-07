@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationWikiCommit
+final readonly class SecretScanningLocationWikiCommit implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationWikiCommit
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -79,15 +79,15 @@ final readonly class SecretScanningLocationWikiCommit
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'wiki_commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository wiki.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "path": "\\/example\\/Home.md",
-    "start_line": 1,
-    "end_line": 0.8,
-    "start_column": 1.2,
-    "end_column": 1,
-    "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
-    "page_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/wiki\\/Home\\/302c0b7e200761c9dd9b57e57db540ee0b4293a5",
-    "commit_sha": "302c0b7e200761c9dd9b57e57db540ee0b4293a5",
-    "commit_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/wiki\\/_compare\\/302c0b7e200761c9dd9b57e57db540ee0b4293a5"
+    "path": "generated",
+    "start_line": 10,
+    "end_line": 8,
+    "start_column": 12,
+    "end_column": 10,
+    "blob_sha": "generated",
+    "page_url": "generated",
+    "commit_sha": "generated",
+    "commit_url": "generated"
 }';
 
     /**

@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookReleasePrereleased;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookReleasePrereleased\Release\Author;
+use ApiClients\Client\GitHub\Schema\WebhookReleasePrereleased\Release\Reactions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\WebhookReleasePrereleased\Release
 {
     public const SCHEMA_JSON         = '{
     "title": "Release",
@@ -476,7 +477,7 @@ final readonly class Release
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/"
             },
             "url": "https:\\/\\/example.com\\/"
@@ -513,7 +514,7 @@ final readonly class Release
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/"
             },
             "url": "https:\\/\\/example.com\\/"
@@ -540,7 +541,7 @@ final readonly class Release
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -581,12 +582,12 @@ final readonly class Release
      * targetCommitish: Specifies the commitish value that determines where the Git tag is created from.
      */
     public function __construct(public array $assets, #[MapFrom('assets_url')]
-    public string $assetsUrl, public Schema\WebhookReleasePrereleased\Release\Author|null $author, public string|null $body, #[MapFrom('created_at')]
+    public string $assetsUrl, public Author|null $author, public string|null $body, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('discussion_url')]
     public string|null $discussionUrl, public bool $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, public string|null $name, #[MapFrom('node_id')]
     public string $nodeId, public bool $prerelease, #[MapFrom('published_at')]
-    public string|null $publishedAt, public Schema\WebhookReleasePrereleased\Release\Reactions|null $reactions, #[MapFrom('tag_name')]
+    public string|null $publishedAt, public Reactions|null $reactions, #[MapFrom('tag_name')]
     public string $tagName, #[MapFrom('tarball_url')]
     public string|null $tarballUrl, #[MapFrom('target_commitish')]
     public string $targetCommitish, #[MapFrom('upload_url')]

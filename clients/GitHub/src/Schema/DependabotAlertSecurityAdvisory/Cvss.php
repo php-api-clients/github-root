@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Cvss
+final readonly class Cvss implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Cvss
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -38,7 +38,7 @@ final readonly class Cvss
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Details for the advisory pertaining to the Common Vulnerability Scoring System.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "score": 0.5,
+    "score": 5,
     "vector_string": "generated"
 }';
 

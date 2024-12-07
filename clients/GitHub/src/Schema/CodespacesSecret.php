@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodespacesSecret
+final readonly class CodespacesSecret implements \ApiClients\Client\GitHub\Contract\CodespacesSecret
 {
     public const SCHEMA_JSON         = '{
     "title": "Codespaces Secret",
@@ -59,11 +59,11 @@ final readonly class CodespacesSecret
     public const SCHEMA_TITLE        = 'Codespaces Secret';
     public const SCHEMA_DESCRIPTION  = 'Secrets for a GitHub Codespace.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "SECRET_NAME",
+    "name": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
-    "visibility": "selected",
-    "selected_repositories_url": "https:\\/\\/api.github.com\\/user\\/secrets\\/SECRET_NAME\\/repositories"
+    "visibility": "all",
+    "selected_repositories_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

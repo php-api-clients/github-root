@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodespaceExportDetails
+final readonly class CodespaceExportDetails implements \ApiClients\Client\GitHub\Contract\CodespaceExportDetails
 {
     public const SCHEMA_JSON         = '{
     "title": "Fetches information about an export of a codespace.",
@@ -83,13 +83,13 @@ final readonly class CodespaceExportDetails
     public const SCHEMA_TITLE        = 'Fetches information about an export of a codespace.';
     public const SCHEMA_DESCRIPTION  = 'An export of a codespace. Also, latest export details for a codespace can be fetched with id = latest';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "state": "succeeded | failed | in_progress",
-    "completed_at": "2021-01-01T19:01:12Z",
-    "branch": "codespace-monalisa-octocat-hello-world-g4wpq6h95q",
-    "sha": "fd95a81ca01e48ede9f39c799ecbcef817b8a3b2",
-    "id": "latest",
-    "export_url": "https:\\/\\/api.github.com\\/user\\/codespaces\\/:name\\/exports\\/latest",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/hello-world\\/tree\\/:branch"
+    "state": "generated",
+    "completed_at": "1970-01-01T00:00:00+00:00",
+    "branch": "generated",
+    "sha": "generated",
+    "id": "generated",
+    "export_url": "generated",
+    "html_url": "generated"
 }';
 
     /**

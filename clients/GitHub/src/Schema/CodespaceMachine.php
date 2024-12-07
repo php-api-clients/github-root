@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodespaceMachine
+final readonly class CodespaceMachine implements \ApiClients\Client\GitHub\Contract\CodespaceMachine
 {
     public const SCHEMA_JSON         = '{
     "title": "Codespace machine",
@@ -85,13 +85,13 @@ final readonly class CodespaceMachine
     public const SCHEMA_TITLE        = 'Codespace machine';
     public const SCHEMA_DESCRIPTION  = 'A description of the machine powering a codespace.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "standardLinux",
-    "display_name": "4 cores, 16 GB RAM, 64 GB storage",
-    "operating_system": "linux",
-    "storage_in_bytes": 68719476736,
-    "memory_in_bytes": 17179869184,
+    "name": "generated",
+    "display_name": "generated",
+    "operating_system": "generated",
+    "storage_in_bytes": 16,
+    "memory_in_bytes": 15,
     "cpus": 4,
-    "prebuild_availability": "ready"
+    "prebuild_availability": "none"
 }';
 
     /**

@@ -14,7 +14,7 @@ final class Nine
     {
     }
 
-    /** @return Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
+    /** @return Observable<string>|Observable<Integration>|Observable<Team>|Observable<SimpleUser>| */
     public function call(string $call, array $params, array $pathChunks): iterable|PullRequestReview
     {
         if ($pathChunks[0] === '') {

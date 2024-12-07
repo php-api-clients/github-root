@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Environment\ProtectionRules;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Zero
+final readonly class Zero implements \ApiClients\Client\GitHub\Contract\Environment\ProtectionRules\Zero
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -46,10 +46,10 @@ final readonly class Zero
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3515,
-    "node_id": "MDQ6R2F0ZTM1MTU=",
-    "type": "wait_timer",
-    "wait_timer": 30
+    "id": 2,
+    "node_id": "generated",
+    "type": "generated",
+    "wait_timer": 10
 }';
 
     /**

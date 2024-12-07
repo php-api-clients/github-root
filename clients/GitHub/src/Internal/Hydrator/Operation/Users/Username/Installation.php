@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Installation\Account;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Installation\Account;
 use ApiClients\Client\GitHub\Schema\AppPermissions;
 use ApiClients\Client\GitHub\Schema\SimpleUser;
 use EventSauce\ObjectHydrator\IterableList;

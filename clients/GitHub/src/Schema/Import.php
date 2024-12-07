@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Import
+final readonly class Import implements \ApiClients\Client\GitHub\Contract\Import
 {
     public const SCHEMA_JSON         = '{
     "title": "Import",
@@ -162,7 +162,7 @@ final readonly class Import
     "vcs_url": "generated",
     "svc_root": "generated",
     "tfvc_project": "generated",
-    "status": "detection_needs_auth",
+    "status": "auth",
     "status_text": "generated",
     "failed_step": "generated",
     "error_message": "generated",

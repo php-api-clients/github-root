@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions\RefName;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRulesetConditions
+final readonly class RepositoryRulesetConditions implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditions
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository ruleset conditions for ref names",
@@ -51,7 +51,7 @@ final readonly class RepositoryRulesetConditions
 }';
 
     public function __construct(#[MapFrom('ref_name')]
-    public Schema\RepositoryRulesetConditions\RefName|null $refName,)
+    public RefName|null $refName,)
     {
     }
 }

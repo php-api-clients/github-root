@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AllowedActions
+final readonly class AllowedActions implements \ApiClients\Client\GitHub\Contract\AllowedActions
 {
     public const SCHEMA_JSON         = '{
     "enum": [

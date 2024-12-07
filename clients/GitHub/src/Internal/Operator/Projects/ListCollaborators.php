@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Projects;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Projects\ProjectId\Collaborators;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListCollaborators
     public const OPERATION_ID    = 'projects/list-collaborators';
     public const OPERATION_MATCH = 'GET /projects/{project_id}/collaborators';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Projects\ProjectId\Collaborators $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Collaborators $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function call(int $projectId, string $affiliation = 'all', int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Projects\ListCollaborators($this->responseSchemaValidator, $this->hydrator, $projectId, $affiliation, $perPage, $page);

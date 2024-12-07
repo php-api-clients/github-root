@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed\Review\Links;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed\Review\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Review
+final readonly class Review implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewDismissed\Review
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -228,7 +229,7 @@ final readonly class Review
             "href": "generated"
         }
     },
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "html_url": "https:\\/\\/example.com\\/",
@@ -257,7 +258,7 @@ final readonly class Review
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
@@ -270,13 +271,13 @@ final readonly class Review
      * id: Unique identifier of the review
      */
     public function __construct(#[MapFrom('_links')]
-    public Schema\WebhookPullRequestReviewDismissed\Review\Links $links, #[MapFrom('author_association')]
+    public Links $links, #[MapFrom('author_association')]
     public string $authorAssociation, public string|null $body, #[MapFrom('commit_id')]
     public string $commitId, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('pull_request_url')]
     public string $pullRequestUrl, public string $state, #[MapFrom('submitted_at')]
-    public string $submittedAt, public Schema\WebhookPullRequestReviewDismissed\Review\User|null $user,)
+    public string $submittedAt, public User|null $user,)
     {
     }
 }

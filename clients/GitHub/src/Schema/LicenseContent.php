@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\LicenseContent\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class LicenseContent
+final readonly class LicenseContent implements \ApiClients\Client\GitHub\Contract\LicenseContent
 {
     public const SCHEMA_JSON         = '{
     "title": "License Content",
@@ -187,11 +187,11 @@ final readonly class LicenseContent
         "self": "https:\\/\\/example.com\\/"
     },
     "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-        "spdx_id": "MIT",
-        "node_id": "MDc6TGljZW5zZW1pdA==",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "spdx_id": "generated",
+        "node_id": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     }
 }';
@@ -200,7 +200,7 @@ final readonly class LicenseContent
     public string|null $htmlUrl, #[MapFrom('git_url')]
     public string|null $gitUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, public string $type, public string $content, public string $encoding, #[MapFrom('_links')]
-    public Schema\LicenseContent\Links $links, public Schema\LicenseSimple|null $license,)
+    public Links $links, public LicenseSimple|null $license,)
     {
     }
 }

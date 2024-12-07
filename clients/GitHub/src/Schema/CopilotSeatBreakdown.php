@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CopilotSeatBreakdown
+final readonly class CopilotSeatBreakdown implements \ApiClients\Client\GitHub\Contract\CopilotSeatBreakdown
 {
     public const SCHEMA_JSON         = '{
     "title": "Copilot Business Seat Breakdown",

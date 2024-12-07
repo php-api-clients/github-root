@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateCommit\Request\ApplicationJson;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\Git\CreateCommit\Request\ApplicationJson\Author
 {
     public const SCHEMA_JSON         = '{
     "required": [

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Interactions\RemoveRestrictionsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Interactions\RemoveRestrictionsForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Interactions\RemoveRestrictionsForRepo;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +18,7 @@ use function array_key_exists;
 
 final class Interactions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -29,7 +32,7 @@ final class Interactions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Interactions\RemoveRestrictionsForOrg($this->browser, $this->authentication);
+        $operator = new RemoveRestrictionsForOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org']);
     }
@@ -50,7 +53,7 @@ final class Interactions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Interactions\RemoveRestrictionsForRepo($this->browser, $this->authentication);
+        $operator = new RemoveRestrictionsForRepo($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -58,7 +61,7 @@ final class Interactions
     /** @return */
     public function removeRestrictionsForAuthenticatedUser(array $params): WithoutBody
     {
-        $operator = new Internal\Operator\Interactions\RemoveRestrictionsForAuthenticatedUser($this->browser, $this->authentication);
+        $operator = new RemoveRestrictionsForAuthenticatedUser($this->browser, $this->authentication);
 
         return $operator->call();
     }

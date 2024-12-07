@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BranchProtection;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TF50ED868\T44C35399\TEF6AE628\T51A21942;
 
-final readonly class RequiredSignatures extends Schema\AliasAbstract\TietF50ED868\Tiet44C35399\TietEF6AE628\Tiet51A21942
+final readonly class RequiredSignatures extends T51A21942
 {
 }

@@ -4,7 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CancelInvitation;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\Delete;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\DeleteWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemoveCustomProperty;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemoveMember;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemoveMembershipForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemoveOutsideCollaborator;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemovePublicMembershipForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RemoveSecurityManagerTeam;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RevokeAllOrgRolesTeam;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RevokeAllOrgRolesUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RevokeOrgRoleTeam;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RevokeOrgRoleUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\UnblockUser;
 use ApiClients\Client\GitHub\Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -16,7 +30,7 @@ use function array_key_exists;
 
 final class Orgs
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -36,7 +50,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\UnblockUser($this->browser, $this->authentication);
+        $operator = new UnblockUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -57,7 +71,7 @@ final class Orgs
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Orgs\DeleteWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
+        $operator = new DeleteWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
 
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
@@ -78,7 +92,7 @@ final class Orgs
 
         $arguments['invitation_id'] = $params['invitation_id'];
         unset($params['invitation_id']);
-        $operator = new Internal\Operator\Orgs\CancelInvitation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations🌀InvitationId());
+        $operator = new CancelInvitation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations🌀InvitationId());
 
         return $operator->call($arguments['org'], $arguments['invitation_id']);
     }
@@ -99,7 +113,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\RemoveMember($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username());
+        $operator = new RemoveMember($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -120,7 +134,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\RemoveMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
+        $operator = new RemoveMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -141,7 +155,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\RemoveOutsideCollaborator($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
+        $operator = new RemoveOutsideCollaborator($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -162,7 +176,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\RemovePublicMembershipForAuthenticatedUser($this->browser, $this->authentication);
+        $operator = new RemovePublicMembershipForAuthenticatedUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -177,7 +191,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\Delete($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
+        $operator = new Delete($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
 
         return $operator->call($arguments['org']);
     }
@@ -204,7 +218,7 @@ final class Orgs
 
         $arguments['role_id'] = $params['role_id'];
         unset($params['role_id']);
-        $operator = new Internal\Operator\Orgs\RevokeOrgRoleTeam($this->browser, $this->authentication);
+        $operator = new RevokeOrgRoleTeam($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role_id']);
     }
@@ -231,7 +245,7 @@ final class Orgs
 
         $arguments['role_id'] = $params['role_id'];
         unset($params['role_id']);
-        $operator = new Internal\Operator\Orgs\RevokeOrgRoleUser($this->browser, $this->authentication);
+        $operator = new RevokeOrgRoleUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username'], $arguments['role_id']);
     }
@@ -252,7 +266,7 @@ final class Orgs
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operator = new Internal\Operator\Orgs\RevokeAllOrgRolesTeam($this->browser, $this->authentication);
+        $operator = new RevokeAllOrgRolesTeam($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
@@ -273,7 +287,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\RevokeAllOrgRolesUser($this->browser, $this->authentication);
+        $operator = new RevokeAllOrgRolesUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -294,7 +308,7 @@ final class Orgs
 
         $arguments['custom_property_name'] = $params['custom_property_name'];
         unset($params['custom_property_name']);
-        $operator = new Internal\Operator\Orgs\RemoveCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
+        $operator = new RemoveCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
 
         return $operator->call($arguments['org'], $arguments['custom_property_name']);
     }
@@ -315,7 +329,7 @@ final class Orgs
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operator = new Internal\Operator\Orgs\RemoveSecurityManagerTeam($this->browser, $this->authentication);
+        $operator = new RemoveSecurityManagerTeam($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }

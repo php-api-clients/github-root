@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed\PullRequest;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T6B1B7663\TE4F5DE6D\T0BE24B99\TCC56D255;
 
-final readonly class Links extends Schema\AliasAbstract\Tiet6B1B7663\TietE4F5DE6D\Tiet0BE24B99\TietCC56D255
+final readonly class Links extends TCC56D255
 {
 }

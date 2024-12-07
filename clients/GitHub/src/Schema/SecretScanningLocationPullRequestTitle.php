@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationPullRequestTitle
+final readonly class SecretScanningLocationPullRequestTitle implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationPullRequestTitle
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class SecretScanningLocationPullRequestTitle
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'pull_request_title\' secret scanning location type. This location type shows that a secret was detected in the title of a pull request.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "pull_request_title_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/2846"
+    "pull_request_title_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

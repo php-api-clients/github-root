@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\CreateOrUpdateFileContents\Response\ApplicationJson;
 
-final readonly class Conflict
+final readonly class Conflict implements \ApiClients\Client\GitHub\Contract\Operations\Repos\CreateOrUpdateFileContents\Response\ApplicationJson\Conflict
 {
     public const SCHEMA_JSON         = '{
     "oneOf": [

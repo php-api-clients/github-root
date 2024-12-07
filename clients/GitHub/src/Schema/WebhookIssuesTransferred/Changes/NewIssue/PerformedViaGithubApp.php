@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesTransferred\Changes\NewIssue;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T5E10235B\T2A7D688E\TC6524F17\T0FFD2DD0;
 
-final readonly class PerformedViaGithubApp extends Schema\AliasAbstract\Tiet5E10235B\Tiet2A7D688E\TietC6524F17\Tiet0FFD2DD0
+final readonly class PerformedViaGithubApp extends T0FFD2DD0
 {
 }

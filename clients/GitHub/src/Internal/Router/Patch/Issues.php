@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Patch;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\ReprioritizeSubIssue;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\Update;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\UpdateComment;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\UpdateLabel;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\UpdateMilestone;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\Issue;
 use ApiClients\Client\GitHub\Schema\IssueComment;
@@ -19,7 +24,7 @@ use function array_key_exists;
 
 final class Issues
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -45,7 +50,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber());
+        $operator = new Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
@@ -72,7 +77,7 @@ final class Issues
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Issues\UpdateLabel($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Labels🌀Name());
+        $operator = new UpdateLabel($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Labels🌀Name());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name'], $params);
     }
@@ -99,7 +104,7 @@ final class Issues
 
         $arguments['milestone_number'] = $params['milestone_number'];
         unset($params['milestone_number']);
-        $operator = new Internal\Operator\Issues\UpdateMilestone($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber());
+        $operator = new UpdateMilestone($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number'], $params);
     }
@@ -126,7 +131,7 @@ final class Issues
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Issues\UpdateComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId());
+        $operator = new UpdateComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
@@ -153,7 +158,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\ReprioritizeSubIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀SubIssues🌀Priority());
+        $operator = new ReprioritizeSubIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀SubIssues🌀Priority());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }

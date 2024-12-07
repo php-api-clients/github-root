@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Blob
+final readonly class Blob implements \ApiClients\Client\GitHub\Contract\Blob
 {
     public const SCHEMA_JSON         = '{
     "title": "Blob",

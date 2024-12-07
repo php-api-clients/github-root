@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\ProtectedBranchRequiredStatusCheck;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Checks
+final readonly class Checks implements \ApiClients\Client\GitHub\Contract\ProtectedBranchRequiredStatusCheck\Checks
 {
     public const SCHEMA_JSON         = '{
     "required": [

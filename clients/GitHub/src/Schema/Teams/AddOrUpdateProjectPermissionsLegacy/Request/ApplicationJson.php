@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Teams\AddOrUpdateProjectPermissionsLegacy\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Teams\AddOrUpdateProjectPermissionsLegacy\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -23,7 +23,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "permission": "admin"
+    "permission": "read"
 }';
 
     /**

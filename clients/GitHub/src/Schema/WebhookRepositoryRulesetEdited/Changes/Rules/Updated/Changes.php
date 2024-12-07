@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Configuration;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Pattern;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\RuleType;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -52,8 +54,8 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Configuration|null $configuration, #[MapFrom('rule_type')]
-    public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\RuleType|null $ruleType, public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Pattern|null $pattern,)
+    public function __construct(public Configuration|null $configuration, #[MapFrom('rule_type')]
+    public RuleType|null $ruleType, public Pattern|null $pattern,)
     {
     }
 }

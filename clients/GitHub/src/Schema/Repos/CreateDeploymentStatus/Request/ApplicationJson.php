@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\CreateDeploymentStatus\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateDeploymentStatus\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

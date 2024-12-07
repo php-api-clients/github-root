@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Gists;
 
-use ApiClients\Client\GitHub\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +19,7 @@ final readonly class Star
     public const OPERATION_ID    = 'gists/star';
     public const OPERATION_MATCH = 'PUT /gists/{gist_id}/star';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Gists\GistId\Star $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private \ApiClients\Client\GitHub\Internal\Hydrator\Operation\Gists\GistId\Star $hydrator)
     {
     }
 

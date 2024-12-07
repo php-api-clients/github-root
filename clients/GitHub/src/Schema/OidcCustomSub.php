@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OidcCustomSub
+final readonly class OidcCustomSub implements \ApiClients\Client\GitHub\Contract\OidcCustomSub
 {
     public const SCHEMA_JSON         = '{
     "title": "Actions OIDC Subject customization",

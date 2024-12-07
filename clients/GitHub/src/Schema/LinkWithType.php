@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class LinkWithType
+final readonly class LinkWithType implements \ApiClients\Client\GitHub\Contract\LinkWithType
 {
     public const SCHEMA_JSON         = '{
     "title": "Link With Type",

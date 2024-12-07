@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SearchResultTextMatches
+final readonly class SearchResultTextMatches implements \ApiClients\Client\GitHub\Contract\SearchResultTextMatches
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

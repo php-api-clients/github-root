@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateAttestation\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\CreateAttestation\Request\ApplicationJson\Bundle;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateAttestation\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -49,7 +49,7 @@ final readonly class ApplicationJson
      * bundle: The attestation's Sigstore Bundle.
     Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.
      */
-    public function __construct(public Schema\Repos\CreateAttestation\Request\ApplicationJson\Bundle $bundle)
+    public function __construct(public Bundle $bundle)
     {
     }
 }

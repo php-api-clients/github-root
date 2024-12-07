@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\BranchWithProtection;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +21,7 @@ final readonly class GetBranch
     public const OPERATION_ID    = 'repos/get-branch';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Branch $hydrator)
     {
     }
 

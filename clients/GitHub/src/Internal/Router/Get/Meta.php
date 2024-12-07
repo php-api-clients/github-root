@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Meta\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Meta\GetAllVersions;
+use ApiClients\Client\GitHub\Internal\Operator\Meta\GetOctocat;
+use ApiClients\Client\GitHub\Internal\Operator\Meta\GetZen;
 use ApiClients\Client\GitHub\Schema\ApiOverview;
 use ApiClients\Client\GitHub\Schema\Root;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,14 +22,14 @@ use function array_key_exists;
 
 final class Meta
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
     /** @return */
     public function root(array $params): Root
     {
-        $operator = new Internal\Operator\Meta\Root($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Root());
+        $operator = new \ApiClients\Client\GitHub\Internal\Operator\Meta\Root($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Root());
 
         return $operator->call();
     }
@@ -33,7 +37,7 @@ final class Meta
     /** @return */
     public function get(array $params): ApiOverview|WithoutBody
     {
-        $operator = new Internal\Operator\Meta\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Meta());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Meta());
 
         return $operator->call();
     }
@@ -48,7 +52,7 @@ final class Meta
 
         $arguments['s'] = $params['s'];
         unset($params['s']);
-        $operator = new Internal\Operator\Meta\GetOctocat($this->browser, $this->authentication);
+        $operator = new GetOctocat($this->browser, $this->authentication);
 
         return $operator->call($arguments['s']);
     }
@@ -56,7 +60,7 @@ final class Meta
     /** @return Observable<string> */
     public function getAllVersions(array $params): iterable
     {
-        $operator = new Internal\Operator\Meta\GetAllVersions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Versions());
+        $operator = new GetAllVersions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Versions());
 
         return $operator->call();
     }
@@ -64,7 +68,7 @@ final class Meta
     /** @return */
     public function getZen(array $params): string
     {
-        $operator = new Internal\Operator\Meta\GetZen($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Zen());
+        $operator = new GetZen($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Zen());
 
         return $operator->call();
     }

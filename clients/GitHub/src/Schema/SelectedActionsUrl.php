@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SelectedActionsUrl
+final readonly class SelectedActionsUrl implements \ApiClients\Client\GitHub\Contract\SelectedActionsUrl
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

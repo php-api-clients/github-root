@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\MostRecentInstance;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\Rule;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\Tool;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Alert
+final readonly class Alert implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertCreated\Alert
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -306,8 +308,7 @@ final readonly class Alert
         "help_uri": "generated",
         "id": "generated",
         "name": "generated",
-        "severity": "error",
-        "tags": null
+        "severity": "none"
     },
     "state": "open",
     "tool": {
@@ -337,7 +338,7 @@ final readonly class Alert
     public string $fixedAt, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('instances_url')]
     public string|null $instancesUrl, #[MapFrom('most_recent_instance')]
-    public Schema\WebhookCodeScanningAlertCreated\Alert\MostRecentInstance|null $mostRecentInstance, public int $number, public Schema\WebhookCodeScanningAlertCreated\Alert\Rule $rule, public string|null $state, public Schema\WebhookCodeScanningAlertCreated\Alert\Tool|null $tool, #[MapFrom('updated_at')]
+    public MostRecentInstance|null $mostRecentInstance, public int $number, public Rule $rule, public string|null $state, public Tool|null $tool, #[MapFrom('updated_at')]
     public string|null $updatedAt, public string $url,)
     {
     }

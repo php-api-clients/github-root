@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CommitSearchResultItem;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CommitSearchResultItem\Commit\Author;
+use ApiClients\Client\GitHub\Schema\CommitSearchResultItem\Commit\Tree;
+use ApiClients\Client\GitHub\Schema\GitUser;
+use ApiClients\Client\GitHub\Schema\Verification;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\CommitSearchResultItem\Commit
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -145,9 +148,9 @@ final readonly class Commit
         "date": "1970-01-01T00:00:00+00:00"
     },
     "committer": {
-        "name": "\\"Chris Wanstrath\\"",
-        "email": "\\"chris@ozmm.org\\"",
-        "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+        "name": "generated",
+        "email": "generated",
+        "date": "generated"
     },
     "comment_count": 13,
     "message": "generated",
@@ -165,8 +168,8 @@ final readonly class Commit
     }
 }';
 
-    public function __construct(public Schema\CommitSearchResultItem\Commit\Author $author, public Schema\GitUser|null $committer, #[MapFrom('comment_count')]
-    public int $commentCount, public string $message, public Schema\CommitSearchResultItem\Commit\Tree $tree, public string $url, public Schema\Verification|null $verification,)
+    public function __construct(public Author $author, public GitUser|null $committer, #[MapFrom('comment_count')]
+    public int $commentCount, public string $message, public Tree $tree, public string $url, public Verification|null $verification,)
     {
     }
 }

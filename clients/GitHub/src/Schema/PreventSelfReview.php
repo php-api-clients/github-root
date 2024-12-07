@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class PreventSelfReview
+final readonly class PreventSelfReview implements \ApiClients\Client\GitHub\Contract\PreventSelfReview
 {
     public const SCHEMA_JSON         = '{
     "type": "boolean",

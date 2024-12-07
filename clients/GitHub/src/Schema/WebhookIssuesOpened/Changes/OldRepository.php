@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesOpened\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesOpened\Changes\OldRepository\License;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesOpened\Changes\OldRepository\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OldRepository
+final readonly class OldRepository implements \ApiClients\Client\GitHub\Contract\WebhookIssuesOpened\Changes\OldRepository
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository",
@@ -657,7 +660,7 @@ final readonly class OldRepository
     "compare_url": "generated",
     "contents_url": "generated",
     "contributors_url": "https:\\/\\/example.com\\/",
-    "created_at": null,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "custom_properties": [],
     "default_branch": "generated",
     "delete_branch_on_merge": false,
@@ -730,7 +733,7 @@ final readonly class OldRepository
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -744,7 +747,7 @@ final readonly class OldRepository
     "private": false,
     "public": false,
     "pulls_url": "generated",
-    "pushed_at": null,
+    "pushed_at": "1970-01-01T00:00:00+00:00",
     "releases_url": "generated",
     "role_name": "generated",
     "size": 4,
@@ -765,7 +768,7 @@ final readonly class OldRepository
     "trees_url": "generated",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
-    "visibility": "internal",
+    "visibility": "public",
     "watchers": 8,
     "watchers_count": 14,
     "web_commit_signoff_required": false
@@ -811,7 +814,7 @@ final readonly class OldRepository
     public string $contentsUrl, #[MapFrom('contributors_url')]
     public string $contributorsUrl, #[MapFrom('created_at')]
     public int|string $createdAt, #[MapFrom('custom_properties')]
-    public Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties|null $customProperties, #[MapFrom('default_branch')]
+    public CustomProperties|null $customProperties, #[MapFrom('default_branch')]
     public string $defaultBranch, #[MapFrom('delete_branch_on_merge')]
     public bool|null $deleteBranchOnMerge, #[MapFrom('deployments_url')]
     public string $deploymentsUrl, public string|null $description, public bool|null $disabled, #[MapFrom('downloads_url')]
@@ -838,7 +841,7 @@ final readonly class OldRepository
     public string $issuesUrl, #[MapFrom('keys_url')]
     public string $keysUrl, #[MapFrom('labels_url')]
     public string $labelsUrl, public string|null $language, #[MapFrom('languages_url')]
-    public string $languagesUrl, public Schema\WebhookIssuesOpened\Changes\OldRepository\License|null $license, #[MapFrom('master_branch')]
+    public string $languagesUrl, public License|null $license, #[MapFrom('master_branch')]
     public string|null $masterBranch, #[MapFrom('merges_url')]
     public string $mergesUrl, #[MapFrom('milestones_url')]
     public string $milestonesUrl, #[MapFrom('mirror_url')]
@@ -846,7 +849,7 @@ final readonly class OldRepository
     public string $nodeId, #[MapFrom('notifications_url')]
     public string $notificationsUrl, #[MapFrom('open_issues')]
     public int $openIssues, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, public string|null $organization, public Schema\WebhookIssuesOpened\Changes\OldRepository\Owner|null $owner, public Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
+    public int $openIssuesCount, public string|null $organization, public Owner|null $owner, public Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
     public string $pullsUrl, #[MapFrom('pushed_at')]
     public int|string $pushedAt, #[MapFrom('releases_url')]
     public string $releasesUrl, #[MapFrom('role_name')]

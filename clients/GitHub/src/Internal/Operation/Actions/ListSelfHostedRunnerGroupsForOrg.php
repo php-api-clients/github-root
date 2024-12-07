@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\RunnerGroups;
+use ApiClients\Client\GitHub\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListSelfHostedRunnerGroupsForOrg
 {
@@ -30,20 +31,22 @@ final class ListSelfHostedRunnerGroupsForOrg
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator, string $org, string $visibleToRepository, int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private RunnerGroups $hydrator, string $org, string $visibleToRepository, int $perPage = 30, int $page = 1)
     {
-        $this->org                 = $org;
-        $this->visibleToRepository = $visibleToRepository;
-        $this->perPage             = $perPage;
-        $this->page                = $page;
+        $this->org                     = $org;
+        $this->visibleToRepository     = $visibleToRepository;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{visible_to_repository}', '{per_page}', '{page}'], [$this->org, $this->visibleToRepository, $this->perPage, $this->page], '/orgs/{org}/actions/runner-groups' . '?visible_to_repository={visible_to_repository}&per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/actions/runner-groups{?page,per_page,visible_to_repository}'))->expand(['org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'visible_to_repository' => $this->visibleToRepository]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
+    public function createResponse(ResponseInterface $response): Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class ListSelfHostedRunnerGroupsForOrg
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Ok::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Ok::class, $body);
                 }
 
                 break;

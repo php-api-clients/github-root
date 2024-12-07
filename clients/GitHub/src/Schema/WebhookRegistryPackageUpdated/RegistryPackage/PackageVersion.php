@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Author;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -582,14 +583,14 @@ final readonly class PackageVersion
     "version": "generated"
 }';
 
-    public function __construct(public Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Author $author, public string $body, #[MapFrom('body_html')]
+    public function __construct(public Author $author, public string $body, #[MapFrom('body_html')]
     public string $bodyHtml, #[MapFrom('created_at')]
     public string $createdAt, public string $description, #[MapFrom('docker_metadata')]
     public array|null $dockerMetadata, public bool|null $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('installation_command')]
     public string $installationCommand, public string|null $manifest, public array $metadata, public string $name, #[MapFrom('package_files')]
     public array $packageFiles, #[MapFrom('package_url')]
-    public string $packageUrl, public bool|null $prerelease, public Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release|null $release, #[MapFrom('rubygems_metadata')]
+    public string $packageUrl, public bool|null $prerelease, public Release|null $release, #[MapFrom('rubygems_metadata')]
     public array|null $rubygemsMetadata, public string $summary, #[MapFrom('tag_name')]
     public string|null $tagName, #[MapFrom('target_commitish')]
     public string $targetCommitish, #[MapFrom('target_oid')]

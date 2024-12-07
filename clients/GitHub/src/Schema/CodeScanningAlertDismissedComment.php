@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertDismissedComment
+final readonly class CodeScanningAlertDismissedComment implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertDismissedComment
 {
     public const SCHEMA_JSON         = '{
     "maxLength": 280,

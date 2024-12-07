@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Issues\UpdateComment\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T026A8A20\T81954685\T23AC5D44\T5390232B;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet026A8A20\Tiet81954685\Tiet23AC5D44\Tiet5390232B
+final readonly class ApplicationJson extends T5390232B
 {
 }

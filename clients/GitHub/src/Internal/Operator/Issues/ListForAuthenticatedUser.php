@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Issues;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Issues;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListForAuthenticatedUser
     public const OPERATION_ID    = 'issues/list-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/issues';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\Issues $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Issues $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Issue>|WithoutBody */
+    /** @return Observable<Issue>|WithoutBody */
     public function call(string $labels, string $since, string $filter = 'assigned', string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Issues\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $labels, $since, $filter, $state, $sort, $direction, $perPage, $page);

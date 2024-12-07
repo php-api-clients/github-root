@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\CodesOfConduct\GetAllCodesOfConduct;
+use ApiClients\Client\GitHub\Internal\Operator\CodesOfConduct\GetConductCode;
 use ApiClients\Client\GitHub\Schema\CodeOfConduct;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -17,14 +18,14 @@ use function array_key_exists;
 
 final class CodesOfConduct
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\CodeOfConduct>|WithoutBody */
+    /** @return Observable<CodeOfConduct>|WithoutBody */
     public function getAllCodesOfConduct(array $params): iterable|WithoutBody
     {
-        $operator = new Internal\Operator\CodesOfConduct\GetAllCodesOfConduct($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct());
+        $operator = new GetAllCodesOfConduct($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct());
 
         return $operator->call();
     }
@@ -39,7 +40,7 @@ final class CodesOfConduct
 
         $arguments['key'] = $params['key'];
         unset($params['key']);
-        $operator = new Internal\Operator\CodesOfConduct\GetConductCode($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct🌀Key());
+        $operator = new GetConductCode($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct🌀Key());
 
         return $operator->call($arguments['key']);
     }

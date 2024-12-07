@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\ApiOverview\Domains;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ArtifactAttestations
+final readonly class ArtifactAttestations implements \ApiClients\Client\GitHub\Contract\ApiOverview\Domains\ArtifactAttestations
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -31,7 +31,7 @@ final readonly class ArtifactAttestations
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "trust_domain": "example",
+    "trust_domain": "generated",
     "services": [
         "generated",
         "generated"

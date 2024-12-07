@@ -4,8 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\DeleteComment;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\DeleteLabel;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\DeleteMilestone;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\RemoveAllLabels;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\RemoveAssignees;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\RemoveLabel;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\RemoveSubIssue;
+use ApiClients\Client\GitHub\Internal\Operator\Issues\Unlock;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\Issue;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,7 +25,7 @@ use function array_key_exists;
 
 final class Issues
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -44,7 +51,7 @@ final class Issues
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Issues\DeleteComment($this->browser, $this->authentication);
+        $operator = new DeleteComment($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
@@ -71,7 +78,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\RemoveAssignees($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Assignees());
+        $operator = new RemoveAssignees($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Assignees());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
@@ -98,7 +105,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\RemoveAllLabels($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels());
+        $operator = new RemoveAllLabels($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
@@ -125,7 +132,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\Unlock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Lock());
+        $operator = new Unlock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Lock());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
@@ -152,7 +159,7 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Issues\RemoveSubIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀SubIssue());
+        $operator = new RemoveSubIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀SubIssue());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
@@ -179,7 +186,7 @@ final class Issues
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Issues\DeleteLabel($this->browser, $this->authentication);
+        $operator = new DeleteLabel($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name']);
     }
@@ -206,12 +213,12 @@ final class Issues
 
         $arguments['milestone_number'] = $params['milestone_number'];
         unset($params['milestone_number']);
-        $operator = new Internal\Operator\Issues\DeleteMilestone($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber());
+        $operator = new DeleteMilestone($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
     }
 
-    /** @return Observable<Schema\Label>|Schema\BasicError */
+    /** @return Observable<Label>|BasicError */
     public function removeLabel(array $params): iterable|BasicError
     {
         $arguments = [];
@@ -239,7 +246,7 @@ final class Issues
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Issues\RemoveLabel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels🌀Name());
+        $operator = new RemoveLabel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels🌀Name());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['name']);
     }

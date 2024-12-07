@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Memberships\Username;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\TeamMembership;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetMembershipForUserLegacy
 {
@@ -27,18 +28,20 @@ final class GetMembershipForUserLegacy
     /**The handle for the GitHub user account. **/
     private string $username;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator, int $teamId, string $username)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Username $hydrator, int $teamId, string $username)
     {
-        $this->teamId   = $teamId;
-        $this->username = $username;
+        $this->teamId                  = $teamId;
+        $this->username                = $username;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], '/teams/{team_id}/memberships/{username}'));
+        return new Request('GET', (string) (new UriTemplate('/teams/{team_id}/memberships/{username}'))->expand(['team_id' => $this->teamId, 'username' => $this->username]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamMembership
+    public function createResponse(ResponseInterface $response): TeamMembership
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -50,17 +53,17 @@ final class GetMembershipForUserLegacy
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamMembership::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamMembership::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\TeamMembership::class, $body);
+                        return $this->hydrator->hydrateObject(TeamMembership::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

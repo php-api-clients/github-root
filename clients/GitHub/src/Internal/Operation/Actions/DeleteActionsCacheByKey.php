@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Caches;
+use ApiClients\Client\GitHub\Schema\ActionsCacheList;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class DeleteActionsCacheByKey
 {
@@ -30,20 +31,22 @@ final class DeleteActionsCacheByKey
     /**The full Git reference for narrowing down the cache. The `ref` for a branch should be formatted as `refs/heads/<branch name>`. To reference a pull request use `refs/pull/<number>/merge`. **/
     private string $ref;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Caches $hydrator, string $owner, string $repo, string $key, string $ref)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Caches $hydrator, string $owner, string $repo, string $key, string $ref)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->key   = $key;
-        $this->ref   = $ref;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->key                     = $key;
+        $this->ref                     = $ref;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{key}', '{ref}'], [$this->owner, $this->repo, $this->key, $this->ref], '/repos/{owner}/{repo}/actions/caches' . '?key={key}&ref={ref}'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/caches{?key,ref}'))->expand(['key' => $this->key, 'owner' => $this->owner, 'ref' => $this->ref, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ActionsCacheList
+    public function createResponse(ResponseInterface $response): ActionsCacheList
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class DeleteActionsCacheByKey
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsCacheList::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ActionsCacheList::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ActionsCacheList::class, $body);
+                        return $this->hydrator->hydrateObject(ActionsCacheList::class, $body);
                 }
 
                 break;

@@ -4,7 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForIssue;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForIssueComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForPullRequestReviewComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForTeamDiscussionCommentInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForTeamDiscussionCommentLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForTeamDiscussionInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\CreateForTeamDiscussionLegacy;
 use ApiClients\Client\GitHub\Schema\Reaction;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -15,7 +24,7 @@ use function array_key_exists;
 
 final class Reactions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -35,7 +44,7 @@ final class Reactions
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Reactions\CreateForTeamDiscussionLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Reactions());
+        $operator = new CreateForTeamDiscussionLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Reactions());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $params);
     }
@@ -62,7 +71,7 @@ final class Reactions
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Reactions\CreateForCommitComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId🌀Reactions());
+        $operator = new CreateForCommitComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
@@ -89,7 +98,7 @@ final class Reactions
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        $operator = new Internal\Operator\Reactions\CreateForIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Reactions());
+        $operator = new CreateForIssue($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
@@ -116,7 +125,7 @@ final class Reactions
 
         $arguments['release_id'] = $params['release_id'];
         unset($params['release_id']);
-        $operator = new Internal\Operator\Reactions\CreateForRelease($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Reactions());
+        $operator = new CreateForRelease($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $params);
     }
@@ -143,7 +152,7 @@ final class Reactions
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Reactions\CreateForTeamDiscussionInOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Reactions());
+        $operator = new CreateForTeamDiscussionInOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Reactions());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $params);
     }
@@ -170,7 +179,7 @@ final class Reactions
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Reactions\CreateForIssueComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId🌀Reactions());
+        $operator = new CreateForIssueComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
@@ -197,7 +206,7 @@ final class Reactions
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Reactions\CreateForPullRequestReviewComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId🌀Reactions());
+        $operator = new CreateForPullRequestReviewComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
@@ -224,7 +233,7 @@ final class Reactions
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Reactions\CreateForTeamDiscussionCommentLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
+        $operator = new CreateForTeamDiscussionCommentLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
@@ -257,7 +266,7 @@ final class Reactions
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Reactions\CreateForTeamDiscussionCommentInOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
+        $operator = new CreateForTeamDiscussionCommentInOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }

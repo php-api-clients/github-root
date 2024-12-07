@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowJobWaiting;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WorkflowJob
+final readonly class WorkflowJob implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowJobWaiting\WorkflowJob
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -220,7 +220,7 @@ final readonly class WorkflowJob
     "name": "generated",
     "node_id": "generated",
     "run_attempt": 11,
-    "run_id": 0.6,
+    "run_id": 6,
     "run_url": "https:\\/\\/example.com\\/",
     "runner_group_id": 15,
     "runner_group_name": "generated",
@@ -229,23 +229,23 @@ final readonly class WorkflowJob
     "started_at": "1970-01-01T00:00:00+00:00",
     "head_branch": "generated",
     "workflow_name": "generated",
-    "status": "waiting",
+    "status": "queued",
     "steps": [
         {
             "completed_at": "generated",
-            "conclusion": "cancelled",
+            "conclusion": "failure",
             "name": "generated",
             "number": 6,
             "started_at": "generated",
-            "status": "waiting"
+            "status": "completed"
         },
         {
             "completed_at": "generated",
-            "conclusion": "cancelled",
+            "conclusion": "failure",
             "name": "generated",
             "number": 6,
             "started_at": "generated",
-            "status": "waiting"
+            "status": "completed"
         }
     ],
     "url": "https:\\/\\/example.com\\/"

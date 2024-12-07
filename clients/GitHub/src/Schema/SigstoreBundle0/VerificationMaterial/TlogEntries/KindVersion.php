@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries;
 
-final readonly class KindVersion
+final readonly class KindVersion implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial\TlogEntries\KindVersion
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

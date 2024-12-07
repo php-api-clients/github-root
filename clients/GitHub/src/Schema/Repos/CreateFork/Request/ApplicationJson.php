@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\CreateFork\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateFork\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [

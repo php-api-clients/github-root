@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Collaborator;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\Collaborator\Permissions
 {
     public const SCHEMA_JSON         = '{
     "required": [

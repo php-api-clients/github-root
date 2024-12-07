@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\OrgMembership;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\OrgMembership\Permissions
 {
     public const SCHEMA_JSON         = '{
     "required": [

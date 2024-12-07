@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis\SkippedRepositories\NotFoundRepos;
+use ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysisSkippedRepoGroup;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SkippedRepositories
+final readonly class SkippedRepositories implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis\SkippedRepositories
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -276,82 +277,82 @@ final readonly class SkippedRepositories
     public const SCHEMA_DESCRIPTION  = 'Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "access_mismatch_repos": {
-        "repository_count": 2,
+        "repository_count": 16,
         "repositories": [
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             },
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             }
         ]
     },
     "not_found_repos": {
-        "repository_count": 2,
+        "repository_count": 16,
         "repository_full_names": [
             "generated",
             "generated"
         ]
     },
     "no_codeql_db_repos": {
-        "repository_count": 2,
+        "repository_count": 16,
         "repositories": [
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             },
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             }
         ]
     },
     "over_limit_repos": {
-        "repository_count": 2,
+        "repository_count": 16,
         "repositories": [
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             },
             {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             }
         ]
     }
 }';
 
     public function __construct(#[MapFrom('access_mismatch_repos')]
-    public Schema\CodeScanningVariantAnalysisSkippedRepoGroup $accessMismatchRepos, #[MapFrom('not_found_repos')]
-    public Schema\CodeScanningVariantAnalysis\SkippedRepositories\NotFoundRepos $notFoundRepos, #[MapFrom('no_codeql_db_repos')]
-    public Schema\CodeScanningVariantAnalysisSkippedRepoGroup $noCodeqlDbRepos, #[MapFrom('over_limit_repos')]
-    public Schema\CodeScanningVariantAnalysisSkippedRepoGroup $overLimitRepos,)
+    public CodeScanningVariantAnalysisSkippedRepoGroup $accessMismatchRepos, #[MapFrom('not_found_repos')]
+    public NotFoundRepos $notFoundRepos, #[MapFrom('no_codeql_db_repos')]
+    public CodeScanningVariantAnalysisSkippedRepoGroup $noCodeqlDbRepos, #[MapFrom('over_limit_repos')]
+    public CodeScanningVariantAnalysisSkippedRepoGroup $overLimitRepos,)
     {
     }
 }

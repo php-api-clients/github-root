@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Discussion\AnswerChosenBy;
+use ApiClients\Client\GitHub\Schema\Discussion\Category;
+use ApiClients\Client\GitHub\Schema\Discussion\Reactions;
+use ApiClients\Client\GitHub\Schema\Discussion\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Discussion
+final readonly class Discussion implements \ApiClients\Client\GitHub\Contract\Discussion
 {
     public const SCHEMA_JSON         = '{
     "title": "Discussion",
@@ -529,12 +532,12 @@ final readonly class Discussion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
     "answer_html_url": "generated",
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "category": {
         "created_at": "1970-01-01T00:00:00+00:00",
@@ -593,28 +596,28 @@ final readonly class Discussion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
     "labels": [
         {
-            "id": 208045946,
-            "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-            "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-            "name": "bug",
-            "description": "Something isn\'t working",
-            "color": "FFFFFF",
-            "default": true
+            "id": 2,
+            "node_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
         },
         {
-            "id": 208045946,
-            "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-            "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-            "name": "bug",
-            "description": "Something isn\'t working",
-            "color": "FFFFFF",
-            "default": true
+            "id": 2,
+            "node_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
         }
     ]
 }';
@@ -629,16 +632,16 @@ final readonly class Discussion
     public function __construct(#[MapFrom('active_lock_reason')]
     public string|null $activeLockReason, #[MapFrom('answer_chosen_at')]
     public string|null $answerChosenAt, #[MapFrom('answer_chosen_by')]
-    public Schema\Discussion\AnswerChosenBy|null $answerChosenBy, #[MapFrom('answer_html_url')]
+    public AnswerChosenBy|null $answerChosenBy, #[MapFrom('answer_html_url')]
     public string|null $answerHtmlUrl, #[MapFrom('author_association')]
-    public string $authorAssociation, public string $body, public Schema\Discussion\Category $category, public int $comments, #[MapFrom('created_at')]
+    public string $authorAssociation, public string $body, public Category $category, public int $comments, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, public bool $locked, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, public Schema\Discussion\Reactions|null $reactions, #[MapFrom('repository_url')]
+    public string $nodeId, public int $number, public Reactions|null $reactions, #[MapFrom('repository_url')]
     public string $repositoryUrl, public string $state, #[MapFrom('state_reason')]
     public string|null $stateReason, #[MapFrom('timeline_url')]
     public string|null $timelineUrl, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\Discussion\User|null $user, public array|null $labels,)
+    public string $updatedAt, public User|null $user, public array|null $labels,)
     {
     }
 }

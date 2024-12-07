@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListSelfHostedRunne
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -92,10 +92,10 @@ final readonly class Ok
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 1.1,
+    "total_count": 11,
     "runner_groups": [
         {
-            "id": 0.2,
+            "id": 2,
             "name": "generated",
             "visibility": "generated",
             "default": false,
@@ -113,7 +113,7 @@ final readonly class Ok
             ]
         },
         {
-            "id": 0.2,
+            "id": 2,
             "name": "generated",
             "visibility": "generated",
             "default": false,

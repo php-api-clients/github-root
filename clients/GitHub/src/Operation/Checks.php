@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\CheckRun;
 use ApiClients\Client\GitHub\Schema\CheckSuite;
 use ApiClients\Client\GitHub\Schema\CheckSuitePreference;
@@ -15,7 +14,7 @@ use ApiClients\Client\GitHub\Schema\Operations\Checks\ListForSuite\Response\Appl
 
 final class Checks
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
@@ -37,16 +36,10 @@ final class Checks
         return $this->operators->checks👷Update()->call($owner, $repo, $checkRunId, $params);
     }
 
-    /** @return Observable<Schema\CheckAnnotation> */
+    /** @return Observable<CheckAnnotation> */
     public function listAnnotations(string $owner, string $repo, int $checkRunId, int $perPage, int $page): iterable
     {
         return $this->operators->checks👷ListAnnotations()->call($owner, $repo, $checkRunId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\CheckAnnotation> */
-    public function listAnnotationsListing(string $owner, string $repo, int $checkRunId, int $perPage, int $page): iterable
-    {
-        return $this->operators->checks👷ListAnnotationsListing()->call($owner, $repo, $checkRunId, $perPage, $page);
     }
 
     /** @return */

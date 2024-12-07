@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTag\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Git\CreateTag\Request\ApplicationJson\Tagger;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateTag\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -69,7 +69,7 @@ final readonly class ApplicationJson
     "tag": "generated",
     "message": "generated",
     "object": "generated",
-    "type": "blob",
+    "type": "commit",
     "tagger": {
         "name": "generated",
         "email": "generated",
@@ -84,7 +84,7 @@ final readonly class ApplicationJson
      * type: The type of the object we're tagging. Normally this is a `commit` but it can also be a `tree` or a `blob`.
      * tagger: An object with information about the individual creating the tag.
      */
-    public function __construct(public string $tag, public string $message, public string $object, public string $type, public Schema\Git\CreateTag\Request\ApplicationJson\Tagger|null $tagger)
+    public function __construct(public string $tag, public string $message, public string $object, public string $type, public Tagger|null $tagger)
     {
     }
 }

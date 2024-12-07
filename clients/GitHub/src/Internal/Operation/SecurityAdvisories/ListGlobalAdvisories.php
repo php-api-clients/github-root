@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\SecurityAdvisories;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Advisories;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\GlobalAdvisory;
+use ApiClients\Client\GitHub\Schema\ValidationErrorSimple;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +22,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListGlobalAdvisories
 {
@@ -36,14 +38,14 @@ final class ListGlobalAdvisories
     /**If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.
 
     Example: `cwes=79,284,22` or `cwes[]=79&cwes[]=284&cwes[]=22` **/
-    private $cwes;
+    private string|array $cwes;
     /**Whether to only return advisories that have been withdrawn. **/
     private bool $isWithdrawn;
     /**If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.
     If the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.
 
     Example: `affects=package1,package2@1.0.0,package3@^2.0.0` or `affects[]=package1&affects[]=package2@1.0.0` **/
-    private $affects;
+    private string|array $affects;
     /**If specified, only return advisories that were published on a date or date range.
 
     For more information on the syntax of the date range, see "[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)." **/
@@ -75,34 +77,36 @@ final class ListGlobalAdvisories
     /**The property to sort the results by. **/
     private string $sort;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Advisories $hydrator, string $ghsaId, string $cveId, string $ecosystem, string $severity, $cwes, bool $isWithdrawn, $affects, string $published, string $updated, string $modified, string $epssPercentage, string $epssPercentile, string $before, string $after, string $type = 'reviewed', string $direction = 'desc', int $perPage = 30, string $sort = 'published')
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Advisories $hydrator, string $ghsaId, string $cveId, string $ecosystem, string $severity, string|array $cwes, bool $isWithdrawn, string|array $affects, string $published, string $updated, string $modified, string $epssPercentage, string $epssPercentile, string $before, string $after, string $type = 'reviewed', string $direction = 'desc', int $perPage = 30, string $sort = 'published')
     {
-        $this->ghsaId         = $ghsaId;
-        $this->cveId          = $cveId;
-        $this->ecosystem      = $ecosystem;
-        $this->severity       = $severity;
-        $this->cwes           = $cwes;
-        $this->isWithdrawn    = $isWithdrawn;
-        $this->affects        = $affects;
-        $this->published      = $published;
-        $this->updated        = $updated;
-        $this->modified       = $modified;
-        $this->epssPercentage = $epssPercentage;
-        $this->epssPercentile = $epssPercentile;
-        $this->before         = $before;
-        $this->after          = $after;
-        $this->type           = $type;
-        $this->direction      = $direction;
-        $this->perPage        = $perPage;
-        $this->sort           = $sort;
+        $this->ghsaId                  = $ghsaId;
+        $this->cveId                   = $cveId;
+        $this->ecosystem               = $ecosystem;
+        $this->severity                = $severity;
+        $this->cwes                    = $cwes;
+        $this->isWithdrawn             = $isWithdrawn;
+        $this->affects                 = $affects;
+        $this->published               = $published;
+        $this->updated                 = $updated;
+        $this->modified                = $modified;
+        $this->epssPercentage          = $epssPercentage;
+        $this->epssPercentile          = $epssPercentile;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->type                    = $type;
+        $this->direction               = $direction;
+        $this->perPage                 = $perPage;
+        $this->sort                    = $sort;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{ghsa_id}', '{cve_id}', '{ecosystem}', '{severity}', '{cwes}', '{is_withdrawn}', '{affects}', '{published}', '{updated}', '{modified}', '{epss_percentage}', '{epss_percentile}', '{before}', '{after}', '{type}', '{direction}', '{per_page}', '{sort}'], [$this->ghsaId, $this->cveId, $this->ecosystem, $this->severity, $this->cwes, $this->isWithdrawn, $this->affects, $this->published, $this->updated, $this->modified, $this->epssPercentage, $this->epssPercentile, $this->before, $this->after, $this->type, $this->direction, $this->perPage, $this->sort], '/advisories' . '?ghsa_id={ghsa_id}&cve_id={cve_id}&ecosystem={ecosystem}&severity={severity}&cwes={cwes}&is_withdrawn={is_withdrawn}&affects={affects}&published={published}&updated={updated}&modified={modified}&epss_percentage={epss_percentage}&epss_percentile={epss_percentile}&before={before}&after={after}&type={type}&direction={direction}&per_page={per_page}&sort={sort}'));
+        return new Request('GET', (string) (new UriTemplate('/advisories{?affects,after,before,cve_id,cwes,direction,ecosystem,epss_percentage,epss_percentile,ghsa_id,is_withdrawn,modified,per_page,published,severity,sort,type,updated}'))->expand(['affects' => $this->affects, 'after' => $this->after, 'before' => $this->before, 'cve_id' => $this->cveId, 'cwes' => $this->cwes, 'direction' => $this->direction, 'ecosystem' => $this->ecosystem, 'epss_percentage' => $this->epssPercentage, 'epss_percentile' => $this->epssPercentile, 'ghsa_id' => $this->ghsaId, 'is_withdrawn' => $this->isWithdrawn, 'modified' => $this->modified, 'per_page' => $this->perPage, 'published' => $this->published, 'severity' => $this->severity, 'sort' => $this->sort, 'type' => $this->type, 'updated' => $this->updated]));
     }
 
-    /** @return Observable<Schema\GlobalAdvisory> */
+    /** @return Observable<GlobalAdvisory> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -115,12 +119,12 @@ final class ListGlobalAdvisories
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\GlobalAdvisory {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): GlobalAdvisory {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalAdvisory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(GlobalAdvisory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\GlobalAdvisory::class, $body);
+                                return $this->hydrator->hydrateObject(GlobalAdvisory::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -133,17 +137,17 @@ final class ListGlobalAdvisories
                      **/
 
                     case 429:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(429, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(429, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationErrorSimple::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationErrorSimple(422, $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationErrorSimple(422, $this->hydrator->hydrateObject(ValidationErrorSimple::class, $body));
                 }
 
                 break;

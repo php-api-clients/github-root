@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Dependabot\CreateOrUpdateRepoSecret\Re
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Dependabot\CreateOrUpdateRepoSecret\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

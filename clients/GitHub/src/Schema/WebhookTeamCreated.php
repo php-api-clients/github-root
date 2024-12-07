@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookTeamCreated\Repository;
 
-final readonly class WebhookTeamCreated
+final readonly class WebhookTeamCreated implements \ApiClients\Client\GitHub\Contract\WebhookTeamCreated
 {
     public const SCHEMA_JSON         = '{
     "title": "team created event",
@@ -1185,33 +1185,33 @@ final readonly class WebhookTeamCreated
     "action": "created",
     "enterprise": {
         "description": "generated",
-        "html_url": "https:\\/\\/github.com\\/enterprises\\/octo-business",
+        "html_url": "https:\\/\\/example.com\\/",
         "website_url": "https:\\/\\/example.com\\/",
-        "id": 42,
-        "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-        "name": "Octo Business",
-        "slug": "octo-business",
-        "created_at": "2019-01-26T19:01:12Z",
-        "updated_at": "2019-01-26T19:14:43Z",
+        "id": 2,
+        "node_id": "generated",
+        "name": "generated",
+        "slug": "generated",
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "updated_at": "1970-01-01T00:00:00+00:00",
         "avatar_url": "https:\\/\\/example.com\\/"
     },
     "installation": {
-        "id": 1,
-        "node_id": "MDQ6VXNlcjU4MzIzMQ=="
+        "id": 2,
+        "node_id": "generated"
     },
     "organization": {
-        "login": "github",
-        "id": 1,
-        "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-        "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-        "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-        "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-        "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-        "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-        "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "description": "A great organization"
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "hooks_url": "generated",
+        "issues_url": "generated",
+        "members_url": "generated",
+        "public_members_url": "generated",
+        "avatar_url": "generated",
+        "description": "generated"
     },
     "repository": {
         "allow_auto_merge": false,
@@ -1232,7 +1232,7 @@ final readonly class WebhookTeamCreated
         "compare_url": "generated",
         "contents_url": "generated",
         "contributors_url": "https:\\/\\/example.com\\/",
-        "created_at": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
         "custom_properties": [],
         "default_branch": "generated",
         "delete_branch_on_merge": false,
@@ -1304,7 +1304,7 @@ final readonly class WebhookTeamCreated
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1318,7 +1318,7 @@ final readonly class WebhookTeamCreated
         "private": false,
         "public": false,
         "pulls_url": "generated",
-        "pushed_at": null,
+        "pushed_at": "1970-01-01T00:00:00+00:00",
         "releases_url": "generated",
         "role_name": "generated",
         "size": 4,
@@ -1339,33 +1339,33 @@ final readonly class WebhookTeamCreated
         "trees_url": "generated",
         "updated_at": "1970-01-01T00:00:00+00:00",
         "url": "https:\\/\\/example.com\\/",
-        "visibility": "internal",
+        "visibility": "public",
         "watchers": 8,
         "watchers_count": 14
     },
     "sender": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "team": {
         "deleted": false,
@@ -1384,14 +1384,14 @@ final readonly class WebhookTeamCreated
             "node_id": "generated",
             "permission": "generated",
             "privacy": "open",
-            "notification_setting": "notifications_disabled",
+            "notification_setting": "notifications_enabled",
             "repositories_url": "https:\\/\\/example.com\\/",
             "slug": "generated",
             "url": "https:\\/\\/example.com\\/"
         },
         "permission": "generated",
         "privacy": "open",
-        "notification_setting": "notifications_disabled",
+        "notification_setting": "notifications_enabled",
         "repositories_url": "https:\\/\\/example.com\\/",
         "slug": "generated",
         "url": "https:\\/\\/example.com\\/"
@@ -1411,7 +1411,7 @@ final readonly class WebhookTeamCreated
      * sender: A GitHub user.
      * team: Groups of organization members that gives permissions on specified repositories.
      */
-    public function __construct(public string $action, public Schema\EnterpriseWebhooks|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks $organization, public Schema\WebhookTeamCreated\Repository|null $repository, public Schema\SimpleUser $sender, public Schema\WebhooksTeam1 $team)
+    public function __construct(public string $action, public EnterpriseWebhooks|null $enterprise, public SimpleInstallation|null $installation, public OrganizationSimpleWebhooks $organization, public Repository|null $repository, public SimpleUser $sender, public WebhooksTeam1 $team)
     {
     }
 }

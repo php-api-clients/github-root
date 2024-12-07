@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class UserMarketplacePurchase
+final readonly class UserMarketplacePurchase implements \ApiClients\Client\GitHub\Contract\UserMarketplacePurchase
 {
     public const SCHEMA_JSON         = '{
     "title": "User Marketplace Purchase",
@@ -230,12 +229,12 @@ final readonly class UserMarketplacePurchase
     public const SCHEMA_TITLE        = 'User Marketplace Purchase';
     public const SCHEMA_DESCRIPTION  = 'User Marketplace Purchase';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "billing_cycle": "monthly",
-    "next_billing_date": "2017-11-11T00:00:00Z",
+    "billing_cycle": "generated",
+    "next_billing_date": "1970-01-01T00:00:00+00:00",
     "unit_count": 10,
-    "on_free_trial": true,
-    "free_trial_ends_on": "2017-11-11T00:00:00Z",
-    "updated_at": "2017-11-02T01:12:12Z",
+    "on_free_trial": false,
+    "free_trial_ends_on": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "account": {
         "url": "https:\\/\\/example.com\\/",
         "id": 2,
@@ -246,21 +245,21 @@ final readonly class UserMarketplacePurchase
         "organization_billing_email": "hi@example.com"
     },
     "plan": {
-        "url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313",
-        "accounts_url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts",
-        "id": 1313,
-        "number": 3,
-        "name": "Pro",
-        "description": "A professional-grade CI solution",
-        "monthly_price_in_cents": 1099,
-        "yearly_price_in_cents": 11870,
-        "price_model": "FLAT_RATE",
-        "has_free_trial": true,
+        "url": "https:\\/\\/example.com\\/",
+        "accounts_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "number": 6,
+        "name": "generated",
+        "description": "generated",
+        "monthly_price_in_cents": 22,
+        "yearly_price_in_cents": 21,
+        "price_model": "FREE",
+        "has_free_trial": false,
         "unit_name": "generated",
-        "state": "published",
+        "state": "generated",
         "bullets": [
-            "Up to 25 private repositories",
-            "Up to 25 private repositories"
+            "generated",
+            "generated"
         ]
     }
 }';
@@ -274,7 +273,7 @@ final readonly class UserMarketplacePurchase
     public int|null $unitCount, #[MapFrom('on_free_trial')]
     public bool $onFreeTrial, #[MapFrom('free_trial_ends_on')]
     public string|null $freeTrialEndsOn, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\MarketplaceAccount $account, public Schema\MarketplaceListingPlan $plan,)
+    public string|null $updatedAt, public MarketplaceAccount $account, public MarketplaceListingPlan $plan,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookInstallationRepositoriesAdded;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoriesRemoved
+final readonly class RepositoriesRemoved implements \ApiClients\Client\GitHub\Contract\WebhookInstallationRepositoriesAdded\RepositoriesRemoved
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

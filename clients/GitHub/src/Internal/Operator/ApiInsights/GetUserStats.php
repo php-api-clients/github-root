@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetUserStats
     public const OPERATION_ID    = 'api-insights/get-user-stats';
     public const OPERATION_MATCH = 'GET /orgs/{org}/insights/api/user-stats/{user_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private UserId $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ApiInsightsUserStats> */
+    /** @return Observable<ApiInsightsUserStats> */
     public function call(string $org, string $userId, string $minTimestamp, string $maxTimestamp, array $sort, int $page = 1, int $perPage = 30, string $direction = 'desc'): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\ApiInsights\GetUserStats($this->responseSchemaValidator, $this->hydrator, $org, $userId, $minTimestamp, $maxTimestamp, $sort, $page, $perPage, $direction);

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningScan
+final readonly class SecretScanningScan implements \ApiClients\Client\GitHub\Contract\SecretScanningScan
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

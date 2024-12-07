@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowJobInProgress\WorkflowJ
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Steps
+final readonly class Steps implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowJobInProgress\WorkflowJob\Steps
 {
     public const SCHEMA_JSON         = '{
     "title": "Workflow Step",
@@ -66,11 +66,11 @@ final readonly class Steps
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "completed_at": "generated",
-    "conclusion": "cancelled",
+    "conclusion": "failure",
     "name": "generated",
     "number": 6,
     "started_at": "generated",
-    "status": "pending"
+    "status": "in_progress"
 }';
 
     public function __construct(#[MapFrom('completed_at')]

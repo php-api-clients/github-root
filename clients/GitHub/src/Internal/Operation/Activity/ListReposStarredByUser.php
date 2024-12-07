@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Activity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Starred;
+use ApiClients\Client\GitHub\Schema\Repository;
+use ApiClients\Client\GitHub\Schema\StarredRepository;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListReposStarredByUser
 {
@@ -33,21 +34,23 @@ final class ListReposStarredByUser
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Starred $hydrator, string $username, string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Starred $hydrator, string $username, string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->username  = $username;
-        $this->sort      = $sort;
-        $this->direction = $direction;
-        $this->perPage   = $perPage;
-        $this->page      = $page;
+        $this->username                = $username;
+        $this->sort                    = $sort;
+        $this->direction               = $direction;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{username}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->username, $this->sort, $this->direction, $this->perPage, $this->page], '/users/{username}/starred' . '?sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/starred{?direction,page,per_page,sort}'))->expand(['direction' => $this->direction, 'page' => $this->page, 'per_page' => $this->perPage, 'sort' => $this->sort, 'username' => $this->username]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\StarredRepository|Schema\Repository
+    public function createResponse(ResponseInterface $response): StarredRepository|Repository
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -61,19 +64,19 @@ final class ListReposStarredByUser
                     case 200:
                         $error = new RuntimeException();
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\StarredRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(StarredRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\StarredRepository::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(StarredRepository::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
 
                         items_application_json_two_hundred_aaaaa:
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(Repository::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaab;
                         }
 

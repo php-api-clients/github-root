@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Packages;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Packages\PackageType\PackageName\Versions\PackageVersionId;
+use ApiClients\Client\GitHub\Schema\PackageVersion;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetPackageVersionForAuthenticatedUser
 {
@@ -28,19 +29,21 @@ final class GetPackageVersionForAuthenticatedUser
     /**Unique identifier of the package version. **/
     private int $packageVersionId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\User\Packages\PackageType\PackageName\Versions\PackageVersionId $hydrator, string $packageType, string $packageName, int $packageVersionId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private PackageVersionId $hydrator, string $packageType, string $packageName, int $packageVersionId)
     {
-        $this->packageType      = $packageType;
-        $this->packageName      = $packageName;
-        $this->packageVersionId = $packageVersionId;
+        $this->packageType             = $packageType;
+        $this->packageName             = $packageName;
+        $this->packageVersionId        = $packageVersionId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{package_type}', '{package_name}', '{package_version_id}'], [$this->packageType, $this->packageName, $this->packageVersionId], '/user/packages/{package_type}/{package_name}/versions/{package_version_id}'));
+        return new Request('GET', (string) (new UriTemplate('/user/packages/{package_type}/{package_name}/versions/{package_version_id}'))->expand(['package_name' => $this->packageName, 'package_type' => $this->packageType, 'package_version_id' => $this->packageVersionId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\PackageVersion
+    public function createResponse(ResponseInterface $response): PackageVersion
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +55,9 @@ final class GetPackageVersionForAuthenticatedUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PackageVersion::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(PackageVersion::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\PackageVersion::class, $body);
+                        return $this->hydrator->hydrateObject(PackageVersion::class, $body);
                 }
 
                 break;

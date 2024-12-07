@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookGollum;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Pages
+final readonly class Pages implements \ApiClients\Client\GitHub\Contract\WebhookGollum\Pages
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -55,7 +55,7 @@ final readonly class Pages
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "action": "edited",
+    "action": "created",
     "html_url": "https:\\/\\/example.com\\/",
     "page_name": "generated",
     "sha": "generated",

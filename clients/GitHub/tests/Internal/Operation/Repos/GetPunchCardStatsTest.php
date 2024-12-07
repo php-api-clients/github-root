@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Repos;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operation\Repos\GetPunchCardStats;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -28,7 +28,7 @@ final class GetPunchCardStatsTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/stats/punch_card', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Repos\GetPunchCardStats::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetPunchCardStats::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 

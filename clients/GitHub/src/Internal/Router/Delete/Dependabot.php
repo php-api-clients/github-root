@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\DeleteOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\DeleteRepoSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\RemoveSelectedRepoFromOrgSecret;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +18,7 @@ use function array_key_exists;
 
 final class Dependabot
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -41,7 +44,7 @@ final class Dependabot
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Dependabot\DeleteRepoSecret($this->browser, $this->authentication);
+        $operator = new DeleteRepoSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
@@ -62,7 +65,7 @@ final class Dependabot
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Dependabot\DeleteOrgSecret($this->browser, $this->authentication);
+        $operator = new DeleteOrgSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
@@ -89,7 +92,7 @@ final class Dependabot
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Dependabot\RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication);
+        $operator = new RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }

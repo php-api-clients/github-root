@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Issues;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Labels\Name;
+use ApiClients\Client\GitHub\Schema\Issues\UpdateLabel\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\Label;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class UpdateLabel
 {
@@ -27,20 +29,23 @@ final class UpdateLabel
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator, string $owner, string $repo, private string $name)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Name $hydrator, string $owner, string $repo, private string $name)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\UpdateLabel\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{name}'], [$this->owner, $this->repo, $this->name], '/repos/{owner}/{repo}/labels/{name}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', (string) (new UriTemplate('/repos/{owner}/{repo}/labels/{name}'))->expand(['name' => $this->name, 'owner' => $this->owner, 'repo' => $this->repo]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Label
+    public function createResponse(ResponseInterface $response): Label
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +57,9 @@ final class UpdateLabel
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Label::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Label::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Label::class, $body);
+                        return $this->hydrator->hydrateObject(Label::class, $body);
                 }
 
                 break;

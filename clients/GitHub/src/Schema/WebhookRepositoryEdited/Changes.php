@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryEdited\Changes\DefaultBranch;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryEdited\Changes\Description;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryEdited\Changes\Homepage;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryEdited\Changes\Topics;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -79,13 +82,11 @@ final readonly class Changes
     "homepage": {
         "from": "generated"
     },
-    "topics": {
-        "from": null
-    }
+    "topics": []
 }';
 
     public function __construct(#[MapFrom('default_branch')]
-    public Schema\WebhookRepositoryEdited\Changes\DefaultBranch|null $defaultBranch, public Schema\WebhookRepositoryEdited\Changes\Description|null $description, public Schema\WebhookRepositoryEdited\Changes\Homepage|null $homepage, public Schema\WebhookRepositoryEdited\Changes\Topics|null $topics,)
+    public DefaultBranch|null $defaultBranch, public Description|null $description, public Homepage|null $homepage, public Topics|null $topics,)
     {
     }
 }

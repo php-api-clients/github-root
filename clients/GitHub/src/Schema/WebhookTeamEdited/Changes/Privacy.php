@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes;
 
-final readonly class Privacy
+final readonly class Privacy implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Privacy
 {
     public const SCHEMA_JSON         = '{
     "required": [

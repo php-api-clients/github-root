@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AlertAutoDismissedAt
+final readonly class AlertAutoDismissedAt implements \ApiClients\Client\GitHub\Contract\AlertAutoDismissedAt
 {
     public const SCHEMA_JSON         = '{
     "type": [

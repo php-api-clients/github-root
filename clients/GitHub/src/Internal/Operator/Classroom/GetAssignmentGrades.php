@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Classroom;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Assignments\AssignmentId\Grades;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetAssignmentGrades
     public const OPERATION_ID    = 'classroom/get-assignment-grades';
     public const OPERATION_MATCH = 'GET /assignments/{assignment_id}/grades';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Assignments\AssignmentId\Grades $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Grades $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ClassroomAssignmentGrade> */
+    /** @return Observable<ClassroomAssignmentGrade> */
     public function call(int $assignmentId): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Classroom\GetAssignmentGrades($this->responseSchemaValidator, $this->hydrator, $assignmentId);

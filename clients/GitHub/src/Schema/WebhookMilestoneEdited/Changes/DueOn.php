@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes;
 
-final readonly class DueOn
+final readonly class DueOn implements \ApiClients\Client\GitHub\Contract\WebhookMilestoneEdited\Changes\DueOn
 {
     public const SCHEMA_JSON         = '{
     "required": [

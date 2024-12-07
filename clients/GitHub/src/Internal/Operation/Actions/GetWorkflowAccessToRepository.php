@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\Access;
+use ApiClients\Client\GitHub\Schema\ActionsWorkflowAccessToRepository;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetWorkflowAccessToRepository
 {
@@ -26,18 +27,20 @@ final class GetWorkflowAccessToRepository
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\Access $hydrator, string $owner, string $repo)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Access $hydrator, string $owner, string $repo)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/actions/permissions/access'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/permissions/access'))->expand(['owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ActionsWorkflowAccessToRepository
+    public function createResponse(ResponseInterface $response): ActionsWorkflowAccessToRepository
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,9 +52,9 @@ final class GetWorkflowAccessToRepository
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsWorkflowAccessToRepository::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ActionsWorkflowAccessToRepository::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ActionsWorkflowAccessToRepository::class, $body);
+                        return $this->hydrator->hydrateObject(ActionsWorkflowAccessToRepository::class, $body);
                 }
 
                 break;

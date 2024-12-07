@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded
+final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookSecretScanningAlertLocationCreatedFormEncoded
 {
     public const SCHEMA_JSON         = '{
     "title": "Secret Scanning Alert Location Created Event",

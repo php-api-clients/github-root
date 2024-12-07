@@ -4,28 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\License;
 use ApiClients\Client\GitHub\Schema\LicenseContent;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Licenses
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\LicenseSimple>|WithoutBody */
+    /** @return Observable<LicenseSimple>|WithoutBody */
     public function getAllCommonlyUsed(bool $featured, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->licenses👷GetAllCommonlyUsed()->call($featured, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\LicenseSimple>|WithoutBody */
-    public function getAllCommonlyUsedListing(bool $featured, int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->licenses👷GetAllCommonlyUsedListing()->call($featured, $perPage, $page);
     }
 
     /** @return */

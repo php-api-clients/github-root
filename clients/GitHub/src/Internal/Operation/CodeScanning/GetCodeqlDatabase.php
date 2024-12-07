@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\CodeScanning;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Codeql\Databases\Language;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\CodeScanningCodeqlDatabase;
+use ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetCodeqlDatabase
 {
@@ -30,19 +32,21 @@ final class GetCodeqlDatabase
     /**The language of the CodeQL database. **/
     private string $language;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Codeql\Databases\Language $hydrator, string $owner, string $repo, string $language)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Language $hydrator, string $owner, string $repo, string $language)
     {
-        $this->owner    = $owner;
-        $this->repo     = $repo;
-        $this->language = $language;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->language                = $language;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{language}'], [$this->owner, $this->repo, $this->language], '/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}'))->expand(['language' => $this->language, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CodeScanningCodeqlDatabase|WithoutBody
+    public function createResponse(ResponseInterface $response): CodeScanningCodeqlDatabase|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,33 +58,33 @@ final class GetCodeqlDatabase
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeScanningCodeqlDatabase::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(CodeScanningCodeqlDatabase::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CodeScanningCodeqlDatabase::class, $body);
+                        return $this->hydrator->hydrateObject(CodeScanningCodeqlDatabase::class, $body);
                     /**
                      * Response if GitHub Advanced Security is not enabled for this repository
                      **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(403, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Service unavailable
                      **/
 
                     case 503:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ServiceUnavailable::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable(503, $this->hydrator->hydrateObject(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable(503, $this->hydrator->hydrateObject(ServiceUnavailable::class, $body));
                 }
 
                 break;

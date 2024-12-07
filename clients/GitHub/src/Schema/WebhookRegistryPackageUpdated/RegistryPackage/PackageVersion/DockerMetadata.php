@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion;
 
-final readonly class DockerMetadata
+final readonly class DockerMetadata implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\DockerMetadata
 {
     public const SCHEMA_JSON         = '{
     "type": [

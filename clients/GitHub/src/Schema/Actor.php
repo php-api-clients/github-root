@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Actor
+final readonly class Actor implements \ApiClients\Client\GitHub\Contract\Actor
 {
     public const SCHEMA_JSON         = '{
     "title": "Actor",

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepoSearchResultItem;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T205818DE\T09BC5C97\TDE84B773\TBE223C26;
 
-final readonly class Permissions extends Schema\AliasAbstract\Tiet205818DE\Tiet09BC5C97\TietDE84B773\TietBE223C26
+final readonly class Permissions extends TBE223C26
 {
 }

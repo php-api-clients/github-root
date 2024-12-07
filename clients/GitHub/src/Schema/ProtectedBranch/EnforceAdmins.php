@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ProtectedBranch;
 
-final readonly class EnforceAdmins
+final readonly class EnforceAdmins implements \ApiClients\Client\GitHub\Contract\ProtectedBranch\EnforceAdmins
 {
     public const SCHEMA_JSON         = '{
     "required": [

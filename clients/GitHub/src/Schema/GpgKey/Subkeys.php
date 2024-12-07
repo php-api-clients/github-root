@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\GpgKey;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Subkeys
+final readonly class Subkeys implements \ApiClients\Client\GitHub\Contract\GpgKey\Subkeys
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

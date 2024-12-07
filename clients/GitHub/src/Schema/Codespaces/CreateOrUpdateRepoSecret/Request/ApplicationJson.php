@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Codespaces\CreateOrUpdateRepoSecret\Re
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\CreateOrUpdateRepoSecret\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

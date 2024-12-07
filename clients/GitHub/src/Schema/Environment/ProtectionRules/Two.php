@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Environment\ProtectionRules;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Two
+final readonly class Two implements \ApiClients\Client\GitHub\Contract\Environment\ProtectionRules\Two
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -39,9 +39,9 @@ final readonly class Two
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3515,
-    "node_id": "MDQ6R2F0ZTM1MTU=",
-    "type": "branch_policy"
+    "id": 2,
+    "node_id": "generated",
+    "type": "generated"
 }';
 
     public function __construct(public int $id, #[MapFrom('node_id')]

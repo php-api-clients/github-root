@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository\Permissions;
 
-final readonly class Repository
+final readonly class Repository implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Repository
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -53,7 +53,7 @@ final readonly class Repository
     }
 }';
 
-    public function __construct(public Schema\WebhookTeamEdited\Changes\Repository\Permissions $permissions)
+    public function __construct(public Permissions $permissions)
     {
     }
 }

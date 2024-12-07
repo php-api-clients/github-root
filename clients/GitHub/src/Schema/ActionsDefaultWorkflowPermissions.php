@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ActionsDefaultWorkflowPermissions
+final readonly class ActionsDefaultWorkflowPermissions implements \ApiClients\Client\GitHub\Contract\ActionsDefaultWorkflowPermissions
 {
     public const SCHEMA_JSON         = '{
     "enum": [

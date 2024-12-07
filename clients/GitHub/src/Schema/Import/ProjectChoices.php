@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Import;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ProjectChoices
+final readonly class ProjectChoices implements \ApiClients\Client\GitHub\Contract\Import\ProjectChoices
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -4,10 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Author;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bin;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bugs;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\DevDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Directories;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dist;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Engines;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Man;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\OptionalDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\PeerDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Repository;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Scripts;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class NpmMetadata
+final readonly class NpmMetadata implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\NpmMetadata
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -222,14 +234,14 @@ final readonly class NpmMetadata
 }';
 
     public function __construct(public string|null $name, public string|null $version, #[MapFrom('npm_user')]
-    public string|null $npmUser, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Author|null $author, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bugs|null $bugs, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|null $dependencies, #[MapFrom('dev_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\DevDependencies|null $devDependencies, #[MapFrom('peer_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\PeerDependencies|null $peerDependencies, #[MapFrom('optional_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\OptionalDependencies|null $optionalDependencies, public string|null $description, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dist|null $dist, #[MapFrom('git_head')]
-    public string|null $gitHead, public string|null $homepage, public string|null $license, public string|null $main, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Repository|null $repository, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Scripts|null $scripts, public string|null $id, #[MapFrom('node_version')]
+    public string|null $npmUser, public Author|null $author, public Bugs|null $bugs, public Dependencies|null $dependencies, #[MapFrom('dev_dependencies')]
+    public DevDependencies|null $devDependencies, #[MapFrom('peer_dependencies')]
+    public PeerDependencies|null $peerDependencies, #[MapFrom('optional_dependencies')]
+    public OptionalDependencies|null $optionalDependencies, public string|null $description, public Dist|null $dist, #[MapFrom('git_head')]
+    public string|null $gitHead, public string|null $homepage, public string|null $license, public string|null $main, public Repository|null $repository, public Scripts|null $scripts, public string|null $id, #[MapFrom('node_version')]
     public string|null $nodeVersion, #[MapFrom('npm_version')]
     public string|null $npmVersion, #[MapFrom('has_shrinkwrap')]
-    public bool|null $hasShrinkwrap, public array|null $maintainers, public array|null $contributors, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Engines|null $engines, public array|null $keywords, public array|null $files, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bin|null $bin, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Man|null $man, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Directories|null $directories, public array|null $os, public array|null $cpu, public string|null $readme, #[MapFrom('installation_command')]
+    public bool|null $hasShrinkwrap, public array|null $maintainers, public array|null $contributors, public Engines|null $engines, public array|null $keywords, public array|null $files, public Bin|null $bin, public Man|null $man, public Directories|null $directories, public array|null $os, public array|null $cpu, public string|null $readme, #[MapFrom('installation_command')]
     public string|null $installationCommand, #[MapFrom('release_id')]
     public int|null $releaseId, #[MapFrom('commit_oid')]
     public string|null $commitOid, #[MapFrom('published_via_actions')]

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleInstallation
+final readonly class SimpleInstallation implements \ApiClients\Client\GitHub\Contract\SimpleInstallation
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Installation",
@@ -38,8 +38,8 @@ final readonly class SimpleInstallation
 for and sent to a GitHub App. For more information,
 see "[Using webhooks with GitHub Apps](https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps)."';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "node_id": "MDQ6VXNlcjU4MzIzMQ=="
+    "id": 2,
+    "node_id": "generated"
 }';
 
     /**

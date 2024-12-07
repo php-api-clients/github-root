@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Licenses\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Licenses\GetAllCommonlyUsed;
+use ApiClients\Client\GitHub\Internal\Operator\Licenses\GetForRepo;
 use ApiClients\Client\GitHub\Schema\License;
 use ApiClients\Client\GitHub\Schema\LicenseContent;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +20,11 @@ use function array_key_exists;
 
 final class Licenses
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\LicenseSimple>|WithoutBody */
+    /** @return Observable<LicenseSimple>|WithoutBody */
     public function getAllCommonlyUsed(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -44,7 +46,7 @@ final class Licenses
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Licenses\GetAllCommonlyUsed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Licenses());
+        $operator = new GetAllCommonlyUsed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Licenses());
 
         return $operator->call($arguments['featured'], $arguments['per_page'], $arguments['page']);
     }
@@ -59,7 +61,7 @@ final class Licenses
 
         $arguments['license'] = $params['license'];
         unset($params['license']);
-        $operator = new Internal\Operator\Licenses\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Licenses🌀License());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Licenses🌀License());
 
         return $operator->call($arguments['license']);
     }
@@ -86,7 +88,7 @@ final class Licenses
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Licenses\GetForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀License());
+        $operator = new GetForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀License());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }

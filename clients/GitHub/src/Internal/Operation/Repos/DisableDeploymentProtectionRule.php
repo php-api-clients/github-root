@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DisableDeploymentProtectionRule
 {
@@ -35,7 +34,7 @@ final class DisableDeploymentProtectionRule
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{environment_name}', '{repo}', '{owner}', '{protection_rule_id}'], [$this->environmentName, $this->repo, $this->owner, $this->protectionRuleId], '/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}'))->expand(['environment_name' => $this->environmentName, 'owner' => $this->owner, 'protection_rule_id' => $this->protectionRuleId, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GistSimple;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\GistSimple\ForkOf\Files;
+use ApiClients\Client\GitHub\Schema\SimpleUser;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ForkOf
+final readonly class ForkOf implements \ApiClients\Client\GitHub\Contract\GistSimple\ForkOf
 {
     public const SCHEMA_JSON         = '{
     "title": "Gist",
@@ -495,51 +496,51 @@ final readonly class ForkOf
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "comments_url": "https:\\/\\/example.com\\/",
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "truncated": false,
     "forks": [
@@ -558,10 +559,10 @@ final readonly class ForkOf
     public string $nodeId, #[MapFrom('git_pull_url')]
     public string $gitPullUrl, #[MapFrom('git_push_url')]
     public string $gitPushUrl, #[MapFrom('html_url')]
-    public string $htmlUrl, public Schema\GistSimple\ForkOf\Files $files, public bool $public, #[MapFrom('created_at')]
+    public string $htmlUrl, public Files $files, public bool $public, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public string|null $description, public int $comments, public Schema\SimpleUser|null $user, #[MapFrom('comments_url')]
-    public string $commentsUrl, public Schema\SimpleUser|null $owner, public bool|null $truncated, public array|null $forks, public array|null $history,)
+    public string $updatedAt, public string|null $description, public int $comments, public SimpleUser|null $user, #[MapFrom('comments_url')]
+    public string $commentsUrl, public SimpleUser|null $owner, public bool|null $truncated, public array|null $forks, public array|null $history,)
     {
     }
 }

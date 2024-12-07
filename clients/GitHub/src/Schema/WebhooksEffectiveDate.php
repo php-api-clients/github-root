@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksEffectiveDate
+final readonly class WebhooksEffectiveDate implements \ApiClients\Client\GitHub\Contract\WebhooksEffectiveDate
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

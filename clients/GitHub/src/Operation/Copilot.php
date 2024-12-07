@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\CopilotOrganizationDetails;
 use ApiClients\Client\GitHub\Schema\CopilotSeatDetails;
 use ApiClients\Client\GitHub\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created;
@@ -14,7 +13,7 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Copilot
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
@@ -24,52 +23,28 @@ final class Copilot
         return $this->operators->copilot👷ListCopilotSeatsForEnterprise()->call($enterprise, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
+    /** @return Observable<CopilotUsageMetricsDay> */
     public function copilotMetricsForEnterprise(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForEnterprise()->call($enterprise, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
-    public function copilotMetricsForEnterpriseListing(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷CopilotMetricsForEnterpriseListing()->call($enterprise, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
+    /** @return Observable<CopilotUsageMetrics> */
     public function usageMetricsForEnterprise(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷UsageMetricsForEnterprise()->call($enterprise, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseListing(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterpriseListing()->call($enterprise, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
+    /** @return Observable<CopilotUsageMetricsDay> */
     public function copilotMetricsForEnterpriseTeam(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForEnterpriseTeam()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
-    public function copilotMetricsForEnterpriseTeamListing(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷CopilotMetricsForEnterpriseTeamListing()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
+    /** @return Observable<CopilotUsageMetrics> */
     public function usageMetricsForEnterpriseTeam(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷UsageMetricsForEnterpriseTeam()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseTeamListing(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterpriseTeamListing()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
     }
 
     /** @return */
@@ -108,28 +83,16 @@ final class Copilot
         return $this->operators->copilot👷CancelCopilotSeatAssignmentForUsers()->call($org, $params);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
+    /** @return Observable<CopilotUsageMetricsDay> */
     public function copilotMetricsForOrganization(string $org, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForOrganization()->call($org, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
-    public function copilotMetricsForOrganizationListing(string $org, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷CopilotMetricsForOrganizationListing()->call($org, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
+    /** @return Observable<CopilotUsageMetrics> */
     public function usageMetricsForOrg(string $org, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷UsageMetricsForOrg()->call($org, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForOrgListing(string $org, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForOrgListing()->call($org, $since, $until, $page, $perPage);
     }
 
     /** @return */
@@ -138,27 +101,15 @@ final class Copilot
         return $this->operators->copilot👷GetCopilotSeatDetailsForUser()->call($org, $username);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
+    /** @return Observable<CopilotUsageMetricsDay> */
     public function copilotMetricsForTeam(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForTeam()->call($org, $teamSlug, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
-    public function copilotMetricsForTeamListing(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷CopilotMetricsForTeamListing()->call($org, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
+    /** @return Observable<CopilotUsageMetrics> */
     public function usageMetricsForTeam(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷UsageMetricsForTeam()->call($org, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForTeamListing(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForTeamListing()->call($org, $teamSlug, $since, $until, $page, $perPage);
     }
 }

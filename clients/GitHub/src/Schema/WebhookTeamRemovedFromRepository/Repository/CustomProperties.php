@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamRemovedFromRepository\Repository;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T822B8B83\T93E9FF34\T64571DFE\T4D2FA622;
 
-final readonly class CustomProperties extends Schema\AliasAbstract\Tiet822B8B83\Tiet93E9FF34\Tiet64571DFE\Tiet4D2FA622
+final readonly class CustomProperties extends T4D2FA622
 {
 }

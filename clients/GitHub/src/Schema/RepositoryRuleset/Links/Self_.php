@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links;
 
-final readonly class Self_
+final readonly class Self_ implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Links\Self_
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

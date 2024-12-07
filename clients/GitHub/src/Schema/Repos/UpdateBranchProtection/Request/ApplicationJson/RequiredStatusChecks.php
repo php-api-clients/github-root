@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request\ApplicationJson;
 
-final readonly class RequiredStatusChecks
+final readonly class RequiredStatusChecks implements \ApiClients\Client\GitHub\Contract\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredStatusChecks
 {
     public const SCHEMA_JSON         = '{
     "required": [

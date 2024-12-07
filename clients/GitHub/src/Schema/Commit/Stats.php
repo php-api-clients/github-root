@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Commit;
 
-final readonly class Stats
+final readonly class Stats implements \ApiClients\Client\GitHub\Contract\Commit\Stats
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

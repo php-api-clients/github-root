@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From;
 
-final readonly class Owner
+final readonly class Owner implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryTransferred\Changes\Owner
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -231,14 +231,14 @@ final readonly class Owner
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         }
     }
 }';
 
-    public function __construct(public Schema\WebhookRepositoryTransferred\Changes\Owner\From $from)
+    public function __construct(public From $from)
     {
     }
 }

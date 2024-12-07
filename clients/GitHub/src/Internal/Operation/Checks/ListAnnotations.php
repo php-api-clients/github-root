@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Checks;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId\Annotations;
+use ApiClients\Client\GitHub\Schema\CheckAnnotation;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -18,7 +19,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListAnnotations
 {
@@ -35,21 +35,23 @@ final class ListAnnotations
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId\Annotations $hydrator, string $owner, string $repo, int $checkRunId, int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Annotations $hydrator, string $owner, string $repo, int $checkRunId, int $perPage = 30, int $page = 1)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
-        $this->checkRunId = $checkRunId;
-        $this->perPage    = $perPage;
-        $this->page       = $page;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->checkRunId              = $checkRunId;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{check_run_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkRunId, $this->perPage, $this->page], '/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations' . '?per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations{?page,per_page}'))->expand(['check_run_id' => $this->checkRunId, 'owner' => $this->owner, 'page' => $this->page, 'per_page' => $this->perPage, 'repo' => $this->repo]));
     }
 
-    /** @return Observable<Schema\CheckAnnotation> */
+    /** @return Observable<CheckAnnotation> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -62,12 +64,12 @@ final class ListAnnotations
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\CheckAnnotation {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): CheckAnnotation {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckAnnotation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(CheckAnnotation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\CheckAnnotation::class, $body);
+                                return $this->hydrator->hydrateObject(CheckAnnotation::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

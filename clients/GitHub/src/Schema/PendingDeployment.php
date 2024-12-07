@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PendingDeployment\Environment;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PendingDeployment
+final readonly class PendingDeployment implements \ApiClients\Client\GitHub\Contract\PendingDeployment
 {
     public const SCHEMA_JSON         = '{
     "title": "Pending Deployment",
@@ -492,23 +492,93 @@ final readonly class PendingDeployment
     public const SCHEMA_DESCRIPTION  = 'Details of a deployment that is waiting for protection rules to pass';
     public const SCHEMA_EXAMPLE_DATA = '{
     "environment": {
-        "id": 56780428,
-        "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-        "name": "staging",
-        "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-        "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging"
+        "id": 2,
+        "node_id": "generated",
+        "name": "generated",
+        "url": "generated",
+        "html_url": "generated"
     },
-    "wait_timer": 30,
-    "wait_timer_started_at": "2020-11-23T22:00:40Z",
-    "current_user_can_approve": true,
+    "wait_timer": 10,
+    "wait_timer_started_at": "1970-01-01T00:00:00+00:00",
+    "current_user_can_approve": false,
     "reviewers": [
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         },
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         }
     ]
 }';
@@ -519,7 +589,7 @@ final readonly class PendingDeployment
      * currentUserCanApprove: Whether the currently authenticated user can approve the deployment
      * reviewers: The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
      */
-    public function __construct(public Schema\PendingDeployment\Environment $environment, #[MapFrom('wait_timer')]
+    public function __construct(public Environment $environment, #[MapFrom('wait_timer')]
     public int $waitTimer, #[MapFrom('wait_timer_started_at')]
     public string|null $waitTimerStartedAt, #[MapFrom('current_user_can_approve')]
     public bool $currentUserCanApprove, public array $reviewers,)

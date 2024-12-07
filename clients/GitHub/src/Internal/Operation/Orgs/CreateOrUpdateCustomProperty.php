@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\CustomProperty;
+use ApiClients\Client\GitHub\Schema\Orgs\CreateOrUpdateCustomProperty\Request\ApplicationJson;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class CreateOrUpdateCustomProperty
 {
@@ -28,20 +30,23 @@ final class CreateOrUpdateCustomProperty
     /**The custom property name **/
     private string $customPropertyName;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName $hydrator, string $org, string $customPropertyName)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private CustomPropertyName $hydrator, string $org, string $customPropertyName)
     {
-        $this->org                = $org;
-        $this->customPropertyName = $customPropertyName;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->org                     = $org;
+        $this->customPropertyName      = $customPropertyName;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\CreateOrUpdateCustomProperty\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PUT', str_replace(['{org}', '{custom_property_name}'], [$this->org, $this->customPropertyName], '/orgs/{org}/properties/schema/{custom_property_name}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', (string) (new UriTemplate('/orgs/{org}/properties/schema/{custom_property_name}'))->expand(['custom_property_name' => $this->customPropertyName, 'org' => $this->org]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CustomProperty
+    public function createResponse(ResponseInterface $response): CustomProperty
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,25 +58,25 @@ final class CreateOrUpdateCustomProperty
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CustomProperty::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(CustomProperty::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CustomProperty::class, $body);
+                        return $this->hydrator->hydrateObject(CustomProperty::class, $body);
                     /**
                      * Forbidden
                      **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(403, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

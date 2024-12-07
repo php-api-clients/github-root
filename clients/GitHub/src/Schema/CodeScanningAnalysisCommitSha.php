@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAnalysisCommitSha
+final readonly class CodeScanningAnalysisCommitSha implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisCommitSha
 {
     public const SCHEMA_JSON         = '{
     "maxLength": 40,

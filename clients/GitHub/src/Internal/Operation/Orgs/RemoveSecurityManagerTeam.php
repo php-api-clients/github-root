@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class RemoveSecurityManagerTeam
 {
@@ -29,7 +28,7 @@ final class RemoveSecurityManagerTeam
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], '/orgs/{org}/security-managers/teams/{team_slug}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/security-managers/teams/{team_slug}'))->expand(['org' => $this->org, 'team_slug' => $this->teamSlug]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

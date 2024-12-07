@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SimpleCommit\Author;
+use ApiClients\Client\GitHub\Schema\SimpleCommit\Committer;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleCommit
+final readonly class SimpleCommit implements \ApiClients\Client\GitHub\Contract\SimpleCommit
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Commit",
@@ -109,17 +110,17 @@ final readonly class SimpleCommit
     public const SCHEMA_TITLE        = 'Simple Commit';
     public const SCHEMA_DESCRIPTION  = 'A commit.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": "7638417db6d59f3c431d3e1f261cc637155684cd",
+    "id": "generated",
     "tree_id": "generated",
-    "message": "Fix #42",
-    "timestamp": "2014-08-09T08:02:04+12:00",
+    "message": "generated",
+    "timestamp": "1970-01-01T00:00:00+00:00",
     "author": {
-        "name": "Monalisa Octocat",
-        "email": "monalisa.octocat@example.com"
+        "name": "generated",
+        "email": "hi@example.com"
     },
     "committer": {
-        "name": "Monalisa Octocat",
-        "email": "monalisa.octocat@example.com"
+        "name": "generated",
+        "email": "hi@example.com"
     }
 }';
 
@@ -132,7 +133,7 @@ final readonly class SimpleCommit
      * committer: Information about the Git committer
      */
     public function __construct(public string $id, #[MapFrom('tree_id')]
-    public string $treeId, public string $message, public string $timestamp, public Schema\SimpleCommit\Author|null $author, public Schema\SimpleCommit\Committer|null $committer,)
+    public string $treeId, public string $message, public string $timestamp, public Author|null $author, public Committer|null $committer,)
     {
     }
 }

@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Codeowners\Errors;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class CodeownersErrors
 {
@@ -29,19 +29,21 @@ final class CodeownersErrors
     /**A branch, tag or commit name used to determine which version of the CODEOWNERS file to use. Default: the repository's default branch (e.g. `main`) **/
     private string $ref;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Codeowners\Errors $hydrator, string $owner, string $repo, string $ref)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Errors $hydrator, string $owner, string $repo, string $ref)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->ref   = $ref;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->ref                     = $ref;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], '/repos/{owner}/{repo}/codeowners/errors' . '?ref={ref}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/codeowners/errors{?ref}'))->expand(['owner' => $this->owner, 'ref' => $this->ref, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CodeownersErrors|WithoutBody
+    public function createResponse(ResponseInterface $response): \ApiClients\Client\GitHub\Schema\CodeownersErrors|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,9 +55,9 @@ final class CodeownersErrors
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeownersErrors::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(\ApiClients\Client\GitHub\Schema\CodeownersErrors::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CodeownersErrors::class, $body);
+                        return $this->hydrator->hydrateObject(\ApiClients\Client\GitHub\Schema\CodeownersErrors::class, $body);
                 }
 
                 break;

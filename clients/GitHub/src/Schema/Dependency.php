@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Dependency
+final readonly class Dependency implements \ApiClients\Client\GitHub\Contract\Dependency
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -83,13 +82,13 @@ final readonly class Dependency
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "package_url": "pkg:\\/npm\\/%40actions\\/http-client@1.0.11",
+    "package_url": "pkg",
     "metadata": [],
     "relationship": "direct",
     "scope": "runtime",
     "dependencies": [
-        "@actions\\/http-client",
-        "@actions\\/http-client"
+        "generated",
+        "generated"
     ]
 }';
 
@@ -101,7 +100,7 @@ final readonly class Dependency
      * dependencies: Array of package-url (PURLs) of direct child dependencies.
      */
     public function __construct(#[MapFrom('package_url')]
-    public string|null $packageUrl, public Schema\Metadata|null $metadata, public string|null $relationship, public string|null $scope, public array|null $dependencies,)
+    public string|null $packageUrl, public Metadata|null $metadata, public string|null $relationship, public string|null $scope, public array|null $dependencies,)
     {
     }
 }

@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Patch;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\UpdateEnvironmentVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\UpdateOrgVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\UpdateRepoVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\UpdateSelfHostedRunnerGroupForOrg;
 use ApiClients\Client\GitHub\Schema\RunnerGroupsOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -16,7 +20,7 @@ use function array_key_exists;
 
 final class Actions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -36,7 +40,7 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operator = new Internal\Operator\Actions\UpdateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId());
+        $operator = new UpdateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId());
 
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
@@ -57,7 +61,7 @@ final class Actions
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Actions\UpdateOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new UpdateOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['name'], $params);
     }
@@ -84,7 +88,7 @@ final class Actions
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Actions\UpdateRepoVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new UpdateRepoVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name'], $params);
     }
@@ -117,7 +121,7 @@ final class Actions
 
         $arguments['environment_name'] = $params['environment_name'];
         unset($params['environment_name']);
-        $operator = new Internal\Operator\Actions\UpdateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new UpdateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name'], $arguments['environment_name'], $params);
     }

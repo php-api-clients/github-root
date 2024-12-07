@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PullRequestReviewComment\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PullRequestReviewComment
+final readonly class PullRequestReviewComment implements \ApiClients\Client\GitHub\Contract\PullRequestReviewComment
 {
     public const SCHEMA_JSON         = '{
     "title": "Pull Request Review Comment",
@@ -522,65 +522,65 @@ final readonly class PullRequestReviewComment
     public const SCHEMA_TITLE        = 'Pull Request Review Comment';
     public const SCHEMA_DESCRIPTION  = 'Pull Request Review Comments are comments on a portion of the Pull Request\'s diff.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/1",
-    "pull_request_review_id": 42,
-    "id": 1,
-    "node_id": "MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw",
-    "diff_hunk": "@@ -16,33 +16,40 @@ public class Connection : IConnection...",
-    "path": "config\\/database.yaml",
-    "position": 1,
-    "original_position": 4,
-    "commit_id": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-    "original_commit_id": "9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840",
-    "in_reply_to_id": 8,
+    "url": "generated",
+    "pull_request_review_id": 22,
+    "id": 2,
+    "node_id": "generated",
+    "diff_hunk": "generated",
+    "path": "generated",
+    "position": 8,
+    "original_position": 17,
+    "commit_id": "generated",
+    "original_commit_id": "generated",
+    "in_reply_to_id": 14,
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "body": "We should probably include a check for null values here.",
-    "created_at": "2011-04-14T16:00:49Z",
-    "updated_at": "2011-04-14T16:00:49Z",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1",
-    "pull_request_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1",
-    "author_association": "OWNER",
+    "body": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "html_url": "https:\\/\\/example.com\\/",
+    "pull_request_url": "https:\\/\\/example.com\\/",
+    "author_association": "COLLABORATOR",
     "_links": {
         "self": {
-            "href": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/1"
+            "href": "https:\\/\\/example.com\\/"
         },
         "html": {
-            "href": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1"
+            "href": "https:\\/\\/example.com\\/"
         },
         "pull_request": {
-            "href": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1"
+            "href": "https:\\/\\/example.com\\/"
         }
     },
-    "start_line": 2,
-    "original_start_line": 2,
-    "start_side": "RIGHT",
-    "line": 2,
-    "original_line": 2,
-    "side": "RIGHT",
-    "subject_type": "file",
+    "start_line": 10,
+    "original_start_line": 19,
+    "start_side": "LEFT",
+    "line": 4,
+    "original_line": 13,
+    "side": "LEFT",
+    "subject_type": "line",
     "reactions": {
         "url": "https:\\/\\/example.com\\/",
         "total_count": 11,
@@ -593,8 +593,8 @@ final readonly class PullRequestReviewComment
         "eyes": 4,
         "rocket": 6
     },
-    "body_html": "\\"<p>comment body<\\/p>\\"",
-    "body_text": "\\"comment body\\""
+    "body_html": "generated",
+    "body_text": "generated"
 }';
 
     /**
@@ -629,18 +629,18 @@ final readonly class PullRequestReviewComment
     public int|null $originalPosition, #[MapFrom('commit_id')]
     public string $commitId, #[MapFrom('original_commit_id')]
     public string $originalCommitId, #[MapFrom('in_reply_to_id')]
-    public int|null $inReplyToId, public Schema\SimpleUser $user, public string $body, #[MapFrom('created_at')]
+    public int|null $inReplyToId, public SimpleUser $user, public string $body, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('pull_request_url')]
     public string $pullRequestUrl, #[MapFrom('author_association')]
     public string $authorAssociation, #[MapFrom('_links')]
-    public Schema\PullRequestReviewComment\Links $links, #[MapFrom('start_line')]
+    public Links $links, #[MapFrom('start_line')]
     public int|null $startLine, #[MapFrom('original_start_line')]
     public int|null $originalStartLine, #[MapFrom('start_side')]
     public string|null $startSide, public int|null $line, #[MapFrom('original_line')]
     public int|null $originalLine, public string|null $side, #[MapFrom('subject_type')]
-    public string|null $subjectType, public Schema\ReactionRollup|null $reactions, #[MapFrom('body_html')]
+    public string|null $subjectType, public ReactionRollup|null $reactions, #[MapFrom('body_html')]
     public string|null $bodyHtml, #[MapFrom('body_text')]
     public string|null $bodyText,)
     {

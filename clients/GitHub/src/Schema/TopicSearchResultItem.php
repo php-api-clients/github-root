@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TopicSearchResultItem
+final readonly class TopicSearchResultItem implements \ApiClients\Client\GitHub\Contract\TopicSearchResultItem
 {
     public const SCHEMA_JSON         = '{
     "title": "Topic Search Result Item",
@@ -201,7 +201,7 @@ final readonly class TopicSearchResultItem
     "updated_at": "1970-01-01T00:00:00+00:00",
     "featured": false,
     "curated": false,
-    "score": 0.5,
+    "score": 5,
     "repository_count": 16,
     "logo_url": "https:\\/\\/example.com\\/",
     "text_matches": [
@@ -249,9 +249,7 @@ final readonly class TopicSearchResultItem
                 }
             ]
         }
-    ],
-    "related": null,
-    "aliases": null
+    ]
 }';
 
     public function __construct(public string $name, #[MapFrom('display_name')]

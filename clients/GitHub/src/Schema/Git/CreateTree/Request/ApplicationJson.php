@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Git\CreateTree\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateTree\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -70,15 +70,15 @@ final readonly class ApplicationJson
     "tree": [
         {
             "path": "generated",
-            "mode": "120000",
-            "type": "commit",
+            "mode": "100644",
+            "type": "blob",
             "sha": "generated",
             "content": "generated"
         },
         {
             "path": "generated",
-            "mode": "120000",
-            "type": "commit",
+            "mode": "100644",
+            "type": "blob",
             "sha": "generated",
             "content": "generated"
         }

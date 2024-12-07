@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\Header;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DownloadWorkflowRunAttemptLogs
 {
@@ -36,7 +35,7 @@ final class DownloadWorkflowRunAttemptLogs
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}', '{attempt_number}'], [$this->owner, $this->repo, $this->runId, $this->attemptNumber], '/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs'))->expand(['attempt_number' => $this->attemptNumber, 'owner' => $this->owner, 'repo' => $this->repo, 'run_id' => $this->runId]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

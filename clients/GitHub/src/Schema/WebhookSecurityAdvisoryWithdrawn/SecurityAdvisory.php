@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookSecurityAdvisoryWithdrawn;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CvssSeverities;
+use ApiClients\Client\GitHub\Schema\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory\Cvss;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecurityAdvisory
+final readonly class SecurityAdvisory implements \ApiClients\Client\GitHub\Contract\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -238,17 +239,17 @@ final readonly class SecurityAdvisory
     public const SCHEMA_DESCRIPTION  = 'The details of the security advisory, including summary, description, and severity.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "cvss": {
-        "score": 0.5,
+        "score": 5,
         "vector_string": "generated"
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": [
@@ -312,8 +313,8 @@ final readonly class SecurityAdvisory
     "withdrawn_at": "generated"
 }';
 
-    public function __construct(public Schema\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory\Cvss $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array $cwes, public string $description, #[MapFrom('ghsa_id')]
+    public function __construct(public Cvss $cvss, #[MapFrom('cvss_severities')]
+    public CvssSeverities|null $cvssSeverities, public array $cwes, public string $description, #[MapFrom('ghsa_id')]
     public string $ghsaId, public array $identifiers, #[MapFrom('published_at')]
     public string $publishedAt, public array $references, public string $severity, public string $summary, #[MapFrom('updated_at')]
     public string $updatedAt, public array $vulnerabilities, #[MapFrom('withdrawn_at')]

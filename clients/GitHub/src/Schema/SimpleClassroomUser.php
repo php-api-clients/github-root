@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleClassroomUser
+final readonly class SimpleClassroomUser implements \ApiClients\Client\GitHub\Contract\SimpleClassroomUser
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Classroom User",
@@ -50,10 +50,10 @@ final readonly class SimpleClassroomUser
     public const SCHEMA_TITLE        = 'Simple Classroom User';
     public const SCHEMA_DESCRIPTION  = 'A GitHub user simplified for Classroom.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "login": "octocat",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-    "html_url": "https:\\/\\/github.com\\/octocat"
+    "id": 2,
+    "login": "generated",
+    "avatar_url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/"
 }';
 
     public function __construct(public int $id, public string $login, #[MapFrom('avatar_url')]

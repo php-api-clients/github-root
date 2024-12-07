@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\Update\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\Update\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -214,7 +214,7 @@ final readonly class ApplicationJson
     "description": "generated",
     "homepage": "generated",
     "private": false,
-    "visibility": "private",
+    "visibility": "public",
     "security_and_analysis": {
         "advanced_security": {
             "status": "generated"
@@ -246,8 +246,8 @@ final readonly class ApplicationJson
     "use_squash_pr_title_as_default": false,
     "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
-    "merge_commit_title": "MERGE_MESSAGE",
-    "merge_commit_message": "BLANK",
+    "merge_commit_title": "PR_TITLE",
+    "merge_commit_message": "PR_BODY",
     "archived": false,
     "allow_forking": false,
     "web_commit_signoff_required": false
@@ -307,7 +307,7 @@ final readonly class ApplicationJson
      * webCommitSignoffRequired: Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits.
      */
     public function __construct(public string|null $name, public string|null $description, public string|null $homepage, public bool|null $private, public string|null $visibility, #[MapFrom('security_and_analysis')]
-    public Schema\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis|null $securityAndAnalysis, #[MapFrom('has_issues')]
+    public SecurityAndAnalysis|null $securityAndAnalysis, #[MapFrom('has_issues')]
     public bool|null $hasIssues, #[MapFrom('has_projects')]
     public bool|null $hasProjects, #[MapFrom('has_wiki')]
     public bool|null $hasWiki, #[MapFrom('is_template')]

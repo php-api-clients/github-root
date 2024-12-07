@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\FileCommit\Commit;
 
-final readonly class Tree
+final readonly class Tree implements \ApiClients\Client\GitHub\Contract\FileCommit\Commit\Tree
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

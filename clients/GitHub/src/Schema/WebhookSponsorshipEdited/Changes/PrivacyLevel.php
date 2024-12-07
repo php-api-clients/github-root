@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookSponsorshipEdited\Changes;
 
-final readonly class PrivacyLevel
+final readonly class PrivacyLevel implements \ApiClients\Client\GitHub\Contract\WebhookSponsorshipEdited\Changes\PrivacyLevel
 {
     public const SCHEMA_JSON         = '{
     "required": [

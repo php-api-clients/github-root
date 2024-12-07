@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Topics;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\Topic;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetAllTopics
 {
@@ -31,20 +32,22 @@ final class GetAllTopics
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Topics $hydrator, string $owner, string $repo, int $page = 1, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Topics $hydrator, string $owner, string $repo, int $page = 1, int $perPage = 30)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
-        $this->page    = $page;
-        $this->perPage = $perPage;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->page                    = $page;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->page, $this->perPage], '/repos/{owner}/{repo}/topics' . '?page={page}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/topics{?page,per_page}'))->expand(['owner' => $this->owner, 'page' => $this->page, 'per_page' => $this->perPage, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Topic
+    public function createResponse(ResponseInterface $response): Topic
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,17 +59,17 @@ final class GetAllTopics
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Topic::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Topic::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Topic::class, $body);
+                        return $this->hydrator->hydrateObject(Topic::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

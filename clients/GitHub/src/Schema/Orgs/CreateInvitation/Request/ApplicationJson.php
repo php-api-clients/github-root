@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Orgs\CreateInvitation\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\CreateInvitation\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -44,7 +44,7 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "invitee_id": 10,
     "email": "generated",
-    "role": "reinstate",
+    "role": "admin",
     "team_ids": [
         9,
         10

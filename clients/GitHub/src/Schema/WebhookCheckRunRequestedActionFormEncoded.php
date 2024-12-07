@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookCheckRunRequestedActionFormEncoded
+final readonly class WebhookCheckRunRequestedActionFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookCheckRunRequestedActionFormEncoded
 {
     public const SCHEMA_JSON         = '{
     "title": "Check Run Requested Action Event",

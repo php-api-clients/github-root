@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\Variables\Name;
+use ApiClients\Client\GitHub\Schema\ActionsVariable;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetEnvironmentVariable
 {
@@ -30,20 +31,22 @@ final class GetEnvironmentVariable
     /**The name of the variable. **/
     private string $name;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\Variables\Name $hydrator, string $owner, string $repo, string $environmentName, string $name)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Name $hydrator, string $owner, string $repo, string $environmentName, string $name)
     {
-        $this->owner           = $owner;
-        $this->repo            = $repo;
-        $this->environmentName = $environmentName;
-        $this->name            = $name;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->environmentName         = $environmentName;
+        $this->name                    = $name;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{environment_name}', '{name}'], [$this->owner, $this->repo, $this->environmentName, $this->name], '/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}'))->expand(['environment_name' => $this->environmentName, 'name' => $this->name, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ActionsVariable
+    public function createResponse(ResponseInterface $response): ActionsVariable
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class GetEnvironmentVariable
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsVariable::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ActionsVariable::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ActionsVariable::class, $body);
+                        return $this->hydrator->hydrateObject(ActionsVariable::class, $body);
                 }
 
                 break;

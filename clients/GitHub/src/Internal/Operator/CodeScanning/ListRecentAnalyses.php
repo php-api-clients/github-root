@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\CodeScanning;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListRecentAnalyses
     public const OPERATION_ID    = 'code-scanning/list-recent-analyses';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/code-scanning/analyses';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Analyses $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<CodeScanningAnalysis> */
     public function call(string $owner, string $repo, string $toolName, string|null $toolGuid, int $pr, string $ref, string $sarifId, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\CodeScanning\ListRecentAnalyses($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $toolName, $toolGuid, $pr, $ref, $sarifId, $page, $perPage, $direction, $sort);

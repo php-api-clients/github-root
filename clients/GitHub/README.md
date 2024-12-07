@@ -4,7 +4,7 @@
 ![Continuous Integration](https://github.com/php-api-clients/github/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/api-clients/github/v/stable.png)](https://packagist.org/packages/api-clients/github)
 [![Total Downloads](https://poser.pugx.org/api-clients/github/downloads.png)](https://packagist.org/packages/api-clients/github)
-[![Code Coverage](https://scrutinizer-ci.com/g/php-api-clients/github/badges/coverage.png?b==v0.2.x)](https://scrutinizer-ci.com/g/php-api-clients/github/?branch=v0.2.x)
+[![Code Coverage](https://scrutinizer-ci.com/g/php-api-clients/github/badges/coverage.png?b==)](https://scrutinizer-ci.com/g/php-api-clients/github/?branch=)
 [![License](https://poser.pugx.org/api-clients/github/license.png)](https://packagist.org/packages/api-clients/github)
 
 Non-Blocking first GitHub client, this is a read only sub split, see [`github-root`](https://github.com/php-api-clients/github-root) for the root package.
@@ -12,11 +12,11 @@ Non-Blocking first GitHub client, this is a read only sub split, see [`github-ro
 ## Usage
 
 ```php
-use React\Http\Browser;
-use ApiClients\Client\GitHub\BearerToken;
-use ApiClients\Client\GitHub\Client;
+use ReactHttpBrowser;
+use ApiClientsClientBearerToken;
+use ApiClientsClientClient;
 
-use function React\Async\async;
+use function ReactAsyncasync;
 
 $client = new Client(new BearerToken('YOUR_TOKEN_HERE'), new Browser());
 
@@ -47,7 +47,8 @@ $client->call('GET /');
 
 Operations method:
 ```php
-$client->operations()->meta()->root();
+$client->operations()->meta()->root(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/meta/meta#github-api-root).
@@ -64,9 +65,9 @@ $client->call('GET /advisories', [
         'cve_id' => 'generated',
         'ecosystem' => 'generated',
         'severity' => 'generated',
-        'cwes' => ,
+        'cwes' => generated,
         'is_withdrawn' => ,
-        'affects' => ,
+        'affects' => generated,
         'published' => 'generated',
         'updated' => 'generated',
         'modified' => 'generated',
@@ -83,13 +84,14 @@ $client->call('GET /advisories', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->listGlobalAdvisories(        ghsa_id: 'generated',
+$client->operations()->securityAdvisories()->listGlobalAdvisories(
+        ghsa_id: 'generated',
         cve_id: 'generated',
         ecosystem: 'generated',
         severity: 'generated',
-        cwes: ,
+        cwes: generated,
         is_withdrawn: ,
-        affects: ,
+        affects: generated,
         published: 'generated',
         updated: 'generated',
         modified: 'generated',
@@ -120,7 +122,8 @@ $client->call('GET /advisories/{ghsa_id}', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->getGlobalAdvisory(        ghsa_id: 'generated',
+$client->operations()->securityAdvisories()->getGlobalAdvisory(
+        ghsa_id: 'generated',
 );
 ```
 
@@ -138,7 +141,8 @@ $client->call('GET /app');
 
 Operations method:
 ```php
-$client->operations()->apps()->getAuthenticated();
+$client->operations()->apps()->getAuthenticated(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/apps#get-the-authenticated-app).
@@ -157,7 +161,8 @@ $client->call('POST /app-manifests/{code}/conversions', [
 
 Operations method:
 ```php
-$client->operations()->apps()->createFromManifest(        code: 'generated',
+$client->operations()->apps()->createFromManifest(
+        code: 'generated',
 );
 ```
 
@@ -175,7 +180,8 @@ $client->call('GET /app/hook/config');
 
 Operations method:
 ```php
-$client->operations()->apps()->getWebhookConfigForApp();
+$client->operations()->apps()->getWebhookConfigForApp(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/webhooks#get-a-webhook-configuration-for-an-app).
@@ -192,7 +198,8 @@ $client->call('PATCH /app/hook/config');
 
 Operations method:
 ```php
-$client->operations()->apps()->updateWebhookConfigForApp();
+$client->operations()->apps()->updateWebhookConfigForApp(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/webhooks#update-a-webhook-configuration-for-an-app).
@@ -212,7 +219,8 @@ $client->call('GET /app/hook/deliveries', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listWebhookDeliveries(        cursor: 'generated',
+$client->operations()->apps()->listWebhookDeliveries(
+        cursor: 'generated',
         per_page: 8,
 );
 ```
@@ -233,7 +241,8 @@ $client->call('GET /app/hook/deliveries/{delivery_id}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getWebhookDelivery(        delivery_id: 11,
+$client->operations()->apps()->getWebhookDelivery(
+        delivery_id: 11,
 );
 ```
 
@@ -253,7 +262,8 @@ $client->call('POST /app/hook/deliveries/{delivery_id}/attempts', [
 
 Operations method:
 ```php
-$client->operations()->apps()->redeliverWebhookDelivery(        delivery_id: 11,
+$client->operations()->apps()->redeliverWebhookDelivery(
+        delivery_id: 11,
 );
 ```
 
@@ -274,29 +284,8 @@ $client->call('GET /app/installation-requests', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listInstallationRequestsForAuthenticatedApp(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/apps#list-installation-requests-for-the-authenticated-app).
-
-
-### apps/list-installation-requests-for-authenticated-app
-
-List installation requests for the authenticated app
-
-Using the `call` method:
-```php
-$client->call('LIST /app/installation-requests', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listInstallationRequestsForAuthenticatedAppListing(        per_page: 8,
+$client->operations()->apps()->listInstallationRequestsForAuthenticatedApp(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -320,33 +309,8 @@ $client->call('GET /app/installations', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listInstallations(        since: '1970-01-01T00:00:00+00:00',
-        outdated: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/apps#list-installations-for-the-authenticated-app).
-
-
-### apps/list-installations
-
-List installations for the authenticated app
-
-Using the `call` method:
-```php
-$client->call('LIST /app/installations', [
-        'since' => '1970-01-01T00:00:00+00:00',
-        'outdated' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listInstallationsListing(        since: '1970-01-01T00:00:00+00:00',
+$client->operations()->apps()->listInstallations(
+        since: '1970-01-01T00:00:00+00:00',
         outdated: 'generated',
         per_page: 8,
         page: 1,
@@ -369,7 +333,8 @@ $client->call('GET /app/installations/{installation_id}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getInstallation(        installation_id: 15,
+$client->operations()->apps()->getInstallation(
+        installation_id: 15,
 );
 ```
 
@@ -389,7 +354,8 @@ $client->call('DELETE /app/installations/{installation_id}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->deleteInstallation(        installation_id: 15,
+$client->operations()->apps()->deleteInstallation(
+        installation_id: 15,
 );
 ```
 
@@ -409,7 +375,8 @@ $client->call('POST /app/installations/{installation_id}/access_tokens', [
 
 Operations method:
 ```php
-$client->operations()->apps()->createInstallationAccessToken(        installation_id: 15,
+$client->operations()->apps()->createInstallationAccessToken(
+        installation_id: 15,
 );
 ```
 
@@ -429,7 +396,8 @@ $client->call('PUT /app/installations/{installation_id}/suspended', [
 
 Operations method:
 ```php
-$client->operations()->apps()->suspendInstallation(        installation_id: 15,
+$client->operations()->apps()->suspendInstallation(
+        installation_id: 15,
 );
 ```
 
@@ -449,7 +417,8 @@ $client->call('DELETE /app/installations/{installation_id}/suspended', [
 
 Operations method:
 ```php
-$client->operations()->apps()->unsuspendInstallation(        installation_id: 15,
+$client->operations()->apps()->unsuspendInstallation(
+        installation_id: 15,
 );
 ```
 
@@ -469,7 +438,8 @@ $client->call('DELETE /applications/{client_id}/grant', [
 
 Operations method:
 ```php
-$client->operations()->apps()->deleteAuthorization(        client_id: 'generated',
+$client->operations()->apps()->deleteAuthorization(
+        client_id: 'generated',
 );
 ```
 
@@ -489,7 +459,8 @@ $client->call('POST /applications/{client_id}/token', [
 
 Operations method:
 ```php
-$client->operations()->apps()->checkToken(        client_id: 'generated',
+$client->operations()->apps()->checkToken(
+        client_id: 'generated',
 );
 ```
 
@@ -509,7 +480,8 @@ $client->call('DELETE /applications/{client_id}/token', [
 
 Operations method:
 ```php
-$client->operations()->apps()->deleteToken(        client_id: 'generated',
+$client->operations()->apps()->deleteToken(
+        client_id: 'generated',
 );
 ```
 
@@ -529,7 +501,8 @@ $client->call('PATCH /applications/{client_id}/token', [
 
 Operations method:
 ```php
-$client->operations()->apps()->resetToken(        client_id: 'generated',
+$client->operations()->apps()->resetToken(
+        client_id: 'generated',
 );
 ```
 
@@ -549,7 +522,8 @@ $client->call('POST /applications/{client_id}/token/scoped', [
 
 Operations method:
 ```php
-$client->operations()->apps()->scopeToken(        client_id: 'generated',
+$client->operations()->apps()->scopeToken(
+        client_id: 'generated',
 );
 ```
 
@@ -569,7 +543,8 @@ $client->call('GET /apps/{app_slug}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getBySlug(        app_slug: 'generated',
+$client->operations()->apps()->getBySlug(
+        app_slug: 'generated',
 );
 ```
 
@@ -589,7 +564,8 @@ $client->call('GET /assignments/{assignment_id}', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->getAnAssignment(        assignment_id: 13,
+$client->operations()->classroom()->getAnAssignment(
+        assignment_id: 13,
 );
 ```
 
@@ -611,31 +587,8 @@ $client->call('GET /assignments/{assignment_id}/accepted_assignments', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->listAcceptedAssignmentsForAnAssignment(        assignment_id: 13,
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/classroom/classroom#list-accepted-assignments-for-an-assignment).
-
-
-### classroom/list-accepted-assignments-for-an-assignment
-
-List accepted assignments for an assignment
-
-Using the `call` method:
-```php
-$client->call('LIST /assignments/{assignment_id}/accepted_assignments', [
-        'assignment_id' => 13,
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->classroom()->listAcceptedAssignmentsForAnAssignmentListing(        assignment_id: 13,
+$client->operations()->classroom()->listAcceptedAssignmentsForAnAssignment(
+        assignment_id: 13,
         page: 1,
         per_page: 8,
 );
@@ -657,7 +610,8 @@ $client->call('GET /assignments/{assignment_id}/grades', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->getAssignmentGrades(        assignment_id: 13,
+$client->operations()->classroom()->getAssignmentGrades(
+        assignment_id: 13,
 );
 ```
 
@@ -678,29 +632,8 @@ $client->call('GET /classrooms', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->listClassrooms(        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/classroom/classroom#list-classrooms).
-
-
-### classroom/list-classrooms
-
-List classrooms
-
-Using the `call` method:
-```php
-$client->call('LIST /classrooms', [
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->classroom()->listClassroomsListing(        page: 1,
+$client->operations()->classroom()->listClassrooms(
+        page: 1,
         per_page: 8,
 );
 ```
@@ -721,7 +654,8 @@ $client->call('GET /classrooms/{classroom_id}', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->getAClassroom(        classroom_id: 12,
+$client->operations()->classroom()->getAClassroom(
+        classroom_id: 12,
 );
 ```
 
@@ -743,31 +677,8 @@ $client->call('GET /classrooms/{classroom_id}/assignments', [
 
 Operations method:
 ```php
-$client->operations()->classroom()->listAssignmentsForAClassroom(        classroom_id: 12,
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/classroom/classroom#list-assignments-for-a-classroom).
-
-
-### classroom/list-assignments-for-a-classroom
-
-List assignments for a classroom
-
-Using the `call` method:
-```php
-$client->call('LIST /classrooms/{classroom_id}/assignments', [
-        'classroom_id' => 12,
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->classroom()->listAssignmentsForAClassroomListing(        classroom_id: 12,
+$client->operations()->classroom()->listAssignmentsForAClassroom(
+        classroom_id: 12,
         page: 1,
         per_page: 8,
 );
@@ -787,7 +698,8 @@ $client->call('GET /codes_of_conduct');
 
 Operations method:
 ```php
-$client->operations()->codesOfConduct()->getAllCodesOfConduct();
+$client->operations()->codesOfConduct()->getAllCodesOfConduct(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/codes-of-conduct/codes-of-conduct#get-all-codes-of-conduct).
@@ -806,7 +718,8 @@ $client->call('GET /codes_of_conduct/{key}', [
 
 Operations method:
 ```php
-$client->operations()->codesOfConduct()->getConductCode(        key: 'generated',
+$client->operations()->codesOfConduct()->getConductCode(
+        key: 'generated',
 );
 ```
 
@@ -824,7 +737,8 @@ $client->call('GET /emojis');
 
 Operations method:
 ```php
-$client->operations()->emojis()->get();
+$client->operations()->emojis()->get(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/emojis/emojis#get-emojis).
@@ -845,7 +759,8 @@ $client->call('GET /enterprises/{enterprise}/copilot/billing/seats', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->listCopilotSeatsForEnterprise(        enterprise: 'generated',
+$client->operations()->copilot()->listCopilotSeatsForEnterprise(
+        enterprise: 'generated',
         page: 1,
         per_page: 8,
 );
@@ -871,35 +786,8 @@ $client->call('GET /enterprises/{enterprise}/copilot/metrics', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->copilotMetricsForEnterprise(        enterprise: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-metrics#get-copilot-metrics-for-an-enterprise).
-
-
-### copilot/copilot-metrics-for-enterprise
-
-Get Copilot metrics for an enterprise
-
-Using the `call` method:
-```php
-$client->call('LIST /enterprises/{enterprise}/copilot/metrics', [
-        'enterprise' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->copilotMetricsForEnterpriseListing(        enterprise: 'generated',
+$client->operations()->copilot()->copilotMetricsForEnterprise(
+        enterprise: 'generated',
         since: 'generated',
         until: 'generated',
         page: 1,
@@ -927,35 +815,8 @@ $client->call('GET /enterprises/{enterprise}/copilot/usage', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->usageMetricsForEnterprise(        enterprise: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-enterprise-members).
-
-
-### copilot/usage-metrics-for-enterprise
-
-Get a summary of Copilot usage for enterprise members
-
-Using the `call` method:
-```php
-$client->call('LIST /enterprises/{enterprise}/copilot/usage', [
-        'enterprise' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->usageMetricsForEnterpriseListing(        enterprise: 'generated',
+$client->operations()->copilot()->usageMetricsForEnterprise(
+        enterprise: 'generated',
         since: 'generated',
         until: 'generated',
         page: 1,
@@ -991,7 +852,8 @@ $client->call('GET /enterprises/{enterprise}/dependabot/alerts', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listAlertsForEnterprise(        enterprise: 'generated',
+$client->operations()->dependabot()->listAlertsForEnterprise(
+        enterprise: 'generated',
         state: 'generated',
         severity: 'generated',
         ecosystem: 'generated',
@@ -1034,7 +896,8 @@ $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts', [
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->listAlertsForEnterprise(        enterprise: 'generated',
+$client->operations()->secretScanning()->listAlertsForEnterprise(
+        enterprise: 'generated',
         state: 'generated',
         secret_type: 'generated',
         resolution: 'generated',
@@ -1070,37 +933,8 @@ $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics', 
 
 Operations method:
 ```php
-$client->operations()->copilot()->copilotMetricsForEnterpriseTeam(        enterprise: 'generated',
-        team_slug: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-metrics#get-copilot-metrics-for-an-enterprise-team).
-
-
-### copilot/copilot-metrics-for-enterprise-team
-
-Get Copilot metrics for an enterprise team
-
-Using the `call` method:
-```php
-$client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics', [
-        'enterprise' => 'generated',
-        'team_slug' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->copilotMetricsForEnterpriseTeamListing(        enterprise: 'generated',
+$client->operations()->copilot()->copilotMetricsForEnterpriseTeam(
+        enterprise: 'generated',
         team_slug: 'generated',
         since: 'generated',
         until: 'generated',
@@ -1130,37 +964,8 @@ $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->usageMetricsForEnterpriseTeam(        enterprise: 'generated',
-        team_slug: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-an-enterprise-team).
-
-
-### copilot/usage-metrics-for-enterprise-team
-
-Get a summary of Copilot usage for an enterprise team
-
-Using the `call` method:
-```php
-$client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/usage', [
-        'enterprise' => 'generated',
-        'team_slug' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->usageMetricsForEnterpriseTeamListing(        enterprise: 'generated',
+$client->operations()->copilot()->usageMetricsForEnterpriseTeam(
+        enterprise: 'generated',
         team_slug: 'generated',
         since: 'generated',
         until: 'generated',
@@ -1186,29 +991,8 @@ $client->call('GET /events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listPublicEvents(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-public-events).
-
-
-### activity/list-public-events
-
-List public events
-
-Using the `call` method:
-```php
-$client->call('LIST /events', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listPublicEventsListing(        per_page: 8,
+$client->operations()->activity()->listPublicEvents(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -1227,7 +1011,8 @@ $client->call('GET /feeds');
 
 Operations method:
 ```php
-$client->operations()->activity()->getFeeds();
+$client->operations()->activity()->getFeeds(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/feeds#get-feeds).
@@ -1248,31 +1033,8 @@ $client->call('GET /gists', [
 
 Operations method:
 ```php
-$client->operations()->gists()->list(        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-gists-for-the-authenticated-user).
-
-
-### gists/list
-
-List gists for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /gists', [
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listListing(        since: '1970-01-01T00:00:00+00:00',
+$client->operations()->gists()->list(
+        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
         page: 1,
 );
@@ -1292,7 +1054,8 @@ $client->call('POST /gists');
 
 Operations method:
 ```php
-$client->operations()->gists()->create();
+$client->operations()->gists()->create(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#create-a-gist).
@@ -1313,31 +1076,8 @@ $client->call('GET /gists/public', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listPublic(        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-public-gists).
-
-
-### gists/list-public
-
-List public gists
-
-Using the `call` method:
-```php
-$client->call('LIST /gists/public', [
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listPublicListing(        since: '1970-01-01T00:00:00+00:00',
+$client->operations()->gists()->listPublic(
+        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
         page: 1,
 );
@@ -1361,31 +1101,8 @@ $client->call('GET /gists/starred', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listStarred(        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-starred-gists).
-
-
-### gists/list-starred
-
-List starred gists
-
-Using the `call` method:
-```php
-$client->call('LIST /gists/starred', [
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listStarredListing(        since: '1970-01-01T00:00:00+00:00',
+$client->operations()->gists()->listStarred(
+        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
         page: 1,
 );
@@ -1407,7 +1124,8 @@ $client->call('GET /gists/{gist_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->get(        gist_id: 'generated',
+$client->operations()->gists()->get(
+        gist_id: 'generated',
 );
 ```
 
@@ -1427,7 +1145,8 @@ $client->call('DELETE /gists/{gist_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->delete(        gist_id: 'generated',
+$client->operations()->gists()->delete(
+        gist_id: 'generated',
 );
 ```
 
@@ -1447,7 +1166,8 @@ $client->call('PATCH /gists/{gist_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->update(        gist_id: 'generated',
+$client->operations()->gists()->update(
+        gist_id: 'generated',
 );
 ```
 
@@ -1469,31 +1189,8 @@ $client->call('GET /gists/{gist_id}/comments', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listComments(        gist_id: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/comments#list-gist-comments).
-
-
-### gists/list-comments
-
-List gist comments
-
-Using the `call` method:
-```php
-$client->call('LIST /gists/{gist_id}/comments', [
-        'gist_id' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listCommentsListing(        gist_id: 'generated',
+$client->operations()->gists()->listComments(
+        gist_id: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -1515,7 +1212,8 @@ $client->call('POST /gists/{gist_id}/comments', [
 
 Operations method:
 ```php
-$client->operations()->gists()->createComment(        gist_id: 'generated',
+$client->operations()->gists()->createComment(
+        gist_id: 'generated',
 );
 ```
 
@@ -1536,7 +1234,8 @@ $client->call('GET /gists/{gist_id}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->getComment(        gist_id: 'generated',
+$client->operations()->gists()->getComment(
+        gist_id: 'generated',
         comment_id: 10,
 );
 ```
@@ -1558,7 +1257,8 @@ $client->call('DELETE /gists/{gist_id}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->deleteComment(        gist_id: 'generated',
+$client->operations()->gists()->deleteComment(
+        gist_id: 'generated',
         comment_id: 10,
 );
 ```
@@ -1580,7 +1280,8 @@ $client->call('PATCH /gists/{gist_id}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->updateComment(        gist_id: 'generated',
+$client->operations()->gists()->updateComment(
+        gist_id: 'generated',
         comment_id: 10,
 );
 ```
@@ -1603,31 +1304,8 @@ $client->call('GET /gists/{gist_id}/commits', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listCommits(        gist_id: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-gist-commits).
-
-
-### gists/list-commits
-
-List gist commits
-
-Using the `call` method:
-```php
-$client->call('LIST /gists/{gist_id}/commits', [
-        'gist_id' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listCommitsListing(        gist_id: 'generated',
+$client->operations()->gists()->listCommits(
+        gist_id: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -1651,31 +1329,8 @@ $client->call('GET /gists/{gist_id}/forks', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listForks(        gist_id: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-gist-forks).
-
-
-### gists/list-forks
-
-List gist forks
-
-Using the `call` method:
-```php
-$client->call('LIST /gists/{gist_id}/forks', [
-        'gist_id' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listForksListing(        gist_id: 'generated',
+$client->operations()->gists()->listForks(
+        gist_id: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -1697,7 +1352,8 @@ $client->call('POST /gists/{gist_id}/forks', [
 
 Operations method:
 ```php
-$client->operations()->gists()->fork(        gist_id: 'generated',
+$client->operations()->gists()->fork(
+        gist_id: 'generated',
 );
 ```
 
@@ -1717,7 +1373,8 @@ $client->call('GET /gists/{gist_id}/star', [
 
 Operations method:
 ```php
-$client->operations()->gists()->checkIsStarred(        gist_id: 'generated',
+$client->operations()->gists()->checkIsStarred(
+        gist_id: 'generated',
 );
 ```
 
@@ -1737,7 +1394,8 @@ $client->call('PUT /gists/{gist_id}/star', [
 
 Operations method:
 ```php
-$client->operations()->gists()->star(        gist_id: 'generated',
+$client->operations()->gists()->star(
+        gist_id: 'generated',
 );
 ```
 
@@ -1757,7 +1415,8 @@ $client->call('DELETE /gists/{gist_id}/star', [
 
 Operations method:
 ```php
-$client->operations()->gists()->unstar(        gist_id: 'generated',
+$client->operations()->gists()->unstar(
+        gist_id: 'generated',
 );
 ```
 
@@ -1778,7 +1437,8 @@ $client->call('GET /gists/{gist_id}/{sha}', [
 
 Operations method:
 ```php
-$client->operations()->gists()->getRevision(        gist_id: 'generated',
+$client->operations()->gists()->getRevision(
+        gist_id: 'generated',
         sha: 'generated',
 );
 ```
@@ -1797,7 +1457,8 @@ $client->call('GET /gitignore/templates');
 
 Operations method:
 ```php
-$client->operations()->gitignore()->getAllTemplates();
+$client->operations()->gitignore()->getAllTemplates(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gitignore/gitignore#get-all-gitignore-templates).
@@ -1816,7 +1477,8 @@ $client->call('GET /gitignore/templates/{name}', [
 
 Operations method:
 ```php
-$client->operations()->gitignore()->getTemplate(        name: 'generated',
+$client->operations()->gitignore()->getTemplate(
+        name: 'generated',
 );
 ```
 
@@ -1837,7 +1499,8 @@ $client->call('GET /installation/repositories', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listReposAccessibleToInstallation(        per_page: 8,
+$client->operations()->apps()->listReposAccessibleToInstallation(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -1856,7 +1519,8 @@ $client->call('DELETE /installation/token');
 
 Operations method:
 ```php
-$client->operations()->apps()->revokeInstallationAccessToken();
+$client->operations()->apps()->revokeInstallationAccessToken(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/installations#revoke-an-installation-access-token).
@@ -1886,49 +1550,8 @@ $client->call('GET /issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->list(        labels: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        collab: ,
-        orgs: ,
-        owned: ,
-        pulls: ,
-        filter: 'generated',
-        state: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/issues#list-issues-assigned-to-the-authenticated-user).
-
-
-### issues/list
-
-List issues assigned to the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /issues', [
-        'labels' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'collab' => ,
-        'orgs' => ,
-        'owned' => ,
-        'pulls' => ,
-        'filter' => 'generated',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listListing(        labels: 'generated',
+$client->operations()->issues()->list(
+        labels: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         collab: ,
         orgs: ,
@@ -1961,31 +1584,8 @@ $client->call('GET /licenses', [
 
 Operations method:
 ```php
-$client->operations()->licenses()->getAllCommonlyUsed(        featured: ,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/licenses/licenses#get-all-commonly-used-licenses).
-
-
-### licenses/get-all-commonly-used
-
-Get all commonly used licenses
-
-Using the `call` method:
-```php
-$client->call('LIST /licenses', [
-        'featured' => ,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->licenses()->getAllCommonlyUsedListing(        featured: ,
+$client->operations()->licenses()->getAllCommonlyUsed(
+        featured: ,
         per_page: 8,
         page: 1,
 );
@@ -2007,7 +1607,8 @@ $client->call('GET /licenses/{license}', [
 
 Operations method:
 ```php
-$client->operations()->licenses()->get(        license: 'generated',
+$client->operations()->licenses()->get(
+        license: 'generated',
 );
 ```
 
@@ -2025,7 +1626,8 @@ $client->call('POST /markdown');
 
 Operations method:
 ```php
-$client->operations()->markdown()->render();
+$client->operations()->markdown()->render(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/markdown/markdown#render-a-markdown-document).
@@ -2042,7 +1644,8 @@ $client->call('POST /markdown/raw');
 
 Operations method:
 ```php
-$client->operations()->markdown()->renderRaw();
+$client->operations()->markdown()->renderRaw(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/markdown/markdown#render-a-markdown-document-in-raw-mode).
@@ -2061,7 +1664,8 @@ $client->call('GET /marketplace_listing/accounts/{account_id}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getSubscriptionPlanForAccount(        account_id: 10,
+$client->operations()->apps()->getSubscriptionPlanForAccount(
+        account_id: 10,
 );
 ```
 
@@ -2082,29 +1686,8 @@ $client->call('GET /marketplace_listing/plans', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listPlans(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-plans).
-
-
-### apps/list-plans
-
-List plans
-
-Using the `call` method:
-```php
-$client->call('LIST /marketplace_listing/plans', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listPlansListing(        per_page: 8,
+$client->operations()->apps()->listPlans(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -2129,35 +1712,8 @@ $client->call('GET /marketplace_listing/plans/{plan_id}/accounts', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listAccountsForPlan(        plan_id: 7,
-        direction: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-accounts-for-a-plan).
-
-
-### apps/list-accounts-for-plan
-
-List accounts for a plan
-
-Using the `call` method:
-```php
-$client->call('LIST /marketplace_listing/plans/{plan_id}/accounts', [
-        'plan_id' => 7,
-        'direction' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listAccountsForPlanListing(        plan_id: 7,
+$client->operations()->apps()->listAccountsForPlan(
+        plan_id: 7,
         direction: 'generated',
         sort: 'generated',
         per_page: 8,
@@ -2181,7 +1737,8 @@ $client->call('GET /marketplace_listing/stubbed/accounts/{account_id}', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getSubscriptionPlanForAccountStubbed(        account_id: 10,
+$client->operations()->apps()->getSubscriptionPlanForAccountStubbed(
+        account_id: 10,
 );
 ```
 
@@ -2202,29 +1759,8 @@ $client->call('GET /marketplace_listing/stubbed/plans', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listPlansStubbed(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-plans-stubbed).
-
-
-### apps/list-plans-stubbed
-
-List plans (stubbed)
-
-Using the `call` method:
-```php
-$client->call('LIST /marketplace_listing/stubbed/plans', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listPlansStubbedListing(        per_page: 8,
+$client->operations()->apps()->listPlansStubbed(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -2249,35 +1785,8 @@ $client->call('GET /marketplace_listing/stubbed/plans/{plan_id}/accounts', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listAccountsForPlanStubbed(        plan_id: 7,
-        direction: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-accounts-for-a-plan-stubbed).
-
-
-### apps/list-accounts-for-plan-stubbed
-
-List accounts for a plan (stubbed)
-
-Using the `call` method:
-```php
-$client->call('LIST /marketplace_listing/stubbed/plans/{plan_id}/accounts', [
-        'plan_id' => 7,
-        'direction' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listAccountsForPlanStubbedListing(        plan_id: 7,
+$client->operations()->apps()->listAccountsForPlanStubbed(
+        plan_id: 7,
         direction: 'generated',
         sort: 'generated',
         per_page: 8,
@@ -2299,7 +1808,8 @@ $client->call('GET /meta');
 
 Operations method:
 ```php
-$client->operations()->meta()->get();
+$client->operations()->meta()->get(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/meta/meta#get-apiname-meta-information).
@@ -2321,33 +1831,8 @@ $client->call('GET /networks/{owner}/{repo}/events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listPublicEventsForRepoNetwork(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-public-events-for-a-network-of-repositories).
-
-
-### activity/list-public-events-for-repo-network
-
-List public events for a network of repositories
-
-Using the `call` method:
-```php
-$client->call('LIST /networks/{owner}/{repo}/events', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listPublicEventsForRepoNetworkListing(        owner: 'generated',
+$client->operations()->activity()->listPublicEventsForRepoNetwork(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -2375,37 +1860,8 @@ $client->call('GET /notifications', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listNotificationsForAuthenticatedUser(        since: '1970-01-01T00:00:00+00:00',
-        before: '1970-01-01T00:00:00+00:00',
-        all: ,
-        participating: ,
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/notifications#list-notifications-for-the-authenticated-user).
-
-
-### activity/list-notifications-for-authenticated-user
-
-List notifications for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /notifications', [
-        'since' => '1970-01-01T00:00:00+00:00',
-        'before' => '1970-01-01T00:00:00+00:00',
-        'all' => ,
-        'participating' => ,
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listNotificationsForAuthenticatedUserListing(        since: '1970-01-01T00:00:00+00:00',
+$client->operations()->activity()->listNotificationsForAuthenticatedUser(
+        since: '1970-01-01T00:00:00+00:00',
         before: '1970-01-01T00:00:00+00:00',
         all: ,
         participating: ,
@@ -2428,7 +1884,8 @@ $client->call('PUT /notifications');
 
 Operations method:
 ```php
-$client->operations()->activity()->markNotificationsAsRead();
+$client->operations()->activity()->markNotificationsAsRead(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/notifications#mark-notifications-as-read).
@@ -2447,7 +1904,8 @@ $client->call('GET /notifications/threads/{thread_id}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->getThread(        thread_id: 9,
+$client->operations()->activity()->getThread(
+        thread_id: 9,
 );
 ```
 
@@ -2467,7 +1925,8 @@ $client->call('DELETE /notifications/threads/{thread_id}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->markThreadAsDone(        thread_id: 9,
+$client->operations()->activity()->markThreadAsDone(
+        thread_id: 9,
 );
 ```
 
@@ -2487,7 +1946,8 @@ $client->call('PATCH /notifications/threads/{thread_id}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->markThreadAsRead(        thread_id: 9,
+$client->operations()->activity()->markThreadAsRead(
+        thread_id: 9,
 );
 ```
 
@@ -2507,7 +1967,8 @@ $client->call('GET /notifications/threads/{thread_id}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->getThreadSubscriptionForAuthenticatedUser(        thread_id: 9,
+$client->operations()->activity()->getThreadSubscriptionForAuthenticatedUser(
+        thread_id: 9,
 );
 ```
 
@@ -2527,7 +1988,8 @@ $client->call('PUT /notifications/threads/{thread_id}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->setThreadSubscription(        thread_id: 9,
+$client->operations()->activity()->setThreadSubscription(
+        thread_id: 9,
 );
 ```
 
@@ -2547,7 +2009,8 @@ $client->call('DELETE /notifications/threads/{thread_id}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->deleteThreadSubscription(        thread_id: 9,
+$client->operations()->activity()->deleteThreadSubscription(
+        thread_id: 9,
 );
 ```
 
@@ -2567,7 +2030,8 @@ $client->call('GET /octocat', [
 
 Operations method:
 ```php
-$client->operations()->meta()->getOctocat(        s: 'generated',
+$client->operations()->meta()->getOctocat(
+        s: 'generated',
 );
 ```
 
@@ -2588,7 +2052,8 @@ $client->call('GET /organizations', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->list(        since: 5,
+$client->operations()->orgs()->list(
+        since: 5,
         per_page: 8,
 );
 ```
@@ -2613,7 +2078,8 @@ $client->call('GET /organizations/{org}/settings/billing/usage', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getGithubBillingUsageReportOrg(        org: 'generated',
+$client->operations()->billing()->getGithubBillingUsageReportOrg(
+        org: 'generated',
         year: 4,
         month: 5,
         day: 3,
@@ -2637,7 +2103,8 @@ $client->call('GET /orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->get(        org: 'generated',
+$client->operations()->orgs()->get(
+        org: 'generated',
 );
 ```
 
@@ -2657,7 +2124,8 @@ $client->call('DELETE /orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->delete(        org: 'generated',
+$client->operations()->orgs()->delete(
+        org: 'generated',
 );
 ```
 
@@ -2677,7 +2145,8 @@ $client->call('PATCH /orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->update(        org: 'generated',
+$client->operations()->orgs()->update(
+        org: 'generated',
 );
 ```
 
@@ -2697,7 +2166,8 @@ $client->call('GET /orgs/{org}/actions/cache/usage', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getActionsCacheUsageForOrg(        org: 'generated',
+$client->operations()->actions()->getActionsCacheUsageForOrg(
+        org: 'generated',
 );
 ```
 
@@ -2719,7 +2189,8 @@ $client->call('GET /orgs/{org}/actions/cache/usage-by-repository', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getActionsCacheUsageByRepoForOrg(        org: 'generated',
+$client->operations()->actions()->getActionsCacheUsageByRepoForOrg(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -2741,7 +2212,8 @@ $client->call('GET /orgs/{org}/actions/oidc/customization/sub', [
 
 Operations method:
 ```php
-$client->operations()->oidc()->getOidcCustomSubTemplateForOrg(        org: 'generated',
+$client->operations()->oidc()->getOidcCustomSubTemplateForOrg(
+        org: 'generated',
 );
 ```
 
@@ -2761,7 +2233,8 @@ $client->call('PUT /orgs/{org}/actions/oidc/customization/sub', [
 
 Operations method:
 ```php
-$client->operations()->oidc()->updateOidcCustomSubTemplateForOrg(        org: 'generated',
+$client->operations()->oidc()->updateOidcCustomSubTemplateForOrg(
+        org: 'generated',
 );
 ```
 
@@ -2781,7 +2254,8 @@ $client->call('GET /orgs/{org}/actions/permissions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getGithubActionsPermissionsOrganization(        org: 'generated',
+$client->operations()->actions()->getGithubActionsPermissionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2801,7 +2275,8 @@ $client->call('PUT /orgs/{org}/actions/permissions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setGithubActionsPermissionsOrganization(        org: 'generated',
+$client->operations()->actions()->setGithubActionsPermissionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2823,7 +2298,8 @@ $client->call('GET /orgs/{org}/actions/permissions/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelectedRepositoriesEnabledGithubActionsOrganization(        org: 'generated',
+$client->operations()->actions()->listSelectedRepositoriesEnabledGithubActionsOrganization(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -2845,7 +2321,8 @@ $client->call('PUT /orgs/{org}/actions/permissions/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setSelectedRepositoriesEnabledGithubActionsOrganization(        org: 'generated',
+$client->operations()->actions()->setSelectedRepositoriesEnabledGithubActionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2866,7 +2343,8 @@ $client->call('PUT /orgs/{org}/actions/permissions/repositories/{repository_id}'
 
 Operations method:
 ```php
-$client->operations()->actions()->enableSelectedRepositoryGithubActionsOrganization(        org: 'generated',
+$client->operations()->actions()->enableSelectedRepositoryGithubActionsOrganization(
+        org: 'generated',
         repository_id: 13,
 );
 ```
@@ -2888,7 +2366,8 @@ $client->call('DELETE /orgs/{org}/actions/permissions/repositories/{repository_i
 
 Operations method:
 ```php
-$client->operations()->actions()->disableSelectedRepositoryGithubActionsOrganization(        org: 'generated',
+$client->operations()->actions()->disableSelectedRepositoryGithubActionsOrganization(
+        org: 'generated',
         repository_id: 13,
 );
 ```
@@ -2909,7 +2388,8 @@ $client->call('GET /orgs/{org}/actions/permissions/selected-actions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getAllowedActionsOrganization(        org: 'generated',
+$client->operations()->actions()->getAllowedActionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2929,7 +2409,8 @@ $client->call('PUT /orgs/{org}/actions/permissions/selected-actions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setAllowedActionsOrganization(        org: 'generated',
+$client->operations()->actions()->setAllowedActionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2949,7 +2430,8 @@ $client->call('GET /orgs/{org}/actions/permissions/workflow', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsOrganization(        org: 'generated',
+$client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2969,7 +2451,8 @@ $client->call('PUT /orgs/{org}/actions/permissions/workflow', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrganization(        org: 'generated',
+$client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrganization(
+        org: 'generated',
 );
 ```
 
@@ -2992,7 +2475,8 @@ $client->call('GET /orgs/{org}/actions/runner-groups', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelfHostedRunnerGroupsForOrg(        org: 'generated',
+$client->operations()->actions()->listSelfHostedRunnerGroupsForOrg(
+        org: 'generated',
         visible_to_repository: 'generated',
         per_page: 8,
         page: 1,
@@ -3015,7 +2499,8 @@ $client->call('POST /orgs/{org}/actions/runner-groups', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createSelfHostedRunnerGroupForOrg(        org: 'generated',
+$client->operations()->actions()->createSelfHostedRunnerGroupForOrg(
+        org: 'generated',
 );
 ```
 
@@ -3036,7 +2521,8 @@ $client->call('GET /orgs/{org}/actions/runner-groups/{runner_group_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getSelfHostedRunnerGroupForOrg(        org: 'generated',
+$client->operations()->actions()->getSelfHostedRunnerGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
 );
 ```
@@ -3058,7 +2544,8 @@ $client->call('DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteSelfHostedRunnerGroupFromOrg(        org: 'generated',
+$client->operations()->actions()->deleteSelfHostedRunnerGroupFromOrg(
+        org: 'generated',
         runner_group_id: 15,
 );
 ```
@@ -3080,7 +2567,8 @@ $client->call('PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->updateSelfHostedRunnerGroupForOrg(        org: 'generated',
+$client->operations()->actions()->updateSelfHostedRunnerGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
 );
 ```
@@ -3104,7 +2592,8 @@ $client->call('GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositor
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoAccessToSelfHostedRunnerGroupInOrg(        org: 'generated',
+$client->operations()->actions()->listRepoAccessToSelfHostedRunnerGroupInOrg(
+        org: 'generated',
         runner_group_id: 15,
         page: 1,
         per_page: 8,
@@ -3128,7 +2617,8 @@ $client->call('PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositor
 
 Operations method:
 ```php
-$client->operations()->actions()->setRepoAccessToSelfHostedRunnerGroupInOrg(        org: 'generated',
+$client->operations()->actions()->setRepoAccessToSelfHostedRunnerGroupInOrg(
+        org: 'generated',
         runner_group_id: 15,
 );
 ```
@@ -3151,7 +2641,8 @@ $client->call('PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositor
 
 Operations method:
 ```php
-$client->operations()->actions()->addRepoAccessToSelfHostedRunnerGroupInOrg(        org: 'generated',
+$client->operations()->actions()->addRepoAccessToSelfHostedRunnerGroupInOrg(
+        org: 'generated',
         runner_group_id: 15,
         repository_id: 13,
 );
@@ -3175,7 +2666,8 @@ $client->call('DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/reposi
 
 Operations method:
 ```php
-$client->operations()->actions()->removeRepoAccessToSelfHostedRunnerGroupInOrg(        org: 'generated',
+$client->operations()->actions()->removeRepoAccessToSelfHostedRunnerGroupInOrg(
+        org: 'generated',
         runner_group_id: 15,
         repository_id: 13,
 );
@@ -3200,7 +2692,8 @@ $client->call('GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners',
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelfHostedRunnersInGroupForOrg(        org: 'generated',
+$client->operations()->actions()->listSelfHostedRunnersInGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
         per_page: 8,
         page: 1,
@@ -3224,7 +2717,8 @@ $client->call('PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners',
 
 Operations method:
 ```php
-$client->operations()->actions()->setSelfHostedRunnersInGroupForOrg(        org: 'generated',
+$client->operations()->actions()->setSelfHostedRunnersInGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
 );
 ```
@@ -3247,7 +2741,8 @@ $client->call('PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{
 
 Operations method:
 ```php
-$client->operations()->actions()->addSelfHostedRunnerToGroupForOrg(        org: 'generated',
+$client->operations()->actions()->addSelfHostedRunnerToGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
         runner_id: 9,
 );
@@ -3271,7 +2766,8 @@ $client->call('DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runner
 
 Operations method:
 ```php
-$client->operations()->actions()->removeSelfHostedRunnerFromGroupForOrg(        org: 'generated',
+$client->operations()->actions()->removeSelfHostedRunnerFromGroupForOrg(
+        org: 'generated',
         runner_group_id: 15,
         runner_id: 9,
 );
@@ -3296,7 +2792,8 @@ $client->call('GET /orgs/{org}/actions/runners', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelfHostedRunnersForOrg(        name: 'generated',
+$client->operations()->actions()->listSelfHostedRunnersForOrg(
+        name: 'generated',
         org: 'generated',
         per_page: 8,
         page: 1,
@@ -3319,7 +2816,8 @@ $client->call('GET /orgs/{org}/actions/runners/downloads', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRunnerApplicationsForOrg(        org: 'generated',
+$client->operations()->actions()->listRunnerApplicationsForOrg(
+        org: 'generated',
 );
 ```
 
@@ -3339,7 +2837,8 @@ $client->call('POST /orgs/{org}/actions/runners/generate-jitconfig', [
 
 Operations method:
 ```php
-$client->operations()->actions()->generateRunnerJitconfigForOrg(        org: 'generated',
+$client->operations()->actions()->generateRunnerJitconfigForOrg(
+        org: 'generated',
 );
 ```
 
@@ -3359,7 +2858,8 @@ $client->call('POST /orgs/{org}/actions/runners/registration-token', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createRegistrationTokenForOrg(        org: 'generated',
+$client->operations()->actions()->createRegistrationTokenForOrg(
+        org: 'generated',
 );
 ```
 
@@ -3379,7 +2879,8 @@ $client->call('POST /orgs/{org}/actions/runners/remove-token', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createRemoveTokenForOrg(        org: 'generated',
+$client->operations()->actions()->createRemoveTokenForOrg(
+        org: 'generated',
 );
 ```
 
@@ -3400,7 +2901,8 @@ $client->call('GET /orgs/{org}/actions/runners/{runner_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->getSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3422,7 +2924,8 @@ $client->call('DELETE /orgs/{org}/actions/runners/{runner_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteSelfHostedRunnerFromOrg(        org: 'generated',
+$client->operations()->actions()->deleteSelfHostedRunnerFromOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3444,7 +2947,8 @@ $client->call('GET /orgs/{org}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listLabelsForSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->listLabelsForSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3466,7 +2970,8 @@ $client->call('PUT /orgs/{org}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setCustomLabelsForSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->setCustomLabelsForSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3488,7 +2993,8 @@ $client->call('POST /orgs/{org}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3510,7 +3016,8 @@ $client->call('DELETE /orgs/{org}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->removeAllCustomLabelsFromSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->removeAllCustomLabelsFromSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
 );
 ```
@@ -3533,7 +3040,8 @@ $client->call('DELETE /orgs/{org}/actions/runners/{runner_id}/labels/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->removeCustomLabelFromSelfHostedRunnerForOrg(        org: 'generated',
+$client->operations()->actions()->removeCustomLabelFromSelfHostedRunnerForOrg(
+        org: 'generated',
         runner_id: 9,
         name: 'generated',
 );
@@ -3557,7 +3065,8 @@ $client->call('GET /orgs/{org}/actions/secrets', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listOrgSecrets(        org: 'generated',
+$client->operations()->actions()->listOrgSecrets(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -3579,7 +3088,8 @@ $client->call('GET /orgs/{org}/actions/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getOrgPublicKey(        org: 'generated',
+$client->operations()->actions()->getOrgPublicKey(
+        org: 'generated',
 );
 ```
 
@@ -3600,7 +3110,8 @@ $client->call('GET /orgs/{org}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getOrgSecret(        org: 'generated',
+$client->operations()->actions()->getOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -3622,7 +3133,8 @@ $client->call('PUT /orgs/{org}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createOrUpdateOrgSecret(        org: 'generated',
+$client->operations()->actions()->createOrUpdateOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -3644,7 +3156,8 @@ $client->call('DELETE /orgs/{org}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteOrgSecret(        org: 'generated',
+$client->operations()->actions()->deleteOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -3668,7 +3181,8 @@ $client->call('GET /orgs/{org}/actions/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->actions()->listSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         page: 1,
         per_page: 8,
@@ -3692,7 +3206,8 @@ $client->call('PUT /orgs/{org}/actions/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->actions()->setSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -3715,7 +3230,8 @@ $client->call('PUT /orgs/{org}/actions/secrets/{secret_name}/repositories/{repos
 
 Operations method:
 ```php
-$client->operations()->actions()->addSelectedRepoToOrgSecret(        org: 'generated',
+$client->operations()->actions()->addSelectedRepoToOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -3739,7 +3255,8 @@ $client->call('DELETE /orgs/{org}/actions/secrets/{secret_name}/repositories/{re
 
 Operations method:
 ```php
-$client->operations()->actions()->removeSelectedRepoFromOrgSecret(        org: 'generated',
+$client->operations()->actions()->removeSelectedRepoFromOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -3763,7 +3280,8 @@ $client->call('GET /orgs/{org}/actions/variables', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listOrgVariables(        org: 'generated',
+$client->operations()->actions()->listOrgVariables(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -3785,7 +3303,8 @@ $client->call('POST /orgs/{org}/actions/variables', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createOrgVariable(        org: 'generated',
+$client->operations()->actions()->createOrgVariable(
+        org: 'generated',
 );
 ```
 
@@ -3806,7 +3325,8 @@ $client->call('GET /orgs/{org}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getOrgVariable(        org: 'generated',
+$client->operations()->actions()->getOrgVariable(
+        org: 'generated',
         name: 'generated',
 );
 ```
@@ -3828,7 +3348,8 @@ $client->call('DELETE /orgs/{org}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteOrgVariable(        org: 'generated',
+$client->operations()->actions()->deleteOrgVariable(
+        org: 'generated',
         name: 'generated',
 );
 ```
@@ -3850,7 +3371,8 @@ $client->call('PATCH /orgs/{org}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->updateOrgVariable(        org: 'generated',
+$client->operations()->actions()->updateOrgVariable(
+        org: 'generated',
         name: 'generated',
 );
 ```
@@ -3874,7 +3396,8 @@ $client->call('GET /orgs/{org}/actions/variables/{name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelectedReposForOrgVariable(        org: 'generated',
+$client->operations()->actions()->listSelectedReposForOrgVariable(
+        org: 'generated',
         name: 'generated',
         page: 1,
         per_page: 8,
@@ -3898,7 +3421,8 @@ $client->call('PUT /orgs/{org}/actions/variables/{name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setSelectedReposForOrgVariable(        org: 'generated',
+$client->operations()->actions()->setSelectedReposForOrgVariable(
+        org: 'generated',
         name: 'generated',
 );
 ```
@@ -3921,7 +3445,8 @@ $client->call('PUT /orgs/{org}/actions/variables/{name}/repositories/{repository
 
 Operations method:
 ```php
-$client->operations()->actions()->addSelectedRepoToOrgVariable(        org: 'generated',
+$client->operations()->actions()->addSelectedRepoToOrgVariable(
+        org: 'generated',
         name: 'generated',
         repository_id: 13,
 );
@@ -3945,7 +3470,8 @@ $client->call('DELETE /orgs/{org}/actions/variables/{name}/repositories/{reposit
 
 Operations method:
 ```php
-$client->operations()->actions()->removeSelectedRepoFromOrgVariable(        org: 'generated',
+$client->operations()->actions()->removeSelectedRepoFromOrgVariable(
+        org: 'generated',
         name: 'generated',
         repository_id: 13,
 );
@@ -3971,7 +3497,8 @@ $client->call('GET /orgs/{org}/attestations/{subject_digest}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listAttestations(        before: 'generated',
+$client->operations()->orgs()->listAttestations(
+        before: 'generated',
         after: 'generated',
         org: 'generated',
         subject_digest: 'generated',
@@ -3997,31 +3524,8 @@ $client->call('GET /orgs/{org}/blocks', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listBlockedUsers(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/blocking#list-users-blocked-by-an-organization).
-
-
-### orgs/list-blocked-users
-
-List users blocked by an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/blocks', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listBlockedUsersListing(        org: 'generated',
+$client->operations()->orgs()->listBlockedUsers(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -4044,7 +3548,8 @@ $client->call('GET /orgs/{org}/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->checkBlockedUser(        org: 'generated',
+$client->operations()->orgs()->checkBlockedUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -4066,7 +3571,8 @@ $client->call('PUT /orgs/{org}/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->blockUser(        org: 'generated',
+$client->operations()->orgs()->blockUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -4088,7 +3594,8 @@ $client->call('DELETE /orgs/{org}/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->unblockUser(        org: 'generated',
+$client->operations()->orgs()->unblockUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -4105,7 +3612,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/code-scanning/alerts', [
         'org' => 'generated',
         'tool_name' => 'generated',
-        'tool_guid' => ,
+        'tool_guid' => generated,
         'before' => 'generated',
         'after' => 'generated',
         'state' => 'generated',
@@ -4119,49 +3626,10 @@ $client->call('GET /orgs/{org}/code-scanning/alerts', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->listAlertsForOrg(        org: 'generated',
+$client->operations()->codeScanning()->listAlertsForOrg(
+        org: 'generated',
         tool_name: 'generated',
-        tool_guid: ,
-        before: 'generated',
-        after: 'generated',
-        state: 'generated',
-        severity: 'generated',
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-        sort: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/code-scanning/code-scanning#list-code-scanning-alerts-for-an-organization).
-
-
-### code-scanning/list-alerts-for-org
-
-List code scanning alerts for an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/code-scanning/alerts', [
-        'org' => 'generated',
-        'tool_name' => 'generated',
-        'tool_guid' => ,
-        'before' => 'generated',
-        'after' => 'generated',
-        'state' => 'generated',
-        'severity' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-        'sort' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->codeScanning()->listAlertsForOrgListing(        org: 'generated',
-        tool_name: 'generated',
-        tool_guid: ,
+        tool_guid: generated,
         before: 'generated',
         after: 'generated',
         state: 'generated',
@@ -4193,7 +3661,8 @@ $client->call('GET /orgs/{org}/code-security/configurations', [
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->getConfigurationsForOrg(        org: 'generated',
+$client->operations()->codeSecurity()->getConfigurationsForOrg(
+        org: 'generated',
         before: 'generated',
         after: 'generated',
         target_type: 'generated',
@@ -4217,7 +3686,8 @@ $client->call('POST /orgs/{org}/code-security/configurations', [
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->createConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->createConfiguration(
+        org: 'generated',
 );
 ```
 
@@ -4237,7 +3707,8 @@ $client->call('GET /orgs/{org}/code-security/configurations/defaults', [
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->getDefaultConfigurations(        org: 'generated',
+$client->operations()->codeSecurity()->getDefaultConfigurations(
+        org: 'generated',
 );
 ```
 
@@ -4257,7 +3728,8 @@ $client->call('DELETE /orgs/{org}/code-security/configurations/detach', [
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->detachConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->detachConfiguration(
+        org: 'generated',
 );
 ```
 
@@ -4278,7 +3750,8 @@ $client->call('GET /orgs/{org}/code-security/configurations/{configuration_id}',
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->getConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->getConfiguration(
+        org: 'generated',
         configuration_id: 16,
 );
 ```
@@ -4300,7 +3773,8 @@ $client->call('DELETE /orgs/{org}/code-security/configurations/{configuration_id
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->deleteConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->deleteConfiguration(
+        org: 'generated',
         configuration_id: 16,
 );
 ```
@@ -4322,7 +3796,8 @@ $client->call('PATCH /orgs/{org}/code-security/configurations/{configuration_id}
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->updateConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->updateConfiguration(
+        org: 'generated',
         configuration_id: 16,
 );
 ```
@@ -4344,7 +3819,8 @@ $client->call('POST /orgs/{org}/code-security/configurations/{configuration_id}/
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->attachConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->attachConfiguration(
+        org: 'generated',
         configuration_id: 16,
 );
 ```
@@ -4366,7 +3842,8 @@ $client->call('PUT /orgs/{org}/code-security/configurations/{configuration_id}/d
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->setConfigurationAsDefault(        org: 'generated',
+$client->operations()->codeSecurity()->setConfigurationAsDefault(
+        org: 'generated',
         configuration_id: 16,
 );
 ```
@@ -4392,7 +3869,8 @@ $client->call('GET /orgs/{org}/code-security/configurations/{configuration_id}/r
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->getRepositoriesForConfiguration(        org: 'generated',
+$client->operations()->codeSecurity()->getRepositoriesForConfiguration(
+        org: 'generated',
         configuration_id: 16,
         before: 'generated',
         after: 'generated',
@@ -4419,7 +3897,8 @@ $client->call('GET /orgs/{org}/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listInOrganization(        org: 'generated',
+$client->operations()->codespaces()->listInOrganization(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -4441,7 +3920,8 @@ $client->call('PUT /orgs/{org}/codespaces/access', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->setCodespacesAccess(        org: 'generated',
+$client->operations()->codespaces()->setCodespacesAccess(
+        org: 'generated',
 );
 ```
 
@@ -4461,7 +3941,8 @@ $client->call('POST /orgs/{org}/codespaces/access/selected_users', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->setCodespacesAccessUsers(        org: 'generated',
+$client->operations()->codespaces()->setCodespacesAccessUsers(
+        org: 'generated',
 );
 ```
 
@@ -4481,7 +3962,8 @@ $client->call('DELETE /orgs/{org}/codespaces/access/selected_users', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteCodespacesAccessUsers(        org: 'generated',
+$client->operations()->codespaces()->deleteCodespacesAccessUsers(
+        org: 'generated',
 );
 ```
 
@@ -4503,7 +3985,8 @@ $client->call('GET /orgs/{org}/codespaces/secrets', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listOrgSecrets(        org: 'generated',
+$client->operations()->codespaces()->listOrgSecrets(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -4525,7 +4008,8 @@ $client->call('GET /orgs/{org}/codespaces/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getOrgPublicKey(        org: 'generated',
+$client->operations()->codespaces()->getOrgPublicKey(
+        org: 'generated',
 );
 ```
 
@@ -4546,7 +4030,8 @@ $client->call('GET /orgs/{org}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->getOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -4568,7 +4053,8 @@ $client->call('PUT /orgs/{org}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createOrUpdateOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->createOrUpdateOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -4590,7 +4076,8 @@ $client->call('DELETE /orgs/{org}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->deleteOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -4614,7 +4101,8 @@ $client->call('GET /orgs/{org}/codespaces/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->listSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         page: 1,
         per_page: 8,
@@ -4638,7 +4126,8 @@ $client->call('PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->setSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->setSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -4661,7 +4150,8 @@ $client->call('PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{re
 
 Operations method:
 ```php
-$client->operations()->codespaces()->addSelectedRepoToOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->addSelectedRepoToOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -4685,7 +4175,8 @@ $client->call('DELETE /orgs/{org}/codespaces/secrets/{secret_name}/repositories/
 
 Operations method:
 ```php
-$client->operations()->codespaces()->removeSelectedRepoFromOrgSecret(        org: 'generated',
+$client->operations()->codespaces()->removeSelectedRepoFromOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -4707,7 +4198,8 @@ $client->call('GET /orgs/{org}/copilot/billing', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->getCopilotOrganizationDetails(        org: 'generated',
+$client->operations()->copilot()->getCopilotOrganizationDetails(
+        org: 'generated',
 );
 ```
 
@@ -4729,7 +4221,8 @@ $client->call('GET /orgs/{org}/copilot/billing/seats', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->listCopilotSeats(        org: 'generated',
+$client->operations()->copilot()->listCopilotSeats(
+        org: 'generated',
         page: 1,
         per_page: 8,
 );
@@ -4751,7 +4244,8 @@ $client->call('POST /orgs/{org}/copilot/billing/selected_teams', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->addCopilotSeatsForTeams(        org: 'generated',
+$client->operations()->copilot()->addCopilotSeatsForTeams(
+        org: 'generated',
 );
 ```
 
@@ -4771,7 +4265,8 @@ $client->call('DELETE /orgs/{org}/copilot/billing/selected_teams', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->cancelCopilotSeatAssignmentForTeams(        org: 'generated',
+$client->operations()->copilot()->cancelCopilotSeatAssignmentForTeams(
+        org: 'generated',
 );
 ```
 
@@ -4791,7 +4286,8 @@ $client->call('POST /orgs/{org}/copilot/billing/selected_users', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->addCopilotSeatsForUsers(        org: 'generated',
+$client->operations()->copilot()->addCopilotSeatsForUsers(
+        org: 'generated',
 );
 ```
 
@@ -4811,7 +4307,8 @@ $client->call('DELETE /orgs/{org}/copilot/billing/selected_users', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->cancelCopilotSeatAssignmentForUsers(        org: 'generated',
+$client->operations()->copilot()->cancelCopilotSeatAssignmentForUsers(
+        org: 'generated',
 );
 ```
 
@@ -4835,35 +4332,8 @@ $client->call('GET /orgs/{org}/copilot/metrics', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->copilotMetricsForOrganization(        org: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-metrics#get-copilot-metrics-for-an-organization).
-
-
-### copilot/copilot-metrics-for-organization
-
-Get Copilot metrics for an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/copilot/metrics', [
-        'org' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->copilotMetricsForOrganizationListing(        org: 'generated',
+$client->operations()->copilot()->copilotMetricsForOrganization(
+        org: 'generated',
         since: 'generated',
         until: 'generated',
         page: 1,
@@ -4891,35 +4361,8 @@ $client->call('GET /orgs/{org}/copilot/usage', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->usageMetricsForOrg(        org: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-organization-members).
-
-
-### copilot/usage-metrics-for-org
-
-Get a summary of Copilot usage for organization members
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/copilot/usage', [
-        'org' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->usageMetricsForOrgListing(        org: 'generated',
+$client->operations()->copilot()->usageMetricsForOrg(
+        org: 'generated',
         since: 'generated',
         until: 'generated',
         page: 1,
@@ -4955,7 +4398,8 @@ $client->call('GET /orgs/{org}/dependabot/alerts', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listAlertsForOrg(        org: 'generated',
+$client->operations()->dependabot()->listAlertsForOrg(
+        org: 'generated',
         state: 'generated',
         severity: 'generated',
         ecosystem: 'generated',
@@ -4989,7 +4433,8 @@ $client->call('GET /orgs/{org}/dependabot/secrets', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listOrgSecrets(        org: 'generated',
+$client->operations()->dependabot()->listOrgSecrets(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -5011,7 +4456,8 @@ $client->call('GET /orgs/{org}/dependabot/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->getOrgPublicKey(        org: 'generated',
+$client->operations()->dependabot()->getOrgPublicKey(
+        org: 'generated',
 );
 ```
 
@@ -5032,7 +4478,8 @@ $client->call('GET /orgs/{org}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->getOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->getOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -5054,7 +4501,8 @@ $client->call('PUT /orgs/{org}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->createOrUpdateOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->createOrUpdateOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -5076,7 +4524,8 @@ $client->call('DELETE /orgs/{org}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->deleteOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->deleteOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -5100,7 +4549,8 @@ $client->call('GET /orgs/{org}/dependabot/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->listSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         page: 1,
         per_page: 8,
@@ -5124,7 +4574,8 @@ $client->call('PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->setSelectedReposForOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->setSelectedReposForOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
 );
 ```
@@ -5147,7 +4598,8 @@ $client->call('PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{re
 
 Operations method:
 ```php
-$client->operations()->dependabot()->addSelectedRepoToOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->addSelectedRepoToOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -5171,7 +4623,8 @@ $client->call('DELETE /orgs/{org}/dependabot/secrets/{secret_name}/repositories/
 
 Operations method:
 ```php
-$client->operations()->dependabot()->removeSelectedRepoFromOrgSecret(        org: 'generated',
+$client->operations()->dependabot()->removeSelectedRepoFromOrgSecret(
+        org: 'generated',
         secret_name: 'generated',
         repository_id: 13,
 );
@@ -5193,7 +4646,8 @@ $client->call('GET /orgs/{org}/docker/conflicts', [
 
 Operations method:
 ```php
-$client->operations()->packages()->listDockerMigrationConflictingPackagesForOrganization(        org: 'generated',
+$client->operations()->packages()->listDockerMigrationConflictingPackagesForOrganization(
+        org: 'generated',
 );
 ```
 
@@ -5215,31 +4669,8 @@ $client->call('GET /orgs/{org}/events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listPublicOrgEvents(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-public-organization-events).
-
-
-### activity/list-public-org-events
-
-List public organization events
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/events', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listPublicOrgEventsListing(        org: 'generated',
+$client->operations()->activity()->listPublicOrgEvents(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -5263,31 +4694,8 @@ $client->call('GET /orgs/{org}/failed_invitations', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listFailedInvitations(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-failed-organization-invitations).
-
-
-### orgs/list-failed-invitations
-
-List failed organization invitations
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/failed_invitations', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listFailedInvitationsListing(        org: 'generated',
+$client->operations()->orgs()->listFailedInvitations(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -5311,31 +4719,8 @@ $client->call('GET /orgs/{org}/hooks', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listWebhooks(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/webhooks#list-organization-webhooks).
-
-
-### orgs/list-webhooks
-
-List organization webhooks
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/hooks', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listWebhooksListing(        org: 'generated',
+$client->operations()->orgs()->listWebhooks(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -5357,7 +4742,8 @@ $client->call('POST /orgs/{org}/hooks', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->createWebhook(        org: 'generated',
+$client->operations()->orgs()->createWebhook(
+        org: 'generated',
 );
 ```
 
@@ -5378,7 +4764,8 @@ $client->call('GET /orgs/{org}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getWebhook(        org: 'generated',
+$client->operations()->orgs()->getWebhook(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5400,7 +4787,8 @@ $client->call('DELETE /orgs/{org}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->deleteWebhook(        org: 'generated',
+$client->operations()->orgs()->deleteWebhook(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5422,7 +4810,8 @@ $client->call('PATCH /orgs/{org}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->updateWebhook(        org: 'generated',
+$client->operations()->orgs()->updateWebhook(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5444,7 +4833,8 @@ $client->call('GET /orgs/{org}/hooks/{hook_id}/config', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getWebhookConfigForOrg(        org: 'generated',
+$client->operations()->orgs()->getWebhookConfigForOrg(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5466,7 +4856,8 @@ $client->call('PATCH /orgs/{org}/hooks/{hook_id}/config', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->updateWebhookConfigForOrg(        org: 'generated',
+$client->operations()->orgs()->updateWebhookConfigForOrg(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5490,7 +4881,8 @@ $client->call('GET /orgs/{org}/hooks/{hook_id}/deliveries', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listWebhookDeliveries(        org: 'generated',
+$client->operations()->orgs()->listWebhookDeliveries(
+        org: 'generated',
         hook_id: 7,
         cursor: 'generated',
         per_page: 8,
@@ -5515,7 +4907,8 @@ $client->call('GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getWebhookDelivery(        org: 'generated',
+$client->operations()->orgs()->getWebhookDelivery(
+        org: 'generated',
         hook_id: 7,
         delivery_id: 11,
 );
@@ -5539,7 +4932,8 @@ $client->call('POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempt
 
 Operations method:
 ```php
-$client->operations()->orgs()->redeliverWebhookDelivery(        org: 'generated',
+$client->operations()->orgs()->redeliverWebhookDelivery(
+        org: 'generated',
         hook_id: 7,
         delivery_id: 11,
 );
@@ -5562,7 +4956,8 @@ $client->call('POST /orgs/{org}/hooks/{hook_id}/pings', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->pingWebhook(        org: 'generated',
+$client->operations()->orgs()->pingWebhook(
+        org: 'generated',
         hook_id: 7,
 );
 ```
@@ -5582,7 +4977,9 @@ $client->call('GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}'
         'actor_id' => 8,
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
-        'sort' => ,
+        'sort' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -5591,48 +4988,15 @@ $client->call('GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}'
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getRouteStatsByActor(        org: 'generated',
+$client->operations()->apiInsights()->getRouteStatsByActor(
+        org: 'generated',
         actor_type: 'generated',
         actor_id: 8,
         min_timestamp: 'generated',
         max_timestamp: 'generated',
-        sort: ,
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/api-insights#get-route-stats-by-actor).
-
-
-### api-insights/get-route-stats-by-actor
-
-Get route stats by actor
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}', [
-        'org' => 'generated',
-        'actor_type' => 'generated',
-        'actor_id' => 8,
-        'min_timestamp' => 'generated',
-        'max_timestamp' => 'generated',
-        'sort' => ,
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apiInsights()->getRouteStatsByActorListing(        org: 'generated',
-        actor_type: 'generated',
-        actor_id: 8,
-        min_timestamp: 'generated',
-        max_timestamp: 'generated',
-        sort: ,
+        sort: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -5652,7 +5016,9 @@ $client->call('GET /orgs/{org}/insights/api/subject-stats', [
         'org' => 'generated',
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
-        'sort' => ,
+        'sort' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -5661,42 +5027,13 @@ $client->call('GET /orgs/{org}/insights/api/subject-stats', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getSubjectStats(        org: 'generated',
+$client->operations()->apiInsights()->getSubjectStats(
+        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
-        sort: ,
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/api-insights#get-subject-stats).
-
-
-### api-insights/get-subject-stats
-
-Get subject stats
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/insights/api/subject-stats', [
-        'org' => 'generated',
-        'min_timestamp' => 'generated',
-        'max_timestamp' => 'generated',
-        'sort' => ,
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apiInsights()->getSubjectStatsListing(        org: 'generated',
-        min_timestamp: 'generated',
-        max_timestamp: 'generated',
-        sort: ,
+        sort: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -5721,7 +5058,8 @@ $client->call('GET /orgs/{org}/insights/api/summary-stats', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getSummaryStats(        org: 'generated',
+$client->operations()->apiInsights()->getSummaryStats(
+        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
 );
@@ -5746,7 +5084,8 @@ $client->call('GET /orgs/{org}/insights/api/summary-stats/users/{user_id}', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getSummaryStatsByUser(        org: 'generated',
+$client->operations()->apiInsights()->getSummaryStatsByUser(
+        org: 'generated',
         user_id: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
@@ -5773,7 +5112,8 @@ $client->call('GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getSummaryStatsByActor(        org: 'generated',
+$client->operations()->apiInsights()->getSummaryStatsByActor(
+        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         actor_type: 'generated',
@@ -5800,7 +5140,8 @@ $client->call('GET /orgs/{org}/insights/api/time-stats', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getTimeStats(        org: 'generated',
+$client->operations()->apiInsights()->getTimeStats(
+        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         timestamp_increment: 'generated',
@@ -5827,7 +5168,8 @@ $client->call('GET /orgs/{org}/insights/api/time-stats/users/{user_id}', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getTimeStatsByUser(        org: 'generated',
+$client->operations()->apiInsights()->getTimeStatsByUser(
+        org: 'generated',
         user_id: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
@@ -5856,7 +5198,8 @@ $client->call('GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}',
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getTimeStatsByActor(        org: 'generated',
+$client->operations()->apiInsights()->getTimeStatsByActor(
+        org: 'generated',
         actor_type: 'generated',
         actor_id: 8,
         min_timestamp: 'generated',
@@ -5879,7 +5222,9 @@ $client->call('GET /orgs/{org}/insights/api/user-stats/{user_id}', [
         'user_id' => 'generated',
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
-        'sort' => ,
+        'sort' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -5888,45 +5233,14 @@ $client->call('GET /orgs/{org}/insights/api/user-stats/{user_id}', [
 
 Operations method:
 ```php
-$client->operations()->apiInsights()->getUserStats(        org: 'generated',
+$client->operations()->apiInsights()->getUserStats(
+        org: 'generated',
         user_id: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
-        sort: ,
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/api-insights#get-user-stats).
-
-
-### api-insights/get-user-stats
-
-Get user stats
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/insights/api/user-stats/{user_id}', [
-        'org' => 'generated',
-        'user_id' => 'generated',
-        'min_timestamp' => 'generated',
-        'max_timestamp' => 'generated',
-        'sort' => ,
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apiInsights()->getUserStatsListing(        org: 'generated',
-        user_id: 'generated',
-        min_timestamp: 'generated',
-        max_timestamp: 'generated',
-        sort: ,
+        sort: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -5949,7 +5263,8 @@ $client->call('GET /orgs/{org}/installation', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getOrgInstallation(        org: 'generated',
+$client->operations()->apps()->getOrgInstallation(
+        org: 'generated',
 );
 ```
 
@@ -5971,7 +5286,8 @@ $client->call('GET /orgs/{org}/installations', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listAppInstallations(        org: 'generated',
+$client->operations()->orgs()->listAppInstallations(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -5993,7 +5309,8 @@ $client->call('GET /orgs/{org}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->getRestrictionsForOrg(        org: 'generated',
+$client->operations()->interactions()->getRestrictionsForOrg(
+        org: 'generated',
 );
 ```
 
@@ -6013,7 +5330,8 @@ $client->call('PUT /orgs/{org}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->setRestrictionsForOrg(        org: 'generated',
+$client->operations()->interactions()->setRestrictionsForOrg(
+        org: 'generated',
 );
 ```
 
@@ -6033,7 +5351,8 @@ $client->call('DELETE /orgs/{org}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->removeRestrictionsForOrg(        org: 'generated',
+$client->operations()->interactions()->removeRestrictionsForOrg(
+        org: 'generated',
 );
 ```
 
@@ -6057,35 +5376,8 @@ $client->call('GET /orgs/{org}/invitations', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPendingInvitations(        org: 'generated',
-        per_page: 8,
-        page: 1,
-        role: 'generated',
-        invitation_source: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-pending-organization-invitations).
-
-
-### orgs/list-pending-invitations
-
-List pending organization invitations
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/invitations', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-        'role' => 'generated',
-        'invitation_source' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPendingInvitationsListing(        org: 'generated',
+$client->operations()->orgs()->listPendingInvitations(
+        org: 'generated',
         per_page: 8,
         page: 1,
         role: 'generated',
@@ -6109,7 +5401,8 @@ $client->call('POST /orgs/{org}/invitations', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->createInvitation(        org: 'generated',
+$client->operations()->orgs()->createInvitation(
+        org: 'generated',
 );
 ```
 
@@ -6130,7 +5423,8 @@ $client->call('DELETE /orgs/{org}/invitations/{invitation_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->cancelInvitation(        org: 'generated',
+$client->operations()->orgs()->cancelInvitation(
+        org: 'generated',
         invitation_id: 13,
 );
 ```
@@ -6154,33 +5448,8 @@ $client->call('GET /orgs/{org}/invitations/{invitation_id}/teams', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listInvitationTeams(        org: 'generated',
-        invitation_id: 13,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-organization-invitation-teams).
-
-
-### orgs/list-invitation-teams
-
-List organization invitation teams
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/invitations/{invitation_id}/teams', [
-        'org' => 'generated',
-        'invitation_id' => 13,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listInvitationTeamsListing(        org: 'generated',
+$client->operations()->orgs()->listInvitationTeams(
+        org: 'generated',
         invitation_id: 13,
         per_page: 8,
         page: 1,
@@ -6211,43 +5480,8 @@ $client->call('GET /orgs/{org}/issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listForOrg(        org: 'generated',
-        labels: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        filter: 'generated',
-        state: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/issues#list-organization-issues-assigned-to-the-authenticated-user).
-
-
-### issues/list-for-org
-
-List organization issues assigned to the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/issues', [
-        'org' => 'generated',
-        'labels' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'filter' => 'generated',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listForOrgListing(        org: 'generated',
+$client->operations()->issues()->listForOrg(
+        org: 'generated',
         labels: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         filter: 'generated',
@@ -6279,35 +5513,8 @@ $client->call('GET /orgs/{org}/members', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listMembers(        org: 'generated',
-        filter: 'generated',
-        role: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-organization-members).
-
-
-### orgs/list-members
-
-List organization members
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/members', [
-        'org' => 'generated',
-        'filter' => 'generated',
-        'role' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listMembersListing(        org: 'generated',
+$client->operations()->orgs()->listMembers(
+        org: 'generated',
         filter: 'generated',
         role: 'generated',
         per_page: 8,
@@ -6332,7 +5539,8 @@ $client->call('GET /orgs/{org}/members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->checkMembershipForUser(        org: 'generated',
+$client->operations()->orgs()->checkMembershipForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6354,7 +5562,8 @@ $client->call('DELETE /orgs/{org}/members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removeMember(        org: 'generated',
+$client->operations()->orgs()->removeMember(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6378,7 +5587,8 @@ $client->call('GET /orgs/{org}/members/{username}/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getCodespacesForUserInOrg(        org: 'generated',
+$client->operations()->codespaces()->getCodespacesForUserInOrg(
+        org: 'generated',
         username: 'generated',
         per_page: 8,
         page: 1,
@@ -6403,7 +5613,8 @@ $client->call('DELETE /orgs/{org}/members/{username}/codespaces/{codespace_name}
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteFromOrganization(        org: 'generated',
+$client->operations()->codespaces()->deleteFromOrganization(
+        org: 'generated',
         username: 'generated',
         codespace_name: 'generated',
 );
@@ -6427,7 +5638,8 @@ $client->call('POST /orgs/{org}/members/{username}/codespaces/{codespace_name}/s
 
 Operations method:
 ```php
-$client->operations()->codespaces()->stopInOrganization(        org: 'generated',
+$client->operations()->codespaces()->stopInOrganization(
+        org: 'generated',
         username: 'generated',
         codespace_name: 'generated',
 );
@@ -6450,7 +5662,8 @@ $client->call('GET /orgs/{org}/members/{username}/copilot', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->getCopilotSeatDetailsForUser(        org: 'generated',
+$client->operations()->copilot()->getCopilotSeatDetailsForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6472,7 +5685,8 @@ $client->call('GET /orgs/{org}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getMembershipForUser(        org: 'generated',
+$client->operations()->orgs()->getMembershipForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6494,7 +5708,8 @@ $client->call('PUT /orgs/{org}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->setMembershipForUser(        org: 'generated',
+$client->operations()->orgs()->setMembershipForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6516,7 +5731,8 @@ $client->call('DELETE /orgs/{org}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removeMembershipForUser(        org: 'generated',
+$client->operations()->orgs()->removeMembershipForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6532,7 +5748,9 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/migrations', [
         'org' => 'generated',
-        'exclude' => ,
+        'exclude' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -6540,34 +5758,11 @@ $client->call('GET /orgs/{org}/migrations', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->listForOrg(        org: 'generated',
-        exclude: ,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/orgs#list-organization-migrations).
-
-
-### migrations/list-for-org
-
-List organization migrations
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/migrations', [
-        'org' => 'generated',
-        'exclude' => ,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->migrations()->listForOrgListing(        org: 'generated',
-        exclude: ,
+$client->operations()->migrations()->listForOrg(
+        org: 'generated',
+        exclude: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         per_page: 8,
         page: 1,
 );
@@ -6589,7 +5784,8 @@ $client->call('POST /orgs/{org}/migrations', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->startForOrg(        org: 'generated',
+$client->operations()->migrations()->startForOrg(
+        org: 'generated',
 );
 ```
 
@@ -6605,15 +5801,20 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/migrations/{migration_id}', [
         'org' => 'generated',
         'migration_id' => 12,
-        'exclude' => ,
+        'exclude' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->migrations()->getStatusForOrg(        org: 'generated',
+$client->operations()->migrations()->getStatusForOrg(
+        org: 'generated',
         migration_id: 12,
-        exclude: ,
+        exclude: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
 );
 ```
 
@@ -6634,29 +5835,8 @@ $client->call('GET /orgs/{org}/migrations/{migration_id}/archive', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->downloadArchiveForOrg(        org: 'generated',
-        migration_id: 12,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/orgs#download-an-organization-migration-archive).
-
-
-### migrations/download-archive-for-org
-
-Download an organization migration archive
-
-Using the `call` method:
-```php
-$client->call('STREAM /orgs/{org}/migrations/{migration_id}/archive', [
-        'org' => 'generated',
-        'migration_id' => 12,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->migrations()->downloadArchiveForOrgStreaming(        org: 'generated',
+$client->operations()->migrations()->downloadArchiveForOrg(
+        org: 'generated',
         migration_id: 12,
 );
 ```
@@ -6678,7 +5858,8 @@ $client->call('DELETE /orgs/{org}/migrations/{migration_id}/archive', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->deleteArchiveForOrg(        org: 'generated',
+$client->operations()->migrations()->deleteArchiveForOrg(
+        org: 'generated',
         migration_id: 12,
 );
 ```
@@ -6701,7 +5882,8 @@ $client->call('DELETE /orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lo
 
 Operations method:
 ```php
-$client->operations()->migrations()->unlockRepoForOrg(        org: 'generated',
+$client->operations()->migrations()->unlockRepoForOrg(
+        org: 'generated',
         migration_id: 12,
         repo_name: 'generated',
 );
@@ -6726,33 +5908,8 @@ $client->call('GET /orgs/{org}/migrations/{migration_id}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->listReposForOrg(        org: 'generated',
-        migration_id: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/orgs#list-repositories-in-an-organization-migration).
-
-
-### migrations/list-repos-for-org
-
-List repositories in an organization migration
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/migrations/{migration_id}/repositories', [
-        'org' => 'generated',
-        'migration_id' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->migrations()->listReposForOrgListing(        org: 'generated',
+$client->operations()->migrations()->listReposForOrg(
+        org: 'generated',
         migration_id: 12,
         per_page: 8,
         page: 1,
@@ -6775,7 +5932,8 @@ $client->call('GET /orgs/{org}/organization-roles', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listOrgRoles(        org: 'generated',
+$client->operations()->orgs()->listOrgRoles(
+        org: 'generated',
 );
 ```
 
@@ -6796,7 +5954,8 @@ $client->call('DELETE /orgs/{org}/organization-roles/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->revokeAllOrgRolesTeam(        org: 'generated',
+$client->operations()->orgs()->revokeAllOrgRolesTeam(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -6819,7 +5978,8 @@ $client->call('PUT /orgs/{org}/organization-roles/teams/{team_slug}/{role_id}', 
 
 Operations method:
 ```php
-$client->operations()->orgs()->assignTeamToOrgRole(        org: 'generated',
+$client->operations()->orgs()->assignTeamToOrgRole(
+        org: 'generated',
         team_slug: 'generated',
         role_id: 7,
 );
@@ -6843,7 +6003,8 @@ $client->call('DELETE /orgs/{org}/organization-roles/teams/{team_slug}/{role_id}
 
 Operations method:
 ```php
-$client->operations()->orgs()->revokeOrgRoleTeam(        org: 'generated',
+$client->operations()->orgs()->revokeOrgRoleTeam(
+        org: 'generated',
         team_slug: 'generated',
         role_id: 7,
 );
@@ -6866,7 +6027,8 @@ $client->call('DELETE /orgs/{org}/organization-roles/users/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->revokeAllOrgRolesUser(        org: 'generated',
+$client->operations()->orgs()->revokeAllOrgRolesUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -6889,7 +6051,8 @@ $client->call('PUT /orgs/{org}/organization-roles/users/{username}/{role_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->assignUserToOrgRole(        org: 'generated',
+$client->operations()->orgs()->assignUserToOrgRole(
+        org: 'generated',
         username: 'generated',
         role_id: 7,
 );
@@ -6913,7 +6076,8 @@ $client->call('DELETE /orgs/{org}/organization-roles/users/{username}/{role_id}'
 
 Operations method:
 ```php
-$client->operations()->orgs()->revokeOrgRoleUser(        org: 'generated',
+$client->operations()->orgs()->revokeOrgRoleUser(
+        org: 'generated',
         username: 'generated',
         role_id: 7,
 );
@@ -6936,7 +6100,8 @@ $client->call('GET /orgs/{org}/organization-roles/{role_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getOrgRole(        org: 'generated',
+$client->operations()->orgs()->getOrgRole(
+        org: 'generated',
         role_id: 7,
 );
 ```
@@ -6960,33 +6125,8 @@ $client->call('GET /orgs/{org}/organization-roles/{role_id}/teams', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listOrgRoleTeams(        org: 'generated',
-        role_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/organization-roles#list-teams-that-are-assigned-to-an-organization-role).
-
-
-### orgs/list-org-role-teams
-
-List teams that are assigned to an organization role
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/organization-roles/{role_id}/teams', [
-        'org' => 'generated',
-        'role_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listOrgRoleTeamsListing(        org: 'generated',
+$client->operations()->orgs()->listOrgRoleTeams(
+        org: 'generated',
         role_id: 7,
         per_page: 8,
         page: 1,
@@ -7012,33 +6152,8 @@ $client->call('GET /orgs/{org}/organization-roles/{role_id}/users', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listOrgRoleUsers(        org: 'generated',
-        role_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/organization-roles#list-users-that-are-assigned-to-an-organization-role).
-
-
-### orgs/list-org-role-users
-
-List users that are assigned to an organization role
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/organization-roles/{role_id}/users', [
-        'org' => 'generated',
-        'role_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listOrgRoleUsersListing(        org: 'generated',
+$client->operations()->orgs()->listOrgRoleUsers(
+        org: 'generated',
         role_id: 7,
         per_page: 8,
         page: 1,
@@ -7064,33 +6179,8 @@ $client->call('GET /orgs/{org}/outside_collaborators', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listOutsideCollaborators(        org: 'generated',
-        filter: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/outside-collaborators#list-outside-collaborators-for-an-organization).
-
-
-### orgs/list-outside-collaborators
-
-List outside collaborators for an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/outside_collaborators', [
-        'org' => 'generated',
-        'filter' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listOutsideCollaboratorsListing(        org: 'generated',
+$client->operations()->orgs()->listOutsideCollaborators(
+        org: 'generated',
         filter: 'generated',
         per_page: 8,
         page: 1,
@@ -7114,7 +6204,8 @@ $client->call('PUT /orgs/{org}/outside_collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->convertMemberToOutsideCollaborator(        org: 'generated',
+$client->operations()->orgs()->convertMemberToOutsideCollaborator(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -7136,7 +6227,8 @@ $client->call('DELETE /orgs/{org}/outside_collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removeOutsideCollaborator(        org: 'generated',
+$client->operations()->orgs()->removeOutsideCollaborator(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -7161,35 +6253,8 @@ $client->call('GET /orgs/{org}/packages', [
 
 Operations method:
 ```php
-$client->operations()->packages()->listPackagesForOrganization(        package_type: 'generated',
-        org: 'generated',
-        visibility: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#list-packages-for-an-organization).
-
-
-### packages/list-packages-for-organization
-
-List packages for an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/packages', [
-        'package_type' => 'generated',
-        'org' => 'generated',
-        'visibility' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->packages()->listPackagesForOrganizationListing(        package_type: 'generated',
+$client->operations()->packages()->listPackagesForOrganization(
+        package_type: 'generated',
         org: 'generated',
         visibility: 'generated',
         page: 1,
@@ -7215,7 +6280,8 @@ $client->call('GET /orgs/{org}/packages/{package_type}/{package_name}', [
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageForOrganization(        package_type: 'generated',
+$client->operations()->packages()->getPackageForOrganization(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
 );
@@ -7239,7 +6305,8 @@ $client->call('DELETE /orgs/{org}/packages/{package_type}/{package_name}', [
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageForOrg(        package_type: 'generated',
+$client->operations()->packages()->deletePackageForOrg(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
 );
@@ -7264,7 +6331,8 @@ $client->call('POST /orgs/{org}/packages/{package_type}/{package_name}/restore',
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageForOrg(        package_type: 'generated',
+$client->operations()->packages()->restorePackageForOrg(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
         token: 'generated',
@@ -7292,37 +6360,8 @@ $client->call('GET /orgs/{org}/packages/{package_type}/{package_name}/versions',
 
 Operations method:
 ```php
-$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByOrg(        package_type: 'generated',
-        package_name: 'generated',
-        org: 'generated',
-        page: 1,
-        per_page: 8,
-        state: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#list-package-versions-for-a-package-owned-by-an-organization).
-
-
-### packages/get-all-package-versions-for-package-owned-by-org
-
-List package versions for a package owned by an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/packages/{package_type}/{package_name}/versions', [
-        'package_type' => 'generated',
-        'package_name' => 'generated',
-        'org' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'state' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByOrgListing(        package_type: 'generated',
+$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByOrg(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
         page: 1,
@@ -7350,7 +6389,8 @@ $client->call('GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageVersionForOrganization(        package_type: 'generated',
+$client->operations()->packages()->getPackageVersionForOrganization(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
         package_version_id: 18,
@@ -7376,7 +6416,8 @@ $client->call('DELETE /orgs/{org}/packages/{package_type}/{package_name}/version
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageVersionForOrg(        package_type: 'generated',
+$client->operations()->packages()->deletePackageVersionForOrg(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
         package_version_id: 18,
@@ -7402,7 +6443,8 @@ $client->call('POST /orgs/{org}/packages/{package_type}/{package_name}/versions/
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageVersionForOrg(        package_type: 'generated',
+$client->operations()->packages()->restorePackageVersionForOrg(
+        package_type: 'generated',
         package_name: 'generated',
         org: 'generated',
         package_version_id: 18,
@@ -7420,7 +6462,9 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/personal-access-token-requests', [
         'org' => 'generated',
-        'owner' => ,
+        'owner' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'repository' => 'generated',
         'permission' => 'generated',
         'last_used_before' => '1970-01-01T00:00:00+00:00',
@@ -7434,46 +6478,11 @@ $client->call('GET /orgs/{org}/personal-access-token-requests', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPatGrantRequests(        org: 'generated',
-        owner: ,
-        repository: 'generated',
-        permission: 'generated',
-        last_used_before: '1970-01-01T00:00:00+00:00',
-        last_used_after: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-        sort: 'generated',
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/personal-access-tokens#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens).
-
-
-### orgs/list-pat-grant-requests
-
-List requests to access organization resources with fine-grained personal access tokens
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/personal-access-token-requests', [
-        'org' => 'generated',
-        'owner' => ,
-        'repository' => 'generated',
-        'permission' => 'generated',
-        'last_used_before' => '1970-01-01T00:00:00+00:00',
-        'last_used_after' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-        'sort' => 'generated',
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRequestsListing(        org: 'generated',
-        owner: ,
+$client->operations()->orgs()->listPatGrantRequests(
+        org: 'generated',
+        owner: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         repository: 'generated',
         permission: 'generated',
         last_used_before: '1970-01-01T00:00:00+00:00',
@@ -7501,7 +6510,8 @@ $client->call('POST /orgs/{org}/personal-access-token-requests', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->reviewPatGrantRequestsInBulk(        org: 'generated',
+$client->operations()->orgs()->reviewPatGrantRequestsInBulk(
+        org: 'generated',
 );
 ```
 
@@ -7522,7 +6532,8 @@ $client->call('POST /orgs/{org}/personal-access-token-requests/{pat_request_id}'
 
 Operations method:
 ```php
-$client->operations()->orgs()->reviewPatGrantRequest(        org: 'generated',
+$client->operations()->orgs()->reviewPatGrantRequest(
+        org: 'generated',
         pat_request_id: 14,
 );
 ```
@@ -7546,33 +6557,8 @@ $client->call('GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/r
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPatGrantRequestRepositories(        org: 'generated',
-        pat_request_id: 14,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/personal-access-tokens#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token).
-
-
-### orgs/list-pat-grant-request-repositories
-
-List repositories requested to be accessed by a fine-grained personal access token
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories', [
-        'org' => 'generated',
-        'pat_request_id' => 14,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRequestRepositoriesListing(        org: 'generated',
+$client->operations()->orgs()->listPatGrantRequestRepositories(
+        org: 'generated',
         pat_request_id: 14,
         per_page: 8,
         page: 1,
@@ -7590,7 +6576,9 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/personal-access-tokens', [
         'org' => 'generated',
-        'owner' => ,
+        'owner' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         'repository' => 'generated',
         'permission' => 'generated',
         'last_used_before' => '1970-01-01T00:00:00+00:00',
@@ -7604,46 +6592,11 @@ $client->call('GET /orgs/{org}/personal-access-tokens', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPatGrants(        org: 'generated',
-        owner: ,
-        repository: 'generated',
-        permission: 'generated',
-        last_used_before: '1970-01-01T00:00:00+00:00',
-        last_used_after: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-        sort: 'generated',
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/personal-access-tokens#list-fine-grained-personal-access-tokens-with-access-to-organization-resources).
-
-
-### orgs/list-pat-grants
-
-List fine-grained personal access tokens with access to organization resources
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/personal-access-tokens', [
-        'org' => 'generated',
-        'owner' => ,
-        'repository' => 'generated',
-        'permission' => 'generated',
-        'last_used_before' => '1970-01-01T00:00:00+00:00',
-        'last_used_after' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-        'sort' => 'generated',
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantsListing(        org: 'generated',
-        owner: ,
+$client->operations()->orgs()->listPatGrants(
+        org: 'generated',
+        owner: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
         repository: 'generated',
         permission: 'generated',
         last_used_before: '1970-01-01T00:00:00+00:00',
@@ -7671,7 +6624,8 @@ $client->call('POST /orgs/{org}/personal-access-tokens', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->updatePatAccesses(        org: 'generated',
+$client->operations()->orgs()->updatePatAccesses(
+        org: 'generated',
 );
 ```
 
@@ -7692,7 +6646,8 @@ $client->call('POST /orgs/{org}/personal-access-tokens/{pat_id}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->updatePatAccess(        org: 'generated',
+$client->operations()->orgs()->updatePatAccess(
+        org: 'generated',
         pat_id: 6,
 );
 ```
@@ -7716,33 +6671,8 @@ $client->call('GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPatGrantRepositories(        org: 'generated',
-        pat_id: 6,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/personal-access-tokens#list-repositories-a-fine-grained-personal-access-token-has-access-to).
-
-
-### orgs/list-pat-grant-repositories
-
-List repositories a fine-grained personal access token has access to
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/personal-access-tokens/{pat_id}/repositories', [
-        'org' => 'generated',
-        'pat_id' => 6,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRepositoriesListing(        org: 'generated',
+$client->operations()->orgs()->listPatGrantRepositories(
+        org: 'generated',
         pat_id: 6,
         per_page: 8,
         page: 1,
@@ -7768,33 +6698,8 @@ $client->call('GET /orgs/{org}/projects', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listForOrg(        org: 'generated',
-        state: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/projects#list-organization-projects).
-
-
-### projects/list-for-org
-
-List organization projects
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/projects', [
-        'org' => 'generated',
-        'state' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listForOrgListing(        org: 'generated',
+$client->operations()->projects()->listForOrg(
+        org: 'generated',
         state: 'generated',
         per_page: 8,
         page: 1,
@@ -7817,7 +6722,8 @@ $client->call('POST /orgs/{org}/projects', [
 
 Operations method:
 ```php
-$client->operations()->projects()->createForOrg(        org: 'generated',
+$client->operations()->projects()->createForOrg(
+        org: 'generated',
 );
 ```
 
@@ -7837,7 +6743,8 @@ $client->call('GET /orgs/{org}/properties/schema', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getAllCustomProperties(        org: 'generated',
+$client->operations()->orgs()->getAllCustomProperties(
+        org: 'generated',
 );
 ```
 
@@ -7857,7 +6764,8 @@ $client->call('PATCH /orgs/{org}/properties/schema', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->createOrUpdateCustomProperties(        org: 'generated',
+$client->operations()->orgs()->createOrUpdateCustomProperties(
+        org: 'generated',
 );
 ```
 
@@ -7878,7 +6786,8 @@ $client->call('GET /orgs/{org}/properties/schema/{custom_property_name}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getCustomProperty(        org: 'generated',
+$client->operations()->orgs()->getCustomProperty(
+        org: 'generated',
         custom_property_name: 'generated',
 );
 ```
@@ -7900,7 +6809,8 @@ $client->call('PUT /orgs/{org}/properties/schema/{custom_property_name}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->createOrUpdateCustomProperty(        org: 'generated',
+$client->operations()->orgs()->createOrUpdateCustomProperty(
+        org: 'generated',
         custom_property_name: 'generated',
 );
 ```
@@ -7922,7 +6832,8 @@ $client->call('DELETE /orgs/{org}/properties/schema/{custom_property_name}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removeCustomProperty(        org: 'generated',
+$client->operations()->orgs()->removeCustomProperty(
+        org: 'generated',
         custom_property_name: 'generated',
 );
 ```
@@ -7946,33 +6857,8 @@ $client->call('GET /orgs/{org}/properties/values', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listCustomPropertiesValuesForRepos(        org: 'generated',
-        repository_query: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/custom-properties#list-custom-property-values-for-organization-repositories).
-
-
-### orgs/list-custom-properties-values-for-repos
-
-List custom property values for organization repositories
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/properties/values', [
-        'org' => 'generated',
-        'repository_query' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listCustomPropertiesValuesForReposListing(        org: 'generated',
+$client->operations()->orgs()->listCustomPropertiesValuesForRepos(
+        org: 'generated',
         repository_query: 'generated',
         per_page: 8,
         page: 1,
@@ -7995,7 +6881,8 @@ $client->call('PATCH /orgs/{org}/properties/values', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->createOrUpdateCustomPropertiesValuesForRepos(        org: 'generated',
+$client->operations()->orgs()->createOrUpdateCustomPropertiesValuesForRepos(
+        org: 'generated',
 );
 ```
 
@@ -8017,31 +6904,8 @@ $client->call('GET /orgs/{org}/public_members', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listPublicMembers(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-public-organization-members).
-
-
-### orgs/list-public-members
-
-List public organization members
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/public_members', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPublicMembersListing(        org: 'generated',
+$client->operations()->orgs()->listPublicMembers(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -8064,7 +6928,8 @@ $client->call('GET /orgs/{org}/public_members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->checkPublicMembershipForUser(        org: 'generated',
+$client->operations()->orgs()->checkPublicMembershipForUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -8086,7 +6951,8 @@ $client->call('PUT /orgs/{org}/public_members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->setPublicMembershipForAuthenticatedUser(        org: 'generated',
+$client->operations()->orgs()->setPublicMembershipForAuthenticatedUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -8108,7 +6974,8 @@ $client->call('DELETE /orgs/{org}/public_members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removePublicMembershipForAuthenticatedUser(        org: 'generated',
+$client->operations()->orgs()->removePublicMembershipForAuthenticatedUser(
+        org: 'generated',
         username: 'generated',
 );
 ```
@@ -8134,37 +7001,8 @@ $client->call('GET /orgs/{org}/repos', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listForOrg(        org: 'generated',
-        direction: 'generated',
-        type: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-organization-repositories).
-
-
-### repos/list-for-org
-
-List organization repositories
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/repos', [
-        'org' => 'generated',
-        'direction' => 'generated',
-        'type' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listForOrgListing(        org: 'generated',
+$client->operations()->repos()->listForOrg(
+        org: 'generated',
         direction: 'generated',
         type: 'generated',
         sort: 'generated',
@@ -8189,7 +7027,8 @@ $client->call('POST /orgs/{org}/repos', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createInOrg(        org: 'generated',
+$client->operations()->repos()->createInOrg(
+        org: 'generated',
 );
 ```
 
@@ -8212,33 +7051,8 @@ $client->call('GET /orgs/{org}/rulesets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getOrgRulesets(        org: 'generated',
-        targets: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/rules#get-all-organization-repository-rulesets).
-
-
-### repos/get-org-rulesets
-
-Get all organization repository rulesets
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/rulesets', [
-        'org' => 'generated',
-        'targets' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->getOrgRulesetsListing(        org: 'generated',
+$client->operations()->repos()->getOrgRulesets(
+        org: 'generated',
         targets: 'generated',
         per_page: 8,
         page: 1,
@@ -8261,7 +7075,8 @@ $client->call('POST /orgs/{org}/rulesets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createOrgRuleset(        org: 'generated',
+$client->operations()->repos()->createOrgRuleset(
+        org: 'generated',
 );
 ```
 
@@ -8288,41 +7103,8 @@ $client->call('GET /orgs/{org}/rulesets/rule-suites', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getOrgRuleSuites(        org: 'generated',
-        ref: 'generated',
-        repository_name: 'generated',
-        actor_name: 'generated',
-        time_period: 'generated',
-        rule_suite_result: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites).
-
-
-### repos/get-org-rule-suites
-
-List organization rule suites
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/rulesets/rule-suites', [
-        'org' => 'generated',
-        'ref' => 'generated',
-        'repository_name' => 'generated',
-        'actor_name' => 'generated',
-        'time_period' => 'generated',
-        'rule_suite_result' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->getOrgRuleSuitesListing(        org: 'generated',
+$client->operations()->repos()->getOrgRuleSuites(
+        org: 'generated',
         ref: 'generated',
         repository_name: 'generated',
         actor_name: 'generated',
@@ -8350,7 +7132,8 @@ $client->call('GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getOrgRuleSuite(        org: 'generated',
+$client->operations()->repos()->getOrgRuleSuite(
+        org: 'generated',
         rule_suite_id: 13,
 );
 ```
@@ -8372,7 +7155,8 @@ $client->call('GET /orgs/{org}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getOrgRuleset(        org: 'generated',
+$client->operations()->repos()->getOrgRuleset(
+        org: 'generated',
         ruleset_id: 10,
 );
 ```
@@ -8394,7 +7178,8 @@ $client->call('PUT /orgs/{org}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateOrgRuleset(        org: 'generated',
+$client->operations()->repos()->updateOrgRuleset(
+        org: 'generated',
         ruleset_id: 10,
 );
 ```
@@ -8416,7 +7201,8 @@ $client->call('DELETE /orgs/{org}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteOrgRuleset(        org: 'generated',
+$client->operations()->repos()->deleteOrgRuleset(
+        org: 'generated',
         ruleset_id: 10,
 );
 ```
@@ -8449,51 +7235,8 @@ $client->call('GET /orgs/{org}/secret-scanning/alerts', [
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->listAlertsForOrg(        org: 'generated',
-        state: 'generated',
-        secret_type: 'generated',
-        resolution: 'generated',
-        before: 'generated',
-        after: 'generated',
-        validity: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        page: 1,
-        per_page: 8,
-        is_publicly_leaked: ,
-        is_multi_repo: ,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/secret-scanning/secret-scanning#list-secret-scanning-alerts-for-an-organization).
-
-
-### secret-scanning/list-alerts-for-org
-
-List secret scanning alerts for an organization
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/secret-scanning/alerts', [
-        'org' => 'generated',
-        'state' => 'generated',
-        'secret_type' => 'generated',
-        'resolution' => 'generated',
-        'before' => 'generated',
-        'after' => 'generated',
-        'validity' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'is_publicly_leaked' => ,
-        'is_multi_repo' => ,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->secretScanning()->listAlertsForOrgListing(        org: 'generated',
+$client->operations()->secretScanning()->listAlertsForOrg(
+        org: 'generated',
         state: 'generated',
         secret_type: 'generated',
         resolution: 'generated',
@@ -8531,7 +7274,8 @@ $client->call('GET /orgs/{org}/security-advisories', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->listOrgRepositoryAdvisories(        org: 'generated',
+$client->operations()->securityAdvisories()->listOrgRepositoryAdvisories(
+        org: 'generated',
         before: 'generated',
         after: 'generated',
         state: 'generated',
@@ -8557,7 +7301,8 @@ $client->call('GET /orgs/{org}/security-managers', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listSecurityManagerTeams(        org: 'generated',
+$client->operations()->orgs()->listSecurityManagerTeams(
+        org: 'generated',
 );
 ```
 
@@ -8578,7 +7323,8 @@ $client->call('PUT /orgs/{org}/security-managers/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->addSecurityManagerTeam(        org: 'generated',
+$client->operations()->orgs()->addSecurityManagerTeam(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -8600,7 +7346,8 @@ $client->call('DELETE /orgs/{org}/security-managers/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->removeSecurityManagerTeam(        org: 'generated',
+$client->operations()->orgs()->removeSecurityManagerTeam(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -8621,7 +7368,8 @@ $client->call('GET /orgs/{org}/settings/billing/actions', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getGithubActionsBillingOrg(        org: 'generated',
+$client->operations()->billing()->getGithubActionsBillingOrg(
+        org: 'generated',
 );
 ```
 
@@ -8641,7 +7389,8 @@ $client->call('GET /orgs/{org}/settings/billing/packages', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getGithubPackagesBillingOrg(        org: 'generated',
+$client->operations()->billing()->getGithubPackagesBillingOrg(
+        org: 'generated',
 );
 ```
 
@@ -8661,7 +7410,8 @@ $client->call('GET /orgs/{org}/settings/billing/shared-storage', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getSharedStorageBillingOrg(        org: 'generated',
+$client->operations()->billing()->getSharedStorageBillingOrg(
+        org: 'generated',
 );
 ```
 
@@ -8686,37 +7436,8 @@ $client->call('GET /orgs/{org}/team/{team_slug}/copilot/metrics', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->copilotMetricsForTeam(        org: 'generated',
-        team_slug: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-metrics#get-copilot-metrics-for-a-team).
-
-
-### copilot/copilot-metrics-for-team
-
-Get Copilot metrics for a team
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/team/{team_slug}/copilot/metrics', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->copilotMetricsForTeamListing(        org: 'generated',
+$client->operations()->copilot()->copilotMetricsForTeam(
+        org: 'generated',
         team_slug: 'generated',
         since: 'generated',
         until: 'generated',
@@ -8746,37 +7467,8 @@ $client->call('GET /orgs/{org}/team/{team_slug}/copilot/usage', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->usageMetricsForTeam(        org: 'generated',
-        team_slug: 'generated',
-        since: 'generated',
-        until: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-a-team).
-
-
-### copilot/usage-metrics-for-team
-
-Get a summary of Copilot usage for a team
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/team/{team_slug}/copilot/usage', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'since' => 'generated',
-        'until' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->copilot()->usageMetricsForTeamListing(        org: 'generated',
+$client->operations()->copilot()->usageMetricsForTeam(
+        org: 'generated',
         team_slug: 'generated',
         since: 'generated',
         until: 'generated',
@@ -8803,31 +7495,8 @@ $client->call('GET /orgs/{org}/teams', [
 
 Operations method:
 ```php
-$client->operations()->teams()->list(        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-teams).
-
-
-### teams/list
-
-List teams
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listListing(        org: 'generated',
+$client->operations()->teams()->list(
+        org: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -8849,7 +7518,8 @@ $client->call('POST /orgs/{org}/teams', [
 
 Operations method:
 ```php
-$client->operations()->teams()->create(        org: 'generated',
+$client->operations()->teams()->create(
+        org: 'generated',
 );
 ```
 
@@ -8870,7 +7540,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getByName(        org: 'generated',
+$client->operations()->teams()->getByName(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -8892,7 +7563,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteInOrg(        org: 'generated',
+$client->operations()->teams()->deleteInOrg(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -8914,7 +7586,8 @@ $client->call('PATCH /orgs/{org}/teams/{team_slug}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->updateInOrg(        org: 'generated',
+$client->operations()->teams()->updateInOrg(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -8940,37 +7613,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listDiscussionsInOrg(        org: 'generated',
-        team_slug: 'generated',
-        pinned: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/discussions#list-discussions).
-
-
-### teams/list-discussions-in-org
-
-List discussions
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'pinned' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listDiscussionsInOrgListing(        org: 'generated',
+$client->operations()->teams()->listDiscussionsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         pinned: 'generated',
         direction: 'generated',
@@ -8996,7 +7640,8 @@ $client->call('POST /orgs/{org}/teams/{team_slug}/discussions', [
 
 Operations method:
 ```php
-$client->operations()->teams()->createDiscussionInOrg(        org: 'generated',
+$client->operations()->teams()->createDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
 );
 ```
@@ -9019,7 +7664,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
 
 Operations method:
 ```php
-$client->operations()->teams()->getDiscussionInOrg(        org: 'generated',
+$client->operations()->teams()->getDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
 );
@@ -9043,7 +7689,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_numb
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteDiscussionInOrg(        org: 'generated',
+$client->operations()->teams()->deleteDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
 );
@@ -9067,7 +7714,8 @@ $client->call('PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_numbe
 
 Operations method:
 ```php
-$client->operations()->teams()->updateDiscussionInOrg(        org: 'generated',
+$client->operations()->teams()->updateDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
 );
@@ -9094,37 +7742,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
 
 Operations method:
 ```php
-$client->operations()->teams()->listDiscussionCommentsInOrg(        org: 'generated',
-        team_slug: 'generated',
-        discussion_number: 17,
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/discussion-comments#list-discussion-comments).
-
-
-### teams/list-discussion-comments-in-org
-
-List discussion comments
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'discussion_number' => 17,
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listDiscussionCommentsInOrgListing(        org: 'generated',
+$client->operations()->teams()->listDiscussionCommentsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         direction: 'generated',
@@ -9151,7 +7770,8 @@ $client->call('POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number
 
 Operations method:
 ```php
-$client->operations()->teams()->createDiscussionCommentInOrg(        org: 'generated',
+$client->operations()->teams()->createDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
 );
@@ -9176,7 +7796,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
 
 Operations method:
 ```php
-$client->operations()->teams()->getDiscussionCommentInOrg(        org: 'generated',
+$client->operations()->teams()->getDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9202,7 +7823,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_numb
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteDiscussionCommentInOrg(        org: 'generated',
+$client->operations()->teams()->deleteDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9228,7 +7850,8 @@ $client->call('PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_numbe
 
 Operations method:
 ```php
-$client->operations()->teams()->updateDiscussionCommentInOrg(        org: 'generated',
+$client->operations()->teams()->updateDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9257,39 +7880,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForTeamDiscussionCommentInOrg(        org: 'generated',
-        team_slug: 'generated',
-        discussion_number: 17,
-        comment_number: 14,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-team-discussion-comment).
-
-
-### reactions/list-for-team-discussion-comment-in-org
-
-List reactions for a team discussion comment
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'discussion_number' => 17,
-        'comment_number' => 14,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForTeamDiscussionCommentInOrgListing(        org: 'generated',
+$client->operations()->reactions()->listForTeamDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9318,7 +7910,8 @@ $client->call('POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForTeamDiscussionCommentInOrg(        org: 'generated',
+$client->operations()->reactions()->createForTeamDiscussionCommentInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9345,7 +7938,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_numb
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForTeamDiscussionComment(        org: 'generated',
+$client->operations()->reactions()->deleteForTeamDiscussionComment(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         comment_number: 14,
@@ -9374,37 +7968,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForTeamDiscussionInOrg(        org: 'generated',
-        team_slug: 'generated',
-        discussion_number: 17,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-team-discussion).
-
-
-### reactions/list-for-team-discussion-in-org
-
-List reactions for a team discussion
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'discussion_number' => 17,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForTeamDiscussionInOrgListing(        org: 'generated',
+$client->operations()->reactions()->listForTeamDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         content: 'generated',
@@ -9431,7 +7996,8 @@ $client->call('POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForTeamDiscussionInOrg(        org: 'generated',
+$client->operations()->reactions()->createForTeamDiscussionInOrg(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
 );
@@ -9456,7 +8022,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_numb
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForTeamDiscussion(        org: 'generated',
+$client->operations()->reactions()->deleteForTeamDiscussion(
+        org: 'generated',
         team_slug: 'generated',
         discussion_number: 17,
         reaction_id: 11,
@@ -9482,33 +8049,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/invitations', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listPendingInvitationsInOrg(        org: 'generated',
-        team_slug: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/members#list-pending-team-invitations).
-
-
-### teams/list-pending-invitations-in-org
-
-List pending team invitations
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/invitations', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listPendingInvitationsInOrgListing(        org: 'generated',
+$client->operations()->teams()->listPendingInvitationsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
         page: 1,
@@ -9535,35 +8077,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/members', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listMembersInOrg(        org: 'generated',
-        team_slug: 'generated',
-        role: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/members#list-team-members).
-
-
-### teams/list-members-in-org
-
-List team members
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/members', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'role' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listMembersInOrgListing(        org: 'generated',
+$client->operations()->teams()->listMembersInOrg(
+        org: 'generated',
         team_slug: 'generated',
         role: 'generated',
         per_page: 8,
@@ -9589,7 +8104,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getMembershipForUserInOrg(        org: 'generated',
+$client->operations()->teams()->getMembershipForUserInOrg(
+        org: 'generated',
         team_slug: 'generated',
         username: 'generated',
 );
@@ -9613,7 +8129,8 @@ $client->call('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateMembershipForUserInOrg(        org: 'generated',
+$client->operations()->teams()->addOrUpdateMembershipForUserInOrg(
+        org: 'generated',
         team_slug: 'generated',
         username: 'generated',
 );
@@ -9637,7 +8154,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeMembershipForUserInOrg(        org: 'generated',
+$client->operations()->teams()->removeMembershipForUserInOrg(
+        org: 'generated',
         team_slug: 'generated',
         username: 'generated',
 );
@@ -9662,33 +8180,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/projects', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listProjectsInOrg(        org: 'generated',
-        team_slug: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-team-projects).
-
-
-### teams/list-projects-in-org
-
-List team projects
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/projects', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listProjectsInOrgListing(        org: 'generated',
+$client->operations()->teams()->listProjectsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
         page: 1,
@@ -9713,7 +8206,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->checkPermissionsForProjectInOrg(        org: 'generated',
+$client->operations()->teams()->checkPermissionsForProjectInOrg(
+        org: 'generated',
         team_slug: 'generated',
         project_id: 10,
 );
@@ -9737,7 +8231,8 @@ $client->call('PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateProjectPermissionsInOrg(        org: 'generated',
+$client->operations()->teams()->addOrUpdateProjectPermissionsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         project_id: 10,
 );
@@ -9761,7 +8256,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeProjectInOrg(        org: 'generated',
+$client->operations()->teams()->removeProjectInOrg(
+        org: 'generated',
         team_slug: 'generated',
         project_id: 10,
 );
@@ -9786,33 +8282,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/repos', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listReposInOrg(        org: 'generated',
-        team_slug: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-team-repositories).
-
-
-### teams/list-repos-in-org
-
-List team repositories
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/repos', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listReposInOrgListing(        org: 'generated',
+$client->operations()->teams()->listReposInOrg(
+        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
         page: 1,
@@ -9838,7 +8309,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->checkPermissionsForRepoInOrg(        org: 'generated',
+$client->operations()->teams()->checkPermissionsForRepoInOrg(
+        org: 'generated',
         team_slug: 'generated',
         owner: 'generated',
         repo: 'generated',
@@ -9864,7 +8336,8 @@ $client->call('PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateRepoPermissionsInOrg(        org: 'generated',
+$client->operations()->teams()->addOrUpdateRepoPermissionsInOrg(
+        org: 'generated',
         team_slug: 'generated',
         owner: 'generated',
         repo: 'generated',
@@ -9890,7 +8363,8 @@ $client->call('DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeRepoInOrg(        org: 'generated',
+$client->operations()->teams()->removeRepoInOrg(
+        org: 'generated',
         team_slug: 'generated',
         owner: 'generated',
         repo: 'generated',
@@ -9916,33 +8390,8 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/teams', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listChildInOrg(        org: 'generated',
-        team_slug: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-child-teams).
-
-
-### teams/list-child-in-org
-
-List child teams
-
-Using the `call` method:
-```php
-$client->call('LIST /orgs/{org}/teams/{team_slug}/teams', [
-        'org' => 'generated',
-        'team_slug' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listChildInOrgListing(        org: 'generated',
+$client->operations()->teams()->listChildInOrg(
+        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
         page: 1,
@@ -9967,7 +8416,8 @@ $client->call('POST /orgs/{org}/{security_product}/{enablement}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->enableOrDisableSecurityProductOnAllOrgRepos(        org: 'generated',
+$client->operations()->orgs()->enableOrDisableSecurityProductOnAllOrgRepos(
+        org: 'generated',
         security_product: 'generated',
         enablement: 'generated',
 );
@@ -9989,7 +8439,8 @@ $client->call('GET /projects/columns/cards/{card_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->getCard(        card_id: 7,
+$client->operations()->projects()->getCard(
+        card_id: 7,
 );
 ```
 
@@ -10009,7 +8460,8 @@ $client->call('DELETE /projects/columns/cards/{card_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->deleteCard(        card_id: 7,
+$client->operations()->projects()->deleteCard(
+        card_id: 7,
 );
 ```
 
@@ -10029,7 +8481,8 @@ $client->call('PATCH /projects/columns/cards/{card_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->updateCard(        card_id: 7,
+$client->operations()->projects()->updateCard(
+        card_id: 7,
 );
 ```
 
@@ -10049,7 +8502,8 @@ $client->call('POST /projects/columns/cards/{card_id}/moves', [
 
 Operations method:
 ```php
-$client->operations()->projects()->moveCard(        card_id: 7,
+$client->operations()->projects()->moveCard(
+        card_id: 7,
 );
 ```
 
@@ -10069,7 +8523,8 @@ $client->call('GET /projects/columns/{column_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->getColumn(        column_id: 9,
+$client->operations()->projects()->getColumn(
+        column_id: 9,
 );
 ```
 
@@ -10089,7 +8544,8 @@ $client->call('DELETE /projects/columns/{column_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->deleteColumn(        column_id: 9,
+$client->operations()->projects()->deleteColumn(
+        column_id: 9,
 );
 ```
 
@@ -10109,7 +8565,8 @@ $client->call('PATCH /projects/columns/{column_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->updateColumn(        column_id: 9,
+$client->operations()->projects()->updateColumn(
+        column_id: 9,
 );
 ```
 
@@ -10132,33 +8589,8 @@ $client->call('GET /projects/columns/{column_id}/cards', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listCards(        column_id: 9,
-        archived_state: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/cards#list-project-cards).
-
-
-### projects/list-cards
-
-List project cards
-
-Using the `call` method:
-```php
-$client->call('LIST /projects/columns/{column_id}/cards', [
-        'column_id' => 9,
-        'archived_state' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listCardsListing(        column_id: 9,
+$client->operations()->projects()->listCards(
+        column_id: 9,
         archived_state: 'generated',
         per_page: 8,
         page: 1,
@@ -10181,7 +8613,8 @@ $client->call('POST /projects/columns/{column_id}/cards', [
 
 Operations method:
 ```php
-$client->operations()->projects()->createCard(        column_id: 9,
+$client->operations()->projects()->createCard(
+        column_id: 9,
 );
 ```
 
@@ -10201,7 +8634,8 @@ $client->call('POST /projects/columns/{column_id}/moves', [
 
 Operations method:
 ```php
-$client->operations()->projects()->moveColumn(        column_id: 9,
+$client->operations()->projects()->moveColumn(
+        column_id: 9,
 );
 ```
 
@@ -10221,7 +8655,8 @@ $client->call('GET /projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->get(        project_id: 10,
+$client->operations()->projects()->get(
+        project_id: 10,
 );
 ```
 
@@ -10241,7 +8676,8 @@ $client->call('DELETE /projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->delete(        project_id: 10,
+$client->operations()->projects()->delete(
+        project_id: 10,
 );
 ```
 
@@ -10261,7 +8697,8 @@ $client->call('PATCH /projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->update(        project_id: 10,
+$client->operations()->projects()->update(
+        project_id: 10,
 );
 ```
 
@@ -10284,33 +8721,8 @@ $client->call('GET /projects/{project_id}/collaborators', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listCollaborators(        project_id: 10,
-        affiliation: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/collaborators#list-project-collaborators).
-
-
-### projects/list-collaborators
-
-List project collaborators
-
-Using the `call` method:
-```php
-$client->call('LIST /projects/{project_id}/collaborators', [
-        'project_id' => 10,
-        'affiliation' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listCollaboratorsListing(        project_id: 10,
+$client->operations()->projects()->listCollaborators(
+        project_id: 10,
         affiliation: 'generated',
         per_page: 8,
         page: 1,
@@ -10334,7 +8746,8 @@ $client->call('PUT /projects/{project_id}/collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->addCollaborator(        project_id: 10,
+$client->operations()->projects()->addCollaborator(
+        project_id: 10,
         username: 'generated',
 );
 ```
@@ -10356,7 +8769,8 @@ $client->call('DELETE /projects/{project_id}/collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->projects()->removeCollaborator(        project_id: 10,
+$client->operations()->projects()->removeCollaborator(
+        project_id: 10,
         username: 'generated',
 );
 ```
@@ -10378,7 +8792,8 @@ $client->call('GET /projects/{project_id}/collaborators/{username}/permission', 
 
 Operations method:
 ```php
-$client->operations()->projects()->getPermissionForUser(        project_id: 10,
+$client->operations()->projects()->getPermissionForUser(
+        project_id: 10,
         username: 'generated',
 );
 ```
@@ -10401,31 +8816,8 @@ $client->call('GET /projects/{project_id}/columns', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listColumns(        project_id: 10,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/columns#list-project-columns).
-
-
-### projects/list-columns
-
-List project columns
-
-Using the `call` method:
-```php
-$client->call('LIST /projects/{project_id}/columns', [
-        'project_id' => 10,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listColumnsListing(        project_id: 10,
+$client->operations()->projects()->listColumns(
+        project_id: 10,
         per_page: 8,
         page: 1,
 );
@@ -10447,7 +8839,8 @@ $client->call('POST /projects/{project_id}/columns', [
 
 Operations method:
 ```php
-$client->operations()->projects()->createColumn(        project_id: 10,
+$client->operations()->projects()->createColumn(
+        project_id: 10,
 );
 ```
 
@@ -10465,7 +8858,8 @@ $client->call('GET /rate_limit');
 
 Operations method:
 ```php
-$client->operations()->rateLimit()->get();
+$client->operations()->rateLimit()->get(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/rate-limit/rate-limit#get-rate-limit-status-for-the-authenticated-user).
@@ -10485,7 +8879,8 @@ $client->call('GET /repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->get(        owner: 'generated',
+$client->operations()->repos()->get(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10507,7 +8902,8 @@ $client->call('DELETE /repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->delete(        owner: 'generated',
+$client->operations()->repos()->delete(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10529,7 +8925,8 @@ $client->call('PATCH /repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->update(        owner: 'generated',
+$client->operations()->repos()->update(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10554,7 +8951,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/artifacts', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listArtifactsForRepo(        owner: 'generated',
+$client->operations()->actions()->listArtifactsForRepo(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
         per_page: 8,
@@ -10580,7 +8978,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getArtifact(        owner: 'generated',
+$client->operations()->actions()->getArtifact(
+        owner: 'generated',
         repo: 'generated',
         artifact_id: 11,
 );
@@ -10604,7 +9003,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteArtifact(        owner: 'generated',
+$client->operations()->actions()->deleteArtifact(
+        owner: 'generated',
         repo: 'generated',
         artifact_id: 11,
 );
@@ -10629,33 +9029,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archiv
 
 Operations method:
 ```php
-$client->operations()->actions()->downloadArtifact(        owner: 'generated',
-        repo: 'generated',
-        artifact_id: 11,
-        archive_format: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/actions/artifacts#download-an-artifact).
-
-
-### actions/download-artifact
-
-Download an artifact
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'artifact_id' => 11,
-        'archive_format' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->downloadArtifactStreaming(        owner: 'generated',
+$client->operations()->actions()->downloadArtifact(
+        owner: 'generated',
         repo: 'generated',
         artifact_id: 11,
         archive_format: 'generated',
@@ -10679,7 +9054,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/cache/usage', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getActionsCacheUsage(        owner: 'generated',
+$client->operations()->actions()->getActionsCacheUsage(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10707,7 +9083,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/caches', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getActionsCacheList(        owner: 'generated',
+$client->operations()->actions()->getActionsCacheList(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         key: 'generated',
@@ -10737,7 +9114,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/caches', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteActionsCacheByKey(        owner: 'generated',
+$client->operations()->actions()->deleteActionsCacheByKey(
+        owner: 'generated',
         repo: 'generated',
         key: 'generated',
         ref: 'generated',
@@ -10762,7 +9140,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/caches/{cache_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteActionsCacheById(        owner: 'generated',
+$client->operations()->actions()->deleteActionsCacheById(
+        owner: 'generated',
         repo: 'generated',
         cache_id: 8,
 );
@@ -10786,7 +9165,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getJobForWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->getJobForWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         job_id: 6,
 );
@@ -10810,31 +9190,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/jobs/{job_id}/logs', [
 
 Operations method:
 ```php
-$client->operations()->actions()->downloadJobLogsForWorkflowRun(        owner: 'generated',
-        repo: 'generated',
-        job_id: 6,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run).
-
-
-### actions/download-job-logs-for-workflow-run
-
-Download job logs for a workflow run
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/actions/jobs/{job_id}/logs', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'job_id' => 6,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->downloadJobLogsForWorkflowRunStreaming(        owner: 'generated',
+$client->operations()->actions()->downloadJobLogsForWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         job_id: 6,
 );
@@ -10858,7 +9215,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun', [
 
 Operations method:
 ```php
-$client->operations()->actions()->reRunJobForWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->reRunJobForWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         job_id: 6,
 );
@@ -10881,7 +9239,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/oidc/customization/sub', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getCustomOidcSubClaimForRepo(        owner: 'generated',
+$client->operations()->actions()->getCustomOidcSubClaimForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10903,7 +9262,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/oidc/customization/sub', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setCustomOidcSubClaimForRepo(        owner: 'generated',
+$client->operations()->actions()->setCustomOidcSubClaimForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10927,7 +9287,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/organization-secrets', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoOrganizationSecrets(        owner: 'generated',
+$client->operations()->actions()->listRepoOrganizationSecrets(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -10953,7 +9314,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/organization-variables', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoOrganizationVariables(        owner: 'generated',
+$client->operations()->actions()->listRepoOrganizationVariables(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -10977,7 +9339,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/permissions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getGithubActionsPermissionsRepository(        owner: 'generated',
+$client->operations()->actions()->getGithubActionsPermissionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -10999,7 +9362,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/permissions', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setGithubActionsPermissionsRepository(        owner: 'generated',
+$client->operations()->actions()->setGithubActionsPermissionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11021,7 +9385,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/permissions/access', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflowAccessToRepository(        owner: 'generated',
+$client->operations()->actions()->getWorkflowAccessToRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11043,7 +9408,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/permissions/access', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setWorkflowAccessToRepository(        owner: 'generated',
+$client->operations()->actions()->setWorkflowAccessToRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11065,7 +9431,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/permissions/selected-actions', 
 
 Operations method:
 ```php
-$client->operations()->actions()->getAllowedActionsRepository(        owner: 'generated',
+$client->operations()->actions()->getAllowedActionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11087,7 +9454,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/permissions/selected-actions', 
 
 Operations method:
 ```php
-$client->operations()->actions()->setAllowedActionsRepository(        owner: 'generated',
+$client->operations()->actions()->setAllowedActionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11109,7 +9477,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/permissions/workflow', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsRepository(        owner: 'generated',
+$client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11131,7 +9500,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/permissions/workflow', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsRepository(        owner: 'generated',
+$client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11156,7 +9526,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runners', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listSelfHostedRunnersForRepo(        name: 'generated',
+$client->operations()->actions()->listSelfHostedRunnersForRepo(
+        name: 'generated',
         owner: 'generated',
         repo: 'generated',
         per_page: 8,
@@ -11181,7 +9552,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runners/downloads', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRunnerApplicationsForRepo(        owner: 'generated',
+$client->operations()->actions()->listRunnerApplicationsForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11203,7 +9575,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig', [
 
 Operations method:
 ```php
-$client->operations()->actions()->generateRunnerJitconfigForRepo(        owner: 'generated',
+$client->operations()->actions()->generateRunnerJitconfigForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11225,7 +9598,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runners/registration-token', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createRegistrationTokenForRepo(        owner: 'generated',
+$client->operations()->actions()->createRegistrationTokenForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11247,7 +9621,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runners/remove-token', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createRemoveTokenForRepo(        owner: 'generated',
+$client->operations()->actions()->createRemoveTokenForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -11270,7 +9645,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runners/{runner_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->getSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11294,7 +9670,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteSelfHostedRunnerFromRepo(        owner: 'generated',
+$client->operations()->actions()->deleteSelfHostedRunnerFromRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11318,7 +9695,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listLabelsForSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->listLabelsForSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11342,7 +9720,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->setCustomLabelsForSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->setCustomLabelsForSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11366,7 +9745,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels', [
 
 Operations method:
 ```php
-$client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11390,7 +9770,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels',
 
 Operations method:
 ```php
-$client->operations()->actions()->removeAllCustomLabelsFromSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->removeAllCustomLabelsFromSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
 );
@@ -11415,7 +9796,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{
 
 Operations method:
 ```php
-$client->operations()->actions()->removeCustomLabelFromSelfHostedRunnerForRepo(        owner: 'generated',
+$client->operations()->actions()->removeCustomLabelFromSelfHostedRunnerForRepo(
+        owner: 'generated',
         repo: 'generated',
         runner_id: 9,
         name: 'generated',
@@ -11449,7 +9831,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listWorkflowRunsForRepo(        owner: 'generated',
+$client->operations()->actions()->listWorkflowRunsForRepo(
+        owner: 'generated',
         repo: 'generated',
         actor: 'generated',
         branch: 'generated',
@@ -11483,7 +9866,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->getWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         exclude_pull_requests: ,
@@ -11508,7 +9892,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/runs/{run_id}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->deleteWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11532,7 +9917,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/approvals', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getReviewsForRun(        owner: 'generated',
+$client->operations()->actions()->getReviewsForRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11556,7 +9942,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve', [
 
 Operations method:
 ```php
-$client->operations()->actions()->approveWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->approveWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11583,7 +9970,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'generated',
+$client->operations()->actions()->listWorkflowRunArtifacts(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         name: 'generated',
@@ -11612,7 +10000,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflowRunAttempt(        owner: 'generated',
+$client->operations()->actions()->getWorkflowRunAttempt(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         attempt_number: 14,
@@ -11641,7 +10030,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt
 
 Operations method:
 ```php
-$client->operations()->actions()->listJobsForWorkflowRunAttempt(        owner: 'generated',
+$client->operations()->actions()->listJobsForWorkflowRunAttempt(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         attempt_number: 14,
@@ -11669,33 +10059,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt
 
 Operations method:
 ```php
-$client->operations()->actions()->downloadWorkflowRunAttemptLogs(        owner: 'generated',
-        repo: 'generated',
-        run_id: 6,
-        attempt_number: 14,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/actions/workflow-runs#download-workflow-run-attempt-logs).
-
-
-### actions/download-workflow-run-attempt-logs
-
-Download workflow run attempt logs
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'run_id' => 6,
-        'attempt_number' => 14,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->downloadWorkflowRunAttemptLogsStreaming(        owner: 'generated',
+$client->operations()->actions()->downloadWorkflowRunAttemptLogs(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         attempt_number: 14,
@@ -11720,7 +10085,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel', [
 
 Operations method:
 ```php
-$client->operations()->actions()->cancelWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->cancelWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11744,7 +10110,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/deployment_prote
 
 Operations method:
 ```php
-$client->operations()->actions()->reviewCustomGatesForRun(        owner: 'generated',
+$client->operations()->actions()->reviewCustomGatesForRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11768,7 +10135,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel', [
 
 Operations method:
 ```php
-$client->operations()->actions()->forceCancelWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->forceCancelWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11795,7 +10163,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listJobsForWorkflowRun(        owner: 'generated',
+$client->operations()->actions()->listJobsForWorkflowRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
         filter: 'generated',
@@ -11822,31 +10191,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs', [
 
 Operations method:
 ```php
-$client->operations()->actions()->downloadWorkflowRunLogs(        owner: 'generated',
-        repo: 'generated',
-        run_id: 6,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/actions/workflow-runs#download-workflow-run-logs).
-
-
-### actions/download-workflow-run-logs
-
-Download workflow run logs
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/actions/runs/{run_id}/logs', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'run_id' => 6,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->downloadWorkflowRunLogsStreaming(        owner: 'generated',
+$client->operations()->actions()->downloadWorkflowRunLogs(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11870,7 +10216,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/runs/{run_id}/logs', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteWorkflowRunLogs(        owner: 'generated',
+$client->operations()->actions()->deleteWorkflowRunLogs(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11894,7 +10241,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deploymen
 
 Operations method:
 ```php
-$client->operations()->actions()->getPendingDeploymentsForRun(        owner: 'generated',
+$client->operations()->actions()->getPendingDeploymentsForRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11918,7 +10266,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployme
 
 Operations method:
 ```php
-$client->operations()->actions()->reviewPendingDeploymentsForRun(        owner: 'generated',
+$client->operations()->actions()->reviewPendingDeploymentsForRun(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11942,7 +10291,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun', [
 
 Operations method:
 ```php
-$client->operations()->actions()->reRunWorkflow(        owner: 'generated',
+$client->operations()->actions()->reRunWorkflow(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11966,7 +10316,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-job
 
 Operations method:
 ```php
-$client->operations()->actions()->reRunWorkflowFailedJobs(        owner: 'generated',
+$client->operations()->actions()->reRunWorkflowFailedJobs(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -11990,7 +10341,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflowRunUsage(        owner: 'generated',
+$client->operations()->actions()->getWorkflowRunUsage(
+        owner: 'generated',
         repo: 'generated',
         run_id: 6,
 );
@@ -12015,7 +10367,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/secrets', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoSecrets(        owner: 'generated',
+$client->operations()->actions()->listRepoSecrets(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -12039,7 +10392,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getRepoPublicKey(        owner: 'generated',
+$client->operations()->actions()->getRepoPublicKey(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12062,7 +10416,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getRepoSecret(        owner: 'generated',
+$client->operations()->actions()->getRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -12086,7 +10441,8 @@ $client->call('PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createOrUpdateRepoSecret(        owner: 'generated',
+$client->operations()->actions()->createOrUpdateRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -12110,7 +10466,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteRepoSecret(        owner: 'generated',
+$client->operations()->actions()->deleteRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -12135,7 +10492,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/variables', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoVariables(        owner: 'generated',
+$client->operations()->actions()->listRepoVariables(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -12159,7 +10517,8 @@ $client->call('POST /repos/{owner}/{repo}/actions/variables', [
 
 Operations method:
 ```php
-$client->operations()->actions()->createRepoVariable(        owner: 'generated',
+$client->operations()->actions()->createRepoVariable(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12182,7 +10541,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->getRepoVariable(        owner: 'generated',
+$client->operations()->actions()->getRepoVariable(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -12206,7 +10566,8 @@ $client->call('DELETE /repos/{owner}/{repo}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteRepoVariable(        owner: 'generated',
+$client->operations()->actions()->deleteRepoVariable(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -12230,7 +10591,8 @@ $client->call('PATCH /repos/{owner}/{repo}/actions/variables/{name}', [
 
 Operations method:
 ```php
-$client->operations()->actions()->updateRepoVariable(        owner: 'generated',
+$client->operations()->actions()->updateRepoVariable(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -12255,7 +10617,8 @@ $client->call('GET /repos/{owner}/{repo}/actions/workflows', [
 
 Operations method:
 ```php
-$client->operations()->actions()->listRepoWorkflows(        owner: 'generated',
+$client->operations()->actions()->listRepoWorkflows(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -12274,15 +10637,16 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflow(        owner: 'generated',
+$client->operations()->actions()->getWorkflow(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
 );
 ```
 
@@ -12298,15 +10662,16 @@ Using the `call` method:
 $client->call('PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->actions()->disableWorkflow(        owner: 'generated',
+$client->operations()->actions()->disableWorkflow(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
 );
 ```
 
@@ -12322,15 +10687,16 @@ Using the `call` method:
 $client->call('POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->actions()->createWorkflowDispatch(        owner: 'generated',
+$client->operations()->actions()->createWorkflowDispatch(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
 );
 ```
 
@@ -12346,15 +10712,16 @@ Using the `call` method:
 $client->call('PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->actions()->enableWorkflow(        owner: 'generated',
+$client->operations()->actions()->enableWorkflow(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
 );
 ```
 
@@ -12370,7 +10737,7 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
         'actor' => 'generated',
         'branch' => 'generated',
         'event' => 'generated',
@@ -12386,9 +10753,10 @@ $client->call('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs', 
 
 Operations method:
 ```php
-$client->operations()->actions()->listWorkflowRuns(        owner: 'generated',
+$client->operations()->actions()->listWorkflowRuns(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
         actor: 'generated',
         branch: 'generated',
         event: 'generated',
@@ -12414,15 +10782,16 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'workflow_id' => ,
+        'workflow_id' => 11,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->actions()->getWorkflowUsage(        owner: 'generated',
+$client->operations()->actions()->getWorkflowUsage(
+        owner: 'generated',
         repo: 'generated',
-        workflow_id: ,
+        workflow_id: 11,
 );
 ```
 
@@ -12451,7 +10820,8 @@ $client->call('GET /repos/{owner}/{repo}/activity', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listActivities(        owner: 'generated',
+$client->operations()->repos()->listActivities(
+        owner: 'generated',
         repo: 'generated',
         before: 'generated',
         after: 'generated',
@@ -12483,33 +10853,8 @@ $client->call('GET /repos/{owner}/{repo}/assignees', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listAssignees(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/assignees#list-assignees).
-
-
-### issues/list-assignees
-
-List assignees
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/assignees', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listAssigneesListing(        owner: 'generated',
+$client->operations()->issues()->listAssignees(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -12534,7 +10879,8 @@ $client->call('GET /repos/{owner}/{repo}/assignees/{assignee}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->checkUserCanBeAssigned(        owner: 'generated',
+$client->operations()->issues()->checkUserCanBeAssigned(
+        owner: 'generated',
         repo: 'generated',
         assignee: 'generated',
 );
@@ -12557,7 +10903,8 @@ $client->call('POST /repos/{owner}/{repo}/attestations', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createAttestation(        owner: 'generated',
+$client->operations()->repos()->createAttestation(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12583,7 +10930,8 @@ $client->call('GET /repos/{owner}/{repo}/attestations/{subject_digest}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listAttestations(        owner: 'generated',
+$client->operations()->repos()->listAttestations(
+        owner: 'generated',
         repo: 'generated',
         before: 'generated',
         after: 'generated',
@@ -12609,7 +10957,8 @@ $client->call('GET /repos/{owner}/{repo}/autolinks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listAutolinks(        owner: 'generated',
+$client->operations()->repos()->listAutolinks(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12631,7 +10980,8 @@ $client->call('POST /repos/{owner}/{repo}/autolinks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createAutolink(        owner: 'generated',
+$client->operations()->repos()->createAutolink(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12654,7 +11004,8 @@ $client->call('GET /repos/{owner}/{repo}/autolinks/{autolink_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getAutolink(        owner: 'generated',
+$client->operations()->repos()->getAutolink(
+        owner: 'generated',
         repo: 'generated',
         autolink_id: 11,
 );
@@ -12678,7 +11029,8 @@ $client->call('DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteAutolink(        owner: 'generated',
+$client->operations()->repos()->deleteAutolink(
+        owner: 'generated',
         repo: 'generated',
         autolink_id: 11,
 );
@@ -12701,7 +11053,8 @@ $client->call('GET /repos/{owner}/{repo}/automated-security-fixes', [
 
 Operations method:
 ```php
-$client->operations()->repos()->checkAutomatedSecurityFixes(        owner: 'generated',
+$client->operations()->repos()->checkAutomatedSecurityFixes(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12723,7 +11076,8 @@ $client->call('PUT /repos/{owner}/{repo}/automated-security-fixes', [
 
 Operations method:
 ```php
-$client->operations()->repos()->enableAutomatedSecurityFixes(        owner: 'generated',
+$client->operations()->repos()->enableAutomatedSecurityFixes(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12745,7 +11099,8 @@ $client->call('DELETE /repos/{owner}/{repo}/automated-security-fixes', [
 
 Operations method:
 ```php
-$client->operations()->repos()->disableAutomatedSecurityFixes(        owner: 'generated',
+$client->operations()->repos()->disableAutomatedSecurityFixes(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -12770,35 +11125,8 @@ $client->call('GET /repos/{owner}/{repo}/branches', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listBranches(        owner: 'generated',
-        repo: 'generated',
-        protected: ,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/branches/branches#list-branches).
-
-
-### repos/list-branches
-
-List branches
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/branches', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'protected' => ,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listBranchesListing(        owner: 'generated',
+$client->operations()->repos()->listBranches(
+        owner: 'generated',
         repo: 'generated',
         protected: ,
         per_page: 8,
@@ -12824,7 +11152,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getBranch(        owner: 'generated',
+$client->operations()->repos()->getBranch(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12848,7 +11177,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getBranchProtection(        owner: 'generated',
+$client->operations()->repos()->getBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12872,7 +11202,8 @@ $client->call('PUT /repos/{owner}/{repo}/branches/{branch}/protection', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateBranchProtection(        owner: 'generated',
+$client->operations()->repos()->updateBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12896,7 +11227,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteBranchProtection(        owner: 'generated',
+$client->operations()->repos()->deleteBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12920,7 +11252,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/enforce_ad
 
 Operations method:
 ```php
-$client->operations()->repos()->getAdminBranchProtection(        owner: 'generated',
+$client->operations()->repos()->getAdminBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12944,7 +11277,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/enforce_a
 
 Operations method:
 ```php
-$client->operations()->repos()->setAdminBranchProtection(        owner: 'generated',
+$client->operations()->repos()->setAdminBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12968,7 +11302,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/enforce
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteAdminBranchProtection(        owner: 'generated',
+$client->operations()->repos()->deleteAdminBranchProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -12992,7 +11327,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/required_p
 
 Operations method:
 ```php
-$client->operations()->repos()->getPullRequestReviewProtection(        owner: 'generated',
+$client->operations()->repos()->getPullRequestReviewProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13016,7 +11352,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/require
 
 Operations method:
 ```php
-$client->operations()->repos()->deletePullRequestReviewProtection(        owner: 'generated',
+$client->operations()->repos()->deletePullRequestReviewProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13040,7 +11377,8 @@ $client->call('PATCH /repos/{owner}/{repo}/branches/{branch}/protection/required
 
 Operations method:
 ```php
-$client->operations()->repos()->updatePullRequestReviewProtection(        owner: 'generated',
+$client->operations()->repos()->updatePullRequestReviewProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13064,7 +11402,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/required_s
 
 Operations method:
 ```php
-$client->operations()->repos()->getCommitSignatureProtection(        owner: 'generated',
+$client->operations()->repos()->getCommitSignatureProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13088,7 +11427,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/required_
 
 Operations method:
 ```php
-$client->operations()->repos()->createCommitSignatureProtection(        owner: 'generated',
+$client->operations()->repos()->createCommitSignatureProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13112,7 +11452,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/require
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteCommitSignatureProtection(        owner: 'generated',
+$client->operations()->repos()->deleteCommitSignatureProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13136,7 +11477,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/required_s
 
 Operations method:
 ```php
-$client->operations()->repos()->getStatusChecksProtection(        owner: 'generated',
+$client->operations()->repos()->getStatusChecksProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13160,7 +11502,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/require
 
 Operations method:
 ```php
-$client->operations()->repos()->removeStatusCheckProtection(        owner: 'generated',
+$client->operations()->repos()->removeStatusCheckProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13184,7 +11527,8 @@ $client->call('PATCH /repos/{owner}/{repo}/branches/{branch}/protection/required
 
 Operations method:
 ```php
-$client->operations()->repos()->updateStatusCheckProtection(        owner: 'generated',
+$client->operations()->repos()->updateStatusCheckProtection(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13208,7 +11552,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/required_s
 
 Operations method:
 ```php
-$client->operations()->repos()->getAllStatusCheckContexts(        owner: 'generated',
+$client->operations()->repos()->getAllStatusCheckContexts(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13232,7 +11577,8 @@ $client->call('PUT /repos/{owner}/{repo}/branches/{branch}/protection/required_s
 
 Operations method:
 ```php
-$client->operations()->repos()->setStatusCheckContexts(        owner: 'generated',
+$client->operations()->repos()->setStatusCheckContexts(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13256,7 +11602,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/required_
 
 Operations method:
 ```php
-$client->operations()->repos()->addStatusCheckContexts(        owner: 'generated',
+$client->operations()->repos()->addStatusCheckContexts(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13280,7 +11627,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/require
 
 Operations method:
 ```php
-$client->operations()->repos()->removeStatusCheckContexts(        owner: 'generated',
+$client->operations()->repos()->removeStatusCheckContexts(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13304,7 +11652,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->getAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->getAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13328,7 +11677,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restric
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->deleteAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13352,7 +11702,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->getAppsWithAccessToProtectedBranch(        owner: 'generated',
+$client->operations()->repos()->getAppsWithAccessToProtectedBranch(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13376,7 +11727,8 @@ $client->call('PUT /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->setAppAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->setAppAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13400,7 +11752,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/restricti
 
 Operations method:
 ```php
-$client->operations()->repos()->addAppAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->addAppAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13424,7 +11777,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restric
 
 Operations method:
 ```php
-$client->operations()->repos()->removeAppAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->removeAppAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13448,7 +11802,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->getTeamsWithAccessToProtectedBranch(        owner: 'generated',
+$client->operations()->repos()->getTeamsWithAccessToProtectedBranch(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13472,7 +11827,8 @@ $client->call('PUT /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->setTeamAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->setTeamAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13496,7 +11852,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/restricti
 
 Operations method:
 ```php
-$client->operations()->repos()->addTeamAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->addTeamAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13520,7 +11877,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restric
 
 Operations method:
 ```php
-$client->operations()->repos()->removeTeamAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->removeTeamAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13544,7 +11902,8 @@ $client->call('GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->getUsersWithAccessToProtectedBranch(        owner: 'generated',
+$client->operations()->repos()->getUsersWithAccessToProtectedBranch(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13568,7 +11927,8 @@ $client->call('PUT /repos/{owner}/{repo}/branches/{branch}/protection/restrictio
 
 Operations method:
 ```php
-$client->operations()->repos()->setUserAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->setUserAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13592,7 +11952,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/protection/restricti
 
 Operations method:
 ```php
-$client->operations()->repos()->addUserAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->addUserAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13616,7 +11977,8 @@ $client->call('DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restric
 
 Operations method:
 ```php
-$client->operations()->repos()->removeUserAccessRestrictions(        owner: 'generated',
+$client->operations()->repos()->removeUserAccessRestrictions(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13640,7 +12002,8 @@ $client->call('POST /repos/{owner}/{repo}/branches/{branch}/rename', [
 
 Operations method:
 ```php
-$client->operations()->repos()->renameBranch(        owner: 'generated',
+$client->operations()->repos()->renameBranch(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
 );
@@ -13663,7 +12026,8 @@ $client->call('POST /repos/{owner}/{repo}/check-runs', [
 
 Operations method:
 ```php
-$client->operations()->checks()->create(        owner: 'generated',
+$client->operations()->checks()->create(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -13686,7 +12050,8 @@ $client->call('GET /repos/{owner}/{repo}/check-runs/{check_run_id}', [
 
 Operations method:
 ```php
-$client->operations()->checks()->get(        owner: 'generated',
+$client->operations()->checks()->get(
+        owner: 'generated',
         repo: 'generated',
         check_run_id: 12,
 );
@@ -13710,7 +12075,8 @@ $client->call('PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}', [
 
 Operations method:
 ```php
-$client->operations()->checks()->update(        owner: 'generated',
+$client->operations()->checks()->update(
+        owner: 'generated',
         repo: 'generated',
         check_run_id: 12,
 );
@@ -13736,35 +12102,8 @@ $client->call('GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations',
 
 Operations method:
 ```php
-$client->operations()->checks()->listAnnotations(        owner: 'generated',
-        repo: 'generated',
-        check_run_id: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/checks/runs#list-check-run-annotations).
-
-
-### checks/list-annotations
-
-List check run annotations
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'check_run_id' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->checks()->listAnnotationsListing(        owner: 'generated',
+$client->operations()->checks()->listAnnotations(
+        owner: 'generated',
         repo: 'generated',
         check_run_id: 12,
         per_page: 8,
@@ -13790,7 +12129,8 @@ $client->call('POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest', 
 
 Operations method:
 ```php
-$client->operations()->checks()->rerequestRun(        owner: 'generated',
+$client->operations()->checks()->rerequestRun(
+        owner: 'generated',
         repo: 'generated',
         check_run_id: 12,
 );
@@ -13813,7 +12153,8 @@ $client->call('POST /repos/{owner}/{repo}/check-suites', [
 
 Operations method:
 ```php
-$client->operations()->checks()->createSuite(        owner: 'generated',
+$client->operations()->checks()->createSuite(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -13835,7 +12176,8 @@ $client->call('PATCH /repos/{owner}/{repo}/check-suites/preferences', [
 
 Operations method:
 ```php
-$client->operations()->checks()->setSuitesPreferences(        owner: 'generated',
+$client->operations()->checks()->setSuitesPreferences(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -13858,7 +12200,8 @@ $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}', [
 
 Operations method:
 ```php
-$client->operations()->checks()->getSuite(        owner: 'generated',
+$client->operations()->checks()->getSuite(
+        owner: 'generated',
         repo: 'generated',
         check_suite_id: 14,
 );
@@ -13887,7 +12230,8 @@ $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-run
 
 Operations method:
 ```php
-$client->operations()->checks()->listForSuite(        owner: 'generated',
+$client->operations()->checks()->listForSuite(
+        owner: 'generated',
         repo: 'generated',
         check_suite_id: 14,
         check_name: 'generated',
@@ -13916,7 +12260,8 @@ $client->call('POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rereques
 
 Operations method:
 ```php
-$client->operations()->checks()->rerequestSuite(        owner: 'generated',
+$client->operations()->checks()->rerequestSuite(
+        owner: 'generated',
         repo: 'generated',
         check_suite_id: 14,
 );
@@ -13935,7 +12280,7 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts', [
         'owner' => 'generated',
         'repo' => 'generated',
         'tool_name' => 'generated',
-        'tool_guid' => ,
+        'tool_guid' => generated,
         'ref' => 'generated',
         'pr' => 2,
         'before' => 'generated',
@@ -13951,56 +12296,11 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->listAlertsForRepo(        owner: 'generated',
+$client->operations()->codeScanning()->listAlertsForRepo(
+        owner: 'generated',
         repo: 'generated',
         tool_name: 'generated',
-        tool_guid: ,
-        ref: 'generated',
-        pr: 2,
-        before: 'generated',
-        after: 'generated',
-        state: 'generated',
-        severity: 'generated',
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-        sort: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/code-scanning/code-scanning#list-code-scanning-alerts-for-a-repository).
-
-
-### code-scanning/list-alerts-for-repo
-
-List code scanning alerts for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'tool_name' => 'generated',
-        'tool_guid' => ,
-        'ref' => 'generated',
-        'pr' => 2,
-        'before' => 'generated',
-        'after' => 'generated',
-        'state' => 'generated',
-        'severity' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-        'sort' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->codeScanning()->listAlertsForRepoListing(        owner: 'generated',
-        repo: 'generated',
-        tool_name: 'generated',
-        tool_guid: ,
+        tool_guid: generated,
         ref: 'generated',
         pr: 2,
         before: 'generated',
@@ -14032,7 +12332,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getAlert(        owner: 'generated',
+$client->operations()->codeScanning()->getAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -14056,7 +12357,8 @@ $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}',
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->updateAlert(        owner: 'generated',
+$client->operations()->codeScanning()->updateAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -14084,39 +12386,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/ins
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->listAlertInstances(        owner: 'generated',
-        repo: 'generated',
-        alert_number: 12,
-        ref: 'generated',
-        pr: 2,
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/code-scanning/code-scanning#list-instances-of-a-code-scanning-alert).
-
-
-### code-scanning/list-alert-instances
-
-List instances of a code scanning alert
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'alert_number' => 12,
-        'ref' => 'generated',
-        'pr' => 2,
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->codeScanning()->listAlertInstancesListing(        owner: 'generated',
+$client->operations()->codeScanning()->listAlertInstances(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
         ref: 'generated',
@@ -14139,7 +12410,7 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses', [
         'owner' => 'generated',
         'repo' => 'generated',
         'tool_name' => 'generated',
-        'tool_guid' => ,
+        'tool_guid' => generated,
         'pr' => 2,
         'ref' => 'generated',
         'sarif_id' => 'generated',
@@ -14152,50 +12423,11 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->listRecentAnalyses(        owner: 'generated',
+$client->operations()->codeScanning()->listRecentAnalyses(
+        owner: 'generated',
         repo: 'generated',
         tool_name: 'generated',
-        tool_guid: ,
-        pr: 2,
-        ref: 'generated',
-        sarif_id: 'generated',
-        page: 1,
-        per_page: 8,
-        direction: 'generated',
-        sort: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/code-scanning/code-scanning#list-code-scanning-analyses-for-a-repository).
-
-
-### code-scanning/list-recent-analyses
-
-List code scanning analyses for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/code-scanning/analyses', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'tool_name' => 'generated',
-        'tool_guid' => ,
-        'pr' => 2,
-        'ref' => 'generated',
-        'sarif_id' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'direction' => 'generated',
-        'sort' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->codeScanning()->listRecentAnalysesListing(        owner: 'generated',
-        repo: 'generated',
-        tool_name: 'generated',
-        tool_guid: ,
+        tool_guid: generated,
         pr: 2,
         ref: 'generated',
         sarif_id: 'generated',
@@ -14224,7 +12456,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}', 
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getAnalysis(        owner: 'generated',
+$client->operations()->codeScanning()->getAnalysis(
+        owner: 'generated',
         repo: 'generated',
         analysis_id: 11,
 );
@@ -14243,16 +12476,17 @@ $client->call('DELETE /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}
         'owner' => 'generated',
         'repo' => 'generated',
         'analysis_id' => 11,
-        'confirm_delete' => ,
+        'confirm_delete' => generated,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->deleteAnalysis(        owner: 'generated',
+$client->operations()->codeScanning()->deleteAnalysis(
+        owner: 'generated',
         repo: 'generated',
         analysis_id: 11,
-        confirm_delete: ,
+        confirm_delete: generated,
 );
 ```
 
@@ -14273,7 +12507,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/codeql/databases', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->listCodeqlDatabases(        owner: 'generated',
+$client->operations()->codeScanning()->listCodeqlDatabases(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14296,7 +12531,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{languag
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getCodeqlDatabase(        owner: 'generated',
+$client->operations()->codeScanning()->getCodeqlDatabase(
+        owner: 'generated',
         repo: 'generated',
         language: 'generated',
 );
@@ -14320,7 +12556,8 @@ $client->call('DELETE /repos/{owner}/{repo}/code-scanning/codeql/databases/{lang
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->deleteCodeqlDatabase(        owner: 'generated',
+$client->operations()->codeScanning()->deleteCodeqlDatabase(
+        owner: 'generated',
         repo: 'generated',
         language: 'generated',
 );
@@ -14343,7 +12580,8 @@ $client->call('POST /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses'
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->createVariantAnalysis(        owner: 'generated',
+$client->operations()->codeScanning()->createVariantAnalysis(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14366,7 +12604,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getVariantAnalysis(        owner: 'generated',
+$client->operations()->codeScanning()->getVariantAnalysis(
+        owner: 'generated',
         repo: 'generated',
         codeql_variant_analysis_id: 26,
 );
@@ -14392,7 +12631,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getVariantAnalysisRepoTask(        owner: 'generated',
+$client->operations()->codeScanning()->getVariantAnalysisRepoTask(
+        owner: 'generated',
         repo: 'generated',
         codeql_variant_analysis_id: 26,
         repo_owner: 'generated',
@@ -14417,7 +12657,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/default-setup', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getDefaultSetup(        owner: 'generated',
+$client->operations()->codeScanning()->getDefaultSetup(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14439,7 +12680,8 @@ $client->call('PATCH /repos/{owner}/{repo}/code-scanning/default-setup', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->updateDefaultSetup(        owner: 'generated',
+$client->operations()->codeScanning()->updateDefaultSetup(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14461,7 +12703,8 @@ $client->call('POST /repos/{owner}/{repo}/code-scanning/sarifs', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->uploadSarif(        owner: 'generated',
+$client->operations()->codeScanning()->uploadSarif(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14484,7 +12727,8 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}', [
 
 Operations method:
 ```php
-$client->operations()->codeScanning()->getSarif(        owner: 'generated',
+$client->operations()->codeScanning()->getSarif(
+        owner: 'generated',
         repo: 'generated',
         sarif_id: 'generated',
 );
@@ -14507,7 +12751,8 @@ $client->call('GET /repos/{owner}/{repo}/code-security-configuration', [
 
 Operations method:
 ```php
-$client->operations()->codeSecurity()->getConfigurationForRepository(        owner: 'generated',
+$client->operations()->codeSecurity()->getConfigurationForRepository(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14530,7 +12775,8 @@ $client->call('GET /repos/{owner}/{repo}/codeowners/errors', [
 
 Operations method:
 ```php
-$client->operations()->repos()->codeownersErrors(        owner: 'generated',
+$client->operations()->repos()->codeownersErrors(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -14555,7 +12801,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listInRepositoryForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->listInRepositoryForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -14579,7 +12826,8 @@ $client->call('POST /repos/{owner}/{repo}/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createWithRepoForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->createWithRepoForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14603,7 +12851,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/devcontainers', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listDevcontainersInRepositoryForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->listDevcontainersInRepositoryForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -14630,7 +12879,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/machines', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->repoMachinesForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->repoMachinesForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         location: 'generated',
         client_ip: 'generated',
@@ -14657,7 +12907,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/new', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->preFlightWithRepoForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->preFlightWithRepoForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         client_ip: 'generated',
@@ -14683,7 +12934,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/permissions_check', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->checkPermissionsForDevcontainer(        owner: 'generated',
+$client->operations()->codespaces()->checkPermissionsForDevcontainer(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         devcontainer_path: 'generated',
@@ -14709,7 +12961,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/secrets', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listRepoSecrets(        owner: 'generated',
+$client->operations()->codespaces()->listRepoSecrets(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -14733,7 +12986,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getRepoPublicKey(        owner: 'generated',
+$client->operations()->codespaces()->getRepoPublicKey(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -14756,7 +13010,8 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getRepoSecret(        owner: 'generated',
+$client->operations()->codespaces()->getRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -14780,7 +13035,8 @@ $client->call('PUT /repos/{owner}/{repo}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createOrUpdateRepoSecret(        owner: 'generated',
+$client->operations()->codespaces()->createOrUpdateRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -14804,7 +13060,8 @@ $client->call('DELETE /repos/{owner}/{repo}/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteRepoSecret(        owner: 'generated',
+$client->operations()->codespaces()->deleteRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -14831,37 +13088,8 @@ $client->call('GET /repos/{owner}/{repo}/collaborators', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listCollaborators(        owner: 'generated',
-        repo: 'generated',
-        permission: 'generated',
-        affiliation: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/collaborators/collaborators#list-repository-collaborators).
-
-
-### repos/list-collaborators
-
-List repository collaborators
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/collaborators', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'permission' => 'generated',
-        'affiliation' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listCollaboratorsListing(        owner: 'generated',
+$client->operations()->repos()->listCollaborators(
+        owner: 'generated',
         repo: 'generated',
         permission: 'generated',
         affiliation: 'generated',
@@ -14888,7 +13116,8 @@ $client->call('GET /repos/{owner}/{repo}/collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->checkCollaborator(        owner: 'generated',
+$client->operations()->repos()->checkCollaborator(
+        owner: 'generated',
         repo: 'generated',
         username: 'generated',
 );
@@ -14912,7 +13141,8 @@ $client->call('PUT /repos/{owner}/{repo}/collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->addCollaborator(        owner: 'generated',
+$client->operations()->repos()->addCollaborator(
+        owner: 'generated',
         repo: 'generated',
         username: 'generated',
 );
@@ -14936,7 +13166,8 @@ $client->call('DELETE /repos/{owner}/{repo}/collaborators/{username}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->removeCollaborator(        owner: 'generated',
+$client->operations()->repos()->removeCollaborator(
+        owner: 'generated',
         repo: 'generated',
         username: 'generated',
 );
@@ -14960,7 +13191,8 @@ $client->call('GET /repos/{owner}/{repo}/collaborators/{username}/permission', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCollaboratorPermissionLevel(        owner: 'generated',
+$client->operations()->repos()->getCollaboratorPermissionLevel(
+        owner: 'generated',
         repo: 'generated',
         username: 'generated',
 );
@@ -14985,33 +13217,8 @@ $client->call('GET /repos/{owner}/{repo}/comments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listCommitCommentsForRepo(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/commits/comments#list-commit-comments-for-a-repository).
-
-
-### repos/list-commit-comments-for-repo
-
-List commit comments for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listCommitCommentsForRepoListing(        owner: 'generated',
+$client->operations()->repos()->listCommitCommentsForRepo(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -15036,7 +13243,8 @@ $client->call('GET /repos/{owner}/{repo}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCommitComment(        owner: 'generated',
+$client->operations()->repos()->getCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -15060,7 +13268,8 @@ $client->call('DELETE /repos/{owner}/{repo}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteCommitComment(        owner: 'generated',
+$client->operations()->repos()->deleteCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -15084,7 +13293,8 @@ $client->call('PATCH /repos/{owner}/{repo}/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateCommitComment(        owner: 'generated',
+$client->operations()->repos()->updateCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -15111,37 +13321,8 @@ $client->call('GET /repos/{owner}/{repo}/comments/{comment_id}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForCommitComment(        owner: 'generated',
-        repo: 'generated',
-        comment_id: 10,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-commit-comment).
-
-
-### reactions/list-for-commit-comment
-
-List reactions for a commit comment
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/comments/{comment_id}/reactions', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'comment_id' => 10,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForCommitCommentListing(        owner: 'generated',
+$client->operations()->reactions()->listForCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         content: 'generated',
@@ -15168,7 +13349,8 @@ $client->call('POST /repos/{owner}/{repo}/comments/{comment_id}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForCommitComment(        owner: 'generated',
+$client->operations()->reactions()->createForCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -15193,7 +13375,8 @@ $client->call('DELETE /repos/{owner}/{repo}/comments/{comment_id}/reactions/{rea
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForCommitComment(        owner: 'generated',
+$client->operations()->reactions()->deleteForCommitComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         reaction_id: 11,
@@ -15225,45 +13408,8 @@ $client->call('GET /repos/{owner}/{repo}/commits', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listCommits(        owner: 'generated',
-        repo: 'generated',
-        sha: 'generated',
-        path: 'generated',
-        author: 'generated',
-        committer: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        until: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/commits/commits#list-commits).
-
-
-### repos/list-commits
-
-List commits
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/commits', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'sha' => 'generated',
-        'path' => 'generated',
-        'author' => 'generated',
-        'committer' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'until' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listCommitsListing(        owner: 'generated',
+$client->operations()->repos()->listCommits(
+        owner: 'generated',
         repo: 'generated',
         sha: 'generated',
         path: 'generated',
@@ -15294,7 +13440,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-hea
 
 Operations method:
 ```php
-$client->operations()->repos()->listBranchesForHeadCommit(        owner: 'generated',
+$client->operations()->repos()->listBranchesForHeadCommit(
+        owner: 'generated',
         repo: 'generated',
         commit_sha: 'generated',
 );
@@ -15320,35 +13467,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{commit_sha}/comments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listCommentsForCommit(        owner: 'generated',
-        repo: 'generated',
-        commit_sha: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/commits/comments#list-commit-comments).
-
-
-### repos/list-comments-for-commit
-
-List commit comments
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/commits/{commit_sha}/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'commit_sha' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listCommentsForCommitListing(        owner: 'generated',
+$client->operations()->repos()->listCommentsForCommit(
+        owner: 'generated',
         repo: 'generated',
         commit_sha: 'generated',
         per_page: 8,
@@ -15374,7 +13494,8 @@ $client->call('POST /repos/{owner}/{repo}/commits/{commit_sha}/comments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createCommitComment(        owner: 'generated',
+$client->operations()->repos()->createCommitComment(
+        owner: 'generated',
         repo: 'generated',
         commit_sha: 'generated',
 );
@@ -15400,35 +13521,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listPullRequestsAssociatedWithCommit(        owner: 'generated',
-        repo: 'generated',
-        commit_sha: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/commits/commits#list-pull-requests-associated-with-a-commit).
-
-
-### repos/list-pull-requests-associated-with-commit
-
-List pull requests associated with a commit
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/commits/{commit_sha}/pulls', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'commit_sha' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listPullRequestsAssociatedWithCommitListing(        owner: 'generated',
+$client->operations()->repos()->listPullRequestsAssociatedWithCommit(
+        owner: 'generated',
         repo: 'generated',
         commit_sha: 'generated',
         per_page: 8,
@@ -15456,7 +13550,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCommit(        owner: 'generated',
+$client->operations()->repos()->getCommit(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         page: 1,
@@ -15488,7 +13583,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/check-runs', [
 
 Operations method:
 ```php
-$client->operations()->checks()->listForRef(        owner: 'generated',
+$client->operations()->checks()->listForRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         check_name: 'generated',
@@ -15522,7 +13618,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/check-suites', [
 
 Operations method:
 ```php
-$client->operations()->checks()->listSuitesForRef(        owner: 'generated',
+$client->operations()->checks()->listSuitesForRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         app_id: 6,
@@ -15552,7 +13649,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/status', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCombinedStatusForRef(        owner: 'generated',
+$client->operations()->repos()->getCombinedStatusForRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         per_page: 8,
@@ -15580,35 +13678,8 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/statuses', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listCommitStatusesForRef(        owner: 'generated',
-        repo: 'generated',
-        ref: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/commits/statuses#list-commit-statuses-for-a-reference).
-
-
-### repos/list-commit-statuses-for-ref
-
-List commit statuses for a reference
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/commits/{ref}/statuses', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'ref' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listCommitStatusesForRefListing(        owner: 'generated',
+$client->operations()->repos()->listCommitStatusesForRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         per_page: 8,
@@ -15633,7 +13704,8 @@ $client->call('GET /repos/{owner}/{repo}/community/profile', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCommunityProfileMetrics(        owner: 'generated',
+$client->operations()->repos()->getCommunityProfileMetrics(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -15658,7 +13730,8 @@ $client->call('GET /repos/{owner}/{repo}/compare/{basehead}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->compareCommits(        owner: 'generated',
+$client->operations()->repos()->compareCommits(
+        owner: 'generated',
         repo: 'generated',
         basehead: 'generated',
         page: 1,
@@ -15685,7 +13758,8 @@ $client->call('GET /repos/{owner}/{repo}/contents/{path}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getContent(        owner: 'generated',
+$client->operations()->repos()->getContent(
+        owner: 'generated',
         repo: 'generated',
         path: 'generated',
         ref: 'generated',
@@ -15710,7 +13784,8 @@ $client->call('PUT /repos/{owner}/{repo}/contents/{path}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createOrUpdateFileContents(        owner: 'generated',
+$client->operations()->repos()->createOrUpdateFileContents(
+        owner: 'generated',
         repo: 'generated',
         path: 'generated',
 );
@@ -15734,7 +13809,8 @@ $client->call('DELETE /repos/{owner}/{repo}/contents/{path}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteFile(        owner: 'generated',
+$client->operations()->repos()->deleteFile(
+        owner: 'generated',
         repo: 'generated',
         path: 'generated',
 );
@@ -15760,35 +13836,8 @@ $client->call('GET /repos/{owner}/{repo}/contributors', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listContributors(        owner: 'generated',
-        repo: 'generated',
-        anon: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-repository-contributors).
-
-
-### repos/list-contributors
-
-List repository contributors
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/contributors', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'anon' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listContributorsListing(        owner: 'generated',
+$client->operations()->repos()->listContributors(
+        owner: 'generated',
         repo: 'generated',
         anon: 'generated',
         per_page: 8,
@@ -15827,57 +13876,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/alerts', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listAlertsForRepo(        owner: 'generated',
-        repo: 'generated',
-        state: 'generated',
-        severity: 'generated',
-        ecosystem: 'generated',
-        package: 'generated',
-        manifest: 'generated',
-        scope: 'generated',
-        before: 'generated',
-        after: 'generated',
-        last: 4,
-        sort: 'generated',
-        direction: 'generated',
-        page: 1,
-        per_page: 8,
-        first: 5,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/dependabot/alerts#list-dependabot-alerts-for-a-repository).
-
-
-### dependabot/list-alerts-for-repo
-
-List Dependabot alerts for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/dependabot/alerts', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'state' => 'generated',
-        'severity' => 'generated',
-        'ecosystem' => 'generated',
-        'package' => 'generated',
-        'manifest' => 'generated',
-        'scope' => 'generated',
-        'before' => 'generated',
-        'after' => 'generated',
-        'last' => 4,
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'first' => 5,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->dependabot()->listAlertsForRepoListing(        owner: 'generated',
+$client->operations()->dependabot()->listAlertsForRepo(
+        owner: 'generated',
         repo: 'generated',
         state: 'generated',
         severity: 'generated',
@@ -15914,7 +13914,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->getAlert(        owner: 'generated',
+$client->operations()->dependabot()->getAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -15938,7 +13939,8 @@ $client->call('PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->updateAlert(        owner: 'generated',
+$client->operations()->dependabot()->updateAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -15963,7 +13965,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/secrets', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->listRepoSecrets(        owner: 'generated',
+$client->operations()->dependabot()->listRepoSecrets(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -15987,7 +13990,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/secrets/public-key', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->getRepoPublicKey(        owner: 'generated',
+$client->operations()->dependabot()->getRepoPublicKey(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -16010,7 +14014,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->getRepoSecret(        owner: 'generated',
+$client->operations()->dependabot()->getRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -16034,7 +14039,8 @@ $client->call('PUT /repos/{owner}/{repo}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->createOrUpdateRepoSecret(        owner: 'generated',
+$client->operations()->dependabot()->createOrUpdateRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -16058,7 +14064,8 @@ $client->call('DELETE /repos/{owner}/{repo}/dependabot/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->dependabot()->deleteRepoSecret(        owner: 'generated',
+$client->operations()->dependabot()->deleteRepoSecret(
+        owner: 'generated',
         repo: 'generated',
         secret_name: 'generated',
 );
@@ -16083,7 +14090,8 @@ $client->call('GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}', [
 
 Operations method:
 ```php
-$client->operations()->dependencyGraph()->diffRange(        owner: 'generated',
+$client->operations()->dependencyGraph()->diffRange(
+        owner: 'generated',
         repo: 'generated',
         basehead: 'generated',
         name: 'generated',
@@ -16107,7 +14115,8 @@ $client->call('GET /repos/{owner}/{repo}/dependency-graph/sbom', [
 
 Operations method:
 ```php
-$client->operations()->dependencyGraph()->exportSbom(        owner: 'generated',
+$client->operations()->dependencyGraph()->exportSbom(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -16129,7 +14138,8 @@ $client->call('POST /repos/{owner}/{repo}/dependency-graph/snapshots', [
 
 Operations method:
 ```php
-$client->operations()->dependencyGraph()->createRepositorySnapshot(        owner: 'generated',
+$client->operations()->dependencyGraph()->createRepositorySnapshot(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -16149,7 +14159,7 @@ $client->call('GET /repos/{owner}/{repo}/deployments', [
         'sha' => 'generated',
         'ref' => 'generated',
         'task' => 'generated',
-        'environment' => ,
+        'environment' => generated,
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -16157,46 +14167,13 @@ $client->call('GET /repos/{owner}/{repo}/deployments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listDeployments(        owner: 'generated',
+$client->operations()->repos()->listDeployments(
+        owner: 'generated',
         repo: 'generated',
         sha: 'generated',
         ref: 'generated',
         task: 'generated',
-        environment: ,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/deployments/deployments#list-deployments).
-
-
-### repos/list-deployments
-
-List deployments
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/deployments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'sha' => 'generated',
-        'ref' => 'generated',
-        'task' => 'generated',
-        'environment' => ,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listDeploymentsListing(        owner: 'generated',
-        repo: 'generated',
-        sha: 'generated',
-        ref: 'generated',
-        task: 'generated',
-        environment: ,
+        environment: generated,
         per_page: 8,
         page: 1,
 );
@@ -16219,7 +14196,8 @@ $client->call('POST /repos/{owner}/{repo}/deployments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createDeployment(        owner: 'generated',
+$client->operations()->repos()->createDeployment(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -16242,7 +14220,8 @@ $client->call('GET /repos/{owner}/{repo}/deployments/{deployment_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getDeployment(        owner: 'generated',
+$client->operations()->repos()->getDeployment(
+        owner: 'generated',
         repo: 'generated',
         deployment_id: 13,
 );
@@ -16266,7 +14245,8 @@ $client->call('DELETE /repos/{owner}/{repo}/deployments/{deployment_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteDeployment(        owner: 'generated',
+$client->operations()->repos()->deleteDeployment(
+        owner: 'generated',
         repo: 'generated',
         deployment_id: 13,
 );
@@ -16292,35 +14272,8 @@ $client->call('GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses', 
 
 Operations method:
 ```php
-$client->operations()->repos()->listDeploymentStatuses(        owner: 'generated',
-        repo: 'generated',
-        deployment_id: 13,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/deployments/statuses#list-deployment-statuses).
-
-
-### repos/list-deployment-statuses
-
-List deployment statuses
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'deployment_id' => 13,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listDeploymentStatusesListing(        owner: 'generated',
+$client->operations()->repos()->listDeploymentStatuses(
+        owner: 'generated',
         repo: 'generated',
         deployment_id: 13,
         per_page: 8,
@@ -16346,7 +14299,8 @@ $client->call('POST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses',
 
 Operations method:
 ```php
-$client->operations()->repos()->createDeploymentStatus(        owner: 'generated',
+$client->operations()->repos()->createDeploymentStatus(
+        owner: 'generated',
         repo: 'generated',
         deployment_id: 13,
 );
@@ -16371,7 +14325,8 @@ $client->call('GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{s
 
 Operations method:
 ```php
-$client->operations()->repos()->getDeploymentStatus(        owner: 'generated',
+$client->operations()->repos()->getDeploymentStatus(
+        owner: 'generated',
         repo: 'generated',
         deployment_id: 13,
         status_id: 9,
@@ -16395,7 +14350,8 @@ $client->call('POST /repos/{owner}/{repo}/dispatches', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createDispatchEvent(        owner: 'generated',
+$client->operations()->repos()->createDispatchEvent(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -16419,7 +14375,8 @@ $client->call('GET /repos/{owner}/{repo}/environments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getAllEnvironments(        owner: 'generated',
+$client->operations()->repos()->getAllEnvironments(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -16444,7 +14401,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getEnvironment(        owner: 'generated',
+$client->operations()->repos()->getEnvironment(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16468,7 +14426,8 @@ $client->call('PUT /repos/{owner}/{repo}/environments/{environment_name}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createOrUpdateEnvironment(        owner: 'generated',
+$client->operations()->repos()->createOrUpdateEnvironment(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16492,7 +14451,8 @@ $client->call('DELETE /repos/{owner}/{repo}/environments/{environment_name}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteAnEnvironment(        owner: 'generated',
+$client->operations()->repos()->deleteAnEnvironment(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16518,7 +14478,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->listDeploymentBranchPolicies(        owner: 'generated',
+$client->operations()->repos()->listDeploymentBranchPolicies(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         per_page: 8,
@@ -16544,7 +14505,8 @@ $client->call('POST /repos/{owner}/{repo}/environments/{environment_name}/deploy
 
 Operations method:
 ```php
-$client->operations()->repos()->createDeploymentBranchPolicy(        owner: 'generated',
+$client->operations()->repos()->createDeploymentBranchPolicy(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16569,7 +14531,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->getDeploymentBranchPolicy(        owner: 'generated',
+$client->operations()->repos()->getDeploymentBranchPolicy(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         branch_policy_id: 16,
@@ -16595,7 +14558,8 @@ $client->call('PUT /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->updateDeploymentBranchPolicy(        owner: 'generated',
+$client->operations()->repos()->updateDeploymentBranchPolicy(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         branch_policy_id: 16,
@@ -16621,7 +14585,8 @@ $client->call('DELETE /repos/{owner}/{repo}/environments/{environment_name}/depl
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteDeploymentBranchPolicy(        owner: 'generated',
+$client->operations()->repos()->deleteDeploymentBranchPolicy(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         branch_policy_id: 16,
@@ -16646,7 +14611,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->getAllDeploymentProtectionRules(        environment_name: 'generated',
+$client->operations()->repos()->getAllDeploymentProtectionRules(
+        environment_name: 'generated',
         repo: 'generated',
         owner: 'generated',
 );
@@ -16670,7 +14636,8 @@ $client->call('POST /repos/{owner}/{repo}/environments/{environment_name}/deploy
 
 Operations method:
 ```php
-$client->operations()->repos()->createDeploymentProtectionRule(        environment_name: 'generated',
+$client->operations()->repos()->createDeploymentProtectionRule(
+        environment_name: 'generated',
         repo: 'generated',
         owner: 'generated',
 );
@@ -16696,7 +14663,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->listCustomDeploymentRuleIntegrations(        environment_name: 'generated',
+$client->operations()->repos()->listCustomDeploymentRuleIntegrations(
+        environment_name: 'generated',
         repo: 'generated',
         owner: 'generated',
         page: 1,
@@ -16723,7 +14691,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
 
 Operations method:
 ```php
-$client->operations()->repos()->getCustomDeploymentProtectionRule(        owner: 'generated',
+$client->operations()->repos()->getCustomDeploymentProtectionRule(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         protection_rule_id: 18,
@@ -16749,7 +14718,8 @@ $client->call('DELETE /repos/{owner}/{repo}/environments/{environment_name}/depl
 
 Operations method:
 ```php
-$client->operations()->repos()->disableDeploymentProtectionRule(        environment_name: 'generated',
+$client->operations()->repos()->disableDeploymentProtectionRule(
+        environment_name: 'generated',
         repo: 'generated',
         owner: 'generated',
         protection_rule_id: 18,
@@ -16776,7 +14746,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/secrets
 
 Operations method:
 ```php
-$client->operations()->actions()->listEnvironmentSecrets(        owner: 'generated',
+$client->operations()->actions()->listEnvironmentSecrets(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         per_page: 8,
@@ -16802,7 +14773,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/secrets
 
 Operations method:
 ```php
-$client->operations()->actions()->getEnvironmentPublicKey(        owner: 'generated',
+$client->operations()->actions()->getEnvironmentPublicKey(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16827,7 +14799,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/secrets
 
 Operations method:
 ```php
-$client->operations()->actions()->getEnvironmentSecret(        owner: 'generated',
+$client->operations()->actions()->getEnvironmentSecret(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         secret_name: 'generated',
@@ -16853,7 +14826,8 @@ $client->call('PUT /repos/{owner}/{repo}/environments/{environment_name}/secrets
 
 Operations method:
 ```php
-$client->operations()->actions()->createOrUpdateEnvironmentSecret(        owner: 'generated',
+$client->operations()->actions()->createOrUpdateEnvironmentSecret(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         secret_name: 'generated',
@@ -16879,7 +14853,8 @@ $client->call('DELETE /repos/{owner}/{repo}/environments/{environment_name}/secr
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteEnvironmentSecret(        owner: 'generated',
+$client->operations()->actions()->deleteEnvironmentSecret(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         secret_name: 'generated',
@@ -16906,7 +14881,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/variabl
 
 Operations method:
 ```php
-$client->operations()->actions()->listEnvironmentVariables(        owner: 'generated',
+$client->operations()->actions()->listEnvironmentVariables(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         per_page: 8,
@@ -16932,7 +14908,8 @@ $client->call('POST /repos/{owner}/{repo}/environments/{environment_name}/variab
 
 Operations method:
 ```php
-$client->operations()->actions()->createEnvironmentVariable(        owner: 'generated',
+$client->operations()->actions()->createEnvironmentVariable(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
 );
@@ -16957,7 +14934,8 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/variabl
 
 Operations method:
 ```php
-$client->operations()->actions()->getEnvironmentVariable(        owner: 'generated',
+$client->operations()->actions()->getEnvironmentVariable(
+        owner: 'generated',
         repo: 'generated',
         environment_name: 'generated',
         name: 'generated',
@@ -16983,7 +14961,8 @@ $client->call('DELETE /repos/{owner}/{repo}/environments/{environment_name}/vari
 
 Operations method:
 ```php
-$client->operations()->actions()->deleteEnvironmentVariable(        owner: 'generated',
+$client->operations()->actions()->deleteEnvironmentVariable(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
         environment_name: 'generated',
@@ -17009,7 +14988,8 @@ $client->call('PATCH /repos/{owner}/{repo}/environments/{environment_name}/varia
 
 Operations method:
 ```php
-$client->operations()->actions()->updateEnvironmentVariable(        owner: 'generated',
+$client->operations()->actions()->updateEnvironmentVariable(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
         environment_name: 'generated',
@@ -17035,33 +15015,8 @@ $client->call('GET /repos/{owner}/{repo}/events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listRepoEvents(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-repository-events).
-
-
-### activity/list-repo-events
-
-List repository events
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/events', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listRepoEventsListing(        owner: 'generated',
+$client->operations()->activity()->listRepoEvents(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -17088,35 +15043,8 @@ $client->call('GET /repos/{owner}/{repo}/forks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listForks(        owner: 'generated',
-        repo: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/forks#list-forks).
-
-
-### repos/list-forks
-
-List forks
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/forks', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listForksListing(        owner: 'generated',
+$client->operations()->repos()->listForks(
+        owner: 'generated',
         repo: 'generated',
         sort: 'generated',
         per_page: 8,
@@ -17141,7 +15069,8 @@ $client->call('POST /repos/{owner}/{repo}/forks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createFork(        owner: 'generated',
+$client->operations()->repos()->createFork(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17163,7 +15092,8 @@ $client->call('POST /repos/{owner}/{repo}/git/blobs', [
 
 Operations method:
 ```php
-$client->operations()->git()->createBlob(        owner: 'generated',
+$client->operations()->git()->createBlob(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17186,7 +15116,8 @@ $client->call('GET /repos/{owner}/{repo}/git/blobs/{file_sha}', [
 
 Operations method:
 ```php
-$client->operations()->git()->getBlob(        owner: 'generated',
+$client->operations()->git()->getBlob(
+        owner: 'generated',
         repo: 'generated',
         file_sha: 'generated',
 );
@@ -17209,7 +15140,8 @@ $client->call('POST /repos/{owner}/{repo}/git/commits', [
 
 Operations method:
 ```php
-$client->operations()->git()->createCommit(        owner: 'generated',
+$client->operations()->git()->createCommit(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17232,7 +15164,8 @@ $client->call('GET /repos/{owner}/{repo}/git/commits/{commit_sha}', [
 
 Operations method:
 ```php
-$client->operations()->git()->getCommit(        owner: 'generated',
+$client->operations()->git()->getCommit(
+        owner: 'generated',
         repo: 'generated',
         commit_sha: 'generated',
 );
@@ -17256,7 +15189,8 @@ $client->call('GET /repos/{owner}/{repo}/git/matching-refs/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->git()->listMatchingRefs(        owner: 'generated',
+$client->operations()->git()->listMatchingRefs(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -17280,7 +15214,8 @@ $client->call('GET /repos/{owner}/{repo}/git/ref/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->git()->getRef(        owner: 'generated',
+$client->operations()->git()->getRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -17303,7 +15238,8 @@ $client->call('POST /repos/{owner}/{repo}/git/refs', [
 
 Operations method:
 ```php
-$client->operations()->git()->createRef(        owner: 'generated',
+$client->operations()->git()->createRef(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17326,7 +15262,8 @@ $client->call('DELETE /repos/{owner}/{repo}/git/refs/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->git()->deleteRef(        owner: 'generated',
+$client->operations()->git()->deleteRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -17350,7 +15287,8 @@ $client->call('PATCH /repos/{owner}/{repo}/git/refs/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->git()->updateRef(        owner: 'generated',
+$client->operations()->git()->updateRef(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -17373,7 +15311,8 @@ $client->call('POST /repos/{owner}/{repo}/git/tags', [
 
 Operations method:
 ```php
-$client->operations()->git()->createTag(        owner: 'generated',
+$client->operations()->git()->createTag(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17396,7 +15335,8 @@ $client->call('GET /repos/{owner}/{repo}/git/tags/{tag_sha}', [
 
 Operations method:
 ```php
-$client->operations()->git()->getTag(        owner: 'generated',
+$client->operations()->git()->getTag(
+        owner: 'generated',
         repo: 'generated',
         tag_sha: 'generated',
 );
@@ -17419,7 +15359,8 @@ $client->call('POST /repos/{owner}/{repo}/git/trees', [
 
 Operations method:
 ```php
-$client->operations()->git()->createTree(        owner: 'generated',
+$client->operations()->git()->createTree(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17443,7 +15384,8 @@ $client->call('GET /repos/{owner}/{repo}/git/trees/{tree_sha}', [
 
 Operations method:
 ```php
-$client->operations()->git()->getTree(        owner: 'generated',
+$client->operations()->git()->getTree(
+        owner: 'generated',
         repo: 'generated',
         tree_sha: 'generated',
         recursive: 'generated',
@@ -17469,33 +15411,8 @@ $client->call('GET /repos/{owner}/{repo}/hooks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listWebhooks(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/webhooks#list-repository-webhooks).
-
-
-### repos/list-webhooks
-
-List repository webhooks
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/hooks', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listWebhooksListing(        owner: 'generated',
+$client->operations()->repos()->listWebhooks(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -17519,7 +15436,8 @@ $client->call('POST /repos/{owner}/{repo}/hooks', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createWebhook(        owner: 'generated',
+$client->operations()->repos()->createWebhook(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17542,7 +15460,8 @@ $client->call('GET /repos/{owner}/{repo}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getWebhook(        owner: 'generated',
+$client->operations()->repos()->getWebhook(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17566,7 +15485,8 @@ $client->call('DELETE /repos/{owner}/{repo}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteWebhook(        owner: 'generated',
+$client->operations()->repos()->deleteWebhook(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17590,7 +15510,8 @@ $client->call('PATCH /repos/{owner}/{repo}/hooks/{hook_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateWebhook(        owner: 'generated',
+$client->operations()->repos()->updateWebhook(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17614,7 +15535,8 @@ $client->call('GET /repos/{owner}/{repo}/hooks/{hook_id}/config', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getWebhookConfigForRepo(        owner: 'generated',
+$client->operations()->repos()->getWebhookConfigForRepo(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17638,7 +15560,8 @@ $client->call('PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateWebhookConfigForRepo(        owner: 'generated',
+$client->operations()->repos()->updateWebhookConfigForRepo(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17664,7 +15587,8 @@ $client->call('GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listWebhookDeliveries(        owner: 'generated',
+$client->operations()->repos()->listWebhookDeliveries(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
         cursor: 'generated',
@@ -17691,7 +15615,8 @@ $client->call('GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id
 
 Operations method:
 ```php
-$client->operations()->repos()->getWebhookDelivery(        owner: 'generated',
+$client->operations()->repos()->getWebhookDelivery(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
         delivery_id: 11,
@@ -17717,7 +15642,8 @@ $client->call('POST /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_i
 
 Operations method:
 ```php
-$client->operations()->repos()->redeliverWebhookDelivery(        owner: 'generated',
+$client->operations()->repos()->redeliverWebhookDelivery(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
         delivery_id: 11,
@@ -17742,7 +15668,8 @@ $client->call('POST /repos/{owner}/{repo}/hooks/{hook_id}/pings', [
 
 Operations method:
 ```php
-$client->operations()->repos()->pingWebhook(        owner: 'generated',
+$client->operations()->repos()->pingWebhook(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17766,7 +15693,8 @@ $client->call('POST /repos/{owner}/{repo}/hooks/{hook_id}/tests', [
 
 Operations method:
 ```php
-$client->operations()->repos()->testPushWebhook(        owner: 'generated',
+$client->operations()->repos()->testPushWebhook(
+        owner: 'generated',
         repo: 'generated',
         hook_id: 7,
 );
@@ -17789,7 +15717,8 @@ $client->call('GET /repos/{owner}/{repo}/import', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->getImportStatus(        owner: 'generated',
+$client->operations()->migrations()->getImportStatus(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17811,7 +15740,8 @@ $client->call('PUT /repos/{owner}/{repo}/import', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->startImport(        owner: 'generated',
+$client->operations()->migrations()->startImport(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17833,7 +15763,8 @@ $client->call('DELETE /repos/{owner}/{repo}/import', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->cancelImport(        owner: 'generated',
+$client->operations()->migrations()->cancelImport(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17855,7 +15786,8 @@ $client->call('PATCH /repos/{owner}/{repo}/import', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->updateImport(        owner: 'generated',
+$client->operations()->migrations()->updateImport(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17878,7 +15810,8 @@ $client->call('GET /repos/{owner}/{repo}/import/authors', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->getCommitAuthors(        owner: 'generated',
+$client->operations()->migrations()->getCommitAuthors(
+        owner: 'generated',
         repo: 'generated',
         since: 5,
 );
@@ -17902,7 +15835,8 @@ $client->call('PATCH /repos/{owner}/{repo}/import/authors/{author_id}', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->mapCommitAuthor(        owner: 'generated',
+$client->operations()->migrations()->mapCommitAuthor(
+        owner: 'generated',
         repo: 'generated',
         author_id: 9,
 );
@@ -17925,7 +15859,8 @@ $client->call('GET /repos/{owner}/{repo}/import/large_files', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->getLargeFiles(        owner: 'generated',
+$client->operations()->migrations()->getLargeFiles(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17947,7 +15882,8 @@ $client->call('PATCH /repos/{owner}/{repo}/import/lfs', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->setLfsPreference(        owner: 'generated',
+$client->operations()->migrations()->setLfsPreference(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17969,7 +15905,8 @@ $client->call('GET /repos/{owner}/{repo}/installation', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getRepoInstallation(        owner: 'generated',
+$client->operations()->apps()->getRepoInstallation(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -17991,7 +15928,8 @@ $client->call('GET /repos/{owner}/{repo}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->getRestrictionsForRepo(        owner: 'generated',
+$client->operations()->interactions()->getRestrictionsForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -18013,7 +15951,8 @@ $client->call('PUT /repos/{owner}/{repo}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->setRestrictionsForRepo(        owner: 'generated',
+$client->operations()->interactions()->setRestrictionsForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -18035,7 +15974,8 @@ $client->call('DELETE /repos/{owner}/{repo}/interaction-limits', [
 
 Operations method:
 ```php
-$client->operations()->interactions()->removeRestrictionsForRepo(        owner: 'generated',
+$client->operations()->interactions()->removeRestrictionsForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -18059,33 +15999,8 @@ $client->call('GET /repos/{owner}/{repo}/invitations', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listInvitations(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/collaborators/invitations#list-repository-invitations).
-
-
-### repos/list-invitations
-
-List repository invitations
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/invitations', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listInvitationsListing(        owner: 'generated',
+$client->operations()->repos()->listInvitations(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -18110,7 +16025,8 @@ $client->call('DELETE /repos/{owner}/{repo}/invitations/{invitation_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteInvitation(        owner: 'generated',
+$client->operations()->repos()->deleteInvitation(
+        owner: 'generated',
         repo: 'generated',
         invitation_id: 13,
 );
@@ -18134,7 +16050,8 @@ $client->call('PATCH /repos/{owner}/{repo}/invitations/{invitation_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateInvitation(        owner: 'generated',
+$client->operations()->repos()->updateInvitation(
+        owner: 'generated',
         repo: 'generated',
         invitation_id: 13,
 );
@@ -18168,51 +16085,8 @@ $client->call('GET /repos/{owner}/{repo}/issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listForRepo(        owner: 'generated',
-        repo: 'generated',
-        milestone: 'generated',
-        assignee: 'generated',
-        creator: 'generated',
-        mentioned: 'generated',
-        labels: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        state: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/issues#list-repository-issues).
-
-
-### issues/list-for-repo
-
-List repository issues
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'milestone' => 'generated',
-        'assignee' => 'generated',
-        'creator' => 'generated',
-        'mentioned' => 'generated',
-        'labels' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listForRepoListing(        owner: 'generated',
+$client->operations()->issues()->listForRepo(
+        owner: 'generated',
         repo: 'generated',
         milestone: 'generated',
         assignee: 'generated',
@@ -18245,7 +16119,8 @@ $client->call('POST /repos/{owner}/{repo}/issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->create(        owner: 'generated',
+$client->operations()->issues()->create(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -18272,39 +16147,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/comments', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listCommentsForRepo(        owner: 'generated',
-        repo: 'generated',
-        direction: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/comments#list-issue-comments-for-a-repository).
-
-
-### issues/list-comments-for-repo
-
-List issue comments for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'direction' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listCommentsForRepoListing(        owner: 'generated',
+$client->operations()->issues()->listCommentsForRepo(
+        owner: 'generated',
         repo: 'generated',
         direction: 'generated',
         since: '1970-01-01T00:00:00+00:00',
@@ -18332,7 +16176,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->getComment(        owner: 'generated',
+$client->operations()->issues()->getComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -18356,7 +16201,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->deleteComment(        owner: 'generated',
+$client->operations()->issues()->deleteComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -18380,7 +16226,8 @@ $client->call('PATCH /repos/{owner}/{repo}/issues/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->updateComment(        owner: 'generated',
+$client->operations()->issues()->updateComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -18407,37 +16254,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions'
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForIssueComment(        owner: 'generated',
-        repo: 'generated',
-        comment_id: 10,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-an-issue-comment).
-
-
-### reactions/list-for-issue-comment
-
-List reactions for an issue comment
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'comment_id' => 10,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForIssueCommentListing(        owner: 'generated',
+$client->operations()->reactions()->listForIssueComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         content: 'generated',
@@ -18464,7 +16282,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForIssueComment(        owner: 'generated',
+$client->operations()->reactions()->createForIssueComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -18489,7 +16308,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}/reactio
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForIssueComment(        owner: 'generated',
+$client->operations()->reactions()->deleteForIssueComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         reaction_id: 11,
@@ -18515,33 +16335,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/events', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listEventsForRepo(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/events#list-issue-events-for-a-repository).
-
-
-### issues/list-events-for-repo
-
-List issue events for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/events', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listEventsForRepoListing(        owner: 'generated',
+$client->operations()->issues()->listEventsForRepo(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -18566,7 +16361,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/events/{event_id}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->getEvent(        owner: 'generated',
+$client->operations()->issues()->getEvent(
+        owner: 'generated',
         repo: 'generated',
         event_id: 8,
 );
@@ -18590,7 +16386,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->get(        owner: 'generated',
+$client->operations()->issues()->get(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18614,7 +16411,8 @@ $client->call('PATCH /repos/{owner}/{repo}/issues/{issue_number}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->update(        owner: 'generated',
+$client->operations()->issues()->update(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18638,7 +16436,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/{issue_number}/assignees', [
 
 Operations method:
 ```php
-$client->operations()->issues()->addAssignees(        owner: 'generated',
+$client->operations()->issues()->addAssignees(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18662,7 +16461,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/assignees', [
 
 Operations method:
 ```php
-$client->operations()->issues()->removeAssignees(        owner: 'generated',
+$client->operations()->issues()->removeAssignees(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18687,7 +16487,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/assignees/{assign
 
 Operations method:
 ```php
-$client->operations()->issues()->checkUserCanBeAssignedToIssue(        owner: 'generated',
+$client->operations()->issues()->checkUserCanBeAssignedToIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         assignee: 'generated',
@@ -18715,37 +16516,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/comments', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listComments(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/comments#list-issue-comments).
-
-
-### issues/list-comments
-
-List issue comments
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listCommentsListing(        owner: 'generated',
+$client->operations()->issues()->listComments(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         since: '1970-01-01T00:00:00+00:00',
@@ -18772,7 +16544,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', [
 
 Operations method:
 ```php
-$client->operations()->issues()->createComment(        owner: 'generated',
+$client->operations()->issues()->createComment(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18798,35 +16571,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/events', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listEvents(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/events#list-issue-events).
-
-
-### issues/list-events
-
-List issue events
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/events', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listEventsListing(        owner: 'generated',
+$client->operations()->issues()->listEvents(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
@@ -18854,35 +16600,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listLabelsOnIssue(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/labels#list-labels-for-an-issue).
-
-
-### issues/list-labels-on-issue
-
-List labels for an issue
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/labels', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listLabelsOnIssueListing(        owner: 'generated',
+$client->operations()->issues()->listLabelsOnIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
@@ -18908,7 +16627,8 @@ $client->call('PUT /repos/{owner}/{repo}/issues/{issue_number}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->setLabels(        owner: 'generated',
+$client->operations()->issues()->setLabels(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18932,7 +16652,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/{issue_number}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->addLabels(        owner: 'generated',
+$client->operations()->issues()->addLabels(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18956,7 +16677,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->removeAllLabels(        owner: 'generated',
+$client->operations()->issues()->removeAllLabels(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -18981,7 +16703,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}'
 
 Operations method:
 ```php
-$client->operations()->issues()->removeLabel(        owner: 'generated',
+$client->operations()->issues()->removeLabel(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         name: 'generated',
@@ -19006,7 +16729,8 @@ $client->call('PUT /repos/{owner}/{repo}/issues/{issue_number}/lock', [
 
 Operations method:
 ```php
-$client->operations()->issues()->lock(        owner: 'generated',
+$client->operations()->issues()->lock(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19030,7 +16754,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock', [
 
 Operations method:
 ```php
-$client->operations()->issues()->unlock(        owner: 'generated',
+$client->operations()->issues()->unlock(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19057,37 +16782,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForIssue(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-an-issue).
-
-
-### reactions/list-for-issue
-
-List reactions for an issue
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/reactions', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForIssueListing(        owner: 'generated',
+$client->operations()->reactions()->listForIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         content: 'generated',
@@ -19114,7 +16810,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/{issue_number}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForIssue(        owner: 'generated',
+$client->operations()->reactions()->createForIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19139,7 +16836,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/reactions/{rea
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForIssue(        owner: 'generated',
+$client->operations()->reactions()->deleteForIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         reaction_id: 11,
@@ -19164,7 +16862,8 @@ $client->call('DELETE /repos/{owner}/{repo}/issues/{issue_number}/sub_issue', [
 
 Operations method:
 ```php
-$client->operations()->issues()->removeSubIssue(        owner: 'generated',
+$client->operations()->issues()->removeSubIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19190,35 +16889,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/sub_issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listSubIssues(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/sub-issues#list-sub-issues).
-
-
-### issues/list-sub-issues
-
-List sub-issues
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listSubIssuesListing(        owner: 'generated',
+$client->operations()->issues()->listSubIssues(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
@@ -19244,7 +16916,8 @@ $client->call('POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->addSubIssue(        owner: 'generated',
+$client->operations()->issues()->addSubIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19268,7 +16941,8 @@ $client->call('PATCH /repos/{owner}/{repo}/issues/{issue_number}/sub_issues/prio
 
 Operations method:
 ```php
-$client->operations()->issues()->reprioritizeSubIssue(        owner: 'generated',
+$client->operations()->issues()->reprioritizeSubIssue(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
 );
@@ -19294,35 +16968,8 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/timeline', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listEventsForTimeline(        owner: 'generated',
-        repo: 'generated',
-        issue_number: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/timeline#list-timeline-events-for-an-issue).
-
-
-### issues/list-events-for-timeline
-
-List timeline events for an issue
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/timeline', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'issue_number' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listEventsForTimelineListing(        owner: 'generated',
+$client->operations()->issues()->listEventsForTimeline(
+        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
@@ -19349,33 +16996,8 @@ $client->call('GET /repos/{owner}/{repo}/keys', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listDeployKeys(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/deploy-keys/deploy-keys#list-deploy-keys).
-
-
-### repos/list-deploy-keys
-
-List deploy keys
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/keys', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listDeployKeysListing(        owner: 'generated',
+$client->operations()->repos()->listDeployKeys(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -19399,7 +17021,8 @@ $client->call('POST /repos/{owner}/{repo}/keys', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createDeployKey(        owner: 'generated',
+$client->operations()->repos()->createDeployKey(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19422,7 +17045,8 @@ $client->call('GET /repos/{owner}/{repo}/keys/{key_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getDeployKey(        owner: 'generated',
+$client->operations()->repos()->getDeployKey(
+        owner: 'generated',
         repo: 'generated',
         key_id: 6,
 );
@@ -19446,7 +17070,8 @@ $client->call('DELETE /repos/{owner}/{repo}/keys/{key_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteDeployKey(        owner: 'generated',
+$client->operations()->repos()->deleteDeployKey(
+        owner: 'generated',
         repo: 'generated',
         key_id: 6,
 );
@@ -19471,33 +17096,8 @@ $client->call('GET /repos/{owner}/{repo}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listLabelsForRepo(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/labels#list-labels-for-a-repository).
-
-
-### issues/list-labels-for-repo
-
-List labels for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/labels', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listLabelsForRepoListing(        owner: 'generated',
+$client->operations()->issues()->listLabelsForRepo(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -19521,7 +17121,8 @@ $client->call('POST /repos/{owner}/{repo}/labels', [
 
 Operations method:
 ```php
-$client->operations()->issues()->createLabel(        owner: 'generated',
+$client->operations()->issues()->createLabel(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19544,7 +17145,8 @@ $client->call('GET /repos/{owner}/{repo}/labels/{name}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->getLabel(        owner: 'generated',
+$client->operations()->issues()->getLabel(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -19568,7 +17170,8 @@ $client->call('DELETE /repos/{owner}/{repo}/labels/{name}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->deleteLabel(        owner: 'generated',
+$client->operations()->issues()->deleteLabel(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -19592,7 +17195,8 @@ $client->call('PATCH /repos/{owner}/{repo}/labels/{name}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->updateLabel(        owner: 'generated',
+$client->operations()->issues()->updateLabel(
+        owner: 'generated',
         repo: 'generated',
         name: 'generated',
 );
@@ -19615,7 +17219,8 @@ $client->call('GET /repos/{owner}/{repo}/languages', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listLanguages(        owner: 'generated',
+$client->operations()->repos()->listLanguages(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19638,7 +17243,8 @@ $client->call('GET /repos/{owner}/{repo}/license', [
 
 Operations method:
 ```php
-$client->operations()->licenses()->getForRepo(        owner: 'generated',
+$client->operations()->licenses()->getForRepo(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -19661,7 +17267,8 @@ $client->call('POST /repos/{owner}/{repo}/merge-upstream', [
 
 Operations method:
 ```php
-$client->operations()->repos()->mergeUpstream(        owner: 'generated',
+$client->operations()->repos()->mergeUpstream(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19683,7 +17290,8 @@ $client->call('POST /repos/{owner}/{repo}/merges', [
 
 Operations method:
 ```php
-$client->operations()->repos()->merge(        owner: 'generated',
+$client->operations()->repos()->merge(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19710,39 +17318,8 @@ $client->call('GET /repos/{owner}/{repo}/milestones', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listMilestones(        owner: 'generated',
-        repo: 'generated',
-        state: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/milestones#list-milestones).
-
-
-### issues/list-milestones
-
-List milestones
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/milestones', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listMilestonesListing(        owner: 'generated',
+$client->operations()->issues()->listMilestones(
+        owner: 'generated',
         repo: 'generated',
         state: 'generated',
         sort: 'generated',
@@ -19769,7 +17346,8 @@ $client->call('POST /repos/{owner}/{repo}/milestones', [
 
 Operations method:
 ```php
-$client->operations()->issues()->createMilestone(        owner: 'generated',
+$client->operations()->issues()->createMilestone(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -19792,7 +17370,8 @@ $client->call('GET /repos/{owner}/{repo}/milestones/{milestone_number}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->getMilestone(        owner: 'generated',
+$client->operations()->issues()->getMilestone(
+        owner: 'generated',
         repo: 'generated',
         milestone_number: 16,
 );
@@ -19816,7 +17395,8 @@ $client->call('DELETE /repos/{owner}/{repo}/milestones/{milestone_number}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->deleteMilestone(        owner: 'generated',
+$client->operations()->issues()->deleteMilestone(
+        owner: 'generated',
         repo: 'generated',
         milestone_number: 16,
 );
@@ -19840,7 +17420,8 @@ $client->call('PATCH /repos/{owner}/{repo}/milestones/{milestone_number}', [
 
 Operations method:
 ```php
-$client->operations()->issues()->updateMilestone(        owner: 'generated',
+$client->operations()->issues()->updateMilestone(
+        owner: 'generated',
         repo: 'generated',
         milestone_number: 16,
 );
@@ -19866,35 +17447,8 @@ $client->call('GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels', 
 
 Operations method:
 ```php
-$client->operations()->issues()->listLabelsForMilestone(        owner: 'generated',
-        repo: 'generated',
-        milestone_number: 16,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/labels#list-labels-for-issues-in-a-milestone).
-
-
-### issues/list-labels-for-milestone
-
-List labels for issues in a milestone
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/milestones/{milestone_number}/labels', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'milestone_number' => 16,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listLabelsForMilestoneListing(        owner: 'generated',
+$client->operations()->issues()->listLabelsForMilestone(
+        owner: 'generated',
         repo: 'generated',
         milestone_number: 16,
         per_page: 8,
@@ -19925,41 +17479,8 @@ $client->call('GET /repos/{owner}/{repo}/notifications', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listRepoNotificationsForAuthenticatedUser(        owner: 'generated',
-        repo: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        before: '1970-01-01T00:00:00+00:00',
-        all: ,
-        participating: ,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user).
-
-
-### activity/list-repo-notifications-for-authenticated-user
-
-List repository notifications for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/notifications', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'before' => '1970-01-01T00:00:00+00:00',
-        'all' => ,
-        'participating' => ,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listRepoNotificationsForAuthenticatedUserListing(        owner: 'generated',
+$client->operations()->activity()->listRepoNotificationsForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         before: '1970-01-01T00:00:00+00:00',
@@ -19987,7 +17508,8 @@ $client->call('PUT /repos/{owner}/{repo}/notifications', [
 
 Operations method:
 ```php
-$client->operations()->activity()->markRepoNotificationsAsRead(        owner: 'generated',
+$client->operations()->activity()->markRepoNotificationsAsRead(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20009,7 +17531,8 @@ $client->call('GET /repos/{owner}/{repo}/pages', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getPages(        owner: 'generated',
+$client->operations()->repos()->getPages(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20031,7 +17554,8 @@ $client->call('PUT /repos/{owner}/{repo}/pages', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateInformationAboutPagesSite(        owner: 'generated',
+$client->operations()->repos()->updateInformationAboutPagesSite(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20053,7 +17577,8 @@ $client->call('POST /repos/{owner}/{repo}/pages', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createPagesSite(        owner: 'generated',
+$client->operations()->repos()->createPagesSite(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20075,7 +17600,8 @@ $client->call('DELETE /repos/{owner}/{repo}/pages', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deletePagesSite(        owner: 'generated',
+$client->operations()->repos()->deletePagesSite(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20099,33 +17625,8 @@ $client->call('GET /repos/{owner}/{repo}/pages/builds', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listPagesBuilds(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pages/pages#list-apiname-pages-builds).
-
-
-### repos/list-pages-builds
-
-List GitHub Pages builds
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pages/builds', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listPagesBuildsListing(        owner: 'generated',
+$client->operations()->repos()->listPagesBuilds(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -20149,7 +17650,8 @@ $client->call('POST /repos/{owner}/{repo}/pages/builds', [
 
 Operations method:
 ```php
-$client->operations()->repos()->requestPagesBuild(        owner: 'generated',
+$client->operations()->repos()->requestPagesBuild(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20171,7 +17673,8 @@ $client->call('GET /repos/{owner}/{repo}/pages/builds/latest', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getLatestPagesBuild(        owner: 'generated',
+$client->operations()->repos()->getLatestPagesBuild(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20194,7 +17697,8 @@ $client->call('GET /repos/{owner}/{repo}/pages/builds/{build_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getPagesBuild(        owner: 'generated',
+$client->operations()->repos()->getPagesBuild(
+        owner: 'generated',
         repo: 'generated',
         build_id: 8,
 );
@@ -20217,7 +17721,8 @@ $client->call('POST /repos/{owner}/{repo}/pages/deployments', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createPagesDeployment(        owner: 'generated',
+$client->operations()->repos()->createPagesDeployment(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20234,15 +17739,16 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'pages_deployment_id' => ,
+        'pages_deployment_id' => 19,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->repos()->getPagesDeployment(        owner: 'generated',
+$client->operations()->repos()->getPagesDeployment(
+        owner: 'generated',
         repo: 'generated',
-        pages_deployment_id: ,
+        pages_deployment_id: 19,
 );
 ```
 
@@ -20258,15 +17764,16 @@ Using the `call` method:
 $client->call('POST /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'pages_deployment_id' => ,
+        'pages_deployment_id' => 19,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->repos()->cancelPagesDeployment(        owner: 'generated',
+$client->operations()->repos()->cancelPagesDeployment(
+        owner: 'generated',
         repo: 'generated',
-        pages_deployment_id: ,
+        pages_deployment_id: 19,
 );
 ```
 
@@ -20287,7 +17794,8 @@ $client->call('GET /repos/{owner}/{repo}/pages/health', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getPagesHealthCheck(        owner: 'generated',
+$client->operations()->repos()->getPagesHealthCheck(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20309,7 +17817,8 @@ $client->call('GET /repos/{owner}/{repo}/private-vulnerability-reporting', [
 
 Operations method:
 ```php
-$client->operations()->repos()->checkPrivateVulnerabilityReporting(        owner: 'generated',
+$client->operations()->repos()->checkPrivateVulnerabilityReporting(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20331,7 +17840,8 @@ $client->call('PUT /repos/{owner}/{repo}/private-vulnerability-reporting', [
 
 Operations method:
 ```php
-$client->operations()->repos()->enablePrivateVulnerabilityReporting(        owner: 'generated',
+$client->operations()->repos()->enablePrivateVulnerabilityReporting(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20353,7 +17863,8 @@ $client->call('DELETE /repos/{owner}/{repo}/private-vulnerability-reporting', [
 
 Operations method:
 ```php
-$client->operations()->repos()->disablePrivateVulnerabilityReporting(        owner: 'generated',
+$client->operations()->repos()->disablePrivateVulnerabilityReporting(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20378,35 +17889,8 @@ $client->call('GET /repos/{owner}/{repo}/projects', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listForRepo(        owner: 'generated',
-        repo: 'generated',
-        state: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/projects#list-repository-projects).
-
-
-### projects/list-for-repo
-
-List repository projects
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/projects', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'state' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listForRepoListing(        owner: 'generated',
+$client->operations()->projects()->listForRepo(
+        owner: 'generated',
         repo: 'generated',
         state: 'generated',
         per_page: 8,
@@ -20431,7 +17915,8 @@ $client->call('POST /repos/{owner}/{repo}/projects', [
 
 Operations method:
 ```php
-$client->operations()->projects()->createForRepo(        owner: 'generated',
+$client->operations()->projects()->createForRepo(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20453,7 +17938,8 @@ $client->call('GET /repos/{owner}/{repo}/properties/values', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCustomPropertiesValues(        owner: 'generated',
+$client->operations()->repos()->getCustomPropertiesValues(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20475,7 +17961,8 @@ $client->call('PATCH /repos/{owner}/{repo}/properties/values', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createOrUpdateCustomPropertiesValues(        owner: 'generated',
+$client->operations()->repos()->createOrUpdateCustomPropertiesValues(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20504,43 +17991,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->list(        owner: 'generated',
-        repo: 'generated',
-        head: 'generated',
-        base: 'generated',
-        direction: 'generated',
-        state: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/pulls#list-pull-requests).
-
-
-### pulls/list
-
-List pull requests
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'head' => 'generated',
-        'base' => 'generated',
-        'direction' => 'generated',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listListing(        owner: 'generated',
+$client->operations()->pulls()->list(
+        owner: 'generated',
         repo: 'generated',
         head: 'generated',
         base: 'generated',
@@ -20569,7 +18021,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->create(        owner: 'generated',
+$client->operations()->pulls()->create(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -20596,39 +18049,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/comments', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->listReviewCommentsForRepo(        owner: 'generated',
-        repo: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/comments#list-review-comments-in-a-repository).
-
-
-### pulls/list-review-comments-for-repo
-
-List review comments in a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listReviewCommentsForRepoListing(        owner: 'generated',
+$client->operations()->pulls()->listReviewCommentsForRepo(
+        owner: 'generated',
         repo: 'generated',
         sort: 'generated',
         direction: 'generated',
@@ -20656,7 +18078,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->getReviewComment(        owner: 'generated',
+$client->operations()->pulls()->getReviewComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -20680,7 +18103,8 @@ $client->call('DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->deleteReviewComment(        owner: 'generated',
+$client->operations()->pulls()->deleteReviewComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -20704,7 +18128,8 @@ $client->call('PATCH /repos/{owner}/{repo}/pulls/comments/{comment_id}', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->updateReviewComment(        owner: 'generated',
+$client->operations()->pulls()->updateReviewComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -20731,37 +18156,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions',
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForPullRequestReviewComment(        owner: 'generated',
-        repo: 'generated',
-        comment_id: 10,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-pull-request-review-comment).
-
-
-### reactions/list-for-pull-request-review-comment
-
-List reactions for a pull request review comment
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'comment_id' => 10,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForPullRequestReviewCommentListing(        owner: 'generated',
+$client->operations()->reactions()->listForPullRequestReviewComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         content: 'generated',
@@ -20788,7 +18184,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions'
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForPullRequestReviewComment(        owner: 'generated',
+$client->operations()->reactions()->createForPullRequestReviewComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
 );
@@ -20813,7 +18210,8 @@ $client->call('DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reaction
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForPullRequestComment(        owner: 'generated',
+$client->operations()->reactions()->deleteForPullRequestComment(
+        owner: 'generated',
         repo: 'generated',
         comment_id: 10,
         reaction_id: 11,
@@ -20838,7 +18236,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->get(        owner: 'generated',
+$client->operations()->pulls()->get(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -20862,7 +18261,8 @@ $client->call('PATCH /repos/{owner}/{repo}/pulls/{pull_number}', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->update(        owner: 'generated',
+$client->operations()->pulls()->update(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -20886,7 +18286,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createWithPrForAuthenticatedUser(        owner: 'generated',
+$client->operations()->codespaces()->createWithPrForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -20915,41 +18316,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/comments', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->listReviewComments(        owner: 'generated',
-        repo: 'generated',
-        pull_number: 11,
-        direction: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/comments#list-review-comments-on-a-pull-request).
-
-
-### pulls/list-review-comments
-
-List review comments on a pull request
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'pull_number' => 11,
-        'direction' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listReviewCommentsListing(        owner: 'generated',
+$client->operations()->pulls()->listReviewComments(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         direction: 'generated',
@@ -20978,7 +18346,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/comments', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->createReviewComment(        owner: 'generated',
+$client->operations()->pulls()->createReviewComment(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21003,7 +18372,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_
 
 Operations method:
 ```php
-$client->operations()->pulls()->createReplyForReviewComment(        owner: 'generated',
+$client->operations()->pulls()->createReplyForReviewComment(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         comment_id: 10,
@@ -21030,35 +18400,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/commits', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->listCommits(        owner: 'generated',
-        repo: 'generated',
-        pull_number: 11,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/pulls#list-commits-on-a-pull-request).
-
-
-### pulls/list-commits
-
-List commits on a pull request
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/commits', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'pull_number' => 11,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listCommitsListing(        owner: 'generated',
+$client->operations()->pulls()->listCommits(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
@@ -21086,35 +18429,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->listFiles(        owner: 'generated',
-        repo: 'generated',
-        pull_number: 11,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/pulls#list-pull-requests-files).
-
-
-### pulls/list-files
-
-List pull requests files
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/files', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'pull_number' => 11,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listFilesListing(        owner: 'generated',
+$client->operations()->pulls()->listFiles(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
@@ -21140,7 +18456,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/merge', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->checkIfMerged(        owner: 'generated',
+$client->operations()->pulls()->checkIfMerged(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21164,7 +18481,8 @@ $client->call('PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->merge(        owner: 'generated',
+$client->operations()->pulls()->merge(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21188,7 +18506,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers
 
 Operations method:
 ```php
-$client->operations()->pulls()->listRequestedReviewers(        owner: 'generated',
+$client->operations()->pulls()->listRequestedReviewers(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21212,7 +18531,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewer
 
 Operations method:
 ```php
-$client->operations()->pulls()->requestReviewers(        owner: 'generated',
+$client->operations()->pulls()->requestReviewers(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21236,7 +18556,8 @@ $client->call('DELETE /repos/{owner}/{repo}/pulls/{pull_number}/requested_review
 
 Operations method:
 ```php
-$client->operations()->pulls()->removeRequestedReviewers(        owner: 'generated',
+$client->operations()->pulls()->removeRequestedReviewers(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21262,35 +18583,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->listReviews(        owner: 'generated',
-        repo: 'generated',
-        pull_number: 11,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/reviews#list-reviews-for-a-pull-request).
-
-
-### pulls/list-reviews
-
-List reviews for a pull request
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'pull_number' => 11,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listReviewsListing(        owner: 'generated',
+$client->operations()->pulls()->listReviews(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
@@ -21316,7 +18610,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->createReview(        owner: 'generated',
+$client->operations()->pulls()->createReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21341,7 +18636,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
 
 Operations method:
 ```php
-$client->operations()->pulls()->getReview(        owner: 'generated',
+$client->operations()->pulls()->getReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21367,7 +18663,8 @@ $client->call('PUT /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
 
 Operations method:
 ```php
-$client->operations()->pulls()->updateReview(        owner: 'generated',
+$client->operations()->pulls()->updateReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21393,7 +18690,8 @@ $client->call('DELETE /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_
 
 Operations method:
 ```php
-$client->operations()->pulls()->deletePendingReview(        owner: 'generated',
+$client->operations()->pulls()->deletePendingReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21421,37 +18719,8 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
 
 Operations method:
 ```php
-$client->operations()->pulls()->listCommentsForReview(        owner: 'generated',
-        repo: 'generated',
-        pull_number: 11,
-        review_id: 9,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/pulls/reviews#list-comments-for-a-pull-request-review).
-
-
-### pulls/list-comments-for-review
-
-List comments for a pull request review
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'pull_number' => 11,
-        'review_id' => 9,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->pulls()->listCommentsForReviewListing(        owner: 'generated',
+$client->operations()->pulls()->listCommentsForReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21479,7 +18748,8 @@ $client->call('PUT /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
 
 Operations method:
 ```php
-$client->operations()->pulls()->dismissReview(        owner: 'generated',
+$client->operations()->pulls()->dismissReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21505,7 +18775,8 @@ $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id
 
 Operations method:
 ```php
-$client->operations()->pulls()->submitReview(        owner: 'generated',
+$client->operations()->pulls()->submitReview(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         review_id: 9,
@@ -21530,7 +18801,8 @@ $client->call('PUT /repos/{owner}/{repo}/pulls/{pull_number}/update-branch', [
 
 Operations method:
 ```php
-$client->operations()->pulls()->updateBranch(        owner: 'generated',
+$client->operations()->pulls()->updateBranch(
+        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
 );
@@ -21554,7 +18826,8 @@ $client->call('GET /repos/{owner}/{repo}/readme', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getReadme(        owner: 'generated',
+$client->operations()->repos()->getReadme(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -21579,7 +18852,8 @@ $client->call('GET /repos/{owner}/{repo}/readme/{dir}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getReadmeInDirectory(        owner: 'generated',
+$client->operations()->repos()->getReadmeInDirectory(
+        owner: 'generated',
         repo: 'generated',
         dir: 'generated',
         ref: 'generated',
@@ -21605,33 +18879,8 @@ $client->call('GET /repos/{owner}/{repo}/releases', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listReleases(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/releases/releases#list-releases).
-
-
-### repos/list-releases
-
-List releases
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/releases', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listReleasesListing(        owner: 'generated',
+$client->operations()->repos()->listReleases(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -21655,7 +18904,8 @@ $client->call('POST /repos/{owner}/{repo}/releases', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createRelease(        owner: 'generated',
+$client->operations()->repos()->createRelease(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -21678,7 +18928,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/assets/{asset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getReleaseAsset(        owner: 'generated',
+$client->operations()->repos()->getReleaseAsset(
+        owner: 'generated',
         repo: 'generated',
         asset_id: 8,
 );
@@ -21702,7 +18953,8 @@ $client->call('DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteReleaseAsset(        owner: 'generated',
+$client->operations()->repos()->deleteReleaseAsset(
+        owner: 'generated',
         repo: 'generated',
         asset_id: 8,
 );
@@ -21726,7 +18978,8 @@ $client->call('PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateReleaseAsset(        owner: 'generated',
+$client->operations()->repos()->updateReleaseAsset(
+        owner: 'generated',
         repo: 'generated',
         asset_id: 8,
 );
@@ -21749,7 +19002,8 @@ $client->call('POST /repos/{owner}/{repo}/releases/generate-notes', [
 
 Operations method:
 ```php
-$client->operations()->repos()->generateReleaseNotes(        owner: 'generated',
+$client->operations()->repos()->generateReleaseNotes(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -21771,7 +19025,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/latest', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getLatestRelease(        owner: 'generated',
+$client->operations()->repos()->getLatestRelease(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -21794,7 +19049,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/tags/{tag}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getReleaseByTag(        owner: 'generated',
+$client->operations()->repos()->getReleaseByTag(
+        owner: 'generated',
         repo: 'generated',
         tag: 'generated',
 );
@@ -21818,7 +19074,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/{release_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getRelease(        owner: 'generated',
+$client->operations()->repos()->getRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
 );
@@ -21842,7 +19099,8 @@ $client->call('DELETE /repos/{owner}/{repo}/releases/{release_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteRelease(        owner: 'generated',
+$client->operations()->repos()->deleteRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
 );
@@ -21866,7 +19124,8 @@ $client->call('PATCH /repos/{owner}/{repo}/releases/{release_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateRelease(        owner: 'generated',
+$client->operations()->repos()->updateRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
 );
@@ -21892,35 +19151,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/assets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listReleaseAssets(        owner: 'generated',
-        repo: 'generated',
-        release_id: 10,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/releases/assets#list-release-assets).
-
-
-### repos/list-release-assets
-
-List release assets
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/releases/{release_id}/assets', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'release_id' => 10,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listReleaseAssetsListing(        owner: 'generated',
+$client->operations()->repos()->listReleaseAssets(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
         per_page: 8,
@@ -21948,7 +19180,8 @@ $client->call('POST /repos/{owner}/{repo}/releases/{release_id}/assets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->uploadReleaseAsset(        owner: 'generated',
+$client->operations()->repos()->uploadReleaseAsset(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
         name: 'generated',
@@ -21977,37 +19210,8 @@ $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForRelease(        owner: 'generated',
-        repo: 'generated',
-        release_id: 10,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-release).
-
-
-### reactions/list-for-release
-
-List reactions for a release
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/releases/{release_id}/reactions', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'release_id' => 10,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForReleaseListing(        owner: 'generated',
+$client->operations()->reactions()->listForRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
         content: 'generated',
@@ -22034,7 +19238,8 @@ $client->call('POST /repos/{owner}/{repo}/releases/{release_id}/reactions', [
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForRelease(        owner: 'generated',
+$client->operations()->reactions()->createForRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
 );
@@ -22059,7 +19264,8 @@ $client->call('DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{rea
 
 Operations method:
 ```php
-$client->operations()->reactions()->deleteForRelease(        owner: 'generated',
+$client->operations()->reactions()->deleteForRelease(
+        owner: 'generated',
         repo: 'generated',
         release_id: 10,
         reaction_id: 11,
@@ -22086,35 +19292,8 @@ $client->call('GET /repos/{owner}/{repo}/rules/branches/{branch}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getBranchRules(        owner: 'generated',
-        repo: 'generated',
-        branch: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/rules#get-rules-for-a-branch).
-
-
-### repos/get-branch-rules
-
-Get rules for a branch
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/rules/branches/{branch}', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'branch' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->getBranchRulesListing(        owner: 'generated',
+$client->operations()->repos()->getBranchRules(
+        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
         per_page: 8,
@@ -22143,37 +19322,8 @@ $client->call('GET /repos/{owner}/{repo}/rulesets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getRepoRulesets(        owner: 'generated',
-        repo: 'generated',
-        targets: 'generated',
-        per_page: 8,
-        page: 1,
-        includes_parents: ,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/rules#get-all-repository-rulesets).
-
-
-### repos/get-repo-rulesets
-
-Get all repository rulesets
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/rulesets', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'targets' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-        'includes_parents' => ,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->getRepoRulesetsListing(        owner: 'generated',
+$client->operations()->repos()->getRepoRulesets(
+        owner: 'generated',
         repo: 'generated',
         targets: 'generated',
         per_page: 8,
@@ -22199,7 +19349,8 @@ $client->call('POST /repos/{owner}/{repo}/rulesets', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createRepoRuleset(        owner: 'generated',
+$client->operations()->repos()->createRepoRuleset(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22227,41 +19378,8 @@ $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getRepoRuleSuites(        owner: 'generated',
-        repo: 'generated',
-        ref: 'generated',
-        actor_name: 'generated',
-        time_period: 'generated',
-        rule_suite_result: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/rule-suites#list-repository-rule-suites).
-
-
-### repos/get-repo-rule-suites
-
-List repository rule suites
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/rulesets/rule-suites', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'ref' => 'generated',
-        'actor_name' => 'generated',
-        'time_period' => 'generated',
-        'rule_suite_result' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->getRepoRuleSuitesListing(        owner: 'generated',
+$client->operations()->repos()->getRepoRuleSuites(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
         actor_name: 'generated',
@@ -22290,7 +19408,8 @@ $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}', 
 
 Operations method:
 ```php
-$client->operations()->repos()->getRepoRuleSuite(        owner: 'generated',
+$client->operations()->repos()->getRepoRuleSuite(
+        owner: 'generated',
         repo: 'generated',
         rule_suite_id: 13,
 );
@@ -22315,7 +19434,8 @@ $client->call('GET /repos/{owner}/{repo}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getRepoRuleset(        owner: 'generated',
+$client->operations()->repos()->getRepoRuleset(
+        owner: 'generated',
         repo: 'generated',
         ruleset_id: 10,
         includes_parents: ,
@@ -22340,7 +19460,8 @@ $client->call('PUT /repos/{owner}/{repo}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->updateRepoRuleset(        owner: 'generated',
+$client->operations()->repos()->updateRepoRuleset(
+        owner: 'generated',
         repo: 'generated',
         ruleset_id: 10,
 );
@@ -22364,7 +19485,8 @@ $client->call('DELETE /repos/{owner}/{repo}/rulesets/{ruleset_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteRepoRuleset(        owner: 'generated',
+$client->operations()->repos()->deleteRepoRuleset(
+        owner: 'generated',
         repo: 'generated',
         ruleset_id: 10,
 );
@@ -22399,53 +19521,8 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts', [
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->listAlertsForRepo(        owner: 'generated',
-        repo: 'generated',
-        state: 'generated',
-        secret_type: 'generated',
-        resolution: 'generated',
-        before: 'generated',
-        after: 'generated',
-        validity: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        page: 1,
-        per_page: 8,
-        is_publicly_leaked: ,
-        is_multi_repo: ,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/secret-scanning/secret-scanning#list-secret-scanning-alerts-for-a-repository).
-
-
-### secret-scanning/list-alerts-for-repo
-
-List secret scanning alerts for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'state' => 'generated',
-        'secret_type' => 'generated',
-        'resolution' => 'generated',
-        'before' => 'generated',
-        'after' => 'generated',
-        'validity' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'is_publicly_leaked' => ,
-        'is_multi_repo' => ,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->secretScanning()->listAlertsForRepoListing(        owner: 'generated',
+$client->operations()->secretScanning()->listAlertsForRepo(
+        owner: 'generated',
         repo: 'generated',
         state: 'generated',
         secret_type: 'generated',
@@ -22480,7 +19557,8 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}',
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->getAlert(        owner: 'generated',
+$client->operations()->secretScanning()->getAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -22504,7 +19582,8 @@ $client->call('PATCH /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->updateAlert(        owner: 'generated',
+$client->operations()->secretScanning()->updateAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
 );
@@ -22530,35 +19609,8 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/l
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->listLocationsForAlert(        owner: 'generated',
-        repo: 'generated',
-        alert_number: 12,
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/secret-scanning/secret-scanning#list-locations-for-a-secret-scanning-alert).
-
-
-### secret-scanning/list-locations-for-alert
-
-List locations for a secret scanning alert
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'alert_number' => 12,
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->secretScanning()->listLocationsForAlertListing(        owner: 'generated',
+$client->operations()->secretScanning()->listLocationsForAlert(
+        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
         page: 1,
@@ -22583,7 +19635,8 @@ $client->call('POST /repos/{owner}/{repo}/secret-scanning/push-protection-bypass
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->createPushProtectionBypass(        owner: 'generated',
+$client->operations()->secretScanning()->createPushProtectionBypass(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22605,7 +19658,8 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/scan-history', [
 
 Operations method:
 ```php
-$client->operations()->secretScanning()->getScanHistory(        owner: 'generated',
+$client->operations()->secretScanning()->getScanHistory(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22633,7 +19687,8 @@ $client->call('GET /repos/{owner}/{repo}/security-advisories', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->listRepositoryAdvisories(        owner: 'generated',
+$client->operations()->securityAdvisories()->listRepositoryAdvisories(
+        owner: 'generated',
         repo: 'generated',
         before: 'generated',
         after: 'generated',
@@ -22661,7 +19716,8 @@ $client->call('POST /repos/{owner}/{repo}/security-advisories', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->createRepositoryAdvisory(        owner: 'generated',
+$client->operations()->securityAdvisories()->createRepositoryAdvisory(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22683,7 +19739,8 @@ $client->call('POST /repos/{owner}/{repo}/security-advisories/reports', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->createPrivateVulnerabilityReport(        owner: 'generated',
+$client->operations()->securityAdvisories()->createPrivateVulnerabilityReport(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22706,7 +19763,8 @@ $client->call('GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->getRepositoryAdvisory(        owner: 'generated',
+$client->operations()->securityAdvisories()->getRepositoryAdvisory(
+        owner: 'generated',
         repo: 'generated',
         ghsa_id: 'generated',
 );
@@ -22730,7 +19788,8 @@ $client->call('PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->updateRepositoryAdvisory(        owner: 'generated',
+$client->operations()->securityAdvisories()->updateRepositoryAdvisory(
+        owner: 'generated',
         repo: 'generated',
         ghsa_id: 'generated',
 );
@@ -22754,7 +19813,8 @@ $client->call('POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve', [
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->createRepositoryAdvisoryCveRequest(        owner: 'generated',
+$client->operations()->securityAdvisories()->createRepositoryAdvisoryCveRequest(
+        owner: 'generated',
         repo: 'generated',
         ghsa_id: 'generated',
 );
@@ -22778,7 +19838,8 @@ $client->call('POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks', 
 
 Operations method:
 ```php
-$client->operations()->securityAdvisories()->createFork(        owner: 'generated',
+$client->operations()->securityAdvisories()->createFork(
+        owner: 'generated',
         repo: 'generated',
         ghsa_id: 'generated',
 );
@@ -22803,7 +19864,8 @@ $client->call('GET /repos/{owner}/{repo}/stargazers', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listStargazersForRepo(        owner: 'generated',
+$client->operations()->activity()->listStargazersForRepo(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -22827,7 +19889,8 @@ $client->call('GET /repos/{owner}/{repo}/stats/code_frequency', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCodeFrequencyStats(        owner: 'generated',
+$client->operations()->repos()->getCodeFrequencyStats(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22849,7 +19912,8 @@ $client->call('GET /repos/{owner}/{repo}/stats/commit_activity', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getCommitActivityStats(        owner: 'generated',
+$client->operations()->repos()->getCommitActivityStats(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22871,7 +19935,8 @@ $client->call('GET /repos/{owner}/{repo}/stats/contributors', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getContributorsStats(        owner: 'generated',
+$client->operations()->repos()->getContributorsStats(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22893,7 +19958,8 @@ $client->call('GET /repos/{owner}/{repo}/stats/participation', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getParticipationStats(        owner: 'generated',
+$client->operations()->repos()->getParticipationStats(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22915,7 +19981,8 @@ $client->call('GET /repos/{owner}/{repo}/stats/punch_card', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getPunchCardStats(        owner: 'generated',
+$client->operations()->repos()->getPunchCardStats(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -22938,7 +20005,8 @@ $client->call('POST /repos/{owner}/{repo}/statuses/{sha}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createCommitStatus(        owner: 'generated',
+$client->operations()->repos()->createCommitStatus(
+        owner: 'generated',
         repo: 'generated',
         sha: 'generated',
 );
@@ -22963,33 +20031,8 @@ $client->call('GET /repos/{owner}/{repo}/subscribers', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listWatchersForRepo(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/watching#list-watchers).
-
-
-### activity/list-watchers-for-repo
-
-List watchers
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/subscribers', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listWatchersForRepoListing(        owner: 'generated',
+$client->operations()->activity()->listWatchersForRepo(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -23013,7 +20056,8 @@ $client->call('GET /repos/{owner}/{repo}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->getRepoSubscription(        owner: 'generated',
+$client->operations()->activity()->getRepoSubscription(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23035,7 +20079,8 @@ $client->call('PUT /repos/{owner}/{repo}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->setRepoSubscription(        owner: 'generated',
+$client->operations()->activity()->setRepoSubscription(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23057,7 +20102,8 @@ $client->call('DELETE /repos/{owner}/{repo}/subscription', [
 
 Operations method:
 ```php
-$client->operations()->activity()->deleteRepoSubscription(        owner: 'generated',
+$client->operations()->activity()->deleteRepoSubscription(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23081,33 +20127,8 @@ $client->call('GET /repos/{owner}/{repo}/tags', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listTags(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-repository-tags).
-
-
-### repos/list-tags
-
-List repository tags
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/tags', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listTagsListing(        owner: 'generated',
+$client->operations()->repos()->listTags(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -23131,7 +20152,8 @@ $client->call('GET /repos/{owner}/{repo}/tags/protection', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listTagProtection(        owner: 'generated',
+$client->operations()->repos()->listTagProtection(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23153,7 +20175,8 @@ $client->call('POST /repos/{owner}/{repo}/tags/protection', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createTagProtection(        owner: 'generated',
+$client->operations()->repos()->createTagProtection(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23176,7 +20199,8 @@ $client->call('DELETE /repos/{owner}/{repo}/tags/protection/{tag_protection_id}'
 
 Operations method:
 ```php
-$client->operations()->repos()->deleteTagProtection(        owner: 'generated',
+$client->operations()->repos()->deleteTagProtection(
+        owner: 'generated',
         repo: 'generated',
         tag_protection_id: 17,
 );
@@ -23200,31 +20224,8 @@ $client->call('GET /repos/{owner}/{repo}/tarball/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->downloadTarballArchive(        owner: 'generated',
-        repo: 'generated',
-        ref: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/contents#download-a-repository-archive-tar).
-
-
-### repos/download-tarball-archive
-
-Download a repository archive (tar)
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/tarball/{ref}', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'ref' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->downloadTarballArchiveStreaming(        owner: 'generated',
+$client->operations()->repos()->downloadTarballArchive(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -23249,33 +20250,8 @@ $client->call('GET /repos/{owner}/{repo}/teams', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listTeams(        owner: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-repository-teams).
-
-
-### repos/list-teams
-
-List repository teams
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/teams', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listTeamsListing(        owner: 'generated',
+$client->operations()->repos()->listTeams(
+        owner: 'generated',
         repo: 'generated',
         per_page: 8,
         page: 1,
@@ -23301,7 +20277,8 @@ $client->call('GET /repos/{owner}/{repo}/topics', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getAllTopics(        owner: 'generated',
+$client->operations()->repos()->getAllTopics(
+        owner: 'generated',
         repo: 'generated',
         page: 1,
         per_page: 8,
@@ -23325,7 +20302,8 @@ $client->call('PUT /repos/{owner}/{repo}/topics', [
 
 Operations method:
 ```php
-$client->operations()->repos()->replaceAllTopics(        owner: 'generated',
+$client->operations()->repos()->replaceAllTopics(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23348,7 +20326,8 @@ $client->call('GET /repos/{owner}/{repo}/traffic/clones', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getClones(        owner: 'generated',
+$client->operations()->repos()->getClones(
+        owner: 'generated',
         repo: 'generated',
         per: 'generated',
 );
@@ -23371,7 +20350,8 @@ $client->call('GET /repos/{owner}/{repo}/traffic/popular/paths', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getTopPaths(        owner: 'generated',
+$client->operations()->repos()->getTopPaths(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23393,7 +20373,8 @@ $client->call('GET /repos/{owner}/{repo}/traffic/popular/referrers', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getTopReferrers(        owner: 'generated',
+$client->operations()->repos()->getTopReferrers(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23416,7 +20397,8 @@ $client->call('GET /repos/{owner}/{repo}/traffic/views', [
 
 Operations method:
 ```php
-$client->operations()->repos()->getViews(        owner: 'generated',
+$client->operations()->repos()->getViews(
+        owner: 'generated',
         repo: 'generated',
         per: 'generated',
 );
@@ -23439,7 +20421,8 @@ $client->call('POST /repos/{owner}/{repo}/transfer', [
 
 Operations method:
 ```php
-$client->operations()->repos()->transfer(        owner: 'generated',
+$client->operations()->repos()->transfer(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23461,7 +20444,8 @@ $client->call('GET /repos/{owner}/{repo}/vulnerability-alerts', [
 
 Operations method:
 ```php
-$client->operations()->repos()->checkVulnerabilityAlerts(        owner: 'generated',
+$client->operations()->repos()->checkVulnerabilityAlerts(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23483,7 +20467,8 @@ $client->call('PUT /repos/{owner}/{repo}/vulnerability-alerts', [
 
 Operations method:
 ```php
-$client->operations()->repos()->enableVulnerabilityAlerts(        owner: 'generated',
+$client->operations()->repos()->enableVulnerabilityAlerts(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23505,7 +20490,8 @@ $client->call('DELETE /repos/{owner}/{repo}/vulnerability-alerts', [
 
 Operations method:
 ```php
-$client->operations()->repos()->disableVulnerabilityAlerts(        owner: 'generated',
+$client->operations()->repos()->disableVulnerabilityAlerts(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -23528,31 +20514,8 @@ $client->call('GET /repos/{owner}/{repo}/zipball/{ref}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->downloadZipballArchive(        owner: 'generated',
-        repo: 'generated',
-        ref: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/contents#download-a-repository-archive-zip).
-
-
-### repos/download-zipball-archive
-
-Download a repository archive (zip)
-
-Using the `call` method:
-```php
-$client->call('STREAM /repos/{owner}/{repo}/zipball/{ref}', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'ref' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->downloadZipballArchiveStreaming(        owner: 'generated',
+$client->operations()->repos()->downloadZipballArchive(
+        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
 );
@@ -23575,7 +20538,8 @@ $client->call('POST /repos/{template_owner}/{template_repo}/generate', [
 
 Operations method:
 ```php
-$client->operations()->repos()->createUsingTemplate(        template_owner: 'generated',
+$client->operations()->repos()->createUsingTemplate(
+        template_owner: 'generated',
         template_repo: 'generated',
 );
 ```
@@ -23596,7 +20560,8 @@ $client->call('GET /repositories', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listPublic(        since: 5,
+$client->operations()->repos()->listPublic(
+        since: 5,
 );
 ```
 
@@ -23620,7 +20585,8 @@ $client->call('GET /search/code', [
 
 Operations method:
 ```php
-$client->operations()->search()->code(        q: 'generated',
+$client->operations()->search()->code(
+        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
@@ -23648,7 +20614,8 @@ $client->call('GET /search/commits', [
 
 Operations method:
 ```php
-$client->operations()->search()->commits(        q: 'generated',
+$client->operations()->search()->commits(
+        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
@@ -23676,7 +20643,8 @@ $client->call('GET /search/issues', [
 
 Operations method:
 ```php
-$client->operations()->search()->issuesAndPullRequests(        q: 'generated',
+$client->operations()->search()->issuesAndPullRequests(
+        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
@@ -23705,7 +20673,8 @@ $client->call('GET /search/labels', [
 
 Operations method:
 ```php
-$client->operations()->search()->labels(        repository_id: 13,
+$client->operations()->search()->labels(
+        repository_id: 13,
         q: 'generated',
         sort: 'generated',
         order: 'generated',
@@ -23734,7 +20703,8 @@ $client->call('GET /search/repositories', [
 
 Operations method:
 ```php
-$client->operations()->search()->repos(        q: 'generated',
+$client->operations()->search()->repos(
+        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
@@ -23760,7 +20730,8 @@ $client->call('GET /search/topics', [
 
 Operations method:
 ```php
-$client->operations()->search()->topics(        q: 'generated',
+$client->operations()->search()->topics(
+        q: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -23786,7 +20757,8 @@ $client->call('GET /search/users', [
 
 Operations method:
 ```php
-$client->operations()->search()->users(        q: 'generated',
+$client->operations()->search()->users(
+        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
@@ -23810,7 +20782,8 @@ $client->call('GET /teams/{team_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getLegacy(        team_id: 7,
+$client->operations()->teams()->getLegacy(
+        team_id: 7,
 );
 ```
 
@@ -23830,7 +20803,8 @@ $client->call('DELETE /teams/{team_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteLegacy(        team_id: 7,
+$client->operations()->teams()->deleteLegacy(
+        team_id: 7,
 );
 ```
 
@@ -23850,7 +20824,8 @@ $client->call('PATCH /teams/{team_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->updateLegacy(        team_id: 7,
+$client->operations()->teams()->updateLegacy(
+        team_id: 7,
 );
 ```
 
@@ -23873,33 +20848,8 @@ $client->call('GET /teams/{team_id}/discussions', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listDiscussionsLegacy(        team_id: 7,
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/discussions#list-discussions-legacy).
-
-
-### teams/list-discussions-legacy
-
-List discussions (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/discussions', [
-        'team_id' => 7,
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listDiscussionsLegacyListing(        team_id: 7,
+$client->operations()->teams()->listDiscussionsLegacy(
+        team_id: 7,
         direction: 'generated',
         per_page: 8,
         page: 1,
@@ -23922,7 +20872,8 @@ $client->call('POST /teams/{team_id}/discussions', [
 
 Operations method:
 ```php
-$client->operations()->teams()->createDiscussionLegacy(        team_id: 7,
+$client->operations()->teams()->createDiscussionLegacy(
+        team_id: 7,
 );
 ```
 
@@ -23943,7 +20894,8 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getDiscussionLegacy(        team_id: 7,
+$client->operations()->teams()->getDiscussionLegacy(
+        team_id: 7,
         discussion_number: 17,
 );
 ```
@@ -23965,7 +20917,8 @@ $client->call('DELETE /teams/{team_id}/discussions/{discussion_number}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteDiscussionLegacy(        team_id: 7,
+$client->operations()->teams()->deleteDiscussionLegacy(
+        team_id: 7,
         discussion_number: 17,
 );
 ```
@@ -23987,7 +20940,8 @@ $client->call('PATCH /teams/{team_id}/discussions/{discussion_number}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->updateDiscussionLegacy(        team_id: 7,
+$client->operations()->teams()->updateDiscussionLegacy(
+        team_id: 7,
         discussion_number: 17,
 );
 ```
@@ -24012,35 +20966,8 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/comments', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listDiscussionCommentsLegacy(        team_id: 7,
-        discussion_number: 17,
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/discussion-comments#list-discussion-comments-legacy).
-
-
-### teams/list-discussion-comments-legacy
-
-List discussion comments (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/comments', [
-        'team_id' => 7,
-        'discussion_number' => 17,
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listDiscussionCommentsLegacyListing(        team_id: 7,
+$client->operations()->teams()->listDiscussionCommentsLegacy(
+        team_id: 7,
         discussion_number: 17,
         direction: 'generated',
         per_page: 8,
@@ -24065,7 +20992,8 @@ $client->call('POST /teams/{team_id}/discussions/{discussion_number}/comments', 
 
 Operations method:
 ```php
-$client->operations()->teams()->createDiscussionCommentLegacy(        team_id: 7,
+$client->operations()->teams()->createDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
 );
 ```
@@ -24088,7 +21016,8 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/comments/{co
 
 Operations method:
 ```php
-$client->operations()->teams()->getDiscussionCommentLegacy(        team_id: 7,
+$client->operations()->teams()->getDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
         comment_number: 14,
 );
@@ -24112,7 +21041,8 @@ $client->call('DELETE /teams/{team_id}/discussions/{discussion_number}/comments/
 
 Operations method:
 ```php
-$client->operations()->teams()->deleteDiscussionCommentLegacy(        team_id: 7,
+$client->operations()->teams()->deleteDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
         comment_number: 14,
 );
@@ -24136,7 +21066,8 @@ $client->call('PATCH /teams/{team_id}/discussions/{discussion_number}/comments/{
 
 Operations method:
 ```php
-$client->operations()->teams()->updateDiscussionCommentLegacy(        team_id: 7,
+$client->operations()->teams()->updateDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
         comment_number: 14,
 );
@@ -24163,37 +21094,8 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/comments/{co
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForTeamDiscussionCommentLegacy(        team_id: 7,
-        discussion_number: 17,
-        comment_number: 14,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-team-discussion-comment-legacy).
-
-
-### reactions/list-for-team-discussion-comment-legacy
-
-List reactions for a team discussion comment (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions', [
-        'team_id' => 7,
-        'discussion_number' => 17,
-        'comment_number' => 14,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForTeamDiscussionCommentLegacyListing(        team_id: 7,
+$client->operations()->reactions()->listForTeamDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
         comment_number: 14,
         content: 'generated',
@@ -24220,7 +21122,8 @@ $client->call('POST /teams/{team_id}/discussions/{discussion_number}/comments/{c
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForTeamDiscussionCommentLegacy(        team_id: 7,
+$client->operations()->reactions()->createForTeamDiscussionCommentLegacy(
+        team_id: 7,
         discussion_number: 17,
         comment_number: 14,
 );
@@ -24246,35 +21149,8 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/reactions', 
 
 Operations method:
 ```php
-$client->operations()->reactions()->listForTeamDiscussionLegacy(        team_id: 7,
-        discussion_number: 17,
-        content: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/reactions/reactions#list-reactions-for-a-team-discussion-legacy).
-
-
-### reactions/list-for-team-discussion-legacy
-
-List reactions for a team discussion (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/reactions', [
-        'team_id' => 7,
-        'discussion_number' => 17,
-        'content' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->reactions()->listForTeamDiscussionLegacyListing(        team_id: 7,
+$client->operations()->reactions()->listForTeamDiscussionLegacy(
+        team_id: 7,
         discussion_number: 17,
         content: 'generated',
         per_page: 8,
@@ -24299,7 +21175,8 @@ $client->call('POST /teams/{team_id}/discussions/{discussion_number}/reactions',
 
 Operations method:
 ```php
-$client->operations()->reactions()->createForTeamDiscussionLegacy(        team_id: 7,
+$client->operations()->reactions()->createForTeamDiscussionLegacy(
+        team_id: 7,
         discussion_number: 17,
 );
 ```
@@ -24322,31 +21199,8 @@ $client->call('GET /teams/{team_id}/invitations', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listPendingInvitationsLegacy(        team_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/members#list-pending-team-invitations-legacy).
-
-
-### teams/list-pending-invitations-legacy
-
-List pending team invitations (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/invitations', [
-        'team_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listPendingInvitationsLegacyListing(        team_id: 7,
+$client->operations()->teams()->listPendingInvitationsLegacy(
+        team_id: 7,
         per_page: 8,
         page: 1,
 );
@@ -24371,33 +21225,8 @@ $client->call('GET /teams/{team_id}/members', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listMembersLegacy(        team_id: 7,
-        role: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/members#list-team-members-legacy).
-
-
-### teams/list-members-legacy
-
-List team members (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/members', [
-        'team_id' => 7,
-        'role' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listMembersLegacyListing(        team_id: 7,
+$client->operations()->teams()->listMembersLegacy(
+        team_id: 7,
         role: 'generated',
         per_page: 8,
         page: 1,
@@ -24421,7 +21250,8 @@ $client->call('GET /teams/{team_id}/members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getMemberLegacy(        team_id: 7,
+$client->operations()->teams()->getMemberLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24443,7 +21273,8 @@ $client->call('PUT /teams/{team_id}/members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addMemberLegacy(        team_id: 7,
+$client->operations()->teams()->addMemberLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24465,7 +21296,8 @@ $client->call('DELETE /teams/{team_id}/members/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeMemberLegacy(        team_id: 7,
+$client->operations()->teams()->removeMemberLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24487,7 +21319,8 @@ $client->call('GET /teams/{team_id}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->getMembershipForUserLegacy(        team_id: 7,
+$client->operations()->teams()->getMembershipForUserLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24509,7 +21342,8 @@ $client->call('PUT /teams/{team_id}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateMembershipForUserLegacy(        team_id: 7,
+$client->operations()->teams()->addOrUpdateMembershipForUserLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24531,7 +21365,8 @@ $client->call('DELETE /teams/{team_id}/memberships/{username}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeMembershipForUserLegacy(        team_id: 7,
+$client->operations()->teams()->removeMembershipForUserLegacy(
+        team_id: 7,
         username: 'generated',
 );
 ```
@@ -24554,31 +21389,8 @@ $client->call('GET /teams/{team_id}/projects', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listProjectsLegacy(        team_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-team-projects-legacy).
-
-
-### teams/list-projects-legacy
-
-List team projects (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/projects', [
-        'team_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listProjectsLegacyListing(        team_id: 7,
+$client->operations()->teams()->listProjectsLegacy(
+        team_id: 7,
         per_page: 8,
         page: 1,
 );
@@ -24601,7 +21413,8 @@ $client->call('GET /teams/{team_id}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->checkPermissionsForProjectLegacy(        team_id: 7,
+$client->operations()->teams()->checkPermissionsForProjectLegacy(
+        team_id: 7,
         project_id: 10,
 );
 ```
@@ -24623,7 +21436,8 @@ $client->call('PUT /teams/{team_id}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateProjectPermissionsLegacy(        team_id: 7,
+$client->operations()->teams()->addOrUpdateProjectPermissionsLegacy(
+        team_id: 7,
         project_id: 10,
 );
 ```
@@ -24645,7 +21459,8 @@ $client->call('DELETE /teams/{team_id}/projects/{project_id}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeProjectLegacy(        team_id: 7,
+$client->operations()->teams()->removeProjectLegacy(
+        team_id: 7,
         project_id: 10,
 );
 ```
@@ -24668,31 +21483,8 @@ $client->call('GET /teams/{team_id}/repos', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listReposLegacy(        team_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-team-repositories-legacy).
-
-
-### teams/list-repos-legacy
-
-List team repositories (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/repos', [
-        'team_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listReposLegacyListing(        team_id: 7,
+$client->operations()->teams()->listReposLegacy(
+        team_id: 7,
         per_page: 8,
         page: 1,
 );
@@ -24716,7 +21508,8 @@ $client->call('GET /teams/{team_id}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->checkPermissionsForRepoLegacy(        team_id: 7,
+$client->operations()->teams()->checkPermissionsForRepoLegacy(
+        team_id: 7,
         owner: 'generated',
         repo: 'generated',
 );
@@ -24740,7 +21533,8 @@ $client->call('PUT /teams/{team_id}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->addOrUpdateRepoPermissionsLegacy(        team_id: 7,
+$client->operations()->teams()->addOrUpdateRepoPermissionsLegacy(
+        team_id: 7,
         owner: 'generated',
         repo: 'generated',
 );
@@ -24764,7 +21558,8 @@ $client->call('DELETE /teams/{team_id}/repos/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->teams()->removeRepoLegacy(        team_id: 7,
+$client->operations()->teams()->removeRepoLegacy(
+        team_id: 7,
         owner: 'generated',
         repo: 'generated',
 );
@@ -24788,31 +21583,8 @@ $client->call('GET /teams/{team_id}/teams', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listChildLegacy(        team_id: 7,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-child-teams-legacy).
-
-
-### teams/list-child-legacy
-
-List child teams (Legacy)
-
-Using the `call` method:
-```php
-$client->call('LIST /teams/{team_id}/teams', [
-        'team_id' => 7,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listChildLegacyListing(        team_id: 7,
+$client->operations()->teams()->listChildLegacy(
+        team_id: 7,
         per_page: 8,
         page: 1,
 );
@@ -24832,7 +21604,8 @@ $client->call('GET /user');
 
 Operations method:
 ```php
-$client->operations()->users()->getAuthenticated();
+$client->operations()->users()->getAuthenticated(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/users#get-the-authenticated-user).
@@ -24849,7 +21622,8 @@ $client->call('PATCH /user');
 
 Operations method:
 ```php
-$client->operations()->users()->updateAuthenticated();
+$client->operations()->users()->updateAuthenticated(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/users#update-the-authenticated-user).
@@ -24869,29 +21643,8 @@ $client->call('GET /user/blocks', [
 
 Operations method:
 ```php
-$client->operations()->users()->listBlockedByAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/blocking#list-users-blocked-by-the-authenticated-user).
-
-
-### users/list-blocked-by-authenticated-user
-
-List users blocked by the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/blocks', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listBlockedByAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listBlockedByAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -24912,7 +21665,8 @@ $client->call('GET /user/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->checkBlocked(        username: 'generated',
+$client->operations()->users()->checkBlocked(
+        username: 'generated',
 );
 ```
 
@@ -24932,7 +21686,8 @@ $client->call('PUT /user/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->block(        username: 'generated',
+$client->operations()->users()->block(
+        username: 'generated',
 );
 ```
 
@@ -24952,7 +21707,8 @@ $client->call('DELETE /user/blocks/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->unblock(        username: 'generated',
+$client->operations()->users()->unblock(
+        username: 'generated',
 );
 ```
 
@@ -24974,7 +21730,8 @@ $client->call('GET /user/codespaces', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listForAuthenticatedUser(        repository_id: 13,
+$client->operations()->codespaces()->listForAuthenticatedUser(
+        repository_id: 13,
         per_page: 8,
         page: 1,
 );
@@ -24994,7 +21751,8 @@ $client->call('POST /user/codespaces');
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createForAuthenticatedUser();
+$client->operations()->codespaces()->createForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/codespaces/codespaces#create-a-codespace-for-the-authenticated-user).
@@ -25014,7 +21772,8 @@ $client->call('GET /user/codespaces/secrets', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listSecretsForAuthenticatedUser(        per_page: 8,
+$client->operations()->codespaces()->listSecretsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25033,7 +21792,8 @@ $client->call('GET /user/codespaces/secrets/public-key');
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getPublicKeyForAuthenticatedUser();
+$client->operations()->codespaces()->getPublicKeyForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/codespaces/secrets#get-public-key-for-the-authenticated-user).
@@ -25052,7 +21812,8 @@ $client->call('GET /user/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->getSecretForAuthenticatedUser(
+        secret_name: 'generated',
 );
 ```
 
@@ -25072,7 +21833,8 @@ $client->call('PUT /user/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->createOrUpdateSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->createOrUpdateSecretForAuthenticatedUser(
+        secret_name: 'generated',
 );
 ```
 
@@ -25092,7 +21854,8 @@ $client->call('DELETE /user/codespaces/secrets/{secret_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->deleteSecretForAuthenticatedUser(
+        secret_name: 'generated',
 );
 ```
 
@@ -25112,7 +21875,8 @@ $client->call('GET /user/codespaces/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->listRepositoriesForSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->listRepositoriesForSecretForAuthenticatedUser(
+        secret_name: 'generated',
 );
 ```
 
@@ -25132,7 +21896,8 @@ $client->call('PUT /user/codespaces/secrets/{secret_name}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->setRepositoriesForSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->setRepositoriesForSecretForAuthenticatedUser(
+        secret_name: 'generated',
 );
 ```
 
@@ -25153,7 +21918,8 @@ $client->call('PUT /user/codespaces/secrets/{secret_name}/repositories/{reposito
 
 Operations method:
 ```php
-$client->operations()->codespaces()->addRepositoryForSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->addRepositoryForSecretForAuthenticatedUser(
+        secret_name: 'generated',
         repository_id: 13,
 );
 ```
@@ -25175,7 +21941,8 @@ $client->call('DELETE /user/codespaces/secrets/{secret_name}/repositories/{repos
 
 Operations method:
 ```php
-$client->operations()->codespaces()->removeRepositoryForSecretForAuthenticatedUser(        secret_name: 'generated',
+$client->operations()->codespaces()->removeRepositoryForSecretForAuthenticatedUser(
+        secret_name: 'generated',
         repository_id: 13,
 );
 ```
@@ -25196,7 +21963,8 @@ $client->call('GET /user/codespaces/{codespace_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->getForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25216,7 +21984,8 @@ $client->call('DELETE /user/codespaces/{codespace_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->deleteForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->deleteForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25236,7 +22005,8 @@ $client->call('PATCH /user/codespaces/{codespace_name}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->updateForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->updateForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25256,7 +22026,8 @@ $client->call('POST /user/codespaces/{codespace_name}/exports', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->exportForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->exportForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25277,7 +22048,8 @@ $client->call('GET /user/codespaces/{codespace_name}/exports/{export_id}', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->getExportDetailsForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->getExportDetailsForAuthenticatedUser(
+        codespace_name: 'generated',
         export_id: 'generated',
 );
 ```
@@ -25298,7 +22070,8 @@ $client->call('GET /user/codespaces/{codespace_name}/machines', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->codespaceMachinesForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->codespaceMachinesForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25318,7 +22091,8 @@ $client->call('POST /user/codespaces/{codespace_name}/publish', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->publishForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->publishForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25338,7 +22112,8 @@ $client->call('POST /user/codespaces/{codespace_name}/start', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->startForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->startForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25358,7 +22133,8 @@ $client->call('POST /user/codespaces/{codespace_name}/stop', [
 
 Operations method:
 ```php
-$client->operations()->codespaces()->stopForAuthenticatedUser(        codespace_name: 'generated',
+$client->operations()->codespaces()->stopForAuthenticatedUser(
+        codespace_name: 'generated',
 );
 ```
 
@@ -25376,7 +22152,8 @@ $client->call('GET /user/docker/conflicts');
 
 Operations method:
 ```php
-$client->operations()->packages()->listDockerMigrationConflictingPackagesForAuthenticatedUser();
+$client->operations()->packages()->listDockerMigrationConflictingPackagesForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-authenticated-user).
@@ -25393,7 +22170,8 @@ $client->call('PATCH /user/email/visibility');
 
 Operations method:
 ```php
-$client->operations()->users()->setPrimaryEmailVisibilityForAuthenticatedUser();
+$client->operations()->users()->setPrimaryEmailVisibilityForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/emails#set-primary-email-visibility-for-the-authenticated-user).
@@ -25413,29 +22191,8 @@ $client->call('GET /user/emails', [
 
 Operations method:
 ```php
-$client->operations()->users()->listEmailsForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/emails#list-email-addresses-for-the-authenticated-user).
-
-
-### users/list-emails-for-authenticated-user
-
-List email addresses for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/emails', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listEmailsForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listEmailsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25454,7 +22211,8 @@ $client->call('POST /user/emails');
 
 Operations method:
 ```php
-$client->operations()->users()->addEmailForAuthenticatedUser();
+$client->operations()->users()->addEmailForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/emails#add-an-email-address-for-the-authenticated-user).
@@ -25471,7 +22229,8 @@ $client->call('DELETE /user/emails');
 
 Operations method:
 ```php
-$client->operations()->users()->deleteEmailForAuthenticatedUser();
+$client->operations()->users()->deleteEmailForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/emails#delete-an-email-address-for-the-authenticated-user).
@@ -25491,29 +22250,8 @@ $client->call('GET /user/followers', [
 
 Operations method:
 ```php
-$client->operations()->users()->listFollowersForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/followers#list-followers-of-the-authenticated-user).
-
-
-### users/list-followers-for-authenticated-user
-
-List followers of the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/followers', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listFollowersForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listFollowersForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25535,29 +22273,8 @@ $client->call('GET /user/following', [
 
 Operations method:
 ```php
-$client->operations()->users()->listFollowedByAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/followers#list-the-people-the-authenticated-user-follows).
-
-
-### users/list-followed-by-authenticated-user
-
-List the people the authenticated user follows
-
-Using the `call` method:
-```php
-$client->call('LIST /user/following', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listFollowedByAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listFollowedByAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25578,7 +22295,8 @@ $client->call('GET /user/following/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->checkPersonIsFollowedByAuthenticated(        username: 'generated',
+$client->operations()->users()->checkPersonIsFollowedByAuthenticated(
+        username: 'generated',
 );
 ```
 
@@ -25598,7 +22316,8 @@ $client->call('PUT /user/following/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->follow(        username: 'generated',
+$client->operations()->users()->follow(
+        username: 'generated',
 );
 ```
 
@@ -25618,7 +22337,8 @@ $client->call('DELETE /user/following/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->unfollow(        username: 'generated',
+$client->operations()->users()->unfollow(
+        username: 'generated',
 );
 ```
 
@@ -25639,29 +22359,8 @@ $client->call('GET /user/gpg_keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listGpgKeysForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/gpg-keys#list-gpg-keys-for-the-authenticated-user).
-
-
-### users/list-gpg-keys-for-authenticated-user
-
-List GPG keys for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/gpg_keys', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listGpgKeysForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listGpgKeysForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25680,7 +22379,8 @@ $client->call('POST /user/gpg_keys');
 
 Operations method:
 ```php
-$client->operations()->users()->createGpgKeyForAuthenticatedUser();
+$client->operations()->users()->createGpgKeyForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/gpg-keys#create-a-gpg-key-for-the-authenticated-user).
@@ -25699,7 +22399,8 @@ $client->call('GET /user/gpg_keys/{gpg_key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->getGpgKeyForAuthenticatedUser(        gpg_key_id: 10,
+$client->operations()->users()->getGpgKeyForAuthenticatedUser(
+        gpg_key_id: 10,
 );
 ```
 
@@ -25719,7 +22420,8 @@ $client->call('DELETE /user/gpg_keys/{gpg_key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->deleteGpgKeyForAuthenticatedUser(        gpg_key_id: 10,
+$client->operations()->users()->deleteGpgKeyForAuthenticatedUser(
+        gpg_key_id: 10,
 );
 ```
 
@@ -25740,7 +22442,8 @@ $client->call('GET /user/installations', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listInstallationsForAuthenticatedUser(        per_page: 8,
+$client->operations()->apps()->listInstallationsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25763,7 +22466,8 @@ $client->call('GET /user/installations/{installation_id}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listInstallationReposForAuthenticatedUser(        installation_id: 15,
+$client->operations()->apps()->listInstallationReposForAuthenticatedUser(
+        installation_id: 15,
         per_page: 8,
         page: 1,
 );
@@ -25786,7 +22490,8 @@ $client->call('PUT /user/installations/{installation_id}/repositories/{repositor
 
 Operations method:
 ```php
-$client->operations()->apps()->addRepoToInstallationForAuthenticatedUser(        installation_id: 15,
+$client->operations()->apps()->addRepoToInstallationForAuthenticatedUser(
+        installation_id: 15,
         repository_id: 13,
 );
 ```
@@ -25808,7 +22513,8 @@ $client->call('DELETE /user/installations/{installation_id}/repositories/{reposi
 
 Operations method:
 ```php
-$client->operations()->apps()->removeRepoFromInstallationForAuthenticatedUser(        installation_id: 15,
+$client->operations()->apps()->removeRepoFromInstallationForAuthenticatedUser(
+        installation_id: 15,
         repository_id: 13,
 );
 ```
@@ -25827,7 +22533,8 @@ $client->call('GET /user/interaction-limits');
 
 Operations method:
 ```php
-$client->operations()->interactions()->getRestrictionsForAuthenticatedUser();
+$client->operations()->interactions()->getRestrictionsForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/interactions/user#get-interaction-restrictions-for-your-public-repositories).
@@ -25844,7 +22551,8 @@ $client->call('PUT /user/interaction-limits');
 
 Operations method:
 ```php
-$client->operations()->interactions()->setRestrictionsForAuthenticatedUser();
+$client->operations()->interactions()->setRestrictionsForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/interactions/user#set-interaction-restrictions-for-your-public-repositories).
@@ -25861,7 +22569,8 @@ $client->call('DELETE /user/interaction-limits');
 
 Operations method:
 ```php
-$client->operations()->interactions()->removeRestrictionsForAuthenticatedUser();
+$client->operations()->interactions()->removeRestrictionsForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/interactions/user#remove-interaction-restrictions-from-your-public-repositories).
@@ -25887,41 +22596,8 @@ $client->call('GET /user/issues', [
 
 Operations method:
 ```php
-$client->operations()->issues()->listForAuthenticatedUser(        labels: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        filter: 'generated',
-        state: 'generated',
-        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/issues/issues#list-user-account-issues-assigned-to-the-authenticated-user).
-
-
-### issues/list-for-authenticated-user
-
-List user account issues assigned to the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/issues', [
-        'labels' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'filter' => 'generated',
-        'state' => 'generated',
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->issues()->listForAuthenticatedUserListing(        labels: 'generated',
+$client->operations()->issues()->listForAuthenticatedUser(
+        labels: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         filter: 'generated',
         state: 'generated',
@@ -25949,29 +22625,8 @@ $client->call('GET /user/keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listPublicSshKeysForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/keys#list-public-ssh-keys-for-the-authenticated-user).
-
-
-### users/list-public-ssh-keys-for-authenticated-user
-
-List public SSH keys for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/keys', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listPublicSshKeysForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listPublicSshKeysForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -25990,7 +22645,8 @@ $client->call('POST /user/keys');
 
 Operations method:
 ```php
-$client->operations()->users()->createPublicSshKeyForAuthenticatedUser();
+$client->operations()->users()->createPublicSshKeyForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/keys#create-a-public-ssh-key-for-the-authenticated-user).
@@ -26009,7 +22665,8 @@ $client->call('GET /user/keys/{key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->getPublicSshKeyForAuthenticatedUser(        key_id: 6,
+$client->operations()->users()->getPublicSshKeyForAuthenticatedUser(
+        key_id: 6,
 );
 ```
 
@@ -26029,7 +22686,8 @@ $client->call('DELETE /user/keys/{key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->deletePublicSshKeyForAuthenticatedUser(        key_id: 6,
+$client->operations()->users()->deletePublicSshKeyForAuthenticatedUser(
+        key_id: 6,
 );
 ```
 
@@ -26050,29 +22708,8 @@ $client->call('GET /user/marketplace_purchases', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listSubscriptionsForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user).
-
-
-### apps/list-subscriptions-for-authenticated-user
-
-List subscriptions for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/marketplace_purchases', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listSubscriptionsForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->apps()->listSubscriptionsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26094,29 +22731,8 @@ $client->call('GET /user/marketplace_purchases/stubbed', [
 
 Operations method:
 ```php
-$client->operations()->apps()->listSubscriptionsForAuthenticatedUserStubbed(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user-stubbed).
-
-
-### apps/list-subscriptions-for-authenticated-user-stubbed
-
-List subscriptions for the authenticated user (stubbed)
-
-Using the `call` method:
-```php
-$client->call('LIST /user/marketplace_purchases/stubbed', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->apps()->listSubscriptionsForAuthenticatedUserStubbedListing(        per_page: 8,
+$client->operations()->apps()->listSubscriptionsForAuthenticatedUserStubbed(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26139,31 +22755,8 @@ $client->call('GET /user/memberships/orgs', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listMembershipsForAuthenticatedUser(        state: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/members#list-organization-memberships-for-the-authenticated-user).
-
-
-### orgs/list-memberships-for-authenticated-user
-
-List organization memberships for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/memberships/orgs', [
-        'state' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listMembershipsForAuthenticatedUserListing(        state: 'generated',
+$client->operations()->orgs()->listMembershipsForAuthenticatedUser(
+        state: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -26185,7 +22778,8 @@ $client->call('GET /user/memberships/orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->getMembershipForAuthenticatedUser(        org: 'generated',
+$client->operations()->orgs()->getMembershipForAuthenticatedUser(
+        org: 'generated',
 );
 ```
 
@@ -26205,7 +22799,8 @@ $client->call('PATCH /user/memberships/orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->updateMembershipForAuthenticatedUser(        org: 'generated',
+$client->operations()->orgs()->updateMembershipForAuthenticatedUser(
+        org: 'generated',
 );
 ```
 
@@ -26226,29 +22821,8 @@ $client->call('GET /user/migrations', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->listForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/users#list-user-migrations).
-
-
-### migrations/list-for-authenticated-user
-
-List user migrations
-
-Using the `call` method:
-```php
-$client->call('LIST /user/migrations', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->migrations()->listForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->migrations()->listForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26267,7 +22841,8 @@ $client->call('POST /user/migrations');
 
 Operations method:
 ```php
-$client->operations()->migrations()->startForAuthenticatedUser();
+$client->operations()->migrations()->startForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/users#start-a-user-migration).
@@ -26281,14 +22856,19 @@ Using the `call` method:
 ```php
 $client->call('GET /user/migrations/{migration_id}', [
         'migration_id' => 12,
-        'exclude' => ,
+        'exclude' => 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
 ]);
 ```
 
 Operations method:
 ```php
-$client->operations()->migrations()->getStatusForAuthenticatedUser(        migration_id: 12,
-        exclude: ,
+$client->operations()->migrations()->getStatusForAuthenticatedUser(
+        migration_id: 12,
+        exclude: 
+Warning: Array to string conversion in /home/wyrihaximus/Projects/PHPAPIClients/github-root/vendor/twig/twig/src/Template.php on line 344
+Array,
 );
 ```
 
@@ -26308,7 +22888,8 @@ $client->call('GET /user/migrations/{migration_id}/archive', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->getArchiveForAuthenticatedUser(        migration_id: 12,
+$client->operations()->migrations()->getArchiveForAuthenticatedUser(
+        migration_id: 12,
 );
 ```
 
@@ -26328,7 +22909,8 @@ $client->call('DELETE /user/migrations/{migration_id}/archive', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->deleteArchiveForAuthenticatedUser(        migration_id: 12,
+$client->operations()->migrations()->deleteArchiveForAuthenticatedUser(
+        migration_id: 12,
 );
 ```
 
@@ -26349,7 +22931,8 @@ $client->call('DELETE /user/migrations/{migration_id}/repos/{repo_name}/lock', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->unlockRepoForAuthenticatedUser(        migration_id: 12,
+$client->operations()->migrations()->unlockRepoForAuthenticatedUser(
+        migration_id: 12,
         repo_name: 'generated',
 );
 ```
@@ -26372,31 +22955,8 @@ $client->call('GET /user/migrations/{migration_id}/repositories', [
 
 Operations method:
 ```php
-$client->operations()->migrations()->listReposForAuthenticatedUser(        migration_id: 12,
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/migrations/users#list-repositories-for-a-user-migration).
-
-
-### migrations/list-repos-for-authenticated-user
-
-List repositories for a user migration
-
-Using the `call` method:
-```php
-$client->call('LIST /user/migrations/{migration_id}/repositories', [
-        'migration_id' => 12,
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->migrations()->listReposForAuthenticatedUserListing(        migration_id: 12,
+$client->operations()->migrations()->listReposForAuthenticatedUser(
+        migration_id: 12,
         per_page: 8,
         page: 1,
 );
@@ -26419,29 +22979,8 @@ $client->call('GET /user/orgs', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/orgs#list-organizations-for-the-authenticated-user).
-
-
-### orgs/list-for-authenticated-user
-
-List organizations for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/orgs', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->orgs()->listForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26465,33 +23004,8 @@ $client->call('GET /user/packages', [
 
 Operations method:
 ```php
-$client->operations()->packages()->listPackagesForAuthenticatedUser(        package_type: 'generated',
-        visibility: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#list-packages-for-the-authenticated-users-namespace).
-
-
-### packages/list-packages-for-authenticated-user
-
-List packages for the authenticated user&#039;s namespace
-
-Using the `call` method:
-```php
-$client->call('LIST /user/packages', [
-        'package_type' => 'generated',
-        'visibility' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->packages()->listPackagesForAuthenticatedUserListing(        package_type: 'generated',
+$client->operations()->packages()->listPackagesForAuthenticatedUser(
+        package_type: 'generated',
         visibility: 'generated',
         page: 1,
         per_page: 8,
@@ -26515,7 +23029,8 @@ $client->call('GET /user/packages/{package_type}/{package_name}', [
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->getPackageForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
 );
 ```
@@ -26537,7 +23052,8 @@ $client->call('DELETE /user/packages/{package_type}/{package_name}', [
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->deletePackageForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
 );
 ```
@@ -26560,7 +23076,8 @@ $client->call('POST /user/packages/{package_type}/{package_name}/restore', [
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->restorePackageForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
         token: 'generated',
 );
@@ -26586,35 +23103,8 @@ $client->call('GET /user/packages/{package_type}/{package_name}/versions', [
 
 Operations method:
 ```php
-$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByAuthenticatedUser(        package_type: 'generated',
-        package_name: 'generated',
-        page: 1,
-        per_page: 8,
-        state: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#list-package-versions-for-a-package-owned-by-the-authenticated-user).
-
-
-### packages/get-all-package-versions-for-package-owned-by-authenticated-user
-
-List package versions for a package owned by the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/packages/{package_type}/{package_name}/versions', [
-        'package_type' => 'generated',
-        'package_name' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'state' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByAuthenticatedUserListing(        package_type: 'generated',
+$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
         page: 1,
         per_page: 8,
@@ -26640,7 +23130,8 @@ $client->call('GET /user/packages/{package_type}/{package_name}/versions/{packag
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageVersionForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->getPackageVersionForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
         package_version_id: 18,
 );
@@ -26664,7 +23155,8 @@ $client->call('DELETE /user/packages/{package_type}/{package_name}/versions/{pac
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageVersionForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->deletePackageVersionForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
         package_version_id: 18,
 );
@@ -26688,7 +23180,8 @@ $client->call('POST /user/packages/{package_type}/{package_name}/versions/{packa
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageVersionForAuthenticatedUser(        package_type: 'generated',
+$client->operations()->packages()->restorePackageVersionForAuthenticatedUser(
+        package_type: 'generated',
         package_name: 'generated',
         package_version_id: 18,
 );
@@ -26708,7 +23201,8 @@ $client->call('POST /user/projects');
 
 Operations method:
 ```php
-$client->operations()->projects()->createForAuthenticatedUser();
+$client->operations()->projects()->createForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/projects#create-a-user-project).
@@ -26728,29 +23222,8 @@ $client->call('GET /user/public_emails', [
 
 Operations method:
 ```php
-$client->operations()->users()->listPublicEmailsForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/emails#list-public-email-addresses-for-the-authenticated-user).
-
-
-### users/list-public-emails-for-authenticated-user
-
-List public email addresses for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/public_emails', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listPublicEmailsForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listPublicEmailsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26779,43 +23252,8 @@ $client->call('GET /user/repos', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listForAuthenticatedUser(        direction: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        before: '1970-01-01T00:00:00+00:00',
-        visibility: 'generated',
-        affiliation: 'generated',
-        type: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-repositories-for-the-authenticated-user).
-
-
-### repos/list-for-authenticated-user
-
-List repositories for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/repos', [
-        'direction' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'before' => '1970-01-01T00:00:00+00:00',
-        'visibility' => 'generated',
-        'affiliation' => 'generated',
-        'type' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listForAuthenticatedUserListing(        direction: 'generated',
+$client->operations()->repos()->listForAuthenticatedUser(
+        direction: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         before: '1970-01-01T00:00:00+00:00',
         visibility: 'generated',
@@ -26841,7 +23279,8 @@ $client->call('POST /user/repos');
 
 Operations method:
 ```php
-$client->operations()->repos()->createForAuthenticatedUser();
+$client->operations()->repos()->createForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#create-a-repository-for-the-authenticated-user).
@@ -26861,29 +23300,8 @@ $client->call('GET /user/repository_invitations', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listInvitationsForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/collaborators/invitations#list-repository-invitations-for-the-authenticated-user).
-
-
-### repos/list-invitations-for-authenticated-user
-
-List repository invitations for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/repository_invitations', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listInvitationsForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->repos()->listInvitationsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26904,7 +23322,8 @@ $client->call('DELETE /user/repository_invitations/{invitation_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->declineInvitationForAuthenticatedUser(        invitation_id: 13,
+$client->operations()->repos()->declineInvitationForAuthenticatedUser(
+        invitation_id: 13,
 );
 ```
 
@@ -26924,7 +23343,8 @@ $client->call('PATCH /user/repository_invitations/{invitation_id}', [
 
 Operations method:
 ```php
-$client->operations()->repos()->acceptInvitationForAuthenticatedUser(        invitation_id: 13,
+$client->operations()->repos()->acceptInvitationForAuthenticatedUser(
+        invitation_id: 13,
 );
 ```
 
@@ -26945,29 +23365,8 @@ $client->call('GET /user/social_accounts', [
 
 Operations method:
 ```php
-$client->operations()->users()->listSocialAccountsForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/social-accounts#list-social-accounts-for-the-authenticated-user).
-
-
-### users/list-social-accounts-for-authenticated-user
-
-List social accounts for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/social_accounts', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listSocialAccountsForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listSocialAccountsForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -26986,7 +23385,8 @@ $client->call('POST /user/social_accounts');
 
 Operations method:
 ```php
-$client->operations()->users()->addSocialAccountForAuthenticatedUser();
+$client->operations()->users()->addSocialAccountForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/social-accounts#add-social-accounts-for-the-authenticated-user).
@@ -27003,7 +23403,8 @@ $client->call('DELETE /user/social_accounts');
 
 Operations method:
 ```php
-$client->operations()->users()->deleteSocialAccountForAuthenticatedUser();
+$client->operations()->users()->deleteSocialAccountForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/social-accounts#delete-social-accounts-for-the-authenticated-user).
@@ -27023,29 +23424,8 @@ $client->call('GET /user/ssh_signing_keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listSshSigningKeysForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/ssh-signing-keys#list-ssh-signing-keys-for-the-authenticated-user).
-
-
-### users/list-ssh-signing-keys-for-authenticated-user
-
-List SSH signing keys for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/ssh_signing_keys', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listSshSigningKeysForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->users()->listSshSigningKeysForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -27064,7 +23444,8 @@ $client->call('POST /user/ssh_signing_keys');
 
 Operations method:
 ```php
-$client->operations()->users()->createSshSigningKeyForAuthenticatedUser();
+$client->operations()->users()->createSshSigningKeyForAuthenticatedUser(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/ssh-signing-keys#create-a-ssh-signing-key-for-the-authenticated-user).
@@ -27083,7 +23464,8 @@ $client->call('GET /user/ssh_signing_keys/{ssh_signing_key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->getSshSigningKeyForAuthenticatedUser(        ssh_signing_key_id: 18,
+$client->operations()->users()->getSshSigningKeyForAuthenticatedUser(
+        ssh_signing_key_id: 18,
 );
 ```
 
@@ -27103,7 +23485,8 @@ $client->call('DELETE /user/ssh_signing_keys/{ssh_signing_key_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->deleteSshSigningKeyForAuthenticatedUser(        ssh_signing_key_id: 18,
+$client->operations()->users()->deleteSshSigningKeyForAuthenticatedUser(
+        ssh_signing_key_id: 18,
 );
 ```
 
@@ -27126,33 +23509,8 @@ $client->call('GET /user/starred', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listReposStarredByAuthenticatedUser(        sort: 'generated',
-        direction: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/starring#list-repositories-starred-by-the-authenticated-user).
-
-
-### activity/list-repos-starred-by-authenticated-user
-
-List repositories starred by the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/starred', [
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listReposStarredByAuthenticatedUserListing(        sort: 'generated',
+$client->operations()->activity()->listReposStarredByAuthenticatedUser(
+        sort: 'generated',
         direction: 'generated',
         per_page: 8,
         page: 1,
@@ -27176,7 +23534,8 @@ $client->call('GET /user/starred/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->checkRepoIsStarredByAuthenticatedUser(        owner: 'generated',
+$client->operations()->activity()->checkRepoIsStarredByAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -27198,7 +23557,8 @@ $client->call('PUT /user/starred/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->starRepoForAuthenticatedUser(        owner: 'generated',
+$client->operations()->activity()->starRepoForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -27220,7 +23580,8 @@ $client->call('DELETE /user/starred/{owner}/{repo}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->unstarRepoForAuthenticatedUser(        owner: 'generated',
+$client->operations()->activity()->unstarRepoForAuthenticatedUser(
+        owner: 'generated',
         repo: 'generated',
 );
 ```
@@ -27242,29 +23603,8 @@ $client->call('GET /user/subscriptions', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listWatchedReposForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/watching#list-repositories-watched-by-the-authenticated-user).
-
-
-### activity/list-watched-repos-for-authenticated-user
-
-List repositories watched by the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/subscriptions', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listWatchedReposForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->activity()->listWatchedReposForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -27286,29 +23626,8 @@ $client->call('GET /user/teams', [
 
 Operations method:
 ```php
-$client->operations()->teams()->listForAuthenticatedUser(        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/teams/teams#list-teams-for-the-authenticated-user).
-
-
-### teams/list-for-authenticated-user
-
-List teams for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /user/teams', [
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->teams()->listForAuthenticatedUserListing(        per_page: 8,
+$client->operations()->teams()->listForAuthenticatedUser(
+        per_page: 8,
         page: 1,
 );
 ```
@@ -27329,7 +23648,8 @@ $client->call('GET /user/{account_id}', [
 
 Operations method:
 ```php
-$client->operations()->users()->getById(        account_id: 10,
+$client->operations()->users()->getById(
+        account_id: 10,
 );
 ```
 
@@ -27350,7 +23670,8 @@ $client->call('GET /users', [
 
 Operations method:
 ```php
-$client->operations()->users()->list(        since: 5,
+$client->operations()->users()->list(
+        since: 5,
         per_page: 8,
 );
 ```
@@ -27371,7 +23692,8 @@ $client->call('GET /users/{username}', [
 
 Operations method:
 ```php
-$client->operations()->users()->getByUsername(        username: 'generated',
+$client->operations()->users()->getByUsername(
+        username: 'generated',
 );
 ```
 
@@ -27395,7 +23717,8 @@ $client->call('GET /users/{username}/attestations/{subject_digest}', [
 
 Operations method:
 ```php
-$client->operations()->users()->listAttestations(        before: 'generated',
+$client->operations()->users()->listAttestations(
+        before: 'generated',
         after: 'generated',
         username: 'generated',
         subject_digest: 'generated',
@@ -27419,7 +23742,8 @@ $client->call('GET /users/{username}/docker/conflicts', [
 
 Operations method:
 ```php
-$client->operations()->packages()->listDockerMigrationConflictingPackagesForUser(        username: 'generated',
+$client->operations()->packages()->listDockerMigrationConflictingPackagesForUser(
+        username: 'generated',
 );
 ```
 
@@ -27441,31 +23765,8 @@ $client->call('GET /users/{username}/events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listEventsForAuthenticatedUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-events-for-the-authenticated-user).
-
-
-### activity/list-events-for-authenticated-user
-
-List events for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/events', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listEventsForAuthenticatedUserListing(        username: 'generated',
+$client->operations()->activity()->listEventsForAuthenticatedUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27490,33 +23791,8 @@ $client->call('GET /users/{username}/events/orgs/{org}', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listOrgEventsForAuthenticatedUser(        username: 'generated',
-        org: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-organization-events-for-the-authenticated-user).
-
-
-### activity/list-org-events-for-authenticated-user
-
-List organization events for the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/events/orgs/{org}', [
-        'username' => 'generated',
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listOrgEventsForAuthenticatedUserListing(        username: 'generated',
+$client->operations()->activity()->listOrgEventsForAuthenticatedUser(
+        username: 'generated',
         org: 'generated',
         per_page: 8,
         page: 1,
@@ -27541,31 +23817,8 @@ $client->call('GET /users/{username}/events/public', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listPublicEventsForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-public-events-for-a-user).
-
-
-### activity/list-public-events-for-user
-
-List public events for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/events/public', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listPublicEventsForUserListing(        username: 'generated',
+$client->operations()->activity()->listPublicEventsForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27589,31 +23842,8 @@ $client->call('GET /users/{username}/followers', [
 
 Operations method:
 ```php
-$client->operations()->users()->listFollowersForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/followers#list-followers-of-a-user).
-
-
-### users/list-followers-for-user
-
-List followers of a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/followers', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listFollowersForUserListing(        username: 'generated',
+$client->operations()->users()->listFollowersForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27637,31 +23867,8 @@ $client->call('GET /users/{username}/following', [
 
 Operations method:
 ```php
-$client->operations()->users()->listFollowingForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/followers#list-the-people-a-user-follows).
-
-
-### users/list-following-for-user
-
-List the people a user follows
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/following', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listFollowingForUserListing(        username: 'generated',
+$client->operations()->users()->listFollowingForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27684,7 +23891,8 @@ $client->call('GET /users/{username}/following/{target_user}', [
 
 Operations method:
 ```php
-$client->operations()->users()->checkFollowingForUser(        username: 'generated',
+$client->operations()->users()->checkFollowingForUser(
+        username: 'generated',
         target_user: 'generated',
 );
 ```
@@ -27708,33 +23916,8 @@ $client->call('GET /users/{username}/gists', [
 
 Operations method:
 ```php
-$client->operations()->gists()->listForUser(        username: 'generated',
-        since: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/gists/gists#list-gists-for-a-user).
-
-
-### gists/list-for-user
-
-List gists for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/gists', [
-        'username' => 'generated',
-        'since' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->gists()->listForUserListing(        username: 'generated',
+$client->operations()->gists()->listForUser(
+        username: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
         page: 1,
@@ -27759,31 +23942,8 @@ $client->call('GET /users/{username}/gpg_keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listGpgKeysForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/gpg-keys#list-gpg-keys-for-a-user).
-
-
-### users/list-gpg-keys-for-user
-
-List GPG keys for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/gpg_keys', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listGpgKeysForUserListing(        username: 'generated',
+$client->operations()->users()->listGpgKeysForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27807,7 +23967,8 @@ $client->call('GET /users/{username}/hovercard', [
 
 Operations method:
 ```php
-$client->operations()->users()->getContextForUser(        username: 'generated',
+$client->operations()->users()->getContextForUser(
+        username: 'generated',
         subject_type: 'generated',
         subject_id: 'generated',
 );
@@ -27829,7 +23990,8 @@ $client->call('GET /users/{username}/installation', [
 
 Operations method:
 ```php
-$client->operations()->apps()->getUserInstallation(        username: 'generated',
+$client->operations()->apps()->getUserInstallation(
+        username: 'generated',
 );
 ```
 
@@ -27851,31 +24013,8 @@ $client->call('GET /users/{username}/keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listPublicKeysForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/keys#list-public-keys-for-a-user).
-
-
-### users/list-public-keys-for-user
-
-List public keys for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/keys', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listPublicKeysForUserListing(        username: 'generated',
+$client->operations()->users()->listPublicKeysForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27899,31 +24038,8 @@ $client->call('GET /users/{username}/orgs', [
 
 Operations method:
 ```php
-$client->operations()->orgs()->listForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/orgs/orgs#list-organizations-for-a-user).
-
-
-### orgs/list-for-user
-
-List organizations for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/orgs', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listForUserListing(        username: 'generated',
+$client->operations()->orgs()->listForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -27949,35 +24065,8 @@ $client->call('GET /users/{username}/packages', [
 
 Operations method:
 ```php
-$client->operations()->packages()->listPackagesForUser(        package_type: 'generated',
-        visibility: 'generated',
-        username: 'generated',
-        page: 1,
-        per_page: 8,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/packages/packages#list-packages-for-a-user).
-
-
-### packages/list-packages-for-user
-
-List packages for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/packages', [
-        'package_type' => 'generated',
-        'visibility' => 'generated',
-        'username' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->packages()->listPackagesForUserListing(        package_type: 'generated',
+$client->operations()->packages()->listPackagesForUser(
+        package_type: 'generated',
         visibility: 'generated',
         username: 'generated',
         page: 1,
@@ -28003,7 +24092,8 @@ $client->call('GET /users/{username}/packages/{package_type}/{package_name}', [
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageForUser(        package_type: 'generated',
+$client->operations()->packages()->getPackageForUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
 );
@@ -28027,7 +24117,8 @@ $client->call('DELETE /users/{username}/packages/{package_type}/{package_name}',
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageForUser(        package_type: 'generated',
+$client->operations()->packages()->deletePackageForUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
 );
@@ -28052,7 +24143,8 @@ $client->call('POST /users/{username}/packages/{package_type}/{package_name}/res
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageForUser(        package_type: 'generated',
+$client->operations()->packages()->restorePackageForUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
         token: 'generated',
@@ -28077,7 +24169,8 @@ $client->call('GET /users/{username}/packages/{package_type}/{package_name}/vers
 
 Operations method:
 ```php
-$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByUser(        package_type: 'generated',
+$client->operations()->packages()->getAllPackageVersionsForPackageOwnedByUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
 );
@@ -28102,7 +24195,8 @@ $client->call('GET /users/{username}/packages/{package_type}/{package_name}/vers
 
 Operations method:
 ```php
-$client->operations()->packages()->getPackageVersionForUser(        package_type: 'generated',
+$client->operations()->packages()->getPackageVersionForUser(
+        package_type: 'generated',
         package_name: 'generated',
         package_version_id: 18,
         username: 'generated',
@@ -28128,7 +24222,8 @@ $client->call('DELETE /users/{username}/packages/{package_type}/{package_name}/v
 
 Operations method:
 ```php
-$client->operations()->packages()->deletePackageVersionForUser(        package_type: 'generated',
+$client->operations()->packages()->deletePackageVersionForUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
         package_version_id: 18,
@@ -28154,7 +24249,8 @@ $client->call('POST /users/{username}/packages/{package_type}/{package_name}/ver
 
 Operations method:
 ```php
-$client->operations()->packages()->restorePackageVersionForUser(        package_type: 'generated',
+$client->operations()->packages()->restorePackageVersionForUser(
+        package_type: 'generated',
         package_name: 'generated',
         username: 'generated',
         package_version_id: 18,
@@ -28180,33 +24276,8 @@ $client->call('GET /users/{username}/projects', [
 
 Operations method:
 ```php
-$client->operations()->projects()->listForUser(        username: 'generated',
-        state: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/projects/projects#list-user-projects).
-
-
-### projects/list-for-user
-
-List user projects
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/projects', [
-        'username' => 'generated',
-        'state' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->projects()->listForUserListing(        username: 'generated',
+$client->operations()->projects()->listForUser(
+        username: 'generated',
         state: 'generated',
         per_page: 8,
         page: 1,
@@ -28231,31 +24302,8 @@ $client->call('GET /users/{username}/received_events', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listReceivedEventsForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-events-received-by-the-authenticated-user).
-
-
-### activity/list-received-events-for-user
-
-List events received by the authenticated user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/received_events', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listReceivedEventsForUserListing(        username: 'generated',
+$client->operations()->activity()->listReceivedEventsForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -28279,31 +24327,8 @@ $client->call('GET /users/{username}/received_events/public', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listReceivedPublicEventsForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/events#list-public-events-received-by-a-user).
-
-
-### activity/list-received-public-events-for-user
-
-List public events received by a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/received_events/public', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listReceivedPublicEventsForUserListing(        username: 'generated',
+$client->operations()->activity()->listReceivedPublicEventsForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -28330,37 +24355,8 @@ $client->call('GET /users/{username}/repos', [
 
 Operations method:
 ```php
-$client->operations()->repos()->listForUser(        username: 'generated',
-        direction: 'generated',
-        type: 'generated',
-        sort: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/repos/repos#list-repositories-for-a-user).
-
-
-### repos/list-for-user
-
-List repositories for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/repos', [
-        'username' => 'generated',
-        'direction' => 'generated',
-        'type' => 'generated',
-        'sort' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->repos()->listForUserListing(        username: 'generated',
+$client->operations()->repos()->listForUser(
+        username: 'generated',
         direction: 'generated',
         type: 'generated',
         sort: 'generated',
@@ -28385,7 +24381,8 @@ $client->call('GET /users/{username}/settings/billing/actions', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getGithubActionsBillingUser(        username: 'generated',
+$client->operations()->billing()->getGithubActionsBillingUser(
+        username: 'generated',
 );
 ```
 
@@ -28405,7 +24402,8 @@ $client->call('GET /users/{username}/settings/billing/packages', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getGithubPackagesBillingUser(        username: 'generated',
+$client->operations()->billing()->getGithubPackagesBillingUser(
+        username: 'generated',
 );
 ```
 
@@ -28425,7 +24423,8 @@ $client->call('GET /users/{username}/settings/billing/shared-storage', [
 
 Operations method:
 ```php
-$client->operations()->billing()->getSharedStorageBillingUser(        username: 'generated',
+$client->operations()->billing()->getSharedStorageBillingUser(
+        username: 'generated',
 );
 ```
 
@@ -28447,31 +24446,8 @@ $client->call('GET /users/{username}/social_accounts', [
 
 Operations method:
 ```php
-$client->operations()->users()->listSocialAccountsForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/social-accounts#list-social-accounts-for-a-user).
-
-
-### users/list-social-accounts-for-user
-
-List social accounts for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/social_accounts', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listSocialAccountsForUserListing(        username: 'generated',
+$client->operations()->users()->listSocialAccountsForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -28495,31 +24471,8 @@ $client->call('GET /users/{username}/ssh_signing_keys', [
 
 Operations method:
 ```php
-$client->operations()->users()->listSshSigningKeysForUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/users/ssh-signing-keys#list-ssh-signing-keys-for-a-user).
-
-
-### users/list-ssh-signing-keys-for-user
-
-List SSH signing keys for a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/ssh_signing_keys', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->users()->listSshSigningKeysForUserListing(        username: 'generated',
+$client->operations()->users()->listSshSigningKeysForUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -28545,7 +24498,8 @@ $client->call('GET /users/{username}/starred', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listReposStarredByUser(        username: 'generated',
+$client->operations()->activity()->listReposStarredByUser(
+        username: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
@@ -28571,31 +24525,8 @@ $client->call('GET /users/{username}/subscriptions', [
 
 Operations method:
 ```php
-$client->operations()->activity()->listReposWatchedByUser(        username: 'generated',
-        per_page: 8,
-        page: 1,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/activity/watching#list-repositories-watched-by-a-user).
-
-
-### activity/list-repos-watched-by-user
-
-List repositories watched by a user
-
-Using the `call` method:
-```php
-$client->call('LIST /users/{username}/subscriptions', [
-        'username' => 'generated',
-        'per_page' => 8,
-        'page' => 1,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->activity()->listReposWatchedByUserListing(        username: 'generated',
+$client->operations()->activity()->listReposWatchedByUser(
+        username: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -28615,7 +24546,8 @@ $client->call('GET /versions');
 
 Operations method:
 ```php
-$client->operations()->meta()->getAllVersions();
+$client->operations()->meta()->getAllVersions(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/meta/meta#get-all-api-versions).
@@ -28632,9 +24564,11 @@ $client->call('GET /zen');
 
 Operations method:
 ```php
-$client->operations()->meta()->getZen();
+$client->operations()->meta()->getZen(
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/rest/meta/meta#get-the-zen-of-github).
+
 
 

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RunnerApplication
+final readonly class RunnerApplication implements \ApiClients\Client\GitHub\Contract\RunnerApplication
 {
     public const SCHEMA_JSON         = '{
     "title": "Runner Application",

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleWorkflows\Parameters
 {
     public const SCHEMA_JSON         = '{
     "required": [

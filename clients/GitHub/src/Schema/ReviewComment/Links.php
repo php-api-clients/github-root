@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ReviewComment;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Link;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\ReviewComment\Links
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -77,8 +77,8 @@ final readonly class Links
      * html: Hypermedia Link
      * pullRequest: Hypermedia Link
      */
-    public function __construct(public Schema\Link $self, public Schema\Link $html, #[MapFrom('pull_request')]
-    public Schema\Link $pullRequest,)
+    public function __construct(public Link $self, public Link $html, #[MapFrom('pull_request')]
+    public Link $pullRequest,)
     {
     }
 }

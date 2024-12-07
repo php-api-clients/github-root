@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson;
 
-final readonly class Committer
+final readonly class Committer implements \ApiClients\Client\GitHub\Contract\Repos\DeleteFile\Request\ApplicationJson\Committer
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ReactionRollup
+final readonly class ReactionRollup implements \ApiClients\Client\GitHub\Contract\ReactionRollup
 {
     public const SCHEMA_JSON         = '{
     "title": "Reaction Rollup",

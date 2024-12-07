@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Copilot\CancelCopilotSeatAs
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Copilot\CancelCopilotSeatAssignmentForTeams\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [

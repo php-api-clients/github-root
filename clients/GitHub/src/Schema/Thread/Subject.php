@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Thread;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Subject
+final readonly class Subject implements \ApiClients\Client\GitHub\Contract\Thread\Subject
 {
     public const SCHEMA_JSON         = '{
     "required": [

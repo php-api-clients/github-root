@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Apps\CheckToken\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T9A3BF4C1\T9B6D9294\TEEA46918\TD9FBD504;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet9A3BF4C1\Tiet9B6D9294\TietEEA46918\TietD9FBD504
+final readonly class ApplicationJson extends TD9FBD504
 {
 }

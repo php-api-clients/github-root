@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhooksChanges8;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksChanges8\Tier\From;
 
-final readonly class Tier
+final readonly class Tier implements \ApiClients\Client\GitHub\Contract\WebhooksChanges8\Tier
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -78,7 +78,7 @@ final readonly class Tier
     /**
      * from: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
-    public function __construct(public Schema\WebhooksChanges8\Tier\From $from)
+    public function __construct(public From $from)
     {
     }
 }

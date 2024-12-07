@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PackageVersion\Metadata;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\PackageVersion
 {
     public const SCHEMA_JSON         = '{
     "title": "Package Version",
@@ -142,18 +142,18 @@ final readonly class PackageVersion
     public const SCHEMA_TITLE        = 'Package Version';
     public const SCHEMA_DESCRIPTION  = 'A version of a software package';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "name": "latest",
-    "url": "https:\\/\\/api.github.com\\/orgs\\/github\\/packages\\/container\\/super-linter\\/versions\\/786068",
-    "package_html_url": "https:\\/\\/github.com\\/orgs\\/github\\/packages\\/container\\/package\\/super-linter",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/github\\/packages\\/container\\/super-linter\\/786068",
-    "license": "MIT",
+    "id": 2,
+    "name": "generated",
+    "url": "generated",
+    "package_html_url": "generated",
+    "html_url": "generated",
+    "license": "generated",
     "description": "generated",
-    "created_at": "2011-04-10T20:09:31Z",
-    "updated_at": "2014-03-03T18:58:10Z",
-    "deleted_at": "2014-03-03T18:58:10Z",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "deleted_at": "1970-01-01T00:00:00+00:00",
     "metadata": {
-        "package_type": "docker",
+        "package_type": "npm",
         "container": {
             "tags": [
                 "generated",
@@ -178,7 +178,7 @@ final readonly class PackageVersion
     public string|null $htmlUrl, public string|null $license, public string|null $description, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('deleted_at')]
-    public string|null $deletedAt, public Schema\PackageVersion\Metadata|null $metadata,)
+    public string|null $deletedAt, public Metadata|null $metadata,)
     {
     }
 }

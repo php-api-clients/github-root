@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Put;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\AddSelectedRepoToOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\CreateOrUpdateOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\CreateOrUpdateRepoSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Dependabot\SetSelectedReposForOrgSecret;
 use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -16,7 +20,7 @@ use function array_key_exists;
 
 final class Dependabot
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -36,7 +40,7 @@ final class Dependabot
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Dependabot\SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
@@ -63,7 +67,7 @@ final class Dependabot
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Dependabot\CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Dependabot🌀Secrets🌀SecretName());
+        $operator = new CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Dependabot🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
@@ -84,7 +88,7 @@ final class Dependabot
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Dependabot\CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Dependabot🌀Secrets🌀SecretName());
+        $operator = new CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Dependabot🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
@@ -111,7 +115,7 @@ final class Dependabot
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Dependabot\AddSelectedRepoToOrgSecret($this->browser, $this->authentication);
+        $operator = new AddSelectedRepoToOrgSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }

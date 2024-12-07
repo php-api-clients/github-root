@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern\Parameters;
 
-final readonly class RepositoryRuleTagNamePattern
+final readonly class RepositoryRuleTagNamePattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleTagNamePattern
 {
     public const SCHEMA_JSON         = '{
     "title": "tag_name_pattern",
@@ -62,12 +62,12 @@ final readonly class RepositoryRuleTagNamePattern
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleTagNamePattern\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

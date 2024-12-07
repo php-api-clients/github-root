@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRequested\Revie
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Reviewer
+final readonly class Reviewer implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentReviewRequested\Reviewers\Reviewer
 {
     public const SCHEMA_JSON         = '{
     "title": "User",
@@ -128,7 +128,7 @@ final readonly class Reviewer
     "site_admin": false,
     "starred_url": "generated",
     "subscriptions_url": "https:\\/\\/example.com\\/",
-    "type": "Organization",
+    "type": "Bot",
     "url": "https:\\/\\/example.com\\/",
     "user_view_type": "generated"
 }';

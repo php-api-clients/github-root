@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Pulls;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\ValidationErrorSimple;
+use ApiClients\Client\GitHub\Internal\Operation\Pulls\UpdateReview;
+use ApiClients\Client\GitHub\Schema\PullRequestReview;
+use ApiClients\Client\GitHub\Schema\Pulls\UpdateReview\Request\ApplicationJson;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,72 +25,72 @@ final class UpdateReviewTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\PullRequestReview::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(PullRequestReview::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Pulls\UpdateReview::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateReview::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['pull_number'] = 11;
             $data['review_id']   = 9;
 
             return $data;
-        })(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\PullRequestReview::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(PullRequestReview::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->pulls()->updateReview('generated', 'generated', 11, 9, json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->pulls()->updateReview('generated', 'generated', 11, 9, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
     public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\ValidationErrorSimple::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ValidationErrorSimple::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Pulls\UpdateReview::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UpdateReview::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['pull_number'] = 11;
             $data['review_id']   = 9;
 
             return $data;
-        })(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\ValidationErrorSimple::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ValidationErrorSimple::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/pulls/11/reviews/9', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->pulls()->updateReview('generated', 'generated', 11, 9, json_decode(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->pulls()->updateReview('generated', 'generated', 11, 9, json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 }

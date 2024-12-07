@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageVersionForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageVersionForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Packages\RestorePackageVersionForUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +21,7 @@ use function array_key_exists;
 
 final class Packages
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -41,7 +47,7 @@ final class Packages
 
         $arguments['token'] = $params['token'];
         unset($params['token']);
-        $operator = new Internal\Operator\Packages\RestorePackageForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Restore());
+        $operator = new RestorePackageForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['token']);
     }
@@ -74,7 +80,7 @@ final class Packages
 
         $arguments['token'] = $params['token'];
         unset($params['token']);
-        $operator = new Internal\Operator\Packages\RestorePackageForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Restore());
+        $operator = new RestorePackageForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['org'], $arguments['token']);
     }
@@ -107,7 +113,7 @@ final class Packages
 
         $arguments['token'] = $params['token'];
         unset($params['token']);
-        $operator = new Internal\Operator\Packages\RestorePackageForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Restore());
+        $operator = new RestorePackageForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['username'], $arguments['token']);
     }
@@ -134,7 +140,7 @@ final class Packages
 
         $arguments['package_version_id'] = $params['package_version_id'];
         unset($params['package_version_id']);
-        $operator = new Internal\Operator\Packages\RestorePackageVersionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
+        $operator = new RestorePackageVersionForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['package_version_id']);
     }
@@ -167,7 +173,7 @@ final class Packages
 
         $arguments['package_version_id'] = $params['package_version_id'];
         unset($params['package_version_id']);
-        $operator = new Internal\Operator\Packages\RestorePackageVersionForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
+        $operator = new RestorePackageVersionForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['org'], $arguments['package_version_id']);
     }
@@ -200,7 +206,7 @@ final class Packages
 
         $arguments['package_version_id'] = $params['package_version_id'];
         unset($params['package_version_id']);
-        $operator = new Internal\Operator\Packages\RestorePackageVersionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
+        $operator = new RestorePackageVersionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Packages🌀PackageType🌀PackageName🌀Versions🌀PackageVersionId🌀Restore());
 
         return $operator->call($arguments['package_type'], $arguments['package_name'], $arguments['username'], $arguments['package_version_id']);
     }

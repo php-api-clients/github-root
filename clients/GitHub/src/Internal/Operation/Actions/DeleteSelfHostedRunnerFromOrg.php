@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteSelfHostedRunnerFromOrg
 {
@@ -29,7 +28,7 @@ final class DeleteSelfHostedRunnerFromOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{runner_id}'], [$this->org, $this->runnerId], '/orgs/{org}/actions/runners/{runner_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/actions/runners/{runner_id}'))->expand(['org' => $this->org, 'runner_id' => $this->runnerId]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

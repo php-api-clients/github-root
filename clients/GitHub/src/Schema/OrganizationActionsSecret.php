@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrganizationActionsSecret
+final readonly class OrganizationActionsSecret implements \ApiClients\Client\GitHub\Contract\OrganizationActionsSecret
 {
     public const SCHEMA_JSON         = '{
     "title": "Actions Secret for an Organization",
@@ -55,11 +55,11 @@ final readonly class OrganizationActionsSecret
     public const SCHEMA_TITLE        = 'Actions Secret for an Organization';
     public const SCHEMA_DESCRIPTION  = 'Secrets for GitHub Actions for an organization.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "SECRET_TOKEN",
+    "name": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
-    "visibility": "selected",
-    "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/secrets\\/my_secret\\/repositories"
+    "visibility": "all",
+    "selected_repositories_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

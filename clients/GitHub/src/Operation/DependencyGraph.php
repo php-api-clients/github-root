@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom;
 use ApiClients\Client\GitHub\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created;
 
 final class DependencyGraph
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\DependencyGraphDiff> */
+    /** @return Observable<DependencyGraphDiff> */
     public function diffRange(string $owner, string $repo, string $basehead, string $name): iterable
     {
         return $this->operators->dependencyGraph👷DiffRange()->call($owner, $repo, $basehead, $name);

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operation\Actions\CreateRemoveTokenForRepo;
+use ApiClients\Client\GitHub\Schema\AuthenticationToken;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -23,7 +23,7 @@ final class CreateRemoveTokenForRepoTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_201_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\AuthenticationToken::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(AuthenticationToken::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -31,7 +31,7 @@ final class CreateRemoveTokenForRepoTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/repos/generated/generated/actions/runners/remove-token', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Actions\CreateRemoveTokenForRepo::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(CreateRemoveTokenForRepo::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
@@ -42,7 +42,7 @@ final class CreateRemoveTokenForRepoTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_201_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\AuthenticationToken::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(AuthenticationToken::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

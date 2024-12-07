@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Billing;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage;
 use ApiClients\Client\GitHub\Schema\BillingUsageReport;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetGithubBillingUsageReportOrg
     public const OPERATION_ID    = 'billing/get-github-billing-usage-report-org';
     public const OPERATION_MATCH = 'GET /organizations/{org}/settings/billing/usage';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Usage $hydrator)
     {
     }
 

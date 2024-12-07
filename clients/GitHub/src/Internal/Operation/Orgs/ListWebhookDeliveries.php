@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\HookDeliveryItem;
+use ApiClients\Client\GitHub\Schema\ScimError;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +23,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListWebhookDeliveries
 {
@@ -34,20 +37,22 @@ final class ListWebhookDeliveries
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries $hydrator, string $org, int $hookId, string $cursor, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Deliveries $hydrator, string $org, int $hookId, string $cursor, int $perPage = 30)
     {
-        $this->org     = $org;
-        $this->hookId  = $hookId;
-        $this->cursor  = $cursor;
-        $this->perPage = $perPage;
+        $this->org                     = $org;
+        $this->hookId                  = $hookId;
+        $this->cursor                  = $cursor;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{hook_id}', '{cursor}', '{per_page}'], [$this->org, $this->hookId, $this->cursor, $this->perPage], '/orgs/{org}/hooks/{hook_id}/deliveries' . '?cursor={cursor}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/hooks/{hook_id}/deliveries{?cursor,per_page}'))->expand(['cursor' => $this->cursor, 'hook_id' => $this->hookId, 'org' => $this->org, 'per_page' => $this->perPage]));
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return Observable<HookDeliveryItem> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -60,12 +65,12 @@ final class ListWebhookDeliveries
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\HookDeliveryItem {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): HookDeliveryItem {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\HookDeliveryItem::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(HookDeliveryItem::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\HookDeliveryItem::class, $body);
+                                return $this->hydrator->hydrateObject(HookDeliveryItem::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -78,17 +83,17 @@ final class ListWebhookDeliveries
                      **/
 
                     case 400:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(400, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(400, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                 }
 
                 break;
@@ -99,9 +104,9 @@ final class ListWebhookDeliveries
                      * Bad Request
                      **/
                     case 400:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ScimError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ScimError(400, $this->hydrator->hydrateObject(ScimError::class, $body));
                 }
 
                 break;

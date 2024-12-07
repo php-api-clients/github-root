@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CustomPropertyValue
+final readonly class CustomPropertyValue implements \ApiClients\Client\GitHub\Contract\CustomPropertyValue
 {
     public const SCHEMA_JSON         = '{
     "title": "Custom Property Value",

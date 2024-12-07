@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventForIssue
+final readonly class IssueEventForIssue implements \ApiClients\Client\GitHub\Contract\IssueEventForIssue
 {
     public const SCHEMA_JSON         = '{
     "title": "Issue Event for Issue",

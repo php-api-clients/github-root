@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ShortBlob
+final readonly class ShortBlob implements \ApiClients\Client\GitHub\Contract\ShortBlob
 {
     public const SCHEMA_JSON         = '{
     "title": "Short Blob",

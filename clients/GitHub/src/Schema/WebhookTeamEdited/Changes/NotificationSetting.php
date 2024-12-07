@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes;
 
-final readonly class NotificationSetting
+final readonly class NotificationSetting implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\NotificationSetting
 {
     public const SCHEMA_JSON         = '{
     "required": [

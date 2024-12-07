@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class HookDeliveryItem
+final readonly class HookDeliveryItem implements \ApiClients\Client\GitHub\Contract\HookDeliveryItem
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple webhook delivery",
@@ -129,18 +129,18 @@ final readonly class HookDeliveryItem
     public const SCHEMA_TITLE        = 'Simple webhook delivery';
     public const SCHEMA_DESCRIPTION  = 'Delivery made by a webhook, without request and response information.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "guid": "58474f00-b361-11eb-836d-0e4f3503ccbe",
-    "delivered_at": "2021-05-12T20:33:44Z",
+    "id": 2,
+    "guid": "generated",
+    "delivered_at": "1970-01-01T00:00:00+00:00",
     "redelivery": false,
-    "duration": 0.03,
-    "status": "failed to connect",
-    "status_code": 502,
-    "event": "issues",
-    "action": "opened",
-    "installation_id": 123,
-    "repository_id": 123,
-    "throttled_at": "2021-05-12T20:33:44Z"
+    "duration": 8,
+    "status": "generated",
+    "status_code": 11,
+    "event": "generated",
+    "action": "generated",
+    "installation_id": 15,
+    "repository_id": 13,
+    "throttled_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**

@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetRouteStatsByActor;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetSubjectStats;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetSummaryStats;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetSummaryStatsByActor;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetSummaryStatsByUser;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetTimeStats;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetTimeStatsByActor;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetTimeStatsByUser;
+use ApiClients\Client\GitHub\Internal\Operator\ApiInsights\GetUserStats;
 use ApiClients\Client\GitHub\Schema\ApiInsightsSummaryStats;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -16,11 +24,11 @@ use function array_key_exists;
 
 final class ApiInsights
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\ApiInsightsSubjectStats> */
+    /** @return Observable<ApiInsightsSubjectStats> */
     public function getSubjectStats(array $params): iterable
     {
         $arguments = [];
@@ -66,7 +74,7 @@ final class ApiInsights
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        $operator = new Internal\Operator\ApiInsights\GetSubjectStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats());
+        $operator = new GetSubjectStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats());
 
         return $operator->call($arguments['org'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['sort'], $arguments['page'], $arguments['per_page'], $arguments['direction']);
     }
@@ -93,12 +101,12 @@ final class ApiInsights
 
         $arguments['max_timestamp'] = $params['max_timestamp'];
         unset($params['max_timestamp']);
-        $operator = new Internal\Operator\ApiInsights\GetSummaryStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats());
+        $operator = new GetSummaryStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats());
 
         return $operator->call($arguments['org'], $arguments['min_timestamp'], $arguments['max_timestamp']);
     }
 
-    /** @return Observable<Schema\ApiInsightsTimeStats> */
+    /** @return Observable<ApiInsightsTimeStats> */
     public function getTimeStats(array $params): iterable
     {
         $arguments = [];
@@ -126,12 +134,12 @@ final class ApiInsights
 
         $arguments['timestamp_increment'] = $params['timestamp_increment'];
         unset($params['timestamp_increment']);
-        $operator = new Internal\Operator\ApiInsights\GetTimeStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats());
+        $operator = new GetTimeStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats());
 
         return $operator->call($arguments['org'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['timestamp_increment']);
     }
 
-    /** @return Observable<Schema\ApiInsightsUserStats> */
+    /** @return Observable<ApiInsightsUserStats> */
     public function getUserStats(array $params): iterable
     {
         $arguments = [];
@@ -183,12 +191,12 @@ final class ApiInsights
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        $operator = new Internal\Operator\ApiInsights\GetUserStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId());
+        $operator = new GetUserStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId());
 
         return $operator->call($arguments['org'], $arguments['user_id'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['sort'], $arguments['page'], $arguments['per_page'], $arguments['direction']);
     }
 
-    /** @return Observable<Schema\ApiInsightsRouteStats> */
+    /** @return Observable<ApiInsightsRouteStats> */
     public function getRouteStatsByActor(array $params): iterable
     {
         $arguments = [];
@@ -246,7 +254,7 @@ final class ApiInsights
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        $operator = new Internal\Operator\ApiInsights\GetRouteStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId());
+        $operator = new GetRouteStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId());
 
         return $operator->call($arguments['org'], $arguments['actor_type'], $arguments['actor_id'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['sort'], $arguments['page'], $arguments['per_page'], $arguments['direction']);
     }
@@ -279,7 +287,7 @@ final class ApiInsights
 
         $arguments['max_timestamp'] = $params['max_timestamp'];
         unset($params['max_timestamp']);
-        $operator = new Internal\Operator\ApiInsights\GetSummaryStatsByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId());
+        $operator = new GetSummaryStatsByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId());
 
         return $operator->call($arguments['org'], $arguments['user_id'], $arguments['min_timestamp'], $arguments['max_timestamp']);
     }
@@ -318,12 +326,12 @@ final class ApiInsights
 
         $arguments['actor_id'] = $params['actor_id'];
         unset($params['actor_id']);
-        $operator = new Internal\Operator\ApiInsights\GetSummaryStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId());
+        $operator = new GetSummaryStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId());
 
         return $operator->call($arguments['org'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['actor_type'], $arguments['actor_id']);
     }
 
-    /** @return Observable<Schema\ApiInsightsTimeStats> */
+    /** @return Observable<ApiInsightsTimeStats> */
     public function getTimeStatsByUser(array $params): iterable
     {
         $arguments = [];
@@ -357,12 +365,12 @@ final class ApiInsights
 
         $arguments['timestamp_increment'] = $params['timestamp_increment'];
         unset($params['timestamp_increment']);
-        $operator = new Internal\Operator\ApiInsights\GetTimeStatsByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId());
+        $operator = new GetTimeStatsByUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId());
 
         return $operator->call($arguments['org'], $arguments['user_id'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['timestamp_increment']);
     }
 
-    /** @return Observable<Schema\ApiInsightsTimeStats> */
+    /** @return Observable<ApiInsightsTimeStats> */
     public function getTimeStatsByActor(array $params): iterable
     {
         $arguments = [];
@@ -402,7 +410,7 @@ final class ApiInsights
 
         $arguments['timestamp_increment'] = $params['timestamp_increment'];
         unset($params['timestamp_increment']);
-        $operator = new Internal\Operator\ApiInsights\GetTimeStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId());
+        $operator = new GetTimeStatsByActor($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId());
 
         return $operator->call($arguments['org'], $arguments['actor_type'], $arguments['actor_id'], $arguments['min_timestamp'], $arguments['max_timestamp'], $arguments['timestamp_increment']);
     }

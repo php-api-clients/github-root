@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesEdited\Changes\Body;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesEdited\Changes\Title;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookIssuesEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -49,7 +50,7 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookIssuesEdited\Changes\Body|null $body, public Schema\WebhookIssuesEdited\Changes\Title|null $title)
+    public function __construct(public Body|null $body, public Title|null $title)
     {
     }
 }

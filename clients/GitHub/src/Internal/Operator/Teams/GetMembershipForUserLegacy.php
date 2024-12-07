@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Teams;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Memberships\Username;
 use ApiClients\Client\GitHub\Schema\TeamMembership;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetMembershipForUserLegacy
     public const OPERATION_ID    = 'teams/get-membership-for-user-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/memberships/{username}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Username $hydrator)
     {
     }
 

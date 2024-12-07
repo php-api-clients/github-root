@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\Repos\DeleteFile\Request\ApplicationJson\Author
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

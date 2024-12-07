@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateCommit\Request\ApplicationJson;
 
-final readonly class Committer
+final readonly class Committer implements \ApiClients\Client\GitHub\Contract\Git\CreateCommit\Request\ApplicationJson\Committer
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

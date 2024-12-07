@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Issues;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Assignees\Assignee;
+use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class CheckUserCanBeAssigned
 {
@@ -28,15 +28,17 @@ final class CheckUserCanBeAssigned
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Assignees\Assignee $hydrator, string $owner, string $repo, private string $assignee)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Assignee $hydrator, string $owner, string $repo, private string $assignee)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{assignee}'], [$this->owner, $this->repo, $this->assignee], '/repos/{owner}/{repo}/assignees/{assignee}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/assignees/{assignee}'))->expand(['assignee' => $this->assignee, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -51,9 +53,9 @@ final class CheckUserCanBeAssigned
                      * Otherwise a `404` status code is returned.
                      **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

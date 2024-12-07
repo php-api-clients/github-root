@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ProjectColumn
+final readonly class ProjectColumn implements \ApiClients\Client\GitHub\Contract\ProjectColumn
 {
     public const SCHEMA_JSON         = '{
     "title": "Project Column",
@@ -83,14 +83,14 @@ final readonly class ProjectColumn
     public const SCHEMA_TITLE        = 'Project Column';
     public const SCHEMA_DESCRIPTION  = 'Project columns contain cards of work.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/projects\\/columns\\/367",
-    "project_url": "https:\\/\\/api.github.com\\/projects\\/120",
-    "cards_url": "https:\\/\\/api.github.com\\/projects\\/columns\\/367\\/cards",
-    "id": 42,
-    "node_id": "MDEzOlByb2plY3RDb2x1bW4zNjc=",
-    "name": "Remaining tasks",
-    "created_at": "2016-09-05T14:18:44Z",
-    "updated_at": "2016-09-05T14:22:28Z"
+    "url": "https:\\/\\/example.com\\/",
+    "project_url": "https:\\/\\/example.com\\/",
+    "cards_url": "https:\\/\\/example.com\\/",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**

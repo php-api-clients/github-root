@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationDiscussionBody
+final readonly class SecretScanningLocationDiscussionBody implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationDiscussionBody
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class SecretScanningLocationDiscussionBody
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'discussion_body\' secret scanning location type. This location type shows that a secret was detected in the body of a discussion.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "discussion_body_url": "https:\\/\\/github.com\\/community\\/community\\/discussions\\/39082#discussion-4566270"
+    "discussion_body_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SimpleCommit;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\SimpleCommit\Author
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -37,8 +37,8 @@ final readonly class Author
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Information about the Git author';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Monalisa Octocat",
-    "email": "monalisa.octocat@example.com"
+    "name": "generated",
+    "email": "hi@example.com"
 }';
 
     /**

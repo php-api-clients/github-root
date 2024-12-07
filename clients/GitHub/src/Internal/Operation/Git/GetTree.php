@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Git;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Git\Trees\TreeSha;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\GitTree;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetTree
 {
@@ -31,20 +33,22 @@ final class GetTree
     /**Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `"true"`, and `"false"`. Omit this parameter to prevent recursively returning objects or subtrees. **/
     private string $recursive;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Git\Trees\TreeSha $hydrator, string $owner, string $repo, string $treeSha, string $recursive)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private TreeSha $hydrator, string $owner, string $repo, string $treeSha, string $recursive)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
-        $this->treeSha   = $treeSha;
-        $this->recursive = $recursive;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->treeSha                 = $treeSha;
+        $this->recursive               = $recursive;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{tree_sha}', '{recursive}'], [$this->owner, $this->repo, $this->treeSha, $this->recursive], '/repos/{owner}/{repo}/git/trees/{tree_sha}' . '?recursive={recursive}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/git/trees/{tree_sha}{?recursive}'))->expand(['owner' => $this->owner, 'recursive' => $this->recursive, 'repo' => $this->repo, 'tree_sha' => $this->treeSha]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\GitTree
+    public function createResponse(ResponseInterface $response): GitTree
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,33 +60,33 @@ final class GetTree
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GitTree::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(GitTree::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\GitTree::class, $body);
+                        return $this->hydrator->hydrateObject(GitTree::class, $body);
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Conflict
                      **/
 
                     case 409:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(409, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(409, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

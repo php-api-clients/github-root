@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunInProgress\WorkflowRun\HeadCommit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T826D3904\T8B9E90A6\T09260A6C\T25135A2F;
 
-final readonly class Author extends Schema\AliasAbstract\Tiet826D3904\Tiet8B9E90A6\Tiet09260A6C\Tiet25135A2F
+final readonly class Author extends T25135A2F
 {
 }

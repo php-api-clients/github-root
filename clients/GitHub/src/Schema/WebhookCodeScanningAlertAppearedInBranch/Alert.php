@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertAppearedInBranch;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\DismissedBy;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Rule;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Tool;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Alert
+final readonly class Alert implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertAppearedInBranch\Alert
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -328,11 +331,11 @@ final readonly class Alert
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
-    "dismissed_reason": "used in tests",
+    "dismissed_reason": "false positive",
     "html_url": "https:\\/\\/example.com\\/",
     "most_recent_instance": {
         "analysis_key": "generated",
@@ -360,7 +363,7 @@ final readonly class Alert
     "rule": {
         "description": "generated",
         "id": "generated",
-        "severity": "error"
+        "severity": "none"
     },
     "state": "open",
     "tool": {
@@ -381,10 +384,10 @@ final readonly class Alert
     public function __construct(#[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('dismissed_at')]
     public string|null $dismissedAt, #[MapFrom('dismissed_by')]
-    public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\DismissedBy|null $dismissedBy, #[MapFrom('dismissed_reason')]
+    public DismissedBy|null $dismissedBy, #[MapFrom('dismissed_reason')]
     public string|null $dismissedReason, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('most_recent_instance')]
-    public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance|null $mostRecentInstance, public int $number, public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Rule $rule, public string $state, public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Tool $tool, public string $url,)
+    public MostRecentInstance|null $mostRecentInstance, public int $number, public Rule $rule, public string $state, public Tool $tool, public string $url,)
     {
     }
 }

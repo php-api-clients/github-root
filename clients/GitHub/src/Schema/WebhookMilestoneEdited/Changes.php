@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\Description;
+use ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\DueOn;
+use ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\Title;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMilestoneEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -65,8 +67,8 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookMilestoneEdited\Changes\Description|null $description, #[MapFrom('due_on')]
-    public Schema\WebhookMilestoneEdited\Changes\DueOn|null $dueOn, public Schema\WebhookMilestoneEdited\Changes\Title|null $title,)
+    public function __construct(public Description|null $description, #[MapFrom('due_on')]
+    public DueOn|null $dueOn, public Title|null $title,)
     {
     }
 }

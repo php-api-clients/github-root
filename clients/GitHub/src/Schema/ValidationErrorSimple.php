@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ValidationErrorSimple
+final readonly class ValidationErrorSimple implements \ApiClients\Client\GitHub\Contract\ValidationErrorSimple
 {
     public const SCHEMA_JSON         = '{
     "title": "Validation Error Simple",

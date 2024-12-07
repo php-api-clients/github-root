@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Apps\ScopeToken\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AppPermissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Apps\ScopeToken\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -456,66 +456,66 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-    "target": "octocat",
-    "target_id": 1,
+    "access_token": "generated",
+    "target": "generated",
+    "target_id": 9,
     "repositories": [
         "generated",
         "generated"
     ],
     "repository_ids": [
-        1,
-        1
+        15,
+        16
     ],
     "permissions": {
         "actions": "read",
-        "administration": "write",
-        "checks": "write",
-        "codespaces": "write",
+        "administration": "read",
+        "checks": "read",
+        "codespaces": "read",
         "contents": "read",
-        "dependabot_secrets": "write",
-        "deployments": "write",
-        "environments": "write",
+        "dependabot_secrets": "read",
+        "deployments": "read",
+        "environments": "read",
         "issues": "read",
-        "metadata": "write",
-        "packages": "write",
+        "metadata": "read",
+        "packages": "read",
         "pages": "read",
         "pull_requests": "read",
-        "repository_custom_properties": "write",
-        "repository_hooks": "write",
+        "repository_custom_properties": "read",
+        "repository_hooks": "read",
         "repository_projects": "read",
-        "secret_scanning_alerts": "write",
+        "secret_scanning_alerts": "read",
         "secrets": "read",
         "security_events": "read",
         "single_file": "read",
-        "statuses": "write",
-        "vulnerability_alerts": "write",
+        "statuses": "read",
+        "vulnerability_alerts": "read",
         "workflows": "write",
         "members": "read",
         "organization_administration": "read",
         "organization_custom_roles": "read",
         "organization_custom_org_roles": "read",
-        "organization_custom_properties": "admin",
+        "organization_custom_properties": "read",
         "organization_copilot_seat_management": "write",
         "organization_announcement_banners": "read",
         "organization_events": "read",
-        "organization_hooks": "write",
+        "organization_hooks": "read",
         "organization_personal_access_tokens": "read",
         "organization_personal_access_token_requests": "read",
         "organization_plan": "read",
         "organization_projects": "read",
         "organization_packages": "read",
-        "organization_secrets": "write",
-        "organization_self_hosted_runners": "write",
-        "organization_user_blocking": "write",
-        "team_discussions": "write",
+        "organization_secrets": "read",
+        "organization_self_hosted_runners": "read",
+        "organization_user_blocking": "read",
+        "team_discussions": "read",
         "email_addresses": "read",
         "followers": "read",
-        "git_ssh_keys": "write",
-        "gpg_keys": "write",
-        "interaction_limits": "write",
+        "git_ssh_keys": "read",
+        "gpg_keys": "read",
+        "interaction_limits": "read",
         "profile": "write",
-        "starring": "write"
+        "starring": "read"
     }
 }';
 
@@ -530,7 +530,7 @@ final readonly class ApplicationJson
     public function __construct(#[MapFrom('access_token')]
     public string $accessToken, public string|null $target, #[MapFrom('target_id')]
     public int|null $targetId, public array|null $repositories, #[MapFrom('repository_ids')]
-    public array|null $repositoryIds, public Schema\AppPermissions|null $permissions,)
+    public array|null $repositoryIds, public AppPermissions|null $permissions,)
     {
     }
 }

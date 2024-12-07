@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\Registry;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RegistryPackage
+final readonly class RegistryPackage implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackageUpdated\RegistryPackage
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -753,9 +755,9 @@ final readonly class RegistryPackage
 
     public function __construct(#[MapFrom('created_at')]
     public string $createdAt, public string $description, public string $ecosystem, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Schema\WebhookRegistryPackageUpdated\RegistryPackage\Owner $owner, #[MapFrom('package_type')]
+    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Owner $owner, #[MapFrom('package_type')]
     public string $packageType, #[MapFrom('package_version')]
-    public Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion $packageVersion, public Schema\WebhookRegistryPackageUpdated\RegistryPackage\Registry|null $registry, #[MapFrom('updated_at')]
+    public PackageVersion $packageVersion, public Registry|null $registry, #[MapFrom('updated_at')]
     public string $updatedAt,)
     {
     }

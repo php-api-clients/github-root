@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MergedUpstream
+final readonly class MergedUpstream implements \ApiClients\Client\GitHub\Contract\MergedUpstream
 {
     public const SCHEMA_JSON         = '{
     "title": "Merged upstream",
@@ -33,7 +33,7 @@ final readonly class MergedUpstream
     public const SCHEMA_DESCRIPTION  = 'Results of a successful merge upstream request';
     public const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
-    "merge_type": "none",
+    "merge_type": "merge",
     "base_branch": "generated"
 }';
 

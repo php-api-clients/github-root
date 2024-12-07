@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksWorkflowJobRun
+final readonly class WebhooksWorkflowJobRun implements \ApiClients\Client\GitHub\Contract\WebhooksWorkflowJobRun
 {
     public const SCHEMA_JSON         = '{
     "required": [

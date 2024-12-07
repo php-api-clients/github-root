@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeScanning\UploadSarif\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeScanning\UploadSarif\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -63,9 +63,9 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "commit_sha": "DDDDDDDDDDDDDD",
-    "ref": "refs\\/heads\\/main",
+    "ref": "refs\\/pull\\/\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a\\u001a",
     "sarif": "generated",
-    "checkout_uri": "file:\\/\\/\\/github\\/workspace\\/",
+    "checkout_uri": "https:\\/\\/example.com\\/",
     "started_at": "1970-01-01T00:00:00+00:00",
     "tool_name": "generated",
     "validate": false

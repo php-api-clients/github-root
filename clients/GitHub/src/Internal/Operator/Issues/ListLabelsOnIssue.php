@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Issues;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListLabelsOnIssue
     public const OPERATION_ID    = 'issues/list-labels-on-issue';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/{issue_number}/labels';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Labels $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Label>|Schema\BasicError */
+    /** @return Observable<Label>|BasicError */
     public function call(string $owner, string $repo, int $issueNumber, int $perPage = 30, int $page = 1): iterable|BasicError
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Issues\ListLabelsOnIssue($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber, $perPage, $page);

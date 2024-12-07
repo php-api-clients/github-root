@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsCacheList
+final readonly class ActionsCacheList implements \ApiClients\Client\GitHub\Contract\ActionsCacheList
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository actions caches",
@@ -82,25 +82,25 @@ final readonly class ActionsCacheList
     public const SCHEMA_TITLE        = 'Repository actions caches';
     public const SCHEMA_DESCRIPTION  = 'Repository actions caches';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 2,
+    "total_count": 11,
     "actions_caches": [
         {
             "id": 2,
-            "ref": "refs\\/heads\\/main",
-            "key": "Linux-node-958aff96db2d75d67787d1e634ae70b659de937b",
-            "version": "73885106f58cc52a7df9ec4d4a5622a5614813162cb516c759a30af6bf56e6f0",
-            "last_accessed_at": "2019-01-24T22:45:36.000Z",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "size_in_bytes": 1024
+            "ref": "generated",
+            "key": "generated",
+            "version": "generated",
+            "last_accessed_at": "1970-01-01T00:00:00+00:00",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "size_in_bytes": 13
         },
         {
             "id": 2,
-            "ref": "refs\\/heads\\/main",
-            "key": "Linux-node-958aff96db2d75d67787d1e634ae70b659de937b",
-            "version": "73885106f58cc52a7df9ec4d4a5622a5614813162cb516c759a30af6bf56e6f0",
-            "last_accessed_at": "2019-01-24T22:45:36.000Z",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "size_in_bytes": 1024
+            "ref": "generated",
+            "key": "generated",
+            "version": "generated",
+            "last_accessed_at": "1970-01-01T00:00:00+00:00",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "size_in_bytes": 13
         }
     ]
 }';

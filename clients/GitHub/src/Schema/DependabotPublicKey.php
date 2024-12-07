@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependabotPublicKey
+final readonly class DependabotPublicKey implements \ApiClients\Client\GitHub\Contract\DependabotPublicKey
 {
     public const SCHEMA_JSON         = '{
     "title": "DependabotPublicKey",
@@ -36,8 +36,8 @@ final readonly class DependabotPublicKey
     public const SCHEMA_TITLE        = 'DependabotPublicKey';
     public const SCHEMA_DESCRIPTION  = 'The public key used for setting Dependabot Secrets.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "key_id": "1234567",
-    "key": "hBT5WZEj8ZoOv6TYJsfWq7MxTEQopZO5\\/IT3ZCVQPzs="
+    "key_id": "generated",
+    "key": "generated"
 }';
 
     /**

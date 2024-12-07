@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\ReviewPendingDeploymentsForRun
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\ReviewPendingDeploymentsForRun\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -54,11 +54,11 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "environment_ids": [
-        161171787,
-        161171787
+        16,
+        17
     ],
     "state": "approved",
-    "comment": "Ship it!"
+    "comment": "generated"
 }';
 
     /**

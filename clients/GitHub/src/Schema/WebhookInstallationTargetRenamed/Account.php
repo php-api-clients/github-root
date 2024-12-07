@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookInstallationTargetRenamed;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Account
+final readonly class Account implements \ApiClients\Client\GitHub\Contract\WebhookInstallationTargetRenamed\Account
 {
     public const SCHEMA_JSON         = '{
     "required": [

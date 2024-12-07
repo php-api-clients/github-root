@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CustomDeploymentRuleApp
+final readonly class CustomDeploymentRuleApp implements \ApiClients\Client\GitHub\Contract\CustomDeploymentRuleApp
 {
     public const SCHEMA_JSON         = '{
     "title": "Custom deployment protection rule app",
@@ -52,10 +52,10 @@ final readonly class CustomDeploymentRuleApp
     public const SCHEMA_TITLE        = 'Custom deployment protection rule app';
     public const SCHEMA_DESCRIPTION  = 'A GitHub App that is providing a custom deployment protection rule.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3515,
-    "slug": "my-custom-app",
-    "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-    "node_id": "MDQ6R2F0ZTM1MTU="
+    "id": 2,
+    "slug": "generated",
+    "integration_url": "generated",
+    "node_id": "generated"
 }';
 
     /**

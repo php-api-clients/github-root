@@ -4,8 +4,43 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CheckBlockedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CheckMembershipForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CheckPublicMembershipForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetAllCustomProperties;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetCustomProperty;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetMembershipForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetMembershipForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetOrgRole;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetWebhookConfigForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\GetWebhookDelivery;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\List_;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListAppInstallations;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListAttestations;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListBlockedUsers;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListCustomPropertiesValuesForRepos;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListFailedInvitations;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListInvitationTeams;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListMembers;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListMembershipsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListOrgRoles;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListOrgRoleTeams;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListOrgRoleUsers;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListOutsideCollaborators;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPatGrantRepositories;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPatGrantRequestRepositories;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPatGrantRequests;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPatGrants;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPendingInvitations;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListPublicMembers;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListSecurityManagerTeams;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListWebhookDeliveries;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ListWebhooks;
 use ApiClients\Client\GitHub\Schema\CustomProperty;
 use ApiClients\Client\GitHub\Schema\HookDelivery;
 use ApiClients\Client\GitHub\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok;
@@ -24,11 +59,11 @@ use function array_key_exists;
 
 final class Orgs
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\OrganizationSimple>|WithoutBody */
+    /** @return Observable<OrganizationSimple>|WithoutBody */
     public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -44,7 +79,7 @@ final class Orgs
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Orgs\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations());
+        $operator = new List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations());
 
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
@@ -59,12 +94,12 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
 
         return $operator->call($arguments['org']);
     }
 
-    /** @return Observable<Schema\OrganizationSimple>|WithoutBody */
+    /** @return Observable<OrganizationSimple>|WithoutBody */
     public function listForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -80,12 +115,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Orgs());
+        $operator = new ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Orgs());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listBlockedUsers(array $params): iterable
     {
         $arguments = [];
@@ -107,12 +142,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListBlockedUsers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks());
+        $operator = new ListBlockedUsers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listFailedInvitations(array $params): iterable
     {
         $arguments = [];
@@ -134,12 +169,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListFailedInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀FailedInvitations());
+        $operator = new ListFailedInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀FailedInvitations());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrgHook> */
+    /** @return Observable<OrgHook> */
     public function listWebhooks(array $params): iterable
     {
         $arguments = [];
@@ -161,7 +196,7 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
+        $operator = new ListWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
@@ -188,12 +223,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListAppInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Installations());
+        $operator = new ListAppInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Installations());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listPendingInvitations(array $params): iterable
     {
         $arguments = [];
@@ -227,12 +262,12 @@ final class Orgs
 
         $arguments['invitation_source'] = $params['invitation_source'];
         unset($params['invitation_source']);
-        $operator = new Internal\Operator\Orgs\ListPendingInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations());
+        $operator = new ListPendingInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page'], $arguments['role'], $arguments['invitation_source']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listMembers(array $params): iterable
     {
         $arguments = [];
@@ -266,7 +301,7 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
+        $operator = new ListMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
 
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
@@ -281,12 +316,12 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\ListOrgRoles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles());
+        $operator = new ListOrgRoles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles());
 
         return $operator->call($arguments['org']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listOutsideCollaborators(array $params): iterable
     {
         $arguments = [];
@@ -314,12 +349,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListOutsideCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators());
+        $operator = new ListOutsideCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators());
 
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationProgrammaticAccessGrantRequest> */
+    /** @return Observable<OrganizationProgrammaticAccessGrantRequest> */
     public function listPatGrantRequests(array $params): iterable
     {
         $arguments = [];
@@ -383,12 +418,12 @@ final class Orgs
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        $operator = new Internal\Operator\Orgs\ListPatGrantRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
+        $operator = new ListPatGrantRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
 
         return $operator->call($arguments['org'], $arguments['owner'], $arguments['repository'], $arguments['permission'], $arguments['last_used_before'], $arguments['last_used_after'], $arguments['per_page'], $arguments['page'], $arguments['sort'], $arguments['direction']);
     }
 
-    /** @return Observable<Schema\OrganizationProgrammaticAccessGrant> */
+    /** @return Observable<OrganizationProgrammaticAccessGrant> */
     public function listPatGrants(array $params): iterable
     {
         $arguments = [];
@@ -452,12 +487,12 @@ final class Orgs
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        $operator = new Internal\Operator\Orgs\ListPatGrants($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
+        $operator = new ListPatGrants($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
 
         return $operator->call($arguments['org'], $arguments['owner'], $arguments['repository'], $arguments['permission'], $arguments['last_used_before'], $arguments['last_used_after'], $arguments['per_page'], $arguments['page'], $arguments['sort'], $arguments['direction']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listPublicMembers(array $params): iterable
     {
         $arguments = [];
@@ -479,12 +514,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListPublicMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers());
+        $operator = new ListPublicMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamSimple> */
+    /** @return Observable<TeamSimple> */
     public function listSecurityManagerTeams(array $params): iterable
     {
         $arguments = [];
@@ -494,12 +529,12 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\ListSecurityManagerTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityManagers());
+        $operator = new ListSecurityManagerTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityManagers());
 
         return $operator->call($arguments['org']);
     }
 
-    /** @return Observable<Schema\OrgMembership>|WithoutBody */
+    /** @return Observable<OrgMembership>|WithoutBody */
     public function listMembershipsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -521,12 +556,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListMembershipsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs());
+        $operator = new ListMembershipsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs());
 
         return $operator->call($arguments['state'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationSimple> */
+    /** @return Observable<OrganizationSimple> */
     public function listForUser(array $params): iterable
     {
         $arguments = [];
@@ -548,7 +583,7 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs());
+        $operator = new ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
@@ -587,7 +622,7 @@ final class Orgs
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Orgs\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Attestations🌀SubjectDigest());
+        $operator = new ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Attestations🌀SubjectDigest());
 
         return $operator->call($arguments['before'], $arguments['after'], $arguments['org'], $arguments['subject_digest'], $arguments['per_page']);
     }
@@ -608,7 +643,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\CheckBlockedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks🌀Username());
+        $operator = new CheckBlockedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Blocks🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -629,7 +664,7 @@ final class Orgs
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Orgs\GetWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
+        $operator = new GetWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
 
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
@@ -650,7 +685,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\CheckMembershipForUser($this->browser, $this->authentication);
+        $operator = new CheckMembershipForUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -671,7 +706,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\GetMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
+        $operator = new GetMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -692,12 +727,12 @@ final class Orgs
 
         $arguments['role_id'] = $params['role_id'];
         unset($params['role_id']);
-        $operator = new Internal\Operator\Orgs\GetOrgRole($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId());
+        $operator = new GetOrgRole($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId());
 
         return $operator->call($arguments['org'], $arguments['role_id']);
     }
 
-    /** @return Observable<Schema\CustomProperty> */
+    /** @return Observable<CustomProperty> */
     public function getAllCustomProperties(array $params): iterable
     {
         $arguments = [];
@@ -707,12 +742,12 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\GetAllCustomProperties($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema());
+        $operator = new GetAllCustomProperties($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema());
 
         return $operator->call($arguments['org']);
     }
 
-    /** @return Observable<Schema\OrgRepoCustomPropertyValues> */
+    /** @return Observable<OrgRepoCustomPropertyValues> */
     public function listCustomPropertiesValuesForRepos(array $params): iterable
     {
         $arguments = [];
@@ -740,7 +775,7 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListCustomPropertiesValuesForRepos($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Values());
+        $operator = new ListCustomPropertiesValuesForRepos($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Values());
 
         return $operator->call($arguments['org'], $arguments['repository_query'], $arguments['per_page'], $arguments['page']);
     }
@@ -761,7 +796,7 @@ final class Orgs
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Orgs\CheckPublicMembershipForUser($this->browser, $this->authentication);
+        $operator = new CheckPublicMembershipForUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['username']);
     }
@@ -776,7 +811,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\GetMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀Org());
+        $operator = new GetMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀Org());
 
         return $operator->call($arguments['org']);
     }
@@ -797,12 +832,12 @@ final class Orgs
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Orgs\GetWebhookConfigForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Config());
+        $operator = new GetWebhookConfigForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Config());
 
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return Observable<HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -830,12 +865,12 @@ final class Orgs
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Orgs\ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries());
+        $operator = new ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries());
 
         return $operator->call($arguments['org'], $arguments['hook_id'], $arguments['cursor'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listInvitationTeams(array $params): iterable
     {
         $arguments = [];
@@ -863,12 +898,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListInvitationTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations🌀InvitationId🌀Teams());
+        $operator = new ListInvitationTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations🌀InvitationId🌀Teams());
 
         return $operator->call($arguments['org'], $arguments['invitation_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamRoleAssignment>|WithoutBody */
+    /** @return Observable<TeamRoleAssignment>|WithoutBody */
     public function listOrgRoleTeams(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -896,12 +931,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListOrgRoleTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Teams());
+        $operator = new ListOrgRoleTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Teams());
 
         return $operator->call($arguments['org'], $arguments['role_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\UserRoleAssignment>|WithoutBody */
+    /** @return Observable<UserRoleAssignment>|WithoutBody */
     public function listOrgRoleUsers(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -929,12 +964,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListOrgRoleUsers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Users());
+        $operator = new ListOrgRoleUsers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Users());
 
         return $operator->call($arguments['org'], $arguments['role_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listPatGrantRequestRepositories(array $params): iterable
     {
         $arguments = [];
@@ -962,12 +997,12 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListPatGrantRequestRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId🌀Repositories());
+        $operator = new ListPatGrantRequestRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['pat_request_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listPatGrantRepositories(array $params): iterable
     {
         $arguments = [];
@@ -995,7 +1030,7 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Orgs\ListPatGrantRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories());
+        $operator = new ListPatGrantRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['pat_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -1016,7 +1051,7 @@ final class Orgs
 
         $arguments['custom_property_name'] = $params['custom_property_name'];
         unset($params['custom_property_name']);
-        $operator = new Internal\Operator\Orgs\GetCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
+        $operator = new GetCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
 
         return $operator->call($arguments['org'], $arguments['custom_property_name']);
     }
@@ -1043,7 +1078,7 @@ final class Orgs
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        $operator = new Internal\Operator\Orgs\GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId());
+        $operator = new GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId());
 
         return $operator->call($arguments['org'], $arguments['hook_id'], $arguments['delivery_id']);
     }

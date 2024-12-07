@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningRefFull
+final readonly class CodeScanningRefFull implements \ApiClients\Client\GitHub\Contract\CodeScanningRefFull
 {
     public const SCHEMA_JSON         = '{
     "pattern": "^refs\\/(heads|tags|pull)\\/.*$",

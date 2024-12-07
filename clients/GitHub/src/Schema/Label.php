@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Label
+final readonly class Label implements \ApiClients\Client\GitHub\Contract\Label
 {
     public const SCHEMA_JSON         = '{
     "title": "Label",
@@ -80,13 +80,13 @@ final readonly class Label
     public const SCHEMA_TITLE        = 'Label';
     public const SCHEMA_DESCRIPTION  = 'Color-coded labels help you categorize and filter your issues (just like labels in Gmail).';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 208045946,
-    "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-    "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-    "name": "bug",
-    "description": "Something isn\'t working",
-    "color": "FFFFFF",
-    "default": true
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "name": "generated",
+    "description": "generated",
+    "color": "generated",
+    "default": false
 }';
 
     /**

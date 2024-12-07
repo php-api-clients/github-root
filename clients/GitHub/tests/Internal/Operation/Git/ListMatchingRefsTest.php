@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Git;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\BasicError;
+use ApiClients\Client\GitHub\Internal\Operation\Git\ListMatchingRefs;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,8 +23,8 @@ final class ListMatchingRefsTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_409_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -33,7 +32,7 @@ final class ListMatchingRefsTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/git/matching-refs/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Git\ListMatchingRefs::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListMatchingRefs::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
             $data['ref']   = 'generated';
@@ -45,8 +44,8 @@ final class ListMatchingRefsTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_409_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

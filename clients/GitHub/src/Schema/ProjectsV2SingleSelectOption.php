@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ProjectsV2SingleSelectOption
+final readonly class ProjectsV2SingleSelectOption implements \ApiClients\Client\GitHub\Contract\ProjectsV2SingleSelectOption
 {
     public const SCHEMA_JSON         = '{
     "title": "Projects v2 Single Select Option",

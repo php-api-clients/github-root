@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Release\Author;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\Release
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -184,7 +184,7 @@ final readonly class Release
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -200,7 +200,7 @@ final readonly class Release
     "url": "https:\\/\\/example.com\\/"
 }';
 
-    public function __construct(public Schema\WebhookPackagePublished\Package\PackageVersion\Release\Author|null $author, #[MapFrom('created_at')]
+    public function __construct(public Author|null $author, #[MapFrom('created_at')]
     public string $createdAt, public bool $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, public string|null $name, public bool $prerelease, #[MapFrom('published_at')]
     public string $publishedAt, #[MapFrom('tag_name')]

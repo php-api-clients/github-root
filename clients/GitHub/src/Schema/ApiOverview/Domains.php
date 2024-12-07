@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ApiOverview;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ApiOverview\Domains\ArtifactAttestations;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Domains
+final readonly class Domains implements \ApiClients\Client\GitHub\Contract\ApiOverview\Domains
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -103,7 +103,7 @@ final readonly class Domains
         "generated"
     ],
     "artifact_attestations": {
-        "trust_domain": "example",
+        "trust_domain": "generated",
         "services": [
             "generated",
             "generated"
@@ -112,7 +112,7 @@ final readonly class Domains
 }';
 
     public function __construct(public array|null $website, public array|null $codespaces, public array|null $copilot, public array|null $packages, public array|null $actions, #[MapFrom('artifact_attestations')]
-    public Schema\ApiOverview\Domains\ArtifactAttestations|null $artifactAttestations,)
+    public ArtifactAttestations|null $artifactAttestations,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookCustomPropertyDeleted;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Definition
+final readonly class Definition implements \ApiClients\Client\GitHub\Contract\WebhookCustomPropertyDeleted\Definition
 {
     public const SCHEMA_JSON         = '{
     "required": [

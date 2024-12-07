@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class GetMemberLegacy
 {
@@ -29,7 +28,7 @@ final class GetMemberLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], '/teams/{team_id}/members/{username}'));
+        return new Request('GET', (string) (new UriTemplate('/teams/{team_id}/members/{username}'))->expand(['team_id' => $this->teamId, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

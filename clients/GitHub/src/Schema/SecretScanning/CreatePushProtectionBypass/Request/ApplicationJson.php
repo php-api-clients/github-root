@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\SecretScanning\CreatePushProtectionByp
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\SecretScanning\CreatePushProtectionBypass\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -33,7 +33,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "reason": "will_fix_later",
+    "reason": "false_positive",
     "placeholder_id": "generated"
 }';
 

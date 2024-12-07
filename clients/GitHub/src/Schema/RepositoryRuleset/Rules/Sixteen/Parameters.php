@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Sixteen\Parameters
 {
     public const SCHEMA_JSON         = '{
     "required": [

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookOrganizationMemberInvited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Invitation
+final readonly class Invitation implements \ApiClients\Client\GitHub\Contract\WebhookOrganizationMemberInvited\Invitation
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -182,7 +182,7 @@ final readonly class Invitation
     "email": "generated",
     "failed_at": "1970-01-01T00:00:00+00:00",
     "failed_reason": "generated",
-    "id": 0.2,
+    "id": 2,
     "invitation_teams_url": "https:\\/\\/example.com\\/",
     "inviter": {
         "avatar_url": "https:\\/\\/example.com\\/",
@@ -204,14 +204,14 @@ final readonly class Invitation
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
     "login": "generated",
     "node_id": "generated",
     "role": "generated",
-    "team_count": 1,
+    "team_count": 10,
     "invitation_source": "generated"
 }';
 
@@ -219,7 +219,7 @@ final readonly class Invitation
     public string $createdAt, public string|null $email, #[MapFrom('failed_at')]
     public string|null $failedAt, #[MapFrom('failed_reason')]
     public string|null $failedReason, public int|float $id, #[MapFrom('invitation_teams_url')]
-    public string $invitationTeamsUrl, public Schema\WebhookOrganizationMemberInvited\Invitation\Inviter|null $inviter, public string|null $login, #[MapFrom('node_id')]
+    public string $invitationTeamsUrl, public Inviter|null $inviter, public string|null $login, #[MapFrom('node_id')]
     public string $nodeId, public string $role, #[MapFrom('team_count')]
     public int|float $teamCount, #[MapFrom('invitation_source')]
     public string|null $invitationSource,)

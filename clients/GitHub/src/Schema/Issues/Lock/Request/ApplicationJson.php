@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Issues\Lock\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Issues\Lock\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [

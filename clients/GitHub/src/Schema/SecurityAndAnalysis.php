@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\AdvancedSecurity;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\DependabotSecurityUpdates;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\SecretScanning;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\SecretScanningAiDetection;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns;
+use ApiClients\Client\GitHub\Schema\SecurityAndAnalysis\SecretScanningPushProtection;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecurityAndAnalysis
+final readonly class SecurityAndAnalysis implements \ApiClients\Client\GitHub\Contract\SecurityAndAnalysis
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -95,22 +100,22 @@ final readonly class SecurityAndAnalysis
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "advanced_security": {
-        "status": "disabled"
+        "status": "enabled"
     },
     "dependabot_security_updates": {
-        "status": "disabled"
+        "status": "enabled"
     },
     "secret_scanning": {
-        "status": "disabled"
+        "status": "enabled"
     },
     "secret_scanning_push_protection": {
-        "status": "disabled"
+        "status": "enabled"
     },
     "secret_scanning_non_provider_patterns": {
-        "status": "disabled"
+        "status": "enabled"
     },
     "secret_scanning_ai_detection": {
-        "status": "disabled"
+        "status": "enabled"
     }
 }';
 
@@ -118,12 +123,12 @@ final readonly class SecurityAndAnalysis
      * dependabotSecurityUpdates: Enable or disable Dependabot security updates for the repository.
      */
     public function __construct(#[MapFrom('advanced_security')]
-    public Schema\SecurityAndAnalysis\AdvancedSecurity|null $advancedSecurity, #[MapFrom('dependabot_security_updates')]
-    public Schema\SecurityAndAnalysis\DependabotSecurityUpdates|null $dependabotSecurityUpdates, #[MapFrom('secret_scanning')]
-    public Schema\SecurityAndAnalysis\SecretScanning|null $secretScanning, #[MapFrom('secret_scanning_push_protection')]
-    public Schema\SecurityAndAnalysis\SecretScanningPushProtection|null $secretScanningPushProtection, #[MapFrom('secret_scanning_non_provider_patterns')]
-    public Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns|null $secretScanningNonProviderPatterns, #[MapFrom('secret_scanning_ai_detection')]
-    public Schema\SecurityAndAnalysis\SecretScanningAiDetection|null $secretScanningAiDetection,)
+    public AdvancedSecurity|null $advancedSecurity, #[MapFrom('dependabot_security_updates')]
+    public DependabotSecurityUpdates|null $dependabotSecurityUpdates, #[MapFrom('secret_scanning')]
+    public SecretScanning|null $secretScanning, #[MapFrom('secret_scanning_push_protection')]
+    public SecretScanningPushProtection|null $secretScanningPushProtection, #[MapFrom('secret_scanning_non_provider_patterns')]
+    public SecretScanningNonProviderPatterns|null $secretScanningNonProviderPatterns, #[MapFrom('secret_scanning_ai_detection')]
+    public SecretScanningAiDetection|null $secretScanningAiDetection,)
     {
     }
 }

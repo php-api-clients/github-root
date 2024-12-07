@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPush;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPush\Commits\Author;
+use ApiClients\Client\GitHub\Schema\WebhookPush\Commits\Committer;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Commits
+final readonly class Commits implements \ApiClients\Client\GitHub\Contract\WebhookPush\Commits
 {
     public const SCHEMA_JSON         = '{
     "title": "Commit",
@@ -174,7 +175,7 @@ final readonly class Commits
      * timestamp: The ISO 8601 timestamp of the commit.
      * url: URL that points to the commit API resource.
      */
-    public function __construct(public array|null $added, public Schema\WebhookPush\Commits\Author $author, public Schema\WebhookPush\Commits\Committer $committer, public bool $distinct, public string $id, public string $message, public array|null $modified, public array|null $removed, public string $timestamp, #[MapFrom('tree_id')]
+    public function __construct(public array|null $added, public Author $author, public Committer $committer, public bool $distinct, public string $id, public string $message, public array|null $modified, public array|null $removed, public string $timestamp, #[MapFrom('tree_id')]
     public string $treeId, public string $url,)
     {
     }

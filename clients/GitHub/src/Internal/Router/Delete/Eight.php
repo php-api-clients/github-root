@@ -18,7 +18,7 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
+    /** @return |Observable<Label>|BasicError */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|Json|iterable|BasicError|PullRequestReview
     {
         if ($pathChunks[0] === '') {

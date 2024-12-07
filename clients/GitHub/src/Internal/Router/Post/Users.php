@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Users\AddEmailForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\AddSocialAccountForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CreateGpgKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CreatePublicSshKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CreateSshSigningKeyForAuthenticatedUser;
 use ApiClients\Client\GitHub\Schema\GpgKey;
 use ApiClients\Client\GitHub\Schema\Key;
 use ApiClients\Client\GitHub\Schema\SshSigningKey;
@@ -16,14 +20,14 @@ use React\Http\Browser;
 
 final class Users
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\Email>|WithoutBody */
+    /** @return Observable<Email>|WithoutBody */
     public function addEmailForAuthenticatedUser(array $params): iterable|WithoutBody
     {
-        $operator = new Internal\Operator\Users\AddEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
+        $operator = new AddEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
 
         return $operator->call($params);
     }
@@ -31,7 +35,7 @@ final class Users
     /** @return */
     public function createGpgKeyForAuthenticatedUser(array $params): GpgKey|WithoutBody
     {
-        $operator = new Internal\Operator\Users\CreateGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
+        $operator = new CreateGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
 
         return $operator->call($params);
     }
@@ -39,15 +43,15 @@ final class Users
     /** @return */
     public function createPublicSshKeyForAuthenticatedUser(array $params): Key|WithoutBody
     {
-        $operator = new Internal\Operator\Users\CreatePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
+        $operator = new CreatePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
 
         return $operator->call($params);
     }
 
-    /** @return Observable<Schema\SocialAccount>|WithoutBody */
+    /** @return Observable<SocialAccount>|WithoutBody */
     public function addSocialAccountForAuthenticatedUser(array $params): iterable|WithoutBody
     {
-        $operator = new Internal\Operator\Users\AddSocialAccountForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
+        $operator = new AddSocialAccountForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
 
         return $operator->call($params);
     }
@@ -55,7 +59,7 @@ final class Users
     /** @return */
     public function createSshSigningKeyForAuthenticatedUser(array $params): SshSigningKey|WithoutBody
     {
-        $operator = new Internal\Operator\Users\CreateSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys());
+        $operator = new CreateSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys());
 
         return $operator->call($params);
     }

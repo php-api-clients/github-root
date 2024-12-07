@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningAnalysis
+final readonly class CodeScanningAnalysis implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysis
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -131,20 +130,20 @@ final readonly class CodeScanningAnalysis
     "analysis_key": "generated",
     "environment": "generated",
     "category": "generated",
-    "error": "error reading field xyz",
+    "error": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "results_count": 13,
     "rules_count": 11,
     "id": 2,
     "url": "https:\\/\\/example.com\\/",
-    "sarif_id": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53",
+    "sarif_id": "generated",
     "tool": {
         "name": "generated",
         "version": "generated",
         "guid": "generated"
     },
     "deletable": false,
-    "warning": "123 results were ignored"
+    "warning": "generated"
 }';
 
     /**
@@ -168,7 +167,7 @@ final readonly class CodeScanningAnalysis
     public string $createdAt, #[MapFrom('results_count')]
     public int $resultsCount, #[MapFrom('rules_count')]
     public int $rulesCount, public int $id, public string $url, #[MapFrom('sarif_id')]
-    public string $sarifId, public Schema\CodeScanningAnalysisTool $tool, public bool $deletable, public string $warning,)
+    public string $sarifId, public CodeScanningAnalysisTool $tool, public bool $deletable, public string $warning,)
     {
     }
 }

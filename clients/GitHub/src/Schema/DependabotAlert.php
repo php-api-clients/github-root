@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\DependabotAlert\Dependency;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependabotAlert
+final readonly class DependabotAlert implements \ApiClients\Client\GitHub\Contract\DependabotAlert
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -767,7 +767,7 @@ final readonly class DependabotAlert
                     "ecosystem": "generated",
                     "name": "generated"
                 },
-                "severity": "critical",
+                "severity": "low",
                 "vulnerable_version_range": "generated",
                 "first_patched_version": {
                     "identifier": "generated"
@@ -778,26 +778,26 @@ final readonly class DependabotAlert
                     "ecosystem": "generated",
                     "name": "generated"
                 },
-                "severity": "critical",
+                "severity": "low",
                 "vulnerable_version_range": "generated",
                 "first_patched_version": {
                     "identifier": "generated"
                 }
             }
         ],
-        "severity": "critical",
+        "severity": "low",
         "cvss": {
-            "score": 0.5,
+            "score": 5,
             "vector_string": "generated"
         },
         "cvss_severities": {
             "cvss_v3": {
                 "vector_string": "generated",
-                "score": 0.5
+                "score": 5
             },
             "cvss_v4": {
                 "vector_string": "generated",
-                "score": 0.5
+                "score": 5
             }
         },
         "cwes": [
@@ -812,11 +812,11 @@ final readonly class DependabotAlert
         ],
         "identifiers": [
             {
-                "type": "GHSA",
+                "type": "CVE",
                 "value": "generated"
             },
             {
-                "type": "GHSA",
+                "type": "CVE",
                 "value": "generated"
             }
         ],
@@ -837,7 +837,7 @@ final readonly class DependabotAlert
             "ecosystem": "generated",
             "name": "generated"
         },
-        "severity": "critical",
+        "severity": "low",
         "vulnerable_version_range": "generated",
         "first_patched_version": {
             "identifier": "generated"
@@ -851,28 +851,28 @@ final readonly class DependabotAlert
     "dismissed_by": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "dismissed_reason": "tolerable_risk",
+    "dismissed_reason": "fix_started",
     "dismissed_comment": "generated",
     "fixed_at": "1970-01-01T00:00:00+00:00",
     "auto_dismissed_at": "1970-01-01T00:00:00+00:00"
@@ -894,14 +894,14 @@ final readonly class DependabotAlert
      * fixedAt: The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      * autoDismissedAt: The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public function __construct(public int $number, public string $state, public Schema\DependabotAlert\Dependency $dependency, #[MapFrom('security_advisory')]
-    public Schema\DependabotAlertSecurityAdvisory $securityAdvisory, #[MapFrom('security_vulnerability')]
-    public Schema\DependabotAlertSecurityVulnerability $securityVulnerability, public string $url, #[MapFrom('html_url')]
+    public function __construct(public int $number, public string $state, public Dependency $dependency, #[MapFrom('security_advisory')]
+    public DependabotAlertSecurityAdvisory $securityAdvisory, #[MapFrom('security_vulnerability')]
+    public DependabotAlertSecurityVulnerability $securityVulnerability, public string $url, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('dismissed_at')]
     public string|null $dismissedAt, #[MapFrom('dismissed_by')]
-    public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_reason')]
+    public SimpleUser|null $dismissedBy, #[MapFrom('dismissed_reason')]
     public string|null $dismissedReason, #[MapFrom('dismissed_comment')]
     public string|null $dismissedComment, #[MapFrom('fixed_at')]
     public string|null $fixedAt, #[MapFrom('auto_dismissed_at')]

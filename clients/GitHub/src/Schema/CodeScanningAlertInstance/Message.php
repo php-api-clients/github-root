@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T0317CEE1\TB8FB65D0\T6FC68DD1\TFE0B93B4;
 
-final readonly class Message extends Schema\AliasAbstract\Tiet0317CEE1\TietB8FB65D0\Tiet6FC68DD1\TietFE0B93B4
+final readonly class Message extends TFE0B93B4
 {
 }

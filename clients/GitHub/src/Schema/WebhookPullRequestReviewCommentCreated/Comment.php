@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\Links;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\Reactions;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Comment
+final readonly class Comment implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewCommentCreated\Comment
 {
     public const SCHEMA_JSON         = '{
     "title": "Pull Request Review Comment",
@@ -400,7 +402,7 @@ final readonly class Comment
             "href": "generated"
         }
     },
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -430,10 +432,10 @@ final readonly class Comment
         "total_count": 11,
         "url": "https:\\/\\/example.com\\/"
     },
-    "side": "RIGHT",
+    "side": "LEFT",
     "start_line": 10,
-    "start_side": "RIGHT",
-    "subject_type": "file",
+    "start_side": "LEFT",
+    "subject_type": "line",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
     "user": {
@@ -456,7 +458,7 @@ final readonly class Comment
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
@@ -487,7 +489,7 @@ final readonly class Comment
      * url: URL for the pull request review comment
      */
     public function __construct(#[MapFrom('_links')]
-    public Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $links, #[MapFrom('author_association')]
+    public Links $links, #[MapFrom('author_association')]
     public string $authorAssociation, public string $body, #[MapFrom('commit_id')]
     public string $commitId, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('diff_hunk')]
@@ -500,11 +502,11 @@ final readonly class Comment
     public int $originalPosition, #[MapFrom('original_start_line')]
     public int|null $originalStartLine, public string $path, public int|null $position, #[MapFrom('pull_request_review_id')]
     public int|null $pullRequestReviewId, #[MapFrom('pull_request_url')]
-    public string $pullRequestUrl, public Schema\WebhookPullRequestReviewCommentCreated\Comment\Reactions $reactions, public string $side, #[MapFrom('start_line')]
+    public string $pullRequestUrl, public Reactions $reactions, public string $side, #[MapFrom('start_line')]
     public int|null $startLine, #[MapFrom('start_side')]
     public string|null $startSide, #[MapFrom('subject_type')]
     public string|null $subjectType, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookPullRequestReviewCommentCreated\Comment\User|null $user,)
+    public string $updatedAt, public string $url, public User|null $user,)
     {
     }
 }

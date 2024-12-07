@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\ReviewDismissedIssueEvent;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DismissedReview
+final readonly class DismissedReview implements \ApiClients\Client\GitHub\Contract\ReviewDismissedIssueEvent\DismissedReview
 {
     public const SCHEMA_JSON         = '{
     "required": [

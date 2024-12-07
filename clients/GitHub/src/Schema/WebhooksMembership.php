@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksMembership\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksMembership
+final readonly class WebhooksMembership implements \ApiClients\Client\GitHub\Contract\WebhooksMembership
 {
     public const SCHEMA_JSON         = '{
     "title": "Membership",
@@ -164,14 +164,14 @@ final readonly class WebhooksMembership
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
 
     public function __construct(#[MapFrom('organization_url')]
-    public string $organizationUrl, public string $role, public string $state, public string $url, public Schema\WebhooksMembership\User|null $user,)
+    public string $organizationUrl, public string $role, public string $state, public string $url, public User|null $user,)
     {
     }
 }

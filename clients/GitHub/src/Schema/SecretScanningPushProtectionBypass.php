@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningPushProtectionBypass
+final readonly class SecretScanningPushProtectionBypass implements \ApiClients\Client\GitHub\Contract\SecretScanningPushProtectionBypass
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -37,7 +37,7 @@ final readonly class SecretScanningPushProtectionBypass
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "reason": "will_fix_later",
+    "reason": "false_positive",
     "expire_at": "1970-01-01T00:00:00+00:00",
     "token_type": "generated"
 }';

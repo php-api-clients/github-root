@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Classroom
+final readonly class Classroom implements \ApiClients\Client\GitHub\Contract\Classroom
 {
     public const SCHEMA_JSON         = '{
     "title": "Classroom",
@@ -108,18 +106,18 @@ final readonly class Classroom
     public const SCHEMA_TITLE        = 'Classroom';
     public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom classroom';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "name": "Programming Elixir",
+    "id": 2,
+    "name": "generated",
     "archived": false,
     "organization": {
-        "id": 1,
-        "login": "github",
-        "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-        "html_url": "https:\\/\\/github.com\\/github",
-        "name": "Github - Code thigns happen here",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif"
+        "id": 2,
+        "login": "generated",
+        "node_id": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "name": "generated",
+        "avatar_url": "generated"
     },
-    "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+    "url": "generated"
 }';
 
     /**
@@ -129,7 +127,7 @@ final readonly class Classroom
      * organization: A GitHub organization.
      * url: The URL of the classroom on GitHub Classroom.
      */
-    public function __construct(public int $id, public string $name, public bool $archived, public Schema\SimpleClassroomOrganization $organization, public string $url)
+    public function __construct(public int $id, public string $name, public bool $archived, public SimpleClassroomOrganization $organization, public string $url)
     {
     }
 }

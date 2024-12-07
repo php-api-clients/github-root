@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Put;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\MarkNotificationsAsRead;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\MarkRepoNotificationsAsRead;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\SetRepoSubscription;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\SetThreadSubscription;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\StarRepoForAuthenticatedUser;
 use ApiClients\Client\GitHub\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted;
 use ApiClients\Client\GitHub\Schema\RepositorySubscription;
 use ApiClients\Client\GitHub\Schema\ThreadSubscription;
@@ -18,7 +23,7 @@ use function array_key_exists;
 
 final class Activity
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -32,7 +37,7 @@ final class Activity
 
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        $operator = new Internal\Operator\Activity\SetThreadSubscription($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
+        $operator = new SetThreadSubscription($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
 
         return $operator->call($arguments['thread_id'], $params);
     }
@@ -53,7 +58,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\MarkRepoNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Notifications());
+        $operator = new MarkRepoNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Notifications());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -74,7 +79,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\SetRepoSubscription($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscription());
+        $operator = new SetRepoSubscription($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscription());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -95,7 +100,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\StarRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
+        $operator = new StarRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -103,7 +108,7 @@ final class Activity
     /** @return */
     public function markNotificationsAsRead(array $params): \ApiClients\Client\GitHub\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted|WithoutBody
     {
-        $operator = new Internal\Operator\Activity\MarkNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
+        $operator = new MarkNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
 
         return $operator->call($params);
     }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\Regist
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Registry
+final readonly class Registry implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\Registry
 {
     public const SCHEMA_JSON         = '{
     "type": [

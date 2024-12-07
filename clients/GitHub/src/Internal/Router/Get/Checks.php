@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\GetSuite;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\ListAnnotations;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\ListForRef;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\ListForSuite;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\ListSuitesForRef;
 use ApiClients\Client\GitHub\Schema\CheckRun;
 use ApiClients\Client\GitHub\Schema\CheckSuite;
 use ApiClients\Client\GitHub\Schema\Operations\Checks\ListForRef\Response\ApplicationJson\Ok\Application\Json;
@@ -19,7 +24,7 @@ use function array_key_exists;
 
 final class Checks
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -45,7 +50,7 @@ final class Checks
 
         $arguments['check_run_id'] = $params['check_run_id'];
         unset($params['check_run_id']);
-        $operator = new Internal\Operator\Checks\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_run_id']);
     }
@@ -72,12 +77,12 @@ final class Checks
 
         $arguments['check_suite_id'] = $params['check_suite_id'];
         unset($params['check_suite_id']);
-        $operator = new Internal\Operator\Checks\GetSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀CheckSuiteId());
+        $operator = new GetSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀CheckSuiteId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_suite_id']);
     }
 
-    /** @return Observable<Schema\CheckAnnotation> */
+    /** @return Observable<CheckAnnotation> */
     public function listAnnotations(array $params): iterable
     {
         $arguments = [];
@@ -111,7 +116,7 @@ final class Checks
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Checks\ListAnnotations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId🌀Annotations());
+        $operator = new ListAnnotations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId🌀Annotations());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_run_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -168,7 +173,7 @@ final class Checks
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Checks\ListForSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀CheckSuiteId🌀CheckRuns());
+        $operator = new ListForSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀CheckSuiteId🌀CheckRuns());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_suite_id'], $arguments['check_name'], $arguments['status'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
@@ -231,7 +236,7 @@ final class Checks
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Checks\ListForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀CheckRuns());
+        $operator = new ListForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀CheckRuns());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['check_name'], $arguments['status'], $arguments['app_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
@@ -282,7 +287,7 @@ final class Checks
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Checks\ListSuitesForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀CheckSuites());
+        $operator = new ListSuitesForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀CheckSuites());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['app_id'], $arguments['check_name'], $arguments['per_page'], $arguments['page']);
     }

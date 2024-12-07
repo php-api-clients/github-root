@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhooksMarketplacePurchase;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Plan
+final readonly class Plan implements \ApiClients\Client\GitHub\Contract\WebhooksMarketplacePurchase\Plan
 {
     public const SCHEMA_JSON         = '{
     "required": [

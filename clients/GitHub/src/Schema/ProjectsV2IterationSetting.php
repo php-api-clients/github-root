@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ProjectsV2IterationSetting
+final readonly class ProjectsV2IterationSetting implements \ApiClients\Client\GitHub\Contract\ProjectsV2IterationSetting
 {
     public const SCHEMA_JSON         = '{
     "title": "Projects v2 Iteration Setting",
@@ -42,7 +42,7 @@ final readonly class ProjectsV2IterationSetting
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": "generated",
     "title": "generated",
-    "duration": 0.8,
+    "duration": 8,
     "start_date": "generated"
 }';
 

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleParamsRequiredReviewerConfiguration
+final readonly class RepositoryRuleParamsRequiredReviewerConfiguration implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsRequiredReviewerConfiguration
 {
     public const SCHEMA_JSON         = '{
     "title": "RequiredReviewerConfiguration",

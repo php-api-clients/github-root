@@ -4,21 +4,24 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Projects\ProjectId;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json;
+use ApiClients\Client\GitHub\Schema\Teams\AddOrUpdateProjectPermissionsLegacy\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class AddOrUpdateProjectPermissionsLegacy
 {
@@ -29,17 +32,20 @@ final class AddOrUpdateProjectPermissionsLegacy
     /**The unique identifier of the project. **/
     private int $projectId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator, int $teamId, int $projectId)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private ProjectId $hydrator, int $teamId, int $projectId)
     {
-        $this->teamId    = $teamId;
-        $this->projectId = $projectId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->teamId                  = $teamId;
+        $this->projectId               = $projectId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\AddOrUpdateProjectPermissionsLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PUT', str_replace(['{team_id}', '{project_id}'], [$this->teamId, $this->projectId], '/teams/{team_id}/projects/{project_id}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', (string) (new UriTemplate('/teams/{team_id}/projects/{project_id}'))->expand(['project_id' => $this->projectId, 'team_id' => $this->teamId]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -54,25 +60,25 @@ final class AddOrUpdateProjectPermissionsLegacy
                      * Forbidden if the project is not owned by the organization
                      **/
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Json::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json(403, $this->hydrator->hydrateObject(Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json(403, $this->hydrator->hydrateObject(Json::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                 }
 
                 break;

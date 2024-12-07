@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Description;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Name;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\NotificationSetting;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Privacy;
+use ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -122,8 +126,8 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookTeamEdited\Changes\Description|null $description, public Schema\WebhookTeamEdited\Changes\Name|null $name, public Schema\WebhookTeamEdited\Changes\Privacy|null $privacy, #[MapFrom('notification_setting')]
-    public Schema\WebhookTeamEdited\Changes\NotificationSetting|null $notificationSetting, public Schema\WebhookTeamEdited\Changes\Repository|null $repository,)
+    public function __construct(public Description|null $description, public Name|null $name, public Privacy|null $privacy, #[MapFrom('notification_setting')]
+    public NotificationSetting|null $notificationSetting, public Repository|null $repository,)
     {
     }
 }

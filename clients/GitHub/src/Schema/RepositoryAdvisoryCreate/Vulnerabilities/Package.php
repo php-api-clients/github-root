@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryAdvisoryCreate\Vulnerabilities;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TCCAC04AC\TA7AECC3A\TDE4D9B35\TA98B46C2;
 
-final readonly class Package extends Schema\AliasAbstract\TietCCAC04AC\TietA7AECC3A\TietDE4D9B35\TietA98B46C2
+final readonly class Package extends TA98B46C2
 {
 }

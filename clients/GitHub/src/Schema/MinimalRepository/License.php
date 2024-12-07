@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\MinimalRepository;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class License
+final readonly class License implements \ApiClients\Client\GitHub\Contract\MinimalRepository\License
 {
     public const SCHEMA_JSON         = '{
     "type": [

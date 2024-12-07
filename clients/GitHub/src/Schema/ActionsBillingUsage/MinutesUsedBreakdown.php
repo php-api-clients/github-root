@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\ActionsBillingUsage;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MinutesUsedBreakdown
+final readonly class MinutesUsedBreakdown implements \ApiClients\Client\GitHub\Contract\ActionsBillingUsage\MinutesUsedBreakdown
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

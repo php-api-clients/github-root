@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Stats\Contributors;
+use ApiClients\Client\GitHub\Schema\ContributorActivity;
+use ApiClients\Client\GitHub\Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +22,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetContributorsStats
 {
@@ -30,19 +32,21 @@ final class GetContributorsStats
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Stats\Contributors $hydrator, string $owner, string $repo)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Contributors $hydrator, string $owner, string $repo)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/stats/contributors'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/stats/contributors'))->expand(['owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    /** @return Observable<Schema\ContributorActivity>|Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody */
-    public function createResponse(ResponseInterface $response): Observable|Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
+    /** @return Observable<ContributorActivity>|Json|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|Json|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,12 +58,12 @@ final class GetContributorsStats
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ContributorActivity {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): ContributorActivity {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\ContributorActivity::class, $body);
+                                return $this->hydrator->hydrateObject(ContributorActivity::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -72,9 +76,9 @@ final class GetContributorsStats
                      **/
 
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Json::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json::class, $body);
+                        return $this->hydrator->hydrateObject(Json::class, $body);
                 }
 
                 break;

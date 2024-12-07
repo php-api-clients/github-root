@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Classroom;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Assignments\AssignmentId\AcceptedAssignments;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListAcceptedAssignmentsForAnAssignment
     public const OPERATION_ID    = 'classroom/list-accepted-assignments-for-an-assignment';
     public const OPERATION_MATCH = 'GET /assignments/{assignment_id}/accepted_assignments';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Assignments\AssignmentId\AcceptedAssignments $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private AcceptedAssignments $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ClassroomAcceptedAssignment> */
+    /** @return Observable<ClassroomAcceptedAssignment> */
     public function call(int $assignmentId, int $page = 1, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Classroom\ListAcceptedAssignmentsForAnAssignment($this->responseSchemaValidator, $this->hydrator, $assignmentId, $page, $perPage);

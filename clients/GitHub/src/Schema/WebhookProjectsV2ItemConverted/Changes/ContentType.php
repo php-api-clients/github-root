@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemConverted\Changes;
 
-final readonly class ContentType
+final readonly class ContentType implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemConverted\Changes\ContentType
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

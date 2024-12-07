@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardDeleted;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectCardDeleted\ProjectCard\Creator;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ProjectCard
+final readonly class ProjectCard implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardDeleted\ProjectCard
 {
     public const SCHEMA_JSON         = '{
     "title": "Project Card",
@@ -210,7 +210,7 @@ final readonly class ProjectCard
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -231,7 +231,7 @@ final readonly class ProjectCard
     public int|null $columnId, #[MapFrom('column_url')]
     public string $columnUrl, #[MapFrom('content_url')]
     public string|null $contentUrl, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhookProjectCardDeleted\ProjectCard\Creator|null $creator, public int $id, #[MapFrom('node_id')]
+    public string $createdAt, public Creator|null $creator, public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string|null $note, #[MapFrom('project_url')]
     public string $projectUrl, #[MapFrom('updated_at')]
     public string $updatedAt, public string $url,)

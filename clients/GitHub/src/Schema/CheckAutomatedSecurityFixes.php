@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CheckAutomatedSecurityFixes
+final readonly class CheckAutomatedSecurityFixes implements \ApiClients\Client\GitHub\Contract\CheckAutomatedSecurityFixes
 {
     public const SCHEMA_JSON         = '{
     "title": "Check Automated Security Fixes",
@@ -34,7 +34,7 @@ final readonly class CheckAutomatedSecurityFixes
     public const SCHEMA_TITLE        = 'Check Automated Security Fixes';
     public const SCHEMA_DESCRIPTION  = 'Check Automated Security Fixes';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "enabled": true,
+    "enabled": false,
     "paused": false
 }';
 

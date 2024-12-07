@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Projects;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Projects;
+use ApiClients\Client\GitHub\Schema\Project;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +21,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListForUser
 {
@@ -34,20 +35,22 @@ final class ListForUser
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Projects $hydrator, string $username, string $state = 'open', int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Projects $hydrator, string $username, string $state = 'open', int $perPage = 30, int $page = 1)
     {
-        $this->username = $username;
-        $this->state    = $state;
-        $this->perPage  = $perPage;
-        $this->page     = $page;
+        $this->username                = $username;
+        $this->state                   = $state;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{username}', '{state}', '{per_page}', '{page}'], [$this->username, $this->state, $this->perPage, $this->page], '/users/{username}/projects' . '?state={state}&per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/projects{?page,per_page,state}'))->expand(['page' => $this->page, 'per_page' => $this->perPage, 'state' => $this->state, 'username' => $this->username]));
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -60,12 +63,12 @@ final class ListForUser
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\Project {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Project {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Project::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Project::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\Project::class, $body);
+                                return $this->hydrator->hydrateObject(Project::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -78,9 +81,9 @@ final class ListForUser
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                 }
 
                 break;

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis\SkippedRep
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class NotFoundRepos
+final readonly class NotFoundRepos implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis\SkippedRepositories\NotFoundRepos
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -34,7 +34,7 @@ final readonly class NotFoundRepos
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_count": 2,
+    "repository_count": 16,
     "repository_full_names": [
         "generated",
         "generated"

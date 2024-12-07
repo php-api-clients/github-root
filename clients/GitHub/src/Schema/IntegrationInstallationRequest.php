@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\IntegrationInstallationRequest\Account;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\IntegrationInstallationRequest\Account;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class IntegrationInstallationRequest
+final readonly class IntegrationInstallationRequest implements \ApiClients\Client\GitHub\Contract\IntegrationInstallationRequest
 {
     public const SCHEMA_JSON         = '{
     "title": "Integration Installation Request",
@@ -476,34 +475,45 @@ final readonly class IntegrationInstallationRequest
     public const SCHEMA_TITLE        = 'Integration Installation Request';
     public const SCHEMA_DESCRIPTION  = 'Request to install an integration on a target';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "node_id": "MDExOkludGVncmF0aW9uMQ==",
-    "account": null,
+    "id": 2,
+    "node_id": "generated",
+    "account": {
+        "description": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "website_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "node_id": "generated",
+        "name": "generated",
+        "slug": "generated",
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "updated_at": "1970-01-01T00:00:00+00:00",
+        "avatar_url": "https:\\/\\/example.com\\/"
+    },
     "requester": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "created_at": "2022-07-08T16:18:44-04:00"
+    "created_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**
@@ -512,7 +522,7 @@ final readonly class IntegrationInstallationRequest
      */
     public function __construct(public int $id, #[MapFrom('node_id')]
     public string|null $nodeId, #[Account]
-    public Schema\SimpleUser|Schema\Enterprise $account, public Schema\SimpleUser $requester, #[MapFrom('created_at')]
+    public SimpleUser|Enterprise $account, public SimpleUser $requester, #[MapFrom('created_at')]
     public string $createdAt,)
     {
     }

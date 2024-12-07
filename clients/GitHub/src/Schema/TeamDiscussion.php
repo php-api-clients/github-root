@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TeamDiscussion
+final readonly class TeamDiscussion implements \ApiClients\Client\GitHub\Contract\TeamDiscussion
 {
     public const SCHEMA_JSON         = '{
     "title": "Team Discussion",
@@ -374,43 +373,43 @@ final readonly class TeamDiscussion
     "author": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "body": "Please suggest improvements to our workflow in comments.",
-    "body_html": "<p>Hi! This is an area for us to collaborate as a team<\\/p>",
-    "body_version": "0307116bbf7ced493b8d8a346c650b71",
-    "comments_count": 0,
-    "comments_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027\\/discussions\\/1\\/comments",
-    "created_at": "2018-01-25T18:56:31Z",
+    "body": "generated",
+    "body_html": "generated",
+    "body_version": "generated",
+    "comments_count": 14,
+    "comments_url": "https:\\/\\/example.com\\/",
+    "created_at": "1970-01-01T00:00:00+00:00",
     "last_edited_at": "1970-01-01T00:00:00+00:00",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/github\\/teams\\/justice-league\\/discussions\\/1",
-    "node_id": "MDE0OlRlYW1EaXNjdXNzaW9uMQ==",
-    "number": 42,
-    "pinned": true,
-    "private": true,
-    "team_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027",
-    "title": "How can we improve our workflow?",
-    "updated_at": "2018-01-25T18:56:31Z",
-    "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027\\/discussions\\/1",
+    "html_url": "https:\\/\\/example.com\\/",
+    "node_id": "generated",
+    "number": 6,
+    "pinned": false,
+    "private": false,
+    "team_url": "https:\\/\\/example.com\\/",
+    "title": "generated",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "url": "https:\\/\\/example.com\\/",
     "reactions": {
         "url": "https:\\/\\/example.com\\/",
         "total_count": 11,
@@ -433,7 +432,7 @@ final readonly class TeamDiscussion
      * private: Whether or not this discussion should be restricted to team members and organization owners.
      * title: The title of the discussion.
      */
-    public function __construct(public Schema\SimpleUser|null $author, public string $body, #[MapFrom('body_html')]
+    public function __construct(public SimpleUser|null $author, public string $body, #[MapFrom('body_html')]
     public string $bodyHtml, #[MapFrom('body_version')]
     public string $bodyVersion, #[MapFrom('comments_count')]
     public int $commentsCount, #[MapFrom('comments_url')]
@@ -443,7 +442,7 @@ final readonly class TeamDiscussion
     public string $htmlUrl, #[MapFrom('node_id')]
     public string $nodeId, public int $number, public bool $pinned, public bool $private, #[MapFrom('team_url')]
     public string $teamUrl, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\ReactionRollup|null $reactions,)
+    public string $updatedAt, public string $url, public ReactionRollup|null $reactions,)
     {
     }
 }

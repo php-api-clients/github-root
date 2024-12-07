@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Discussions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListDiscussionsLegacy
     public const OPERATION_ID    = 'teams/list-discussions-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Teams\TeamId\Discussions $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Discussions $hydrator)
     {
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function call(int $teamId, string $direction = 'desc', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Teams\ListDiscussionsLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $direction, $perPage, $page);

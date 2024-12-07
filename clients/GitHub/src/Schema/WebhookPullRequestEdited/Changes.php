@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Body;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Title;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -88,7 +90,7 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookPullRequestEdited\Changes\Base|null $base, public Schema\WebhookPullRequestEdited\Changes\Body|null $body, public Schema\WebhookPullRequestEdited\Changes\Title|null $title)
+    public function __construct(public Base|null $base, public Body|null $body, public Title|null $title)
     {
     }
 }

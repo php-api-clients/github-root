@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemReordered;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemReordered\Changes\PreviousProjectsVTwoItemNodeId;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemReordered\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -41,7 +41,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('previous_projects_v2_item_node_id')]
-    public Schema\WebhookProjectsV2ItemReordered\Changes\PreviousProjectsVTwoItemNodeId|null $previousProjectsVTwoItemNodeId,)
+    public PreviousProjectsVTwoItemNodeId|null $previousProjectsVTwoItemNodeId,)
     {
     }
 }

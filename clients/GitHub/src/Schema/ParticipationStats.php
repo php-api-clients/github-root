@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ParticipationStats
+final readonly class ParticipationStats implements \ApiClients\Client\GitHub\Contract\ParticipationStats
 {
     public const SCHEMA_JSON         = '{
     "title": "Participation Stats",

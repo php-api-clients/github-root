@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\AppManifests\Code;
 
 use ApiClients\Client\GitHub\Schema\BasicError;
-use ApiClients\Client\GitHub\Schema\Integration;
 use ApiClients\Client\GitHub\Schema\Integration\Permissions;
+use ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHub\Schema\SimpleUser;
 use ApiClients\Client\GitHub\Schema\ValidationErrorSimple;
 use EventSauce\ObjectHydrator\IterableList;
@@ -44,7 +44,7 @@ class Conversions implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match ($className) {
-            'ApiClients\Client\GitHub\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration($payload),
+            'ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operations⚡️Apps⚡️CreateFromManifest⚡️Response⚡️ApplicationJson⚡️Created($payload),
                 'ApiClients\Client\GitHub\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHub\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($payload),
@@ -53,7 +53,7 @@ class Conversions implements ObjectMapper
         };
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration(array $payload): Integration
+    private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operations⚡️Apps⚡️CreateFromManifest⚡️Response⚡️ApplicationJson⚡️Created(array $payload): Created
     {
         $properties    = [];
         $missingFields = [];
@@ -94,7 +94,7 @@ class Conversions implements ObjectMapper
             $value = $payload['client_id'] ?? null;
 
             if ($value === null) {
-                $properties['clientId'] = null;
+                $missingFields[] = 'client_id';
                 goto after_clientId;
             }
 
@@ -233,7 +233,7 @@ class Conversions implements ObjectMapper
             $value = $payload['client_secret'] ?? null;
 
             if ($value === null) {
-                $properties['clientSecret'] = null;
+                $missingFields[] = 'client_secret';
                 goto after_clientSecret;
             }
 
@@ -255,7 +255,7 @@ class Conversions implements ObjectMapper
             $value = $payload['pem'] ?? null;
 
             if ($value === null) {
-                $properties['pem'] = null;
+                $missingFields[] = 'pem';
                 goto after_pem;
             }
 
@@ -263,17 +263,17 @@ class Conversions implements ObjectMapper
 
             after_pem:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Integration', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Integration::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(Created::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Integration(...$properties);
+            return new Created(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Integration', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -758,7 +758,7 @@ class Conversions implements ObjectMapper
                 'DateTime' => $this->serializeValueDateTime($object),
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHub\Schema\Integration' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration($object),
+                'ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operations⚡️Apps⚡️CreateFromManifest⚡️Response⚡️ApplicationJson⚡️Created($object),
                 'ApiClients\Client\GitHub\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHub\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration⚡️Permissions($object),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($object),
@@ -825,9 +825,9 @@ class Conversions implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Integration(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operations⚡️Apps⚡️CreateFromManifest⚡️Response⚡️ApplicationJson⚡️Created(mixed $object): mixed
     {
-        assert($object instanceof Integration);
+        assert($object instanceof Created);
         $result = [];
 
         $id                            = $object->id;
@@ -844,12 +844,7 @@ class Conversions implements ObjectMapper
         $nodeId                                 = $object->nodeId;
         after_nodeId:        $result['node_id'] = $nodeId;
 
-        $clientId = $object->clientId;
-
-        if ($clientId === null) {
-            goto after_clientId;
-        }
-
+        $clientId                                   = $object->clientId;
         after_clientId:        $result['client_id'] = $clientId;
 
         $owner = $object->owner;
@@ -906,12 +901,7 @@ class Conversions implements ObjectMapper
 
         after_installationsCount:        $result['installations_count'] = $installationsCount;
 
-        $clientSecret = $object->clientSecret;
-
-        if ($clientSecret === null) {
-            goto after_clientSecret;
-        }
-
+        $clientSecret                                       = $object->clientSecret;
         after_clientSecret:        $result['client_secret'] = $clientSecret;
 
         $webhookSecret = $object->webhookSecret;
@@ -922,12 +912,7 @@ class Conversions implements ObjectMapper
 
         after_webhookSecret:        $result['webhook_secret'] = $webhookSecret;
 
-        $pem = $object->pem;
-
-        if ($pem === null) {
-            goto after_pem;
-        }
-
+        $pem                             = $object->pem;
         after_pem:        $result['pem'] = $pem;
 
         return $result;

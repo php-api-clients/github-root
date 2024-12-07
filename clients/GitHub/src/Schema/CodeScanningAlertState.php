@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertState
+final readonly class CodeScanningAlertState implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertState
 {
     public const SCHEMA_JSON         = '{
     "enum": [

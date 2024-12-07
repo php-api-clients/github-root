@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksNumber
+final readonly class WebhooksNumber implements \ApiClients\Client\GitHub\Contract\WebhooksNumber
 {
     public const SCHEMA_JSON         = '{
     "type": "integer",

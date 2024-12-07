@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Event;
 
-final readonly class Repo
+final readonly class Repo implements \ApiClients\Client\GitHub\Contract\Event\Repo
 {
     public const SCHEMA_JSON         = '{
     "required": [

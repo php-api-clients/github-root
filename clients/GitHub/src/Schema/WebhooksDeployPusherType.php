@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksDeployPusherType
+final readonly class WebhooksDeployPusherType implements \ApiClients\Client\GitHub\Contract\WebhooksDeployPusherType
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

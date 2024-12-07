@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Orgs;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\OrganizationRoles\RoleId\Teams;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListOrgRoleTeams
     public const OPERATION_ID    = 'orgs/list-org-role-teams';
     public const OPERATION_MATCH = 'GET /orgs/{org}/organization-roles/{role_id}/teams';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\OrganizationRoles\RoleId\Teams $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Teams $hydrator)
     {
     }
 
-    /** @return Observable<Schema\TeamRoleAssignment>|WithoutBody */
+    /** @return Observable<TeamRoleAssignment>|WithoutBody */
     public function call(string $org, int $roleId, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Orgs\ListOrgRoleTeams($this->responseSchemaValidator, $this->hydrator, $org, $roleId, $perPage, $page);

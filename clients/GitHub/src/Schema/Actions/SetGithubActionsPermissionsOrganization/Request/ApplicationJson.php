@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\SetGithubActionsPermissionsOrg
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\SetGithubActionsPermissionsOrganization\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -37,7 +37,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "enabled_repositories": "selected",
+    "enabled_repositories": "all",
     "allowed_actions": "all"
 }';
 

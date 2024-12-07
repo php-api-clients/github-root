@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrgRepoCustomPropertyValues
+final readonly class OrgRepoCustomPropertyValues implements \ApiClients\Client\GitHub\Contract\OrgRepoCustomPropertyValues
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization Repository Custom Property Values",
@@ -80,9 +80,9 @@ final readonly class OrgRepoCustomPropertyValues
     public const SCHEMA_TITLE        = 'Organization Repository Custom Property Values';
     public const SCHEMA_DESCRIPTION  = 'List of custom property values for a repository';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_id": 1296269,
-    "repository_name": "Hello-World",
-    "repository_full_name": "octocat\\/Hello-World",
+    "repository_id": 13,
+    "repository_name": "generated",
+    "repository_full_name": "generated",
     "properties": [
         {
             "property_name": "generated",

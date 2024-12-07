@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Dependabot;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Enterprises\Enterprise\Dependabot\Alerts;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\DependabotAlertWithRepository;
+use ApiClients\Client\GitHub\Schema\ValidationErrorSimple;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -20,7 +23,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListAlertsForEnterprise
 {
@@ -65,29 +67,31 @@ final class ListAlertsForEnterprise
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprises\Enterprise\Dependabot\Alerts $hydrator, string $enterprise, string $state, string $severity, string $ecosystem, string $package, string $scope, string $before, string $after, int $last, string $sort = 'created', string $direction = 'desc', int $first = 30, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Alerts $hydrator, string $enterprise, string $state, string $severity, string $ecosystem, string $package, string $scope, string $before, string $after, int $last, string $sort = 'created', string $direction = 'desc', int $first = 30, int $perPage = 30)
     {
-        $this->enterprise = $enterprise;
-        $this->state      = $state;
-        $this->severity   = $severity;
-        $this->ecosystem  = $ecosystem;
-        $this->package    = $package;
-        $this->scope      = $scope;
-        $this->before     = $before;
-        $this->after      = $after;
-        $this->last       = $last;
-        $this->sort       = $sort;
-        $this->direction  = $direction;
-        $this->first      = $first;
-        $this->perPage    = $perPage;
+        $this->enterprise              = $enterprise;
+        $this->state                   = $state;
+        $this->severity                = $severity;
+        $this->ecosystem               = $ecosystem;
+        $this->package                 = $package;
+        $this->scope                   = $scope;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->last                    = $last;
+        $this->sort                    = $sort;
+        $this->direction               = $direction;
+        $this->first                   = $first;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{enterprise}', '{state}', '{severity}', '{ecosystem}', '{package}', '{scope}', '{before}', '{after}', '{last}', '{sort}', '{direction}', '{first}', '{per_page}'], [$this->enterprise, $this->state, $this->severity, $this->ecosystem, $this->package, $this->scope, $this->before, $this->after, $this->last, $this->sort, $this->direction, $this->first, $this->perPage], '/enterprises/{enterprise}/dependabot/alerts' . '?state={state}&severity={severity}&ecosystem={ecosystem}&package={package}&scope={scope}&before={before}&after={after}&last={last}&sort={sort}&direction={direction}&first={first}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/enterprises/{enterprise}/dependabot/alerts{?after,before,direction,ecosystem,first,last,package,per_page,scope,severity,sort,state}'))->expand(['after' => $this->after, 'before' => $this->before, 'direction' => $this->direction, 'ecosystem' => $this->ecosystem, 'enterprise' => $this->enterprise, 'first' => $this->first, 'last' => $this->last, 'package' => $this->package, 'per_page' => $this->perPage, 'scope' => $this->scope, 'severity' => $this->severity, 'sort' => $this->sort, 'state' => $this->state]));
     }
 
-    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return Observable<DependabotAlertWithRepository>|WithoutBody */
     public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
@@ -100,12 +104,12 @@ final class ListAlertsForEnterprise
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\DependabotAlertWithRepository {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): DependabotAlertWithRepository {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DependabotAlertWithRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(DependabotAlertWithRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\DependabotAlertWithRepository::class, $body);
+                                return $this->hydrator->hydrateObject(DependabotAlertWithRepository::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -118,25 +122,25 @@ final class ListAlertsForEnterprise
                      **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(403, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationErrorSimple::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationErrorSimple(422, $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationErrorSimple(422, $this->hydrator->hydrateObject(ValidationErrorSimple::class, $body));
                 }
 
                 break;

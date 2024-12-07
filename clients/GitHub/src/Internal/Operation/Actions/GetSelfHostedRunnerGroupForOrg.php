@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId;
+use ApiClients\Client\GitHub\Schema\RunnerGroupsOrg;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetSelfHostedRunnerGroupForOrg
 {
@@ -26,18 +27,20 @@ final class GetSelfHostedRunnerGroupForOrg
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator, string $org, int $runnerGroupId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private RunnerGroupId $hydrator, string $org, int $runnerGroupId)
     {
-        $this->org           = $org;
-        $this->runnerGroupId = $runnerGroupId;
+        $this->org                     = $org;
+        $this->runnerGroupId           = $runnerGroupId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{runner_group_id}'], [$this->org, $this->runnerGroupId], '/orgs/{org}/actions/runner-groups/{runner_group_id}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/actions/runner-groups/{runner_group_id}'))->expand(['org' => $this->org, 'runner_group_id' => $this->runnerGroupId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\RunnerGroupsOrg
+    public function createResponse(ResponseInterface $response): RunnerGroupsOrg
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,9 +52,9 @@ final class GetSelfHostedRunnerGroupForOrg
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerGroupsOrg::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(RunnerGroupsOrg::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\RunnerGroupsOrg::class, $body);
+                        return $this->hydrator->hydrateObject(RunnerGroupsOrg::class, $body);
                 }
 
                 break;

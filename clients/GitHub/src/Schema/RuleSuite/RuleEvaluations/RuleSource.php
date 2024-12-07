@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RuleSuite\RuleEvaluations;
 
-final readonly class RuleSource
+final readonly class RuleSource implements \ApiClients\Client\GitHub\Contract\RuleSuite\RuleEvaluations\RuleSource
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

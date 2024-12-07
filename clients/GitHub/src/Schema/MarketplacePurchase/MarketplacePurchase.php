@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\MarketplacePurchase;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\MarketplaceListingPlan;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MarketplacePurchase
+final readonly class MarketplacePurchase implements \ApiClients\Client\GitHub\Contract\MarketplacePurchase\MarketplacePurchase
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -166,21 +166,21 @@ final readonly class MarketplacePurchase
     "free_trial_ends_on": "generated",
     "updated_at": "generated",
     "plan": {
-        "url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313",
-        "accounts_url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts",
-        "id": 1313,
-        "number": 3,
-        "name": "Pro",
-        "description": "A professional-grade CI solution",
-        "monthly_price_in_cents": 1099,
-        "yearly_price_in_cents": 11870,
-        "price_model": "FLAT_RATE",
-        "has_free_trial": true,
+        "url": "https:\\/\\/example.com\\/",
+        "accounts_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "number": 6,
+        "name": "generated",
+        "description": "generated",
+        "monthly_price_in_cents": 22,
+        "yearly_price_in_cents": 21,
+        "price_model": "FREE",
+        "has_free_trial": false,
         "unit_name": "generated",
-        "state": "published",
+        "state": "generated",
         "bullets": [
-            "Up to 25 private repositories",
-            "Up to 25 private repositories"
+            "generated",
+            "generated"
         ]
     }
 }';
@@ -195,7 +195,7 @@ final readonly class MarketplacePurchase
     public int|null $unitCount, #[MapFrom('on_free_trial')]
     public bool|null $onFreeTrial, #[MapFrom('free_trial_ends_on')]
     public string|null $freeTrialEndsOn, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\MarketplaceListingPlan|null $plan,)
+    public string|null $updatedAt, public MarketplaceListingPlan|null $plan,)
     {
     }
 }

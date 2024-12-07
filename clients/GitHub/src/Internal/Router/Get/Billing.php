@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetGithubActionsBillingOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetGithubActionsBillingUser;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetGithubBillingUsageReportOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetGithubPackagesBillingOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetGithubPackagesBillingUser;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetSharedStorageBillingOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Billing\GetSharedStorageBillingUser;
 use ApiClients\Client\GitHub\Schema\ActionsBillingUsage;
 use ApiClients\Client\GitHub\Schema\BillingUsageReport;
 use ApiClients\Client\GitHub\Schema\CombinedBillingUsage;
@@ -18,7 +25,7 @@ use function array_key_exists;
 
 final class Billing
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -56,7 +63,7 @@ final class Billing
 
         $arguments['hour'] = $params['hour'];
         unset($params['hour']);
-        $operator = new Internal\Operator\Billing\GetGithubBillingUsageReportOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage());
+        $operator = new GetGithubBillingUsageReportOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage());
 
         return $operator->call($arguments['org'], $arguments['year'], $arguments['month'], $arguments['day'], $arguments['hour']);
     }
@@ -71,7 +78,7 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Billing\GetGithubActionsBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Actions());
+        $operator = new GetGithubActionsBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Actions());
 
         return $operator->call($arguments['org']);
     }
@@ -86,7 +93,7 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Billing\GetGithubPackagesBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Packages());
+        $operator = new GetGithubPackagesBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Packages());
 
         return $operator->call($arguments['org']);
     }
@@ -101,7 +108,7 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Billing\GetSharedStorageBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀SharedStorage());
+        $operator = new GetSharedStorageBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀SharedStorage());
 
         return $operator->call($arguments['org']);
     }
@@ -116,7 +123,7 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Billing\GetGithubActionsBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Actions());
+        $operator = new GetGithubActionsBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Actions());
 
         return $operator->call($arguments['username']);
     }
@@ -131,7 +138,7 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Billing\GetGithubPackagesBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Packages());
+        $operator = new GetGithubPackagesBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Packages());
 
         return $operator->call($arguments['username']);
     }
@@ -146,7 +153,7 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Billing\GetSharedStorageBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀SharedStorage());
+        $operator = new GetSharedStorageBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀SharedStorage());
 
         return $operator->call($arguments['username']);
     }

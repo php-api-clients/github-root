@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Actions\ReviewCustomGatesForRun\Request\ApplicationJson;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function json_encode;
-use function str_replace;
 
 final class ReviewCustomGatesForRun
 {
@@ -27,18 +28,19 @@ final class ReviewCustomGatesForRun
     /**The unique identifier of the workflow run. **/
     private int $runId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $owner, string $repo, int $runId)
+    public function __construct(private SchemaValidator $requestSchemaValidator, string $owner, string $repo, int $runId)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->runId = $runId;
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->owner                  = $owner;
+        $this->repo                   = $repo;
+        $this->runId                  = $runId;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\ReviewCustomGatesForRun\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], '/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'run_id' => $this->runId]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForIssue;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForIssueComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForPullRequestReviewComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForTeamDiscussionCommentInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForTeamDiscussionCommentLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForTeamDiscussionInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\ListForTeamDiscussionLegacy;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -15,11 +23,11 @@ use function array_key_exists;
 
 final class Reactions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForTeamDiscussionLegacy(array $params): iterable
     {
         $arguments = [];
@@ -53,12 +61,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForTeamDiscussionLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Reactions());
+        $operator = new ListForTeamDiscussionLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Reactions());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForCommitComment(array $params): iterable
     {
         $arguments = [];
@@ -98,12 +106,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId🌀Reactions());
+        $operator = new ListForCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForIssue(array $params): iterable
     {
         $arguments = [];
@@ -143,12 +151,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForIssue($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Reactions());
+        $operator = new ListForIssue($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForRelease(array $params): iterable
     {
         $arguments = [];
@@ -188,12 +196,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Reactions());
+        $operator = new ListForRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForTeamDiscussionInOrg(array $params): iterable
     {
         $arguments = [];
@@ -233,12 +241,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForTeamDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Reactions());
+        $operator = new ListForTeamDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Reactions());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForIssueComment(array $params): iterable
     {
         $arguments = [];
@@ -278,12 +286,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForIssueComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId🌀Reactions());
+        $operator = new ListForIssueComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForPullRequestReviewComment(array $params): iterable
     {
         $arguments = [];
@@ -323,12 +331,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForPullRequestReviewComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId🌀Reactions());
+        $operator = new ListForPullRequestReviewComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId🌀Reactions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForTeamDiscussionCommentLegacy(array $params): iterable
     {
         $arguments = [];
@@ -368,12 +376,12 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForTeamDiscussionCommentLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
+        $operator = new ListForTeamDiscussionCommentLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function listForTeamDiscussionCommentInOrg(array $params): iterable
     {
         $arguments = [];
@@ -419,7 +427,7 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Reactions\ListForTeamDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
+        $operator = new ListForTeamDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }

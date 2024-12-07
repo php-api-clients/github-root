@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Topic
+final readonly class Topic implements \ApiClients\Client\GitHub\Contract\Topic
 {
     public const SCHEMA_JSON         = '{
     "title": "Topic",

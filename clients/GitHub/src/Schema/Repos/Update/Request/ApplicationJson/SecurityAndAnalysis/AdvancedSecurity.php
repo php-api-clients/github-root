@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis;
 
-final readonly class AdvancedSecurity
+final readonly class AdvancedSecurity implements \ApiClients\Client\GitHub\Contract\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis\AdvancedSecurity
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

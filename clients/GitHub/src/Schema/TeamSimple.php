@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TeamSimple
+final readonly class TeamSimple implements \ApiClients\Client\GitHub\Contract\TeamSimple
 {
     public const SCHEMA_JSON         = '{
     "title": "Team Simple",
@@ -122,19 +122,19 @@ final readonly class TeamSimple
     public const SCHEMA_TITLE        = 'Team Simple';
     public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "node_id": "MDQ6VGVhbTE=",
-    "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-    "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-    "name": "Justice League",
-    "description": "A great team.",
-    "permission": "admin",
-    "privacy": "closed",
-    "notification_setting": "notifications_enabled",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-    "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-    "slug": "justice-league",
-    "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "members_url": "generated",
+    "name": "generated",
+    "description": "generated",
+    "permission": "generated",
+    "privacy": "generated",
+    "notification_setting": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "repositories_url": "https:\\/\\/example.com\\/",
+    "slug": "generated",
+    "ldap_dn": "generated"
 }';
 
     /**

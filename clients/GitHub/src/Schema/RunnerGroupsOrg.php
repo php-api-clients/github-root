@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RunnerGroupsOrg
+final readonly class RunnerGroupsOrg implements \ApiClients\Client\GitHub\Contract\RunnerGroupsOrg
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -77,7 +77,7 @@ final readonly class RunnerGroupsOrg
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 0.2,
+    "id": 2,
     "name": "generated",
     "visibility": "generated",
     "default": false,

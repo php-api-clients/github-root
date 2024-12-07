@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetRouteStatsByActor
     public const OPERATION_ID    = 'api-insights/get-route-stats-by-actor';
     public const OPERATION_MATCH = 'GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private ActorId $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ApiInsightsRouteStats> */
+    /** @return Observable<ApiInsightsRouteStats> */
     public function call(string $org, string $actorType, int $actorId, string $minTimestamp, string $maxTimestamp, array $sort, int $page = 1, int $perPage = 30, string $direction = 'desc'): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\ApiInsights\GetRouteStatsByActor($this->responseSchemaValidator, $this->hydrator, $org, $actorType, $actorId, $minTimestamp, $maxTimestamp, $sort, $page, $perPage, $direction);

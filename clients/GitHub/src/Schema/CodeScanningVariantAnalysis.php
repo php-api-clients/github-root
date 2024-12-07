@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis\SkippedRepositories;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningVariantAnalysis
+final readonly class CodeScanningVariantAnalysis implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis
 {
     public const SCHEMA_JSON         = '{
     "title": "Variant Analysis",
@@ -1165,117 +1165,117 @@ final readonly class CodeScanningVariantAnalysis
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "controller_repo": {
-        "id": 1296269,
-        "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-        "name": "Hello-World",
-        "full_name": "octocat\\/Hello-World",
+        "id": 2,
+        "node_id": "generated",
+        "name": "generated",
+        "full_name": "generated",
         "owner": {
             "name": "generated",
             "email": "generated",
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-            "html_url": "https:\\/\\/github.com\\/octocat",
-            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-            "type": "User",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-            "user_view_type": "public"
+            "starred_at": "generated",
+            "user_view_type": "generated"
         },
         "private": false,
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-        "description": "This your first repo!",
+        "html_url": "https:\\/\\/example.com\\/",
+        "description": "generated",
         "fork": false,
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World",
-        "archive_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}",
-        "assignees_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}",
-        "blobs_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}",
-        "branches_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}",
-        "collaborators_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}",
-        "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}",
-        "commits_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}",
-        "compare_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}",
-        "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}",
-        "contributors_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors",
-        "deployments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments",
-        "downloads_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads",
-        "events_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events",
-        "forks_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks",
-        "git_commits_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}",
-        "git_refs_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}",
-        "git_tags_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}",
-        "issue_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}",
-        "issue_events_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}",
-        "issues_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}",
-        "keys_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}",
-        "labels_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}",
-        "languages_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages",
-        "merges_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges",
-        "milestones_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}",
-        "notifications_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}",
-        "pulls_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}",
-        "releases_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}",
-        "stargazers_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers",
-        "statuses_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}",
-        "subscribers_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers",
-        "subscription_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription",
-        "tags_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags",
-        "teams_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams",
-        "trees_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}",
-        "hooks_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks"
+        "url": "https:\\/\\/example.com\\/",
+        "archive_url": "generated",
+        "assignees_url": "generated",
+        "blobs_url": "generated",
+        "branches_url": "generated",
+        "collaborators_url": "generated",
+        "comments_url": "generated",
+        "commits_url": "generated",
+        "compare_url": "generated",
+        "contents_url": "generated",
+        "contributors_url": "https:\\/\\/example.com\\/",
+        "deployments_url": "https:\\/\\/example.com\\/",
+        "downloads_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "forks_url": "https:\\/\\/example.com\\/",
+        "git_commits_url": "generated",
+        "git_refs_url": "generated",
+        "git_tags_url": "generated",
+        "issue_comment_url": "generated",
+        "issue_events_url": "generated",
+        "issues_url": "generated",
+        "keys_url": "generated",
+        "labels_url": "generated",
+        "languages_url": "https:\\/\\/example.com\\/",
+        "merges_url": "https:\\/\\/example.com\\/",
+        "milestones_url": "generated",
+        "notifications_url": "generated",
+        "pulls_url": "generated",
+        "releases_url": "generated",
+        "stargazers_url": "https:\\/\\/example.com\\/",
+        "statuses_url": "generated",
+        "subscribers_url": "https:\\/\\/example.com\\/",
+        "subscription_url": "https:\\/\\/example.com\\/",
+        "tags_url": "https:\\/\\/example.com\\/",
+        "teams_url": "https:\\/\\/example.com\\/",
+        "trees_url": "generated",
+        "hooks_url": "https:\\/\\/example.com\\/"
     },
     "actor": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "query_language": "swift",
+    "query_language": "cpp",
     "query_pack_url": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "completed_at": "1970-01-01T00:00:00+00:00",
-    "status": "cancelled",
+    "status": "in_progress",
     "actions_workflow_run_id": 23,
-    "failure_reason": "internal_error",
+    "failure_reason": "no_repos_queried",
     "scanned_repositories": [
         {
             "repository": {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             },
             "analysis_status": "pending",
             "result_count": 12,
@@ -1284,12 +1284,12 @@ final readonly class CodeScanningVariantAnalysis
         },
         {
             "repository": {
-                "id": 1296269,
-                "name": "Hello-World",
-                "full_name": "octocat\\/Hello-World",
+                "id": 2,
+                "name": "generated",
+                "full_name": "generated",
                 "private": false,
-                "stargazers_count": 80,
-                "updated_at": "2011-01-26T19:14:43Z"
+                "stargazers_count": 16,
+                "updated_at": "1970-01-01T00:00:00+00:00"
             },
             "analysis_status": "pending",
             "result_count": 12,
@@ -1299,72 +1299,72 @@ final readonly class CodeScanningVariantAnalysis
     ],
     "skipped_repositories": {
         "access_mismatch_repos": {
-            "repository_count": 2,
+            "repository_count": 16,
             "repositories": [
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 },
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 }
             ]
         },
         "not_found_repos": {
-            "repository_count": 2,
+            "repository_count": 16,
             "repository_full_names": [
                 "generated",
                 "generated"
             ]
         },
         "no_codeql_db_repos": {
-            "repository_count": 2,
+            "repository_count": 16,
             "repositories": [
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 },
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 }
             ]
         },
         "over_limit_repos": {
-            "repository_count": 2,
+            "repository_count": 16,
             "repositories": [
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 },
                 {
-                    "id": 1296269,
-                    "name": "Hello-World",
-                    "full_name": "octocat\\/Hello-World",
+                    "id": 2,
+                    "name": "generated",
+                    "full_name": "generated",
                     "private": false,
-                    "stargazers_count": 80,
-                    "updated_at": "2011-01-26T19:14:43Z"
+                    "stargazers_count": 16,
+                    "updated_at": "1970-01-01T00:00:00+00:00"
                 }
             ]
         }
@@ -1385,7 +1385,7 @@ final readonly class CodeScanningVariantAnalysis
      * skippedRepositories: Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis.
      */
     public function __construct(public int $id, #[MapFrom('controller_repo')]
-    public Schema\SimpleRepository $controllerRepo, public Schema\SimpleUser $actor, #[MapFrom('query_language')]
+    public SimpleRepository $controllerRepo, public SimpleUser $actor, #[MapFrom('query_language')]
     public string $queryLanguage, #[MapFrom('query_pack_url')]
     public string $queryPackUrl, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('updated_at')]
@@ -1394,7 +1394,7 @@ final readonly class CodeScanningVariantAnalysis
     public int|null $actionsWorkflowRunId, #[MapFrom('failure_reason')]
     public string|null $failureReason, #[MapFrom('scanned_repositories')]
     public array|null $scannedRepositories, #[MapFrom('skipped_repositories')]
-    public Schema\CodeScanningVariantAnalysis\SkippedRepositories|null $skippedRepositories,)
+    public SkippedRepositories|null $skippedRepositories,)
     {
     }
 }

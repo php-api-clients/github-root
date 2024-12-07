@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\CreateOrUpdateEnvironmentSecre
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

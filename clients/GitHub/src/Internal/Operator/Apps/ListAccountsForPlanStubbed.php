@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Apps;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\MarketplaceListing\Stubbed\Plans\PlanId\Accounts;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListAccountsForPlanStubbed
     public const OPERATION_ID    = 'apps/list-accounts-for-plan-stubbed';
     public const OPERATION_MATCH = 'GET /marketplace_listing/stubbed/plans/{plan_id}/accounts';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\MarketplaceListing\Stubbed\Plans\PlanId\Accounts $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Accounts $hydrator)
     {
     }
 
-    /** @return Observable<Schema\MarketplacePurchase> */
+    /** @return Observable<MarketplacePurchase> */
     public function call(int $planId, string $direction, string $sort = 'created', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Apps\ListAccountsForPlanStubbed($this->responseSchemaValidator, $this->hydrator, $planId, $direction, $sort, $perPage, $page);

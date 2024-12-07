@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\StatusCheckPolicy;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Checks
+final readonly class Checks implements \ApiClients\Client\GitHub\Contract\StatusCheckPolicy\Checks
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -32,7 +32,7 @@ final readonly class Checks
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "context": "continuous-integration\\/travis-ci",
+    "context": "generated",
     "app_id": 6
 }';
 

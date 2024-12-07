@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhookProjectsV2StatusUpdateEdited
+final readonly class WebhookProjectsV2StatusUpdateEdited implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2StatusUpdateEdited
 {
     public const SCHEMA_JSON         = '{
     "title": "Projects v2 Status Update Edited Event",
@@ -664,8 +664,8 @@ final readonly class WebhookProjectsV2StatusUpdateEdited
             "to": "generated"
         },
         "status": {
-            "from": "COMPLETE",
-            "to": "COMPLETE"
+            "from": "INACTIVE",
+            "to": "INACTIVE"
         },
         "start_date": {
             "from": "generated",
@@ -677,81 +677,81 @@ final readonly class WebhookProjectsV2StatusUpdateEdited
         }
     },
     "installation": {
-        "id": 1,
-        "node_id": "MDQ6VXNlcjU4MzIzMQ=="
+        "id": 2,
+        "node_id": "generated"
     },
     "organization": {
-        "login": "github",
-        "id": 1,
-        "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-        "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-        "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-        "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-        "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-        "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-        "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "description": "A great organization"
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "hooks_url": "generated",
+        "issues_url": "generated",
+        "members_url": "generated",
+        "public_members_url": "generated",
+        "avatar_url": "generated",
+        "description": "generated"
     },
     "projects_v2_status_update": {
-        "id": 0.2,
+        "id": 2,
         "node_id": "generated",
         "project_node_id": "generated",
         "creator": {
             "name": "generated",
             "email": "generated",
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-            "html_url": "https:\\/\\/github.com\\/octocat",
-            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-            "type": "User",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-            "user_view_type": "public"
+            "starred_at": "generated",
+            "user_view_type": "generated"
         },
-        "created_at": "2022-04-28T12:00:00Z",
-        "updated_at": "2022-04-28T12:00:00Z",
-        "status": "COMPLETE",
-        "start_date": "2022-04-28",
-        "target_date": "2022-04-28",
-        "body": "The project is off to a great start!"
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "updated_at": "1970-01-01T00:00:00+00:00",
+        "status": "INACTIVE",
+        "start_date": "generated",
+        "target_date": "generated",
+        "body": "generated"
     },
     "sender": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     }
 }';
 
@@ -764,8 +764,8 @@ final readonly class WebhookProjectsV2StatusUpdateEdited
      * projectsVTwoStatusUpdate: An status update belonging to a project
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public Schema\WebhookProjectsV2StatusUpdateEdited\Changes|null $changes, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks $organization, #[MapFrom('projects_v2_status_update')]
-    public Schema\ProjectsV2StatusUpdate $projectsVTwoStatusUpdate, public Schema\SimpleUser $sender,)
+    public function __construct(public string $action, public Changes|null $changes, public SimpleInstallation|null $installation, public OrganizationSimpleWebhooks $organization, #[MapFrom('projects_v2_status_update')]
+    public ProjectsV2StatusUpdate $projectsVTwoStatusUpdate, public SimpleUser $sender,)
     {
     }
 }

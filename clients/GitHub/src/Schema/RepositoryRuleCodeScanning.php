@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning\Parameters;
 
-final readonly class RepositoryRuleCodeScanning
+final readonly class RepositoryRuleCodeScanning implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCodeScanning
 {
     public const SCHEMA_JSON         = '{
     "title": "code_scanning",
@@ -80,12 +80,12 @@ final readonly class RepositoryRuleCodeScanning
     "parameters": {
         "code_scanning_tools": [
             {
-                "alerts_threshold": "all",
+                "alerts_threshold": "none",
                 "security_alerts_threshold": "none",
                 "tool": "generated"
             },
             {
-                "alerts_threshold": "all",
+                "alerts_threshold": "none",
                 "security_alerts_threshold": "none",
                 "tool": "generated"
             }
@@ -93,7 +93,7 @@ final readonly class RepositoryRuleCodeScanning
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleCodeScanning\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

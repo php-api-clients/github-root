@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhooksRelease;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksRelease\Assets\Uploader;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Assets
+final readonly class Assets implements \ApiClients\Client\GitHub\Contract\WebhooksRelease\Assets
 {
     public const SCHEMA_JSON         = '{
     "title": "Release Asset",
@@ -208,7 +208,7 @@ final readonly class Assets
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "url": "https:\\/\\/example.com\\/"
@@ -224,7 +224,7 @@ final readonly class Assets
     public string $createdAt, #[MapFrom('download_count')]
     public int $downloadCount, public int $id, public string|null $label, public string $name, #[MapFrom('node_id')]
     public string $nodeId, public int $size, public string $state, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\WebhooksRelease\Assets\Uploader|null $uploader, public string $url,)
+    public string $updatedAt, public Uploader|null $uploader, public string $url,)
     {
     }
 }

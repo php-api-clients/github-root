@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release\Author;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -145,7 +145,7 @@ final readonly class Release
     "url": "generated"
 }';
 
-    public function __construct(public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release\Author|null $author, #[MapFrom('created_at')]
+    public function __construct(public Author|null $author, #[MapFrom('created_at')]
     public string|null $createdAt, public bool|null $draft, #[MapFrom('html_url')]
     public string|null $htmlUrl, public int|null $id, public string|null $name, public bool|null $prerelease, #[MapFrom('published_at')]
     public string|null $publishedAt, #[MapFrom('tag_name')]

@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Migrations;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Migrations\MigrationId\Repos\RepoName\Lock;
+use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class UnlockRepoForOrg
 {
@@ -30,16 +30,18 @@ final class UnlockRepoForOrg
     /**repo_name parameter **/
     private string $repoName;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Migrations\MigrationId\Repos\RepoName\Lock $hydrator, string $org, int $migrationId, string $repoName)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Lock $hydrator, string $org, int $migrationId, string $repoName)
     {
-        $this->org         = $org;
-        $this->migrationId = $migrationId;
-        $this->repoName    = $repoName;
+        $this->org                     = $org;
+        $this->migrationId             = $migrationId;
+        $this->repoName                = $repoName;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{migration_id}', '{repo_name}'], [$this->org, $this->migrationId, $this->repoName], '/orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock'))->expand(['migration_id' => $this->migrationId, 'org' => $this->org, 'repo_name' => $this->repoName]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -54,9 +56,9 @@ final class UnlockRepoForOrg
                      * Resource not found
                      **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

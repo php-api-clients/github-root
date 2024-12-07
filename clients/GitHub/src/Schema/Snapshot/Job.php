@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Snapshot;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Job
+final readonly class Job implements \ApiClients\Client\GitHub\Contract\Snapshot\Job
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -42,9 +42,9 @@ final readonly class Job
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": "5622a2b0-63f6-4732-8c34-a1ab27e102a11",
-    "correlator": "yourworkflowname_yourjobname",
-    "html_url": "http:\\/\\/example.com\\/build"
+    "id": "generated",
+    "correlator": "generated",
+    "html_url": "generated"
 }';
 
     /**

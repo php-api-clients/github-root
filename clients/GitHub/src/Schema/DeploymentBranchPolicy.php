@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DeploymentBranchPolicy
+final readonly class DeploymentBranchPolicy implements \ApiClients\Client\GitHub\Contract\DeploymentBranchPolicy
 {
     public const SCHEMA_JSON         = '{
     "title": "Deployment branch policy",
@@ -49,9 +49,9 @@ final readonly class DeploymentBranchPolicy
     public const SCHEMA_TITLE        = 'Deployment branch policy';
     public const SCHEMA_DESCRIPTION  = 'Details of a deployment branch or tag policy.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 361471,
-    "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=",
-    "name": "release\\/*",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
     "type": "branch"
 }';
 

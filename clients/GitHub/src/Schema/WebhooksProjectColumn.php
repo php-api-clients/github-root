@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksProjectColumn
+final readonly class WebhooksProjectColumn implements \ApiClients\Client\GitHub\Contract\WebhooksProjectColumn
 {
     public const SCHEMA_JSON         = '{
     "title": "Project Column",

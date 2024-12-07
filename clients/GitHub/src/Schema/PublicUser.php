@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PublicUser\Plan;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PublicUser
+final readonly class PublicUser implements \ApiClients\Client\GitHub\Contract\PublicUser
 {
     public const SCHEMA_JSON         = '{
     "title": "Public User",
@@ -291,11 +291,11 @@ final readonly class PublicUser
         "space": 5,
         "private_repos": 13
     },
-    "private_gists": 1,
-    "total_private_repos": 2,
-    "owned_private_repos": 2,
-    "disk_usage": 1,
-    "collaborators": 3
+    "private_gists": 13,
+    "total_private_repos": 19,
+    "owned_private_repos": 19,
+    "disk_usage": 10,
+    "collaborators": 13
 }';
 
     public function __construct(public string $login, public int $id, #[MapFrom('user_view_type')]
@@ -319,7 +319,7 @@ final readonly class PublicUser
     public int $publicRepos, #[MapFrom('public_gists')]
     public int $publicGists, public int $followers, public int $following, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\PublicUser\Plan|null $plan, #[MapFrom('private_gists')]
+    public string $updatedAt, public Plan|null $plan, #[MapFrom('private_gists')]
     public int|null $privateGists, #[MapFrom('total_private_repos')]
     public int|null $totalPrivateRepos, #[MapFrom('owned_private_repos')]
     public int|null $ownedPrivateRepos, #[MapFrom('disk_usage')]

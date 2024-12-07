@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RateLimitOverview;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RateLimit;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Resources
+final readonly class Resources implements \ApiClients\Client\GitHub\Contract\RateLimitOverview\Resources
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -323,13 +323,13 @@ final readonly class Resources
     }
 }';
 
-    public function __construct(public Schema\RateLimit $core, public Schema\RateLimit|null $graphql, public Schema\RateLimit $search, #[MapFrom('code_search')]
-    public Schema\RateLimit|null $codeSearch, #[MapFrom('source_import')]
-    public Schema\RateLimit|null $sourceImport, #[MapFrom('integration_manifest')]
-    public Schema\RateLimit|null $integrationManifest, #[MapFrom('code_scanning_upload')]
-    public Schema\RateLimit|null $codeScanningUpload, #[MapFrom('actions_runner_registration')]
-    public Schema\RateLimit|null $actionsRunnerRegistration, public Schema\RateLimit|null $scim, #[MapFrom('dependency_snapshots')]
-    public Schema\RateLimit|null $dependencySnapshots,)
+    public function __construct(public RateLimit $core, public RateLimit|null $graphql, public RateLimit $search, #[MapFrom('code_search')]
+    public RateLimit|null $codeSearch, #[MapFrom('source_import')]
+    public RateLimit|null $sourceImport, #[MapFrom('integration_manifest')]
+    public RateLimit|null $integrationManifest, #[MapFrom('code_scanning_upload')]
+    public RateLimit|null $codeScanningUpload, #[MapFrom('actions_runner_registration')]
+    public RateLimit|null $actionsRunnerRegistration, public RateLimit|null $scim, #[MapFrom('dependency_snapshots')]
+    public RateLimit|null $dependencySnapshots,)
     {
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryDispatchSample;
 
-final readonly class ClientPayload
+final readonly class ClientPayload implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryDispatchSample\ClientPayload
 {
     public const SCHEMA_JSON         = '{
     "type": [

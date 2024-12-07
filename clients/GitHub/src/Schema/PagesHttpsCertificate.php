@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PagesHttpsCertificate
+final readonly class PagesHttpsCertificate implements \ApiClients\Client\GitHub\Contract\PagesHttpsCertificate
 {
     public const SCHEMA_JSON         = '{
     "title": "Pages Https Certificate",
@@ -63,11 +63,11 @@ final readonly class PagesHttpsCertificate
     public const SCHEMA_TITLE        = 'Pages Https Certificate';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "state": "approved",
-    "description": "Certificate is approved",
+    "state": "new",
+    "description": "generated",
     "domains": [
-        "example.com",
-        "example.com"
+        "generated",
+        "generated"
     ],
     "expires_at": "generated"
 }';

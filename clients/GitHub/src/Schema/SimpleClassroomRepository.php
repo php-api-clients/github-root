@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleClassroomRepository
+final readonly class SimpleClassroomRepository implements \ApiClients\Client\GitHub\Contract\SimpleClassroomRepository
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Classroom Repository",
@@ -66,12 +66,12 @@ final readonly class SimpleClassroomRepository
     public const SCHEMA_TITLE        = 'Simple Classroom Repository';
     public const SCHEMA_DESCRIPTION  = 'A GitHub repository view for Classroom';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1296269,
-    "full_name": "octocat\\/Hello-World",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+    "id": 2,
+    "full_name": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "node_id": "generated",
     "private": false,
-    "default_branch": "main"
+    "default_branch": "generated"
 }';
 
     /**

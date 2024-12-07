@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\FileCommit\Commit;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Verification
+final readonly class Verification implements \ApiClients\Client\GitHub\Contract\FileCommit\Commit\Verification
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

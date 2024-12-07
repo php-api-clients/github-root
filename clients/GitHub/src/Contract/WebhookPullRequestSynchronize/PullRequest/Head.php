@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHub\Contract\WebhookPullRequestSynchronize\PullRequest;
+
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestSynchronize\PullRequest\Head\Repo;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestSynchronize\PullRequest\Head\User;
+
+/**
+ * @property string $label
+ * @property string $ref
+ * @property Repo $repo
+ * @property string $sha
+ * @property ?User $user
+ */
+interface Head
+{
+}

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetTimeStatsByUser
     public const OPERATION_ID    = 'api-insights/get-time-stats-by-user';
     public const OPERATION_MATCH = 'GET /orgs/{org}/insights/api/time-stats/users/{user_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private UserId $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ApiInsightsTimeStats> */
+    /** @return Observable<ApiInsightsTimeStats> */
     public function call(string $org, string $userId, string $minTimestamp, string $maxTimestamp, string $timestampIncrement): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\ApiInsights\GetTimeStatsByUser($this->responseSchemaValidator, $this->hydrator, $org, $userId, $minTimestamp, $maxTimestamp, $timestampIncrement);

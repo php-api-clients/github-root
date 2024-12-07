@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleParamsRestrictedCommits
+final readonly class RepositoryRuleParamsRestrictedCommits implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsRestrictedCommits
 {
     public const SCHEMA_JSON         = '{
     "title": "RestrictedCommits",

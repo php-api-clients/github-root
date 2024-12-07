@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class OrgRulesetConditions
+final readonly class OrgRulesetConditions implements \ApiClients\Client\GitHub\Contract\OrgRulesetConditions
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization ruleset conditions",

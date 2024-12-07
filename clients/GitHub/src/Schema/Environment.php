@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Environment\ProtectionRules;
+use ApiClients\Client\GitHub\Schema\Environment\ProtectionRules\One;
+use ApiClients\Client\GitHub\Schema\Environment\ProtectionRules\Two;
+use ApiClients\Client\GitHub\Schema\Environment\ProtectionRules\Zero;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Environment
+final readonly class Environment implements \ApiClients\Client\GitHub\Contract\Environment
 {
     public const SCHEMA_JSON         = '{
     "title": "Environment",
@@ -606,16 +609,106 @@ final readonly class Environment
     public const SCHEMA_TITLE        = 'Environment';
     public const SCHEMA_DESCRIPTION  = 'Details of a deployment environment';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 56780428,
-    "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-    "name": "staging",
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-    "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-    "created_at": "2020-11-23T22:00:40Z",
-    "updated_at": "2020-11-23T22:00:40Z",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "url": "generated",
+    "html_url": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "protection_rules": [
-        null,
-        null
+        {
+            "id": 2,
+            "node_id": "generated",
+            "type": "generated",
+            "wait_timer": 10
+        },
+        {
+            "id": 2,
+            "node_id": "generated",
+            "prevent_self_review": false,
+            "type": "generated",
+            "reviewers": [
+                {
+                    "type": "User",
+                    "reviewer": {
+                        "id": 2,
+                        "node_id": "generated",
+                        "name": "generated",
+                        "slug": "generated",
+                        "description": "generated",
+                        "privacy": "generated",
+                        "notification_setting": "generated",
+                        "permission": "generated",
+                        "permissions": {
+                            "pull": false,
+                            "triage": false,
+                            "push": false,
+                            "maintain": false,
+                            "admin": false
+                        },
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "members_url": "generated",
+                        "repositories_url": "https:\\/\\/example.com\\/",
+                        "parent": {
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
+                        }
+                    }
+                },
+                {
+                    "type": "User",
+                    "reviewer": {
+                        "id": 2,
+                        "node_id": "generated",
+                        "name": "generated",
+                        "slug": "generated",
+                        "description": "generated",
+                        "privacy": "generated",
+                        "notification_setting": "generated",
+                        "permission": "generated",
+                        "permissions": {
+                            "pull": false,
+                            "triage": false,
+                            "push": false,
+                            "maintain": false,
+                            "admin": false
+                        },
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "members_url": "generated",
+                        "repositories_url": "https:\\/\\/example.com\\/",
+                        "parent": {
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
+                        }
+                    }
+                }
+            ]
+        }
     ],
     "deployment_branch_policy": {
         "protected_branches": false,
@@ -629,6 +722,8 @@ final readonly class Environment
      * createdAt: The time that the environment was created, in ISO 8601 format.
      * updatedAt: The time that the environment was last updated, in ISO 8601 format.
      * protectionRules: Built-in deployment protection rules for the environment.
+     *
+     * @param ?array<Zero|One|Two> $protectionRules
      * deploymentBranchPolicy: The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
      */
     public function __construct(public int $id, #[MapFrom('node_id')]
@@ -636,8 +731,9 @@ final readonly class Environment
     public string $htmlUrl, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('protection_rules')]
+    #[ProtectionRules]
     public array|null $protectionRules, #[MapFrom('deployment_branch_policy')]
-    public Schema\DeploymentBranchPolicySettings|null $deploymentBranchPolicy,)
+    public DeploymentBranchPolicySettings|null $deploymentBranchPolicy,)
     {
     }
 }

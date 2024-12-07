@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Search;
 
-use ApiClients\Client\GitHub\Internal;
 use ApiClients\Client\GitHub\Schema\Operations\Search\Users\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -21,7 +20,7 @@ final readonly class Users
     public const OPERATION_ID    = 'search/users';
     public const OPERATION_MATCH = 'GET /search/users';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Search\Users $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private \ApiClients\Client\GitHub\Internal\Hydrator\Operation\Search\Users $hydrator)
     {
     }
 

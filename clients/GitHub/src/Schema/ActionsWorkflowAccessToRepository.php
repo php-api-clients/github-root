@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsWorkflowAccessToRepository
+final readonly class ActionsWorkflowAccessToRepository implements \ApiClients\Client\GitHub\Contract\ActionsWorkflowAccessToRepository
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class ActionsWorkflowAccessToRepository
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "access_level": "organization"
+    "access_level": "none"
 }';
 
     /**

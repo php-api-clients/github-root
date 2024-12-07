@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\OrgMembership\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrgMembership
+final readonly class OrgMembership implements \ApiClients\Client\GitHub\Contract\OrgMembership
 {
     public const SCHEMA_JSON         = '{
     "title": "Org Membership",
@@ -349,47 +349,47 @@ final readonly class OrgMembership
     public const SCHEMA_TITLE        = 'Org Membership';
     public const SCHEMA_DESCRIPTION  = 'Org Membership';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/orgs\\/octocat\\/memberships\\/defunkt",
+    "url": "https:\\/\\/example.com\\/",
     "state": "active",
     "role": "admin",
-    "organization_url": "https:\\/\\/api.github.com\\/orgs\\/octocat",
+    "organization_url": "https:\\/\\/example.com\\/",
     "organization": {
-        "login": "github",
-        "id": 1,
-        "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-        "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-        "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-        "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-        "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-        "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-        "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "description": "A great organization"
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "hooks_url": "generated",
+        "issues_url": "generated",
+        "members_url": "generated",
+        "public_members_url": "generated",
+        "avatar_url": "generated",
+        "description": "generated"
     },
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "permissions": {
         "can_create_repository": false
@@ -402,7 +402,7 @@ final readonly class OrgMembership
      * organization: A GitHub organization.
      */
     public function __construct(public string $url, public string $state, public string $role, #[MapFrom('organization_url')]
-    public string $organizationUrl, public Schema\OrganizationSimple $organization, public Schema\SimpleUser|null $user, public Schema\OrgMembership\Permissions|null $permissions,)
+    public string $organizationUrl, public OrganizationSimple $organization, public SimpleUser|null $user, public Permissions|null $permissions,)
     {
     }
 }

@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\CodeSecurity\GetConfiguration;
+use ApiClients\Client\GitHub\Internal\Operator\CodeSecurity\GetConfigurationForRepository;
+use ApiClients\Client\GitHub\Internal\Operator\CodeSecurity\GetConfigurationsForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\CodeSecurity\GetDefaultConfigurations;
+use ApiClients\Client\GitHub\Internal\Operator\CodeSecurity\GetRepositoriesForConfiguration;
 use ApiClients\Client\GitHub\Schema\CodeSecurityConfiguration;
 use ApiClients\Client\GitHub\Schema\CodeSecurityConfigurationForRepository;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +22,11 @@ use function array_key_exists;
 
 final class CodeSecurity
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\CodeSecurityConfiguration> */
+    /** @return Observable<CodeSecurityConfiguration> */
     public function getConfigurationsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -56,7 +60,7 @@ final class CodeSecurity
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\CodeSecurity\GetConfigurationsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations());
+        $operator = new GetConfigurationsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations());
 
         return $operator->call($arguments['org'], $arguments['before'], $arguments['after'], $arguments['target_type'], $arguments['per_page']);
     }
@@ -77,12 +81,12 @@ final class CodeSecurity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\CodeSecurity\GetConfigurationForRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeSecurityConfiguration());
+        $operator = new GetConfigurationForRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeSecurityConfiguration());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\CodeSecurityDefaultConfigurations>|WithoutBody */
+    /** @return Observable<CodeSecurityDefaultConfigurations>|WithoutBody */
     public function getDefaultConfigurations(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -92,7 +96,7 @@ final class CodeSecurity
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\CodeSecurity\GetDefaultConfigurations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults());
+        $operator = new GetDefaultConfigurations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults());
 
         return $operator->call($arguments['org']);
     }
@@ -113,12 +117,12 @@ final class CodeSecurity
 
         $arguments['configuration_id'] = $params['configuration_id'];
         unset($params['configuration_id']);
-        $operator = new Internal\Operator\CodeSecurity\GetConfiguration($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId());
+        $operator = new GetConfiguration($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId());
 
         return $operator->call($arguments['org'], $arguments['configuration_id']);
     }
 
-    /** @return Observable<Schema\CodeSecurityConfigurationRepositories> */
+    /** @return Observable<CodeSecurityConfigurationRepositories> */
     public function getRepositoriesForConfiguration(array $params): iterable
     {
         $arguments = [];
@@ -158,7 +162,7 @@ final class CodeSecurity
 
         $arguments['status'] = $params['status'];
         unset($params['status']);
-        $operator = new Internal\Operator\CodeSecurity\GetRepositoriesForConfiguration($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories());
+        $operator = new GetRepositoriesForConfiguration($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['configuration_id'], $arguments['before'], $arguments['after'], $arguments['per_page'], $arguments['status']);
     }

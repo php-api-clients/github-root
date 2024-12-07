@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Snapshot;
 
-final readonly class Manifests
+final readonly class Manifests implements \ApiClients\Client\GitHub\Contract\Snapshot\Manifests
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

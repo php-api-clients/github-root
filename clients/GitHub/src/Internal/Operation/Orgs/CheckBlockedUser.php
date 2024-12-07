@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Blocks\Username;
+use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class CheckBlockedUser
 {
@@ -28,15 +28,17 @@ final class CheckBlockedUser
     /**The handle for the GitHub user account. **/
     private string $username;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Blocks\Username $hydrator, string $org, string $username)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Username $hydrator, string $org, string $username)
     {
-        $this->org      = $org;
-        $this->username = $username;
+        $this->org                     = $org;
+        $this->username                = $username;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{username}'], [$this->org, $this->username], '/orgs/{org}/blocks/{username}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/blocks/{username}'))->expand(['org' => $this->org, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -51,9 +53,9 @@ final class CheckBlockedUser
                      * If the user is not blocked
                      **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

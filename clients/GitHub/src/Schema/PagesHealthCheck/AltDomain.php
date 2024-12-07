@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\PagesHealthCheck;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class AltDomain
+final readonly class AltDomain implements \ApiClients\Client\GitHub\Contract\PagesHealthCheck\AltDomain
 {
     public const SCHEMA_JSON         = '{
     "type": [

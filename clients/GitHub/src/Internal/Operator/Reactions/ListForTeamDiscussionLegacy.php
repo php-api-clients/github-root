@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Reactions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Reactions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListForTeamDiscussionLegacy
     public const OPERATION_ID    = 'reactions/list-for-team-discussion-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions/{discussion_number}/reactions';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Reactions $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Reactions $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return Observable<Reaction> */
     public function call(int $teamId, int $discussionNumber, string $content, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Reactions\ListForTeamDiscussionLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $discussionNumber, $content, $perPage, $page);

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationPullRequestComment
+final readonly class SecretScanningLocationPullRequestComment implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationPullRequestComment
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class SecretScanningLocationPullRequestComment
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'pull_request_comment\' secret scanning location type. This location type shows that a secret was detected in a comment on a pull request.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "pull_request_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments\\/1081119451"
+    "pull_request_comment_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

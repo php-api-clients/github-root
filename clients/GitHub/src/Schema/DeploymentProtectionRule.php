@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DeploymentProtectionRule
+final readonly class DeploymentProtectionRule implements \ApiClients\Client\GitHub\Contract\DeploymentProtectionRule
 {
     public const SCHEMA_JSON         = '{
     "title": "Deployment protection rule",
@@ -87,14 +86,14 @@ final readonly class DeploymentProtectionRule
     public const SCHEMA_TITLE        = 'Deployment protection rule';
     public const SCHEMA_DESCRIPTION  = 'Deployment protection rule';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3515,
-    "node_id": "MDQ6R2F0ZTM1MTU=",
-    "enabled": true,
+    "id": 2,
+    "node_id": "generated",
+    "enabled": false,
     "app": {
-        "id": 3515,
-        "slug": "my-custom-app",
-        "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-        "node_id": "MDQ6R2F0ZTM1MTU="
+        "id": 2,
+        "slug": "generated",
+        "integration_url": "generated",
+        "node_id": "generated"
     }
 }';
 
@@ -105,7 +104,7 @@ final readonly class DeploymentProtectionRule
      * app: A GitHub App that is providing a custom deployment protection rule.
      */
     public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public bool $enabled, public Schema\CustomDeploymentRuleApp $app,)
+    public string $nodeId, public bool $enabled, public CustomDeploymentRuleApp $app,)
     {
     }
 }

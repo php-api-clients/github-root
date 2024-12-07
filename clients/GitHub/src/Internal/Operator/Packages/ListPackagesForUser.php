@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Packages;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Packages;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListPackagesForUser
     public const OPERATION_ID    = 'packages/list-packages-for-user';
     public const OPERATION_MATCH = 'GET /users/{username}/packages';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Users\Username\Packages $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Packages $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Package>|WithoutBody */
+    /** @return Observable<Package>|WithoutBody */
     public function call(string $packageType, string $visibility, string $username, int $page = 1, int $perPage = 30): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Packages\ListPackagesForUser($this->responseSchemaValidator, $this->hydrator, $packageType, $visibility, $username, $page, $perPage);

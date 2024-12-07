@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListOrgVariables\Re
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -89,20 +89,20 @@ final readonly class Ok
     "total_count": 11,
     "variables": [
         {
-            "name": "USERNAME",
-            "value": "octocat",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "updated_at": "2019-01-24T22:45:36.000Z",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"
+            "name": "generated",
+            "value": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         },
         {
-            "name": "USERNAME",
-            "value": "octocat",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "updated_at": "2019-01-24T22:45:36.000Z",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"
+            "name": "generated",
+            "value": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         }
     ]
 }';

@@ -4,10 +4,32 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateRepoRuleset\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Repos\CreateRepoRuleset\Request\ApplicationJson\Rules;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCreation;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward;
+use ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateRepoRuleset\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -925,17 +947,17 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "target": "push",
+    "target": "branch",
     "enforcement": "disabled",
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         }
     ],
@@ -952,8 +974,15 @@ final readonly class ApplicationJson
         }
     },
     "rules": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ]
 }';
 
@@ -964,9 +993,12 @@ final readonly class ApplicationJson
      * bypassActors: The actors that can bypass the rules in this ruleset
      * conditions: Parameters for a repository ruleset ref name condition
      * rules: An array of rules within the ruleset.
+     *
+     * @param ?array<RepositoryRuleCreation|RepositoryRuleUpdate|RepositoryRuleDeletion|RepositoryRuleRequiredLinearHistory|RepositoryRuleMergeQueue|RepositoryRuleRequiredDeployments|RepositoryRuleRequiredSignatures|RepositoryRulePullRequest|RepositoryRuleRequiredStatusChecks|RepositoryRuleNonFastForward|RepositoryRuleCommitMessagePattern|RepositoryRuleCommitAuthorEmailPattern|RepositoryRuleCommitterEmailPattern|RepositoryRuleBranchNamePattern|RepositoryRuleTagNamePattern|Fifteen|Sixteen|Seventeen|Eighteen|RepositoryRuleWorkflows|RepositoryRuleCodeScanning> $rules
      */
     public function __construct(public string $name, public string|null $target, public string $enforcement, #[MapFrom('bypass_actors')]
-    public array|null $bypassActors, public Schema\RepositoryRulesetConditions|null $conditions, public array|null $rules,)
+    public array|null $bypassActors, public RepositoryRulesetConditions|null $conditions, #[Rules]
+    public array|null $rules,)
     {
     }
 }

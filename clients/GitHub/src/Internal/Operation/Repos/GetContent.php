@@ -4,21 +4,25 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Contents\Path;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\ContentDirectory;
+use ApiClients\Client\GitHub\Schema\ContentFile;
+use ApiClients\Client\GitHub\Schema\ContentSubmodule;
+use ApiClients\Client\GitHub\Schema\ContentSymlink;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetContent
 {
@@ -33,20 +37,22 @@ final class GetContent
     /**The name of the commit/branch/tag. Default: the repository’s default branch. **/
     private string $ref;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Contents\Path $hydrator, string $owner, string $repo, string $path, string $ref)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Path $hydrator, string $owner, string $repo, string $path, string $ref)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->path  = $path;
-        $this->ref   = $ref;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->path                    = $path;
+        $this->ref                     = $ref;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{path}', '{ref}'], [$this->owner, $this->repo, $this->path, $this->ref], '/repos/{owner}/{repo}/contents/{path}' . '?ref={ref}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/contents/{path}{?ref}'))->expand(['owner' => $this->owner, 'path' => $this->path, 'ref' => $this->ref, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ContentDirectory|Schema\ContentFile|Schema\ContentSymlink|Schema\ContentSubmodule|WithoutBody
+    public function createResponse(ResponseInterface $response): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,37 +66,37 @@ final class GetContent
                     case 200:
                         $error = new RuntimeException();
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentDirectory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(ContentDirectory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentDirectory::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(ContentDirectory::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
 
                         items_application_json_two_hundred_aaaaa:
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentFile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(ContentFile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentFile::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(ContentFile::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaab;
                         }
 
                         items_application_json_two_hundred_aaaab:
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSymlink::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(ContentSymlink::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentSymlink::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(ContentSymlink::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaac;
                         }
 
                         items_application_json_two_hundred_aaaac:
                         try {
-                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSubmodule::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($body, Reader::readFromJson(ContentSubmodule::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentSubmodule::class, $body);
-                        } catch (Throwable) {
+                            return $this->hydrator->hydrateObject(ContentSubmodule::class, $body);
+                        } catch (Throwable $error) {
                             goto items_application_json_two_hundred_aaaad;
                         }
 
@@ -100,17 +106,17 @@ final class GetContent
                      * Resource not found
                      **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Forbidden
                      **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(403, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class CodeSecurityConfigurationForRepository
+final readonly class CodeSecurityConfigurationForRepository implements \ApiClients\Client\GitHub\Contract\CodeSecurityConfigurationForRepository
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -232,15 +230,15 @@ final readonly class CodeSecurityConfigurationForRepository
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Code security configuration associated with a repository and attachment status';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "status": "removed_by_enterprise",
+    "status": "attached",
     "configuration": {
         "id": 2,
         "name": "generated",
         "target_type": "global",
         "description": "generated",
         "advanced_security": "enabled",
-        "dependency_graph": "not_set",
-        "dependency_graph_autosubmit_action": "not_set",
+        "dependency_graph": "enabled",
+        "dependency_graph_autosubmit_action": "enabled",
         "dependency_graph_autosubmit_action_options": {
             "labeled_runners": false
         },
@@ -249,7 +247,7 @@ final readonly class CodeSecurityConfigurationForRepository
         "code_scanning_default_setup": "enabled",
         "secret_scanning": "enabled",
         "secret_scanning_push_protection": "enabled",
-        "secret_scanning_delegated_bypass": "not_set",
+        "secret_scanning_delegated_bypass": "enabled",
         "secret_scanning_delegated_bypass_options": {
             "reviewers": [
                 {
@@ -277,7 +275,7 @@ final readonly class CodeSecurityConfigurationForRepository
      * status: The attachment status of the code security configuration on the repository.
      * configuration: A code security configuration
      */
-    public function __construct(public string|null $status, public Schema\CodeSecurityConfiguration|null $configuration)
+    public function __construct(public string|null $status, public CodeSecurityConfiguration|null $configuration)
     {
     }
 }

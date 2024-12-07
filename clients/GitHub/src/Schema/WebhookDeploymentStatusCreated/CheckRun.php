@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CheckRun
+final readonly class CheckRun implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentStatusCreated\CheckRun
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -104,7 +104,7 @@ final readonly class CheckRun
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "completed_at": "1970-01-01T00:00:00+00:00",
-    "conclusion": "skipped",
+    "conclusion": "success",
     "details_url": "https:\\/\\/example.com\\/",
     "external_id": "generated",
     "head_sha": "generated",
@@ -113,7 +113,7 @@ final readonly class CheckRun
     "name": "generated",
     "node_id": "generated",
     "started_at": "1970-01-01T00:00:00+00:00",
-    "status": "pending",
+    "status": "queued",
     "url": "https:\\/\\/example.com\\/"
 }';
 

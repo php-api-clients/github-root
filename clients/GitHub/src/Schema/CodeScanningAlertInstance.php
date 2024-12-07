@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningAlertInstance
+final readonly class CodeScanningAlertInstance implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertInstance
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -135,7 +135,7 @@ final readonly class CodeScanningAlertInstance
      */
     public function __construct(public string|null $ref, #[MapFrom('analysis_key')]
     public string|null $analysisKey, public string|null $environment, public string|null $category, public string|null $state, #[MapFrom('commit_sha')]
-    public string|null $commitSha, public Schema\CodeScanningAlertInstance\Message|null $message, public Schema\CodeScanningAlertLocation|null $location, #[MapFrom('html_url')]
+    public string|null $commitSha, public Message|null $message, public CodeScanningAlertLocation|null $location, #[MapFrom('html_url')]
     public string|null $htmlUrl, public array|null $classifications,)
     {
     }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks\Parameters;
 
-final readonly class RepositoryRuleRequiredStatusChecks
+final readonly class RepositoryRuleRequiredStatusChecks implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredStatusChecks
 {
     public const SCHEMA_JSON         = '{
     "title": "required_status_checks",
@@ -83,7 +83,7 @@ final readonly class RepositoryRuleRequiredStatusChecks
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleRequiredStatusChecks\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

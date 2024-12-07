@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MergeGroup
+final readonly class MergeGroup implements \ApiClients\Client\GitHub\Contract\MergeGroup
 {
     public const SCHEMA_JSON         = '{
     "title": "Merge Group",
@@ -144,17 +143,17 @@ final readonly class MergeGroup
     "base_sha": "generated",
     "base_ref": "generated",
     "head_commit": {
-        "id": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "id": "generated",
         "tree_id": "generated",
-        "message": "Fix #42",
-        "timestamp": "2014-08-09T08:02:04+12:00",
+        "message": "generated",
+        "timestamp": "1970-01-01T00:00:00+00:00",
         "author": {
-            "name": "Monalisa Octocat",
-            "email": "monalisa.octocat@example.com"
+            "name": "generated",
+            "email": "hi@example.com"
         },
         "committer": {
-            "name": "Monalisa Octocat",
-            "email": "monalisa.octocat@example.com"
+            "name": "generated",
+            "email": "hi@example.com"
         }
     }
 }';
@@ -171,7 +170,7 @@ final readonly class MergeGroup
     public string $headRef, #[MapFrom('base_sha')]
     public string $baseSha, #[MapFrom('base_ref')]
     public string $baseRef, #[MapFrom('head_commit')]
-    public Schema\SimpleCommit $headCommit,)
+    public SimpleCommit $headCommit,)
     {
     }
 }

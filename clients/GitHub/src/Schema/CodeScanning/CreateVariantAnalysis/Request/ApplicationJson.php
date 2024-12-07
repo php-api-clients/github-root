@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeScanning\CreateVariantAnalysis\Req
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeScanning\CreateVariantAnalysis\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -79,7 +79,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "language": "swift",
+    "language": "cpp",
     "query_pack": "generated",
     "repositories": [
         "generated",

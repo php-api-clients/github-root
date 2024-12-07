@@ -4,11 +4,35 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateOrgRuleset\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Conditions;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Rules;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Conditions;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCreation;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward;
+use ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\One;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\Two;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\Zero;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateOrgRuleset\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -1139,24 +1163,80 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "target": "push",
+    "target": "branch",
     "enforcement": "disabled",
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         }
     ],
-    "conditions": null,
+    "conditions": {
+        "ref_name": {
+            "include": [
+                "generated",
+                "generated"
+            ],
+            "exclude": [
+                "generated",
+                "generated"
+            ]
+        },
+        "repository_property": {
+            "include": [
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                },
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                }
+            ],
+            "exclude": [
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                },
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                }
+            ]
+        }
+    },
     "rules": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ]
 }';
 
@@ -1169,10 +1249,13 @@ final readonly class ApplicationJson
     The branch and tag rulesets conditions object should contain both `repository_name` and `ref_name` properties, or both `repository_id` and `ref_name` properties, or both `repository_property` and `ref_name` properties.
     The push rulesets conditions object does not require the `ref_name` property.
      * rules: An array of rules within the ruleset.
+     *
+     * @param ?array<RepositoryRuleCreation|RepositoryRuleUpdate|RepositoryRuleDeletion|RepositoryRuleRequiredLinearHistory|RepositoryRuleMergeQueue|RepositoryRuleRequiredDeployments|RepositoryRuleRequiredSignatures|RepositoryRulePullRequest|RepositoryRuleRequiredStatusChecks|RepositoryRuleNonFastForward|RepositoryRuleCommitMessagePattern|RepositoryRuleCommitAuthorEmailPattern|RepositoryRuleCommitterEmailPattern|RepositoryRuleBranchNamePattern|RepositoryRuleTagNamePattern|Fifteen|Sixteen|Seventeen|Eighteen|RepositoryRuleWorkflows|RepositoryRuleCodeScanning> $rules
      */
     public function __construct(public string|null $name, public string|null $target, public string|null $enforcement, #[MapFrom('bypass_actors')]
     public array|null $bypassActors, #[Conditions]
-    public Schema\RepositoryRulesetConditions|null $conditions, public array|null $rules,)
+    public Zero|One|Two|null $conditions, #[Rules]
+    public array|null $rules,)
     {
     }
 }

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links\Html;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links\Self_;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Links
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -45,7 +46,7 @@ final readonly class Links
     }
 }';
 
-    public function __construct(public Schema\RepositoryRuleset\Links\Self_|null $self, public Schema\RepositoryRuleset\Links\Html|null $html)
+    public function __construct(public Self_|null $self, public Html|null $html)
     {
     }
 }

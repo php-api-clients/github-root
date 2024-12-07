@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\MarketplacePurchase;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\MarketplaceListingPlan;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class MarketplacePendingChange
+final readonly class MarketplacePendingChange implements \ApiClients\Client\GitHub\Contract\MarketplacePurchase\MarketplacePendingChange
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -151,21 +151,21 @@ final readonly class MarketplacePendingChange
     "unit_count": 10,
     "id": 2,
     "plan": {
-        "url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313",
-        "accounts_url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts",
-        "id": 1313,
-        "number": 3,
-        "name": "Pro",
-        "description": "A professional-grade CI solution",
-        "monthly_price_in_cents": 1099,
-        "yearly_price_in_cents": 11870,
-        "price_model": "FLAT_RATE",
-        "has_free_trial": true,
+        "url": "https:\\/\\/example.com\\/",
+        "accounts_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "number": 6,
+        "name": "generated",
+        "description": "generated",
+        "monthly_price_in_cents": 22,
+        "yearly_price_in_cents": 21,
+        "price_model": "FREE",
+        "has_free_trial": false,
         "unit_name": "generated",
-        "state": "published",
+        "state": "generated",
         "bullets": [
-            "Up to 25 private repositories",
-            "Up to 25 private repositories"
+            "generated",
+            "generated"
         ]
     }
 }';
@@ -176,7 +176,7 @@ final readonly class MarketplacePendingChange
     public function __construct(#[MapFrom('is_installed')]
     public bool|null $isInstalled, #[MapFrom('effective_date')]
     public string|null $effectiveDate, #[MapFrom('unit_count')]
-    public int|null $unitCount, public int|null $id, public Schema\MarketplaceListingPlan|null $plan,)
+    public int|null $unitCount, public int|null $id, public MarketplaceListingPlan|null $plan,)
     {
     }
 }

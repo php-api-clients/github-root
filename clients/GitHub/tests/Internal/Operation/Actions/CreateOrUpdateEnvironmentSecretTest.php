@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operation\Actions\CreateOrUpdateEnvironmentSecret;
+use ApiClients\Client\GitHub\Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -23,36 +24,36 @@ final class CreateOrUpdateEnvironmentSecretTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\EmptyObject::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(EmptyObject::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Actions\CreateOrUpdateEnvironmentSecret::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(CreateOrUpdateEnvironmentSecret::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']            = 'generated';
             $data['repo']             = 'generated';
             $data['environment_name'] = 'generated';
             $data['secret_name']      = 'generated';
 
             return $data;
-        })(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\EmptyObject::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(EmptyObject::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->actions()->createOrUpdateEnvironmentSecret('generated', 'generated', 'generated', 'generated', json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->actions()->createOrUpdateEnvironmentSecret('generated', 'generated', 'generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -64,16 +65,16 @@ final class CreateOrUpdateEnvironmentSecretTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Actions\CreateOrUpdateEnvironmentSecret::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(CreateOrUpdateEnvironmentSecret::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']            = 'generated';
             $data['repo']             = 'generated';
             $data['environment_name'] = 'generated';
             $data['secret_name']      = 'generated';
 
             return $data;
-        })(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -85,9 +86,9 @@ final class CreateOrUpdateEnvironmentSecretTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/environments/generated/secrets/generated', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->actions()->createOrUpdateEnvironmentSecret('generated', 'generated', 'generated', 'generated', json_decode(Schema\Actions\CreateOrUpdateEnvironmentSecret\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->actions()->createOrUpdateEnvironmentSecret('generated', 'generated', 'generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(204, $result['code']);
     }

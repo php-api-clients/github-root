@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Codespaces\ListDevcontainer
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Codespaces\ListDevcontainersInRepositoryForAuthenticatedUser\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [

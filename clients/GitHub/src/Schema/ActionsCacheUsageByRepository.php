@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsCacheUsageByRepository
+final readonly class ActionsCacheUsageByRepository implements \ApiClients\Client\GitHub\Contract\ActionsCacheUsageByRepository
 {
     public const SCHEMA_JSON         = '{
     "title": "Actions Cache Usage by repository",
@@ -44,9 +44,9 @@ final readonly class ActionsCacheUsageByRepository
     public const SCHEMA_TITLE        = 'Actions Cache Usage by repository';
     public const SCHEMA_DESCRIPTION  = 'GitHub Actions Cache Usage by repository.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "full_name": "octo-org\\/Hello-World",
-    "active_caches_size_in_bytes": 2322142,
-    "active_caches_count": 3
+    "full_name": "generated",
+    "active_caches_size_in_bytes": 27,
+    "active_caches_count": 19
 }';
 
     /**

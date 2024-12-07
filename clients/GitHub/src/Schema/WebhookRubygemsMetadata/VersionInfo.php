@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata;
 
-final readonly class VersionInfo
+final readonly class VersionInfo implements \ApiClients\Client\GitHub\Contract\WebhookRubygemsMetadata\VersionInfo
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

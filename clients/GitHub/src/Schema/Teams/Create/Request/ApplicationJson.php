@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Teams\Create\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Teams\Create\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -81,8 +81,8 @@ final readonly class ApplicationJson
         "generated"
     ],
     "privacy": "secret",
-    "notification_setting": "notifications_disabled",
-    "permission": "push",
+    "notification_setting": "notifications_enabled",
+    "permission": "pull",
     "parent_team_id": 14
 }';
 

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Codespaces\SetCodespacesAccess\Request
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\SetCodespacesAccess\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -37,7 +37,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "visibility": "all_members_and_outside_collaborators",
+    "visibility": "disabled",
     "selected_usernames": [
         "generated",
         "generated",

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksDeployKey
+final readonly class WebhooksDeployKey implements \ApiClients\Client\GitHub\Contract\WebhooksDeployKey
 {
     public const SCHEMA_JSON         = '{
     "required": [

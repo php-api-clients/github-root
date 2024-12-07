@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author;
+use ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Committer;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateFileContents\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -91,12 +92,12 @@ final readonly class ApplicationJson
     "committer": {
         "name": "generated",
         "email": "generated",
-        "date": "\\"2013-01-05T13:13:22+05:00\\""
+        "date": "generated"
     },
     "author": {
         "name": "generated",
         "email": "generated",
-        "date": "\\"2013-01-15T17:13:22+05:00\\""
+        "date": "generated"
     }
 }';
 
@@ -108,7 +109,7 @@ final readonly class ApplicationJson
      * committer: The person that committed the file. Default: the authenticated user.
      * author: The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.
      */
-    public function __construct(public string $message, public string $content, public string|null $sha, public string|null $branch, public Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Committer|null $committer, public Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author|null $author)
+    public function __construct(public string $message, public string $content, public string|null $sha, public string|null $branch, public Committer|null $committer, public Author|null $author)
     {
     }
 }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Actions\CreateWorkflowDispatch\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Actions\CreateWorkflowDispatch\Request\ApplicationJson\Inputs;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateWorkflowDispatch\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -37,7 +37,7 @@ final readonly class ApplicationJson
      * ref: The git reference for the workflow. The reference can be a branch or tag name.
      * inputs: Input keys and values configured in the workflow file. The maximum number of properties is 10. Any default properties configured in the workflow file will be used when `inputs` are omitted.
      */
-    public function __construct(public string $ref, public Schema\Actions\CreateWorkflowDispatch\Request\ApplicationJson\Inputs|null $inputs)
+    public function __construct(public string $ref, public Inputs|null $inputs)
     {
     }
 }

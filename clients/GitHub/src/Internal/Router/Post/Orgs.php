@@ -4,7 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CreateInvitation;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\CreateWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\PingWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\RedeliverWebhookDelivery;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ReviewPatGrantRequest;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\ReviewPatGrantRequestsInBulk;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\UpdatePatAccess;
+use ApiClients\Client\GitHub\Internal\Operator\Orgs\UpdatePatAccesses;
 use ApiClients\Client\GitHub\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHub\Schema\OrganizationInvitation;
 use ApiClients\Client\GitHub\Schema\OrgHook;
@@ -18,7 +27,7 @@ use function array_key_exists;
 
 final class Orgs
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -32,7 +41,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\CreateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
+        $operator = new CreateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -47,7 +56,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\CreateInvitation($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations());
+        $operator = new CreateInvitation($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -62,7 +71,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\ReviewPatGrantRequestsInBulk($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
+        $operator = new ReviewPatGrantRequestsInBulk($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -77,7 +86,7 @@ final class Orgs
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Orgs\UpdatePatAccesses($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
+        $operator = new UpdatePatAccesses($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -98,7 +107,7 @@ final class Orgs
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Orgs\PingWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Pings());
+        $operator = new PingWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Pings());
 
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
@@ -119,7 +128,7 @@ final class Orgs
 
         $arguments['pat_request_id'] = $params['pat_request_id'];
         unset($params['pat_request_id']);
-        $operator = new Internal\Operator\Orgs\ReviewPatGrantRequest($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId());
+        $operator = new ReviewPatGrantRequest($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId());
 
         return $operator->call($arguments['org'], $arguments['pat_request_id'], $params);
     }
@@ -140,7 +149,7 @@ final class Orgs
 
         $arguments['pat_id'] = $params['pat_id'];
         unset($params['pat_id']);
-        $operator = new Internal\Operator\Orgs\UpdatePatAccess($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId());
+        $operator = new UpdatePatAccess($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId());
 
         return $operator->call($arguments['org'], $arguments['pat_id'], $params);
     }
@@ -167,7 +176,7 @@ final class Orgs
 
         $arguments['enablement'] = $params['enablement'];
         unset($params['enablement']);
-        $operator = new Internal\Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new EnableOrDisableSecurityProductOnAllOrgRepos($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['security_product'], $arguments['enablement'], $params);
     }
@@ -194,7 +203,7 @@ final class Orgs
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        $operator = new Internal\Operator\Orgs\RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts());
+        $operator = new RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts());
 
         return $operator->call($arguments['org'], $arguments['hook_id'], $arguments['delivery_id']);
     }

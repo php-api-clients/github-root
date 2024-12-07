@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SimpleClassroomAssignment
+final readonly class SimpleClassroomAssignment implements \ApiClients\Client\GitHub\Contract\SimpleClassroomAssignment
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Classroom Assignment",
@@ -211,28 +210,28 @@ final readonly class SimpleClassroomAssignment
     public const SCHEMA_TITLE        = 'Simple Classroom Assignment';
     public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom assignment';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "public_repo": true,
-    "title": "Intro to Binaries",
+    "id": 2,
+    "public_repo": false,
+    "title": "generated",
     "type": "individual",
-    "invite_link": "https:\\/\\/classroom.github.com\\/a\\/Lx7jiUgx",
-    "invitations_enabled": true,
-    "slug": "intro-to-binaries",
-    "students_are_repo_admins": true,
-    "feedback_pull_requests_enabled": true,
-    "max_teams": 0,
-    "max_members": 0,
-    "editor": "codespaces",
-    "accepted": 25,
-    "submitted": 10,
-    "passing": 10,
-    "language": "elixir",
-    "deadline": "2011-01-26T19:06:43Z",
+    "invite_link": "generated",
+    "invitations_enabled": false,
+    "slug": "generated",
+    "students_are_repo_admins": false,
+    "feedback_pull_requests_enabled": false,
+    "max_teams": 9,
+    "max_members": 11,
+    "editor": "generated",
+    "accepted": 8,
+    "submitted": 9,
+    "passing": 7,
+    "language": "generated",
+    "deadline": "1970-01-01T00:00:00+00:00",
     "classroom": {
-        "id": 42,
-        "name": "Programming Elixir",
+        "id": 2,
+        "name": "generated",
         "archived": false,
-        "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+        "url": "generated"
     }
 }';
 
@@ -263,7 +262,7 @@ final readonly class SimpleClassroomAssignment
     public bool $studentsAreRepoAdmins, #[MapFrom('feedback_pull_requests_enabled')]
     public bool $feedbackPullRequestsEnabled, #[MapFrom('max_teams')]
     public int|null $maxTeams, #[MapFrom('max_members')]
-    public int|null $maxMembers, public string $editor, public int $accepted, public int $submitted, public int $passing, public string $language, public string|null $deadline, public Schema\SimpleClassroom $classroom,)
+    public int|null $maxMembers, public string $editor, public int $accepted, public int $submitted, public int $passing, public string $language, public string|null $deadline, public SimpleClassroom $classroom,)
     {
     }
 }

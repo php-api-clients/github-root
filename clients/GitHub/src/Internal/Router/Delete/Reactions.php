@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForIssue;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForIssueComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForPullRequestComment;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForTeamDiscussion;
+use ApiClients\Client\GitHub\Internal\Operator\Reactions\DeleteForTeamDiscussionComment;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +22,7 @@ use function array_key_exists;
 
 final class Reactions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -47,7 +54,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForCommitComment($this->browser, $this->authentication);
+        $operator = new DeleteForCommitComment($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
@@ -80,7 +87,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForIssue($this->browser, $this->authentication);
+        $operator = new DeleteForIssue($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['reaction_id']);
     }
@@ -113,7 +120,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForRelease($this->browser, $this->authentication);
+        $operator = new DeleteForRelease($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['reaction_id']);
     }
@@ -146,7 +153,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForTeamDiscussion($this->browser, $this->authentication);
+        $operator = new DeleteForTeamDiscussion($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['reaction_id']);
     }
@@ -179,7 +186,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForIssueComment($this->browser, $this->authentication);
+        $operator = new DeleteForIssueComment($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
@@ -212,7 +219,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForPullRequestComment($this->browser, $this->authentication);
+        $operator = new DeleteForPullRequestComment($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
@@ -251,7 +258,7 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operator = new Internal\Operator\Reactions\DeleteForTeamDiscussionComment($this->browser, $this->authentication);
+        $operator = new DeleteForTeamDiscussionComment($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['reaction_id']);
     }

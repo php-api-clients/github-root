@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Actions\SetSelfHostedRunnersInGroupForOrg\Request\ApplicationJson;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function json_encode;
-use function str_replace;
 
 final class SetSelfHostedRunnersInGroupForOrg
 {
@@ -25,17 +26,18 @@ final class SetSelfHostedRunnersInGroupForOrg
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $org, int $runnerGroupId)
+    public function __construct(private SchemaValidator $requestSchemaValidator, string $org, int $runnerGroupId)
     {
-        $this->org           = $org;
-        $this->runnerGroupId = $runnerGroupId;
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->org                    = $org;
+        $this->runnerGroupId          = $runnerGroupId;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\SetSelfHostedRunnersInGroupForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PUT', str_replace(['{org}', '{runner_group_id}'], [$this->org, $this->runnerGroupId], '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', (string) (new UriTemplate('/orgs/{org}/actions/runner-groups/{runner_group_id}/runners'))->expand(['org' => $this->org, 'runner_group_id' => $this->runnerGroupId]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

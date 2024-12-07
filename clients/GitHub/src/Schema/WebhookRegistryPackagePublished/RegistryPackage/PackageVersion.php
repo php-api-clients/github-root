@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Author;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body\One;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\ContainerMetadata;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -725,7 +729,7 @@ final readonly class PackageVersion
         "url": "generated",
         "user_view_type": "generated"
     },
-    "body": null,
+    "body": [],
     "body_html": "generated",
     "container_metadata": {
         "labels": [],
@@ -765,19 +769,19 @@ final readonly class PackageVersion
         "name": "generated",
         "version": "generated",
         "npm_user": "generated",
-        "author": null,
-        "bugs": null,
+        "author": [],
+        "bugs": [],
         "dependencies": [],
         "dev_dependencies": [],
         "peer_dependencies": [],
         "optional_dependencies": [],
         "description": "generated",
-        "dist": null,
+        "dist": [],
         "git_head": "generated",
         "homepage": "generated",
         "license": "generated",
         "main": "generated",
-        "repository": null,
+        "repository": [],
         "scripts": [],
         "id": "generated",
         "node_version": "generated",
@@ -802,7 +806,7 @@ final readonly class PackageVersion
         ],
         "bin": [],
         "man": [],
-        "directories": null,
+        "directories": [],
         "os": [
             "generated",
             "generated"
@@ -818,7 +822,6 @@ final readonly class PackageVersion
         "published_via_actions": false,
         "deleted_by_id": 13
     },
-    "nuget_metadata": null,
     "package_files": [
         {
             "content_type": "generated",
@@ -926,18 +929,18 @@ final readonly class PackageVersion
     "version": "generated"
 }';
 
-    public function __construct(public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Author|null $author, #[Body]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body\One|null $body, #[MapFrom('body_html')]
+    public function __construct(public Author|null $author, #[Body]
+    public string|One|null $body, #[MapFrom('body_html')]
     public string|null $bodyHtml, #[MapFrom('container_metadata')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\ContainerMetadata|null $containerMetadata, #[MapFrom('created_at')]
+    public ContainerMetadata|null $containerMetadata, #[MapFrom('created_at')]
     public string|null $createdAt, public string $description, #[MapFrom('docker_metadata')]
     public array|null $dockerMetadata, public bool|null $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('installation_command')]
     public string $installationCommand, public string|null $manifest, public array $metadata, public string $name, #[MapFrom('npm_metadata')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata|null $npmMetadata, #[MapFrom('nuget_metadata')]
+    public NpmMetadata|null $npmMetadata, #[MapFrom('nuget_metadata')]
     public array|null $nugetMetadata, #[MapFrom('package_files')]
     public array $packageFiles, #[MapFrom('package_url')]
-    public string $packageUrl, public bool|null $prerelease, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release|null $release, #[MapFrom('rubygems_metadata')]
+    public string $packageUrl, public bool|null $prerelease, public Release|null $release, #[MapFrom('rubygems_metadata')]
     public array|null $rubygemsMetadata, public string $summary, #[MapFrom('tag_name')]
     public string|null $tagName, #[MapFrom('target_commitish')]
     public string|null $targetCommitish, #[MapFrom('target_oid')]

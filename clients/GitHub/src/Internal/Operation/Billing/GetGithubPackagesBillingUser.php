@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Billing;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Settings\Billing\Packages;
+use ApiClients\Client\GitHub\Schema\PackagesBillingUsage;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetGithubPackagesBillingUser
 {
@@ -24,17 +25,19 @@ final class GetGithubPackagesBillingUser
     /**The handle for the GitHub user account. **/
     private string $username;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Settings\Billing\Packages $hydrator, string $username)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Packages $hydrator, string $username)
     {
-        $this->username = $username;
+        $this->username                = $username;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{username}'], [$this->username], '/users/{username}/settings/billing/packages'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/settings/billing/packages'))->expand(['username' => $this->username]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\PackagesBillingUsage
+    public function createResponse(ResponseInterface $response): PackagesBillingUsage
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -46,9 +49,9 @@ final class GetGithubPackagesBillingUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PackagesBillingUsage::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(PackagesBillingUsage::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\PackagesBillingUsage::class, $body);
+                        return $this->hydrator->hydrateObject(PackagesBillingUsage::class, $body);
                 }
 
                 break;

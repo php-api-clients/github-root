@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsOrganizationPermissions
+final readonly class ActionsOrganizationPermissions implements \ApiClients\Client\GitHub\Contract\ActionsOrganizationPermissions
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -45,7 +45,7 @@ final readonly class ActionsOrganizationPermissions
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "enabled_repositories": "selected",
+    "enabled_repositories": "all",
     "selected_repositories_url": "generated",
     "allowed_actions": "all",
     "selected_actions_url": "generated"

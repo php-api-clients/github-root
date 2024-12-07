@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Apps;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\MarketplaceListing\Stubbed\Accounts\AccountId;
 use ApiClients\Client\GitHub\Schema\MarketplacePurchase;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -21,7 +21,7 @@ final readonly class GetSubscriptionPlanForAccountStubbed
     public const OPERATION_ID    = 'apps/get-subscription-plan-for-account-stubbed';
     public const OPERATION_MATCH = 'GET /marketplace_listing/stubbed/accounts/{account_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\MarketplaceListing\Stubbed\Accounts\AccountId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private AccountId $hydrator)
     {
     }
 

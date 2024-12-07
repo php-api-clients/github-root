@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Caches;
+use ApiClients\Client\GitHub\Schema\ActionsCacheList;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetActionsCacheList
 {
@@ -38,24 +39,26 @@ final class GetActionsCacheList
     /**The direction to sort the results by. **/
     private string $direction;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Caches $hydrator, string $owner, string $repo, string $ref, string $key, int $perPage = 30, int $page = 1, string $sort = 'last_accessed_at', string $direction = 'desc')
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Caches $hydrator, string $owner, string $repo, string $ref, string $key, int $perPage = 30, int $page = 1, string $sort = 'last_accessed_at', string $direction = 'desc')
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
-        $this->ref       = $ref;
-        $this->key       = $key;
-        $this->perPage   = $perPage;
-        $this->page      = $page;
-        $this->sort      = $sort;
-        $this->direction = $direction;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->ref                     = $ref;
+        $this->key                     = $key;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->sort                    = $sort;
+        $this->direction               = $direction;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}', '{key}', '{per_page}', '{page}', '{sort}', '{direction}'], [$this->owner, $this->repo, $this->ref, $this->key, $this->perPage, $this->page, $this->sort, $this->direction], '/repos/{owner}/{repo}/actions/caches' . '?ref={ref}&key={key}&per_page={per_page}&page={page}&sort={sort}&direction={direction}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/caches{?direction,key,page,per_page,ref,sort}'))->expand(['direction' => $this->direction, 'key' => $this->key, 'owner' => $this->owner, 'page' => $this->page, 'per_page' => $this->perPage, 'ref' => $this->ref, 'repo' => $this->repo, 'sort' => $this->sort]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ActionsCacheList
+    public function createResponse(ResponseInterface $response): ActionsCacheList
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -67,9 +70,9 @@ final class GetActionsCacheList
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsCacheList::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ActionsCacheList::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ActionsCacheList::class, $body);
+                        return $this->hydrator->hydrateObject(ActionsCacheList::class, $body);
                 }
 
                 break;

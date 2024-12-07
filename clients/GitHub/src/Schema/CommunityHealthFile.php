@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CommunityHealthFile
+final readonly class CommunityHealthFile implements \ApiClients\Client\GitHub\Contract\CommunityHealthFile
 {
     public const SCHEMA_JSON         = '{
     "title": "Community Health File",

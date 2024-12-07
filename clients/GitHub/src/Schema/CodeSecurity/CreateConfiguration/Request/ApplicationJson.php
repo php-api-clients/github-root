@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CodeSecurity\CreateConfiguration\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeSecurity\CreateConfiguration\Request\ApplicationJson\DependencyGraphAutosubmitActionOptions;
+use ApiClients\Client\GitHub\Schema\CodeSecurity\CreateConfiguration\Request\ApplicationJson\SecretScanningDelegatedBypassOptions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeSecurity\CreateConfiguration\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -204,8 +205,8 @@ final readonly class ApplicationJson
     "name": "generated",
     "description": "generated",
     "advanced_security": "enabled",
-    "dependency_graph": "not_set",
-    "dependency_graph_autosubmit_action": "not_set",
+    "dependency_graph": "enabled",
+    "dependency_graph_autosubmit_action": "enabled",
     "dependency_graph_autosubmit_action_options": {
         "labeled_runners": false
     },
@@ -214,7 +215,7 @@ final readonly class ApplicationJson
     "code_scanning_default_setup": "enabled",
     "secret_scanning": "enabled",
     "secret_scanning_push_protection": "enabled",
-    "secret_scanning_delegated_bypass": "not_set",
+    "secret_scanning_delegated_bypass": "enabled",
     "secret_scanning_delegated_bypass_options": {
         "reviewers": [
             {
@@ -256,14 +257,14 @@ final readonly class ApplicationJson
     public string|null $advancedSecurity, #[MapFrom('dependency_graph')]
     public string|null $dependencyGraph, #[MapFrom('dependency_graph_autosubmit_action')]
     public string|null $dependencyGraphAutosubmitAction, #[MapFrom('dependency_graph_autosubmit_action_options')]
-    public Schema\CodeSecurity\CreateConfiguration\Request\ApplicationJson\DependencyGraphAutosubmitActionOptions|null $dependencyGraphAutosubmitActionOptions, #[MapFrom('dependabot_alerts')]
+    public DependencyGraphAutosubmitActionOptions|null $dependencyGraphAutosubmitActionOptions, #[MapFrom('dependabot_alerts')]
     public string|null $dependabotAlerts, #[MapFrom('dependabot_security_updates')]
     public string|null $dependabotSecurityUpdates, #[MapFrom('code_scanning_default_setup')]
     public string|null $codeScanningDefaultSetup, #[MapFrom('secret_scanning')]
     public string|null $secretScanning, #[MapFrom('secret_scanning_push_protection')]
     public string|null $secretScanningPushProtection, #[MapFrom('secret_scanning_delegated_bypass')]
     public string|null $secretScanningDelegatedBypass, #[MapFrom('secret_scanning_delegated_bypass_options')]
-    public Schema\CodeSecurity\CreateConfiguration\Request\ApplicationJson\SecretScanningDelegatedBypassOptions|null $secretScanningDelegatedBypassOptions, #[MapFrom('secret_scanning_validity_checks')]
+    public SecretScanningDelegatedBypassOptions|null $secretScanningDelegatedBypassOptions, #[MapFrom('secret_scanning_validity_checks')]
     public string|null $secretScanningValidityChecks, #[MapFrom('secret_scanning_non_provider_patterns')]
     public string|null $secretScanningNonProviderPatterns, #[MapFrom('private_vulnerability_reporting')]
     public string|null $privateVulnerabilityReporting, public string|null $enforcement,)

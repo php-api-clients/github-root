@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Members\Username;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\CopilotSeatDetails\AssigningTeam;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\CopilotSeatDetails\AssigningTeam;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\CopilotSeatDetails;
 use ApiClients\Client\GitHub\Schema\OrganizationSimple;

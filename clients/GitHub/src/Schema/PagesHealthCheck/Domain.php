@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\PagesHealthCheck;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Domain
+final readonly class Domain implements \ApiClients\Client\GitHub\Contract\PagesHealthCheck\Domain
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

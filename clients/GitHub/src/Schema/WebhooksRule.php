@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksRule
+final readonly class WebhooksRule implements \ApiClients\Client\GitHub\Contract\WebhooksRule
 {
     public const SCHEMA_JSON         = '{
     "title": "branch protection rule",
@@ -192,7 +192,7 @@ final readonly class WebhooksRule
     public const SCHEMA_EXAMPLE_DATA = '{
     "admin_enforced": false,
     "allow_deletions_enforcement_level": "off",
-    "allow_force_pushes_enforcement_level": "everyone",
+    "allow_force_pushes_enforcement_level": "off",
     "authorized_actor_names": [
         "generated",
         "generated"
@@ -204,23 +204,23 @@ final readonly class WebhooksRule
     "dismiss_stale_reviews_on_push": false,
     "id": 2,
     "ignore_approvals_from_contributors": false,
-    "linear_history_requirement_enforcement_level": "everyone",
+    "linear_history_requirement_enforcement_level": "off",
     "lock_branch_enforcement_level": "off",
     "lock_allows_fork_sync": false,
     "merge_queue_enforcement_level": "off",
     "name": "generated",
-    "pull_request_reviews_enforcement_level": "everyone",
+    "pull_request_reviews_enforcement_level": "off",
     "repository_id": 13,
     "require_code_owner_review": false,
     "require_last_push_approval": false,
     "required_approving_review_count": 31,
-    "required_conversation_resolution_level": "everyone",
-    "required_deployments_enforcement_level": "everyone",
+    "required_conversation_resolution_level": "off",
+    "required_deployments_enforcement_level": "off",
     "required_status_checks": [
         "generated",
         "generated"
     ],
-    "required_status_checks_enforcement_level": "everyone",
+    "required_status_checks_enforcement_level": "off",
     "signature_requirement_enforcement_level": "off",
     "strict_required_status_checks_policy": false,
     "updated_at": "1970-01-01T00:00:00+00:00"

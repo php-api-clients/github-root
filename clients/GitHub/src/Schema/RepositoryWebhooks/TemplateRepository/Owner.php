@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryWebhooks\TemplateRepository;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Owner
+final readonly class Owner implements \ApiClients\Client\GitHub\Contract\RepositoryWebhooks\TemplateRepository\Owner
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Projects\Update\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Projects\Update\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -54,9 +54,9 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Week One Sprint",
-    "body": "This project represents the sprint of the first week in January",
-    "state": "open",
+    "name": "generated",
+    "body": "generated",
+    "state": "generated",
     "organization_permission": "read",
     "private": false
 }';

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema\SelectedActions;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,16 +19,16 @@ final readonly class GetAllowedActionsOrganization
     public const OPERATION_ID    = 'actions/get-allowed-actions-organization';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/permissions/selected-actions';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private SelectedActions $hydrator)
     {
     }
 
     /** @return */
-    public function call(string $org): SelectedActions
+    public function call(string $org): \ApiClients\Client\GitHub\Schema\SelectedActions
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Actions\GetAllowedActionsOrganization($this->responseSchemaValidator, $this->hydrator, $org);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): SelectedActions {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHub\Schema\SelectedActions {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

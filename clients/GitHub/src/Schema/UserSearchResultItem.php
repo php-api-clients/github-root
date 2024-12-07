@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class UserSearchResultItem
+final readonly class UserSearchResultItem implements \ApiClients\Client\GitHub\Contract\UserSearchResultItem
 {
     public const SCHEMA_JSON         = '{
     "title": "User Search Result Item",
@@ -235,7 +235,7 @@ final readonly class UserSearchResultItem
     "repos_url": "https:\\/\\/example.com\\/",
     "received_events_url": "https:\\/\\/example.com\\/",
     "type": "generated",
-    "score": 0.5,
+    "score": 5,
     "following_url": "generated",
     "gists_url": "generated",
     "starred_url": "generated",

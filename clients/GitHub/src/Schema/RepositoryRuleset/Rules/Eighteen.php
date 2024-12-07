@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen\Parameters;
 
-final readonly class Eighteen
+final readonly class Eighteen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Eighteen
 {
     public const SCHEMA_JSON         = '{
     "title": "max_file_size",
@@ -47,7 +47,7 @@ final readonly class Eighteen
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Eighteen\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

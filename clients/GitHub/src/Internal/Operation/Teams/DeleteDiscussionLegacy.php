@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteDiscussionLegacy
 {
@@ -29,7 +28,7 @@ final class DeleteDiscussionLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{team_id}', '{discussion_number}'], [$this->teamId, $this->discussionNumber], '/teams/{team_id}/discussions/{discussion_number}'));
+        return new Request('DELETE', (string) (new UriTemplate('/teams/{team_id}/discussions/{discussion_number}'))->expand(['discussion_number' => $this->discussionNumber, 'team_id' => $this->teamId]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

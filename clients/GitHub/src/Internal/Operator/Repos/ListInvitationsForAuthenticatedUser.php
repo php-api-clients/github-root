@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\RepositoryInvitations;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListInvitationsForAuthenticatedUser
     public const OPERATION_ID    = 'repos/list-invitations-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/repository_invitations';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\RepositoryInvitations $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private RepositoryInvitations $hydrator)
     {
     }
 
-    /** @return Observable<Schema\RepositoryInvitation>|WithoutBody */
+    /** @return Observable<RepositoryInvitation>|WithoutBody */
     public function call(int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\ListInvitationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

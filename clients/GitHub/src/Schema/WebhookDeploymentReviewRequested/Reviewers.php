@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRequested;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRequested\Reviewers\Reviewer;
 
-final readonly class Reviewers
+final readonly class Reviewers implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentReviewRequested\Reviewers
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -141,14 +141,14 @@ final readonly class Reviewers
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
-    "type": "Team"
+    "type": "User"
 }';
 
-    public function __construct(public Schema\WebhookDeploymentReviewRequested\Reviewers\Reviewer|null $reviewer, public string|null $type)
+    public function __construct(public Reviewer|null $reviewer, public string|null $type)
     {
     }
 }

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\CodeSecurity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetConfigurationsForOrg
     public const OPERATION_ID    = 'code-security/get-configurations-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/code-security/configurations';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Configurations $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CodeSecurityConfiguration> */
+    /** @return Observable<CodeSecurityConfiguration> */
     public function call(string $org, string $before, string $after, string $targetType = 'all', int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\CodeSecurity\GetConfigurationsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $before, $after, $targetType, $perPage);

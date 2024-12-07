@@ -4,10 +4,31 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Rule;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Rule;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCreation;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward;
+use ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes;
 
-final readonly class Updated
+final readonly class Updated implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Rules\Updated
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -855,7 +876,23 @@ final readonly class Updated
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "rule": null,
+    "rule": {
+        "type": "code_scanning",
+        "parameters": {
+            "code_scanning_tools": [
+                {
+                    "alerts_threshold": "none",
+                    "security_alerts_threshold": "none",
+                    "tool": "generated"
+                },
+                {
+                    "alerts_threshold": "none",
+                    "security_alerts_threshold": "none",
+                    "tool": "generated"
+                }
+            ]
+        }
+    },
     "changes": {
         "configuration": {
             "from": "generated"
@@ -873,7 +910,7 @@ final readonly class Updated
      * rule: A repository rule.
      */
     public function __construct(#[Rule]
-    public Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleMergeQueue|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleset\Rules\Fifteen|Schema\RepositoryRuleset\Rules\Sixteen|Schema\RepositoryRuleset\Rules\Seventeen|Schema\RepositoryRuleset\Rules\Eighteen|Schema\RepositoryRuleWorkflows|Schema\RepositoryRuleCodeScanning|null $rule, public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes|null $changes,)
+    public RepositoryRuleCreation|RepositoryRuleUpdate|RepositoryRuleDeletion|RepositoryRuleRequiredLinearHistory|RepositoryRuleMergeQueue|RepositoryRuleRequiredDeployments|RepositoryRuleRequiredSignatures|RepositoryRulePullRequest|RepositoryRuleRequiredStatusChecks|RepositoryRuleNonFastForward|RepositoryRuleCommitMessagePattern|RepositoryRuleCommitAuthorEmailPattern|RepositoryRuleCommitterEmailPattern|RepositoryRuleBranchNamePattern|RepositoryRuleTagNamePattern|Fifteen|Sixteen|Seventeen|Eighteen|RepositoryRuleWorkflows|RepositoryRuleCodeScanning|null $rule, public Changes|null $changes,)
     {
     }
 }

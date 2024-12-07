@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Users\UpdateAuthenticated\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Users\UpdateAuthenticated\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -69,12 +69,12 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Omar Jahandar",
-    "email": "omar@example.com",
-    "blog": "blog.example.com",
-    "twitter_username": "therealomarj",
-    "company": "Acme corporation",
-    "location": "Berlin, Germany",
+    "name": "generated",
+    "email": "generated",
+    "blog": "generated",
+    "twitter_username": "generated",
+    "company": "generated",
+    "location": "generated",
     "hireable": false,
     "bio": "generated"
 }';

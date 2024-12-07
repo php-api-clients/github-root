@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ApiOverview\Domains;
+use ApiClients\Client\GitHub\Schema\ApiOverview\SshKeyFingerprints;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApiOverview
+final readonly class ApiOverview implements \ApiClients\Client\GitHub\Contract\ApiOverview
 {
     public const SCHEMA_JSON         = '{
     "title": "Api Overview",
@@ -241,7 +242,7 @@ final readonly class ApiOverview
     public const SCHEMA_TITLE        = 'Api Overview';
     public const SCHEMA_DESCRIPTION  = 'Api Overview';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "verifiable_password_authentication": true,
+    "verifiable_password_authentication": false,
     "ssh_key_fingerprints": {
         "SHA256_RSA": "generated",
         "SHA256_DSA": "generated",
@@ -249,60 +250,60 @@ final readonly class ApiOverview
         "SHA256_ED25519": "generated"
     },
     "ssh_keys": [
-        "ssh-ed25519 ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "ssh-ed25519 ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "generated",
+        "generated"
     ],
     "hooks": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "github_enterprise_importer": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "web": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "api": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "git": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "packages": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "pages": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "importer": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "actions": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "actions_macos": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "codespaces": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "dependabot": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "copilot": [
-        "192.0.2.1",
-        "192.0.2.1"
+        "generated",
+        "generated"
     ],
     "domains": {
         "website": [
@@ -326,7 +327,7 @@ final readonly class ApiOverview
             "generated"
         ],
         "artifact_attestations": {
-            "trust_domain": "example",
+            "trust_domain": "generated",
             "services": [
                 "generated",
                 "generated"
@@ -337,10 +338,10 @@ final readonly class ApiOverview
 
     public function __construct(#[MapFrom('verifiable_password_authentication')]
     public bool $verifiablePasswordAuthentication, #[MapFrom('ssh_key_fingerprints')]
-    public Schema\ApiOverview\SshKeyFingerprints|null $sshKeyFingerprints, #[MapFrom('ssh_keys')]
+    public SshKeyFingerprints|null $sshKeyFingerprints, #[MapFrom('ssh_keys')]
     public array|null $sshKeys, public array|null $hooks, #[MapFrom('github_enterprise_importer')]
     public array|null $githubEnterpriseImporter, public array|null $web, public array|null $api, public array|null $git, public array|null $packages, public array|null $pages, public array|null $importer, public array|null $actions, #[MapFrom('actions_macos')]
-    public array|null $actionsMacos, public array|null $codespaces, public array|null $dependabot, public array|null $copilot, public Schema\ApiOverview\Domains|null $domains,)
+    public array|null $actionsMacos, public array|null $codespaces, public array|null $dependabot, public array|null $copilot, public Domains|null $domains,)
     {
     }
 }

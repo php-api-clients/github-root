@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WorkflowRunUsage;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WorkflowRunUsage\Billable\Macos;
+use ApiClients\Client\GitHub\Schema\WorkflowRunUsage\Billable\Ubuntu;
+use ApiClients\Client\GitHub\Schema\WorkflowRunUsage\Billable\Windows;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Billable
+final readonly class Billable implements \ApiClients\Client\GitHub\Contract\WorkflowRunUsage\Billable
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -161,9 +163,9 @@ final readonly class Billable
 }';
 
     public function __construct(#[MapFrom('UBUNTU')]
-    public Schema\WorkflowRunUsage\Billable\Ubuntu|null $ubuntu, #[MapFrom('MACOS')]
-    public Schema\WorkflowRunUsage\Billable\Macos|null $macos, #[MapFrom('WINDOWS')]
-    public Schema\WorkflowRunUsage\Billable\Windows|null $windows,)
+    public Ubuntu|null $ubuntu, #[MapFrom('MACOS')]
+    public Macos|null $macos, #[MapFrom('WINDOWS')]
+    public Windows|null $windows,)
     {
     }
 }

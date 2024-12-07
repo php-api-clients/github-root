@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTag\Request\ApplicationJson;
 
-final readonly class Tagger
+final readonly class Tagger implements \ApiClients\Client\GitHub\Contract\Git\CreateTag\Request\ApplicationJson\Tagger
 {
     public const SCHEMA_JSON         = '{
     "required": [

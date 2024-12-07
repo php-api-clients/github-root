@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CommitSearchResultItem\Commit;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\CommitSearchResultItem\Commit\Author
 {
     public const SCHEMA_JSON         = '{
     "required": [

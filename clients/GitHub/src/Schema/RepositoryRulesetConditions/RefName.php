@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions;
 
-final readonly class RefName
+final readonly class RefName implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditions\RefName
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

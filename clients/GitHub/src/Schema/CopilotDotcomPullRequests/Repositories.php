@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CopilotDotcomPullRequests;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Repositories
+final readonly class Repositories implements \ApiClients\Client\GitHub\Contract\CopilotDotcomPullRequests\Repositories
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

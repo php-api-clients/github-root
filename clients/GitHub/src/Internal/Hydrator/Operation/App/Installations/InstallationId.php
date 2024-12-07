@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\App\Installations;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Installation\Account;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Installation\Account;
 use ApiClients\Client\GitHub\Schema\AppPermissions;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\Installation;

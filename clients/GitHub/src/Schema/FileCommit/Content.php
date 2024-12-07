@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\FileCommit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\FileCommit\Content\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Content
+final readonly class Content implements \ApiClients\Client\GitHub\Contract\FileCommit\Content
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -81,7 +81,7 @@ final readonly class Content
     public string|null $htmlUrl, #[MapFrom('git_url')]
     public string|null $gitUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, public string|null $type, #[MapFrom('_links')]
-    public Schema\FileCommit\Content\Links|null $links,)
+    public Links|null $links,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningAlertLocation
+final readonly class CodeScanningAlertLocation implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertLocation
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

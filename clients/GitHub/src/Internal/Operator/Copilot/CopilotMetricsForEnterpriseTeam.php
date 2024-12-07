@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Copilot;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Enterprises\Enterprise\Team\TeamSlug\Copilot\Metrics;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class CopilotMetricsForEnterpriseTeam
     public const OPERATION_ID    = 'copilot/copilot-metrics-for-enterprise-team';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Enterprises\Enterprise\Team\TeamSlug\Copilot\Metrics $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Metrics $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CopilotUsageMetricsDay> */
+    /** @return Observable<CopilotUsageMetricsDay> */
     public function call(string $enterprise, string $teamSlug, string $since, string $until, int $page = 1, int $perPage = 28): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Copilot\CopilotMetricsForEnterpriseTeam($this->responseSchemaValidator, $this->hydrator, $enterprise, $teamSlug, $since, $until, $page, $perPage);

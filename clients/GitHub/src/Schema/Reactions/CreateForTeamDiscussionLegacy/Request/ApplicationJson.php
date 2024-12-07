@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Reactions\CreateForTeamDiscussionLegacy\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T67526783\T24985E50\T8E9C9078\T49B0CF69;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet67526783\Tiet24985E50\Tiet8E9C9078\Tiet49B0CF69
+final readonly class ApplicationJson extends T49B0CF69
 {
 }

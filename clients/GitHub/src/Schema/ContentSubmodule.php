@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ContentSubmodule\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ContentSubmodule
+final readonly class ContentSubmodule implements \ApiClients\Client\GitHub\Contract\ContentSubmodule
 {
     public const SCHEMA_JSON         = '{
     "title": "Submodule Content",
@@ -129,7 +129,7 @@ final readonly class ContentSubmodule
     public string|null $gitUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentSubmodule\Links $links,)
+    public Links $links,)
     {
     }
 }

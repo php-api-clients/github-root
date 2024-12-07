@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Users;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Hovercard;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\ValidationError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetContextForUser
 {
@@ -29,19 +30,21 @@ final class GetContextForUser
     /**Uses the ID for the `subject_type` you specified. **Required** when using `subject_type`. **/
     private string $subjectId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Hovercard $hydrator, string $username, string $subjectType, string $subjectId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Hovercard $hydrator, string $username, string $subjectType, string $subjectId)
     {
-        $this->username    = $username;
-        $this->subjectType = $subjectType;
-        $this->subjectId   = $subjectId;
+        $this->username                = $username;
+        $this->subjectType             = $subjectType;
+        $this->subjectId               = $subjectId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{username}', '{subject_type}', '{subject_id}'], [$this->username, $this->subjectType, $this->subjectId], '/users/{username}/hovercard' . '?subject_type={subject_type}&subject_id={subject_id}'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/hovercard{?subject_id,subject_type}'))->expand(['subject_id' => $this->subjectId, 'subject_type' => $this->subjectType, 'username' => $this->username]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Hovercard
+    public function createResponse(ResponseInterface $response): \ApiClients\Client\GitHub\Schema\Hovercard
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,25 +56,25 @@ final class GetContextForUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Hovercard::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(\ApiClients\Client\GitHub\Schema\Hovercard::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Hovercard::class, $body);
+                        return $this->hydrator->hydrateObject(\ApiClients\Client\GitHub\Schema\Hovercard::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationError(422, $this->hydrator->hydrateObject(ValidationError::class, $body));
                 }
 
                 break;

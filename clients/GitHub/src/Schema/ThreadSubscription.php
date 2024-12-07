@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ThreadSubscription
+final readonly class ThreadSubscription implements \ApiClients\Client\GitHub\Contract\ThreadSubscription
 {
     public const SCHEMA_JSON         = '{
     "title": "Thread Subscription",
@@ -71,13 +71,13 @@ final readonly class ThreadSubscription
     public const SCHEMA_TITLE        = 'Thread Subscription';
     public const SCHEMA_DESCRIPTION  = 'Thread Subscription';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "subscribed": true,
+    "subscribed": false,
     "ignored": false,
     "reason": "generated",
-    "created_at": "2012-10-06T21:34:12Z",
-    "url": "https:\\/\\/api.github.com\\/notifications\\/threads\\/1\\/subscription",
-    "thread_url": "https:\\/\\/api.github.com\\/notifications\\/threads\\/1",
-    "repository_url": "https:\\/\\/api.github.com\\/repos\\/1"
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "url": "https:\\/\\/example.com\\/",
+    "thread_url": "https:\\/\\/example.com\\/",
+    "repository_url": "https:\\/\\/example.com\\/"
 }';
 
     public function __construct(public bool $subscribed, public bool $ignored, public string|null $reason, #[MapFrom('created_at')]

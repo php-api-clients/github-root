@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Users;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class CheckFollowingForUser
 {
@@ -26,7 +25,7 @@ final class CheckFollowingForUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{username}', '{target_user}'], [$this->username, $this->targetUser], '/users/{username}/following/{target_user}'));
+        return new Request('GET', (string) (new UriTemplate('/users/{username}/following/{target_user}'))->expand(['target_user' => $this->targetUser, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

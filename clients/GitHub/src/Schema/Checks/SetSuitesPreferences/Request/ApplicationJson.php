@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Checks\SetSuitesPreferences\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Checks\SetSuitesPreferences\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

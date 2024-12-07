@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\CreateAttestation\Response\ApplicationJson;
 
-final readonly class Created
+final readonly class Created implements \ApiClients\Client\GitHub\Contract\Operations\Repos\CreateAttestation\Response\ApplicationJson\Created
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

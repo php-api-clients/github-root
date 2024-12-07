@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Git\GetBlob;
+use ApiClients\Client\GitHub\Internal\Operator\Git\GetCommit;
+use ApiClients\Client\GitHub\Internal\Operator\Git\GetRef;
+use ApiClients\Client\GitHub\Internal\Operator\Git\GetTag;
+use ApiClients\Client\GitHub\Internal\Operator\Git\GetTree;
+use ApiClients\Client\GitHub\Internal\Operator\Git\ListMatchingRefs;
 use ApiClients\Client\GitHub\Schema\Blob;
 use ApiClients\Client\GitHub\Schema\GitCommit;
 use ApiClients\Client\GitHub\Schema\GitRef;
@@ -20,7 +25,7 @@ use function array_key_exists;
 
 final class Git
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -46,7 +51,7 @@ final class Git
 
         $arguments['file_sha'] = $params['file_sha'];
         unset($params['file_sha']);
-        $operator = new Internal\Operator\Git\GetBlob($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Blobs🌀FileSha());
+        $operator = new GetBlob($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Blobs🌀FileSha());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['file_sha']);
     }
@@ -73,12 +78,12 @@ final class Git
 
         $arguments['commit_sha'] = $params['commit_sha'];
         unset($params['commit_sha']);
-        $operator = new Internal\Operator\Git\GetCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Commits🌀CommitSha());
+        $operator = new GetCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Commits🌀CommitSha());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    /** @return Observable<Schema\GitRef> */
+    /** @return Observable<GitRef> */
     public function listMatchingRefs(array $params): iterable
     {
         $arguments = [];
@@ -100,7 +105,7 @@ final class Git
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Git\ListMatchingRefs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀MatchingRefs🌀Ref());
+        $operator = new ListMatchingRefs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀MatchingRefs🌀Ref());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
@@ -127,7 +132,7 @@ final class Git
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Git\GetRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Ref🌀Ref());
+        $operator = new GetRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Ref🌀Ref());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
@@ -154,7 +159,7 @@ final class Git
 
         $arguments['tag_sha'] = $params['tag_sha'];
         unset($params['tag_sha']);
-        $operator = new Internal\Operator\Git\GetTag($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Tags🌀TagSha());
+        $operator = new GetTag($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Tags🌀TagSha());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag_sha']);
     }
@@ -187,7 +192,7 @@ final class Git
 
         $arguments['recursive'] = $params['recursive'];
         unset($params['recursive']);
-        $operator = new Internal\Operator\Git\GetTree($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Trees🌀TreeSha());
+        $operator = new GetTree($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀Trees🌀TreeSha());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tree_sha'], $arguments['recursive']);
     }

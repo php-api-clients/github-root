@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId;
+use ApiClients\Client\GitHub\Schema\WorkflowRun;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetWorkflowRun
 {
@@ -30,20 +31,22 @@ final class GetWorkflowRun
     /**If `true` pull requests are omitted from the response (empty array). **/
     private bool $excludePullRequests;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId $hydrator, string $owner, string $repo, int $runId, bool $excludePullRequests = false)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private RunId $hydrator, string $owner, string $repo, int $runId, bool $excludePullRequests = false)
     {
-        $this->owner               = $owner;
-        $this->repo                = $repo;
-        $this->runId               = $runId;
-        $this->excludePullRequests = $excludePullRequests;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->runId                   = $runId;
+        $this->excludePullRequests     = $excludePullRequests;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->runId, $this->excludePullRequests], '/repos/{owner}/{repo}/actions/runs/{run_id}' . '?exclude_pull_requests={exclude_pull_requests}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runs/{run_id}{?exclude_pull_requests}'))->expand(['exclude_pull_requests' => $this->excludePullRequests, 'owner' => $this->owner, 'repo' => $this->repo, 'run_id' => $this->runId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\WorkflowRun
+    public function createResponse(ResponseInterface $response): WorkflowRun
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class GetWorkflowRun
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\WorkflowRun::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(WorkflowRun::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\WorkflowRun::class, $body);
+                        return $this->hydrator->hydrateObject(WorkflowRun::class, $body);
                 }
 
                 break;

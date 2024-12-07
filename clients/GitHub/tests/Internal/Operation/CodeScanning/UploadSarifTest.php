@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\CodeScanning;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\BasicError;
+use ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
+use ApiClients\Client\GitHub\Internal\Operation\CodeScanning\UploadSarif;
+use ApiClients\Client\GitHub\Schema\CodeScanning\UploadSarif\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,139 +26,139 @@ final class UploadSarifTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\CodeScanningSarifsReceipt::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(CodeScanningSarifsReceipt::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\CodeScanningSarifsReceipt::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(CodeScanningSarifsReceipt::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
     public function call_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
     public function call_httpCode_503_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
     public function operations_httpCode_503_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -168,14 +170,14 @@ final class UploadSarifTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -187,9 +189,9 @@ final class UploadSarifTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(400, $result['code']);
     }
@@ -203,14 +205,14 @@ final class UploadSarifTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\UploadSarif::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(UploadSarif::OPERATION_MATCH, (static function (array $data): array {
             $data['owner'] = 'generated';
             $data['repo']  = 'generated';
 
             return $data;
-        })(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -222,9 +224,9 @@ final class UploadSarifTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/repos/generated/generated/code-scanning/sarifs', Argument::type('array'), json_encode(json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->codeScanning()->uploadSarif('generated', 'generated', json_decode(ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(413, $result['code']);
     }

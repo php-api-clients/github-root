@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class EnvironmentApprovals
+final readonly class EnvironmentApprovals implements \ApiClients\Client\GitHub\Contract\EnvironmentApprovals
 {
     public const SCHEMA_JSON         = '{
     "title": "Environment Approval",
@@ -270,50 +268,50 @@ final readonly class EnvironmentApprovals
     public const SCHEMA_EXAMPLE_DATA = '{
     "environments": [
         {
-            "id": 56780428,
-            "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-            "name": "staging",
-            "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-            "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-            "created_at": "2020-11-23T22:00:40Z",
-            "updated_at": "2020-11-23T22:00:40Z"
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "url": "generated",
+            "html_url": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "id": 56780428,
-            "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-            "name": "staging",
-            "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-            "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-            "created_at": "2020-11-23T22:00:40Z",
-            "updated_at": "2020-11-23T22:00:40Z"
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "url": "generated",
+            "html_url": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00"
         }
     ],
     "state": "approved",
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "comment": "Ship it!"
+    "comment": "generated"
 }';
 
     /**
@@ -322,7 +320,7 @@ final readonly class EnvironmentApprovals
      * user: A GitHub user.
      * comment: The comment submitted with the deployment review
      */
-    public function __construct(public array $environments, public string $state, public Schema\SimpleUser $user, public string $comment)
+    public function __construct(public array $environments, public string $state, public SimpleUser $user, public string $comment)
     {
     }
 }

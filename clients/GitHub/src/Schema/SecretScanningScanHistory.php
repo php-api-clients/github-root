@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningScanHistory
+final readonly class SecretScanningScanHistory implements \ApiClients\Client\GitHub\Contract\SecretScanningScanHistory
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -200,13 +200,17 @@ final readonly class SecretScanningScanHistory
             "type": "generated",
             "status": "generated",
             "completed_at": "1970-01-01T00:00:00+00:00",
-            "started_at": "1970-01-01T00:00:00+00:00"
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "pattern_name": "generated",
+            "pattern_scope": "generated"
         },
         {
             "type": "generated",
             "status": "generated",
             "completed_at": "1970-01-01T00:00:00+00:00",
-            "started_at": "1970-01-01T00:00:00+00:00"
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "pattern_name": "generated",
+            "pattern_scope": "generated"
         }
     ]
 }';

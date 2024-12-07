@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\TeamDiscussion;
 use ApiClients\Client\GitHub\Schema\TeamDiscussionComment;
 use ApiClients\Client\GitHub\Schema\TeamFull;
@@ -16,20 +15,14 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Teams
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function list(string $org, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷List_()->call($org, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Team> */
-    public function listListing(string $org, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListListing()->call($org, $perPage, $page);
     }
 
     /** @return */
@@ -56,16 +49,10 @@ final class Teams
         return $this->operators->teams👷UpdateInOrg()->call($org, $teamSlug, $params);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function listDiscussionsInOrg(string $org, string $teamSlug, string $pinned, string $direction, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListDiscussionsInOrg()->call($org, $teamSlug, $pinned, $direction, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamDiscussion> */
-    public function listDiscussionsInOrgListing(string $org, string $teamSlug, string $pinned, string $direction, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListDiscussionsInOrgListing()->call($org, $teamSlug, $pinned, $direction, $perPage, $page);
     }
 
     /** @return */
@@ -92,16 +79,10 @@ final class Teams
         return $this->operators->teams👷UpdateDiscussionInOrg()->call($org, $teamSlug, $discussionNumber, $params);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return Observable<TeamDiscussionComment> */
     public function listDiscussionCommentsInOrg(string $org, string $teamSlug, int $discussionNumber, string $direction, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListDiscussionCommentsInOrg()->call($org, $teamSlug, $discussionNumber, $direction, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamDiscussionComment> */
-    public function listDiscussionCommentsInOrgListing(string $org, string $teamSlug, int $discussionNumber, string $direction, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListDiscussionCommentsInOrgListing()->call($org, $teamSlug, $discussionNumber, $direction, $perPage, $page);
     }
 
     /** @return */
@@ -128,28 +109,16 @@ final class Teams
         return $this->operators->teams👷UpdateDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $commentNumber, $params);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listPendingInvitationsInOrg(string $org, string $teamSlug, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListPendingInvitationsInOrg()->call($org, $teamSlug, $perPage, $page);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
-    public function listPendingInvitationsInOrgListing(string $org, string $teamSlug, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListPendingInvitationsInOrgListing()->call($org, $teamSlug, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listMembersInOrg(string $org, string $teamSlug, string $role, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListMembersInOrg()->call($org, $teamSlug, $role, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\SimpleUser> */
-    public function listMembersInOrgListing(string $org, string $teamSlug, string $role, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListMembersInOrgListing()->call($org, $teamSlug, $role, $perPage, $page);
     }
 
     /** @return */
@@ -170,16 +139,10 @@ final class Teams
         return $this->operators->teams👷RemoveMembershipForUserInOrg()->call($org, $teamSlug, $username);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return Observable<TeamProject> */
     public function listProjectsInOrg(string $org, string $teamSlug, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListProjectsInOrg()->call($org, $teamSlug, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamProject> */
-    public function listProjectsInOrgListing(string $org, string $teamSlug, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListProjectsInOrgListing()->call($org, $teamSlug, $perPage, $page);
     }
 
     /** @return */
@@ -200,16 +163,10 @@ final class Teams
         return $this->operators->teams👷RemoveProjectInOrg()->call($org, $teamSlug, $projectId);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposInOrg(string $org, string $teamSlug, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListReposInOrg()->call($org, $teamSlug, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\MinimalRepository> */
-    public function listReposInOrgListing(string $org, string $teamSlug, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListReposInOrgListing()->call($org, $teamSlug, $perPage, $page);
     }
 
     /** @return */
@@ -230,16 +187,10 @@ final class Teams
         return $this->operators->teams👷RemoveRepoInOrg()->call($org, $teamSlug, $owner, $repo);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listChildInOrg(string $org, string $teamSlug, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListChildInOrg()->call($org, $teamSlug, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\Team> */
-    public function listChildInOrgListing(string $org, string $teamSlug, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListChildInOrgListing()->call($org, $teamSlug, $perPage, $page);
     }
 
     /** @return */
@@ -260,16 +211,10 @@ final class Teams
         return $this->operators->teams👷UpdateLegacy()->call($teamId, $params);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function listDiscussionsLegacy(int $teamId, string $direction, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListDiscussionsLegacy()->call($teamId, $direction, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamDiscussion> */
-    public function listDiscussionsLegacyListing(int $teamId, string $direction, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListDiscussionsLegacyListing()->call($teamId, $direction, $perPage, $page);
     }
 
     /** @return */
@@ -296,16 +241,10 @@ final class Teams
         return $this->operators->teams👷UpdateDiscussionLegacy()->call($teamId, $discussionNumber, $params);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return Observable<TeamDiscussionComment> */
     public function listDiscussionCommentsLegacy(int $teamId, int $discussionNumber, string $direction, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListDiscussionCommentsLegacy()->call($teamId, $discussionNumber, $direction, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamDiscussionComment> */
-    public function listDiscussionCommentsLegacyListing(int $teamId, int $discussionNumber, string $direction, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListDiscussionCommentsLegacyListing()->call($teamId, $discussionNumber, $direction, $perPage, $page);
     }
 
     /** @return */
@@ -332,28 +271,16 @@ final class Teams
         return $this->operators->teams👷UpdateDiscussionCommentLegacy()->call($teamId, $discussionNumber, $commentNumber, $params);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listPendingInvitationsLegacy(int $teamId, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListPendingInvitationsLegacy()->call($teamId, $perPage, $page);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
-    public function listPendingInvitationsLegacyListing(int $teamId, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListPendingInvitationsLegacyListing()->call($teamId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listMembersLegacy(int $teamId, string $role, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListMembersLegacy()->call($teamId, $role, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\SimpleUser> */
-    public function listMembersLegacyListing(int $teamId, string $role, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListMembersLegacyListing()->call($teamId, $role, $perPage, $page);
     }
 
     /** @return */
@@ -392,16 +319,10 @@ final class Teams
         return $this->operators->teams👷RemoveMembershipForUserLegacy()->call($teamId, $username);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return Observable<TeamProject> */
     public function listProjectsLegacy(int $teamId, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListProjectsLegacy()->call($teamId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamProject> */
-    public function listProjectsLegacyListing(int $teamId, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListProjectsLegacyListing()->call($teamId, $perPage, $page);
     }
 
     /** @return */
@@ -422,16 +343,10 @@ final class Teams
         return $this->operators->teams👷RemoveProjectLegacy()->call($teamId, $projectId);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposLegacy(int $teamId, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListReposLegacy()->call($teamId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\MinimalRepository> */
-    public function listReposLegacyListing(int $teamId, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListReposLegacyListing()->call($teamId, $perPage, $page);
     }
 
     /** @return */
@@ -452,27 +367,15 @@ final class Teams
         return $this->operators->teams👷RemoveRepoLegacy()->call($teamId, $owner, $repo);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listChildLegacy(int $teamId, int $perPage, int $page): iterable
     {
         return $this->operators->teams👷ListChildLegacy()->call($teamId, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Team> */
-    public function listChildLegacyListing(int $teamId, int $perPage, int $page): iterable
-    {
-        return $this->operators->teams👷ListChildLegacyListing()->call($teamId, $perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamFull>|WithoutBody */
+    /** @return Observable<TeamFull>|WithoutBody */
     public function listForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->teams👷ListForAuthenticatedUser()->call($perPage, $page);
-    }
-
-    /** @return Observable<Schema\TeamFull>|WithoutBody */
-    public function listForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
-    {
-        return $this->operators->teams👷ListForAuthenticatedUserListing()->call($perPage, $page);
     }
 }

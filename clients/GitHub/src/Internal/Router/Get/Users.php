@@ -4,8 +4,34 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CheckBlocked;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CheckFollowingForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\CheckPersonIsFollowedByAuthenticated;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetAuthenticated;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetById;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetByUsername;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetContextForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetGpgKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetPublicSshKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\GetSshSigningKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\List_;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListAttestations;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListBlockedByAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListEmailsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListFollowedByAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListFollowersForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListFollowersForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListFollowingForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListGpgKeysForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListGpgKeysForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListPublicEmailsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListPublicKeysForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListPublicSshKeysForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListSocialAccountsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListSocialAccountsForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListSshSigningKeysForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Users\ListSshSigningKeysForUser;
 use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Client\GitHub\Schema\GpgKey;
 use ApiClients\Client\GitHub\Schema\Hovercard;
@@ -24,19 +50,19 @@ use function array_key_exists;
 
 final class Users
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
     /** @return */
     public function getAuthenticated(array $params): PrivateUser|PublicUser|WithoutBody
     {
-        $operator = new Internal\Operator\Users\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
+        $operator = new GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -52,12 +78,12 @@ final class Users
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Users\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users());
+        $operator = new List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users());
 
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function listBlockedByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -73,12 +99,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListBlockedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks());
+        $operator = new ListBlockedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Email>|WithoutBody */
+    /** @return Observable<Email>|WithoutBody */
     public function listEmailsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -94,12 +120,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
+        $operator = new ListEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function listFollowersForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -115,12 +141,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListFollowersForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Followers());
+        $operator = new ListFollowersForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Followers());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function listFollowedByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -136,12 +162,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListFollowedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following());
+        $operator = new ListFollowedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey>|WithoutBody */
+    /** @return Observable<GpgKey>|WithoutBody */
     public function listGpgKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -157,12 +183,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListGpgKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
+        $operator = new ListGpgKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Key>|WithoutBody */
+    /** @return Observable<Key>|WithoutBody */
     public function listPublicSshKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -178,12 +204,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListPublicSshKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
+        $operator = new ListPublicSshKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Email>|WithoutBody */
+    /** @return Observable<Email>|WithoutBody */
     public function listPublicEmailsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -199,12 +225,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListPublicEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀PublicEmails());
+        $operator = new ListPublicEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀PublicEmails());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SocialAccount>|WithoutBody */
+    /** @return Observable<SocialAccount>|WithoutBody */
     public function listSocialAccountsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -220,12 +246,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListSocialAccountsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
+        $operator = new ListSocialAccountsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SocialAccounts());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SshSigningKey>|WithoutBody */
+    /** @return Observable<SshSigningKey>|WithoutBody */
     public function listSshSigningKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -241,7 +267,7 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListSshSigningKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys());
+        $operator = new ListSshSigningKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -256,7 +282,7 @@ final class Users
 
         $arguments['account_id'] = $params['account_id'];
         unset($params['account_id']);
-        $operator = new Internal\Operator\Users\GetById($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀AccountId());
+        $operator = new GetById($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀AccountId());
 
         return $operator->call($arguments['account_id']);
     }
@@ -271,7 +297,7 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Users\GetByUsername($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username());
+        $operator = new GetByUsername($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username());
 
         return $operator->call($arguments['username']);
     }
@@ -286,7 +312,7 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Users\CheckBlocked($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks🌀Username());
+        $operator = new CheckBlocked($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Blocks🌀Username());
 
         return $operator->call($arguments['username']);
     }
@@ -301,7 +327,7 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Users\CheckPersonIsFollowedByAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
+        $operator = new CheckPersonIsFollowedByAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
 
         return $operator->call($arguments['username']);
     }
@@ -316,7 +342,7 @@ final class Users
 
         $arguments['gpg_key_id'] = $params['gpg_key_id'];
         unset($params['gpg_key_id']);
-        $operator = new Internal\Operator\Users\GetGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
+        $operator = new GetGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
 
         return $operator->call($arguments['gpg_key_id']);
     }
@@ -331,7 +357,7 @@ final class Users
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        $operator = new Internal\Operator\Users\GetPublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
+        $operator = new GetPublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
 
         return $operator->call($arguments['key_id']);
     }
@@ -346,12 +372,12 @@ final class Users
 
         $arguments['ssh_signing_key_id'] = $params['ssh_signing_key_id'];
         unset($params['ssh_signing_key_id']);
-        $operator = new Internal\Operator\Users\GetSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀SshSigningKeyId());
+        $operator = new GetSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀SshSigningKeyId());
 
         return $operator->call($arguments['ssh_signing_key_id']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listFollowersForUser(array $params): iterable
     {
         $arguments = [];
@@ -373,12 +399,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListFollowersForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Followers());
+        $operator = new ListFollowersForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Followers());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listFollowingForUser(array $params): iterable
     {
         $arguments = [];
@@ -400,12 +426,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListFollowingForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following());
+        $operator = new ListFollowingForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey> */
+    /** @return Observable<GpgKey> */
     public function listGpgKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -427,7 +453,7 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListGpgKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀GpgKeys());
+        $operator = new ListGpgKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀GpgKeys());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
@@ -454,12 +480,12 @@ final class Users
 
         $arguments['subject_id'] = $params['subject_id'];
         unset($params['subject_id']);
-        $operator = new Internal\Operator\Users\GetContextForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Hovercard());
+        $operator = new GetContextForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Hovercard());
 
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    /** @return Observable<Schema\KeySimple> */
+    /** @return Observable<KeySimple> */
     public function listPublicKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -481,12 +507,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListPublicKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Keys());
+        $operator = new ListPublicKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Keys());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SocialAccount> */
+    /** @return Observable<SocialAccount> */
     public function listSocialAccountsForUser(array $params): iterable
     {
         $arguments = [];
@@ -508,12 +534,12 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListSocialAccountsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀SocialAccounts());
+        $operator = new ListSocialAccountsForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀SocialAccounts());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SshSigningKey> */
+    /** @return Observable<SshSigningKey> */
     public function listSshSigningKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -535,7 +561,7 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Users\ListSshSigningKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀SshSigningKeys());
+        $operator = new ListSshSigningKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀SshSigningKeys());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
@@ -574,7 +600,7 @@ final class Users
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Users\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Attestations🌀SubjectDigest());
+        $operator = new ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Attestations🌀SubjectDigest());
 
         return $operator->call($arguments['before'], $arguments['after'], $arguments['username'], $arguments['subject_digest'], $arguments['per_page']);
     }
@@ -595,7 +621,7 @@ final class Users
 
         $arguments['target_user'] = $params['target_user'];
         unset($params['target_user']);
-        $operator = new Internal\Operator\Users\CheckFollowingForUser($this->browser, $this->authentication);
+        $operator = new CheckFollowingForUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['username'], $arguments['target_user']);
     }

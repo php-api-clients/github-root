@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes;
 
-final readonly class RoleName
+final readonly class RoleName implements \ApiClients\Client\GitHub\Contract\WebhookMemberAdded\Changes\RoleName
 {
     public const SCHEMA_JSON         = '{
     "required": [

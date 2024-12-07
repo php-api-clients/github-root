@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReviewComment\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReviewComment\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -85,12 +85,12 @@ final readonly class ApplicationJson
     "commit_id": "generated",
     "path": "generated",
     "position": 8,
-    "side": "RIGHT",
+    "side": "LEFT",
     "line": 4,
     "start_line": 10,
-    "start_side": "side",
-    "in_reply_to": 2,
-    "subject_type": "file"
+    "start_side": "LEFT",
+    "in_reply_to": 11,
+    "subject_type": "line"
 }';
 
     /**

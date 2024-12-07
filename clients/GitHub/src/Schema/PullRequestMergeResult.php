@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class PullRequestMergeResult
+final readonly class PullRequestMergeResult implements \ApiClients\Client\GitHub\Contract\PullRequestMergeResult
 {
     public const SCHEMA_JSON         = '{
     "title": "Pull Request Merge Result",

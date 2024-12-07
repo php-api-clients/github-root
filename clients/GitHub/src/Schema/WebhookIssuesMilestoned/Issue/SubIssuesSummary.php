@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T5229E490\T0081962F\T31CBB446\TE4F4DE72;
 
-final readonly class SubIssuesSummary extends Schema\AliasAbstract\Tiet5229E490\Tiet0081962F\Tiet31CBB446\TietE4F4DE72
+final readonly class SubIssuesSummary extends TE4F4DE72
 {
 }

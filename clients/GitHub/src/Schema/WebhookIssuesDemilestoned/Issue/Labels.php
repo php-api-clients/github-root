@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesDemilestoned\Issue;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TD0156E29\T718D0614\T1A091EF2\TD0F00D93;
 
-final readonly class Labels extends Schema\AliasAbstract\TietD0156E29\Tiet718D0614\Tiet1A091EF2\TietD0F00D93
+final readonly class Labels extends TD0F00D93
 {
 }

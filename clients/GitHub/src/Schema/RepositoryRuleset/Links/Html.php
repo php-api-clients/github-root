@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links;
 
-final readonly class Html
+final readonly class Html implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Links\Html
 {
     public const SCHEMA_JSON         = '{
     "type": [

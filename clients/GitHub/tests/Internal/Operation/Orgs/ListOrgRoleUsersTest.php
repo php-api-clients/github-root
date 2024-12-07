@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Orgs;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operation\Orgs\ListOrgRoleUsers;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -26,9 +26,9 @@ final class ListOrgRoleUsersTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/organization-roles/7/users?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/organization-roles/7/users?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Orgs\ListOrgRoleUsers::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListOrgRoleUsers::OPERATION_MATCH, (static function (array $data): array {
             $data['org']      = 'generated';
             $data['role_id']  = 7;
             $data['per_page'] = 8;
@@ -47,7 +47,7 @@ final class ListOrgRoleUsersTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/organization-roles/7/users?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/organization-roles/7/users?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->orgs()->listOrgRoleUsers('generated', 7, 8, 1);
         self::assertArrayHasKey('code', $result);
@@ -63,9 +63,9 @@ final class ListOrgRoleUsersTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/organization-roles/7/users?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/organization-roles/7/users?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Orgs\ListOrgRoleUsers::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListOrgRoleUsers::OPERATION_MATCH, (static function (array $data): array {
             $data['org']      = 'generated';
             $data['role_id']  = 7;
             $data['per_page'] = 8;
@@ -84,7 +84,7 @@ final class ListOrgRoleUsersTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/organization-roles/7/users?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/organization-roles/7/users?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->orgs()->listOrgRoleUsers('generated', 7, 8, 1);
         self::assertArrayHasKey('code', $result);

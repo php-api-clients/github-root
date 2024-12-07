@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ContributorActivity;
 
-final readonly class Weeks
+final readonly class Weeks implements \ApiClients\Client\GitHub\Contract\ContributorActivity\Weeks
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

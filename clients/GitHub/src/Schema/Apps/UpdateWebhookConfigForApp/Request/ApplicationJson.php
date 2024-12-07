@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Apps\UpdateWebhookConfigForApp\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T6CCDF9D6\T749D4B71\TDD02587E\T5B7BA2DC;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet6CCDF9D6\Tiet749D4B71\TietDD02587E\Tiet5B7BA2DC
+final readonly class ApplicationJson extends T5B7BA2DC
 {
 }

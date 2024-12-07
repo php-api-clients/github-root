@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateEnvironment\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\DeploymentBranchPolicySettings;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateEnvironment\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -86,9 +86,8 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "wait_timer": 30,
+    "wait_timer": 10,
     "prevent_self_review": false,
-    "reviewers": null,
     "deployment_branch_policy": {
         "protected_branches": false,
         "custom_branch_policies": false
@@ -104,7 +103,7 @@ final readonly class ApplicationJson
     public function __construct(#[MapFrom('wait_timer')]
     public int|null $waitTimer, #[MapFrom('prevent_self_review')]
     public bool|null $preventSelfReview, public array|null $reviewers, #[MapFrom('deployment_branch_policy')]
-    public Schema\DeploymentBranchPolicySettings|null $deploymentBranchPolicy,)
+    public DeploymentBranchPolicySettings|null $deploymentBranchPolicy,)
     {
     }
 }

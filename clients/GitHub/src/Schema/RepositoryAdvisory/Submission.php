@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryAdvisory;
 
-final readonly class Submission
+final readonly class Submission implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisory\Submission
 {
     public const SCHEMA_JSON         = '{
     "required": [

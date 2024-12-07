@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksMarketplacePurchase\Account;
+use ApiClients\Client\GitHub\Schema\WebhooksMarketplacePurchase\Plan;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksMarketplacePurchase
+final readonly class WebhooksMarketplacePurchase implements \ApiClients\Client\GitHub\Contract\WebhooksMarketplacePurchase
 {
     public const SCHEMA_JSON         = '{
     "title": "Marketplace Purchase",
@@ -163,11 +164,11 @@ final readonly class WebhooksMarketplacePurchase
     "unit_count": 10
 }';
 
-    public function __construct(public Schema\WebhooksMarketplacePurchase\Account $account, #[MapFrom('billing_cycle')]
+    public function __construct(public Account $account, #[MapFrom('billing_cycle')]
     public string $billingCycle, #[MapFrom('free_trial_ends_on')]
     public string|null $freeTrialEndsOn, #[MapFrom('next_billing_date')]
     public string|null $nextBillingDate, #[MapFrom('on_free_trial')]
-    public bool $onFreeTrial, public Schema\WebhooksMarketplacePurchase\Plan $plan, #[MapFrom('unit_count')]
+    public bool $onFreeTrial, public Plan $plan, #[MapFrom('unit_count')]
     public int $unitCount,)
     {
     }

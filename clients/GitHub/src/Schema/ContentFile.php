@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ContentFile\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ContentFile
+final readonly class ContentFile implements \ApiClients\Client\GitHub\Contract\ContentFile
 {
     public const SCHEMA_JSON         = '{
     "title": "Content File",
@@ -138,15 +138,15 @@ final readonly class ContentFile
         "html": "https:\\/\\/example.com\\/",
         "self": "https:\\/\\/example.com\\/"
     },
-    "target": "\\"actual\\/actual.md\\"",
-    "submodule_git_url": "\\"git:\\/\\/example.com\\/defunkt\\/dotjs.git\\""
+    "target": "generated",
+    "submodule_git_url": "generated"
 }';
 
     public function __construct(public string $type, public string $encoding, public int $size, public string $name, public string $path, public string $content, public string $sha, public string $url, #[MapFrom('git_url')]
     public string|null $gitUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentFile\Links $links, public string|null $target, #[MapFrom('submodule_git_url')]
+    public Links $links, public string|null $target, #[MapFrom('submodule_git_url')]
     public string|null $submoduleGitUrl,)
     {
     }

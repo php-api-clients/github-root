@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class IssueEventDismissedReview
+final readonly class IssueEventDismissedReview implements \ApiClients\Client\GitHub\Contract\IssueEventDismissedReview
 {
     public const SCHEMA_JSON         = '{
     "title": "Issue Event Dismissed Review",

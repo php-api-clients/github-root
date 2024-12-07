@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\PendingDeployment;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T840A0FDF\T2788886F\T3E288C76\T836AAE9A;
 
-final readonly class Reviewers extends Schema\AliasAbstract\Tiet840A0FDF\Tiet2788886F\Tiet3E288C76\Tiet836AAE9A
+final readonly class Reviewers extends T836AAE9A
 {
 }

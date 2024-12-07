@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewThreadResolved
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Thread
+final readonly class Thread implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewThreadResolved\Thread
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -417,7 +417,7 @@ final readonly class Thread
                     "href": "generated"
                 }
             },
-            "author_association": "OWNER",
+            "author_association": "COLLABORATOR",
             "body": "generated",
             "commit_id": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
@@ -447,10 +447,10 @@ final readonly class Thread
                 "total_count": 11,
                 "url": "https:\\/\\/example.com\\/"
             },
-            "side": "RIGHT",
+            "side": "LEFT",
             "start_line": 10,
-            "start_side": "RIGHT",
-            "subject_type": "file",
+            "start_side": "LEFT",
+            "subject_type": "line",
             "updated_at": "1970-01-01T00:00:00+00:00",
             "url": "https:\\/\\/example.com\\/",
             "user": {
@@ -473,7 +473,7 @@ final readonly class Thread
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Mannequin",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             }
@@ -490,7 +490,7 @@ final readonly class Thread
                     "href": "generated"
                 }
             },
-            "author_association": "OWNER",
+            "author_association": "COLLABORATOR",
             "body": "generated",
             "commit_id": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
@@ -520,10 +520,10 @@ final readonly class Thread
                 "total_count": 11,
                 "url": "https:\\/\\/example.com\\/"
             },
-            "side": "RIGHT",
+            "side": "LEFT",
             "start_line": 10,
-            "start_side": "RIGHT",
-            "subject_type": "file",
+            "start_side": "LEFT",
+            "subject_type": "line",
             "updated_at": "1970-01-01T00:00:00+00:00",
             "url": "https:\\/\\/example.com\\/",
             "user": {
@@ -546,7 +546,7 @@ final readonly class Thread
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Mannequin",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             }

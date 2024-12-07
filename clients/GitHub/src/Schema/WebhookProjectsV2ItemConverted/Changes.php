@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemConverted;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemConverted\Changes\ContentType;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemConverted\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -38,7 +38,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('content_type')]
-    public Schema\WebhookProjectsV2ItemConverted\Changes\ContentType|null $contentType,)
+    public ContentType|null $contentType,)
     {
     }
 }

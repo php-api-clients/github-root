@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GitTag;
 
-final readonly class Object_
+final readonly class Object_ implements \ApiClients\Client\GitHub\Contract\GitTag\Object_
 {
     public const SCHEMA_JSON         = '{
     "required": [

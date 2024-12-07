@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Activity;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class MarkThreadAsDone
 {
@@ -26,7 +25,7 @@ final class MarkThreadAsDone
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{thread_id}'], [$this->threadId], '/notifications/threads/{thread_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/notifications/threads/{thread_id}'))->expand(['thread_id' => $this->threadId]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

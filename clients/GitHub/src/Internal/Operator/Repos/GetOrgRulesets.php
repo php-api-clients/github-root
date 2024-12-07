@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Rulesets;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetOrgRulesets
     public const OPERATION_ID    = 'repos/get-org-rulesets';
     public const OPERATION_MATCH = 'GET /orgs/{org}/rulesets';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Rulesets $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Rulesets $hydrator)
     {
     }
 
-    /** @return Observable<Schema\RepositoryRuleset> */
+    /** @return Observable<RepositoryRuleset> */
     public function call(string $org, string $targets, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\GetOrgRulesets($this->responseSchemaValidator, $this->hydrator, $org, $targets, $perPage, $page);

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\CreateForAuthenticatedUser\Reque
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -184,29 +184,29 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Team Environment",
+    "name": "generated",
     "description": "generated",
     "homepage": "generated",
     "private": false,
-    "has_issues": true,
-    "has_projects": true,
-    "has_wiki": true,
-    "has_discussions": true,
+    "has_issues": false,
+    "has_projects": false,
+    "has_wiki": false,
+    "has_discussions": false,
     "team_id": 7,
     "auto_init": false,
-    "gitignore_template": "Haskell",
-    "license_template": "mit",
-    "allow_squash_merge": true,
-    "allow_merge_commit": true,
-    "allow_rebase_merge": true,
+    "gitignore_template": "generated",
+    "license_template": "generated",
+    "allow_squash_merge": false,
+    "allow_merge_commit": false,
+    "allow_rebase_merge": false,
     "allow_auto_merge": false,
     "delete_branch_on_merge": false,
     "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
-    "merge_commit_title": "MERGE_MESSAGE",
-    "merge_commit_message": "BLANK",
-    "has_downloads": true,
-    "is_template": true
+    "merge_commit_title": "PR_TITLE",
+    "merge_commit_message": "PR_BODY",
+    "has_downloads": false,
+    "is_template": false
 }';
 
     /**

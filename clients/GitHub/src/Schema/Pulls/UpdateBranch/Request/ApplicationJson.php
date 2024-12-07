@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\UpdateBranch\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\UpdateBranch\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [

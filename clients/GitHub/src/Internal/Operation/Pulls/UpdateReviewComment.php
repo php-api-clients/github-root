@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Pulls;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId;
+use ApiClients\Client\GitHub\Schema\PullRequestReviewComment;
+use ApiClients\Client\GitHub\Schema\Pulls\UpdateReviewComment\Request\ApplicationJson;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class UpdateReviewComment
 {
@@ -29,21 +31,24 @@ final class UpdateReviewComment
     /**The unique identifier of the comment. **/
     private int $commentId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private CommentId $hydrator, string $owner, string $repo, int $commentId)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
-        $this->commentId = $commentId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->commentId               = $commentId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Pulls\UpdateReviewComment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], '/repos/{owner}/{repo}/pulls/comments/{comment_id}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', (string) (new UriTemplate('/repos/{owner}/{repo}/pulls/comments/{comment_id}'))->expand(['comment_id' => $this->commentId, 'owner' => $this->owner, 'repo' => $this->repo]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\PullRequestReviewComment
+    public function createResponse(ResponseInterface $response): PullRequestReviewComment
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +60,9 @@ final class UpdateReviewComment
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PullRequestReviewComment::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(PullRequestReviewComment::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\PullRequestReviewComment::class, $body);
+                        return $this->hydrator->hydrateObject(PullRequestReviewComment::class, $body);
                 }
 
                 break;

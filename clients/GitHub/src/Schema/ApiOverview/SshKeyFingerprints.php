@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\ApiOverview;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SshKeyFingerprints
+final readonly class SshKeyFingerprints implements \ApiClients\Client\GitHub\Contract\ApiOverview\SshKeyFingerprints
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

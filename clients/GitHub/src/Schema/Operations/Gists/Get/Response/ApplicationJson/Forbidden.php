@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Gists\Get\Response\ApplicationJson;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Forbidden
+final readonly class Forbidden implements \ApiClients\Client\GitHub\Contract\Operations\Gists\Get\Response\ApplicationJson\Forbidden
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -49,7 +49,7 @@ final readonly class Forbidden
     "documentation_url": "generated"
 }';
 
-    public function __construct(public Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block|null $block, public string|null $message, #[MapFrom('documentation_url')]
+    public function __construct(public Block|null $block, public string|null $message, #[MapFrom('documentation_url')]
     public string|null $documentationUrl,)
     {
     }

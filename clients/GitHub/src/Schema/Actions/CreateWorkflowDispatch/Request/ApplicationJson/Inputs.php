@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Actions\CreateWorkflowDispatch\Request\ApplicationJson;
 
-final readonly class Inputs
+final readonly class Inputs implements \ApiClients\Client\GitHub\Contract\Actions\CreateWorkflowDispatch\Request\ApplicationJson\Inputs
 {
     public const SCHEMA_JSON         = '{
     "maxProperties": 10,

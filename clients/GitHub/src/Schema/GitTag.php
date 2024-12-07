@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\GitTag\Object_;
+use ApiClients\Client\GitHub\Schema\GitTag\Tagger;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class GitTag
+final readonly class GitTag implements \ApiClients\Client\GitHub\Contract\GitTag
 {
     public const SCHEMA_JSON         = '{
     "title": "Git Tag",
@@ -137,11 +138,11 @@ final readonly class GitTag
     public const SCHEMA_TITLE        = 'Git Tag';
     public const SCHEMA_DESCRIPTION  = 'Metadata for a Git tag';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "node_id": "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==",
-    "tag": "v0.0.1",
-    "sha": "940bd336248efae0f9ee5bc7b2d5c985887b16ac",
-    "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/git\\/tags\\/940bd336248efae0f9ee5bc7b2d5c985887b16ac",
-    "message": "Initial public release",
+    "node_id": "generated",
+    "tag": "generated",
+    "sha": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "message": "generated",
     "tagger": {
         "date": "generated",
         "email": "generated",
@@ -167,7 +168,7 @@ final readonly class GitTag
      * message: Message describing the purpose of the tag
      */
     public function __construct(#[MapFrom('node_id')]
-    public string $nodeId, public string $tag, public string $sha, public string $url, public string $message, public Schema\GitTag\Tagger $tagger, public Schema\GitTag\Object_ $object, public Schema\Verification|null $verification,)
+    public string $nodeId, public string $tag, public string $sha, public string $url, public string $message, public Tagger $tagger, public Object_ $object, public Verification|null $verification,)
     {
     }
 }

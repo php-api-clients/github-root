@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class InteractionExpiry
+final readonly class InteractionExpiry implements \ApiClients\Client\GitHub\Contract\InteractionExpiry
 {
     public const SCHEMA_JSON         = '{
     "enum": [

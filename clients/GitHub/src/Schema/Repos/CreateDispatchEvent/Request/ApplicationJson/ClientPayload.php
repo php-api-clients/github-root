@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateDispatchEvent\Request\ApplicationJson;
 
-final readonly class ClientPayload
+final readonly class ClientPayload implements \ApiClients\Client\GitHub\Contract\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload
 {
     public const SCHEMA_JSON         = '{
     "maxProperties": 10,

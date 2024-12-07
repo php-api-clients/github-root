@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CopilotUsageMetrics;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Breakdown
+final readonly class Breakdown implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetrics\Breakdown
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

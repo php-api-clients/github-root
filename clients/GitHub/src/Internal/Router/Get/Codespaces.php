@@ -4,7 +4,29 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\CheckPermissionsForDevcontainer;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\CodespaceMachinesForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetCodespacesForUserInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetExportDetailsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetOrgPublicKey;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetPublicKeyForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetRepoPublicKey;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetRepoSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\GetSecretForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListDevcontainersInRepositoryForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListInOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListInRepositoryForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListOrgSecrets;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListRepoSecrets;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListRepositoriesForSecretForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListSecretsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\ListSelectedReposForOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\PreFlightWithRepoForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\RepoMachinesForAuthenticatedUser;
 use ApiClients\Client\GitHub\Schema\Codespace;
 use ApiClients\Client\GitHub\Schema\CodespaceExportDetails;
 use ApiClients\Client\GitHub\Schema\CodespacesOrgSecret;
@@ -25,7 +47,7 @@ use function array_key_exists;
 
 final class Codespaces
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -51,7 +73,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces());
+        $operator = new ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces());
 
         return $operator->call($arguments['repository_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -78,7 +100,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListInOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces());
+        $operator = new ListInOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
@@ -99,7 +121,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListSecretsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets());
+        $operator = new ListSecretsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -114,7 +136,7 @@ final class Codespaces
 
         $arguments['codespace_name'] = $params['codespace_name'];
         unset($params['codespace_name']);
-        $operator = new Internal\Operator\Codespaces\GetForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName());
+        $operator = new GetForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName());
 
         return $operator->call($arguments['codespace_name']);
     }
@@ -141,7 +163,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListOrgSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets());
+        $operator = new ListOrgSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
@@ -174,7 +196,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListInRepositoryForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces());
+        $operator = new ListInRepositoryForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -182,7 +204,7 @@ final class Codespaces
     /** @return */
     public function getPublicKeyForAuthenticatedUser(array $params): CodespacesUserPublicKey
     {
-        $operator = new Internal\Operator\Codespaces\GetPublicKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀PublicKey());
+        $operator = new GetPublicKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀PublicKey());
 
         return $operator->call();
     }
@@ -197,7 +219,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\GetSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName());
+        $operator = new GetSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['secret_name']);
     }
@@ -212,7 +234,7 @@ final class Codespaces
 
         $arguments['codespace_name'] = $params['codespace_name'];
         unset($params['codespace_name']);
-        $operator = new Internal\Operator\Codespaces\CodespaceMachinesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName🌀Machines());
+        $operator = new CodespaceMachinesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName🌀Machines());
 
         return $operator->call($arguments['codespace_name']);
     }
@@ -227,7 +249,7 @@ final class Codespaces
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Codespaces\GetOrgPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀PublicKey());
+        $operator = new GetOrgPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀PublicKey());
 
         return $operator->call($arguments['org']);
     }
@@ -248,7 +270,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\GetOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName());
+        $operator = new GetOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
@@ -281,7 +303,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\GetCodespacesForUserInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username🌀Codespaces());
+        $operator = new GetCodespacesForUserInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username🌀Codespaces());
 
         return $operator->call($arguments['org'], $arguments['username'], $arguments['per_page'], $arguments['page']);
     }
@@ -314,7 +336,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListDevcontainersInRepositoryForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Devcontainers());
+        $operator = new ListDevcontainersInRepositoryForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Devcontainers());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -353,7 +375,7 @@ final class Codespaces
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Codespaces\RepoMachinesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Machines());
+        $operator = new RepoMachinesForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Machines());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['location'], $arguments['client_ip'], $arguments['ref']);
     }
@@ -386,7 +408,7 @@ final class Codespaces
 
         $arguments['client_ip'] = $params['client_ip'];
         unset($params['client_ip']);
-        $operator = new Internal\Operator\Codespaces\PreFlightWithRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀New_());
+        $operator = new PreFlightWithRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀New_());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['client_ip']);
     }
@@ -419,7 +441,7 @@ final class Codespaces
 
         $arguments['devcontainer_path'] = $params['devcontainer_path'];
         unset($params['devcontainer_path']);
-        $operator = new Internal\Operator\Codespaces\CheckPermissionsForDevcontainer($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀PermissionsCheck());
+        $operator = new CheckPermissionsForDevcontainer($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀PermissionsCheck());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['devcontainer_path']);
     }
@@ -452,7 +474,7 @@ final class Codespaces
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Codespaces\ListRepoSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets());
+        $operator = new ListRepoSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -467,7 +489,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\ListRepositoriesForSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName🌀Repositories());
+        $operator = new ListRepositoriesForSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName🌀Repositories());
 
         return $operator->call($arguments['secret_name']);
     }
@@ -488,7 +510,7 @@ final class Codespaces
 
         $arguments['export_id'] = $params['export_id'];
         unset($params['export_id']);
-        $operator = new Internal\Operator\Codespaces\GetExportDetailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName🌀Exports🌀ExportId());
+        $operator = new GetExportDetailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName🌀Exports🌀ExportId());
 
         return $operator->call($arguments['codespace_name'], $arguments['export_id']);
     }
@@ -521,7 +543,7 @@ final class Codespaces
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Codespaces\ListSelectedReposForOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName🌀Repositories());
+        $operator = new ListSelectedReposForOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
@@ -542,7 +564,7 @@ final class Codespaces
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Codespaces\GetRepoPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets🌀PublicKey());
+        $operator = new GetRepoPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets🌀PublicKey());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -569,7 +591,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\GetRepoSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets🌀SecretName());
+        $operator = new GetRepoSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codespaces🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }

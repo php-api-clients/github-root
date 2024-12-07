@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\Variables;
+use ApiClients\Client\GitHub\Schema\Actions\CreateOrgVariable\Request\ApplicationJson;
+use ApiClients\Client\GitHub\Schema\EmptyObject;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class CreateOrgVariable
 {
@@ -25,19 +27,22 @@ final class CreateOrgVariable
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Variables $hydrator, string $org)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Variables $hydrator, string $org)
     {
-        $this->org = $org;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->org                     = $org;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\CreateOrgVariable\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/variables'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/orgs/{org}/actions/variables'))->expand(['org' => $this->org]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\EmptyObject
+    public function createResponse(ResponseInterface $response): EmptyObject
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,9 +54,9 @@ final class CreateOrgVariable
                      * Response when creating a variable
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\EmptyObject::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(EmptyObject::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\EmptyObject::class, $body);
+                        return $this->hydrator->hydrateObject(EmptyObject::class, $body);
                 }
 
                 break;

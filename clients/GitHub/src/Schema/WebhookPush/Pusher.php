@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPush;
 
-final readonly class Pusher
+final readonly class Pusher implements \ApiClients\Client\GitHub\Contract\WebhookPush\Pusher
 {
     public const SCHEMA_JSON         = '{
     "title": "Committer",

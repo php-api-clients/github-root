@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BillingUsageReport;
 
-final readonly class UsageItems
+final readonly class UsageItems implements \ApiClients\Client\GitHub\Contract\BillingUsageReport\UsageItems
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -75,10 +75,10 @@ final readonly class UsageItems
     "sku": "generated",
     "quantity": 8,
     "unitType": "generated",
-    "pricePerUnit": 1.2,
-    "grossAmount": 1.1,
-    "discountAmount": 1.4,
-    "netAmount": 0.9,
+    "pricePerUnit": 12,
+    "grossAmount": 11,
+    "discountAmount": 14,
+    "netAmount": 9,
     "organizationName": "generated",
     "repositoryName": "generated"
 }';

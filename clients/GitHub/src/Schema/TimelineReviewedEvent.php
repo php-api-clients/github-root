@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\TimelineReviewedEvent\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TimelineReviewedEvent
+final readonly class TimelineReviewedEvent implements \ApiClients\Client\GitHub\Contract\TimelineReviewedEvent
 {
     public const SCHEMA_JSON         = '{
     "title": "Timeline Reviewed Event",
@@ -313,36 +313,36 @@ final readonly class TimelineReviewedEvent
     public const SCHEMA_DESCRIPTION  = 'Timeline Reviewed Event';
     public const SCHEMA_EXAMPLE_DATA = '{
     "event": "generated",
-    "id": 42,
-    "node_id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3ODA=",
+    "id": 2,
+    "node_id": "generated",
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "body": "This looks great.",
-    "state": "CHANGES_REQUESTED",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/12#pullrequestreview-80",
-    "pull_request_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/12",
+    "body": "generated",
+    "state": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "pull_request_url": "https:\\/\\/example.com\\/",
     "_links": {
         "html": {
             "href": "generated"
@@ -352,10 +352,10 @@ final readonly class TimelineReviewedEvent
         }
     },
     "submitted_at": "1970-01-01T00:00:00+00:00",
-    "commit_id": "54bb654c9e6025347f57900a4a5c2313a96b8035",
+    "commit_id": "generated",
     "body_html": "generated",
     "body_text": "generated",
-    "author_association": "OWNER"
+    "author_association": "COLLABORATOR"
 }';
 
     /**
@@ -366,10 +366,10 @@ final readonly class TimelineReviewedEvent
      * authorAssociation: How the author is associated with the repository.
      */
     public function __construct(public string $event, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public Schema\SimpleUser $user, public string|null $body, public string $state, #[MapFrom('html_url')]
+    public string $nodeId, public SimpleUser $user, public string|null $body, public string $state, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('pull_request_url')]
     public string $pullRequestUrl, #[MapFrom('_links')]
-    public Schema\TimelineReviewedEvent\Links $links, #[MapFrom('submitted_at')]
+    public Links $links, #[MapFrom('submitted_at')]
     public string|null $submittedAt, #[MapFrom('commit_id')]
     public string $commitId, #[MapFrom('body_html')]
     public string|null $bodyHtml, #[MapFrom('body_text')]

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Artifact;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WorkflowRun
+final readonly class WorkflowRun implements \ApiClients\Client\GitHub\Contract\Artifact\WorkflowRun
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -49,11 +49,11 @@ final readonly class WorkflowRun
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 10,
-    "repository_id": 42,
-    "head_repository_id": 42,
-    "head_branch": "main",
-    "head_sha": "009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"
+    "id": 2,
+    "repository_id": 13,
+    "head_repository_id": 18,
+    "head_branch": "generated",
+    "head_sha": "generated"
 }';
 
     public function __construct(public int|null $id, #[MapFrom('repository_id')]

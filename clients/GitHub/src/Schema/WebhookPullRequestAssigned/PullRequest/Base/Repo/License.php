@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestAssigned\PullRequest\Base\Repo;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TA7378D88\T9F1485AB\T225278C2\T93F7D467;
 
-final readonly class License extends Schema\AliasAbstract\TietA7378D88\Tiet9F1485AB\Tiet225278C2\Tiet93F7D467
+final readonly class License extends T93F7D467
 {
 }

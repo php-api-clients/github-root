@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ProtectedBranch;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TAEA81627\TD9F257C8\T586483E5\T737DE0E4;
 
-final readonly class AllowForcePushes extends Schema\AliasAbstract\TietAEA81627\TietD9F257C8\Tiet586483E5\Tiet737DE0E4
+final readonly class AllowForcePushes extends T737DE0E4
 {
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Reactions\CreateForCommitComment\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Reactions\CreateForCommitComment\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

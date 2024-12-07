@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes;
 
-final readonly class Updated
+final readonly class Updated implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -122,7 +123,7 @@ final readonly class Updated
     /**
      * condition: Parameters for a repository ruleset ref name condition
      */
-    public function __construct(public Schema\RepositoryRulesetConditions|null $condition, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes|null $changes)
+    public function __construct(public RepositoryRulesetConditions|null $condition, public Changes|null $changes)
     {
     }
 }

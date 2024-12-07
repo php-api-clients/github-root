@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CloneTraffic
+final readonly class CloneTraffic implements \ApiClients\Client\GitHub\Contract\CloneTraffic
 {
     public const SCHEMA_JSON         = '{
     "title": "Clone Traffic",
@@ -57,8 +57,8 @@ final readonly class CloneTraffic
     public const SCHEMA_TITLE        = 'Clone Traffic';
     public const SCHEMA_DESCRIPTION  = 'Clone Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "count": 173,
-    "uniques": 128,
+    "count": 5,
+    "uniques": 7,
     "clones": [
         {
             "timestamp": "1970-01-01T00:00:00+00:00",

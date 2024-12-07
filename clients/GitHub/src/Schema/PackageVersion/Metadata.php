@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PackageVersion\Metadata\Container;
+use ApiClients\Client\GitHub\Schema\PackageVersion\Metadata\Docker;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Metadata
+final readonly class Metadata implements \ApiClients\Client\GitHub\Contract\PackageVersion\Metadata
 {
     public const SCHEMA_JSON         = '{
     "title": "Package Version Metadata",
@@ -65,7 +66,7 @@ final readonly class Metadata
     public const SCHEMA_TITLE        = 'Package Version Metadata';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "package_type": "docker",
+    "package_type": "npm",
     "container": {
         "tags": [
             "generated",
@@ -81,7 +82,7 @@ final readonly class Metadata
 }';
 
     public function __construct(#[MapFrom('package_type')]
-    public string $packageType, public Schema\PackageVersion\Metadata\Container|null $container, public Schema\PackageVersion\Metadata\Docker|null $docker,)
+    public string $packageType, public Container|null $container, public Docker|null $docker,)
     {
     }
 }

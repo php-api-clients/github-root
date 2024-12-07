@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Migrations\UpdateImport\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Migrations\UpdateImport\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -49,8 +49,8 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "vcs_username": "generated",
     "vcs_password": "generated",
-    "vcs": "\\"git\\"",
-    "tfvc_project": "\\"project1\\""
+    "vcs": "subversion",
+    "tfvc_project": "generated"
 }';
 
     /**

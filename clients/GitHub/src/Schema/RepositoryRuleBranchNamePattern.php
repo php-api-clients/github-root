@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern\Parameters;
 
-final readonly class RepositoryRuleBranchNamePattern
+final readonly class RepositoryRuleBranchNamePattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleBranchNamePattern
 {
     public const SCHEMA_JSON         = '{
     "title": "branch_name_pattern",
@@ -62,12 +62,12 @@ final readonly class RepositoryRuleBranchNamePattern
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleBranchNamePattern\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

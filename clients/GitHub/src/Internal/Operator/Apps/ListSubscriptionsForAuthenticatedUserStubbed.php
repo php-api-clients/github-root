@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Apps;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\MarketplacePurchases\Stubbed;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListSubscriptionsForAuthenticatedUserStubbed
     public const OPERATION_ID    = 'apps/list-subscriptions-for-authenticated-user-stubbed';
     public const OPERATION_MATCH = 'GET /user/marketplace_purchases/stubbed';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\MarketplacePurchases\Stubbed $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Stubbed $hydrator)
     {
     }
 
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
+    /** @return Observable<UserMarketplacePurchase>|WithoutBody */
     public function call(int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Apps\ListSubscriptionsForAuthenticatedUserStubbed($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

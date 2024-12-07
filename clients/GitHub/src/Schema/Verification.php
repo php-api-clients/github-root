@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Verification
+final readonly class Verification implements \ApiClients\Client\GitHub\Contract\Verification
 {
     public const SCHEMA_JSON         = '{
     "title": "Verification",

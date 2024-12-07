@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Packages;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Packages\PackageType\PackageName;
+use ApiClients\Client\GitHub\Schema\Package;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetPackageForAuthenticatedUser
 {
@@ -26,18 +27,20 @@ final class GetPackageForAuthenticatedUser
     /**The name of the package. **/
     private string $packageName;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\User\Packages\PackageType\PackageName $hydrator, string $packageType, string $packageName)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private PackageName $hydrator, string $packageType, string $packageName)
     {
-        $this->packageType = $packageType;
-        $this->packageName = $packageName;
+        $this->packageType             = $packageType;
+        $this->packageName             = $packageName;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{package_type}', '{package_name}'], [$this->packageType, $this->packageName], '/user/packages/{package_type}/{package_name}'));
+        return new Request('GET', (string) (new UriTemplate('/user/packages/{package_type}/{package_name}'))->expand(['package_name' => $this->packageName, 'package_type' => $this->packageType]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Package
+    public function createResponse(ResponseInterface $response): Package
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,9 +52,9 @@ final class GetPackageForAuthenticatedUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Package::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Package::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Package::class, $body);
+                        return $this->hydrator->hydrateObject(Package::class, $body);
                 }
 
                 break;

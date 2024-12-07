@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\CodeSecurity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class GetDefaultConfigurations
     public const OPERATION_ID    = 'code-security/get-default-configurations';
     public const OPERATION_MATCH = 'GET /orgs/{org}/code-security/configurations/defaults';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Defaults $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CodeSecurityDefaultConfigurations>|WithoutBody */
+    /** @return Observable<CodeSecurityDefaultConfigurations>|WithoutBody */
     public function call(string $org): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\CodeSecurity\GetDefaultConfigurations($this->responseSchemaValidator, $this->hydrator, $org);

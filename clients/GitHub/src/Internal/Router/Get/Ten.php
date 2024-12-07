@@ -15,7 +15,7 @@ final class Ten
     {
     }
 
-    /** @return Observable<Schema\Reaction>| */
+    /** @return Observable<Reaction>| */
     public function call(string $call, array $params, array $pathChunks): iterable|Ok|WithoutBody
     {
         if ($pathChunks[0] === '') {

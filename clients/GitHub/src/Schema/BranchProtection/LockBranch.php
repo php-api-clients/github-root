@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BranchProtection;
 
-final readonly class LockBranch
+final readonly class LockBranch implements \ApiClients\Client\GitHub\Contract\BranchProtection\LockBranch
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

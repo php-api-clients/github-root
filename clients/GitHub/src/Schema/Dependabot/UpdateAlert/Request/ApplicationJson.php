@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Dependabot\UpdateAlert\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Dependabot\UpdateAlert\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -45,7 +45,7 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "state": "dismissed",
-    "dismissed_reason": "tolerable_risk",
+    "dismissed_reason": "fix_started",
     "dismissed_comment": "generated"
 }';
 

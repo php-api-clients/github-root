@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\RepositoryRuleset\Conditions;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\RepositoryRuleset\Rules;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\RepositoryRuleset\Conditions;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleset
+final readonly class RepositoryRuleset implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository ruleset",
@@ -1243,19 +1248,19 @@ final readonly class RepositoryRuleset
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "name": "generated",
-    "target": "push",
+    "target": "branch",
     "source_type": "Repository",
     "source": "generated",
     "enforcement": "disabled",
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         }
     ],
@@ -1269,10 +1274,16 @@ final readonly class RepositoryRuleset
             "href": "generated"
         }
     },
-    "conditions": null,
     "rules": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ],
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
@@ -1288,14 +1299,17 @@ final readonly class RepositoryRuleset
      * bypassActors: The actors that can bypass the rules in this ruleset
      * currentUserCanBypass: The bypass type of the user making the API request for this ruleset. This field is only returned when
     querying the repository-level endpoint.
+     *
+     * @param ?array<RepositoryRuleCreation|RepositoryRuleUpdate|RepositoryRuleDeletion|RepositoryRuleRequiredLinearHistory|RepositoryRuleMergeQueue|RepositoryRuleRequiredDeployments|RepositoryRuleRequiredSignatures|RepositoryRulePullRequest|RepositoryRuleRequiredStatusChecks|RepositoryRuleNonFastForward|RepositoryRuleCommitMessagePattern|RepositoryRuleCommitAuthorEmailPattern|RepositoryRuleCommitterEmailPattern|RepositoryRuleBranchNamePattern|RepositoryRuleTagNamePattern|Fifteen|Sixteen|Seventeen|Eighteen|RepositoryRuleWorkflows|RepositoryRuleCodeScanning> $rules
      */
     public function __construct(public int $id, public string $name, public string|null $target, #[MapFrom('source_type')]
     public string|null $sourceType, public string $source, public string $enforcement, #[MapFrom('bypass_actors')]
     public array|null $bypassActors, #[MapFrom('current_user_can_bypass')]
     public string|null $currentUserCanBypass, #[MapFrom('node_id')]
     public string|null $nodeId, #[MapFrom('_links')]
-    public Schema\RepositoryRuleset\Links|null $links, #[Conditions]
-    public Schema\RepositoryRulesetConditions|array|null $conditions, public array|null $rules, #[MapFrom('created_at')]
+    public Links|null $links, #[Conditions]
+    public RepositoryRulesetConditions|array|null $conditions, #[Rules]
+    public array|null $rules, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('updated_at')]
     public string|null $updatedAt,)
     {

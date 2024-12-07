@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookLabelEdited\Changes;
 
-final readonly class Color
+final readonly class Color implements \ApiClients\Client\GitHub\Contract\WebhookLabelEdited\Changes\Color
 {
     public const SCHEMA_JSON         = '{
     "required": [

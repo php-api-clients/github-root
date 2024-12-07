@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Link
+final readonly class Link implements \ApiClients\Client\GitHub\Contract\Link
 {
     public const SCHEMA_JSON         = '{
     "title": "Link",

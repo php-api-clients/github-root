@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PullRequestMinimal\Base;
+use ApiClients\Client\GitHub\Schema\PullRequestMinimal\Head;
 
-final readonly class PullRequestMinimal
+final readonly class PullRequestMinimal implements \ApiClients\Client\GitHub\Contract\PullRequestMinimal
 {
     public const SCHEMA_JSON         = '{
     "title": "Pull Request Minimal",
@@ -129,7 +130,7 @@ final readonly class PullRequestMinimal
     }
 }';
 
-    public function __construct(public int $id, public int $number, public string $url, public Schema\PullRequestMinimal\Head $head, public Schema\PullRequestMinimal\Base $base)
+    public function __construct(public int $id, public int $number, public string $url, public Head $head, public Base $base)
     {
     }
 }

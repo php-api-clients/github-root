@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Attestations\SubjectDigest;
+use ApiClients\Client\GitHub\Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListAttestations
 {
@@ -32,21 +33,23 @@ final class ListAttestations
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Attestations\SubjectDigest $hydrator, string $before, string $after, string $org, string $subjectDigest, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private SubjectDigest $hydrator, string $before, string $after, string $org, string $subjectDigest, int $perPage = 30)
     {
-        $this->before        = $before;
-        $this->after         = $after;
-        $this->org           = $org;
-        $this->subjectDigest = $subjectDigest;
-        $this->perPage       = $perPage;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->org                     = $org;
+        $this->subjectDigest           = $subjectDigest;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{before}', '{after}', '{org}', '{subject_digest}', '{per_page}'], [$this->before, $this->after, $this->org, $this->subjectDigest, $this->perPage], '/orgs/{org}/attestations/{subject_digest}' . '?before={before}&after={after}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/attestations/{subject_digest}{?after,before,per_page}'))->expand(['after' => $this->after, 'before' => $this->before, 'org' => $this->org, 'per_page' => $this->perPage, 'subject_digest' => $this->subjectDigest]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok
+    public function createResponse(ResponseInterface $response): Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,9 +61,9 @@ final class ListAttestations
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Ok::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Ok::class, $body);
                 }
 
                 break;

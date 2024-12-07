@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Activity\SetRepoSubscription\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Activity\SetRepoSubscription\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

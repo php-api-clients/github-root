@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved\Changes;
 
-final readonly class ColumnId
+final readonly class ColumnId implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardMoved\Changes\ColumnId
 {
     public const SCHEMA_JSON         = '{
     "required": [

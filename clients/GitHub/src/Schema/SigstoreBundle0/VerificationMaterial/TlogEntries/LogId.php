@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries;
 
-final readonly class LogId
+final readonly class LogId implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial\TlogEntries\LogId
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

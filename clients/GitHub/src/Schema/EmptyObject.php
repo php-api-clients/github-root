@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class EmptyObject
+final readonly class EmptyObject implements \ApiClients\Client\GitHub\Contract\EmptyObject
 {
     public const SCHEMA_JSON         = '{
     "title": "Empty Object",

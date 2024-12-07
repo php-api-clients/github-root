@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentEdited\
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class User
+final readonly class User implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewCommentEdited\PullRequest\User
 {
     public const SCHEMA_JSON         = '{
     "title": "User",
@@ -131,7 +131,7 @@ final readonly class User
     "site_admin": false,
     "starred_url": "generated",
     "subscriptions_url": "https:\\/\\/example.com\\/",
-    "type": "Mannequin",
+    "type": "Bot",
     "user_view_type": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhooksProjectChanges;
 
-final readonly class ArchivedAt
+final readonly class ArchivedAt implements \ApiClients\Client\GitHub\Contract\WebhooksProjectChanges\ArchivedAt
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

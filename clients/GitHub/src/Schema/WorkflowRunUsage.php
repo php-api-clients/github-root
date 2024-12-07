@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WorkflowRunUsage\Billable;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WorkflowRunUsage
+final readonly class WorkflowRunUsage implements \ApiClients\Client\GitHub\Contract\WorkflowRunUsage
 {
     public const SCHEMA_JSON         = '{
     "title": "Workflow Run Usage",
@@ -176,7 +176,7 @@ final readonly class WorkflowRunUsage
     "run_duration_ms": 15
 }';
 
-    public function __construct(public Schema\WorkflowRunUsage\Billable $billable, #[MapFrom('run_duration_ms')]
+    public function __construct(public Billable $billable, #[MapFrom('run_duration_ms')]
     public int|null $runDurationMs,)
     {
     }

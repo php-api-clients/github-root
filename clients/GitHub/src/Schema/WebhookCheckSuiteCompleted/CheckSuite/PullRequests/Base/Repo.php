@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T5C961863\T8BA1DB48\TBD941DB1\T93572200;
 
-final readonly class Repo extends Schema\AliasAbstract\Tiet5C961863\Tiet8BA1DB48\TietBD941DB1\Tiet93572200
+final readonly class Repo extends T93572200
 {
 }

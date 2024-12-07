@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksChanges8\Tier;
 
-final readonly class WebhooksChanges8
+final readonly class WebhooksChanges8 implements \ApiClients\Client\GitHub\Contract\WebhooksChanges8
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -85,7 +85,7 @@ final readonly class WebhooksChanges8
     }
 }';
 
-    public function __construct(public Schema\WebhooksChanges8\Tier $tier)
+    public function __construct(public Tier $tier)
     {
     }
 }

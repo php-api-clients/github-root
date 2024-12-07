@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DependabotAlertPackage
+final readonly class DependabotAlertPackage implements \ApiClients\Client\GitHub\Contract\DependabotAlertPackage
 {
     public const SCHEMA_JSON         = '{
     "required": [

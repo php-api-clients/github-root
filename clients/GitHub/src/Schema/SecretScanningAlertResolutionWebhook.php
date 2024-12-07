@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecretScanningAlertResolutionWebhook
+final readonly class SecretScanningAlertResolutionWebhook implements \ApiClients\Client\GitHub\Contract\SecretScanningAlertResolutionWebhook
 {
     public const SCHEMA_JSON         = '{
     "enum": [

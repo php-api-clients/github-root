@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Autolink
+final readonly class Autolink implements \ApiClients\Client\GitHub\Contract\Autolink
 {
     public const SCHEMA_JSON         = '{
     "title": "Autolink reference",
@@ -51,10 +51,10 @@ final readonly class Autolink
     public const SCHEMA_TITLE        = 'Autolink reference';
     public const SCHEMA_DESCRIPTION  = 'An autolink reference.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3,
-    "key_prefix": "TICKET-",
-    "url_template": "https:\\/\\/example.com\\/TICKET?query=<num>",
-    "is_alphanumeric": true
+    "id": 2,
+    "key_prefix": "generated",
+    "url_template": "generated",
+    "is_alphanumeric": false
 }';
 
     /**

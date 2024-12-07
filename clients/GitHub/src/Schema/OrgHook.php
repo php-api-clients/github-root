@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\OrgHook\Config;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrgHook
+final readonly class OrgHook implements \ApiClients\Client\GitHub\Contract\OrgHook
 {
     public const SCHEMA_JSON         = '{
     "title": "Org Hook",
@@ -126,30 +126,30 @@ final readonly class OrgHook
     public const SCHEMA_TITLE        = 'Org Hook';
     public const SCHEMA_DESCRIPTION  = 'Org Hook';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "url": "https:\\/\\/api.github.com\\/orgs\\/octocat\\/hooks\\/1",
-    "ping_url": "https:\\/\\/api.github.com\\/orgs\\/octocat\\/hooks\\/1\\/pings",
-    "deliveries_url": "https:\\/\\/api.github.com\\/orgs\\/octocat\\/hooks\\/1\\/deliveries",
-    "name": "web",
+    "id": 2,
+    "url": "https:\\/\\/example.com\\/",
+    "ping_url": "https:\\/\\/example.com\\/",
+    "deliveries_url": "https:\\/\\/example.com\\/",
+    "name": "generated",
     "events": [
-        "pull_request",
-        "pull_request"
+        "generated",
+        "generated"
     ],
-    "active": true,
+    "active": false,
     "config": {
-        "url": "\\"http:\\/\\/example.com\\/2\\"",
-        "insecure_ssl": "\\"0\\"",
-        "content_type": "\\"form\\"",
-        "secret": "\\"********\\""
+        "url": "generated",
+        "insecure_ssl": "generated",
+        "content_type": "generated",
+        "secret": "generated"
     },
-    "updated_at": "2011-09-06T20:39:23Z",
-    "created_at": "2011-09-06T17:26:27Z",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "created_at": "1970-01-01T00:00:00+00:00",
     "type": "generated"
 }';
 
     public function __construct(public int $id, public string $url, #[MapFrom('ping_url')]
     public string $pingUrl, #[MapFrom('deliveries_url')]
-    public string|null $deliveriesUrl, public string $name, public array $events, public bool $active, public Schema\OrgHook\Config $config, #[MapFrom('updated_at')]
+    public string|null $deliveriesUrl, public string $name, public array $events, public bool $active, public Config $config, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('created_at')]
     public string $createdAt, public string $type,)
     {

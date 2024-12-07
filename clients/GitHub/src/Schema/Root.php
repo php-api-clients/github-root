@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Root
+final readonly class Root implements \ApiClients\Client\GitHub\Contract\Root
 {
     public const SCHEMA_JSON         = '{
     "required": [

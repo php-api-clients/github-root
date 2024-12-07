@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookDiscussionCategoryChanged\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookDiscussionCategoryChanged\Changes\Category\From;
 
-final readonly class Category
+final readonly class Category implements \ApiClients\Client\GitHub\Contract\WebhookDiscussionCategoryChanged\Changes\Category
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -80,7 +80,7 @@ final readonly class Category
     }
 }';
 
-    public function __construct(public Schema\WebhookDiscussionCategoryChanged\Changes\Category\From $from)
+    public function __construct(public From $from)
     {
     }
 }

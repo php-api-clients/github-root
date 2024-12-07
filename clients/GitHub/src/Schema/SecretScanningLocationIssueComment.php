@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationIssueComment
+final readonly class SecretScanningLocationIssueComment implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationIssueComment
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class SecretScanningLocationIssueComment
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents an \'issue_comment\' secret scanning location type. This location type shows that a secret was detected in a comment on an issue.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "issue_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments\\/1081119451"
+    "issue_comment_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

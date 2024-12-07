@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From\Organization;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From\User;
 
-final readonly class From
+final readonly class From implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryTransferred\Changes\Owner\From
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -222,13 +223,13 @@ final readonly class From
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
 
-    public function __construct(public Schema\WebhookRepositoryTransferred\Changes\Owner\From\Organization|null $organization, public Schema\WebhookRepositoryTransferred\Changes\Owner\From\User|null $user)
+    public function __construct(public Organization|null $organization, public User|null $user)
     {
     }
 }

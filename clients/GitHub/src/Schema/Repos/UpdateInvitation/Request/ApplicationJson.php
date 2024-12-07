@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateInvitation\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateInvitation\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Search\Topics\Response\Appl
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Search\Topics\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -224,7 +224,7 @@ final readonly class Ok
             "updated_at": "1970-01-01T00:00:00+00:00",
             "featured": false,
             "curated": false,
-            "score": 0.5,
+            "score": 5,
             "repository_count": 16,
             "logo_url": "https:\\/\\/example.com\\/",
             "text_matches": [
@@ -272,9 +272,7 @@ final readonly class Ok
                         }
                     ]
                 }
-            ],
-            "related": null,
-            "aliases": null
+            ]
         },
         {
             "name": "generated",
@@ -287,7 +285,7 @@ final readonly class Ok
             "updated_at": "1970-01-01T00:00:00+00:00",
             "featured": false,
             "curated": false,
-            "score": 0.5,
+            "score": 5,
             "repository_count": 16,
             "logo_url": "https:\\/\\/example.com\\/",
             "text_matches": [
@@ -335,9 +333,7 @@ final readonly class Ok
                         }
                     ]
                 }
-            ],
-            "related": null,
-            "aliases": null
+            ]
         }
     ]
 }';

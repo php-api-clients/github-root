@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleMergeQueue\Parameters
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -76,7 +76,7 @@ final readonly class Parameters
     "grouping_strategy": "ALLGREEN",
     "max_entries_to_build": 20,
     "max_entries_to_merge": 20,
-    "merge_method": "REBASE",
+    "merge_method": "MERGE",
     "min_entries_to_merge": 20,
     "min_entries_to_merge_wait_minutes": 33
 }';

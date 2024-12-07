@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksAnswer\Reactions;
+use ApiClients\Client\GitHub\Schema\WebhooksAnswer\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksAnswer
+final readonly class WebhooksAnswer implements \ApiClients\Client\GitHub\Contract\WebhooksAnswer
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -229,7 +230,7 @@ final readonly class WebhooksAnswer
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "child_comment_count": 19,
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -272,7 +273,7 @@ final readonly class WebhooksAnswer
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
@@ -288,9 +289,9 @@ final readonly class WebhooksAnswer
     public int $discussionId, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('parent_id')]
-    public string $parentId, public Schema\WebhooksAnswer\Reactions|null $reactions, #[MapFrom('repository_url')]
+    public string $parentId, public Reactions|null $reactions, #[MapFrom('repository_url')]
     public string $repositoryUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\WebhooksAnswer\User|null $user,)
+    public string $updatedAt, public User|null $user,)
     {
     }
 }

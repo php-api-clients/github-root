@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Snapshot;
 
-final readonly class Detector
+final readonly class Detector implements \ApiClients\Client\GitHub\Contract\Snapshot\Detector
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -42,9 +42,9 @@ final readonly class Detector
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'A description of the detector used.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "docker buildtime detector",
-    "version": "1.0.0",
-    "url": "http:\\/\\/example.com\\/docker-buildtimer-detector"
+    "name": "generated",
+    "version": "generated",
+    "url": "generated"
 }';
 
     /**

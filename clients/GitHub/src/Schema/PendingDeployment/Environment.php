@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\PendingDeployment;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Environment
+final readonly class Environment implements \ApiClients\Client\GitHub\Contract\PendingDeployment\Environment
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -49,11 +49,11 @@ final readonly class Environment
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 56780428,
-    "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-    "name": "staging",
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-    "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging"
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "url": "generated",
+    "html_url": "generated"
 }';
 
     /**

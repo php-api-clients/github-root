@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat;
+use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Tools\OpenApiClient\Utils\Response\Header;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class DownloadArtifact
 {
@@ -31,16 +31,18 @@ final class DownloadArtifact
     /**The unique identifier of the artifact. **/
     private int $artifactId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat $hydrator, string $owner, string $repo, int $artifactId, private string $archiveFormat)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private ArchiveFormat $hydrator, string $owner, string $repo, int $artifactId, private string $archiveFormat)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
-        $this->artifactId = $artifactId;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->artifactId              = $artifactId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}'))->expand(['archive_format' => $this->archiveFormat, 'artifact_id' => $this->artifactId, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -55,9 +57,9 @@ final class DownloadArtifact
                      * Gone
                      **/
                     case 410:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(410, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(410, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

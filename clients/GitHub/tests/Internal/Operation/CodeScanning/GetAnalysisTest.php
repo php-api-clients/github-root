@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\CodeScanning;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\BasicError;
+use ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
+use ApiClients\Client\GitHub\Internal\Operation\CodeScanning\GetAnalysis;
+use ApiClients\Client\GitHub\Schema\CodeScanningAnalysis;
+use ApiClients\Client\GitHub\Schema\Operations\CodeScanning\GetAnalysis\Response\ApplicationJsonSarif\Ok\Application\JsonSarif;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,7 +26,7 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\CodeScanningAnalysis::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(CodeScanningAnalysis::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -32,7 +34,7 @@ final class GetAnalysisTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/code-scanning/analyses/11', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['analysis_id'] = 11;
@@ -44,7 +46,7 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\CodeScanningAnalysis::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json'], json_encode(json_decode(CodeScanningAnalysis::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -58,7 +60,7 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_200_responseContentType_application_json_sarif_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json+sarif'], json_encode(json_decode(Schema\Operations\CodeScanning\GetAnalysis\Response\ApplicationJsonSarif\Ok\Application\JsonSarif::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json+sarif'], json_encode(json_decode(JsonSarif::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -66,7 +68,7 @@ final class GetAnalysisTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/code-scanning/analyses/11', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['analysis_id'] = 11;
@@ -78,7 +80,7 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_200_responseContentType_application_json_sarif_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json+sarif'], json_encode(json_decode(Schema\Operations\CodeScanning\GetAnalysis\Response\ApplicationJsonSarif\Ok\Application\JsonSarif::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(200, ['Content-Type' => 'application/json+sarif'], json_encode(json_decode(JsonSarif::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -92,8 +94,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -101,7 +103,7 @@ final class GetAnalysisTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/code-scanning/analyses/11', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['analysis_id'] = 11;
@@ -113,8 +115,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_403_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -128,8 +130,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -137,7 +139,7 @@ final class GetAnalysisTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/code-scanning/analyses/11', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['analysis_id'] = 11;
@@ -149,8 +151,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -164,8 +166,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_503_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -173,7 +175,7 @@ final class GetAnalysisTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated/generated/code-scanning/analyses/11', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeScanning\GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAnalysis::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
             $data['repo']        = 'generated';
             $data['analysis_id'] = 11;
@@ -185,8 +187,8 @@ final class GetAnalysisTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_503_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CvssSeverities\CvssVFour;
+use ApiClients\Client\GitHub\Schema\CvssSeverities\CvssVThree;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CvssSeverities
+final readonly class CvssSeverities implements \ApiClients\Client\GitHub\Contract\CvssSeverities
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -80,17 +81,17 @@ final readonly class CvssSeverities
     public const SCHEMA_EXAMPLE_DATA = '{
     "cvss_v3": {
         "vector_string": "generated",
-        "score": 0.5
+        "score": 5
     },
     "cvss_v4": {
         "vector_string": "generated",
-        "score": 0.5
+        "score": 5
     }
 }';
 
     public function __construct(#[MapFrom('cvss_v3')]
-    public Schema\CvssSeverities\CvssVThree|null $cvssVThree, #[MapFrom('cvss_v4')]
-    public Schema\CvssSeverities\CvssVFour|null $cvssVFour,)
+    public CvssVThree|null $cvssVThree, #[MapFrom('cvss_v4')]
+    public CvssVFour|null $cvssVFour,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\SetGithubActionsPermissionsRep
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\SetGithubActionsPermissionsRepository\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

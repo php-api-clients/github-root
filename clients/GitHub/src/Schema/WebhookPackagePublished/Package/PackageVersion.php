@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookPackagePublished\Package\PackageVersion\Body;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookPackagePublished\Package\PackageVersion\Body;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Author;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Body\One;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata;
+use ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Release;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -746,11 +750,11 @@ final readonly class PackageVersion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
-    "body": null,
+    "body": [],
     "body_html": "generated",
     "container_metadata": {
         "labels": [],
@@ -843,7 +847,6 @@ final readonly class PackageVersion
         "published_via_actions": false,
         "deleted_by_id": 13
     },
-    "nuget_metadata": null,
     "package_files": [
         {
             "content_type": "generated",
@@ -895,7 +898,7 @@ final readonly class PackageVersion
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -955,18 +958,18 @@ final readonly class PackageVersion
     "version": "generated"
 }';
 
-    public function __construct(public Schema\WebhookPackagePublished\Package\PackageVersion\Author|null $author, #[Body]
-    public string|Schema\WebhookPackagePublished\Package\PackageVersion\Body\One|null $body, #[MapFrom('body_html')]
+    public function __construct(public Author|null $author, #[Body]
+    public string|One|null $body, #[MapFrom('body_html')]
     public string|null $bodyHtml, #[MapFrom('container_metadata')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata|null $containerMetadata, #[MapFrom('created_at')]
+    public ContainerMetadata|null $containerMetadata, #[MapFrom('created_at')]
     public string|null $createdAt, public string $description, #[MapFrom('docker_metadata')]
     public array|null $dockerMetadata, public bool|null $draft, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('installation_command')]
     public string $installationCommand, public string|null $manifest, public array $metadata, public string $name, #[MapFrom('npm_metadata')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata|null $npmMetadata, #[MapFrom('nuget_metadata')]
+    public NpmMetadata|null $npmMetadata, #[MapFrom('nuget_metadata')]
     public array|null $nugetMetadata, #[MapFrom('package_files')]
     public array $packageFiles, #[MapFrom('package_url')]
-    public string|null $packageUrl, public bool|null $prerelease, public Schema\WebhookPackagePublished\Package\PackageVersion\Release|null $release, #[MapFrom('rubygems_metadata')]
+    public string|null $packageUrl, public bool|null $prerelease, public Release|null $release, #[MapFrom('rubygems_metadata')]
     public array|null $rubygemsMetadata, #[MapFrom('source_url')]
     public string|null $sourceUrl, public string $summary, #[MapFrom('tag_name')]
     public string|null $tagName, #[MapFrom('target_commitish')]

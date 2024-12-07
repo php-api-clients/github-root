@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookPullRequestReviewRequested
+final readonly class WebhookPullRequestReviewRequested implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewRequested
 {
     public const SCHEMA_JSON         = '{
     "title": "pull_request review_requested event",

@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\OrganizationRoles\RoleId\Teams;
+use ApiClients\Client\GitHub\Schema\TeamRoleAssignment;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +20,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListOrgRoleTeams
 {
@@ -34,20 +34,22 @@ final class ListOrgRoleTeams
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\OrganizationRoles\RoleId\Teams $hydrator, string $org, int $roleId, int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Teams $hydrator, string $org, int $roleId, int $perPage = 30, int $page = 1)
     {
-        $this->org     = $org;
-        $this->roleId  = $roleId;
-        $this->perPage = $perPage;
-        $this->page    = $page;
+        $this->org                     = $org;
+        $this->roleId                  = $roleId;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{role_id}', '{per_page}', '{page}'], [$this->org, $this->roleId, $this->perPage, $this->page], '/orgs/{org}/organization-roles/{role_id}/teams' . '?per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/organization-roles/{role_id}/teams{?page,per_page}'))->expand(['org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'role_id' => $this->roleId]));
     }
 
-    /** @return Observable<Schema\TeamRoleAssignment>|WithoutBody */
+    /** @return Observable<TeamRoleAssignment>|WithoutBody */
     public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
@@ -60,12 +62,12 @@ final class ListOrgRoleTeams
                      * Response - List of assigned teams
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\TeamRoleAssignment {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): TeamRoleAssignment {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamRoleAssignment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamRoleAssignment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\TeamRoleAssignment::class, $body);
+                                return $this->hydrator->hydrateObject(TeamRoleAssignment::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

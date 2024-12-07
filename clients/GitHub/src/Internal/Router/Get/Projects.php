@@ -4,8 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\GetCard;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\GetColumn;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\GetPermissionForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListCards;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListCollaborators;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListColumns;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\ListForUser;
 use ApiClients\Client\GitHub\Schema\Project;
 use ApiClients\Client\GitHub\Schema\ProjectCard;
 use ApiClients\Client\GitHub\Schema\ProjectCollaboratorPermission;
@@ -20,7 +29,7 @@ use function array_key_exists;
 
 final class Projects
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -34,12 +43,12 @@ final class Projects
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Projects\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
 
         return $operator->call($arguments['project_id']);
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForOrg(array $params): iterable
     {
         $arguments = [];
@@ -67,7 +76,7 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Projects());
+        $operator = new ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Projects());
 
         return $operator->call($arguments['org'], $arguments['state'], $arguments['per_page'], $arguments['page']);
     }
@@ -82,12 +91,12 @@ final class Projects
 
         $arguments['column_id'] = $params['column_id'];
         unset($params['column_id']);
-        $operator = new Internal\Operator\Projects\GetColumn($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId());
+        $operator = new GetColumn($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId());
 
         return $operator->call($arguments['column_id']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<SimpleUser>|WithoutBody */
     public function listCollaborators(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -115,12 +124,12 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators());
+        $operator = new ListCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators());
 
         return $operator->call($arguments['project_id'], $arguments['affiliation'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\ProjectColumn>|WithoutBody */
+    /** @return Observable<ProjectColumn>|WithoutBody */
     public function listColumns(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -142,12 +151,12 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListColumns($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Columns());
+        $operator = new ListColumns($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Columns());
 
         return $operator->call($arguments['project_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForUser(array $params): iterable
     {
         $arguments = [];
@@ -175,7 +184,7 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Projects());
+        $operator = new ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Projects());
 
         return $operator->call($arguments['username'], $arguments['state'], $arguments['per_page'], $arguments['page']);
     }
@@ -190,12 +199,12 @@ final class Projects
 
         $arguments['card_id'] = $params['card_id'];
         unset($params['card_id']);
-        $operator = new Internal\Operator\Projects\GetCard($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId());
+        $operator = new GetCard($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId());
 
         return $operator->call($arguments['card_id']);
     }
 
-    /** @return Observable<Schema\ProjectCard>|WithoutBody */
+    /** @return Observable<ProjectCard>|WithoutBody */
     public function listCards(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -223,12 +232,12 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListCards($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Cards());
+        $operator = new ListCards($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Cards());
 
         return $operator->call($arguments['column_id'], $arguments['archived_state'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return Observable<Project> */
     public function listForRepo(array $params): iterable
     {
         $arguments = [];
@@ -262,7 +271,7 @@ final class Projects
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Projects\ListForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Projects());
+        $operator = new ListForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Projects());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['per_page'], $arguments['page']);
     }
@@ -283,7 +292,7 @@ final class Projects
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Projects\GetPermissionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators🌀Username🌀Permission());
+        $operator = new GetPermissionForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators🌀Username🌀Permission());
 
         return $operator->call($arguments['project_id'], $arguments['username']);
     }

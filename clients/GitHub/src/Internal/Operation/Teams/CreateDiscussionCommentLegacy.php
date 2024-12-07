@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments;
+use ApiClients\Client\GitHub\Schema\TeamDiscussionComment;
+use ApiClients\Client\GitHub\Schema\Teams\CreateDiscussionCommentLegacy\Request\ApplicationJson;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class CreateDiscussionCommentLegacy
 {
@@ -27,20 +29,23 @@ final class CreateDiscussionCommentLegacy
     /**The number that identifies the discussion. **/
     private int $discussionNumber;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments $hydrator, int $teamId, int $discussionNumber)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Comments $hydrator, int $teamId, int $discussionNumber)
     {
-        $this->teamId           = $teamId;
-        $this->discussionNumber = $discussionNumber;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->teamId                  = $teamId;
+        $this->discussionNumber        = $discussionNumber;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateDiscussionCommentLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{team_id}', '{discussion_number}'], [$this->teamId, $this->discussionNumber], '/teams/{team_id}/discussions/{discussion_number}/comments'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/teams/{team_id}/discussions/{discussion_number}/comments'))->expand(['discussion_number' => $this->discussionNumber, 'team_id' => $this->teamId]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamDiscussionComment
+    public function createResponse(ResponseInterface $response): TeamDiscussionComment
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +57,9 @@ final class CreateDiscussionCommentLegacy
                      * Response
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamDiscussionComment::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamDiscussionComment::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\TeamDiscussionComment::class, $body);
+                        return $this->hydrator->hydrateObject(TeamDiscussionComment::class, $body);
                 }
 
                 break;

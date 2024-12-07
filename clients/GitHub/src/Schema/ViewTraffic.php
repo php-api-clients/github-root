@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ViewTraffic
+final readonly class ViewTraffic implements \ApiClients\Client\GitHub\Contract\ViewTraffic
 {
     public const SCHEMA_JSON         = '{
     "title": "View Traffic",
@@ -57,8 +57,8 @@ final readonly class ViewTraffic
     public const SCHEMA_TITLE        = 'View Traffic';
     public const SCHEMA_DESCRIPTION  = 'View Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "count": 14850,
-    "uniques": 3782,
+    "count": 5,
+    "uniques": 7,
     "views": [
         {
             "timestamp": "1970-01-01T00:00:00+00:00",

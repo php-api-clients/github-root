@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UploadReleaseAsset\Request;
 
-final readonly class ApplicationOctetStream
+final readonly class ApplicationOctetStream implements \ApiClients\Client\GitHub\Contract\Repos\UploadReleaseAsset\Request\ApplicationOctetStream
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

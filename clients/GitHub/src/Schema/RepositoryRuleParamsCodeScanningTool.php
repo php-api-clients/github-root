@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleParamsCodeScanningTool
+final readonly class RepositoryRuleParamsCodeScanningTool implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsCodeScanningTool
 {
     public const SCHEMA_JSON         = '{
     "title": "CodeScanningTool",
@@ -48,7 +48,7 @@ final readonly class RepositoryRuleParamsCodeScanningTool
     public const SCHEMA_TITLE        = 'CodeScanningTool';
     public const SCHEMA_DESCRIPTION  = 'A tool that must provide code scanning results for this rule to pass.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "alerts_threshold": "all",
+    "alerts_threshold": "none",
     "security_alerts_threshold": "none",
     "tool": "generated"
 }';

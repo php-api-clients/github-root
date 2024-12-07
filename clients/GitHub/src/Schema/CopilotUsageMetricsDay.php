@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CopilotUsageMetricsDay
+final readonly class CopilotUsageMetricsDay implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetricsDay
 {
     public const SCHEMA_JSON         = '{
     "title": "Copilot Usage Metrics",
@@ -585,10 +584,10 @@ final readonly class CopilotUsageMetricsDay
     public function __construct(public string $date, #[MapFrom('total_active_users')]
     public int|null $totalActiveUsers, #[MapFrom('total_engaged_users')]
     public int|null $totalEngagedUsers, #[MapFrom('copilot_ide_code_completions')]
-    public Schema\CopilotIdeCodeCompletions|null $copilotIdeCodeCompletions, #[MapFrom('copilot_ide_chat')]
-    public Schema\CopilotIdeChat|null $copilotIdeChat, #[MapFrom('copilot_dotcom_chat')]
-    public Schema\CopilotDotcomChat|null $copilotDotcomChat, #[MapFrom('copilot_dotcom_pull_requests')]
-    public Schema\CopilotDotcomPullRequests|null $copilotDotcomPullRequests,)
+    public CopilotIdeCodeCompletions|null $copilotIdeCodeCompletions, #[MapFrom('copilot_ide_chat')]
+    public CopilotIdeChat|null $copilotIdeChat, #[MapFrom('copilot_dotcom_chat')]
+    public CopilotDotcomChat|null $copilotDotcomChat, #[MapFrom('copilot_dotcom_pull_requests')]
+    public CopilotDotcomPullRequests|null $copilotDotcomPullRequests,)
     {
     }
 }

@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredStatusChecks\Contexts;
+use ApiClients\Client\GitHub\Schema\BasicError;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +20,6 @@ use Rx\Scheduler\ImmediateScheduler;
 use function explode;
 use function is_string;
 use function json_decode;
-use function str_replace;
 
 final class GetAllStatusCheckContexts
 {
@@ -32,16 +32,18 @@ final class GetAllStatusCheckContexts
     /**The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql). **/
     private string $branch;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredStatusChecks\Contexts $hydrator, string $owner, string $repo, string $branch)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Contexts $hydrator, string $owner, string $repo, string $branch)
     {
-        $this->owner  = $owner;
-        $this->repo   = $repo;
-        $this->branch = $branch;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->branch                  = $branch;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts'))->expand(['branch' => $this->branch, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
     /** @return Observable<string> */
@@ -70,9 +72,9 @@ final class GetAllStatusCheckContexts
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

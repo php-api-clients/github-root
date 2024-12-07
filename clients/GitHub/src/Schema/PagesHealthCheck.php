@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PagesHealthCheck\AltDomain;
+use ApiClients\Client\GitHub\Schema\PagesHealthCheck\Domain;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PagesHealthCheck
+final readonly class PagesHealthCheck implements \ApiClients\Client\GitHub\Contract\PagesHealthCheck
 {
     public const SCHEMA_JSON         = '{
     "title": "Pages Health Check Status",
@@ -370,8 +371,8 @@ final readonly class PagesHealthCheck
     }
 }';
 
-    public function __construct(public Schema\PagesHealthCheck\Domain|null $domain, #[MapFrom('alt_domain')]
-    public Schema\PagesHealthCheck\AltDomain|null $altDomain,)
+    public function __construct(public Domain|null $domain, #[MapFrom('alt_domain')]
+    public AltDomain|null $altDomain,)
     {
     }
 }

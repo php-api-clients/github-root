@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCheckRunRequestedAction;
 
-final readonly class RequestedAction
+final readonly class RequestedAction implements \ApiClients\Client\GitHub\Contract\WebhookCheckRunRequestedAction\RequestedAction
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

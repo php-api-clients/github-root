@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\Variables\Name;
+use ApiClients\Client\GitHub\Schema\OrganizationActionsVariable;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetOrgVariable
 {
@@ -26,18 +27,20 @@ final class GetOrgVariable
     /**The name of the variable. **/
     private string $name;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Variables\Name $hydrator, string $org, string $name)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Name $hydrator, string $org, string $name)
     {
-        $this->org  = $org;
-        $this->name = $name;
+        $this->org                     = $org;
+        $this->name                    = $name;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{name}'], [$this->org, $this->name], '/orgs/{org}/actions/variables/{name}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/actions/variables/{name}'))->expand(['name' => $this->name, 'org' => $this->org]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\OrganizationActionsVariable
+    public function createResponse(ResponseInterface $response): OrganizationActionsVariable
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,9 +52,9 @@ final class GetOrgVariable
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationActionsVariable::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(OrganizationActionsVariable::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\OrganizationActionsVariable::class, $body);
+                        return $this->hydrator->hydrateObject(OrganizationActionsVariable::class, $body);
                 }
 
                 break;

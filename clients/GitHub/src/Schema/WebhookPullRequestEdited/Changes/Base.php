@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base\Ref;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base\Sha;
 
-final readonly class Base
+final readonly class Base implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestEdited\Changes\Base
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -50,7 +51,7 @@ final readonly class Base
     }
 }';
 
-    public function __construct(public Schema\WebhookPullRequestEdited\Changes\Base\Ref $ref, public Schema\WebhookPullRequestEdited\Changes\Base\Sha $sha)
+    public function __construct(public Ref $ref, public Sha $sha)
     {
     }
 }

@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Dependabot;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class AddSelectedRepoToOrgSecret
 {
@@ -29,7 +28,7 @@ final class AddSelectedRepoToOrgSecret
 
     public function createRequest(): RequestInterface
     {
-        return new Request('PUT', str_replace(['{org}', '{secret_name}', '{repository_id}'], [$this->org, $this->secretName, $this->repositoryId], '/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}'));
+        return new Request('PUT', (string) (new UriTemplate('/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}'))->expand(['org' => $this->org, 'repository_id' => $this->repositoryId, 'secret_name' => $this->secretName]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

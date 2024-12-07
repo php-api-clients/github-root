@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern\Parameters;
 
-final readonly class RepositoryRuleCommitMessagePattern
+final readonly class RepositoryRuleCommitMessagePattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCommitMessagePattern
 {
     public const SCHEMA_JSON         = '{
     "title": "commit_message_pattern",
@@ -62,12 +62,12 @@ final readonly class RepositoryRuleCommitMessagePattern
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleCommitMessagePattern\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

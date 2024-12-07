@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\XFiveHundredNineCertificatechain;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class VerificationMaterial
+final readonly class VerificationMaterial implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -137,7 +137,7 @@ final readonly class VerificationMaterial
 }';
 
     public function __construct(#[MapFrom('x509CertificateChain')]
-    public Schema\SigstoreBundle0\VerificationMaterial\XFiveHundredNineCertificatechain|null $xFiveHundredNineCertificatechain, public array|null $tlogEntries, public string|null $timestampVerificationData,)
+    public XFiveHundredNineCertificatechain|null $xFiveHundredNineCertificatechain, public array|null $tlogEntries, public string|null $timestampVerificationData,)
     {
     }
 }

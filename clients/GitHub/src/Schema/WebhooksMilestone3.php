@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksMilestone3\Creator;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksMilestone3
+final readonly class WebhooksMilestone3 implements \ApiClients\Client\GitHub\Contract\WebhooksMilestone3
 {
     public const SCHEMA_JSON         = '{
     "title": "Milestone",
@@ -227,7 +227,7 @@ final readonly class WebhooksMilestone3
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -253,7 +253,7 @@ final readonly class WebhooksMilestone3
     public function __construct(#[MapFrom('closed_at')]
     public string|null $closedAt, #[MapFrom('closed_issues')]
     public int $closedIssues, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksMilestone3\Creator|null $creator, public string|null $description, #[MapFrom('due_on')]
+    public string $createdAt, public Creator|null $creator, public string|null $description, #[MapFrom('due_on')]
     public string|null $dueOn, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('labels_url')]
     public string $labelsUrl, #[MapFrom('node_id')]

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryPropertyTarget;
 
-final readonly class RepositoryProperty
+final readonly class RepositoryProperty implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -89,7 +89,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         },
         {
             "name": "generated",
@@ -97,7 +97,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         }
     ],
     "exclude": [
@@ -107,7 +107,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         },
         {
             "name": "generated",
@@ -115,7 +115,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         }
     ]
 }';

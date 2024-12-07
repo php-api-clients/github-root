@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\FileCommit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\FileCommit\Commit\Author;
+use ApiClients\Client\GitHub\Schema\FileCommit\Commit\Committer;
+use ApiClients\Client\GitHub\Schema\FileCommit\Commit\Tree;
+use ApiClients\Client\GitHub\Schema\FileCommit\Commit\Verification;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\FileCommit\Commit
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -159,7 +162,7 @@ final readonly class Commit
 
     public function __construct(public string|null $sha, #[MapFrom('node_id')]
     public string|null $nodeId, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public Schema\FileCommit\Commit\Author|null $author, public Schema\FileCommit\Commit\Committer|null $committer, public string|null $message, public Schema\FileCommit\Commit\Tree|null $tree, public array|null $parents, public Schema\FileCommit\Commit\Verification|null $verification,)
+    public string|null $htmlUrl, public Author|null $author, public Committer|null $committer, public string|null $message, public Tree|null $tree, public array|null $parents, public Verification|null $verification,)
     {
     }
 }

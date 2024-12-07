@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTree\Request\ApplicationJson;
 
-final readonly class Tree
+final readonly class Tree implements \ApiClients\Client\GitHub\Contract\Git\CreateTree\Request\ApplicationJson\Tree
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -50,8 +50,8 @@ final readonly class Tree
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
-    "mode": "120000",
-    "type": "commit",
+    "mode": "100644",
+    "type": "blob",
     "sha": "generated",
     "content": "generated"
 }';

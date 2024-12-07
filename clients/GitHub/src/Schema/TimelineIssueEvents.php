@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class TimelineIssueEvents
+final readonly class TimelineIssueEvents implements \ApiClients\Client\GitHub\Contract\TimelineIssueEvents
 {
     public const SCHEMA_JSON         = '{
     "title": "Timeline Event",

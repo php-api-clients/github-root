@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertWithRepository;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T2BF61F22\TD40E495C\TD2DCD6B6\T9D8D9B32;
 
-final readonly class Dependency extends Schema\AliasAbstract\Tiet2BF61F22\TietD40E495C\TietD2DCD6B6\Tiet9D8D9B32
+final readonly class Dependency extends T9D8D9B32
 {
 }

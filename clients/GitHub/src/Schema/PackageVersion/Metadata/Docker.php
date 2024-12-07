@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\PackageVersion\Metadata;
 
-final readonly class Docker
+final readonly class Docker implements \ApiClients\Client\GitHub\Contract\PackageVersion\Metadata\Docker
 {
     public const SCHEMA_JSON         = '{
     "title": "Docker Metadata",

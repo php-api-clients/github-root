@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Attestations
+final readonly class Attestations implements \ApiClients\Client\GitHub\Contract\Operations\Users\ListAttestations\Response\ApplicationJson\Ok\Attestations
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -202,7 +202,7 @@ final readonly class Attestations
     /**
      * bundle: Sigstore Bundle v0.1
      */
-    public function __construct(public Schema\SigstoreBundle0|null $bundle, #[MapFrom('repository_id')]
+    public function __construct(public SigstoreBundle0|null $bundle, #[MapFrom('repository_id')]
     public int|null $repositoryId,)
     {
     }

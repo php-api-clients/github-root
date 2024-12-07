@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ContentDirectory\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ContentDirectory
+final readonly class ContentDirectory implements \ApiClients\Client\GitHub\Contract\ContentDirectory
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -106,7 +106,7 @@ final readonly class ContentDirectory
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "type": "symlink",
+    "type": "dir",
     "size": 4,
     "name": "generated",
     "path": "generated",
@@ -127,7 +127,7 @@ final readonly class ContentDirectory
     public string|null $gitUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentDirectory\Links $links,)
+    public Links $links,)
     {
     }
 }

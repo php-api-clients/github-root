@@ -24,7 +24,7 @@ final readonly class CreateWorkflowDispatch
     }
 
     /** @return */
-    public function call(string $owner, string $repo, $workflowId, array $params): WithoutBody
+    public function call(string $owner, string $repo, int|string $workflowId, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Actions\CreateWorkflowDispatch($this->requestSchemaValidator, $owner, $repo, $workflowId);
         $request   = $operation->createRequest($params);

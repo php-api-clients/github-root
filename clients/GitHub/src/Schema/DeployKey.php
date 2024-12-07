@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DeployKey
+final readonly class DeployKey implements \ApiClients\Client\GitHub\Contract\DeployKey
 {
     public const SCHEMA_JSON         = '{
     "title": "Deploy Key",

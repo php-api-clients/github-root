@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\SecretScanning;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\BasicError;
+use ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
+use ApiClients\Client\GitHub\Internal\Operation\SecretScanning\ListAlertsForOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,16 +24,16 @@ final class ListAlertsForOrgTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&before=generated&after=generated&validity=generated&sort=generated&direction=generated&page=1&per_page=8&is_publicly_leaked=&is_multi_repo=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?after=generated&before=generated&direction=generated&is_multi_repo=0&is_publicly_leaked=0&page=1&per_page=8&resolution=generated&secret_type=generated&sort=generated&state=generated&validity=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\ListAlertsForOrg::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListAlertsForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']                = 'generated';
             $data['state']              = 'generated';
             $data['secret_type']        = 'generated';
@@ -55,14 +55,14 @@ final class ListAlertsForOrgTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&before=generated&after=generated&validity=generated&sort=generated&direction=generated&page=1&per_page=8&is_publicly_leaked=&is_multi_repo=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?after=generated&before=generated&direction=generated&is_multi_repo=0&is_publicly_leaked=0&page=1&per_page=8&resolution=generated&secret_type=generated&sort=generated&state=generated&validity=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->secretScanning()->listAlertsForOrg('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 1, 8, false, false);
     }
@@ -70,16 +70,16 @@ final class ListAlertsForOrgTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_503_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&before=generated&after=generated&validity=generated&sort=generated&direction=generated&page=1&per_page=8&is_publicly_leaked=&is_multi_repo=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?after=generated&before=generated&direction=generated&is_multi_repo=0&is_publicly_leaked=0&page=1&per_page=8&resolution=generated&secret_type=generated&sort=generated&state=generated&validity=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\SecretScanning\ListAlertsForOrg::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(ListAlertsForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']                = 'generated';
             $data['state']              = 'generated';
             $data['secret_type']        = 'generated';
@@ -101,14 +101,14 @@ final class ListAlertsForOrgTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_503_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&before=generated&after=generated&validity=generated&sort=generated&direction=generated&page=1&per_page=8&is_publicly_leaked=&is_multi_repo=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/secret-scanning/alerts?after=generated&before=generated&direction=generated&is_multi_repo=0&is_publicly_leaked=0&page=1&per_page=8&resolution=generated&secret_type=generated&sort=generated&state=generated&validity=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->secretScanning()->listAlertsForOrg('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 1, 8, false, false);
     }

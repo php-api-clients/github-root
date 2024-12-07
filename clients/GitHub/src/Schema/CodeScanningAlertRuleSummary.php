@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningAlertRuleSummary
+final readonly class CodeScanningAlertRuleSummary implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertRuleSummary
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -89,11 +89,10 @@ final readonly class CodeScanningAlertRuleSummary
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": "generated",
     "name": "generated",
-    "severity": "error",
+    "severity": "none",
     "security_severity_level": "low",
     "description": "generated",
     "full_description": "generated",
-    "tags": null,
     "help": "generated",
     "help_uri": "generated"
 }';

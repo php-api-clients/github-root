@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class UnblockUser
 {
@@ -29,7 +28,7 @@ final class UnblockUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{username}'], [$this->org, $this->username], '/orgs/{org}/blocks/{username}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/blocks/{username}'))->expand(['org' => $this->org, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

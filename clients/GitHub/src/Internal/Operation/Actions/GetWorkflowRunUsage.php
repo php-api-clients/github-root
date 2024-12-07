@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Timing;
+use ApiClients\Client\GitHub\Schema\WorkflowRunUsage;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetWorkflowRunUsage
 {
@@ -28,19 +29,21 @@ final class GetWorkflowRunUsage
     /**The unique identifier of the workflow run. **/
     private int $runId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Timing $hydrator, string $owner, string $repo, int $runId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Timing $hydrator, string $owner, string $repo, int $runId)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->runId = $runId;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->runId                   = $runId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], '/repos/{owner}/{repo}/actions/runs/{run_id}/timing'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runs/{run_id}/timing'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'run_id' => $this->runId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\WorkflowRunUsage
+    public function createResponse(ResponseInterface $response): WorkflowRunUsage
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +55,9 @@ final class GetWorkflowRunUsage
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\WorkflowRunUsage::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(WorkflowRunUsage::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\WorkflowRunUsage::class, $body);
+                        return $this->hydrator->hydrateObject(WorkflowRunUsage::class, $body);
                 }
 
                 break;

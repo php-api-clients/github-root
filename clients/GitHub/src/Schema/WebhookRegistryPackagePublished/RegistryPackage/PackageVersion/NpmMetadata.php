@@ -4,15 +4,23 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author\One;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bin;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dependencies;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\DevDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Engines;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Man;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\OptionalDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\PeerDependencies;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Scripts;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class NpmMetadata
+final readonly class NpmMetadata implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -217,19 +225,19 @@ final readonly class NpmMetadata
     "name": "generated",
     "version": "generated",
     "npm_user": "generated",
-    "author": null,
-    "bugs": null,
+    "author": [],
+    "bugs": [],
     "dependencies": [],
     "dev_dependencies": [],
     "peer_dependencies": [],
     "optional_dependencies": [],
     "description": "generated",
-    "dist": null,
+    "dist": [],
     "git_head": "generated",
     "homepage": "generated",
     "license": "generated",
     "main": "generated",
-    "repository": null,
+    "repository": [],
     "scripts": [],
     "id": "generated",
     "node_version": "generated",
@@ -254,7 +262,7 @@ final readonly class NpmMetadata
     ],
     "bin": [],
     "man": [],
-    "directories": null,
+    "directories": [],
     "os": [
         "generated",
         "generated"
@@ -273,18 +281,18 @@ final readonly class NpmMetadata
 
     public function __construct(public string|null $name, public string|null $version, #[MapFrom('npm_user')]
     public string|null $npmUser, #[Author]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author\One|null $author, #[Bugs]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs\One|null $bugs, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dependencies|null $dependencies, #[MapFrom('dev_dependencies')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\DevDependencies|null $devDependencies, #[MapFrom('peer_dependencies')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\PeerDependencies|null $peerDependencies, #[MapFrom('optional_dependencies')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\OptionalDependencies|null $optionalDependencies, public string|null $description, #[Dist]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist\One|null $dist, #[MapFrom('git_head')]
+    public string|One|null $author, #[Bugs]
+    public string|\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs\One|null $bugs, public Dependencies|null $dependencies, #[MapFrom('dev_dependencies')]
+    public DevDependencies|null $devDependencies, #[MapFrom('peer_dependencies')]
+    public PeerDependencies|null $peerDependencies, #[MapFrom('optional_dependencies')]
+    public OptionalDependencies|null $optionalDependencies, public string|null $description, #[Dist]
+    public string|\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist\One|null $dist, #[MapFrom('git_head')]
     public string|null $gitHead, public string|null $homepage, public string|null $license, public string|null $main, #[Repository]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository\One|null $repository, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Scripts|null $scripts, public string|null $id, #[MapFrom('node_version')]
+    public string|\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository\One|null $repository, public Scripts|null $scripts, public string|null $id, #[MapFrom('node_version')]
     public string|null $nodeVersion, #[MapFrom('npm_version')]
     public string|null $npmVersion, #[MapFrom('has_shrinkwrap')]
-    public bool|null $hasShrinkwrap, public array|null $maintainers, public array|null $contributors, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Engines|null $engines, public array|null $keywords, public array|null $files, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bin|null $bin, public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Man|null $man, #[Directories]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories\One|null $directories, public array|null $os, public array|null $cpu, public string|null $readme, #[MapFrom('installation_command')]
+    public bool|null $hasShrinkwrap, public array|null $maintainers, public array|null $contributors, public Engines|null $engines, public array|null $keywords, public array|null $files, public Bin|null $bin, public Man|null $man, #[Directories]
+    public string|\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories\One|null $directories, public array|null $os, public array|null $cpu, public string|null $readme, #[MapFrom('installation_command')]
     public string|null $installationCommand, #[MapFrom('release_id')]
     public int|null $releaseId, #[MapFrom('commit_oid')]
     public string|null $commitOid, #[MapFrom('published_via_actions')]

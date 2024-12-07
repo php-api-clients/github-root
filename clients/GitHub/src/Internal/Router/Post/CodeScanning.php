@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\CodeScanning\CreateVariantAnalysis;
+use ApiClients\Client\GitHub\Internal\Operator\CodeScanning\UploadSarif;
 use ApiClients\Client\GitHub\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -17,7 +19,7 @@ use function array_key_exists;
 
 final class CodeScanning
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -37,7 +39,7 @@ final class CodeScanning
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\CodeScanning\UploadSarif($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Sarifs());
+        $operator = new UploadSarif($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Sarifs());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -58,7 +60,7 @@ final class CodeScanning
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\CodeScanning\CreateVariantAnalysis($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Codeql🌀VariantAnalyses());
+        $operator = new CreateVariantAnalysis($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Codeql🌀VariantAnalyses());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }

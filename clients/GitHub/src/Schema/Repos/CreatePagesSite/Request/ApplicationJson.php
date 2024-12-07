@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreatePagesSite\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\CreatePagesSite\Request\ApplicationJson\Source;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreatePagesSite\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -63,10 +63,10 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'The source branch and directory used to publish your Pages site.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "build_type": "workflow",
+    "build_type": "legacy",
     "source": {
         "branch": "generated",
-        "path": "\\/docs"
+        "path": "\\/"
     }
 }';
 
@@ -75,7 +75,7 @@ final readonly class ApplicationJson
      * source: The source branch and directory used to publish your Pages site.
      */
     public function __construct(#[MapFrom('build_type')]
-    public string|null $buildType, public Schema\Repos\CreatePagesSite\Request\ApplicationJson\Source|null $source,)
+    public string|null $buildType, public Source|null $source,)
     {
     }
 }

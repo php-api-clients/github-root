@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RateLimit
+final readonly class RateLimit implements \ApiClients\Client\GitHub\Contract\RateLimit
 {
     public const SCHEMA_JSON         = '{
     "title": "Rate Limit",

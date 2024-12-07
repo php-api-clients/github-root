@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\OutsideCollaborators\Username;
+use ApiClients\Client\GitHub\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class RemoveOutsideCollaborator
 {
@@ -28,15 +28,17 @@ final class RemoveOutsideCollaborator
     /**The handle for the GitHub user account. **/
     private string $username;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\OutsideCollaborators\Username $hydrator, string $org, string $username)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Username $hydrator, string $org, string $username)
     {
-        $this->org      = $org;
-        $this->username = $username;
+        $this->org                     = $org;
+        $this->username                = $username;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{username}'], [$this->org, $this->username], '/orgs/{org}/outside_collaborators/{username}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/outside_collaborators/{username}'))->expand(['org' => $this->org, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody
@@ -51,9 +53,9 @@ final class RemoveOutsideCollaborator
                      * Unprocessable Entity if user is a member of the organization
                      **/
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(UnprocessableEntity::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity(422, $this->hydrator->hydrateObject(Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity(422, $this->hydrator->hydrateObject(UnprocessableEntity::class, $body));
                 }
 
                 break;

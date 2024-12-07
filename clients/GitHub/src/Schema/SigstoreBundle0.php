@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\DsseEnvelope;
+use ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial;
 
-final readonly class SigstoreBundle0
+final readonly class SigstoreBundle0 implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0
 {
     public const SCHEMA_JSON         = '{
     "title": "Sigstore Bundle v0.1",
@@ -187,7 +188,7 @@ final readonly class SigstoreBundle0
     }
 }';
 
-    public function __construct(public string|null $mediaType, public Schema\SigstoreBundle0\VerificationMaterial|null $verificationMaterial, public Schema\SigstoreBundle0\DsseEnvelope|null $dsseEnvelope)
+    public function __construct(public string|null $mediaType, public VerificationMaterial|null $verificationMaterial, public DsseEnvelope|null $dsseEnvelope)
     {
     }
 }

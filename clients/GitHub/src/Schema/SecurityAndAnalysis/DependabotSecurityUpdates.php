@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SecurityAndAnalysis;
 
-final readonly class DependabotSecurityUpdates
+final readonly class DependabotSecurityUpdates implements \ApiClients\Client\GitHub\Contract\SecurityAndAnalysis\DependabotSecurityUpdates
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -23,7 +23,7 @@ final readonly class DependabotSecurityUpdates
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Enable or disable Dependabot security updates for the repository.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "status": "disabled"
+    "status": "enabled"
 }';
 
     /**

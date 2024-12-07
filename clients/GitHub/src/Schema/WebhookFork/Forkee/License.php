@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookFork\Forkee;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TDB3B0EA7\T7D168182\T903938E3\T5938F560;
 
-final readonly class License extends Schema\AliasAbstract\TietA7378D88\Tiet9F1485AB\Tiet225278C2\Tiet93F7D467
+final readonly class License extends T5938F560
 {
 }

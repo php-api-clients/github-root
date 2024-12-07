@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RuleSuite
+final readonly class RuleSuite implements \ApiClients\Client\GitHub\Contract\RuleSuite
 {
     public const SCHEMA_JSON         = '{
     "title": "Rule Suite",
@@ -153,8 +153,8 @@ final readonly class RuleSuite
     "ref": "generated",
     "repository_id": 13,
     "repository_name": "generated",
-    "pushed_at": "2011-01-26T19:06:43Z",
-    "result": "bypass",
+    "pushed_at": "1970-01-01T00:00:00+00:00",
+    "result": "pass",
     "evaluation_result": "pass",
     "rule_evaluations": [
         {
@@ -164,7 +164,7 @@ final readonly class RuleSuite
                 "name": "generated"
             },
             "enforcement": "active",
-            "result": "fail",
+            "result": "pass",
             "rule_type": "generated",
             "details": "generated"
         },
@@ -175,7 +175,7 @@ final readonly class RuleSuite
                 "name": "generated"
             },
             "enforcement": "active",
-            "result": "fail",
+            "result": "pass",
             "rule_type": "generated",
             "details": "generated"
         }

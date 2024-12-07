@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\Merge\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\Merge\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -43,7 +43,7 @@ final readonly class ApplicationJson
     "commit_title": "generated",
     "commit_message": "generated",
     "sha": "generated",
-    "merge_method": "rebase"
+    "merge_method": "merge"
 }';
 
     /**

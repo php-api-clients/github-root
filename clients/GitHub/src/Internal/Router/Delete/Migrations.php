@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\CancelImport;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\DeleteArchiveForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\DeleteArchiveForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\UnlockRepoForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\UnlockRepoForOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +20,7 @@ use function array_key_exists;
 
 final class Migrations
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -35,7 +40,7 @@ final class Migrations
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Migrations\CancelImport($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import());
+        $operator = new CancelImport($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -50,7 +55,7 @@ final class Migrations
 
         $arguments['migration_id'] = $params['migration_id'];
         unset($params['migration_id']);
-        $operator = new Internal\Operator\Migrations\DeleteArchiveForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Archive());
+        $operator = new DeleteArchiveForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Archive());
 
         return $operator->call($arguments['migration_id']);
     }
@@ -71,7 +76,7 @@ final class Migrations
 
         $arguments['repo_name'] = $params['repo_name'];
         unset($params['repo_name']);
-        $operator = new Internal\Operator\Migrations\UnlockRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repos🌀RepoName🌀Lock());
+        $operator = new UnlockRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repos🌀RepoName🌀Lock());
 
         return $operator->call($arguments['migration_id'], $arguments['repo_name']);
     }
@@ -92,7 +97,7 @@ final class Migrations
 
         $arguments['migration_id'] = $params['migration_id'];
         unset($params['migration_id']);
-        $operator = new Internal\Operator\Migrations\DeleteArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
+        $operator = new DeleteArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
 
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
@@ -119,7 +124,7 @@ final class Migrations
 
         $arguments['repo_name'] = $params['repo_name'];
         unset($params['repo_name']);
-        $operator = new Internal\Operator\Migrations\UnlockRepoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repos🌀RepoName🌀Lock());
+        $operator = new UnlockRepoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repos🌀RepoName🌀Lock());
 
         return $operator->call($arguments['org'], $arguments['migration_id'], $arguments['repo_name']);
     }

@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class RemoveSelectedRepoFromOrgVariable
 {
@@ -29,7 +28,7 @@ final class RemoveSelectedRepoFromOrgVariable
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{name}', '{repository_id}'], [$this->org, $this->name, $this->repositoryId], '/orgs/{org}/actions/variables/{name}/repositories/{repository_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/actions/variables/{name}/repositories/{repository_id}'))->expand(['name' => $this->name, 'org' => $this->org, 'repository_id' => $this->repositoryId]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

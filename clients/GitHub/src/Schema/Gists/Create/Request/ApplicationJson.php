@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Gists\Create\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Gists\Create\Request\ApplicationJson\Files;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Gists\Create\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -73,20 +73,16 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "description": "Example Ruby script",
-    "files": {
-        "hello.rb": {
-            "content": "puts \\"Hello, World!\\""
-        }
-    },
-    "public": null
+    "description": "generated",
+    "files": [],
+    "public": "generated"
 }';
 
     /**
      * description: Description of the gist
      * files: Names and content for the files that make up the gist
      */
-    public function __construct(public string|null $description, public Schema\Gists\Create\Request\ApplicationJson\Files $files, public bool|string|null $public)
+    public function __construct(public string|null $description, public Files $files, public bool|string|null $public)
     {
     }
 }

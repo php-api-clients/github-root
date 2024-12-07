@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookCheckRunCreatedFormEncoded
+final readonly class WebhookCheckRunCreatedFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookCheckRunCreatedFormEncoded
 {
     public const SCHEMA_JSON         = '{
     "title": "Check Run Created Event",

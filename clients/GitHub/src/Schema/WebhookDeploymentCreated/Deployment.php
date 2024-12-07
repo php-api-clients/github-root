@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookDeploymentCreated\Deployment\Payload;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookDeploymentCreated\Deployment\Payload;
+use ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\Deployment\Creator;
+use ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\Deployment\Payload\Zero;
+use ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Deployment
+final readonly class Deployment implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentCreated\Deployment
 {
     public const SCHEMA_JSON         = '{
     "title": "Deployment",
@@ -697,7 +699,7 @@ final readonly class Deployment
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -706,7 +708,7 @@ final readonly class Deployment
     "id": 2,
     "node_id": "generated",
     "original_environment": "generated",
-    "payload": null,
+    "payload": "generated",
     "performed_via_github_app": {
         "created_at": "1970-01-01T00:00:00+00:00",
         "description": "generated",
@@ -739,45 +741,45 @@ final readonly class Deployment
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
         "permissions": {
             "actions": "read",
-            "administration": "write",
-            "checks": "write",
-            "content_references": "write",
-            "contents": "write",
+            "administration": "read",
+            "checks": "read",
+            "content_references": "read",
+            "contents": "read",
             "deployments": "read",
             "discussions": "read",
-            "emails": "write",
-            "environments": "write",
-            "issues": "write",
-            "keys": "write",
+            "emails": "read",
+            "environments": "read",
+            "issues": "read",
+            "keys": "read",
             "members": "read",
-            "metadata": "write",
+            "metadata": "read",
             "organization_administration": "read",
-            "organization_hooks": "write",
+            "organization_hooks": "read",
             "organization_packages": "read",
             "organization_plan": "read",
             "organization_projects": "read",
-            "organization_secrets": "write",
-            "organization_self_hosted_runners": "write",
-            "organization_user_blocking": "write",
-            "packages": "write",
+            "organization_secrets": "read",
+            "organization_self_hosted_runners": "read",
+            "organization_user_blocking": "read",
+            "packages": "read",
             "pages": "read",
             "pull_requests": "read",
-            "repository_hooks": "write",
+            "repository_hooks": "read",
             "repository_projects": "read",
-            "secret_scanning_alerts": "write",
+            "secret_scanning_alerts": "read",
             "secrets": "read",
             "security_events": "read",
             "security_scanning_alert": "read",
             "single_file": "read",
-            "statuses": "write",
-            "team_discussions": "write",
-            "vulnerability_alerts": "write",
+            "statuses": "read",
+            "team_discussions": "read",
+            "vulnerability_alerts": "read",
             "workflows": "read"
         },
         "slug": "generated",
@@ -798,11 +800,11 @@ final readonly class Deployment
      * performedViaGithubApp: GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
      */
     public function __construct(#[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhookDeploymentCreated\Deployment\Creator|null $creator, public string|null $description, public string $environment, public int $id, #[MapFrom('node_id')]
+    public string $createdAt, public Creator|null $creator, public string|null $description, public string $environment, public int $id, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('original_environment')]
     public string $originalEnvironment, #[Payload]
-    public Schema\WebhookDeploymentCreated\Deployment\Payload\Zero|string $payload, #[MapFrom('performed_via_github_app')]
-    public Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp|null $performedViaGithubApp, #[MapFrom('production_environment')]
+    public Zero|string $payload, #[MapFrom('performed_via_github_app')]
+    public PerformedViaGithubApp|null $performedViaGithubApp, #[MapFrom('production_environment')]
     public bool|null $productionEnvironment, public string $ref, #[MapFrom('repository_url')]
     public string $repositoryUrl, public string $sha, #[MapFrom('statuses_url')]
     public string $statusesUrl, public string $task, #[MapFrom('transient_environment')]

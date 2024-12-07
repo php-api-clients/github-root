@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\CodeSecurity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetRepositoriesForConfiguration
     public const OPERATION_ID    = 'code-security/get-repositories-for-configuration';
     public const OPERATION_MATCH = 'GET /orgs/{org}/code-security/configurations/{configuration_id}/repositories';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Repositories $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CodeSecurityConfigurationRepositories> */
+    /** @return Observable<CodeSecurityConfigurationRepositories> */
     public function call(string $org, int $configurationId, string $before, string $after, int $perPage = 30, string $status = 'all'): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\CodeSecurity\GetRepositoriesForConfiguration($this->responseSchemaValidator, $this->hydrator, $org, $configurationId, $before, $after, $perPage, $status);

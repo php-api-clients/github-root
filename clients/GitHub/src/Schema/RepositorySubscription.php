@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositorySubscription
+final readonly class RepositorySubscription implements \ApiClients\Client\GitHub\Contract\RepositorySubscription
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository Invitation",
@@ -64,12 +64,12 @@ final readonly class RepositorySubscription
     public const SCHEMA_TITLE        = 'Repository Invitation';
     public const SCHEMA_DESCRIPTION  = 'Repository invitations let you manage who you collaborate with.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "subscribed": true,
+    "subscribed": false,
     "ignored": false,
     "reason": "generated",
-    "created_at": "2012-10-06T21:34:12Z",
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/example\\/subscription",
-    "repository_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/example"
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "url": "https:\\/\\/example.com\\/",
+    "repository_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

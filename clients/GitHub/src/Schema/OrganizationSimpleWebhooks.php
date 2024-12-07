@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrganizationSimpleWebhooks
+final readonly class OrganizationSimpleWebhooks implements \ApiClients\Client\GitHub\Contract\OrganizationSimpleWebhooks
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization Simple",
@@ -111,18 +111,18 @@ final readonly class OrganizationSimpleWebhooks
     public const SCHEMA_DESCRIPTION  = 'A GitHub organization. Webhook payloads contain the `organization` property when the webhook is configured for an
 organization, or when the event occurs from activity in a repository owned by an organization.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "login": "github",
-    "id": 1,
-    "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-    "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-    "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-    "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-    "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-    "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-    "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-    "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-    "description": "A great organization"
+    "login": "generated",
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "repos_url": "https:\\/\\/example.com\\/",
+    "events_url": "https:\\/\\/example.com\\/",
+    "hooks_url": "generated",
+    "issues_url": "generated",
+    "members_url": "generated",
+    "public_members_url": "generated",
+    "avatar_url": "generated",
+    "description": "generated"
 }';
 
     public function __construct(public string $login, public int $id, #[MapFrom('node_id')]

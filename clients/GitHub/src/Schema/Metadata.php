@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Metadata
+final readonly class Metadata implements \ApiClients\Client\GitHub\Contract\Metadata
 {
     public const SCHEMA_JSON         = '{
     "title": "metadata",

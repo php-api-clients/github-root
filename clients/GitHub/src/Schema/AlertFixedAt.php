@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AlertFixedAt
+final readonly class AlertFixedAt implements \ApiClients\Client\GitHub\Contract\AlertFixedAt
 {
     public const SCHEMA_JSON         = '{
     "type": [

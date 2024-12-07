@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Projects\MoveCard\Response\
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Forbidden
+final readonly class Forbidden implements \ApiClients\Client\GitHub\Contract\Operations\Projects\MoveCard\Response\ApplicationJson\Forbidden
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

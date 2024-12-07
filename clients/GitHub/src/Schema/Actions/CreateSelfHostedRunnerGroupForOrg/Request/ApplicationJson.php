@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\CreateSelfHostedRunnerGroupFor
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateSelfHostedRunnerGroupForOrg\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -71,7 +71,7 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "visibility": "private",
+    "visibility": "selected",
     "selected_repository_ids": [
         24,
         25

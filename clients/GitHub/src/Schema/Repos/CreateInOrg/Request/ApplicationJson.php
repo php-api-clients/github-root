@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateInOrg\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\CreateInOrg\Request\ApplicationJson\CustomProperties;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateInOrg\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -164,11 +164,11 @@ final readonly class ApplicationJson
     "description": "generated",
     "homepage": "generated",
     "private": false,
-    "visibility": "private",
+    "visibility": "public",
     "has_issues": false,
     "has_projects": false,
     "has_wiki": false,
-    "has_downloads": true,
+    "has_downloads": false,
     "is_template": false,
     "team_id": 7,
     "auto_init": false,
@@ -182,8 +182,8 @@ final readonly class ApplicationJson
     "use_squash_pr_title_as_default": false,
     "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
-    "merge_commit_title": "MERGE_MESSAGE",
-    "merge_commit_message": "BLANK",
+    "merge_commit_title": "PR_TITLE",
+    "merge_commit_message": "PR_BODY",
     "custom_properties": []
 }';
 
@@ -252,7 +252,7 @@ final readonly class ApplicationJson
     public string|null $squashMergeCommitMessage, #[MapFrom('merge_commit_title')]
     public string|null $mergeCommitTitle, #[MapFrom('merge_commit_message')]
     public string|null $mergeCommitMessage, #[MapFrom('custom_properties')]
-    public Schema\Repos\CreateInOrg\Request\ApplicationJson\CustomProperties|null $customProperties,)
+    public CustomProperties|null $customProperties,)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class BasicError
+final readonly class BasicError implements \ApiClients\Client\GitHub\Contract\BasicError
 {
     public const SCHEMA_JSON         = '{
     "title": "Basic Error",

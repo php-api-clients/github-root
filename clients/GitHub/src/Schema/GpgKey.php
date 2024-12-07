@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class GpgKey
+final readonly class GpgKey implements \ApiClients\Client\GitHub\Contract\GpgKey
 {
     public const SCHEMA_JSON         = '{
     "title": "GPG Key",
@@ -217,27 +217,27 @@ final readonly class GpgKey
     public const SCHEMA_TITLE        = 'GPG Key';
     public const SCHEMA_DESCRIPTION  = 'A unique encryption key';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3,
-    "name": "Octocat\'s GPG Key",
+    "id": 2,
+    "name": "generated",
     "primary_key_id": 14,
-    "key_id": "3262EFF25BA0D270",
-    "public_key": "xsBNBFayYZ...",
+    "key_id": "generated",
+    "public_key": "generated",
     "emails": [
         {
-            "email": "octocat@users.noreply.github.com",
-            "verified": true
+            "email": "generated",
+            "verified": false
         },
         {
-            "email": "octocat@users.noreply.github.com",
-            "verified": true
+            "email": "generated",
+            "verified": false
         }
     ],
     "subkeys": [
         {
-            "id": 4,
-            "primary_key_id": 3,
-            "key_id": "4A595D4C72EE49C7",
-            "public_key": "zsBNBFayYZ...",
+            "id": 2,
+            "primary_key_id": 14,
+            "key_id": "generated",
+            "public_key": "generated",
             "emails": [
                 {
                     "email": "generated",
@@ -253,19 +253,19 @@ final readonly class GpgKey
                 "generated"
             ],
             "can_sign": false,
-            "can_encrypt_comms": true,
-            "can_encrypt_storage": true,
+            "can_encrypt_comms": false,
+            "can_encrypt_storage": false,
             "can_certify": false,
-            "created_at": "2016-03-24T11:31:04-06:00",
-            "expires_at": null,
+            "created_at": "generated",
+            "expires_at": "generated",
             "raw_key": "generated",
             "revoked": false
         },
         {
-            "id": 4,
-            "primary_key_id": 3,
-            "key_id": "4A595D4C72EE49C7",
-            "public_key": "zsBNBFayYZ...",
+            "id": 2,
+            "primary_key_id": 14,
+            "key_id": "generated",
+            "public_key": "generated",
             "emails": [
                 {
                     "email": "generated",
@@ -281,22 +281,22 @@ final readonly class GpgKey
                 "generated"
             ],
             "can_sign": false,
-            "can_encrypt_comms": true,
-            "can_encrypt_storage": true,
+            "can_encrypt_comms": false,
+            "can_encrypt_storage": false,
             "can_certify": false,
-            "created_at": "2016-03-24T11:31:04-06:00",
-            "expires_at": null,
+            "created_at": "generated",
+            "expires_at": "generated",
             "raw_key": "generated",
             "revoked": false
         }
     ],
-    "can_sign": true,
+    "can_sign": false,
     "can_encrypt_comms": false,
     "can_encrypt_storage": false,
-    "can_certify": true,
-    "created_at": "2016-03-24T11:31:04-06:00",
+    "can_certify": false,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "expires_at": "1970-01-01T00:00:00+00:00",
-    "revoked": true,
+    "revoked": false,
     "raw_key": "generated"
 }';
 

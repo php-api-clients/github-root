@@ -4,8 +4,29 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetAuthenticated;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetBySlug;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetOrgInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetRepoInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetSubscriptionPlanForAccount;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetSubscriptionPlanForAccountStubbed;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetUserInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetWebhookConfigForApp;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\GetWebhookDelivery;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListAccountsForPlan;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListAccountsForPlanStubbed;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListInstallationReposForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListInstallationRequestsForAuthenticatedApp;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListInstallations;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListInstallationsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListPlans;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListPlansStubbed;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListReposAccessibleToInstallation;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListSubscriptionsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListSubscriptionsForAuthenticatedUserStubbed;
+use ApiClients\Client\GitHub\Internal\Operator\Apps\ListWebhookDeliveries;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\HookDelivery;
 use ApiClients\Client\GitHub\Schema\Installation;
@@ -24,19 +45,19 @@ use function array_key_exists;
 
 final class Apps
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
     /** @return */
     public function getAuthenticated(array $params): Integration
     {
-        $operator = new Internal\Operator\Apps\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App());
+        $operator = new GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
+    /** @return Observable<IntegrationInstallationRequest>|WithoutBody */
     public function listInstallationRequestsForAuthenticatedApp(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -52,12 +73,12 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListInstallationRequestsForAuthenticatedApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests());
+        $operator = new ListInstallationRequestsForAuthenticatedApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Installation> */
+    /** @return Observable<Installation> */
     public function listInstallations(array $params): iterable
     {
         $arguments = [];
@@ -85,7 +106,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations());
+        $operator = new ListInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations());
 
         return $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
     }
@@ -100,7 +121,7 @@ final class Apps
 
         $arguments['app_slug'] = $params['app_slug'];
         unset($params['app_slug']);
-        $operator = new Internal\Operator\Apps\GetBySlug($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Apps🌀AppSlug());
+        $operator = new GetBySlug($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Apps🌀AppSlug());
 
         return $operator->call($arguments['app_slug']);
     }
@@ -121,12 +142,12 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListReposAccessibleToInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Installation🌀Repositories());
+        $operator = new ListReposAccessibleToInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Installation🌀Repositories());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
+    /** @return Observable<MarketplaceListingPlan> */
     public function listPlans(array $params): iterable
     {
         $arguments = [];
@@ -142,7 +163,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListPlans($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Plans());
+        $operator = new ListPlans($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Plans());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -163,12 +184,12 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListInstallationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations());
+        $operator = new ListInstallationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
+    /** @return Observable<UserMarketplacePurchase>|WithoutBody */
     public function listSubscriptionsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -184,7 +205,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListSubscriptionsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀MarketplacePurchases());
+        $operator = new ListSubscriptionsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀MarketplacePurchases());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -192,12 +213,12 @@ final class Apps
     /** @return */
     public function getWebhookConfigForApp(array $params): WebhookConfig
     {
-        $operator = new Internal\Operator\Apps\GetWebhookConfigForApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
+        $operator = new GetWebhookConfigForApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return Observable<HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -213,7 +234,7 @@ final class Apps
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Apps\ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries());
+        $operator = new ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries());
 
         return $operator->call($arguments['cursor'], $arguments['per_page']);
     }
@@ -228,7 +249,7 @@ final class Apps
 
         $arguments['installation_id'] = $params['installation_id'];
         unset($params['installation_id']);
-        $operator = new Internal\Operator\Apps\GetInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId());
+        $operator = new GetInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId());
 
         return $operator->call($arguments['installation_id']);
     }
@@ -243,12 +264,12 @@ final class Apps
 
         $arguments['account_id'] = $params['account_id'];
         unset($params['account_id']);
-        $operator = new Internal\Operator\Apps\GetSubscriptionPlanForAccount($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Accounts🌀AccountId());
+        $operator = new GetSubscriptionPlanForAccount($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Accounts🌀AccountId());
 
         return $operator->call($arguments['account_id']);
     }
 
-    /** @return Observable<Schema\MarketplaceListingPlan> */
+    /** @return Observable<MarketplaceListingPlan> */
     public function listPlansStubbed(array $params): iterable
     {
         $arguments = [];
@@ -264,7 +285,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListPlansStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Plans());
+        $operator = new ListPlansStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Plans());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -279,12 +300,12 @@ final class Apps
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Apps\GetOrgInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Installation());
+        $operator = new GetOrgInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Installation());
 
         return $operator->call($arguments['org']);
     }
 
-    /** @return Observable<Schema\UserMarketplacePurchase>|WithoutBody */
+    /** @return Observable<UserMarketplacePurchase>|WithoutBody */
     public function listSubscriptionsForAuthenticatedUserStubbed(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -300,7 +321,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListSubscriptionsForAuthenticatedUserStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀MarketplacePurchases🌀Stubbed());
+        $operator = new ListSubscriptionsForAuthenticatedUserStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀MarketplacePurchases🌀Stubbed());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
@@ -315,7 +336,7 @@ final class Apps
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Apps\GetUserInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Installation());
+        $operator = new GetUserInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Installation());
 
         return $operator->call($arguments['username']);
     }
@@ -330,12 +351,12 @@ final class Apps
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        $operator = new Internal\Operator\Apps\GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀DeliveryId());
+        $operator = new GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀DeliveryId());
 
         return $operator->call($arguments['delivery_id']);
     }
 
-    /** @return Observable<Schema\MarketplacePurchase> */
+    /** @return Observable<MarketplacePurchase> */
     public function listAccountsForPlan(array $params): iterable
     {
         $arguments = [];
@@ -369,7 +390,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListAccountsForPlan($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Plans🌀PlanId🌀Accounts());
+        $operator = new ListAccountsForPlan($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Plans🌀PlanId🌀Accounts());
 
         return $operator->call($arguments['plan_id'], $arguments['direction'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
@@ -384,7 +405,7 @@ final class Apps
 
         $arguments['account_id'] = $params['account_id'];
         unset($params['account_id']);
-        $operator = new Internal\Operator\Apps\GetSubscriptionPlanForAccountStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Accounts🌀AccountId());
+        $operator = new GetSubscriptionPlanForAccountStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Accounts🌀AccountId());
 
         return $operator->call($arguments['account_id']);
     }
@@ -405,7 +426,7 @@ final class Apps
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Apps\GetRepoInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Installation());
+        $operator = new GetRepoInstallation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Installation());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -432,12 +453,12 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListInstallationReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations🌀InstallationId🌀Repositories());
+        $operator = new ListInstallationReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Installations🌀InstallationId🌀Repositories());
 
         return $operator->call($arguments['installation_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MarketplacePurchase> */
+    /** @return Observable<MarketplacePurchase> */
     public function listAccountsForPlanStubbed(array $params): iterable
     {
         $arguments = [];
@@ -471,7 +492,7 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Apps\ListAccountsForPlanStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Plans🌀PlanId🌀Accounts());
+        $operator = new ListAccountsForPlanStubbed($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀MarketplaceListing🌀Stubbed🌀Plans🌀PlanId🌀Accounts());
 
         return $operator->call($arguments['plan_id'], $arguments['direction'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }

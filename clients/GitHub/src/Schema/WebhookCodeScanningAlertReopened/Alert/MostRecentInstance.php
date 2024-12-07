@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertReopened\Alert;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T243E32E7\T425E3FF1\TF384E47B\T16830F80;
 
-final readonly class MostRecentInstance extends Schema\AliasAbstract\Tiet243E32E7\Tiet425E3FF1\TietF384E47B\Tiet16830F80
+final readonly class MostRecentInstance extends T16830F80
 {
 }

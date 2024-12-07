@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class LicenseSimple
+final readonly class LicenseSimple implements \ApiClients\Client\GitHub\Contract\LicenseSimple
 {
     public const SCHEMA_JSON         = '{
     "title": "License Simple",
@@ -66,11 +66,11 @@ final readonly class LicenseSimple
     public const SCHEMA_TITLE        = 'License Simple';
     public const SCHEMA_DESCRIPTION  = 'License Simple';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "key": "mit",
-    "name": "MIT License",
-    "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-    "spdx_id": "MIT",
-    "node_id": "MDc6TGljZW5zZW1pdA==",
+    "key": "generated",
+    "name": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "spdx_id": "generated",
+    "node_id": "generated",
     "html_url": "https:\\/\\/example.com\\/"
 }';
 

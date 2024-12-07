@@ -4,8 +4,108 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CheckCollaborator;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CheckPrivateVulnerabilityReporting;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CheckVulnerabilityAlerts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CompareCommits;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DownloadTarballArchive;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DownloadZipballArchive;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAdminBranchProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAllDeploymentProtectionRules;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAllEnvironments;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAllStatusCheckContexts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAllTopics;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAppsWithAccessToProtectedBranch;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetAutolink;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetBranch;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetBranchProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetBranchRules;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetClones;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCodeFrequencyStats;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCollaboratorPermissionLevel;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCombinedStatusForRef;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCommit;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCommitActivityStats;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCommitSignatureProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCommunityProfileMetrics;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetContent;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetContributorsStats;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCustomDeploymentProtectionRule;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetCustomPropertiesValues;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetDeployKey;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetDeployment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetDeploymentBranchPolicy;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetDeploymentStatus;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetEnvironment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetLatestPagesBuild;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetLatestRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetOrgRuleset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetOrgRulesets;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetOrgRuleSuite;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetOrgRuleSuites;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPages;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPagesBuild;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPagesDeployment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPagesHealthCheck;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetParticipationStats;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPullRequestReviewProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetPunchCardStats;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetReadme;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetReadmeInDirectory;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetReleaseAsset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetReleaseByTag;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetRepoRuleset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetRepoRulesets;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetRepoRuleSuite;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetRepoRuleSuites;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetStatusChecksProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetTeamsWithAccessToProtectedBranch;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetTopPaths;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetTopReferrers;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetUsersWithAccessToProtectedBranch;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetViews;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetWebhookConfigForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\GetWebhookDelivery;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListActivities;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListAttestations;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListAutolinks;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListBranches;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListBranchesForHeadCommit;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCollaborators;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCommentsForCommit;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCommitCommentsForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCommits;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCommitStatusesForRef;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListContributors;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListCustomDeploymentRuleIntegrations;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListDeployKeys;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListDeploymentBranchPolicies;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListDeployments;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListDeploymentStatuses;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListForks;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListInvitations;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListInvitationsForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListLanguages;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListPagesBuilds;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListPublic;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListPullRequestsAssociatedWithCommit;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListReleaseAssets;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListReleases;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListTagProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListTags;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListTeams;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListWebhookDeliveries;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ListWebhooks;
+use ApiClients\Client\GitHub\Schema\Activity;
 use ApiClients\Client\GitHub\Schema\Autolink;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\BranchProtection;
@@ -16,6 +116,7 @@ use ApiClients\Client\GitHub\Schema\CloneTraffic;
 use ApiClients\Client\GitHub\Schema\CodeownersErrors;
 use ApiClients\Client\GitHub\Schema\CombinedCommitStatus;
 use ApiClients\Client\GitHub\Schema\Commit;
+use ApiClients\Client\GitHub\Schema\CommitActivity;
 use ApiClients\Client\GitHub\Schema\CommitComment;
 use ApiClients\Client\GitHub\Schema\CommitComparison;
 use ApiClients\Client\GitHub\Schema\CommunityProfile;
@@ -48,6 +149,7 @@ use ApiClients\Client\GitHub\Schema\ReleaseAsset;
 use ApiClients\Client\GitHub\Schema\RepositoryCollaboratorPermission;
 use ApiClients\Client\GitHub\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHub\Schema\RuleSuite;
+use ApiClients\Client\GitHub\Schema\RuleSuites;
 use ApiClients\Client\GitHub\Schema\StatusCheckPolicy;
 use ApiClients\Client\GitHub\Schema\Topic;
 use ApiClients\Client\GitHub\Schema\ViewTraffic;
@@ -62,11 +164,11 @@ use function array_key_exists;
 
 final class Repos
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\MinimalRepository>|WithoutBody */
+    /** @return Observable<MinimalRepository>|WithoutBody */
     public function listPublic(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -76,12 +178,12 @@ final class Repos
 
         $arguments['since'] = $params['since'];
         unset($params['since']);
-        $operator = new Internal\Operator\Repos\ListPublic($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories());
+        $operator = new ListPublic($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories());
 
         return $operator->call($arguments['since']);
     }
 
-    /** @return Observable<Schema\Repository>|WithoutBody */
+    /** @return Observable<Repository>|WithoutBody */
     public function listForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -139,12 +241,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
+        $operator = new ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
 
         return $operator->call($arguments['direction'], $arguments['since'], $arguments['before'], $arguments['visibility'], $arguments['affiliation'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RepositoryInvitation>|WithoutBody */
+    /** @return Observable<RepositoryInvitation>|WithoutBody */
     public function listInvitationsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -160,12 +262,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListInvitationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations());
+        $operator = new ListInvitationsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listForOrg(array $params): iterable
     {
         $arguments = [];
@@ -205,12 +307,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Repos());
+        $operator = new ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Repos());
 
         return $operator->call($arguments['org'], $arguments['direction'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RepositoryRuleset> */
+    /** @return Observable<RepositoryRuleset> */
     public function getOrgRulesets(array $params): iterable
     {
         $arguments = [];
@@ -238,7 +340,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetOrgRulesets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets());
+        $operator = new GetOrgRulesets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets());
 
         return $operator->call($arguments['org'], $arguments['targets'], $arguments['per_page'], $arguments['page']);
     }
@@ -259,12 +361,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listForUser(array $params): iterable
     {
         $arguments = [];
@@ -304,12 +406,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Repos());
+        $operator = new ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Repos());
 
         return $operator->call($arguments['username'], $arguments['direction'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RuleSuites> */
+    /** @return Observable<RuleSuites> */
     public function getOrgRuleSuites(array $params): iterable
     {
         $arguments = [];
@@ -361,7 +463,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetOrgRuleSuites($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites());
+        $operator = new GetOrgRuleSuites($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites());
 
         return $operator->call($arguments['org'], $arguments['ref'], $arguments['repository_name'], $arguments['actor_name'], $arguments['time_period'], $arguments['rule_suite_result'], $arguments['per_page'], $arguments['page']);
     }
@@ -382,12 +484,12 @@ final class Repos
 
         $arguments['ruleset_id'] = $params['ruleset_id'];
         unset($params['ruleset_id']);
-        $operator = new Internal\Operator\Repos\GetOrgRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
+        $operator = new GetOrgRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['org'], $arguments['ruleset_id']);
     }
 
-    /** @return Observable<Schema\Activity> */
+    /** @return Observable<Activity> */
     public function listActivities(array $params): iterable
     {
         $arguments = [];
@@ -451,12 +553,12 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\ListActivities($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Activity());
+        $operator = new ListActivities($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Activity());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['before'], $arguments['after'], $arguments['ref'], $arguments['actor'], $arguments['time_period'], $arguments['activity_type'], $arguments['direction'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\Autolink> */
+    /** @return Observable<Autolink> */
     public function listAutolinks(array $params): iterable
     {
         $arguments = [];
@@ -472,7 +574,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\ListAutolinks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks());
+        $operator = new ListAutolinks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -493,12 +595,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\CheckAutomatedSecurityFixes($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀AutomatedSecurityFixes());
+        $operator = new \ApiClients\Client\GitHub\Internal\Operator\Repos\CheckAutomatedSecurityFixes($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀AutomatedSecurityFixes());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\ShortBranch> */
+    /** @return Observable<ShortBranch> */
     public function listBranches(array $params): iterable
     {
         $arguments = [];
@@ -532,12 +634,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListBranches($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches());
+        $operator = new ListBranches($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['protected'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Collaborator> */
+    /** @return Observable<Collaborator> */
     public function listCollaborators(array $params): iterable
     {
         $arguments = [];
@@ -577,12 +679,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators());
+        $operator = new ListCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['permission'], $arguments['affiliation'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\CommitComment> */
+    /** @return Observable<CommitComment> */
     public function listCommitCommentsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -610,12 +712,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListCommitCommentsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments());
+        $operator = new ListCommitCommentsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Commit> */
+    /** @return Observable<Commit> */
     public function listCommits(array $params): iterable
     {
         $arguments = [];
@@ -679,12 +781,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits());
+        $operator = new ListCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $arguments['path'], $arguments['author'], $arguments['committer'], $arguments['since'], $arguments['until'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Contributor>|WithoutBody */
+    /** @return Observable<Contributor>|WithoutBody */
     public function listContributors(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -718,12 +820,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListContributors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contributors());
+        $operator = new ListContributors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contributors());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['anon'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Deployment> */
+    /** @return Observable<Deployment> */
     public function listDeployments(array $params): iterable
     {
         $arguments = [];
@@ -775,7 +877,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListDeployments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments());
+        $operator = new ListDeployments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $arguments['ref'], $arguments['task'], $arguments['environment'], $arguments['per_page'], $arguments['page']);
     }
@@ -808,12 +910,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetAllEnvironments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments());
+        $operator = new GetAllEnvironments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listForks(array $params): iterable
     {
         $arguments = [];
@@ -847,12 +949,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListForks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Forks());
+        $operator = new ListForks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Forks());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Hook> */
+    /** @return Observable<Hook> */
     public function listWebhooks(array $params): iterable
     {
         $arguments = [];
@@ -880,12 +982,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks());
+        $operator = new ListWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RepositoryInvitation> */
+    /** @return Observable<RepositoryInvitation> */
     public function listInvitations(array $params): iterable
     {
         $arguments = [];
@@ -913,12 +1015,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Invitations());
+        $operator = new ListInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Invitations());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\DeployKey> */
+    /** @return Observable<DeployKey> */
     public function listDeployKeys(array $params): iterable
     {
         $arguments = [];
@@ -946,7 +1048,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListDeployKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Keys());
+        $operator = new ListDeployKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Keys());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -967,7 +1069,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\ListLanguages($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Languages());
+        $operator = new ListLanguages($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Languages());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -988,7 +1090,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetPages($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
+        $operator = new GetPages($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1009,7 +1111,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\CheckPrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
+        $operator = new CheckPrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1036,12 +1138,12 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\GetReadme($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Readme());
+        $operator = new GetReadme($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Readme());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    /** @return Observable<Schema\Release> */
+    /** @return Observable<Release> */
     public function listReleases(array $params): iterable
     {
         $arguments = [];
@@ -1069,12 +1171,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListReleases($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases());
+        $operator = new ListReleases($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RepositoryRuleset> */
+    /** @return Observable<RepositoryRuleset> */
     public function getRepoRulesets(array $params): iterable
     {
         $arguments = [];
@@ -1114,12 +1216,12 @@ final class Repos
 
         $arguments['includes_parents'] = $params['includes_parents'];
         unset($params['includes_parents']);
-        $operator = new Internal\Operator\Repos\GetRepoRulesets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets());
+        $operator = new GetRepoRulesets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['targets'], $arguments['per_page'], $arguments['page'], $arguments['includes_parents']);
     }
 
-    /** @return Observable<Schema\Tag> */
+    /** @return Observable<Tag> */
     public function listTags(array $params): iterable
     {
         $arguments = [];
@@ -1147,12 +1249,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListTags($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags());
+        $operator = new ListTags($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listTeams(array $params): iterable
     {
         $arguments = [];
@@ -1180,7 +1282,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Teams());
+        $operator = new ListTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Teams());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -1213,7 +1315,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\GetAllTopics($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics());
+        $operator = new GetAllTopics($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['page'], $arguments['per_page']);
     }
@@ -1234,7 +1336,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\CheckVulnerabilityAlerts($this->browser, $this->authentication);
+        $operator = new CheckVulnerabilityAlerts($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1255,7 +1357,7 @@ final class Repos
 
         $arguments['rule_suite_id'] = $params['rule_suite_id'];
         unset($params['rule_suite_id']);
-        $operator = new Internal\Operator\Repos\GetOrgRuleSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId());
+        $operator = new GetOrgRuleSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId());
 
         return $operator->call($arguments['org'], $arguments['rule_suite_id']);
     }
@@ -1300,7 +1402,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Attestations🌀SubjectDigest());
+        $operator = new ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Attestations🌀SubjectDigest());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['before'], $arguments['after'], $arguments['subject_digest'], $arguments['per_page']);
     }
@@ -1327,7 +1429,7 @@ final class Repos
 
         $arguments['autolink_id'] = $params['autolink_id'];
         unset($params['autolink_id']);
-        $operator = new Internal\Operator\Repos\GetAutolink($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks🌀AutolinkId());
+        $operator = new GetAutolink($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks🌀AutolinkId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['autolink_id']);
     }
@@ -1354,7 +1456,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch());
+        $operator = new GetBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -1381,7 +1483,7 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\CodeownersErrors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codeowners🌀Errors());
+        $operator = new \ApiClients\Client\GitHub\Internal\Operator\Repos\CodeownersErrors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Codeowners🌀Errors());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
@@ -1408,7 +1510,7 @@ final class Repos
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Repos\CheckCollaborator($this->browser, $this->authentication);
+        $operator = new CheckCollaborator($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
@@ -1435,7 +1537,7 @@ final class Repos
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Repos\GetCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
+        $operator = new GetCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
@@ -1474,7 +1576,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\GetCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref());
+        $operator = new GetCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['page'], $arguments['per_page']);
     }
@@ -1495,7 +1597,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetCommunityProfileMetrics($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Community🌀Profile());
+        $operator = new GetCommunityProfileMetrics($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Community🌀Profile());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1534,7 +1636,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\CompareCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Compare🌀Basehead());
+        $operator = new CompareCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Compare🌀Basehead());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['basehead'], $arguments['page'], $arguments['per_page']);
     }
@@ -1567,7 +1669,7 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\GetContent($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
+        $operator = new GetContent($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $arguments['ref']);
     }
@@ -1594,7 +1696,7 @@ final class Repos
 
         $arguments['deployment_id'] = $params['deployment_id'];
         unset($params['deployment_id']);
-        $operator = new Internal\Operator\Repos\GetDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId());
+        $operator = new GetDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
@@ -1621,7 +1723,7 @@ final class Repos
 
         $arguments['environment_name'] = $params['environment_name'];
         unset($params['environment_name']);
-        $operator = new Internal\Operator\Repos\GetEnvironment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName());
+        $operator = new GetEnvironment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
@@ -1648,7 +1750,7 @@ final class Repos
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Repos\GetWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
+        $operator = new GetWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
@@ -1675,12 +1777,12 @@ final class Repos
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        $operator = new Internal\Operator\Repos\GetDeployKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Keys🌀KeyId());
+        $operator = new GetDeployKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Keys🌀KeyId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
 
-    /** @return Observable<Schema\PageBuild> */
+    /** @return Observable<PageBuild> */
     public function listPagesBuilds(array $params): iterable
     {
         $arguments = [];
@@ -1708,7 +1810,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListPagesBuilds($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds());
+        $operator = new ListPagesBuilds($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
@@ -1729,12 +1831,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetPagesHealthCheck($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Health());
+        $operator = new GetPagesHealthCheck($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Health());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\CustomPropertyValue> */
+    /** @return Observable<CustomPropertyValue> */
     public function getCustomPropertiesValues(array $params): iterable
     {
         $arguments = [];
@@ -1750,7 +1852,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetCustomPropertiesValues($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values());
+        $operator = new GetCustomPropertiesValues($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1783,7 +1885,7 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\GetReadmeInDirectory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Readme🌀Dir());
+        $operator = new GetReadmeInDirectory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Readme🌀Dir());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['dir'], $arguments['ref']);
     }
@@ -1804,7 +1906,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetLatestRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Latest());
+        $operator = new GetLatestRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Latest());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -1831,12 +1933,12 @@ final class Repos
 
         $arguments['release_id'] = $params['release_id'];
         unset($params['release_id']);
-        $operator = new Internal\Operator\Repos\GetRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId());
+        $operator = new GetRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
 
-    /** @return Observable<Schema\RuleSuites> */
+    /** @return Observable<RuleSuites> */
     public function getRepoRuleSuites(array $params): iterable
     {
         $arguments = [];
@@ -1888,7 +1990,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetRepoRuleSuites($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RuleSuites());
+        $operator = new GetRepoRuleSuites($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RuleSuites());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['actor_name'], $arguments['time_period'], $arguments['rule_suite_result'], $arguments['per_page'], $arguments['page']);
     }
@@ -1921,12 +2023,12 @@ final class Repos
 
         $arguments['includes_parents'] = $params['includes_parents'];
         unset($params['includes_parents']);
-        $operator = new Internal\Operator\Repos\GetRepoRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
+        $operator = new GetRepoRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ruleset_id'], $arguments['includes_parents']);
     }
 
-    /** @return Observable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody */
+    /** @return Observable<int>|Json|WithoutBody */
     public function getCodeFrequencyStats(array $params): iterable|\ApiClients\Client\GitHub\Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         $arguments = [];
@@ -1942,12 +2044,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetCodeFrequencyStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀CodeFrequency());
+        $operator = new GetCodeFrequencyStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀CodeFrequency());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\CommitActivity>|Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody */
+    /** @return Observable<CommitActivity>|Json|WithoutBody */
     public function getCommitActivityStats(array $params): iterable|\ApiClients\Client\GitHub\Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         $arguments = [];
@@ -1963,12 +2065,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetCommitActivityStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀CommitActivity());
+        $operator = new GetCommitActivityStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀CommitActivity());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\ContributorActivity>|Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody */
+    /** @return Observable<ContributorActivity>|Json|WithoutBody */
     public function getContributorsStats(array $params): iterable|\ApiClients\Client\GitHub\Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         $arguments = [];
@@ -1984,7 +2086,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetContributorsStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀Contributors());
+        $operator = new GetContributorsStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀Contributors());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -2005,7 +2107,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetParticipationStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀Participation());
+        $operator = new GetParticipationStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀Participation());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -2026,12 +2128,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetPunchCardStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀PunchCard());
+        $operator = new GetPunchCardStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀PunchCard());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\TagProtection> */
+    /** @return Observable<TagProtection> */
     public function listTagProtection(array $params): iterable
     {
         $arguments = [];
@@ -2047,7 +2149,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\ListTagProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags🌀Protection());
+        $operator = new ListTagProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags🌀Protection());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -2074,7 +2176,7 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\DownloadTarballArchive($this->browser, $this->authentication);
+        $operator = new DownloadTarballArchive($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
@@ -2101,7 +2203,7 @@ final class Repos
 
         $arguments['per'] = $params['per'];
         unset($params['per']);
-        $operator = new Internal\Operator\Repos\GetClones($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Clones());
+        $operator = new GetClones($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Clones());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per']);
     }
@@ -2128,7 +2230,7 @@ final class Repos
 
         $arguments['per'] = $params['per'];
         unset($params['per']);
-        $operator = new Internal\Operator\Repos\GetViews($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Views());
+        $operator = new GetViews($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Views());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per']);
     }
@@ -2155,7 +2257,7 @@ final class Repos
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        $operator = new Internal\Operator\Repos\DownloadZipballArchive($this->browser, $this->authentication);
+        $operator = new DownloadZipballArchive($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
@@ -2182,7 +2284,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
+        $operator = new GetBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -2209,12 +2311,12 @@ final class Repos
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Repos\GetCollaboratorPermissionLevel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username🌀Permission());
+        $operator = new GetCollaboratorPermissionLevel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username🌀Permission());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
-    /** @return Observable<Schema\BranchShort> */
+    /** @return Observable<BranchShort> */
     public function listBranchesForHeadCommit(array $params): iterable
     {
         $arguments = [];
@@ -2236,12 +2338,12 @@ final class Repos
 
         $arguments['commit_sha'] = $params['commit_sha'];
         unset($params['commit_sha']);
-        $operator = new Internal\Operator\Repos\ListBranchesForHeadCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀BranchesWhereHead());
+        $operator = new ListBranchesForHeadCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀BranchesWhereHead());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    /** @return Observable<Schema\CommitComment> */
+    /** @return Observable<CommitComment> */
     public function listCommentsForCommit(array $params): iterable
     {
         $arguments = [];
@@ -2275,12 +2377,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListCommentsForCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Comments());
+        $operator = new ListCommentsForCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Comments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\PullRequestSimple> */
+    /** @return Observable<PullRequestSimple> */
     public function listPullRequestsAssociatedWithCommit(array $params): iterable
     {
         $arguments = [];
@@ -2314,7 +2416,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListPullRequestsAssociatedWithCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Pulls());
+        $operator = new ListPullRequestsAssociatedWithCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Pulls());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $arguments['per_page'], $arguments['page']);
     }
@@ -2353,12 +2455,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetCombinedStatusForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀Status());
+        $operator = new GetCombinedStatusForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀Status());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Status>|Schema\BasicError */
+    /** @return Observable<Status>|BasicError */
     public function listCommitStatusesForRef(array $params): iterable|BasicError
     {
         $arguments = [];
@@ -2392,12 +2494,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListCommitStatusesForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀Statuses());
+        $operator = new ListCommitStatusesForRef($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀Ref🌀Statuses());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\DeploymentStatus> */
+    /** @return Observable<DeploymentStatus> */
     public function listDeploymentStatuses(array $params): iterable
     {
         $arguments = [];
@@ -2431,7 +2533,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListDeploymentStatuses($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId🌀Statuses());
+        $operator = new ListDeploymentStatuses($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId🌀Statuses());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -2470,7 +2572,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListDeploymentBranchPolicies($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies());
+        $operator = new ListDeploymentBranchPolicies($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
@@ -2497,7 +2599,7 @@ final class Repos
 
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
-        $operator = new Internal\Operator\Repos\GetAllDeploymentProtectionRules($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules());
+        $operator = new GetAllDeploymentProtectionRules($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules());
 
         return $operator->call($arguments['environment_name'], $arguments['repo'], $arguments['owner']);
     }
@@ -2524,12 +2626,12 @@ final class Repos
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Repos\GetWebhookConfigForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Config());
+        $operator = new GetWebhookConfigForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Config());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return Observable<HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -2563,7 +2665,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Deliveries());
+        $operator = new ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Deliveries());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $arguments['cursor'], $arguments['per_page']);
     }
@@ -2584,7 +2686,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetLatestPagesBuild($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds🌀Latest());
+        $operator = new GetLatestPagesBuild($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds🌀Latest());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -2611,7 +2713,7 @@ final class Repos
 
         $arguments['build_id'] = $params['build_id'];
         unset($params['build_id']);
-        $operator = new Internal\Operator\Repos\GetPagesBuild($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds🌀BuildId());
+        $operator = new GetPagesBuild($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds🌀BuildId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['build_id']);
     }
@@ -2638,7 +2740,7 @@ final class Repos
 
         $arguments['pages_deployment_id'] = $params['pages_deployment_id'];
         unset($params['pages_deployment_id']);
-        $operator = new Internal\Operator\Repos\GetPagesDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployments🌀PagesDeploymentId());
+        $operator = new GetPagesDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployments🌀PagesDeploymentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pages_deployment_id']);
     }
@@ -2665,7 +2767,7 @@ final class Repos
 
         $arguments['asset_id'] = $params['asset_id'];
         unset($params['asset_id']);
-        $operator = new Internal\Operator\Repos\GetReleaseAsset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Assets🌀AssetId());
+        $operator = new GetReleaseAsset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Assets🌀AssetId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id']);
     }
@@ -2692,12 +2794,12 @@ final class Repos
 
         $arguments['tag'] = $params['tag'];
         unset($params['tag']);
-        $operator = new Internal\Operator\Repos\GetReleaseByTag($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Tags🌀Tag());
+        $operator = new GetReleaseByTag($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀Tags🌀Tag());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag']);
     }
 
-    /** @return Observable<Schema\ReleaseAsset> */
+    /** @return Observable<ReleaseAsset> */
     public function listReleaseAssets(array $params): iterable
     {
         $arguments = [];
@@ -2731,12 +2833,12 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\ListReleaseAssets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Assets());
+        $operator = new ListReleaseAssets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Assets());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleMergeQueue|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleWorkflows|Schema\RepositoryRuleCodeScanning> */
+    /** @return Observable<Zero|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve|Thirteen|Fourteen|Fifteen|Sixteen> */
     public function getBranchRules(array $params): iterable
     {
         $arguments = [];
@@ -2770,7 +2872,7 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Repos\GetBranchRules($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rules🌀Branches🌀Branch());
+        $operator = new GetBranchRules($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rules🌀Branches🌀Branch());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $arguments['per_page'], $arguments['page']);
     }
@@ -2797,12 +2899,12 @@ final class Repos
 
         $arguments['rule_suite_id'] = $params['rule_suite_id'];
         unset($params['rule_suite_id']);
-        $operator = new Internal\Operator\Repos\GetRepoRuleSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RuleSuites🌀RuleSuiteId());
+        $operator = new GetRepoRuleSuite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RuleSuites🌀RuleSuiteId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['rule_suite_id']);
     }
 
-    /** @return Observable<Schema\ContentTraffic> */
+    /** @return Observable<ContentTraffic> */
     public function getTopPaths(array $params): iterable
     {
         $arguments = [];
@@ -2818,12 +2920,12 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetTopPaths($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Popular🌀Paths());
+        $operator = new GetTopPaths($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Popular🌀Paths());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\ReferrerTraffic> */
+    /** @return Observable<ReferrerTraffic> */
     public function getTopReferrers(array $params): iterable
     {
         $arguments = [];
@@ -2839,7 +2941,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\GetTopReferrers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Popular🌀Referrers());
+        $operator = new GetTopReferrers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Popular🌀Referrers());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -2866,7 +2968,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetAdminBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀EnforceAdmins());
+        $operator = new GetAdminBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀EnforceAdmins());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -2893,7 +2995,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetPullRequestReviewProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
+        $operator = new GetPullRequestReviewProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -2920,7 +3022,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetCommitSignatureProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredSignatures());
+        $operator = new GetCommitSignatureProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredSignatures());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -2947,7 +3049,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetStatusChecksProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks());
+        $operator = new GetStatusChecksProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -2974,7 +3076,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetAccessRestrictions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions());
+        $operator = new GetAccessRestrictions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -3007,7 +3109,7 @@ final class Repos
 
         $arguments['status_id'] = $params['status_id'];
         unset($params['status_id']);
-        $operator = new Internal\Operator\Repos\GetDeploymentStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId🌀Statuses🌀StatusId());
+        $operator = new GetDeploymentStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId🌀Statuses🌀StatusId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['status_id']);
     }
@@ -3040,7 +3142,7 @@ final class Repos
 
         $arguments['branch_policy_id'] = $params['branch_policy_id'];
         unset($params['branch_policy_id']);
-        $operator = new Internal\Operator\Repos\GetDeploymentBranchPolicy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies🌀BranchPolicyId());
+        $operator = new GetDeploymentBranchPolicy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies🌀BranchPolicyId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
@@ -3079,7 +3181,7 @@ final class Repos
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\Repos\ListCustomDeploymentRuleIntegrations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules🌀Apps());
+        $operator = new ListCustomDeploymentRuleIntegrations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules🌀Apps());
 
         return $operator->call($arguments['environment_name'], $arguments['repo'], $arguments['owner'], $arguments['page'], $arguments['per_page']);
     }
@@ -3112,7 +3214,7 @@ final class Repos
 
         $arguments['protection_rule_id'] = $params['protection_rule_id'];
         unset($params['protection_rule_id']);
-        $operator = new Internal\Operator\Repos\GetCustomDeploymentProtectionRule($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules🌀ProtectionRuleId());
+        $operator = new GetCustomDeploymentProtectionRule($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentProtectionRules🌀ProtectionRuleId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['protection_rule_id']);
     }
@@ -3145,7 +3247,7 @@ final class Repos
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        $operator = new Internal\Operator\Repos\GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId());
+        $operator = new GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $arguments['delivery_id']);
     }
@@ -3172,12 +3274,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetAllStatusCheckContexts($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
+        $operator = new GetAllStatusCheckContexts($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return Observable<Schema\Integration> */
+    /** @return Observable<Integration> */
     public function getAppsWithAccessToProtectedBranch(array $params): iterable
     {
         $arguments = [];
@@ -3199,12 +3301,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetAppsWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
+        $operator = new GetAppsWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function getTeamsWithAccessToProtectedBranch(array $params): iterable
     {
         $arguments = [];
@@ -3226,12 +3328,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetTeamsWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
+        $operator = new GetTeamsWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function getUsersWithAccessToProtectedBranch(array $params): iterable
     {
         $arguments = [];
@@ -3253,7 +3355,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\GetUsersWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
+        $operator = new GetUsersWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateInOrg\Request\ApplicationJson;
 
-final readonly class CustomProperties
+final readonly class CustomProperties implements \ApiClients\Client\GitHub\Contract\Repos\CreateInOrg\Request\ApplicationJson\CustomProperties
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

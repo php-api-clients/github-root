@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksChanges\Body;
 
-final readonly class WebhooksChanges
+final readonly class WebhooksChanges implements \ApiClients\Client\GitHub\Contract\WebhooksChanges
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -34,7 +34,7 @@ final readonly class WebhooksChanges
     }
 }';
 
-    public function __construct(public Schema\WebhooksChanges\Body|null $body)
+    public function __construct(public Body|null $body)
     {
     }
 }

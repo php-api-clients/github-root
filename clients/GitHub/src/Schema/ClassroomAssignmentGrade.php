@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ClassroomAssignmentGrade
+final readonly class ClassroomAssignmentGrade implements \ApiClients\Client\GitHub\Contract\ClassroomAssignmentGrade
 {
     public const SCHEMA_JSON         = '{
     "title": "Classroom Assignment Grade",

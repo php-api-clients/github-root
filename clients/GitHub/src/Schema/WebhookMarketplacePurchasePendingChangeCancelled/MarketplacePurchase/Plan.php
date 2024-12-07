@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T7AA6A7F1\T3B52E3DE\T4A6A69BC\TB4BD4493;
 
-final readonly class Plan extends Schema\AliasAbstract\Tiet7AA6A7F1\Tiet3B52E3DE\Tiet4A6A69BC\TietB4BD4493
+final readonly class Plan extends TB4BD4493
 {
 }

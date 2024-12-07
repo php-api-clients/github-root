@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReview\Request\Application
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Comments
+final readonly class Comments implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReview\Request\ApplicationJson\Comments
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -59,10 +59,10 @@ final readonly class Comments
     "path": "generated",
     "position": 8,
     "body": "generated",
-    "line": 28,
-    "side": "RIGHT",
-    "start_line": 26,
-    "start_side": "LEFT"
+    "line": 4,
+    "side": "generated",
+    "start_line": 10,
+    "start_side": "generated"
 }';
 
     /**

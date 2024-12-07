@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookDiscussionCommentEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookDiscussionCommentEdited\Changes\Body;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookDiscussionCommentEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookDiscussionCommentEdited\Changes\Body $body)
+    public function __construct(public Body $body)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Enterprise
+final readonly class Enterprise implements \ApiClients\Client\GitHub\Contract\Enterprise
 {
     public const SCHEMA_JSON         = '{
     "title": "Enterprise",
@@ -102,14 +102,14 @@ final readonly class Enterprise
     public const SCHEMA_DESCRIPTION  = 'An enterprise on GitHub.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "description": "generated",
-    "html_url": "https:\\/\\/github.com\\/enterprises\\/octo-business",
+    "html_url": "https:\\/\\/example.com\\/",
     "website_url": "https:\\/\\/example.com\\/",
-    "id": 42,
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-    "name": "Octo Business",
-    "slug": "octo-business",
-    "created_at": "2019-01-26T19:01:12Z",
-    "updated_at": "2019-01-26T19:14:43Z",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "slug": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "avatar_url": "https:\\/\\/example.com\\/"
 }';
 

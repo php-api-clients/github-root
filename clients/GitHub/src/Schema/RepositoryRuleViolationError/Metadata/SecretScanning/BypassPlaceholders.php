@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata\
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class BypassPlaceholders
+final readonly class BypassPlaceholders implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError\Metadata\SecretScanning\BypassPlaceholders
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

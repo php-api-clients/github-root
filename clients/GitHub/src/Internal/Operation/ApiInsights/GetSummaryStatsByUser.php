@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId;
+use ApiClients\Client\GitHub\Schema\ApiInsightsSummaryStats;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetSummaryStatsByUser
 {
@@ -30,20 +31,22 @@ final class GetSummaryStatsByUser
     /**The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
     private string $maxTimestamp;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId $hydrator, string $org, string $userId, string $minTimestamp, string $maxTimestamp)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private UserId $hydrator, string $org, string $userId, string $minTimestamp, string $maxTimestamp)
     {
-        $this->org          = $org;
-        $this->userId       = $userId;
-        $this->minTimestamp = $minTimestamp;
-        $this->maxTimestamp = $maxTimestamp;
+        $this->org                     = $org;
+        $this->userId                  = $userId;
+        $this->minTimestamp            = $minTimestamp;
+        $this->maxTimestamp            = $maxTimestamp;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{user_id}', '{min_timestamp}', '{max_timestamp}'], [$this->org, $this->userId, $this->minTimestamp, $this->maxTimestamp], '/orgs/{org}/insights/api/summary-stats/users/{user_id}' . '?min_timestamp={min_timestamp}&max_timestamp={max_timestamp}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/insights/api/summary-stats/users/{user_id}{?max_timestamp,min_timestamp}'))->expand(['max_timestamp' => $this->maxTimestamp, 'min_timestamp' => $this->minTimestamp, 'org' => $this->org, 'user_id' => $this->userId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ApiInsightsSummaryStats
+    public function createResponse(ResponseInterface $response): ApiInsightsSummaryStats
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class GetSummaryStatsByUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ApiInsightsSummaryStats::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ApiInsightsSummaryStats::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ApiInsightsSummaryStats::class, $body);
+                        return $this->hydrator->hydrateObject(ApiInsightsSummaryStats::class, $body);
                 }
 
                 break;

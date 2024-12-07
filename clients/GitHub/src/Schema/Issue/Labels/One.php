@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Issue\Labels;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\Issue\Labels\One
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

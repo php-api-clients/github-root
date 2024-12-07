@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleRequiredLinearHistory
+final readonly class RepositoryRuleRequiredLinearHistory implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredLinearHistory
 {
     public const SCHEMA_JSON         = '{
     "title": "required_linear_history",

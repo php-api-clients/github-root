@@ -4,7 +4,32 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Put;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddSelectedRepoToOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddSelectedRepoToOrgVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddSelfHostedRunnerToGroupForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateOrUpdateOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateOrUpdateRepoSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\DisableWorkflow;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\EnableWorkflow;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetAllowedActionsOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetAllowedActionsRepository;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetCustomOidcSubClaimForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsRepository;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetGithubActionsPermissionsOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetGithubActionsPermissionsRepository;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetSelectedReposForOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetSelectedReposForOrgVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetSelfHostedRunnersInGroupForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\SetWorkflowAccessToRepository;
 use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Client\GitHub\Schema\Operations\Actions\ListLabelsForSelfHostedRunnerForOrg\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -17,7 +42,7 @@ use function array_key_exists;
 
 final class Actions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -31,7 +56,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\SetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $params);
     }
@@ -52,7 +77,7 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication);
+        $operator = new EnableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
@@ -73,7 +98,7 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operator = new Internal\Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
@@ -94,7 +119,7 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operator = new Internal\Operator\Actions\SetSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
@@ -115,7 +140,7 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operator = new Internal\Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
+        $operator = new SetCustomLabelsForSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
@@ -136,7 +161,7 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Actions\SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
@@ -157,7 +182,7 @@ final class Actions
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        $operator = new Internal\Operator\Actions\SetSelectedReposForOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetSelectedReposForOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $arguments['name'], $params);
     }
@@ -178,7 +203,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\SetWorkflowAccessToRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetWorkflowAccessToRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -199,7 +224,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\SetAllowedActionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetAllowedActionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -220,7 +245,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetGithubActionsDefaultWorkflowPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -247,7 +272,7 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Actions\CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName());
+        $operator = new CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
@@ -262,7 +287,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $params);
     }
@@ -277,7 +302,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\SetAllowedActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetAllowedActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $params);
     }
@@ -292,7 +317,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetGithubActionsDefaultWorkflowPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['org'], $params);
     }
@@ -313,7 +338,7 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Actions\CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName());
+        $operator = new CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
@@ -334,7 +359,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\SetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new SetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -361,7 +386,7 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication);
+        $operator = new AddRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
@@ -388,7 +413,7 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operator = new Internal\Operator\Actions\AddSelfHostedRunnerToGroupForOrg($this->browser, $this->authentication);
+        $operator = new AddSelfHostedRunnerToGroupForOrg($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
@@ -415,7 +440,7 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Actions\AddSelectedRepoToOrgSecret($this->browser, $this->authentication);
+        $operator = new AddSelectedRepoToOrgSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
@@ -442,7 +467,7 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Actions\AddSelectedRepoToOrgVariable($this->browser, $this->authentication);
+        $operator = new AddSelectedRepoToOrgVariable($this->browser, $this->authentication);
 
         return $operator->call($arguments['org'], $arguments['name'], $arguments['repository_id']);
     }
@@ -463,7 +488,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\SetCustomOidcSubClaimForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Oidc🌀Customization🌀Sub());
+        $operator = new SetCustomOidcSubClaimForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Oidc🌀Customization🌀Sub());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -490,7 +515,7 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operator = new Internal\Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
+        $operator = new SetCustomLabelsForSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
@@ -517,7 +542,7 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        $operator = new Internal\Operator\Actions\DisableWorkflow($this->browser, $this->authentication);
+        $operator = new DisableWorkflow($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
@@ -544,7 +569,7 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        $operator = new Internal\Operator\Actions\EnableWorkflow($this->browser, $this->authentication);
+        $operator = new EnableWorkflow($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
@@ -577,7 +602,7 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
+        $operator = new CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['secret_name'], $params);
     }

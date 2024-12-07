@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata\SecretScanning;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Metadata
+final readonly class Metadata implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError\Metadata
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -52,7 +52,7 @@ final readonly class Metadata
 }';
 
     public function __construct(#[MapFrom('secret_scanning')]
-    public Schema\RepositoryRuleViolationError\Metadata\SecretScanning|null $secretScanning,)
+    public SecretScanning|null $secretScanning,)
     {
     }
 }

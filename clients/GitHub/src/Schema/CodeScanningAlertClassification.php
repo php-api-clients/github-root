@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertClassification
+final readonly class CodeScanningAlertClassification implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertClassification
 {
     public const SCHEMA_JSON         = '{
     "enum": [

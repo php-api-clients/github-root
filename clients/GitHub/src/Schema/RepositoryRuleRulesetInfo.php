@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleRulesetInfo
+final readonly class RepositoryRuleRulesetInfo implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRulesetInfo
 {
     public const SCHEMA_JSON         = '{
     "title": "repository ruleset data for rule",

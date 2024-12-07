@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Activity
+final readonly class Activity implements \ApiClients\Client\GitHub\Contract\Activity
 {
     public const SCHEMA_JSON         = '{
     "title": "Activity",
@@ -260,36 +259,36 @@ final readonly class Activity
     public const SCHEMA_TITLE        = 'Activity';
     public const SCHEMA_DESCRIPTION  = 'Activity';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1296269,
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-    "before": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-    "after": "827efc6d56897b048c772eb4087f854f46256132",
-    "ref": "refs\\/heads\\/main",
-    "timestamp": "2011-01-26T19:06:43Z",
-    "activity_type": "force_push",
+    "id": 2,
+    "node_id": "generated",
+    "before": "generated",
+    "after": "generated",
+    "ref": "generated",
+    "timestamp": "1970-01-01T00:00:00+00:00",
+    "activity_type": "push",
     "actor": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     }
 }';
 
@@ -302,7 +301,7 @@ final readonly class Activity
      */
     public function __construct(public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string $before, public string $after, public string $ref, public string $timestamp, #[MapFrom('activity_type')]
-    public string $activityType, public Schema\SimpleUser|null $actor,)
+    public string $activityType, public SimpleUser|null $actor,)
     {
     }
 }

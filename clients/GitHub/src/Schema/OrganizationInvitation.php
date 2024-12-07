@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class OrganizationInvitation
+final readonly class OrganizationInvitation implements \ApiClients\Client\GitHub\Contract\OrganizationInvitation
 {
     public const SCHEMA_JSON         = '{
     "title": "Organization Invitation",
@@ -263,31 +262,31 @@ final readonly class OrganizationInvitation
     "inviter": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "team_count": 10,
-    "node_id": "\\"MDIyOk9yZ2FuaXphdGlvbkludml0YXRpb24x\\"",
-    "invitation_teams_url": "\\"https:\\/\\/api.github.com\\/organizations\\/16\\/invitations\\/1\\/teams\\"",
-    "invitation_source": "\\"member\\""
+    "node_id": "generated",
+    "invitation_teams_url": "generated",
+    "invitation_source": "generated"
 }';
 
     /**
@@ -296,7 +295,7 @@ final readonly class OrganizationInvitation
     public function __construct(public int $id, public string|null $login, public string|null $email, public string $role, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('failed_at')]
     public string|null $failedAt, #[MapFrom('failed_reason')]
-    public string|null $failedReason, public Schema\SimpleUser $inviter, #[MapFrom('team_count')]
+    public string|null $failedReason, public SimpleUser $inviter, #[MapFrom('team_count')]
     public int $teamCount, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('invitation_teams_url')]
     public string $invitationTeamsUrl, #[MapFrom('invitation_source')]

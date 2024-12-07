@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit;
 
-final readonly class Branches
+final readonly class Branches implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Branches
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -57,7 +57,7 @@ final readonly class Branches
     "protected": false
 }';
 
-    public function __construct(public Schema\WebhookStatus\Branches\Commit $commit, public string $name, public bool $protected)
+    public function __construct(public Commit $commit, public string $name, public bool $protected)
     {
     }
 }

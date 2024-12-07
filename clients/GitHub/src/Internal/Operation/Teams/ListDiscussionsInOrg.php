@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions;
+use ApiClients\Client\GitHub\Schema\TeamDiscussion;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -18,7 +19,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListDiscussionsInOrg
 {
@@ -37,22 +37,24 @@ final class ListDiscussionsInOrg
     /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions $hydrator, string $org, string $teamSlug, string $pinned, string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Discussions $hydrator, string $org, string $teamSlug, string $pinned, string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->org       = $org;
-        $this->teamSlug  = $teamSlug;
-        $this->pinned    = $pinned;
-        $this->direction = $direction;
-        $this->perPage   = $perPage;
-        $this->page      = $page;
+        $this->org                     = $org;
+        $this->teamSlug                = $teamSlug;
+        $this->pinned                  = $pinned;
+        $this->direction               = $direction;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{team_slug}', '{pinned}', '{direction}', '{per_page}', '{page}'], [$this->org, $this->teamSlug, $this->pinned, $this->direction, $this->perPage, $this->page], '/orgs/{org}/teams/{team_slug}/discussions' . '?pinned={pinned}&direction={direction}&per_page={per_page}&page={page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/teams/{team_slug}/discussions{?direction,page,per_page,pinned}'))->expand(['direction' => $this->direction, 'org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'pinned' => $this->pinned, 'team_slug' => $this->teamSlug]));
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -65,12 +67,12 @@ final class ListDiscussionsInOrg
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\TeamDiscussion {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): TeamDiscussion {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamDiscussion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamDiscussion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\TeamDiscussion::class, $body);
+                                return $this->hydrator->hydrateObject(TeamDiscussion::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

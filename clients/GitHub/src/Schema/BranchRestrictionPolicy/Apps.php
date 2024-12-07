@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy\Apps\Owner;
+use ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy\Apps\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Apps
+final readonly class Apps implements \ApiClients\Client\GitHub\Contract\BranchRestrictionPolicy\Apps
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -199,18 +200,18 @@ final readonly class Apps
         "public_members_url": "generated",
         "avatar_url": "generated",
         "description": "generated",
-        "gravatar_id": "\\"\\"",
-        "html_url": "\\"https:\\/\\/github.com\\/testorg-ea8ec76d71c3af4b\\"",
-        "followers_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/followers\\"",
-        "following_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/following{\\/other_user}\\"",
-        "gists_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/gists{\\/gist_id}\\"",
-        "starred_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/starred{\\/owner}{\\/repo}\\"",
-        "subscriptions_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/subscriptions\\"",
-        "organizations_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/orgs\\"",
-        "received_events_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/received_events\\"",
-        "type": "\\"Organization\\"",
+        "gravatar_id": "generated",
+        "html_url": "generated",
+        "followers_url": "generated",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "generated",
+        "organizations_url": "generated",
+        "received_events_url": "generated",
+        "type": "generated",
         "site_admin": false,
-        "user_view_type": "public"
+        "user_view_type": "generated"
     },
     "name": "generated",
     "client_id": "generated",
@@ -232,12 +233,12 @@ final readonly class Apps
 }';
 
     public function __construct(public int|null $id, public string|null $slug, #[MapFrom('node_id')]
-    public string|null $nodeId, public Schema\BranchRestrictionPolicy\Apps\Owner|null $owner, public string|null $name, #[MapFrom('client_id')]
+    public string|null $nodeId, public Owner|null $owner, public string|null $name, #[MapFrom('client_id')]
     public string|null $clientId, public string|null $description, #[MapFrom('external_url')]
     public string|null $externalUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\BranchRestrictionPolicy\Apps\Permissions|null $permissions, public array|null $events,)
+    public string|null $updatedAt, public Permissions|null $permissions, public array|null $events,)
     {
     }
 }

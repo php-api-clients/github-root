@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CopilotIdeChat
+final readonly class CopilotIdeChat implements \ApiClients\Client\GitHub\Contract\CopilotIdeChat
 {
     public const SCHEMA_JSON         = '{
     "type": [

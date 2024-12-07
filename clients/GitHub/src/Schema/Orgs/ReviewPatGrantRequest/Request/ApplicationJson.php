@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Orgs\ReviewPatGrantRequest\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\ReviewPatGrantRequest\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -33,7 +33,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "action": "deny",
+    "action": "approve",
     "reason": "generated"
 }';
 

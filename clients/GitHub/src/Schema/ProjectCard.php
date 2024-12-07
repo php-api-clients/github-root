@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ProjectCard
+final readonly class ProjectCard implements \ApiClients\Client\GitHub\Contract\ProjectCard
 {
     public const SCHEMA_JSON         = '{
     "title": "Project Card",
@@ -283,42 +282,42 @@ final readonly class ProjectCard
     public const SCHEMA_TITLE        = 'Project Card';
     public const SCHEMA_DESCRIPTION  = 'Project cards represent a scope of work.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/projects\\/columns\\/cards\\/1478",
-    "id": 42,
-    "node_id": "MDExOlByb2plY3RDYXJkMTQ3OA==",
-    "note": "Add payload for delete Project column",
+    "url": "https:\\/\\/example.com\\/",
+    "id": 2,
+    "node_id": "generated",
+    "note": "generated",
     "creator": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "created_at": "2016-09-05T14:21:06Z",
-    "updated_at": "2016-09-05T14:20:22Z",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "archived": false,
     "column_name": "generated",
     "project_id": "generated",
-    "column_url": "https:\\/\\/api.github.com\\/projects\\/columns\\/367",
-    "content_url": "https:\\/\\/api.github.com\\/repos\\/api-playground\\/projects-test\\/issues\\/3",
-    "project_url": "https:\\/\\/api.github.com\\/projects\\/120"
+    "column_url": "https:\\/\\/example.com\\/",
+    "content_url": "https:\\/\\/example.com\\/",
+    "project_url": "https:\\/\\/example.com\\/"
 }';
 
     /**
@@ -326,7 +325,7 @@ final readonly class ProjectCard
      * archived: Whether or not the card is archived
      */
     public function __construct(public string $url, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string|null $note, public Schema\SimpleUser|null $creator, #[MapFrom('created_at')]
+    public string $nodeId, public string|null $note, public SimpleUser|null $creator, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, public bool|null $archived, #[MapFrom('column_name')]
     public string|null $columnName, #[MapFrom('project_id')]

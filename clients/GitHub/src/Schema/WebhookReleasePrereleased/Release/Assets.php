@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookReleasePrereleased\Release;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T1DB524B1\TEECF7E12\T39CB6FBB\TBA3333E0;
 
-final readonly class Assets extends Schema\AliasAbstract\Tiet1DB524B1\TietEECF7E12\Tiet39CB6FBB\TietBA3333E0
+final readonly class Assets extends TBA3333E0
 {
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\BranchWithProtection;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\BranchWithProtection\Links
 {
     public const SCHEMA_JSON         = '{
     "required": [

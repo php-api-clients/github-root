@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\CreateWebhook\Request\Applicatio
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Config
+final readonly class Config implements \ApiClients\Client\GitHub\Contract\Repos\CreateWebhook\Request\ApplicationJson\Config
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -53,10 +53,10 @@ final readonly class Config
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Key/value pairs to provide settings for this webhook.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/example.com\\/webhook",
-    "content_type": "\\"json\\"",
-    "secret": "\\"********\\"",
-    "insecure_ssl": null
+    "url": "https:\\/\\/example.com\\/",
+    "content_type": "generated",
+    "secret": "generated",
+    "insecure_ssl": 14
 }';
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleCreation
+final readonly class RepositoryRuleCreation implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCreation
 {
     public const SCHEMA_JSON         = '{
     "title": "creation",

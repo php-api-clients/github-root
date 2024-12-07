@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeSecurity\AttachConfiguration\Reque
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeSecurity\AttachConfiguration\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

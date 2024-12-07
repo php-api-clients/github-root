@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhookConfig
+final readonly class WebhookConfig implements \ApiClients\Client\GitHub\Contract\WebhookConfig
 {
     public const SCHEMA_JSON         = '{
     "title": "Webhook Configuration",
@@ -54,10 +54,10 @@ final readonly class WebhookConfig
     public const SCHEMA_TITLE        = 'Webhook Configuration';
     public const SCHEMA_DESCRIPTION  = 'Configuration object of the webhook';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/example.com\\/webhook",
-    "content_type": "\\"json\\"",
-    "secret": "\\"********\\"",
-    "insecure_ssl": null
+    "url": "https:\\/\\/example.com\\/",
+    "content_type": "generated",
+    "secret": "generated",
+    "insecure_ssl": 14
 }';
 
     /**

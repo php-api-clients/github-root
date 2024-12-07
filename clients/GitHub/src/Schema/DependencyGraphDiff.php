@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependencyGraphDiff
+final readonly class DependencyGraphDiff implements \ApiClients\Client\GitHub\Contract\DependencyGraphDiff
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -134,25 +134,25 @@ final readonly class DependencyGraphDiff
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "change_type": "added",
-    "manifest": "path\\/to\\/package-lock.json",
-    "ecosystem": "npm",
-    "name": "@actions\\/core",
-    "version": "1.0.0",
-    "package_url": "pkg:\\/npm\\/%40actions\\/core@1.1.0",
-    "license": "MIT",
-    "source_repository_url": "https:\\/\\/github.com\\/github\\/actions",
+    "manifest": "generated",
+    "ecosystem": "generated",
+    "name": "generated",
+    "version": "generated",
+    "package_url": "generated",
+    "license": "generated",
+    "source_repository_url": "generated",
     "vulnerabilities": [
         {
-            "severity": "critical",
-            "advisory_ghsa_id": "GHSA-rf4j-j272-fj86",
-            "advisory_summary": "A summary of the advisory.",
-            "advisory_url": "https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"
+            "severity": "generated",
+            "advisory_ghsa_id": "generated",
+            "advisory_summary": "generated",
+            "advisory_url": "generated"
         },
         {
-            "severity": "critical",
-            "advisory_ghsa_id": "GHSA-rf4j-j272-fj86",
-            "advisory_summary": "A summary of the advisory.",
-            "advisory_url": "https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"
+            "severity": "generated",
+            "advisory_ghsa_id": "generated",
+            "advisory_summary": "generated",
+            "advisory_url": "generated"
         }
     ],
     "scope": "unknown"

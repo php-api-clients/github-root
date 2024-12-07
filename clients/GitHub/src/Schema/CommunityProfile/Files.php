@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CommunityProfile;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\CodeOfConductSimple;
+use ApiClients\Client\GitHub\Schema\CommunityHealthFile;
+use ApiClients\Client\GitHub\Schema\LicenseSimple;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Files
+final readonly class Files implements \ApiClients\Client\GitHub\Contract\CommunityProfile\Files
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -263,21 +265,21 @@ final readonly class Files
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "code_of_conduct": {
-        "url": "https:\\/\\/api.github.com\\/repos\\/github\\/docs\\/community\\/code_of_conduct",
-        "key": "citizen_code_of_conduct",
-        "name": "Citizen Code of Conduct",
-        "html_url": "https:\\/\\/github.com\\/github\\/docs\\/blob\\/main\\/CODE_OF_CONDUCT.md"
+        "url": "https:\\/\\/example.com\\/",
+        "key": "generated",
+        "name": "generated",
+        "html_url": "https:\\/\\/example.com\\/"
     },
     "code_of_conduct_file": {
         "url": "https:\\/\\/example.com\\/",
         "html_url": "https:\\/\\/example.com\\/"
     },
     "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-        "spdx_id": "MIT",
-        "node_id": "MDc6TGljZW5zZW1pdA==",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "spdx_id": "generated",
+        "node_id": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     },
     "contributing": {
@@ -299,10 +301,10 @@ final readonly class Files
 }';
 
     public function __construct(#[MapFrom('code_of_conduct')]
-    public Schema\CodeOfConductSimple|null $codeOfConduct, #[MapFrom('code_of_conduct_file')]
-    public Schema\CommunityHealthFile|null $codeOfConductFile, public Schema\LicenseSimple|null $license, public Schema\CommunityHealthFile|null $contributing, public Schema\CommunityHealthFile|null $readme, #[MapFrom('issue_template')]
-    public Schema\CommunityHealthFile|null $issueTemplate, #[MapFrom('pull_request_template')]
-    public Schema\CommunityHealthFile|null $pullRequestTemplate,)
+    public CodeOfConductSimple|null $codeOfConduct, #[MapFrom('code_of_conduct_file')]
+    public CommunityHealthFile|null $codeOfConductFile, public LicenseSimple|null $license, public CommunityHealthFile|null $contributing, public CommunityHealthFile|null $readme, #[MapFrom('issue_template')]
+    public CommunityHealthFile|null $issueTemplate, #[MapFrom('pull_request_template')]
+    public CommunityHealthFile|null $pullRequestTemplate,)
     {
     }
 }

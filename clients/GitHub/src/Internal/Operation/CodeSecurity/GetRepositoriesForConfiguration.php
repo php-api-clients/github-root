@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\CodeSecurity;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\CodeSecurityConfigurationRepositories;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +21,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetRepositoriesForConfiguration
 {
@@ -40,22 +41,24 @@ final class GetRepositoriesForConfiguration
     Can be: `all`, `attached`, `attaching`, `detached`, `removed`, `enforced`, `failed`, `updating`, `removed_by_enterprise` **/
     private string $status;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories $hydrator, string $org, int $configurationId, string $before, string $after, int $perPage = 30, string $status = 'all')
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Repositories $hydrator, string $org, int $configurationId, string $before, string $after, int $perPage = 30, string $status = 'all')
     {
-        $this->org             = $org;
-        $this->configurationId = $configurationId;
-        $this->before          = $before;
-        $this->after           = $after;
-        $this->perPage         = $perPage;
-        $this->status          = $status;
+        $this->org                     = $org;
+        $this->configurationId         = $configurationId;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->perPage                 = $perPage;
+        $this->status                  = $status;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{configuration_id}', '{before}', '{after}', '{per_page}', '{status}'], [$this->org, $this->configurationId, $this->before, $this->after, $this->perPage, $this->status], '/orgs/{org}/code-security/configurations/{configuration_id}/repositories' . '?before={before}&after={after}&per_page={per_page}&status={status}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/code-security/configurations/{configuration_id}/repositories{?after,before,per_page,status}'))->expand(['after' => $this->after, 'before' => $this->before, 'configuration_id' => $this->configurationId, 'org' => $this->org, 'per_page' => $this->perPage, 'status' => $this->status]));
     }
 
-    /** @return Observable<Schema\CodeSecurityConfigurationRepositories> */
+    /** @return Observable<CodeSecurityConfigurationRepositories> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -68,12 +71,12 @@ final class GetRepositoriesForConfiguration
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\CodeSecurityConfigurationRepositories {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): CodeSecurityConfigurationRepositories {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeSecurityConfigurationRepositories::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(CodeSecurityConfigurationRepositories::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\CodeSecurityConfigurationRepositories::class, $body);
+                                return $this->hydrator->hydrateObject(CodeSecurityConfigurationRepositories::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -86,17 +89,17 @@ final class GetRepositoriesForConfiguration
                      **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(403, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

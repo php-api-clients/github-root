@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Billing;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Users\Username\Settings\Billing\SharedStorage;
 use ApiClients\Client\GitHub\Schema\CombinedBillingUsage;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -20,7 +20,7 @@ final readonly class GetSharedStorageBillingUser
     public const OPERATION_ID    = 'billing/get-shared-storage-billing-user';
     public const OPERATION_MATCH = 'GET /users/{username}/settings/billing/shared-storage';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Users\Username\Settings\Billing\SharedStorage $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private SharedStorage $hydrator)
     {
     }
 

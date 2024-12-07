@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Users\DeleteEmailForAuthenticatedUser\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Users\DeleteEmailForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "oneOf": [

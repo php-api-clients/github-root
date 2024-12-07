@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryI
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryId
+final readonly class RepositoryId implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryIdTarget\RepositoryId
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

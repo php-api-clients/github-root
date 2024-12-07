@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Gists\Get\Response\Applicat
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Block
+final readonly class Block implements \ApiClients\Client\GitHub\Contract\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

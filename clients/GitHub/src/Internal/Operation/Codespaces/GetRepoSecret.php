@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Codespaces;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Codespaces\Secrets\SecretName;
+use ApiClients\Client\GitHub\Schema\RepoCodespacesSecret;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetRepoSecret
 {
@@ -28,19 +29,21 @@ final class GetRepoSecret
     /**The name of the secret. **/
     private string $secretName;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Codespaces\Secrets\SecretName $hydrator, string $owner, string $repo, string $secretName)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private SecretName $hydrator, string $owner, string $repo, string $secretName)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
-        $this->secretName = $secretName;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->secretName              = $secretName;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{secret_name}'], [$this->owner, $this->repo, $this->secretName], '/repos/{owner}/{repo}/codespaces/secrets/{secret_name}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/codespaces/secrets/{secret_name}'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'secret_name' => $this->secretName]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\RepoCodespacesSecret
+    public function createResponse(ResponseInterface $response): RepoCodespacesSecret
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +55,9 @@ final class GetRepoSecret
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RepoCodespacesSecret::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(RepoCodespacesSecret::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\RepoCodespacesSecret::class, $body);
+                        return $this->hydrator->hydrateObject(RepoCodespacesSecret::class, $body);
                 }
 
                 break;

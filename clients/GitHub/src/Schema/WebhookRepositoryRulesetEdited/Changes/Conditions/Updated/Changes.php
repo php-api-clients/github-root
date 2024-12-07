@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\ConditionType;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Exclude;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Include_;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Target;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -76,7 +79,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('condition_type')]
-    public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\ConditionType|null $conditionType, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Target|null $target, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Include_|null $include, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Exclude|null $exclude,)
+    public ConditionType|null $conditionType, public Target|null $target, public Include_|null $include, public Exclude|null $exclude,)
     {
     }
 }

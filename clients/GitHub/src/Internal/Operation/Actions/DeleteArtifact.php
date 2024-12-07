@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteArtifact
 {
@@ -32,7 +31,7 @@ final class DeleteArtifact
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{artifact_id}'], [$this->owner, $this->repo, $this->artifactId], '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/artifacts/{artifact_id}'))->expand(['artifact_id' => $this->artifactId, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
+final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertyTarget
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository ruleset conditions for repository properties",
@@ -103,7 +103,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             },
             {
                 "name": "generated",
@@ -111,7 +111,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             }
         ],
         "exclude": [
@@ -121,7 +121,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             },
             {
                 "name": "generated",
@@ -129,14 +129,14 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             }
         ]
     }
 }';
 
     public function __construct(#[MapFrom('repository_property')]
-    public Schema\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty $repositoryProperty,)
+    public RepositoryProperty $repositoryProperty,)
     {
     }
 }

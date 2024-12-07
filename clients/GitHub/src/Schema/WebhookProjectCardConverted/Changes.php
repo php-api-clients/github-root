@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardConverted;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectCardConverted\Changes\Note;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardConverted\Changes
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookProjectCardConverted\Changes\Note $note)
+    public function __construct(public Note $note)
     {
     }
 }

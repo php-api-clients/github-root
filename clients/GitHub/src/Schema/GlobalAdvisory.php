@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\GlobalAdvisory\Cvss;
+use ApiClients\Client\GitHub\Schema\GlobalAdvisory\Epss;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class GlobalAdvisory
+final readonly class GlobalAdvisory implements \ApiClients\Client\GitHub\Contract\GlobalAdvisory
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -618,8 +619,8 @@ final readonly class GlobalAdvisory
     "repository_advisory_url": "https:\\/\\/example.com\\/",
     "summary": "generated",
     "description": "generated",
-    "type": "malware",
-    "severity": "unknown",
+    "type": "reviewed",
+    "severity": "critical",
     "source_code_location": "https:\\/\\/example.com\\/",
     "identifiers": null,
     "references": null,
@@ -631,22 +632,22 @@ final readonly class GlobalAdvisory
     "vulnerabilities": null,
     "cvss": {
         "vector_string": "generated",
-        "score": 0.5
+        "score": 5
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": null,
     "epss": {
-        "percentage": 1,
-        "percentile": 1
+        "percentage": 10,
+        "percentile": 10
     },
     "credits": null
 }';
@@ -681,8 +682,8 @@ final readonly class GlobalAdvisory
     public string $updatedAt, #[MapFrom('github_reviewed_at')]
     public string|null $githubReviewedAt, #[MapFrom('nvd_published_at')]
     public string|null $nvdPublishedAt, #[MapFrom('withdrawn_at')]
-    public string|null $withdrawnAt, public array|null $vulnerabilities, public Schema\GlobalAdvisory\Cvss|null $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array|null $cwes, public Schema\GlobalAdvisory\Epss|null $epss, public array|null $credits,)
+    public string|null $withdrawnAt, public array|null $vulnerabilities, public Cvss|null $cvss, #[MapFrom('cvss_severities')]
+    public CvssSeverities|null $cvssSeverities, public array|null $cwes, public Epss|null $epss, public array|null $credits,)
     {
     }
 }

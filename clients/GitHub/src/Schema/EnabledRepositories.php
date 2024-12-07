@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class EnabledRepositories
+final readonly class EnabledRepositories implements \ApiClients\Client\GitHub\Contract\EnabledRepositories
 {
     public const SCHEMA_JSON         = '{
     "enum": [

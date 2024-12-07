@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Activity;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListActivities
     public const OPERATION_ID    = 'repos/list-activities';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/activity';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Activity $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Activity $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Activity> */
+    /** @return Observable<\ApiClients\Client\GitHub\Schema\Activity> */
     public function call(string $owner, string $repo, string $before, string $after, string $ref, string $actor, string $timePeriod, string $activityType, string $direction = 'desc', int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Repos\ListActivities($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $before, $after, $ref, $actor, $timePeriod, $activityType, $direction, $perPage);

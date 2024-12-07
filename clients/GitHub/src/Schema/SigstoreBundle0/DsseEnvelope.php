@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0;
 
-final readonly class DsseEnvelope
+final readonly class DsseEnvelope implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\DsseEnvelope
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

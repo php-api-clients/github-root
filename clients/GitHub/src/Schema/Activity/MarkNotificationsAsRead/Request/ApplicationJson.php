@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Activity\MarkNotificationsAsRead\Reque
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Activity\MarkNotificationsAsRead\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

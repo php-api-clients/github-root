@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodespacesPermissionsCheckForDevcontainer
+final readonly class CodespacesPermissionsCheckForDevcontainer implements \ApiClients\Client\GitHub\Contract\CodespacesPermissionsCheckForDevcontainer
 {
     public const SCHEMA_JSON         = '{
     "title": "Codespaces Permissions Check",
@@ -26,7 +26,7 @@ final readonly class CodespacesPermissionsCheckForDevcontainer
     public const SCHEMA_TITLE        = 'Codespaces Permissions Check';
     public const SCHEMA_DESCRIPTION  = 'Permission check result for a given devcontainer config.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "accepted": true
+    "accepted": false
 }';
 
     /**

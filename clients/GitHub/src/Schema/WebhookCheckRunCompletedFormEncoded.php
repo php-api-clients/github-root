@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookCheckRunCompletedFormEncoded
+final readonly class WebhookCheckRunCompletedFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookCheckRunCompletedFormEncoded
 {
     public const SCHEMA_JSON         = '{
     "title": "Check Run Completed Event",

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAnalysisEnvironment
+final readonly class CodeScanningAnalysisEnvironment implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisEnvironment
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

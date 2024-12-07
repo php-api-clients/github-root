@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsSetDefaultWorkflowPermissions
+final readonly class ActionsSetDefaultWorkflowPermissions implements \ApiClients\Client\GitHub\Contract\ActionsSetDefaultWorkflowPermissions
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -28,7 +28,7 @@ final readonly class ActionsSetDefaultWorkflowPermissions
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "default_workflow_permissions": "write",
+    "default_workflow_permissions": "read",
     "can_approve_pull_request_reviews": false
 }';
 

@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertReopenedByUser;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\MostRecentInstance;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Rule;
+use ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Tool;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Alert
+final readonly class Alert implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertReopenedByUser\Alert
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -233,7 +235,7 @@ final readonly class Alert
     "rule": {
         "description": "generated",
         "id": "generated",
-        "severity": "error"
+        "severity": "none"
     },
     "state": "open",
     "tool": {
@@ -257,7 +259,7 @@ final readonly class Alert
     public string $dismissedBy, #[MapFrom('dismissed_reason')]
     public string $dismissedReason, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('most_recent_instance')]
-    public Schema\WebhookCodeScanningAlertReopenedByUser\Alert\MostRecentInstance|null $mostRecentInstance, public int $number, public Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Rule $rule, public string $state, public Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Tool $tool, public string $url,)
+    public MostRecentInstance|null $mostRecentInstance, public int $number, public Rule $rule, public string $state, public Tool $tool, public string $url,)
     {
     }
 }

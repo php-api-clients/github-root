@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GitCommit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TB84D28B1\T7786E045\T3136B62E\T5DF48315;
 
-final readonly class Parents extends Schema\AliasAbstract\TietB84D28B1\Tiet7786E045\Tiet3136B62E\Tiet5DF48315
+final readonly class Parents extends T5DF48315
 {
 }

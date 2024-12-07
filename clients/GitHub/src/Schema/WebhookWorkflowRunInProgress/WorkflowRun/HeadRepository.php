@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunInProgress\WorkflowRun;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunInProgress\WorkflowRun\HeadRepository\Owner;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class HeadRepository
+final readonly class HeadRepository implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowRunInProgress\WorkflowRun\HeadRepository
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository Lite",
@@ -398,7 +398,7 @@ final readonly class HeadRepository
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "private": false,
@@ -449,7 +449,7 @@ final readonly class HeadRepository
     public string $mergesUrl, #[MapFrom('milestones_url')]
     public string $milestonesUrl, public string|null $name, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, public Schema\WebhookWorkflowRunInProgress\WorkflowRun\HeadRepository\Owner|null $owner, public bool $private, #[MapFrom('pulls_url')]
+    public string $notificationsUrl, public Owner|null $owner, public bool $private, #[MapFrom('pulls_url')]
     public string $pullsUrl, #[MapFrom('releases_url')]
     public string $releasesUrl, #[MapFrom('stargazers_url')]
     public string $stargazersUrl, #[MapFrom('statuses_url')]

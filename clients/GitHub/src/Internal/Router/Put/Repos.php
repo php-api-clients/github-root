@@ -4,8 +4,23 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Put;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\AddCollaborator;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CreateOrUpdateEnvironment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\CreateOrUpdateFileContents;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\EnableAutomatedSecurityFixes;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\EnablePrivateVulnerabilityReporting;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\EnableVulnerabilityAlerts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\ReplaceAllTopics;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\SetAppAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\SetStatusCheckContexts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\SetTeamAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\SetUserAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateBranchProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateDeploymentBranchPolicy;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateInformationAboutPagesSite;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateOrgRuleset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\UpdateRepoRuleset;
 use ApiClients\Client\GitHub\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHub\Schema\Environment;
 use ApiClients\Client\GitHub\Schema\FileCommit;
@@ -23,7 +38,7 @@ use function array_key_exists;
 
 final class Repos
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -43,7 +58,7 @@ final class Repos
 
         $arguments['ruleset_id'] = $params['ruleset_id'];
         unset($params['ruleset_id']);
-        $operator = new Internal\Operator\Repos\UpdateOrgRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
+        $operator = new UpdateOrgRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['org'], $arguments['ruleset_id'], $params);
     }
@@ -64,7 +79,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\EnableAutomatedSecurityFixes($this->browser, $this->authentication);
+        $operator = new EnableAutomatedSecurityFixes($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -85,7 +100,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\UpdateInformationAboutPagesSite($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
+        $operator = new UpdateInformationAboutPagesSite($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -106,7 +121,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\EnablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
+        $operator = new EnablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -127,7 +142,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\ReplaceAllTopics($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics());
+        $operator = new ReplaceAllTopics($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -148,7 +163,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\EnableVulnerabilityAlerts($this->browser, $this->authentication);
+        $operator = new EnableVulnerabilityAlerts($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -175,7 +190,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\UpdateBranchProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
+        $operator = new UpdateBranchProtection($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
@@ -202,7 +217,7 @@ final class Repos
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Repos\AddCollaborator($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username());
+        $operator = new AddCollaborator($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username'], $params);
     }
@@ -229,7 +244,7 @@ final class Repos
 
         $arguments['path'] = $params['path'];
         unset($params['path']);
-        $operator = new Internal\Operator\Repos\CreateOrUpdateFileContents($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
+        $operator = new CreateOrUpdateFileContents($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
@@ -256,7 +271,7 @@ final class Repos
 
         $arguments['environment_name'] = $params['environment_name'];
         unset($params['environment_name']);
-        $operator = new Internal\Operator\Repos\CreateOrUpdateEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName());
+        $operator = new CreateOrUpdateEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
@@ -283,7 +298,7 @@ final class Repos
 
         $arguments['ruleset_id'] = $params['ruleset_id'];
         unset($params['ruleset_id']);
-        $operator = new Internal\Operator\Repos\UpdateRepoRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
+        $operator = new UpdateRepoRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ruleset_id'], $params);
     }
@@ -316,7 +331,7 @@ final class Repos
 
         $arguments['branch_policy_id'] = $params['branch_policy_id'];
         unset($params['branch_policy_id']);
-        $operator = new Internal\Operator\Repos\UpdateDeploymentBranchPolicy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies🌀BranchPolicyId());
+        $operator = new UpdateDeploymentBranchPolicy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀DeploymentBranchPolicies🌀BranchPolicyId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id'], $params);
     }
@@ -343,12 +358,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\SetStatusCheckContexts($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
+        $operator = new SetStatusCheckContexts($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Integration> */
+    /** @return Observable<Integration> */
     public function setAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -370,12 +385,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\SetAppAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
+        $operator = new SetAppAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function setTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -397,12 +412,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\SetTeamAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
+        $operator = new SetTeamAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function setUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -424,7 +439,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\SetUserAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
+        $operator = new SetUserAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }

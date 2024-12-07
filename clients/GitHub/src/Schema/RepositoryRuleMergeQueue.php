@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue\Parameters;
 
-final readonly class RepositoryRuleMergeQueue
+final readonly class RepositoryRuleMergeQueue implements \ApiClients\Client\GitHub\Contract\RepositoryRuleMergeQueue
 {
     public const SCHEMA_JSON         = '{
     "title": "merge_queue",
@@ -94,13 +94,13 @@ final readonly class RepositoryRuleMergeQueue
         "grouping_strategy": "ALLGREEN",
         "max_entries_to_build": 20,
         "max_entries_to_merge": 20,
-        "merge_method": "REBASE",
+        "merge_method": "MERGE",
         "min_entries_to_merge": 20,
         "min_entries_to_merge_wait_minutes": 33
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleMergeQueue\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CopilotUsageMetrics
+final readonly class CopilotUsageMetrics implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetrics
 {
     public const SCHEMA_JSON         = '{
     "title": "Copilot Usage Metrics",

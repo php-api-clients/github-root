@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Migrations\StartForAuthenticatedUser\R
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Migrations\StartForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -103,16 +103,16 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "lock_repositories": true,
-    "exclude_metadata": true,
-    "exclude_git_data": true,
-    "exclude_attachments": true,
-    "exclude_releases": true,
-    "exclude_owner_projects": true,
-    "org_metadata_only": true,
+    "lock_repositories": false,
+    "exclude_metadata": false,
+    "exclude_git_data": false,
+    "exclude_attachments": false,
+    "exclude_releases": false,
+    "exclude_owner_projects": false,
+    "org_metadata_only": false,
     "exclude": [
-        "repositories",
-        "repositories"
+        "generated",
+        "generated"
     ],
     "repositories": [
         "generated",

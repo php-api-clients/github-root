@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\HookDelivery\Request;
 
-final readonly class Payload
+final readonly class Payload implements \ApiClients\Client\GitHub\Contract\HookDelivery\Request\Payload
 {
     public const SCHEMA_JSON         = '{
     "type": [

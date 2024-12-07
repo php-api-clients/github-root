@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependabotSecret
+final readonly class DependabotSecret implements \ApiClients\Client\GitHub\Contract\DependabotSecret
 {
     public const SCHEMA_JSON         = '{
     "title": "Dependabot Secret",
@@ -38,7 +38,7 @@ final readonly class DependabotSecret
     public const SCHEMA_TITLE        = 'Dependabot Secret';
     public const SCHEMA_DESCRIPTION  = 'Set secrets for Dependabot.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "MY_ARTIFACTORY_PASSWORD",
+    "name": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GitRef;
 
-final readonly class Object_
+final readonly class Object_ implements \ApiClients\Client\GitHub\Contract\GitRef\Object_
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -36,7 +36,7 @@ final readonly class Object_
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "type": "generated",
-    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+    "sha": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
 

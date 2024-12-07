@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksProject\Creator;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksProject
+final readonly class WebhooksProject implements \ApiClients\Client\GitHub\Contract\WebhooksProject
 {
     public const SCHEMA_JSON         = '{
     "title": "Project",
@@ -207,7 +207,7 @@ final readonly class WebhooksProject
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -229,7 +229,7 @@ final readonly class WebhooksProject
      */
     public function __construct(public string|null $body, #[MapFrom('columns_url')]
     public string $columnsUrl, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksProject\Creator|null $creator, #[MapFrom('html_url')]
+    public string $createdAt, public Creator|null $creator, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, public string $name, #[MapFrom('node_id')]
     public string $nodeId, public int $number, #[MapFrom('owner_url')]
     public string $ownerUrl, public string $state, #[MapFrom('updated_at')]

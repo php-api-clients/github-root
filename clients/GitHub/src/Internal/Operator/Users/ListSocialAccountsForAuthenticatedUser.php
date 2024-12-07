@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Users;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\SocialAccounts;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -21,11 +20,11 @@ final readonly class ListSocialAccountsForAuthenticatedUser
     public const OPERATION_ID    = 'users/list-social-accounts-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/social_accounts';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\User\SocialAccounts $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private SocialAccounts $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SocialAccount>|WithoutBody */
+    /** @return Observable<SocialAccount>|WithoutBody */
     public function call(int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Users\ListSocialAccountsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

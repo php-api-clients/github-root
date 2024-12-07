@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Actions\GetActionsCacheUsag
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\GetActionsCacheUsageByRepoForOrg\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -62,14 +62,14 @@ final readonly class Ok
     "total_count": 11,
     "repository_cache_usages": [
         {
-            "full_name": "octo-org\\/Hello-World",
-            "active_caches_size_in_bytes": 2322142,
-            "active_caches_count": 3
+            "full_name": "generated",
+            "active_caches_size_in_bytes": 27,
+            "active_caches_count": 19
         },
         {
-            "full_name": "octo-org\\/Hello-World",
-            "active_caches_size_in_bytes": 2322142,
-            "active_caches_count": 3
+            "full_name": "generated",
+            "active_caches_size_in_bytes": 27,
+            "active_caches_count": 19
         }
     ]
 }';

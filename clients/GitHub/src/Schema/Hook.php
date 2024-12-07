@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Hook
+final readonly class Hook implements \ApiClients\Client\GitHub\Contract\Hook
 {
     public const SCHEMA_JSON         = '{
     "title": "Webhook",
@@ -183,25 +182,25 @@ final readonly class Hook
     public const SCHEMA_DESCRIPTION  = 'Webhooks for repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "type": "generated",
-    "id": 42,
-    "name": "web",
-    "active": true,
+    "id": 2,
+    "name": "generated",
+    "active": false,
     "events": [
-        "pull_request",
-        "pull_request"
+        "generated",
+        "generated"
     ],
     "config": {
-        "url": "https:\\/\\/example.com\\/webhook",
-        "content_type": "\\"json\\"",
-        "secret": "\\"********\\"",
-        "insecure_ssl": null
+        "url": "https:\\/\\/example.com\\/",
+        "content_type": "generated",
+        "secret": "generated",
+        "insecure_ssl": 14
     },
-    "updated_at": "2011-09-06T20:39:23Z",
-    "created_at": "2011-09-06T17:26:27Z",
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1",
-    "test_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1\\/test",
-    "ping_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1\\/pings",
-    "deliveries_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1\\/deliveries",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "url": "https:\\/\\/example.com\\/",
+    "test_url": "https:\\/\\/example.com\\/",
+    "ping_url": "https:\\/\\/example.com\\/",
+    "deliveries_url": "https:\\/\\/example.com\\/",
     "last_response": {
         "code": 4,
         "status": "generated",
@@ -216,13 +215,13 @@ final readonly class Hook
      * events: Determines what events the hook is triggered for. Default: ['push'].
      * config: Configuration object of the webhook
      */
-    public function __construct(public string $type, public int $id, public string $name, public bool $active, public array $events, public Schema\WebhookConfig $config, #[MapFrom('updated_at')]
+    public function __construct(public string $type, public int $id, public string $name, public bool $active, public array $events, public WebhookConfig $config, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('created_at')]
     public string $createdAt, public string $url, #[MapFrom('test_url')]
     public string $testUrl, #[MapFrom('ping_url')]
     public string $pingUrl, #[MapFrom('deliveries_url')]
     public string|null $deliveriesUrl, #[MapFrom('last_response')]
-    public Schema\HookResponse $lastResponse,)
+    public HookResponse $lastResponse,)
     {
     }
 }

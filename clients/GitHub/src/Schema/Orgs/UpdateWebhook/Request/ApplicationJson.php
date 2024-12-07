@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Orgs\UpdateWebhook\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Orgs\UpdateWebhook\Request\ApplicationJson\Config;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\UpdateWebhook\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -83,17 +83,17 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "config": {
-        "url": "https:\\/\\/example.com\\/webhook",
-        "content_type": "\\"json\\"",
-        "secret": "\\"********\\"",
-        "insecure_ssl": null
+        "url": "https:\\/\\/example.com\\/",
+        "content_type": "generated",
+        "secret": "generated",
+        "insecure_ssl": 14
     },
     "events": [
         "generated",
         "generated"
     ],
     "active": false,
-    "name": "\\"web\\""
+    "name": "generated"
 }';
 
     /**
@@ -101,7 +101,7 @@ final readonly class ApplicationJson
      * events: Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for.
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public Schema\Orgs\UpdateWebhook\Request\ApplicationJson\Config|null $config, public array|null $events, public bool|null $active, public string|null $name)
+    public function __construct(public Config|null $config, public array|null $events, public bool|null $active, public string|null $name)
     {
     }
 }

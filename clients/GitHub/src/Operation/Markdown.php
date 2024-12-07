@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Markdown
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 

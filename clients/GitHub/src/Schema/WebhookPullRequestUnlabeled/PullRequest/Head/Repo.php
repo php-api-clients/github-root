@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\License;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Repo
+final readonly class Repo implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestUnlabeled\PullRequest\Head\Repo
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository",
@@ -696,7 +698,7 @@ final readonly class Repo
     "compare_url": "generated",
     "contents_url": "generated",
     "contributors_url": "https:\\/\\/example.com\\/",
-    "created_at": null,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "default_branch": "generated",
     "delete_branch_on_merge": false,
     "deployments_url": "https:\\/\\/example.com\\/",
@@ -739,8 +741,8 @@ final readonly class Repo
         "url": "https:\\/\\/example.com\\/"
     },
     "master_branch": "generated",
-    "merge_commit_message": "BLANK",
-    "merge_commit_title": "MERGE_MESSAGE",
+    "merge_commit_message": "PR_BODY",
+    "merge_commit_title": "PR_TITLE",
     "merges_url": "https:\\/\\/example.com\\/",
     "milestones_url": "generated",
     "mirror_url": "https:\\/\\/example.com\\/",
@@ -770,7 +772,7 @@ final readonly class Repo
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -784,7 +786,7 @@ final readonly class Repo
     "private": false,
     "public": false,
     "pulls_url": "generated",
-    "pushed_at": null,
+    "pushed_at": "1970-01-01T00:00:00+00:00",
     "releases_url": "generated",
     "role_name": "generated",
     "size": 4,
@@ -808,7 +810,7 @@ final readonly class Repo
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
     "use_squash_pr_title_as_default": false,
-    "visibility": "internal",
+    "visibility": "public",
     "watchers": 8,
     "watchers_count": 14,
     "web_commit_signoff_required": false
@@ -891,7 +893,7 @@ final readonly class Repo
     public string $issuesUrl, #[MapFrom('keys_url')]
     public string $keysUrl, #[MapFrom('labels_url')]
     public string $labelsUrl, public string|null $language, #[MapFrom('languages_url')]
-    public string $languagesUrl, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\License|null $license, #[MapFrom('master_branch')]
+    public string $languagesUrl, public License|null $license, #[MapFrom('master_branch')]
     public string|null $masterBranch, #[MapFrom('merge_commit_message')]
     public string|null $mergeCommitMessage, #[MapFrom('merge_commit_title')]
     public string|null $mergeCommitTitle, #[MapFrom('merges_url')]
@@ -901,7 +903,7 @@ final readonly class Repo
     public string $nodeId, #[MapFrom('notifications_url')]
     public string $notificationsUrl, #[MapFrom('open_issues')]
     public int $openIssues, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, public string|null $organization, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Owner|null $owner, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
+    public int $openIssuesCount, public string|null $organization, public Owner|null $owner, public Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
     public string $pullsUrl, #[MapFrom('pushed_at')]
     public int|string $pushedAt, #[MapFrom('releases_url')]
     public string $releasesUrl, #[MapFrom('role_name')]

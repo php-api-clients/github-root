@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Branches\Branch;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Commit\Author;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Commit\Committer;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Commit\Author;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Commit\Committer;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\BranchProtection;
 use ApiClients\Client\GitHub\Schema\BranchProtection\AllowDeletions;

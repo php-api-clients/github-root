@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DeploymentBranchPolicySettings
+final readonly class DeploymentBranchPolicySettings implements \ApiClients\Client\GitHub\Contract\DeploymentBranchPolicySettings
 {
     public const SCHEMA_JSON         = '{
     "required": [

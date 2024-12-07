@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestAutoMergeEnabled\PullRequest\Milestone;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T9BB7FDE7\T7C408E87\TF0A7E59F\T74AED450;
 
-final readonly class Creator extends Schema\AliasAbstract\Tiet9BB7FDE7\Tiet7C408E87\TietF0A7E59F\Tiet74AED450
+final readonly class Creator extends T74AED450
 {
 }

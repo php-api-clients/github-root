@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\DependencyGraphDiff;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Vulnerabilities
+final readonly class Vulnerabilities implements \ApiClients\Client\GitHub\Contract\DependencyGraphDiff\Vulnerabilities
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -46,10 +46,10 @@ final readonly class Vulnerabilities
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "severity": "critical",
-    "advisory_ghsa_id": "GHSA-rf4j-j272-fj86",
-    "advisory_summary": "A summary of the advisory.",
-    "advisory_url": "https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"
+    "severity": "generated",
+    "advisory_ghsa_id": "generated",
+    "advisory_summary": "generated",
+    "advisory_url": "generated"
 }';
 
     public function __construct(public string $severity, #[MapFrom('advisory_ghsa_id')]

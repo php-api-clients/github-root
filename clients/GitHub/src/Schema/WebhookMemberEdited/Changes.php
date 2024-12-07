@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookMemberEdited\Changes\OldPermission;
+use ApiClients\Client\GitHub\Schema\WebhookMemberEdited\Changes\Permission;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMemberEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -57,7 +58,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('old_permission')]
-    public Schema\WebhookMemberEdited\Changes\OldPermission|null $oldPermission, public Schema\WebhookMemberEdited\Changes\Permission|null $permission,)
+    public OldPermission|null $oldPermission, public Permission|null $permission,)
     {
     }
 }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\TeamRoleAssignment\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TeamRoleAssignment
+final readonly class TeamRoleAssignment implements \ApiClients\Client\GitHub\Contract\TeamRoleAssignment
 {
     public const SCHEMA_JSON         = '{
     "title": "A Role Assignment for a Team",
@@ -251,23 +251,23 @@ final readonly class TeamRoleAssignment
         "admin": false
     },
     "url": "https:\\/\\/example.com\\/",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+    "html_url": "https:\\/\\/example.com\\/",
     "members_url": "generated",
     "repositories_url": "https:\\/\\/example.com\\/",
     "parent": {
-        "id": 1,
-        "node_id": "MDQ6VGVhbTE=",
-        "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-        "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-        "name": "Justice League",
-        "description": "A great team.",
-        "permission": "admin",
-        "privacy": "closed",
-        "notification_setting": "notifications_enabled",
-        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-        "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-        "slug": "justice-league",
-        "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "members_url": "generated",
+        "name": "generated",
+        "description": "generated",
+        "permission": "generated",
+        "privacy": "generated",
+        "notification_setting": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "repositories_url": "https:\\/\\/example.com\\/",
+        "slug": "generated",
+        "ldap_dn": "generated"
     }
 }';
 
@@ -276,10 +276,10 @@ final readonly class TeamRoleAssignment
      */
     public function __construct(public string|null $assignment, public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string $name, public string $slug, public string|null $description, public string|null $privacy, #[MapFrom('notification_setting')]
-    public string|null $notificationSetting, public string $permission, public Schema\TeamRoleAssignment\Permissions|null $permissions, public string $url, #[MapFrom('html_url')]
+    public string|null $notificationSetting, public string $permission, public Permissions|null $permissions, public string $url, #[MapFrom('html_url')]
     public string $htmlUrl, #[MapFrom('members_url')]
     public string $membersUrl, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public Schema\TeamSimple|null $parent,)
+    public string $repositoriesUrl, public TeamSimple|null $parent,)
     {
     }
 }

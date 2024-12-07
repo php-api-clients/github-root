@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeScanning\UpdateAlert\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeScanning\UpdateAlert\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -49,7 +49,7 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "state": "open",
-    "dismissed_reason": "used in tests",
+    "dismissed_reason": "false positive",
     "dismissed_comment": "generated"
 }';
 

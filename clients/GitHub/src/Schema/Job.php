@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Job
+final readonly class Job implements \ApiClients\Client\GitHub\Contract\Job
 {
     public const SCHEMA_JSON         = '{
     "title": "Job",
@@ -315,49 +315,49 @@ final readonly class Job
     public const SCHEMA_TITLE        = 'Job';
     public const SCHEMA_DESCRIPTION  = 'Information of a job execution in a workflow run';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 21,
-    "run_id": 5,
-    "run_url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5",
-    "run_attempt": 1,
-    "node_id": "MDg6Q2hlY2tSdW40",
-    "head_sha": "009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d",
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/jobs\\/21",
-    "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/runs\\/4",
+    "id": 2,
+    "run_id": 6,
+    "run_url": "generated",
+    "run_attempt": 11,
+    "node_id": "generated",
+    "head_sha": "generated",
+    "url": "generated",
+    "html_url": "generated",
     "status": "queued",
     "conclusion": "success",
-    "created_at": "2019-08-08T08:00:00-07:00",
-    "started_at": "2019-08-08T08:00:00-07:00",
-    "completed_at": "2019-08-08T08:00:00-07:00",
-    "name": "test-coverage",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "started_at": "1970-01-01T00:00:00+00:00",
+    "completed_at": "1970-01-01T00:00:00+00:00",
+    "name": "generated",
     "steps": [
         {
             "status": "queued",
-            "conclusion": "success",
-            "name": "test-coverage",
-            "number": 1,
-            "started_at": "2019-08-08T08:00:00-07:00",
-            "completed_at": "2019-08-08T08:00:00-07:00"
+            "conclusion": "generated",
+            "name": "generated",
+            "number": 6,
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "completed_at": "1970-01-01T00:00:00+00:00"
         },
         {
             "status": "queued",
-            "conclusion": "success",
-            "name": "test-coverage",
-            "number": 1,
-            "started_at": "2019-08-08T08:00:00-07:00",
-            "completed_at": "2019-08-08T08:00:00-07:00"
+            "conclusion": "generated",
+            "name": "generated",
+            "number": 6,
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "completed_at": "1970-01-01T00:00:00+00:00"
         }
     ],
-    "check_run_url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/check-runs\\/4",
+    "check_run_url": "generated",
     "labels": [
-        "bar",
-        "bar"
+        "generated",
+        "generated"
     ],
-    "runner_id": 1,
-    "runner_name": "my runner",
-    "runner_group_id": 2,
-    "runner_group_name": "my runner group",
-    "workflow_name": "Build",
-    "head_branch": "main"
+    "runner_id": 9,
+    "runner_name": "generated",
+    "runner_group_id": 15,
+    "runner_group_name": "generated",
+    "workflow_name": "generated",
+    "head_branch": "generated"
 }';
 
     /**

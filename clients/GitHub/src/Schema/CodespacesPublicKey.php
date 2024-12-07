@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodespacesPublicKey
+final readonly class CodespacesPublicKey implements \ApiClients\Client\GitHub\Contract\CodespacesPublicKey
 {
     public const SCHEMA_JSON         = '{
     "title": "CodespacesPublicKey",
@@ -60,12 +60,12 @@ final readonly class CodespacesPublicKey
     public const SCHEMA_TITLE        = 'CodespacesPublicKey';
     public const SCHEMA_DESCRIPTION  = 'The public key used for setting Codespaces secrets.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "key_id": "1234567",
-    "key": "hBT5WZEj8ZoOv6TYJsfWq7MxTEQopZO5\\/IT3ZCVQPzs=",
+    "key_id": "generated",
+    "key": "generated",
     "id": 2,
-    "url": "https:\\/\\/api.github.com\\/user\\/keys\\/2",
-    "title": "ssh-rsa AAAAB3NzaC1yc2EAAA",
-    "created_at": "2011-01-26T19:01:12Z"
+    "url": "generated",
+    "title": "generated",
+    "created_at": "generated"
 }';
 
     /**

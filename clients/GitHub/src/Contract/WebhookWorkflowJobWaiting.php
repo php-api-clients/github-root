@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHub\Contract;
+
+use ApiClients\Client\GitHub\Schema\Deployment;
+use ApiClients\Client\GitHub\Schema\EnterpriseWebhooks;
+use ApiClients\Client\GitHub\Schema\OrganizationSimpleWebhooks;
+use ApiClients\Client\GitHub\Schema\RepositoryWebhooks;
+use ApiClients\Client\GitHub\Schema\SimpleInstallation;
+use ApiClients\Client\GitHub\Schema\SimpleUser;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowJobWaiting\WorkflowJob;
+
+/**
+ * @property string $action
+ * @property ?EnterpriseWebhooks $enterprise
+ * @property ?SimpleInstallation $installation
+ * @property ?OrganizationSimpleWebhooks $organization
+ * @property RepositoryWebhooks $repository
+ * @property SimpleUser $sender
+ * @property WorkflowJob $workflowJob
+ * @property ?Deployment $deployment
+ */
+interface WebhookWorkflowJobWaiting
+{
+}

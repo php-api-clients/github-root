@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\PullRequestSimple;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Labels
+final readonly class Labels implements \ApiClients\Client\GitHub\Contract\PullRequestSimple\Labels
 {
     public const SCHEMA_JSON         = '{
     "required": [

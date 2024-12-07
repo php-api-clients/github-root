@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesReopened\Issue;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T0ABFFB9A\T721DF3F2\T6C0961B3\TE2C9336E;
 
-final readonly class Assignees extends Schema\AliasAbstract\Tiet0ABFFB9A\Tiet721DF3F2\Tiet6C0961B3\TietE2C9336E
+final readonly class Assignees extends TE2C9336E
 {
 }

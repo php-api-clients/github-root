@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRejected;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WorkflowJobRuns
+final readonly class WorkflowJobRuns implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentReviewRejected\WorkflowJobRuns
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

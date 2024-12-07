@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ContentSymlink\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ContentSymlink
+final readonly class ContentSymlink implements \ApiClients\Client\GitHub\Contract\ContentSymlink
 {
     public const SCHEMA_JSON         = '{
     "title": "Symlink Content",
@@ -127,7 +127,7 @@ final readonly class ContentSymlink
     public string|null $gitUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentSymlink\Links $links,)
+    public Links $links,)
     {
     }
 }

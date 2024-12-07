@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsFo
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ServiceUnavailable
+final readonly class ServiceUnavailable implements \ApiClients\Client\GitHub\Contract\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

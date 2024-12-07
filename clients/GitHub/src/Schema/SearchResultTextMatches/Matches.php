@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SearchResultTextMatches;
 
-final readonly class Matches
+final readonly class Matches implements \ApiClients\Client\GitHub\Contract\SearchResultTextMatches\Matches
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

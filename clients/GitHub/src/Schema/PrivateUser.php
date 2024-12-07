@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\PrivateUser\Plan;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PrivateUser
+final readonly class PrivateUser implements \ApiClients\Client\GitHub\Contract\PrivateUser
 {
     public const SCHEMA_JSON         = '{
     "title": "Private User",
@@ -361,46 +361,46 @@ final readonly class PrivateUser
     public const SCHEMA_TITLE        = 'Private User';
     public const SCHEMA_DESCRIPTION  = 'Private User';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "login": "octocat",
-    "id": 1,
+    "login": "generated",
+    "id": 2,
     "user_view_type": "generated",
-    "node_id": "MDQ6VXNlcjE=",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-    "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-    "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-    "html_url": "https:\\/\\/github.com\\/octocat",
-    "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-    "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-    "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-    "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-    "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-    "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-    "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-    "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-    "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-    "type": "User",
+    "node_id": "generated",
+    "avatar_url": "https:\\/\\/example.com\\/",
+    "gravatar_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "followers_url": "https:\\/\\/example.com\\/",
+    "following_url": "generated",
+    "gists_url": "generated",
+    "starred_url": "generated",
+    "subscriptions_url": "https:\\/\\/example.com\\/",
+    "organizations_url": "https:\\/\\/example.com\\/",
+    "repos_url": "https:\\/\\/example.com\\/",
+    "events_url": "generated",
+    "received_events_url": "https:\\/\\/example.com\\/",
+    "type": "generated",
     "site_admin": false,
-    "name": "monalisa octocat",
-    "company": "GitHub",
-    "blog": "https:\\/\\/github.com\\/blog",
-    "location": "San Francisco",
-    "email": "octocat@github.com",
-    "notification_email": "octocat@github.com",
+    "name": "generated",
+    "company": "generated",
+    "blog": "generated",
+    "location": "generated",
+    "email": "hi@example.com",
+    "notification_email": "hi@example.com",
     "hireable": false,
-    "bio": "There once was...",
-    "twitter_username": "monalisa",
-    "public_repos": 2,
-    "public_gists": 1,
-    "followers": 20,
-    "following": 0,
-    "created_at": "2008-01-14T04:33:35Z",
-    "updated_at": "2008-01-14T04:33:35Z",
-    "private_gists": 81,
-    "total_private_repos": 100,
-    "owned_private_repos": 100,
-    "disk_usage": 10000,
-    "collaborators": 8,
-    "two_factor_authentication": true,
+    "bio": "generated",
+    "twitter_username": "generated",
+    "public_repos": 12,
+    "public_gists": 12,
+    "followers": 9,
+    "following": 9,
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "private_gists": 13,
+    "total_private_repos": 19,
+    "owned_private_repos": 19,
+    "disk_usage": 10,
+    "collaborators": 13,
+    "two_factor_authentication": false,
     "plan": {
         "collaborators": 13,
         "name": "generated",
@@ -437,7 +437,7 @@ final readonly class PrivateUser
     public int $totalPrivateRepos, #[MapFrom('owned_private_repos')]
     public int $ownedPrivateRepos, #[MapFrom('disk_usage')]
     public int $diskUsage, public int $collaborators, #[MapFrom('two_factor_authentication')]
-    public bool $twoFactorAuthentication, public Schema\PrivateUser\Plan|null $plan, #[MapFrom('business_plus')]
+    public bool $twoFactorAuthentication, public Plan|null $plan, #[MapFrom('business_plus')]
     public bool|null $businessPlus, #[MapFrom('ldap_dn')]
     public string|null $ldapDn,)
     {

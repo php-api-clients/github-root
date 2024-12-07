@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookConfigInsecureSsl
+final readonly class WebhookConfigInsecureSsl implements \ApiClients\Client\GitHub\Contract\WebhookConfigInsecureSsl
 {
     public const SCHEMA_JSON         = '{
     "oneOf": [

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AuthorAssociation
+final readonly class AuthorAssociation implements \ApiClients\Client\GitHub\Contract\AuthorAssociation
 {
     public const SCHEMA_JSON         = '{
     "title": "author_association",

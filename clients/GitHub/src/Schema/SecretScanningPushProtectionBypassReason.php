@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecretScanningPushProtectionBypassReason
+final readonly class SecretScanningPushProtectionBypassReason implements \ApiClients\Client\GitHub\Contract\SecretScanningPushProtectionBypassReason
 {
     public const SCHEMA_JSON         = '{
     "enum": [

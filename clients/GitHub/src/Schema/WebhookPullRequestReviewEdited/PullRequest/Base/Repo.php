@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited\PullRequest\Base;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Repo
+final readonly class Repo implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewEdited\PullRequest\Base\Repo
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository",
@@ -644,7 +646,7 @@ final readonly class Repo
     "compare_url": "generated",
     "contents_url": "generated",
     "contributors_url": "https:\\/\\/example.com\\/",
-    "created_at": null,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "default_branch": "generated",
     "delete_branch_on_merge": false,
     "deployments_url": "https:\\/\\/example.com\\/",
@@ -715,7 +717,7 @@ final readonly class Repo
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -729,7 +731,7 @@ final readonly class Repo
     "private": false,
     "public": false,
     "pulls_url": "generated",
-    "pushed_at": null,
+    "pushed_at": "1970-01-01T00:00:00+00:00",
     "releases_url": "generated",
     "role_name": "generated",
     "size": 4,
@@ -750,7 +752,7 @@ final readonly class Repo
     "trees_url": "generated",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
-    "visibility": "internal",
+    "visibility": "public",
     "watchers": 8,
     "watchers_count": 14
 }';
@@ -817,7 +819,7 @@ final readonly class Repo
     public string $issuesUrl, #[MapFrom('keys_url')]
     public string $keysUrl, #[MapFrom('labels_url')]
     public string $labelsUrl, public string|null $language, #[MapFrom('languages_url')]
-    public string $languagesUrl, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License|null $license, #[MapFrom('master_branch')]
+    public string $languagesUrl, public License|null $license, #[MapFrom('master_branch')]
     public string|null $masterBranch, #[MapFrom('merges_url')]
     public string $mergesUrl, #[MapFrom('milestones_url')]
     public string $milestonesUrl, #[MapFrom('mirror_url')]
@@ -825,7 +827,7 @@ final readonly class Repo
     public string $nodeId, #[MapFrom('notifications_url')]
     public string $notificationsUrl, #[MapFrom('open_issues')]
     public int $openIssues, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, public string|null $organization, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner|null $owner, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
+    public int $openIssuesCount, public string|null $organization, public Owner|null $owner, public Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
     public string $pullsUrl, #[MapFrom('pushed_at')]
     public int|string $pushedAt, #[MapFrom('releases_url')]
     public string $releasesUrl, #[MapFrom('role_name')]

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TagProtection
+final readonly class TagProtection implements \ApiClients\Client\GitHub\Contract\TagProtection
 {
     public const SCHEMA_JSON         = '{
     "title": "Tag protection",
@@ -52,10 +52,10 @@ final readonly class TagProtection
     public const SCHEMA_DESCRIPTION  = 'Tag protection';
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
-    "created_at": "2011-01-26T19:01:12Z",
-    "updated_at": "2011-01-26T19:01:12Z",
-    "enabled": true,
-    "pattern": "v1.*"
+    "created_at": "generated",
+    "updated_at": "generated",
+    "enabled": false,
+    "pattern": "generated"
 }';
 
     public function __construct(public int|null $id, #[MapFrom('created_at')]

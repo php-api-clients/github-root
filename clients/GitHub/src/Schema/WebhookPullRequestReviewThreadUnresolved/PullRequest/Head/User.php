@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewThreadUnresolved\PullRequest\Head;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T536805C4\T88923449\T8D7DF436\T2E07D018;
 
-final readonly class User extends Schema\AliasAbstract\Tiet536805C4\Tiet88923449\Tiet8D7DF436\Tiet2E07D018
+final readonly class User extends T2E07D018
 {
 }

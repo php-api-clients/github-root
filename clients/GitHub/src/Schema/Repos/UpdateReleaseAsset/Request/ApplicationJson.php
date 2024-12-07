@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateReleaseAsset\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateReleaseAsset\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -30,7 +30,7 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "label": "generated",
-    "state": "\\"uploaded\\""
+    "state": "generated"
 }';
 
     /**

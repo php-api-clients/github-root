@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CheckSuitePreference;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Preferences
+final readonly class Preferences implements \ApiClients\Client\GitHub\Contract\CheckSuitePreference\Preferences
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

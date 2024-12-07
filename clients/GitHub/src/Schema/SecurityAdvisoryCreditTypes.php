@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecurityAdvisoryCreditTypes
+final readonly class SecurityAdvisoryCreditTypes implements \ApiClients\Client\GitHub\Contract\SecurityAdvisoryCreditTypes
 {
     public const SCHEMA_JSON         = '{
     "enum": [

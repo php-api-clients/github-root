@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PorterLargeFile
+final readonly class PorterLargeFile implements \ApiClients\Client\GitHub\Contract\PorterLargeFile
 {
     public const SCHEMA_JSON         = '{
     "title": "Porter Large File",

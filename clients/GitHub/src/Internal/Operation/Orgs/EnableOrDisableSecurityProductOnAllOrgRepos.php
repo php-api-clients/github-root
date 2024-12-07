@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos\Request\ApplicationJson;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function json_encode;
-use function str_replace;
 
 final class EnableOrDisableSecurityProductOnAllOrgRepos
 {
@@ -30,18 +31,19 @@ final class EnableOrDisableSecurityProductOnAllOrgRepos
     `disable_all` means to disable the specified security feature for all repositories in the organization. **/
     private string $enablement;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $org, string $securityProduct, string $enablement)
+    public function __construct(private SchemaValidator $requestSchemaValidator, string $org, string $securityProduct, string $enablement)
     {
-        $this->org             = $org;
-        $this->securityProduct = $securityProduct;
-        $this->enablement      = $enablement;
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->org                    = $org;
+        $this->securityProduct        = $securityProduct;
+        $this->enablement             = $enablement;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationJson::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{org}', '{security_product}', '{enablement}'], [$this->org, $this->securityProduct, $this->enablement], '/orgs/{org}/{security_product}/{enablement}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/orgs/{org}/{security_product}/{enablement}'))->expand(['enablement' => $this->enablement, 'org' => $this->org, 'security_product' => $this->securityProduct]), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

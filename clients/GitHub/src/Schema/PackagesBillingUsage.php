@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackagesBillingUsage
+final readonly class PackagesBillingUsage implements \ApiClients\Client\GitHub\Contract\PackagesBillingUsage
 {
     public const SCHEMA_JSON         = '{
     "required": [

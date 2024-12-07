@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Maintainer;
+use ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Sponsor;
+use ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Sponsorable;
+use ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Tier;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksSponsorship
+final readonly class WebhooksSponsorship implements \ApiClients\Client\GitHub\Contract\WebhooksSponsorship
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -381,7 +384,7 @@ final readonly class WebhooksSponsorship
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -405,7 +408,7 @@ final readonly class WebhooksSponsorship
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -426,9 +429,9 @@ final readonly class WebhooksSponsorship
      * tier: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
     public function __construct(#[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksSponsorship\Maintainer|null $maintainer, #[MapFrom('node_id')]
+    public string $createdAt, public Maintainer|null $maintainer, #[MapFrom('node_id')]
     public string $nodeId, #[MapFrom('privacy_level')]
-    public string $privacyLevel, public Schema\WebhooksSponsorship\Sponsor|null $sponsor, public Schema\WebhooksSponsorship\Sponsorable|null $sponsorable, public Schema\WebhooksSponsorship\Tier $tier,)
+    public string $privacyLevel, public Sponsor|null $sponsor, public Sponsorable|null $sponsorable, public Tier $tier,)
     {
     }
 }

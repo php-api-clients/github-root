@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHub\Contract;
+
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationCommit;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationDiscussionBody;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationDiscussionComment;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationDiscussionTitle;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationIssueBody;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationIssueComment;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationIssueTitle;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationPullRequestBody;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationPullRequestComment;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationPullRequestReview;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationPullRequestReviewComment;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationPullRequestTitle;
+use ApiClients\Client\GitHub\Schema\SecretScanningLocationWikiCommit;
+
+/**
+ * @property ?string $type
+ * @property SecretScanningLocationCommit|SecretScanningLocationWikiCommit|SecretScanningLocationIssueTitle|SecretScanningLocationIssueBody|SecretScanningLocationIssueComment|SecretScanningLocationDiscussionTitle|SecretScanningLocationDiscussionBody|SecretScanningLocationDiscussionComment|SecretScanningLocationPullRequestTitle|SecretScanningLocationPullRequestBody|SecretScanningLocationPullRequestComment|SecretScanningLocationPullRequestReview|SecretScanningLocationPullRequestReviewComment|null $details
+ */
+interface SecretScanningLocation
+{
+}

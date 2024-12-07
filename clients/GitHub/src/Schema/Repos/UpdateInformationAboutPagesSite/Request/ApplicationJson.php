@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
+use ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -101,8 +101,11 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "cname": "generated",
     "https_enforced": false,
-    "build_type": "workflow",
-    "source": null
+    "build_type": "legacy",
+    "source": {
+        "branch": "generated",
+        "path": "\\/"
+    }
 }';
 
     /**
@@ -113,7 +116,7 @@ final readonly class ApplicationJson
     public function __construct(public string|null $cname, #[MapFrom('https_enforced')]
     public bool|null $httpsEnforced, #[MapFrom('build_type')]
     public string|null $buildType, #[Source]
-    public string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One|null $source,)
+    public string|One|null $source,)
     {
     }
 }

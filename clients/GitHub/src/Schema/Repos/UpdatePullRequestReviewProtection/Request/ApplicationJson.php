@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdatePullRequestReviewProtection\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson\BypassPullRequestAllowances;
+use ApiClients\Client\GitHub\Schema\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson\DismissalRestrictions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -131,12 +132,12 @@ final readonly class ApplicationJson
      * bypassPullRequestAllowances: Allow specific users, teams, or apps to bypass pull request requirements.
      */
     public function __construct(#[MapFrom('dismissal_restrictions')]
-    public Schema\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson\DismissalRestrictions|null $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')]
+    public DismissalRestrictions|null $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')]
     public bool|null $dismissStaleReviews, #[MapFrom('require_code_owner_reviews')]
     public bool|null $requireCodeOwnerReviews, #[MapFrom('required_approving_review_count')]
     public int|null $requiredApprovingReviewCount, #[MapFrom('require_last_push_approval')]
     public bool|null $requireLastPushApproval, #[MapFrom('bypass_pull_request_allowances')]
-    public Schema\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson\BypassPullRequestAllowances|null $bypassPullRequestAllowances,)
+    public BypassPullRequestAllowances|null $bypassPullRequestAllowances,)
     {
     }
 }

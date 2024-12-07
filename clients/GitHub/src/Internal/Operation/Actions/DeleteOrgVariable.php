@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteOrgVariable
 {
@@ -29,7 +28,7 @@ final class DeleteOrgVariable
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{name}'], [$this->org, $this->name], '/orgs/{org}/actions/variables/{name}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/actions/variables/{name}'))->expand(['name' => $this->name, 'org' => $this->org]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

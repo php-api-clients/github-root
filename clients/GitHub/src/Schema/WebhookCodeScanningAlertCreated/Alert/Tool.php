@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert;
 
-final readonly class Tool
+final readonly class Tool implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertCreated\Alert\Tool
 {
     public const SCHEMA_JSON         = '{
     "required": [

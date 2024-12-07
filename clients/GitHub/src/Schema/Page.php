@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Page
+final readonly class Page implements \ApiClients\Client\GitHub\Contract\Page
 {
     public const SCHEMA_JSON         = '{
     "title": "GitHub Pages",
@@ -197,29 +196,29 @@ final readonly class Page
     public const SCHEMA_TITLE        = 'GitHub Pages';
     public const SCHEMA_DESCRIPTION  = 'The configuration for GitHub Pages for a repository.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/pages",
+    "url": "https:\\/\\/example.com\\/",
     "status": "built",
-    "cname": "example.com",
+    "cname": "generated",
     "protected_domain_state": "pending",
     "pending_domain_unverified_at": "1970-01-01T00:00:00+00:00",
     "custom_404": false,
-    "html_url": "https:\\/\\/example.com",
+    "html_url": "https:\\/\\/example.com\\/",
     "build_type": "legacy",
     "source": {
         "branch": "generated",
         "path": "generated"
     },
-    "public": true,
+    "public": false,
     "https_certificate": {
-        "state": "approved",
-        "description": "Certificate is approved",
+        "state": "new",
+        "description": "generated",
         "domains": [
-            "example.com",
-            "example.com"
+            "generated",
+            "generated"
         ],
         "expires_at": "generated"
     },
-    "https_enforced": true
+    "https_enforced": false
 }';
 
     /**
@@ -239,8 +238,8 @@ final readonly class Page
     public string|null $pendingDomainUnverifiedAt, #[MapFrom('custom_404')]
     public bool $customFourHundredFour, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('build_type')]
-    public string|null $buildType, public Schema\PagesSourceHash|null $source, public bool $public, #[MapFrom('https_certificate')]
-    public Schema\PagesHttpsCertificate|null $httpsCertificate, #[MapFrom('https_enforced')]
+    public string|null $buildType, public PagesSourceHash|null $source, public bool $public, #[MapFrom('https_certificate')]
+    public PagesHttpsCertificate|null $httpsCertificate, #[MapFrom('https_enforced')]
     public bool|null $httpsEnforced,)
     {
     }

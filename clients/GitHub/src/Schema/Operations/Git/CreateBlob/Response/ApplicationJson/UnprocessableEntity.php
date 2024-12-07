@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Git\CreateBlob\Response\ApplicationJson;
 
-final readonly class UnprocessableEntity
+final readonly class UnprocessableEntity implements \ApiClients\Client\GitHub\Contract\Operations\Git\CreateBlob\Response\ApplicationJson\UnprocessableEntity
 {
     public const SCHEMA_JSON         = '{
     "oneOf": [

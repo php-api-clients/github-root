@@ -20,7 +20,7 @@ final class Four
     {
     }
 
-    /** @return |Observable<Schema\Email>|WithoutBody */
+    /** @return |Observable<Email>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WebhookConfig|Authorization|WithoutBody|ProjectColumn|FullRepository|BasicError|Codespace|iterable
     {
         if ($pathChunks[0] === '') {

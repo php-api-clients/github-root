@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\ApiInsights;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId;
+use ApiClients\Client\GitHub\Schema\ApiInsightsTimeStats;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -18,7 +19,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetTimeStatsByActor
 {
@@ -37,22 +37,24 @@ final class GetTimeStatsByActor
     /**The increment of time used to breakdown the query results (5m, 10m, 1h, etc.) **/
     private string $timestampIncrement;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId $hydrator, string $org, string $actorType, int $actorId, string $minTimestamp, string $maxTimestamp, string $timestampIncrement)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private ActorId $hydrator, string $org, string $actorType, int $actorId, string $minTimestamp, string $maxTimestamp, string $timestampIncrement)
     {
-        $this->org                = $org;
-        $this->actorType          = $actorType;
-        $this->actorId            = $actorId;
-        $this->minTimestamp       = $minTimestamp;
-        $this->maxTimestamp       = $maxTimestamp;
-        $this->timestampIncrement = $timestampIncrement;
+        $this->org                     = $org;
+        $this->actorType               = $actorType;
+        $this->actorId                 = $actorId;
+        $this->minTimestamp            = $minTimestamp;
+        $this->maxTimestamp            = $maxTimestamp;
+        $this->timestampIncrement      = $timestampIncrement;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{actor_type}', '{actor_id}', '{min_timestamp}', '{max_timestamp}', '{timestamp_increment}'], [$this->org, $this->actorType, $this->actorId, $this->minTimestamp, $this->maxTimestamp, $this->timestampIncrement], '/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}' . '?min_timestamp={min_timestamp}&max_timestamp={max_timestamp}&timestamp_increment={timestamp_increment}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}{?max_timestamp,min_timestamp,timestamp_increment}'))->expand(['actor_id' => $this->actorId, 'actor_type' => $this->actorType, 'max_timestamp' => $this->maxTimestamp, 'min_timestamp' => $this->minTimestamp, 'org' => $this->org, 'timestamp_increment' => $this->timestampIncrement]));
     }
 
-    /** @return Observable<Schema\ApiInsightsTimeStats> */
+    /** @return Observable<ApiInsightsTimeStats> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -65,12 +67,12 @@ final class GetTimeStatsByActor
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ApiInsightsTimeStats {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): ApiInsightsTimeStats {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ApiInsightsTimeStats::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(ApiInsightsTimeStats::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\ApiInsightsTimeStats::class, $body);
+                                return $this->hydrator->hydrateObject(ApiInsightsTimeStats::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

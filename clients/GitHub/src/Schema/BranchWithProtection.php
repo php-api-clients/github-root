@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\BranchWithProtection\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class BranchWithProtection
+final readonly class BranchWithProtection implements \ApiClients\Client\GitHub\Contract\BranchWithProtection
 {
     public const SCHEMA_JSON         = '{
     "title": "Branch With Protection",
@@ -2814,28 +2814,28 @@ final readonly class BranchWithProtection
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "commit": {
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments",
+        "url": "https:\\/\\/example.com\\/",
+        "sha": "generated",
+        "node_id": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "comments_url": "https:\\/\\/example.com\\/",
         "commit": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "url": "https:\\/\\/example.com\\/",
             "author": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
             "committer": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
-            "message": "Fix all the bugs",
-            "comment_count": 0,
+            "message": "generated",
+            "comment_count": 13,
             "tree": {
-                "sha": "827efc6d56897b048c772eb4087f854f46256132",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/"
             },
             "verification": {
                 "verified": false,
@@ -2845,18 +2845,18 @@ final readonly class BranchWithProtection
                 "verified_at": "generated"
             }
         },
-        "author": null,
-        "committer": null,
+        "author": [],
+        "committer": [],
         "parents": [
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             },
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             }
         ],
         "stats": {
@@ -2866,30 +2866,30 @@ final readonly class BranchWithProtection
         },
         "files": [
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             },
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             }
         ]
     },
@@ -2922,60 +2922,60 @@ final readonly class BranchWithProtection
             "strict": false
         },
         "enforce_admins": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/enforce_admins",
-            "enabled": true
+            "url": "https:\\/\\/example.com\\/",
+            "enabled": false
         },
         "required_pull_request_reviews": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/dismissal_restrictions",
+            "url": "https:\\/\\/example.com\\/",
             "dismissal_restrictions": {
                 "users": [
                     {
                         "name": "generated",
                         "email": "generated",
-                        "login": "octocat",
-                        "id": 1,
-                        "node_id": "MDQ6VXNlcjE=",
-                        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                        "html_url": "https:\\/\\/github.com\\/octocat",
-                        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                        "type": "User",
+                        "login": "generated",
+                        "id": 2,
+                        "node_id": "generated",
+                        "avatar_url": "https:\\/\\/example.com\\/",
+                        "gravatar_id": "generated",
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "followers_url": "https:\\/\\/example.com\\/",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "https:\\/\\/example.com\\/",
+                        "organizations_url": "https:\\/\\/example.com\\/",
+                        "repos_url": "https:\\/\\/example.com\\/",
+                        "events_url": "generated",
+                        "received_events_url": "https:\\/\\/example.com\\/",
+                        "type": "generated",
                         "site_admin": false,
-                        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                        "user_view_type": "public"
+                        "starred_at": "generated",
+                        "user_view_type": "generated"
                     },
                     {
                         "name": "generated",
                         "email": "generated",
-                        "login": "octocat",
-                        "id": 1,
-                        "node_id": "MDQ6VXNlcjE=",
-                        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                        "html_url": "https:\\/\\/github.com\\/octocat",
-                        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                        "type": "User",
+                        "login": "generated",
+                        "id": 2,
+                        "node_id": "generated",
+                        "avatar_url": "https:\\/\\/example.com\\/",
+                        "gravatar_id": "generated",
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "followers_url": "https:\\/\\/example.com\\/",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "https:\\/\\/example.com\\/",
+                        "organizations_url": "https:\\/\\/example.com\\/",
+                        "repos_url": "https:\\/\\/example.com\\/",
+                        "events_url": "generated",
+                        "received_events_url": "https:\\/\\/example.com\\/",
+                        "type": "generated",
                         "site_admin": false,
-                        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                        "user_view_type": "public"
+                        "starred_at": "generated",
+                        "user_view_type": "generated"
                     }
                 ],
                 "teams": [
@@ -2996,23 +2996,23 @@ final readonly class BranchWithProtection
                             "admin": false
                         },
                         "url": "https:\\/\\/example.com\\/",
-                        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+                        "html_url": "https:\\/\\/example.com\\/",
                         "members_url": "generated",
                         "repositories_url": "https:\\/\\/example.com\\/",
                         "parent": {
-                            "id": 1,
-                            "node_id": "MDQ6VGVhbTE=",
-                            "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-                            "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-                            "name": "Justice League",
-                            "description": "A great team.",
-                            "permission": "admin",
-                            "privacy": "closed",
-                            "notification_setting": "notifications_enabled",
-                            "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-                            "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-                            "slug": "justice-league",
-                            "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
                         }
                     },
                     {
@@ -3032,183 +3032,183 @@ final readonly class BranchWithProtection
                             "admin": false
                         },
                         "url": "https:\\/\\/example.com\\/",
-                        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+                        "html_url": "https:\\/\\/example.com\\/",
                         "members_url": "generated",
                         "repositories_url": "https:\\/\\/example.com\\/",
                         "parent": {
-                            "id": 1,
-                            "node_id": "MDQ6VGVhbTE=",
-                            "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-                            "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-                            "name": "Justice League",
-                            "description": "A great team.",
-                            "permission": "admin",
-                            "privacy": "closed",
-                            "notification_setting": "notifications_enabled",
-                            "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-                            "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-                            "slug": "justice-league",
-                            "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
                         }
                     }
                 ],
                 "apps": [
                     {
-                        "id": 37,
-                        "slug": "probot-owners",
-                        "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                        "client_id": "\\"Iv1.25b5d1e65ffc4022\\"",
+                        "id": 2,
+                        "slug": "generated",
+                        "node_id": "generated",
+                        "client_id": "generated",
                         "owner": {
                             "name": "generated",
                             "email": "generated",
-                            "login": "octocat",
-                            "id": 1,
-                            "node_id": "MDQ6VXNlcjE=",
-                            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                            "html_url": "https:\\/\\/github.com\\/octocat",
-                            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                            "type": "User",
+                            "login": "generated",
+                            "id": 2,
+                            "node_id": "generated",
+                            "avatar_url": "https:\\/\\/example.com\\/",
+                            "gravatar_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "followers_url": "https:\\/\\/example.com\\/",
+                            "following_url": "generated",
+                            "gists_url": "generated",
+                            "starred_url": "generated",
+                            "subscriptions_url": "https:\\/\\/example.com\\/",
+                            "organizations_url": "https:\\/\\/example.com\\/",
+                            "repos_url": "https:\\/\\/example.com\\/",
+                            "events_url": "generated",
+                            "received_events_url": "https:\\/\\/example.com\\/",
+                            "type": "generated",
                             "site_admin": false,
-                            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                            "user_view_type": "public"
+                            "starred_at": "generated",
+                            "user_view_type": "generated"
                         },
-                        "name": "Probot Owners",
-                        "description": "The description of the app.",
-                        "external_url": "https:\\/\\/example.com",
-                        "html_url": "https:\\/\\/github.com\\/apps\\/super-ci",
-                        "created_at": "2017-07-08T16:18:44-04:00",
-                        "updated_at": "2017-07-08T16:18:44-04:00",
+                        "name": "generated",
+                        "description": "generated",
+                        "external_url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "created_at": "1970-01-01T00:00:00+00:00",
+                        "updated_at": "1970-01-01T00:00:00+00:00",
                         "permissions": {
-                            "issues": "read",
+                            "issues": "generated",
                             "checks": "generated",
                             "metadata": "generated",
                             "contents": "generated",
-                            "deployments": "write"
+                            "deployments": "generated"
                         },
                         "events": [
-                            "deployment",
-                            "deployment"
+                            "generated",
+                            "generated"
                         ],
-                        "installations_count": 5,
-                        "client_secret": "\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"",
-                        "webhook_secret": "\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"",
-                        "pem": "\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""
+                        "installations_count": 19,
+                        "client_secret": "generated",
+                        "webhook_secret": "generated",
+                        "pem": "generated"
                     },
                     {
-                        "id": 37,
-                        "slug": "probot-owners",
-                        "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                        "client_id": "\\"Iv1.25b5d1e65ffc4022\\"",
+                        "id": 2,
+                        "slug": "generated",
+                        "node_id": "generated",
+                        "client_id": "generated",
                         "owner": {
                             "name": "generated",
                             "email": "generated",
-                            "login": "octocat",
-                            "id": 1,
-                            "node_id": "MDQ6VXNlcjE=",
-                            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                            "html_url": "https:\\/\\/github.com\\/octocat",
-                            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                            "type": "User",
+                            "login": "generated",
+                            "id": 2,
+                            "node_id": "generated",
+                            "avatar_url": "https:\\/\\/example.com\\/",
+                            "gravatar_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "followers_url": "https:\\/\\/example.com\\/",
+                            "following_url": "generated",
+                            "gists_url": "generated",
+                            "starred_url": "generated",
+                            "subscriptions_url": "https:\\/\\/example.com\\/",
+                            "organizations_url": "https:\\/\\/example.com\\/",
+                            "repos_url": "https:\\/\\/example.com\\/",
+                            "events_url": "generated",
+                            "received_events_url": "https:\\/\\/example.com\\/",
+                            "type": "generated",
                             "site_admin": false,
-                            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                            "user_view_type": "public"
+                            "starred_at": "generated",
+                            "user_view_type": "generated"
                         },
-                        "name": "Probot Owners",
-                        "description": "The description of the app.",
-                        "external_url": "https:\\/\\/example.com",
-                        "html_url": "https:\\/\\/github.com\\/apps\\/super-ci",
-                        "created_at": "2017-07-08T16:18:44-04:00",
-                        "updated_at": "2017-07-08T16:18:44-04:00",
+                        "name": "generated",
+                        "description": "generated",
+                        "external_url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "created_at": "1970-01-01T00:00:00+00:00",
+                        "updated_at": "1970-01-01T00:00:00+00:00",
                         "permissions": {
-                            "issues": "read",
+                            "issues": "generated",
                             "checks": "generated",
                             "metadata": "generated",
                             "contents": "generated",
-                            "deployments": "write"
+                            "deployments": "generated"
                         },
                         "events": [
-                            "deployment",
-                            "deployment"
+                            "generated",
+                            "generated"
                         ],
-                        "installations_count": 5,
-                        "client_secret": "\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"",
-                        "webhook_secret": "\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"",
-                        "pem": "\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""
+                        "installations_count": 19,
+                        "client_secret": "generated",
+                        "webhook_secret": "generated",
+                        "pem": "generated"
                     }
                 ],
-                "url": "\\"https:\\/\\/api.github.com\\/repos\\/the-org\\/an-org-repo\\/branches\\/master\\/protection\\/dismissal_restrictions\\"",
-                "users_url": "\\"https:\\/\\/api.github.com\\/repos\\/the-org\\/an-org-repo\\/branches\\/master\\/protection\\/dismissal_restrictions\\/users\\"",
-                "teams_url": "\\"https:\\/\\/api.github.com\\/repos\\/the-org\\/an-org-repo\\/branches\\/master\\/protection\\/dismissal_restrictions\\/teams\\""
+                "url": "generated",
+                "users_url": "generated",
+                "teams_url": "generated"
             },
             "bypass_pull_request_allowances": {
                 "users": [
                     {
                         "name": "generated",
                         "email": "generated",
-                        "login": "octocat",
-                        "id": 1,
-                        "node_id": "MDQ6VXNlcjE=",
-                        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                        "html_url": "https:\\/\\/github.com\\/octocat",
-                        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                        "type": "User",
+                        "login": "generated",
+                        "id": 2,
+                        "node_id": "generated",
+                        "avatar_url": "https:\\/\\/example.com\\/",
+                        "gravatar_id": "generated",
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "followers_url": "https:\\/\\/example.com\\/",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "https:\\/\\/example.com\\/",
+                        "organizations_url": "https:\\/\\/example.com\\/",
+                        "repos_url": "https:\\/\\/example.com\\/",
+                        "events_url": "generated",
+                        "received_events_url": "https:\\/\\/example.com\\/",
+                        "type": "generated",
                         "site_admin": false,
-                        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                        "user_view_type": "public"
+                        "starred_at": "generated",
+                        "user_view_type": "generated"
                     },
                     {
                         "name": "generated",
                         "email": "generated",
-                        "login": "octocat",
-                        "id": 1,
-                        "node_id": "MDQ6VXNlcjE=",
-                        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                        "html_url": "https:\\/\\/github.com\\/octocat",
-                        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                        "type": "User",
+                        "login": "generated",
+                        "id": 2,
+                        "node_id": "generated",
+                        "avatar_url": "https:\\/\\/example.com\\/",
+                        "gravatar_id": "generated",
+                        "url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "followers_url": "https:\\/\\/example.com\\/",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "https:\\/\\/example.com\\/",
+                        "organizations_url": "https:\\/\\/example.com\\/",
+                        "repos_url": "https:\\/\\/example.com\\/",
+                        "events_url": "generated",
+                        "received_events_url": "https:\\/\\/example.com\\/",
+                        "type": "generated",
                         "site_admin": false,
-                        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                        "user_view_type": "public"
+                        "starred_at": "generated",
+                        "user_view_type": "generated"
                     }
                 ],
                 "teams": [
@@ -3229,23 +3229,23 @@ final readonly class BranchWithProtection
                             "admin": false
                         },
                         "url": "https:\\/\\/example.com\\/",
-                        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+                        "html_url": "https:\\/\\/example.com\\/",
                         "members_url": "generated",
                         "repositories_url": "https:\\/\\/example.com\\/",
                         "parent": {
-                            "id": 1,
-                            "node_id": "MDQ6VGVhbTE=",
-                            "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-                            "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-                            "name": "Justice League",
-                            "description": "A great team.",
-                            "permission": "admin",
-                            "privacy": "closed",
-                            "notification_setting": "notifications_enabled",
-                            "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-                            "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-                            "slug": "justice-league",
-                            "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
                         }
                     },
                     {
@@ -3265,135 +3265,135 @@ final readonly class BranchWithProtection
                             "admin": false
                         },
                         "url": "https:\\/\\/example.com\\/",
-                        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+                        "html_url": "https:\\/\\/example.com\\/",
                         "members_url": "generated",
                         "repositories_url": "https:\\/\\/example.com\\/",
                         "parent": {
-                            "id": 1,
-                            "node_id": "MDQ6VGVhbTE=",
-                            "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-                            "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-                            "name": "Justice League",
-                            "description": "A great team.",
-                            "permission": "admin",
-                            "privacy": "closed",
-                            "notification_setting": "notifications_enabled",
-                            "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-                            "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-                            "slug": "justice-league",
-                            "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+                            "id": 2,
+                            "node_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "members_url": "generated",
+                            "name": "generated",
+                            "description": "generated",
+                            "permission": "generated",
+                            "privacy": "generated",
+                            "notification_setting": "generated",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "repositories_url": "https:\\/\\/example.com\\/",
+                            "slug": "generated",
+                            "ldap_dn": "generated"
                         }
                     }
                 ],
                 "apps": [
                     {
-                        "id": 37,
-                        "slug": "probot-owners",
-                        "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                        "client_id": "\\"Iv1.25b5d1e65ffc4022\\"",
+                        "id": 2,
+                        "slug": "generated",
+                        "node_id": "generated",
+                        "client_id": "generated",
                         "owner": {
                             "name": "generated",
                             "email": "generated",
-                            "login": "octocat",
-                            "id": 1,
-                            "node_id": "MDQ6VXNlcjE=",
-                            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                            "html_url": "https:\\/\\/github.com\\/octocat",
-                            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                            "type": "User",
+                            "login": "generated",
+                            "id": 2,
+                            "node_id": "generated",
+                            "avatar_url": "https:\\/\\/example.com\\/",
+                            "gravatar_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "followers_url": "https:\\/\\/example.com\\/",
+                            "following_url": "generated",
+                            "gists_url": "generated",
+                            "starred_url": "generated",
+                            "subscriptions_url": "https:\\/\\/example.com\\/",
+                            "organizations_url": "https:\\/\\/example.com\\/",
+                            "repos_url": "https:\\/\\/example.com\\/",
+                            "events_url": "generated",
+                            "received_events_url": "https:\\/\\/example.com\\/",
+                            "type": "generated",
                             "site_admin": false,
-                            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                            "user_view_type": "public"
+                            "starred_at": "generated",
+                            "user_view_type": "generated"
                         },
-                        "name": "Probot Owners",
-                        "description": "The description of the app.",
-                        "external_url": "https:\\/\\/example.com",
-                        "html_url": "https:\\/\\/github.com\\/apps\\/super-ci",
-                        "created_at": "2017-07-08T16:18:44-04:00",
-                        "updated_at": "2017-07-08T16:18:44-04:00",
+                        "name": "generated",
+                        "description": "generated",
+                        "external_url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "created_at": "1970-01-01T00:00:00+00:00",
+                        "updated_at": "1970-01-01T00:00:00+00:00",
                         "permissions": {
-                            "issues": "read",
+                            "issues": "generated",
                             "checks": "generated",
                             "metadata": "generated",
                             "contents": "generated",
-                            "deployments": "write"
+                            "deployments": "generated"
                         },
                         "events": [
-                            "deployment",
-                            "deployment"
+                            "generated",
+                            "generated"
                         ],
-                        "installations_count": 5,
-                        "client_secret": "\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"",
-                        "webhook_secret": "\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"",
-                        "pem": "\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""
+                        "installations_count": 19,
+                        "client_secret": "generated",
+                        "webhook_secret": "generated",
+                        "pem": "generated"
                     },
                     {
-                        "id": 37,
-                        "slug": "probot-owners",
-                        "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                        "client_id": "\\"Iv1.25b5d1e65ffc4022\\"",
+                        "id": 2,
+                        "slug": "generated",
+                        "node_id": "generated",
+                        "client_id": "generated",
                         "owner": {
                             "name": "generated",
                             "email": "generated",
-                            "login": "octocat",
-                            "id": 1,
-                            "node_id": "MDQ6VXNlcjE=",
-                            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                            "html_url": "https:\\/\\/github.com\\/octocat",
-                            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                            "type": "User",
+                            "login": "generated",
+                            "id": 2,
+                            "node_id": "generated",
+                            "avatar_url": "https:\\/\\/example.com\\/",
+                            "gravatar_id": "generated",
+                            "url": "https:\\/\\/example.com\\/",
+                            "html_url": "https:\\/\\/example.com\\/",
+                            "followers_url": "https:\\/\\/example.com\\/",
+                            "following_url": "generated",
+                            "gists_url": "generated",
+                            "starred_url": "generated",
+                            "subscriptions_url": "https:\\/\\/example.com\\/",
+                            "organizations_url": "https:\\/\\/example.com\\/",
+                            "repos_url": "https:\\/\\/example.com\\/",
+                            "events_url": "generated",
+                            "received_events_url": "https:\\/\\/example.com\\/",
+                            "type": "generated",
                             "site_admin": false,
-                            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                            "user_view_type": "public"
+                            "starred_at": "generated",
+                            "user_view_type": "generated"
                         },
-                        "name": "Probot Owners",
-                        "description": "The description of the app.",
-                        "external_url": "https:\\/\\/example.com",
-                        "html_url": "https:\\/\\/github.com\\/apps\\/super-ci",
-                        "created_at": "2017-07-08T16:18:44-04:00",
-                        "updated_at": "2017-07-08T16:18:44-04:00",
+                        "name": "generated",
+                        "description": "generated",
+                        "external_url": "https:\\/\\/example.com\\/",
+                        "html_url": "https:\\/\\/example.com\\/",
+                        "created_at": "1970-01-01T00:00:00+00:00",
+                        "updated_at": "1970-01-01T00:00:00+00:00",
                         "permissions": {
-                            "issues": "read",
+                            "issues": "generated",
                             "checks": "generated",
                             "metadata": "generated",
                             "contents": "generated",
-                            "deployments": "write"
+                            "deployments": "generated"
                         },
                         "events": [
-                            "deployment",
-                            "deployment"
+                            "generated",
+                            "generated"
                         ],
-                        "installations_count": 5,
-                        "client_secret": "\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"",
-                        "webhook_secret": "\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"",
-                        "pem": "\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""
+                        "installations_count": 19,
+                        "client_secret": "generated",
+                        "webhook_secret": "generated",
+                        "pem": "generated"
                     }
                 ]
             },
-            "dismiss_stale_reviews": true,
-            "require_code_owner_reviews": true,
-            "required_approving_review_count": 2,
-            "require_last_push_approval": true
+            "dismiss_stale_reviews": false,
+            "require_code_owner_reviews": false,
+            "required_approving_review_count": 31,
+            "require_last_push_approval": false
         },
         "restrictions": {
             "url": "https:\\/\\/example.com\\/",
@@ -3494,18 +3494,18 @@ final readonly class BranchWithProtection
                         "public_members_url": "generated",
                         "avatar_url": "generated",
                         "description": "generated",
-                        "gravatar_id": "\\"\\"",
-                        "html_url": "\\"https:\\/\\/github.com\\/testorg-ea8ec76d71c3af4b\\"",
-                        "followers_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/followers\\"",
-                        "following_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/following{\\/other_user}\\"",
-                        "gists_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/gists{\\/gist_id}\\"",
-                        "starred_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/starred{\\/owner}{\\/repo}\\"",
-                        "subscriptions_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/subscriptions\\"",
-                        "organizations_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/orgs\\"",
-                        "received_events_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/received_events\\"",
-                        "type": "\\"Organization\\"",
+                        "gravatar_id": "generated",
+                        "html_url": "generated",
+                        "followers_url": "generated",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "generated",
+                        "organizations_url": "generated",
+                        "received_events_url": "generated",
+                        "type": "generated",
                         "site_admin": false,
-                        "user_view_type": "public"
+                        "user_view_type": "generated"
                     },
                     "name": "generated",
                     "client_id": "generated",
@@ -3542,18 +3542,18 @@ final readonly class BranchWithProtection
                         "public_members_url": "generated",
                         "avatar_url": "generated",
                         "description": "generated",
-                        "gravatar_id": "\\"\\"",
-                        "html_url": "\\"https:\\/\\/github.com\\/testorg-ea8ec76d71c3af4b\\"",
-                        "followers_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/followers\\"",
-                        "following_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/following{\\/other_user}\\"",
-                        "gists_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/gists{\\/gist_id}\\"",
-                        "starred_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/starred{\\/owner}{\\/repo}\\"",
-                        "subscriptions_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/subscriptions\\"",
-                        "organizations_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/orgs\\"",
-                        "received_events_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/received_events\\"",
-                        "type": "\\"Organization\\"",
+                        "gravatar_id": "generated",
+                        "html_url": "generated",
+                        "followers_url": "generated",
+                        "following_url": "generated",
+                        "gists_url": "generated",
+                        "starred_url": "generated",
+                        "subscriptions_url": "generated",
+                        "organizations_url": "generated",
+                        "received_events_url": "generated",
+                        "type": "generated",
                         "site_admin": false,
-                        "user_view_type": "public"
+                        "user_view_type": "generated"
                     },
                     "name": "generated",
                     "client_id": "generated",
@@ -3590,11 +3590,11 @@ final readonly class BranchWithProtection
         "required_conversation_resolution": {
             "enabled": false
         },
-        "name": "\\"branch\\/with\\/protection\\"",
-        "protection_url": "\\"https:\\/\\/api.github.com\\/repos\\/owner-79e94e2d36b3fd06a32bb213\\/AAA_Public_Repo\\/branches\\/branch\\/with\\/protection\\/protection\\"",
+        "name": "generated",
+        "protection_url": "generated",
         "required_signatures": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_signatures",
-            "enabled": true
+            "url": "https:\\/\\/example.com\\/",
+            "enabled": false
         },
         "lock_branch": {
             "enabled": false
@@ -3604,16 +3604,16 @@ final readonly class BranchWithProtection
         }
     },
     "protection_url": "https:\\/\\/example.com\\/",
-    "pattern": "\\"mas*\\"",
-    "required_approving_review_count": 1
+    "pattern": "generated",
+    "required_approving_review_count": 31
 }';
 
     /**
      * commit: Commit
      * protection: Branch Protection
      */
-    public function __construct(public string $name, public Schema\Commit $commit, #[MapFrom('_links')]
-    public Schema\BranchWithProtection\Links $links, public bool $protected, public Schema\BranchProtection $protection, #[MapFrom('protection_url')]
+    public function __construct(public string $name, public Commit $commit, #[MapFrom('_links')]
+    public Links $links, public bool $protected, public BranchProtection $protection, #[MapFrom('protection_url')]
     public string $protectionUrl, public string|null $pattern, #[MapFrom('required_approving_review_count')]
     public int|null $requiredApprovingReviewCount,)
     {

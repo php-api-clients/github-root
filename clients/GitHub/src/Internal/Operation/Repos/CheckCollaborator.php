@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class CheckCollaborator
 {
@@ -32,7 +31,7 @@ final class CheckCollaborator
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], '/repos/{owner}/{repo}/collaborators/{username}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/collaborators/{username}'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'username' => $this->username]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

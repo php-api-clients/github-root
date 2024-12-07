@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GpgKey\Subkeys;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T0FCE66A6\T71ECC1B1\TC3D362CA\TD6E970B8;
 
-final readonly class Emails extends Schema\AliasAbstract\Tiet0FCE66A6\Tiet71ECC1B1\TietC3D362CA\TietD6E970B8
+final readonly class Emails extends TD6E970B8
 {
 }

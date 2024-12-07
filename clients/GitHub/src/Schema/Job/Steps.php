@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Job;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Steps
+final readonly class Steps implements \ApiClients\Client\GitHub\Contract\Job\Steps
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -80,11 +80,11 @@ final readonly class Steps
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "status": "queued",
-    "conclusion": "success",
-    "name": "test-coverage",
-    "number": 1,
-    "started_at": "2019-08-08T08:00:00-07:00",
-    "completed_at": "2019-08-08T08:00:00-07:00"
+    "conclusion": "generated",
+    "name": "generated",
+    "number": 6,
+    "started_at": "1970-01-01T00:00:00+00:00",
+    "completed_at": "1970-01-01T00:00:00+00:00"
 }';
 
     /**

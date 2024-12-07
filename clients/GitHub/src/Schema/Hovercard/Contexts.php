@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Hovercard;
 
-final readonly class Contexts
+final readonly class Contexts implements \ApiClients\Client\GitHub\Contract\Hovercard\Contexts
 {
     public const SCHEMA_JSON         = '{
     "required": [

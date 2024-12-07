@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Codespaces\DeleteCodespacesAccessUsers
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\DeleteCodespacesAccessUsers\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

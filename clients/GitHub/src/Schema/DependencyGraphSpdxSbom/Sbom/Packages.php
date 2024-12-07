@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Packages
+final readonly class Packages implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\Packages
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -113,25 +113,25 @@ final readonly class Packages
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "SPDXID": "SPDXRef-Package",
-    "name": "github\\/github",
-    "versionInfo": "1.0.0",
-    "downloadLocation": "NOASSERTION",
+    "SPDXID": "generated",
+    "name": "generated",
+    "versionInfo": "generated",
+    "downloadLocation": "generated",
     "filesAnalyzed": false,
-    "licenseConcluded": "MIT",
-    "licenseDeclared": "NOASSERTION",
-    "supplier": "NOASSERTION",
-    "copyrightText": "Copyright (c) 1985 GitHub.com",
+    "licenseConcluded": "generated",
+    "licenseDeclared": "generated",
+    "supplier": "generated",
+    "copyrightText": "generated",
     "externalRefs": [
         {
-            "referenceCategory": "PACKAGE-MANAGER",
-            "referenceLocator": "pkg:gem\\/rails@6.0.1",
-            "referenceType": "purl"
+            "referenceCategory": "generated",
+            "referenceLocator": "generated",
+            "referenceType": "generated"
         },
         {
-            "referenceCategory": "PACKAGE-MANAGER",
-            "referenceLocator": "pkg:gem\\/rails@6.0.1",
-            "referenceType": "purl"
+            "referenceCategory": "generated",
+            "referenceLocator": "generated",
+            "referenceType": "generated"
         }
     ]
 }';

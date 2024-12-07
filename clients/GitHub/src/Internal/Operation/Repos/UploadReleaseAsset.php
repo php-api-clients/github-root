@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets;
+use ApiClients\Client\GitHub\Schema\ReleaseAsset;
+use ApiClients\Client\GitHub\Schema\Repos\UploadReleaseAsset\Request\ApplicationOctetStream;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
 use function json_encode;
-use function str_replace;
 
 final class UploadReleaseAsset
 {
@@ -30,21 +32,24 @@ final class UploadReleaseAsset
     /**The unique identifier of the release. **/
     private int $releaseId;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets $hydrator, string $owner, string $repo, int $releaseId, private string $name, private string $label)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Assets $hydrator, string $owner, string $repo, int $releaseId, private string $name, private string $label)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
-        $this->releaseId = $releaseId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->releaseId               = $releaseId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\UploadReleaseAsset\Request\ApplicationOctetStream::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(ApplicationOctetStream::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace(['{owner}', '{repo}', '{release_id}', '{name}', '{label}'], [$this->owner, $this->repo, $this->releaseId, $this->name, $this->label], '/repos/{owner}/{repo}/releases/{release_id}/assets' . '?name={name}&label={label}'), ['Content-Type' => 'application/octet-stream'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/repos/{owner}/{repo}/releases/{release_id}/assets{?label,name}'))->expand(['label' => $this->label, 'name' => $this->name, 'owner' => $this->owner, 'release_id' => $this->releaseId, 'repo' => $this->repo]), ['Content-Type' => 'application/octet-stream'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ReleaseAsset|WithoutBody
+    public function createResponse(ResponseInterface $response): ReleaseAsset|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,9 +61,9 @@ final class UploadReleaseAsset
                      * Response for successful upload
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReleaseAsset::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ReleaseAsset::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ReleaseAsset::class, $body);
+                        return $this->hydrator->hydrateObject(ReleaseAsset::class, $body);
                 }
 
                 break;

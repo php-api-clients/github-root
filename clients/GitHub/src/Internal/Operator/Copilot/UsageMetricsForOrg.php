@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Copilot;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Copilot\Usage;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class UsageMetricsForOrg
     public const OPERATION_ID    = 'copilot/usage-metrics-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/copilot/usage';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Copilot\Usage $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Usage $hydrator)
     {
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
+    /** @return Observable<CopilotUsageMetrics> */
     public function call(string $org, string $since, string $until, int $page = 1, int $perPage = 28): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Copilot\UsageMetricsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $since, $until, $page, $perPage);

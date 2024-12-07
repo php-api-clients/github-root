@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\Secrets\SecretName;
+use ApiClients\Client\GitHub\Schema\ActionsSecret;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetEnvironmentSecret
 {
@@ -30,20 +31,22 @@ final class GetEnvironmentSecret
     /**The name of the secret. **/
     private string $secretName;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\Secrets\SecretName $hydrator, string $owner, string $repo, string $environmentName, string $secretName)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private SecretName $hydrator, string $owner, string $repo, string $environmentName, string $secretName)
     {
-        $this->owner           = $owner;
-        $this->repo            = $repo;
-        $this->environmentName = $environmentName;
-        $this->secretName      = $secretName;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->environmentName         = $environmentName;
+        $this->secretName              = $secretName;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{environment_name}', '{secret_name}'], [$this->owner, $this->repo, $this->environmentName, $this->secretName], '/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}'))->expand(['environment_name' => $this->environmentName, 'owner' => $this->owner, 'repo' => $this->repo, 'secret_name' => $this->secretName]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ActionsSecret
+    public function createResponse(ResponseInterface $response): ActionsSecret
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,9 +58,9 @@ final class GetEnvironmentSecret
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsSecret::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ActionsSecret::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ActionsSecret::class, $body);
+                        return $this->hydrator->hydrateObject(ActionsSecret::class, $body);
                 }
 
                 break;

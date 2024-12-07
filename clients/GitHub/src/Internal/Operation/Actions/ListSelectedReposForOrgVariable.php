@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Actions\Variables\Name\Repositories;
+use ApiClients\Client\GitHub\Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListSelectedReposForOrgVariable
 {
@@ -31,20 +32,22 @@ final class ListSelectedReposForOrgVariable
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Variables\Name\Repositories $hydrator, string $org, string $name, int $page = 1, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Repositories $hydrator, string $org, string $name, int $page = 1, int $perPage = 30)
     {
-        $this->org     = $org;
-        $this->name    = $name;
-        $this->page    = $page;
-        $this->perPage = $perPage;
+        $this->org                     = $org;
+        $this->name                    = $name;
+        $this->page                    = $page;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{name}', '{page}', '{per_page}'], [$this->org, $this->name, $this->page, $this->perPage], '/orgs/{org}/actions/variables/{name}/repositories' . '?page={page}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/actions/variables/{name}/repositories{?page,per_page}'))->expand(['name' => $this->name, 'org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json|WithoutBody
+    public function createResponse(ResponseInterface $response): Json|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,9 +59,9 @@ final class ListSelectedReposForOrgVariable
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Json::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json::class, $body);
+                        return $this->hydrator->hydrateObject(Json::class, $body);
                 }
 
                 break;

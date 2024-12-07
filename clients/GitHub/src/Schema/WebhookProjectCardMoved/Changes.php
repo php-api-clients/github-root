@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved\Changes\ColumnId;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardMoved\Changes
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -37,7 +37,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('column_id')]
-    public Schema\WebhookProjectCardMoved\Changes\ColumnId $columnId,)
+    public ColumnId $columnId,)
     {
     }
 }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Feed;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\LinkWithType;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\Feed\Links
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -253,15 +253,15 @@ final readonly class Links
      * repositoryDiscussions: Hypermedia Link with Type
      * repositoryDiscussionsCategory: Hypermedia Link with Type
      */
-    public function __construct(public Schema\LinkWithType $timeline, public Schema\LinkWithType $user, #[MapFrom('security_advisories')]
-    public Schema\LinkWithType|null $securityAdvisories, #[MapFrom('current_user')]
-    public Schema\LinkWithType|null $currentUser, #[MapFrom('current_user_public')]
-    public Schema\LinkWithType|null $currentUserPublic, #[MapFrom('current_user_actor')]
-    public Schema\LinkWithType|null $currentUserActor, #[MapFrom('current_user_organization')]
-    public Schema\LinkWithType|null $currentUserOrganization, #[MapFrom('current_user_organizations')]
+    public function __construct(public LinkWithType $timeline, public LinkWithType $user, #[MapFrom('security_advisories')]
+    public LinkWithType|null $securityAdvisories, #[MapFrom('current_user')]
+    public LinkWithType|null $currentUser, #[MapFrom('current_user_public')]
+    public LinkWithType|null $currentUserPublic, #[MapFrom('current_user_actor')]
+    public LinkWithType|null $currentUserActor, #[MapFrom('current_user_organization')]
+    public LinkWithType|null $currentUserOrganization, #[MapFrom('current_user_organizations')]
     public array|null $currentUserOrganizations, #[MapFrom('repository_discussions')]
-    public Schema\LinkWithType|null $repositoryDiscussions, #[MapFrom('repository_discussions_category')]
-    public Schema\LinkWithType|null $repositoryDiscussionsCategory,)
+    public LinkWithType|null $repositoryDiscussions, #[MapFrom('repository_discussions_category')]
+    public LinkWithType|null $repositoryDiscussionsCategory,)
     {
     }
 }

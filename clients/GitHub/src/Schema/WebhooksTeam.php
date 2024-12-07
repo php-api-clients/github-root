@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksTeam\Parent_;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksTeam
+final readonly class WebhooksTeam implements \ApiClients\Client\GitHub\Contract\WebhooksTeam
 {
     public const SCHEMA_JSON         = '{
     "title": "Team",
@@ -179,14 +179,14 @@ final readonly class WebhooksTeam
         "node_id": "generated",
         "permission": "generated",
         "privacy": "open",
-        "notification_setting": "notifications_disabled",
+        "notification_setting": "notifications_enabled",
         "repositories_url": "https:\\/\\/example.com\\/",
         "slug": "generated",
         "url": "https:\\/\\/example.com\\/"
     },
     "permission": "generated",
     "privacy": "open",
-    "notification_setting": "notifications_disabled",
+    "notification_setting": "notifications_enabled",
     "repositories_url": "https:\\/\\/example.com\\/",
     "slug": "generated",
     "url": "https:\\/\\/example.com\\/"
@@ -202,7 +202,7 @@ final readonly class WebhooksTeam
     public function __construct(public bool|null $deleted, public string|null $description, #[MapFrom('html_url')]
     public string|null $htmlUrl, public int $id, #[MapFrom('members_url')]
     public string|null $membersUrl, public string $name, #[MapFrom('node_id')]
-    public string|null $nodeId, public Schema\WebhooksTeam\Parent_|null $parent, public string|null $permission, public string|null $privacy, #[MapFrom('notification_setting')]
+    public string|null $nodeId, public Parent_|null $parent, public string|null $permission, public string|null $privacy, #[MapFrom('notification_setting')]
     public string|null $notificationSetting, #[MapFrom('repositories_url')]
     public string|null $repositoriesUrl, public string|null $slug, public string|null $url,)
     {

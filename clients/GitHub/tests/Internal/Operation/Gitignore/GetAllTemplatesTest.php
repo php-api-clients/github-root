@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\Gitignore;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operation\Gitignore\GetAllTemplates;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -28,7 +28,7 @@ final class GetAllTemplatesTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/gitignore/templates', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\Gitignore\GetAllTemplates::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(GetAllTemplates::OPERATION_MATCH, (static function (array $data): array {
             return $data;
         })([]));
     }

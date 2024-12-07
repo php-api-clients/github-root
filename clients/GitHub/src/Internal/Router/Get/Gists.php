@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\CheckIsStarred;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\Get;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\GetComment;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\GetRevision;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\List_;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListComments;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListCommits;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListForks;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListForUser;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListPublic;
+use ApiClients\Client\GitHub\Internal\Operator\Gists\ListStarred;
 use ApiClients\Client\GitHub\Schema\GistComment;
 use ApiClients\Client\GitHub\Schema\GistSimple;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +28,11 @@ use function array_key_exists;
 
 final class Gists
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\BaseGist>|WithoutBody */
+    /** @return Observable<BaseGist>|WithoutBody */
     public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -44,12 +54,12 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists());
+        $operator = new List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists());
 
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\BaseGist>|WithoutBody */
+    /** @return Observable<BaseGist>|WithoutBody */
     public function listPublic(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -71,12 +81,12 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListPublic($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀Public_());
+        $operator = new ListPublic($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀Public_());
 
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\BaseGist>|WithoutBody */
+    /** @return Observable<BaseGist>|WithoutBody */
     public function listStarred(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -98,7 +108,7 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListStarred($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀Starred());
+        $operator = new ListStarred($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀Starred());
 
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page']);
     }
@@ -113,12 +123,12 @@ final class Gists
 
         $arguments['gist_id'] = $params['gist_id'];
         unset($params['gist_id']);
-        $operator = new Internal\Operator\Gists\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId());
+        $operator = new Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId());
 
         return $operator->call($arguments['gist_id']);
     }
 
-    /** @return Observable<Schema\GistComment>|WithoutBody */
+    /** @return Observable<GistComment>|WithoutBody */
     public function listComments(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -140,12 +150,12 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListComments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments());
+        $operator = new ListComments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments());
 
         return $operator->call($arguments['gist_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GistCommit>|WithoutBody */
+    /** @return Observable<GistCommit>|WithoutBody */
     public function listCommits(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -167,12 +177,12 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Commits());
+        $operator = new ListCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Commits());
 
         return $operator->call($arguments['gist_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GistSimple>|WithoutBody */
+    /** @return Observable<GistSimple>|WithoutBody */
     public function listForks(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -194,7 +204,7 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListForks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Forks());
+        $operator = new ListForks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Forks());
 
         return $operator->call($arguments['gist_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -209,7 +219,7 @@ final class Gists
 
         $arguments['gist_id'] = $params['gist_id'];
         unset($params['gist_id']);
-        $operator = new Internal\Operator\Gists\CheckIsStarred($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Star());
+        $operator = new CheckIsStarred($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Star());
 
         return $operator->call($arguments['gist_id']);
     }
@@ -230,12 +240,12 @@ final class Gists
 
         $arguments['sha'] = $params['sha'];
         unset($params['sha']);
-        $operator = new Internal\Operator\Gists\GetRevision($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Sha());
+        $operator = new GetRevision($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Sha());
 
         return $operator->call($arguments['gist_id'], $arguments['sha']);
     }
 
-    /** @return Observable<Schema\BaseGist> */
+    /** @return Observable<BaseGist> */
     public function listForUser(array $params): iterable
     {
         $arguments = [];
@@ -263,7 +273,7 @@ final class Gists
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Gists\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Gists());
+        $operator = new ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Gists());
 
         return $operator->call($arguments['username'], $arguments['since'], $arguments['per_page'], $arguments['page']);
     }
@@ -284,7 +294,7 @@ final class Gists
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Gists\GetComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments🌀CommentId());
+        $operator = new GetComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments🌀CommentId());
 
         return $operator->call($arguments['gist_id'], $arguments['comment_id']);
     }

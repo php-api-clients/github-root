@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\Release;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetReleaseByTag
 {
@@ -29,19 +30,21 @@ final class GetReleaseByTag
     /**tag parameter **/
     private string $tag;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator, string $owner, string $repo, string $tag)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Tag $hydrator, string $owner, string $repo, string $tag)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->tag   = $tag;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->tag                     = $tag;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{tag}'], [$this->owner, $this->repo, $this->tag], '/repos/{owner}/{repo}/releases/tags/{tag}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/releases/tags/{tag}'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'tag' => $this->tag]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Release
+    public function createResponse(ResponseInterface $response): Release
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,17 +56,17 @@ final class GetReleaseByTag
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Release::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Release::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Release::class, $body);
+                        return $this->hydrator->hydrateObject(Release::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

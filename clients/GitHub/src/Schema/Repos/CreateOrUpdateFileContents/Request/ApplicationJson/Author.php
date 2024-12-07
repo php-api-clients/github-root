@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Author
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "email": "generated",
-    "date": "\\"2013-01-15T17:13:22+05:00\\""
+    "date": "generated"
 }';
 
     /**

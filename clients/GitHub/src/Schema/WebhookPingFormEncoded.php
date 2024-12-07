@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookPingFormEncoded
+final readonly class WebhookPingFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookPingFormEncoded
 {
     public const SCHEMA_JSON         = '{
     "required": [

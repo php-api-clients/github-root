@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DeploymentBranchPolicyNamePatternWithType
+final readonly class DeploymentBranchPolicyNamePatternWithType implements \ApiClients\Client\GitHub\Contract\DeploymentBranchPolicyNamePatternWithType
 {
     public const SCHEMA_JSON         = '{
     "title": "Deployment branch and tag policy name pattern",
@@ -36,7 +36,7 @@ final readonly class DeploymentBranchPolicyNamePatternWithType
     public const SCHEMA_TITLE        = 'Deployment branch and tag policy name pattern';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "release\\/*",
+    "name": "generated",
     "type": "branch"
 }';
 

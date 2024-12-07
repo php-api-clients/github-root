@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RunnerLabel
+final readonly class RunnerLabel implements \ApiClients\Client\GitHub\Contract\RunnerLabel
 {
     public const SCHEMA_JSON         = '{
     "title": "Self hosted runner label",
@@ -37,7 +37,7 @@ final readonly class RunnerLabel
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "name": "generated",
-    "type": "custom"
+    "type": "read-only"
 }';
 
     /**

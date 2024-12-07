@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DeploymentReviewerType
+final readonly class DeploymentReviewerType implements \ApiClients\Client\GitHub\Contract\DeploymentReviewerType
 {
     public const SCHEMA_JSON         = '{
     "enum": [

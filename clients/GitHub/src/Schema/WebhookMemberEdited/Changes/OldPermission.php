@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberEdited\Changes;
 
-final readonly class OldPermission
+final readonly class OldPermission implements \ApiClients\Client\GitHub\Contract\WebhookMemberEdited\Changes\OldPermission
 {
     public const SCHEMA_JSON         = '{
     "required": [

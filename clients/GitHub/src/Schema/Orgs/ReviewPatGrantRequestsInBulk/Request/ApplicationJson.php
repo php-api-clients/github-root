@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Orgs\ReviewPatGrantRequestsInBulk\Requ
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\ReviewPatGrantRequestsInBulk\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -146,7 +146,7 @@ final readonly class ApplicationJson
         114,
         115
     ],
-    "action": "deny",
+    "action": "approve",
     "reason": "generated"
 }';
 

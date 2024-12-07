@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Migrations;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Import\Authors;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class GetCommitAuthors
     public const OPERATION_ID    = 'migrations/get-commit-authors';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/import/authors';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Import\Authors $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Authors $hydrator)
     {
     }
 
-    /** @return Observable<Schema\PorterAuthor> */
+    /** @return Observable<PorterAuthor> */
     public function call(string $owner, string $repo, int $since): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Migrations\GetCommitAuthors($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $since);

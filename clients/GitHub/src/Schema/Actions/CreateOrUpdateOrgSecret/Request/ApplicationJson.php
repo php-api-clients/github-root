@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\CreateOrUpdateOrgSecret\Reques
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateOrUpdateOrgSecret\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -46,7 +46,7 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "encrypted_value": ":zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzzzzzz",
     "key_id": "generated",
-    "visibility": "selected",
+    "visibility": "all",
     "selected_repository_ids": [
         24,
         25

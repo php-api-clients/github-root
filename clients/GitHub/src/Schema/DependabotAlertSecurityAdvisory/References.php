@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-final readonly class References
+final readonly class References implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\References
 {
     public const SCHEMA_JSON         = '{
     "required": [

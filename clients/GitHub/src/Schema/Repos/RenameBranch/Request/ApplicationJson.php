@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\RenameBranch\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\RenameBranch\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class LabelSearchResultItem
+final readonly class LabelSearchResultItem implements \ApiClients\Client\GitHub\Contract\LabelSearchResultItem
 {
     public const SCHEMA_JSON         = '{
     "title": "Label Search Result Item",
@@ -104,7 +104,7 @@ final readonly class LabelSearchResultItem
     "color": "generated",
     "default": false,
     "description": "generated",
-    "score": 0.5,
+    "score": 5,
     "text_matches": [
         {
             "object_url": "generated",

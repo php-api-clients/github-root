@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Pulls\DismissReview\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\DismissReview\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -31,7 +31,7 @@ final readonly class ApplicationJson
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
-    "event": "\\"DISMISS\\""
+    "event": "DISMISS"
 }';
 
     /**

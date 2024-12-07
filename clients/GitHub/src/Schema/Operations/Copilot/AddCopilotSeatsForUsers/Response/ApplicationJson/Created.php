@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Copilot\AddCopilotSeatsForU
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Created
+final readonly class Created implements \ApiClients\Client\GitHub\Contract\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created
 {
     public const SCHEMA_JSON         = '{
     "required": [

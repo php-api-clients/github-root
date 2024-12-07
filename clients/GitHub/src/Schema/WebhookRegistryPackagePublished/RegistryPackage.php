@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\Registry;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RegistryPackage
+final readonly class RegistryPackage implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -914,7 +916,7 @@ final readonly class RegistryPackage
             "url": "generated",
             "user_view_type": "generated"
         },
-        "body": null,
+        "body": [],
         "body_html": "generated",
         "container_metadata": {
             "labels": [],
@@ -954,19 +956,19 @@ final readonly class RegistryPackage
             "name": "generated",
             "version": "generated",
             "npm_user": "generated",
-            "author": null,
-            "bugs": null,
+            "author": [],
+            "bugs": [],
             "dependencies": [],
             "dev_dependencies": [],
             "peer_dependencies": [],
             "optional_dependencies": [],
             "description": "generated",
-            "dist": null,
+            "dist": [],
             "git_head": "generated",
             "homepage": "generated",
             "license": "generated",
             "main": "generated",
-            "repository": null,
+            "repository": [],
             "scripts": [],
             "id": "generated",
             "node_version": "generated",
@@ -991,7 +993,7 @@ final readonly class RegistryPackage
             ],
             "bin": [],
             "man": [],
-            "directories": null,
+            "directories": [],
             "os": [
                 "generated",
                 "generated"
@@ -1007,7 +1009,6 @@ final readonly class RegistryPackage
             "published_via_actions": false,
             "deleted_by_id": 13
         },
-        "nuget_metadata": null,
         "package_files": [
             {
                 "content_type": "generated",
@@ -1126,9 +1127,9 @@ final readonly class RegistryPackage
 
     public function __construct(#[MapFrom('created_at')]
     public string|null $createdAt, public string|null $description, public string $ecosystem, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner $owner, #[MapFrom('package_type')]
+    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Owner $owner, #[MapFrom('package_type')]
     public string $packageType, #[MapFrom('package_version')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion|null $packageVersion, public Schema\WebhookRegistryPackagePublished\RegistryPackage\Registry|null $registry, #[MapFrom('updated_at')]
+    public PackageVersion|null $packageVersion, public Registry|null $registry, #[MapFrom('updated_at')]
     public string|null $updatedAt,)
     {
     }

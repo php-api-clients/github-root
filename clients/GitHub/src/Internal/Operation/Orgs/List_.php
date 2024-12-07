@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Organizations;
+use ApiClients\Client\GitHub\Schema\OrganizationSimple;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +20,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class List_
 {
@@ -30,18 +30,20 @@ final class List_
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Organizations $hydrator, int $since, int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Organizations $hydrator, int $since, int $perPage = 30)
     {
-        $this->since   = $since;
-        $this->perPage = $perPage;
+        $this->since                   = $since;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{since}', '{per_page}'], [$this->since, $this->perPage], '/organizations' . '?since={since}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/organizations{?per_page,since}'))->expand(['per_page' => $this->perPage, 'since' => $this->since]));
     }
 
-    /** @return Observable<Schema\OrganizationSimple>|WithoutBody */
+    /** @return Observable<OrganizationSimple>|WithoutBody */
     public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
@@ -54,12 +56,12 @@ final class List_
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\OrganizationSimple {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): OrganizationSimple {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(OrganizationSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\OrganizationSimple::class, $body);
+                                return $this->hydrator->hydrateObject(OrganizationSimple::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

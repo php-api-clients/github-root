@@ -4,10 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\AdminEnforced;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedActorNames;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedActorsOnly;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedDismissalActorsOnly;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\LinearHistoryRequirementEnforcementLevel;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\LockAllowsForkSync;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\LockBranchEnforcementLevel;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\PullRequestReviewsEnforcementLevel;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecks;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecksEnforcementLevel;
+use ApiClients\Client\GitHub\Schema\WebhookBranchProtectionRuleEdited\Changes\RequireLastPushApproval;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookBranchProtectionRuleEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -196,16 +206,16 @@ final readonly class Changes
         "from": false
     },
     "linear_history_requirement_enforcement_level": {
-        "from": "everyone"
+        "from": "off"
     },
     "lock_branch_enforcement_level": {
-        "from": "everyone"
+        "from": "off"
     },
     "lock_allows_fork_sync": {
         "from": false
     },
     "pull_request_reviews_enforcement_level": {
-        "from": "everyone"
+        "from": "off"
     },
     "require_last_push_approval": {
         "from": false
@@ -217,22 +227,22 @@ final readonly class Changes
         ]
     },
     "required_status_checks_enforcement_level": {
-        "from": "everyone"
+        "from": "off"
     }
 }';
 
     public function __construct(#[MapFrom('admin_enforced')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\AdminEnforced|null $adminEnforced, #[MapFrom('authorized_actor_names')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedActorNames|null $authorizedActorNames, #[MapFrom('authorized_actors_only')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedActorsOnly|null $authorizedActorsOnly, #[MapFrom('authorized_dismissal_actors_only')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\AuthorizedDismissalActorsOnly|null $authorizedDismissalActorsOnly, #[MapFrom('linear_history_requirement_enforcement_level')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\LinearHistoryRequirementEnforcementLevel|null $linearHistoryRequirementEnforcementLevel, #[MapFrom('lock_branch_enforcement_level')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\LockBranchEnforcementLevel|null $lockBranchEnforcementLevel, #[MapFrom('lock_allows_fork_sync')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\LockAllowsForkSync|null $lockAllowsForkSync, #[MapFrom('pull_request_reviews_enforcement_level')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\PullRequestReviewsEnforcementLevel|null $pullRequestReviewsEnforcementLevel, #[MapFrom('require_last_push_approval')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\RequireLastPushApproval|null $requireLastPushApproval, #[MapFrom('required_status_checks')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecks|null $requiredStatusChecks, #[MapFrom('required_status_checks_enforcement_level')]
-    public Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecksEnforcementLevel|null $requiredStatusChecksEnforcementLevel,)
+    public AdminEnforced|null $adminEnforced, #[MapFrom('authorized_actor_names')]
+    public AuthorizedActorNames|null $authorizedActorNames, #[MapFrom('authorized_actors_only')]
+    public AuthorizedActorsOnly|null $authorizedActorsOnly, #[MapFrom('authorized_dismissal_actors_only')]
+    public AuthorizedDismissalActorsOnly|null $authorizedDismissalActorsOnly, #[MapFrom('linear_history_requirement_enforcement_level')]
+    public LinearHistoryRequirementEnforcementLevel|null $linearHistoryRequirementEnforcementLevel, #[MapFrom('lock_branch_enforcement_level')]
+    public LockBranchEnforcementLevel|null $lockBranchEnforcementLevel, #[MapFrom('lock_allows_fork_sync')]
+    public LockAllowsForkSync|null $lockAllowsForkSync, #[MapFrom('pull_request_reviews_enforcement_level')]
+    public PullRequestReviewsEnforcementLevel|null $pullRequestReviewsEnforcementLevel, #[MapFrom('require_last_push_approval')]
+    public RequireLastPushApproval|null $requireLastPushApproval, #[MapFrom('required_status_checks')]
+    public RequiredStatusChecks|null $requiredStatusChecks, #[MapFrom('required_status_checks_enforcement_level')]
+    public RequiredStatusChecksEnforcementLevel|null $requiredStatusChecksEnforcementLevel,)
     {
     }
 }

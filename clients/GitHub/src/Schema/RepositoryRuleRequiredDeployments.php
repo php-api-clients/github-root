@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments\Parameters;
 
-final readonly class RepositoryRuleRequiredDeployments
+final readonly class RepositoryRuleRequiredDeployments implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredDeployments
 {
     public const SCHEMA_JSON         = '{
     "title": "required_deployments",
@@ -51,7 +51,7 @@ final readonly class RepositoryRuleRequiredDeployments
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleRequiredDeployments\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

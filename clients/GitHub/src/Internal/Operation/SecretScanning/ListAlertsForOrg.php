@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\SecretScanning;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\SecretScanning\Alerts;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
+use ApiClients\Client\GitHub\Schema\OrganizationSecretScanningAlert;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +22,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListAlertsForOrg
 {
@@ -54,29 +56,31 @@ final class ListAlertsForOrg
     /**A boolean value representing whether or not to filter alerts by the multi-repo tag being present. **/
     private bool $isMultiRepo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30, bool $isPubliclyLeaked = false, bool $isMultiRepo = false)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30, bool $isPubliclyLeaked = false, bool $isMultiRepo = false)
     {
-        $this->org              = $org;
-        $this->state            = $state;
-        $this->secretType       = $secretType;
-        $this->resolution       = $resolution;
-        $this->before           = $before;
-        $this->after            = $after;
-        $this->validity         = $validity;
-        $this->sort             = $sort;
-        $this->direction        = $direction;
-        $this->page             = $page;
-        $this->perPage          = $perPage;
-        $this->isPubliclyLeaked = $isPubliclyLeaked;
-        $this->isMultiRepo      = $isMultiRepo;
+        $this->org                     = $org;
+        $this->state                   = $state;
+        $this->secretType              = $secretType;
+        $this->resolution              = $resolution;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->validity                = $validity;
+        $this->sort                    = $sort;
+        $this->direction               = $direction;
+        $this->page                    = $page;
+        $this->perPage                 = $perPage;
+        $this->isPubliclyLeaked        = $isPubliclyLeaked;
+        $this->isMultiRepo             = $isMultiRepo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{state}', '{secret_type}', '{resolution}', '{before}', '{after}', '{validity}', '{sort}', '{direction}', '{page}', '{per_page}', '{is_publicly_leaked}', '{is_multi_repo}'], [$this->org, $this->state, $this->secretType, $this->resolution, $this->before, $this->after, $this->validity, $this->sort, $this->direction, $this->page, $this->perPage, $this->isPubliclyLeaked, $this->isMultiRepo], '/orgs/{org}/secret-scanning/alerts' . '?state={state}&secret_type={secret_type}&resolution={resolution}&before={before}&after={after}&validity={validity}&sort={sort}&direction={direction}&page={page}&per_page={per_page}&is_publicly_leaked={is_publicly_leaked}&is_multi_repo={is_multi_repo}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/secret-scanning/alerts{?after,before,direction,is_multi_repo,is_publicly_leaked,page,per_page,resolution,secret_type,sort,state,validity}'))->expand(['after' => $this->after, 'before' => $this->before, 'direction' => $this->direction, 'is_multi_repo' => $this->isMultiRepo, 'is_publicly_leaked' => $this->isPubliclyLeaked, 'org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'resolution' => $this->resolution, 'secret_type' => $this->secretType, 'sort' => $this->sort, 'state' => $this->state, 'validity' => $this->validity]));
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<OrganizationSecretScanningAlert> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -89,12 +93,12 @@ final class ListAlertsForOrg
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\OrganizationSecretScanningAlert {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): OrganizationSecretScanningAlert {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationSecretScanningAlert::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(OrganizationSecretScanningAlert::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\OrganizationSecretScanningAlert::class, $body);
+                                return $this->hydrator->hydrateObject(OrganizationSecretScanningAlert::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -107,17 +111,17 @@ final class ListAlertsForOrg
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                     /**
                      * Service unavailable
                      **/
 
                     case 503:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ServiceUnavailable::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable(503, $this->hydrator->hydrateObject(Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable(503, $this->hydrator->hydrateObject(ServiceUnavailable::class, $body));
                 }
 
                 break;

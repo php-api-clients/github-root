@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\Registry
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageFiles
+final readonly class PackageFiles implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\PackageFiles
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

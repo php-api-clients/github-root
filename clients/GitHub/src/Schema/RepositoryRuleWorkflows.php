@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows\Parameters;
 
-final readonly class RepositoryRuleWorkflows
+final readonly class RepositoryRuleWorkflows implements \ApiClients\Client\GitHub\Contract\RepositoryRuleWorkflows
 {
     public const SCHEMA_JSON         = '{
     "title": "workflows",
@@ -90,7 +90,7 @@ final readonly class RepositoryRuleWorkflows
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleWorkflows\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

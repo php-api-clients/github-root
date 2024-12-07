@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectColumnEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectColumnEdited\Changes\Name;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectColumnEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -32,7 +32,7 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookProjectColumnEdited\Changes\Name|null $name)
+    public function __construct(public Name|null $name)
     {
     }
 }

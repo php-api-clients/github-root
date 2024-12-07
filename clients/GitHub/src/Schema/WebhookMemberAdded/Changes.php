@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberAdded;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes\Permission;
+use ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes\RoleName;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMemberAdded\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -47,7 +48,7 @@ final readonly class Changes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "permission": {
-        "to": "read"
+        "to": "write"
     },
     "role_name": {
         "to": "generated"
@@ -61,8 +62,8 @@ final readonly class Changes
     role name, including custom roles.
      * roleName: The role assigned to the collaborator.
      */
-    public function __construct(public Schema\WebhookMemberAdded\Changes\Permission|null $permission, #[MapFrom('role_name')]
-    public Schema\WebhookMemberAdded\Changes\RoleName|null $roleName,)
+    public function __construct(public Permission|null $permission, #[MapFrom('role_name')]
+    public RoleName|null $roleName,)
     {
     }
 }

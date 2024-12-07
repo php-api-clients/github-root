@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Manifest;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class File
+final readonly class File implements \ApiClients\Client\GitHub\Contract\Manifest\File
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -24,7 +24,7 @@ final readonly class File
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "source_location": "\\/src\\/build\\/package-lock.json"
+    "source_location": "generated"
 }';
 
     /**

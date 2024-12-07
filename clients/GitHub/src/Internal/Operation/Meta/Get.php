@@ -4,35 +4,38 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Meta;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Meta;
+use ApiClients\Client\GitHub\Schema\ApiOverview;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class Get
 {
     public const OPERATION_ID    = 'meta/get';
     public const OPERATION_MATCH = 'GET /meta';
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Meta $hydrator)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Meta $hydrator)
     {
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace([], [], '/meta'));
+        return new Request('GET', (string) (new UriTemplate('/meta'))->expand([]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ApiOverview|WithoutBody
+    public function createResponse(ResponseInterface $response): ApiOverview|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -44,9 +47,9 @@ final class Get
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ApiOverview::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ApiOverview::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ApiOverview::class, $body);
+                        return $this->hydrator->hydrateObject(ApiOverview::class, $body);
                 }
 
                 break;

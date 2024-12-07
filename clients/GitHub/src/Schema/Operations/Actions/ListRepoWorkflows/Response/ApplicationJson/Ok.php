@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListRepoWorkflows\R
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -124,30 +124,30 @@ final readonly class Ok
     "total_count": 11,
     "workflows": [
         {
-            "id": 5,
-            "node_id": "MDg6V29ya2Zsb3cxMg==",
-            "name": "CI",
-            "path": "ruby.yaml",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "path": "generated",
             "state": "active",
-            "created_at": "2019-12-06T14:20:20.000Z",
-            "updated_at": "2019-12-06T14:20:20.000Z",
-            "url": "https:\\/\\/api.github.com\\/repos\\/actions\\/setup-ruby\\/workflows\\/5",
-            "html_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/blob\\/master\\/.github\\/workflows\\/ruby.yaml",
-            "badge_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/workflows\\/CI\\/badge.svg",
-            "deleted_at": "2019-12-06T14:20:20.000Z"
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "url": "generated",
+            "html_url": "generated",
+            "badge_url": "generated",
+            "deleted_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "id": 5,
-            "node_id": "MDg6V29ya2Zsb3cxMg==",
-            "name": "CI",
-            "path": "ruby.yaml",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "path": "generated",
             "state": "active",
-            "created_at": "2019-12-06T14:20:20.000Z",
-            "updated_at": "2019-12-06T14:20:20.000Z",
-            "url": "https:\\/\\/api.github.com\\/repos\\/actions\\/setup-ruby\\/workflows\\/5",
-            "html_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/blob\\/master\\/.github\\/workflows\\/ruby.yaml",
-            "badge_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/workflows\\/CI\\/badge.svg",
-            "deleted_at": "2019-12-06T14:20:20.000Z"
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "url": "generated",
+            "html_url": "generated",
+            "badge_url": "generated",
+            "deleted_at": "1970-01-01T00:00:00+00:00"
         }
     ]
 }';

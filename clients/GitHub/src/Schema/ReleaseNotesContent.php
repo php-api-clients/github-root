@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ReleaseNotesContent
+final readonly class ReleaseNotesContent implements \ApiClients\Client\GitHub\Contract\ReleaseNotesContent
 {
     public const SCHEMA_JSON         = '{
     "title": "Generated Release Notes Content",
@@ -31,7 +31,7 @@ final readonly class ReleaseNotesContent
     public const SCHEMA_TITLE        = 'Generated Release Notes Content';
     public const SCHEMA_DESCRIPTION  = 'Generated name and body describing a release';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Release v1.0.0 is now available!",
+    "name": "generated",
     "body": "generated"
 }';
 

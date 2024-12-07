@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeSecurity\SetConfigurationAsDefault
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeSecurity\SetConfigurationAsDefault\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

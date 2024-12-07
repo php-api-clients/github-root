@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Checks;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId;
+use ApiClients\Client\GitHub\Schema\CheckSuite;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetSuite
 {
@@ -28,19 +29,21 @@ final class GetSuite
     /**The unique identifier of the check suite. **/
     private int $checkSuiteId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId $hydrator, string $owner, string $repo, int $checkSuiteId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private CheckSuiteId $hydrator, string $owner, string $repo, int $checkSuiteId)
     {
-        $this->owner        = $owner;
-        $this->repo         = $repo;
-        $this->checkSuiteId = $checkSuiteId;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->checkSuiteId            = $checkSuiteId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{check_suite_id}'], [$this->owner, $this->repo, $this->checkSuiteId], '/repos/{owner}/{repo}/check-suites/{check_suite_id}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/check-suites/{check_suite_id}'))->expand(['check_suite_id' => $this->checkSuiteId, 'owner' => $this->owner, 'repo' => $this->repo]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CheckSuite
+    public function createResponse(ResponseInterface $response): CheckSuite
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +55,9 @@ final class GetSuite
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckSuite::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(CheckSuite::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CheckSuite::class, $body);
+                        return $this->hydrator->hydrateObject(CheckSuite::class, $body);
                 }
 
                 break;

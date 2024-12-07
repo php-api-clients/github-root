@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-final readonly class Identifiers
+final readonly class Identifiers implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Identifiers
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Identifiers
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'An advisory identifier.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "type": "GHSA",
+    "type": "CVE",
     "value": "generated"
 }';
 

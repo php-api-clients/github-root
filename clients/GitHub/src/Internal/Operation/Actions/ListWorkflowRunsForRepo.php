@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs;
+use ApiClients\Client\GitHub\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListWorkflowRunsForRepo
 {
@@ -46,28 +47,30 @@ final class ListWorkflowRunsForRepo
     /**If `true` pull requests are omitted from the response (empty array). **/
     private bool $excludePullRequests;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Runs $hydrator, string $owner, string $repo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Runs $hydrator, string $owner, string $repo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
     {
-        $this->owner               = $owner;
-        $this->repo                = $repo;
-        $this->actor               = $actor;
-        $this->branch              = $branch;
-        $this->event               = $event;
-        $this->status              = $status;
-        $this->created             = $created;
-        $this->checkSuiteId        = $checkSuiteId;
-        $this->headSha             = $headSha;
-        $this->perPage             = $perPage;
-        $this->page                = $page;
-        $this->excludePullRequests = $excludePullRequests;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->actor                   = $actor;
+        $this->branch                  = $branch;
+        $this->event                   = $event;
+        $this->status                  = $status;
+        $this->created                 = $created;
+        $this->checkSuiteId            = $checkSuiteId;
+        $this->headSha                 = $headSha;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->excludePullRequests     = $excludePullRequests;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{check_suite_id}', '{head_sha}', '{per_page}', '{page}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->checkSuiteId, $this->headSha, $this->perPage, $this->page, $this->excludePullRequests], '/repos/{owner}/{repo}/actions/runs' . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&check_suite_id={check_suite_id}&head_sha={head_sha}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/actions/runs{?actor,branch,check_suite_id,created,event,exclude_pull_requests,head_sha,page,per_page,status}'))->expand(['actor' => $this->actor, 'branch' => $this->branch, 'check_suite_id' => $this->checkSuiteId, 'created' => $this->created, 'event' => $this->event, 'exclude_pull_requests' => $this->excludePullRequests, 'head_sha' => $this->headSha, 'owner' => $this->owner, 'page' => $this->page, 'per_page' => $this->perPage, 'repo' => $this->repo, 'status' => $this->status]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok
+    public function createResponse(ResponseInterface $response): Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -79,9 +82,9 @@ final class ListWorkflowRunsForRepo
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Ok::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Ok::class, $body);
                 }
 
                 break;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TE3FC0C7D\T691EC246\T4B22CFB1\T8F3A7CC7;
 
-final readonly class Author extends Schema\AliasAbstract\Tiet826D3904\Tiet8B9E90A6\Tiet09260A6C\Tiet25135A2F
+final readonly class Author extends T8F3A7CC7
 {
 }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookSecurityAndAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookSecurityAndAnalysis\Changes\From;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookSecurityAndAnalysis\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -106,28 +106,28 @@ final readonly class Changes
     "from": {
         "security_and_analysis": {
             "advanced_security": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "dependabot_security_updates": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_push_protection": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_non_provider_patterns": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_ai_detection": {
-                "status": "disabled"
+                "status": "enabled"
             }
         }
     }
 }';
 
-    public function __construct(public Schema\WebhookSecurityAndAnalysis\Changes\From|null $from)
+    public function __construct(public From|null $from)
     {
     }
 }

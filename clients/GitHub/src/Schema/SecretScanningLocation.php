@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\SecretScanningLocation\Details;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\SecretScanningLocation\Details;
 
-final readonly class SecretScanningLocation
+final readonly class SecretScanningLocation implements \ApiClients\Client\GitHub\Contract\SecretScanningLocation
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -361,14 +360,16 @@ final readonly class SecretScanningLocation
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "type": "commit",
-    "details": null
+    "details": {
+        "pull_request_review_comment_url": "https:\\/\\/example.com\\/"
+    }
 }';
 
     /**
      * type: The location type. Because secrets may be found in different types of resources (ie. code, comments, issues, pull requests, discussions), this field identifies the type of resource where the secret was found.
      */
     public function __construct(public string|null $type, #[Details]
-    public Schema\SecretScanningLocationCommit|Schema\SecretScanningLocationWikiCommit|Schema\SecretScanningLocationIssueTitle|Schema\SecretScanningLocationIssueBody|Schema\SecretScanningLocationIssueComment|Schema\SecretScanningLocationDiscussionTitle|Schema\SecretScanningLocationDiscussionBody|Schema\SecretScanningLocationDiscussionComment|Schema\SecretScanningLocationPullRequestTitle|Schema\SecretScanningLocationPullRequestBody|Schema\SecretScanningLocationPullRequestComment|Schema\SecretScanningLocationPullRequestReview|Schema\SecretScanningLocationPullRequestReviewComment|null $details,)
+    public SecretScanningLocationCommit|SecretScanningLocationWikiCommit|SecretScanningLocationIssueTitle|SecretScanningLocationIssueBody|SecretScanningLocationIssueComment|SecretScanningLocationDiscussionTitle|SecretScanningLocationDiscussionBody|SecretScanningLocationDiscussionComment|SecretScanningLocationPullRequestTitle|SecretScanningLocationPullRequestBody|SecretScanningLocationPullRequestComment|SecretScanningLocationPullRequestReview|SecretScanningLocationPullRequestReviewComment|null $details,)
     {
     }
 }

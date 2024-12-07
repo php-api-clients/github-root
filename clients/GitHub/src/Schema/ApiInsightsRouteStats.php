@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApiInsightsRouteStats
+final readonly class ApiInsightsRouteStats implements \ApiClients\Client\GitHub\Contract\ApiInsightsRouteStats
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

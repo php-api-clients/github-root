@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Commit;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Commit\Commit\Tree;
+use ApiClients\Client\GitHub\Schema\GitUser;
+use ApiClients\Client\GitHub\Schema\Verification;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\Commit\Commit
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -166,22 +168,22 @@ final readonly class Commit
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+    "url": "https:\\/\\/example.com\\/",
     "author": {
-        "name": "\\"Chris Wanstrath\\"",
-        "email": "\\"chris@ozmm.org\\"",
-        "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+        "name": "generated",
+        "email": "generated",
+        "date": "generated"
     },
     "committer": {
-        "name": "\\"Chris Wanstrath\\"",
-        "email": "\\"chris@ozmm.org\\"",
-        "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+        "name": "generated",
+        "email": "generated",
+        "date": "generated"
     },
-    "message": "Fix all the bugs",
-    "comment_count": 0,
+    "message": "generated",
+    "comment_count": 13,
     "tree": {
-        "sha": "827efc6d56897b048c772eb4087f854f46256132",
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+        "sha": "generated",
+        "url": "https:\\/\\/example.com\\/"
     },
     "verification": {
         "verified": false,
@@ -192,8 +194,8 @@ final readonly class Commit
     }
 }';
 
-    public function __construct(public string $url, public Schema\GitUser|null $author, public Schema\GitUser|null $committer, public string $message, #[MapFrom('comment_count')]
-    public int $commentCount, public Schema\Commit\Commit\Tree $tree, public Schema\Verification|null $verification,)
+    public function __construct(public string $url, public GitUser|null $author, public GitUser|null $committer, public string $message, #[MapFrom('comment_count')]
+    public int $commentCount, public Tree $tree, public Verification|null $verification,)
     {
     }
 }

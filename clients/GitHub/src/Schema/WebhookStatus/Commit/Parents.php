@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Parents
+final readonly class Parents implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Commit\Parents
 {
     public const SCHEMA_JSON         = '{
     "required": [

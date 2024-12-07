@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Hovercard
+final readonly class Hovercard implements \ApiClients\Client\GitHub\Contract\Hovercard
 {
     public const SCHEMA_JSON         = '{
     "title": "Hovercard",

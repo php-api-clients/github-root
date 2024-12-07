@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Activity;
+use ApiClients\Client\GitHub\Schema\ValidationErrorSimple;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +20,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListActivities
 {
@@ -52,26 +52,28 @@ final class ListActivities
     /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Activity $hydrator, string $owner, string $repo, string $before, string $after, string $ref, string $actor, string $timePeriod, string $activityType, string $direction = 'desc', int $perPage = 30)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Activity $hydrator, string $owner, string $repo, string $before, string $after, string $ref, string $actor, string $timePeriod, string $activityType, string $direction = 'desc', int $perPage = 30)
     {
-        $this->owner        = $owner;
-        $this->repo         = $repo;
-        $this->before       = $before;
-        $this->after        = $after;
-        $this->ref          = $ref;
-        $this->actor        = $actor;
-        $this->timePeriod   = $timePeriod;
-        $this->activityType = $activityType;
-        $this->direction    = $direction;
-        $this->perPage      = $perPage;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->before                  = $before;
+        $this->after                   = $after;
+        $this->ref                     = $ref;
+        $this->actor                   = $actor;
+        $this->timePeriod              = $timePeriod;
+        $this->activityType            = $activityType;
+        $this->direction               = $direction;
+        $this->perPage                 = $perPage;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{before}', '{after}', '{ref}', '{actor}', '{time_period}', '{activity_type}', '{direction}', '{per_page}'], [$this->owner, $this->repo, $this->before, $this->after, $this->ref, $this->actor, $this->timePeriod, $this->activityType, $this->direction, $this->perPage], '/repos/{owner}/{repo}/activity' . '?before={before}&after={after}&ref={ref}&actor={actor}&time_period={time_period}&activity_type={activity_type}&direction={direction}&per_page={per_page}'));
+        return new Request('GET', (string) (new UriTemplate('/repos/{owner}/{repo}/activity{?activity_type,actor,after,before,direction,per_page,ref,time_period}'))->expand(['activity_type' => $this->activityType, 'actor' => $this->actor, 'after' => $this->after, 'before' => $this->before, 'direction' => $this->direction, 'owner' => $this->owner, 'per_page' => $this->perPage, 'ref' => $this->ref, 'repo' => $this->repo, 'time_period' => $this->timePeriod]));
     }
 
-    /** @return Observable<Schema\Activity> */
+    /** @return Observable<\ApiClients\Client\GitHub\Schema\Activity> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -84,12 +86,12 @@ final class ListActivities
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\Activity {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): \ApiClients\Client\GitHub\Schema\Activity {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Activity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(\ApiClients\Client\GitHub\Schema\Activity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\Activity::class, $body);
+                                return $this->hydrator->hydrateObject(\ApiClients\Client\GitHub\Schema\Activity::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -102,9 +104,9 @@ final class ListActivities
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(ValidationErrorSimple::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\ValidationErrorSimple(422, $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\ValidationErrorSimple(422, $this->hydrator->hydrateObject(ValidationErrorSimple::class, $body));
                 }
 
                 break;

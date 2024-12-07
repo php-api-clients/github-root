@@ -4,8 +4,39 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeclineInvitationForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\Delete;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteAdminBranchProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteAnEnvironment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteAutolink;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteBranchProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteCommitComment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteCommitSignatureProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteDeployKey;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteDeployment;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteDeploymentBranchPolicy;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteFile;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteInvitation;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteOrgRuleset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeletePagesSite;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeletePullRequestReviewProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteRelease;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteReleaseAsset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteRepoRuleset;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteTagProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DeleteWebhook;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DisableAutomatedSecurityFixes;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DisableDeploymentProtectionRule;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DisablePrivateVulnerabilityReporting;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\DisableVulnerabilityAlerts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveAppAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveCollaborator;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveStatusCheckContexts;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveStatusCheckProtection;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveTeamAccessRestrictions;
+use ApiClients\Client\GitHub\Internal\Operator\Repos\RemoveUserAccessRestrictions;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\FileCommit;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,7 +49,7 @@ use function array_key_exists;
 
 final class Repos
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -38,7 +69,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\Delete($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
+        $operator = new Delete($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -53,7 +84,7 @@ final class Repos
 
         $arguments['invitation_id'] = $params['invitation_id'];
         unset($params['invitation_id']);
-        $operator = new Internal\Operator\Repos\DeclineInvitationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations🌀InvitationId());
+        $operator = new DeclineInvitationForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations🌀InvitationId());
 
         return $operator->call($arguments['invitation_id']);
     }
@@ -74,7 +105,7 @@ final class Repos
 
         $arguments['ruleset_id'] = $params['ruleset_id'];
         unset($params['ruleset_id']);
-        $operator = new Internal\Operator\Repos\DeleteOrgRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
+        $operator = new DeleteOrgRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['org'], $arguments['ruleset_id']);
     }
@@ -95,7 +126,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\DisableAutomatedSecurityFixes($this->browser, $this->authentication);
+        $operator = new DisableAutomatedSecurityFixes($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -116,7 +147,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\DeletePagesSite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
+        $operator = new DeletePagesSite($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -137,7 +168,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\DisablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
+        $operator = new DisablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -158,7 +189,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\DisableVulnerabilityAlerts($this->browser, $this->authentication);
+        $operator = new DisableVulnerabilityAlerts($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -185,7 +216,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\DeleteBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
+        $operator = new DeleteBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -212,7 +243,7 @@ final class Repos
 
         $arguments['asset_id'] = $params['asset_id'];
         unset($params['asset_id']);
-        $operator = new Internal\Operator\Repos\DeleteReleaseAsset($this->browser, $this->authentication);
+        $operator = new DeleteReleaseAsset($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id']);
     }
@@ -239,7 +270,7 @@ final class Repos
 
         $arguments['tag_protection_id'] = $params['tag_protection_id'];
         unset($params['tag_protection_id']);
-        $operator = new Internal\Operator\Repos\DeleteTagProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags🌀Protection🌀TagProtectionId());
+        $operator = new DeleteTagProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags🌀Protection🌀TagProtectionId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag_protection_id']);
     }
@@ -266,7 +297,7 @@ final class Repos
 
         $arguments['autolink_id'] = $params['autolink_id'];
         unset($params['autolink_id']);
-        $operator = new Internal\Operator\Repos\DeleteAutolink($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks🌀AutolinkId());
+        $operator = new DeleteAutolink($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks🌀AutolinkId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['autolink_id']);
     }
@@ -293,7 +324,7 @@ final class Repos
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Repos\RemoveCollaborator($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username());
+        $operator = new RemoveCollaborator($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Collaborators🌀Username());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
@@ -320,7 +351,7 @@ final class Repos
 
         $arguments['comment_id'] = $params['comment_id'];
         unset($params['comment_id']);
-        $operator = new Internal\Operator\Repos\DeleteCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
+        $operator = new DeleteCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
@@ -347,7 +378,7 @@ final class Repos
 
         $arguments['path'] = $params['path'];
         unset($params['path']);
-        $operator = new Internal\Operator\Repos\DeleteFile($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
+        $operator = new DeleteFile($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Contents🌀Path());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
@@ -374,7 +405,7 @@ final class Repos
 
         $arguments['deployment_id'] = $params['deployment_id'];
         unset($params['deployment_id']);
-        $operator = new Internal\Operator\Repos\DeleteDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId());
+        $operator = new DeleteDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments🌀DeploymentId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
@@ -401,7 +432,7 @@ final class Repos
 
         $arguments['environment_name'] = $params['environment_name'];
         unset($params['environment_name']);
-        $operator = new Internal\Operator\Repos\DeleteAnEnvironment($this->browser, $this->authentication);
+        $operator = new DeleteAnEnvironment($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
@@ -428,7 +459,7 @@ final class Repos
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        $operator = new Internal\Operator\Repos\DeleteWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
+        $operator = new DeleteWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Hooks🌀HookId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
@@ -455,7 +486,7 @@ final class Repos
 
         $arguments['invitation_id'] = $params['invitation_id'];
         unset($params['invitation_id']);
-        $operator = new Internal\Operator\Repos\DeleteInvitation($this->browser, $this->authentication);
+        $operator = new DeleteInvitation($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['invitation_id']);
     }
@@ -482,7 +513,7 @@ final class Repos
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        $operator = new Internal\Operator\Repos\DeleteDeployKey($this->browser, $this->authentication);
+        $operator = new DeleteDeployKey($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
@@ -509,7 +540,7 @@ final class Repos
 
         $arguments['release_id'] = $params['release_id'];
         unset($params['release_id']);
-        $operator = new Internal\Operator\Repos\DeleteRelease($this->browser, $this->authentication);
+        $operator = new DeleteRelease($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
@@ -536,7 +567,7 @@ final class Repos
 
         $arguments['ruleset_id'] = $params['ruleset_id'];
         unset($params['ruleset_id']);
-        $operator = new Internal\Operator\Repos\DeleteRepoRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
+        $operator = new DeleteRepoRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ruleset_id']);
     }
@@ -563,7 +594,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\DeleteAdminBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀EnforceAdmins());
+        $operator = new DeleteAdminBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀EnforceAdmins());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -590,7 +621,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\DeletePullRequestReviewProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
+        $operator = new DeletePullRequestReviewProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredPullRequestReviews());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -617,7 +648,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\DeleteCommitSignatureProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredSignatures());
+        $operator = new DeleteCommitSignatureProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredSignatures());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -644,7 +675,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\RemoveStatusCheckProtection($this->browser, $this->authentication);
+        $operator = new RemoveStatusCheckProtection($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -671,7 +702,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\DeleteAccessRestrictions($this->browser, $this->authentication);
+        $operator = new DeleteAccessRestrictions($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
@@ -704,7 +735,7 @@ final class Repos
 
         $arguments['branch_policy_id'] = $params['branch_policy_id'];
         unset($params['branch_policy_id']);
-        $operator = new Internal\Operator\Repos\DeleteDeploymentBranchPolicy($this->browser, $this->authentication);
+        $operator = new DeleteDeploymentBranchPolicy($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
@@ -737,7 +768,7 @@ final class Repos
 
         $arguments['protection_rule_id'] = $params['protection_rule_id'];
         unset($params['protection_rule_id']);
-        $operator = new Internal\Operator\Repos\DisableDeploymentProtectionRule($this->browser, $this->authentication);
+        $operator = new DisableDeploymentProtectionRule($this->browser, $this->authentication);
 
         return $operator->call($arguments['environment_name'], $arguments['repo'], $arguments['owner'], $arguments['protection_rule_id']);
     }
@@ -764,12 +795,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\RemoveStatusCheckContexts($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
+        $operator = new RemoveStatusCheckContexts($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀RequiredStatusChecks🌀Contexts());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Integration> */
+    /** @return Observable<Integration> */
     public function removeAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -791,12 +822,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\RemoveAppAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
+        $operator = new RemoveAppAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Apps());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function removeTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -818,12 +849,12 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\RemoveTeamAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
+        $operator = new RemoveTeamAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Teams());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function removeUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -845,7 +876,7 @@ final class Repos
 
         $arguments['branch'] = $params['branch'];
         unset($params['branch']);
-        $operator = new Internal\Operator\Repos\RemoveUserAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
+        $operator = new RemoveUserAccessRestrictions($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection🌀Restrictions🌀Users());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }

@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Codespaces;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\User\Codespaces\CodespaceName\Exports\ExportId;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\CodespaceExportDetails;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetExportDetailsForAuthenticatedUser
 {
@@ -27,18 +28,20 @@ final class GetExportDetailsForAuthenticatedUser
     /**The ID of the export operation, or `latest`. Currently only `latest` is currently supported. **/
     private string $exportId;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\User\Codespaces\CodespaceName\Exports\ExportId $hydrator, string $codespaceName, string $exportId)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private ExportId $hydrator, string $codespaceName, string $exportId)
     {
-        $this->codespaceName = $codespaceName;
-        $this->exportId      = $exportId;
+        $this->codespaceName           = $codespaceName;
+        $this->exportId                = $exportId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{codespace_name}', '{export_id}'], [$this->codespaceName, $this->exportId], '/user/codespaces/{codespace_name}/exports/{export_id}'));
+        return new Request('GET', (string) (new UriTemplate('/user/codespaces/{codespace_name}/exports/{export_id}'))->expand(['codespace_name' => $this->codespaceName, 'export_id' => $this->exportId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\CodespaceExportDetails
+    public function createResponse(ResponseInterface $response): CodespaceExportDetails
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -50,17 +53,17 @@ final class GetExportDetailsForAuthenticatedUser
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodespaceExportDetails::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(CodespaceExportDetails::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\CodespaceExportDetails::class, $body);
+                        return $this->hydrator->hydrateObject(CodespaceExportDetails::class, $body);
                     /**
                      * Resource not found
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

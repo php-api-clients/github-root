@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Forbidden;
 
-final readonly class Errors
+final readonly class Errors implements \ApiClients\Client\GitHub\Contract\Operations\Projects\MoveCard\Response\ApplicationJson\Forbidden\Errors
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

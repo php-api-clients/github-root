@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RuleSuite;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RuleSuite\RuleEvaluations\RuleSource;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RuleEvaluations
+final readonly class RuleEvaluations implements \ApiClients\Client\GitHub\Contract\RuleSuite\RuleEvaluations
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -74,7 +74,7 @@ final readonly class RuleEvaluations
         "name": "generated"
     },
     "enforcement": "active",
-    "result": "fail",
+    "result": "pass",
     "rule_type": "generated",
     "details": "generated"
 }';
@@ -86,7 +86,7 @@ final readonly class RuleEvaluations
      * details: The detailed failure message for the rule. Null if the rule passed.
      */
     public function __construct(#[MapFrom('rule_source')]
-    public Schema\RuleSuite\RuleEvaluations\RuleSource|null $ruleSource, public string|null $enforcement, public string|null $result, #[MapFrom('rule_type')]
+    public RuleSource|null $ruleSource, public string|null $enforcement, public string|null $result, #[MapFrom('rule_type')]
     public string|null $ruleType, public string|null $details,)
     {
     }

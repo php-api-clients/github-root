@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
-final readonly class CreationInfo
+final readonly class CreationInfo implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\CreationInfo
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class CreationInfo
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "created": "2021-11-03T00:00:00Z",
+    "created": "generated",
     "creators": [
         "generated",
         "generated"

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ValidationError
+final readonly class ValidationError implements \ApiClients\Client\GitHub\Contract\ValidationError
 {
     public const SCHEMA_JSON         = '{
     "title": "Validation Error",
@@ -87,16 +87,14 @@ final readonly class ValidationError
             "field": "generated",
             "message": "generated",
             "code": "generated",
-            "index": 5,
-            "value": null
+            "index": 5
         },
         {
             "resource": "generated",
             "field": "generated",
             "message": "generated",
             "code": "generated",
-            "index": 5,
-            "value": null
+            "index": 5
         }
     ]
 }';

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksRepositorySelection
+final readonly class WebhooksRepositorySelection implements \ApiClients\Client\GitHub\Contract\WebhooksRepositorySelection
 {
     public const SCHEMA_JSON         = '{
     "enum": [

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id\One;
+use ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value\Three;
 
-final readonly class NugetMetadata
+final readonly class NugetMetadata implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -70,14 +71,19 @@ final readonly class NugetMetadata
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": null,
+    "id": 5,
     "name": "generated",
-    "value": null
+    "value": {
+        "url": "generated",
+        "branch": "generated",
+        "commit": "generated",
+        "type": "generated"
+    }
 }';
 
     public function __construct(#[Id]
-    public string|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id\One|int|null $id, public string|null $name, #[Value]
-    public bool|string|int|Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value\Three|null $value,)
+    public string|One|int|null $id, public string|null $name, #[Value]
+    public bool|string|int|Three|null $value,)
     {
     }
 }

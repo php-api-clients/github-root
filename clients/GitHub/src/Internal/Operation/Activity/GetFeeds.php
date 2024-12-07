@@ -4,34 +4,37 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Activity;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Feeds;
+use ApiClients\Client\GitHub\Schema\Feed;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class GetFeeds
 {
     public const OPERATION_ID    = 'activity/get-feeds';
     public const OPERATION_MATCH = 'GET /feeds';
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Feeds $hydrator)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Feeds $hydrator)
     {
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace([], [], '/feeds'));
+        return new Request('GET', (string) (new UriTemplate('/feeds'))->expand([]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Feed
+    public function createResponse(ResponseInterface $response): Feed
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -43,9 +46,9 @@ final class GetFeeds
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Feed::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Feed::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Feed::class, $body);
+                        return $this->hydrator->hydrateObject(Feed::class, $body);
                 }
 
                 break;

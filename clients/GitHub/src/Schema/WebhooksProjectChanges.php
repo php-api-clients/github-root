@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksProjectChanges\ArchivedAt;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksProjectChanges
+final readonly class WebhooksProjectChanges implements \ApiClients\Client\GitHub\Contract\WebhooksProjectChanges
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -43,7 +43,7 @@ final readonly class WebhooksProjectChanges
 }';
 
     public function __construct(#[MapFrom('archived_at')]
-    public Schema\WebhooksProjectChanges\ArchivedAt|null $archivedAt,)
+    public ArchivedAt|null $archivedAt,)
     {
     }
 }

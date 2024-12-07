@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdatePullRequestReviewProtection\Request\ApplicationJson;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T7D758BFE\TEBB29982\T55D896DD\TB656904B;
 
-final readonly class DismissalRestrictions extends Schema\AliasAbstract\Tiet7D758BFE\TietEBB29982\Tiet55D896DD\TietB656904B
+final readonly class DismissalRestrictions extends TB656904B
 {
 }

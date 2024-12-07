@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Orgs;
 
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Invitations;
+use ApiClients\Client\GitHub\Schema\BasicError;
+use ApiClients\Client\GitHub\Schema\OrganizationInvitation;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 use Rx\Observable;
 use Rx\Scheduler\ImmediateScheduler;
@@ -19,7 +21,6 @@ use Throwable;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class ListPendingInvitations
 {
@@ -36,21 +37,23 @@ final class ListPendingInvitations
     /**Filter invitations by their invitation source. **/
     private string $invitationSource;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Invitations $hydrator, string $org, int $perPage = 30, int $page = 1, string $role = 'all', string $invitationSource = 'all')
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Invitations $hydrator, string $org, int $perPage = 30, int $page = 1, string $role = 'all', string $invitationSource = 'all')
     {
-        $this->org              = $org;
-        $this->perPage          = $perPage;
-        $this->page             = $page;
-        $this->role             = $role;
-        $this->invitationSource = $invitationSource;
+        $this->org                     = $org;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
+        $this->role                    = $role;
+        $this->invitationSource        = $invitationSource;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{org}', '{per_page}', '{page}', '{role}', '{invitation_source}'], [$this->org, $this->perPage, $this->page, $this->role, $this->invitationSource], '/orgs/{org}/invitations' . '?per_page={per_page}&page={page}&role={role}&invitation_source={invitation_source}'));
+        return new Request('GET', (string) (new UriTemplate('/orgs/{org}/invitations{?invitation_source,page,per_page,role}'))->expand(['invitation_source' => $this->invitationSource, 'org' => $this->org, 'page' => $this->page, 'per_page' => $this->perPage, 'role' => $this->role]));
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();
@@ -63,12 +66,12 @@ final class ListPendingInvitations
                      * Response
                      **/
                     case 200:
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\OrganizationInvitation {
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): OrganizationInvitation {
                             $error = new RuntimeException();
                             try {
-                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationInvitation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(OrganizationInvitation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\OrganizationInvitation::class, $body);
+                                return $this->hydrator->hydrateObject(OrganizationInvitation::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -81,9 +84,9 @@ final class ListPendingInvitations
                      **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(BasicError::SCHEMA_JSON, Schema::class));
 
-                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                        throw new \ApiClients\Client\GitHub\Error\BasicError(404, $this->hydrator->hydrateObject(BasicError::class, $body));
                 }
 
                 break;

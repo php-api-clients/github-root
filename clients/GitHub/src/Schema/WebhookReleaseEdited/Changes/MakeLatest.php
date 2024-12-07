@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes;
 
-final readonly class MakeLatest
+final readonly class MakeLatest implements \ApiClients\Client\GitHub\Contract\WebhookReleaseEdited\Changes\MakeLatest
 {
     public const SCHEMA_JSON         = '{
     "required": [

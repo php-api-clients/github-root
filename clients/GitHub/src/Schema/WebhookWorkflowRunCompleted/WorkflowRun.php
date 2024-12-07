@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted\WorkflowRun\Actor;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadRepository;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted\WorkflowRun\Repository;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunCompleted\WorkflowRun\TriggeringActor;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WorkflowRun
+final readonly class WorkflowRun implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowRunCompleted\WorkflowRun
 {
     public const SCHEMA_JSON         = '{
     "title": "Workflow Run",
@@ -1278,7 +1282,7 @@ final readonly class WorkflowRun
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -1287,7 +1291,7 @@ final readonly class WorkflowRun
     "check_suite_id": 14,
     "check_suite_node_id": "generated",
     "check_suite_url": "https:\\/\\/example.com\\/",
-    "conclusion": "startup_failure",
+    "conclusion": "action_required",
     "created_at": "1970-01-01T00:00:00+00:00",
     "event": "generated",
     "head_branch": "generated",
@@ -1364,7 +1368,7 @@ final readonly class WorkflowRun
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1409,8 +1413,8 @@ final readonly class WorkflowRun
                 },
                 "sha": "generated"
             },
-            "id": 0.2,
-            "number": 0.6,
+            "id": 2,
+            "number": 6,
             "url": "https:\\/\\/example.com\\/"
         },
         {
@@ -1432,12 +1436,11 @@ final readonly class WorkflowRun
                 },
                 "sha": "generated"
             },
-            "id": 0.2,
-            "number": 0.6,
+            "id": 2,
+            "number": 6,
             "url": "https:\\/\\/example.com\\/"
         }
     ],
-    "referenced_workflows": null,
     "repository": {
         "archive_url": "generated",
         "assignees_url": "generated",
@@ -1493,7 +1496,7 @@ final readonly class WorkflowRun
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1513,7 +1516,7 @@ final readonly class WorkflowRun
     "run_attempt": 11,
     "run_number": 10,
     "run_started_at": "1970-01-01T00:00:00+00:00",
-    "status": "waiting",
+    "status": "requested",
     "triggering_actor": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -1534,7 +1537,7 @@ final readonly class WorkflowRun
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -1542,13 +1545,13 @@ final readonly class WorkflowRun
     "url": "https:\\/\\/example.com\\/",
     "workflow_id": 11,
     "workflow_url": "https:\\/\\/example.com\\/",
-    "display_title": "Simple Workflow"
+    "display_title": "generated"
 }';
 
     /**
      * displayTitle: The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow.
      */
-    public function __construct(public Schema\WebhookWorkflowRunCompleted\WorkflowRun\Actor|null $actor, #[MapFrom('artifacts_url')]
+    public function __construct(public Actor|null $actor, #[MapFrom('artifacts_url')]
     public string $artifactsUrl, #[MapFrom('cancel_url')]
     public string $cancelUrl, #[MapFrom('check_suite_id')]
     public int $checkSuiteId, #[MapFrom('check_suite_node_id')]
@@ -1556,8 +1559,8 @@ final readonly class WorkflowRun
     public string $checkSuiteUrl, public string|null $conclusion, #[MapFrom('created_at')]
     public string $createdAt, public string $event, #[MapFrom('head_branch')]
     public string|null $headBranch, #[MapFrom('head_commit')]
-    public Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit $headCommit, #[MapFrom('head_repository')]
-    public Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadRepository $headRepository, #[MapFrom('head_sha')]
+    public HeadCommit $headCommit, #[MapFrom('head_repository')]
+    public HeadRepository $headRepository, #[MapFrom('head_sha')]
     public string $headSha, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('jobs_url')]
     public string $jobsUrl, #[MapFrom('logs_url')]
@@ -1565,12 +1568,12 @@ final readonly class WorkflowRun
     public string $nodeId, public string $path, #[MapFrom('previous_attempt_url')]
     public string|null $previousAttemptUrl, #[MapFrom('pull_requests')]
     public array $pullRequests, #[MapFrom('referenced_workflows')]
-    public array|null $referencedWorkflows, public Schema\WebhookWorkflowRunCompleted\WorkflowRun\Repository $repository, #[MapFrom('rerun_url')]
+    public array|null $referencedWorkflows, public Repository $repository, #[MapFrom('rerun_url')]
     public string $rerunUrl, #[MapFrom('run_attempt')]
     public int $runAttempt, #[MapFrom('run_number')]
     public int $runNumber, #[MapFrom('run_started_at')]
     public string $runStartedAt, public string $status, #[MapFrom('triggering_actor')]
-    public Schema\WebhookWorkflowRunCompleted\WorkflowRun\TriggeringActor|null $triggeringActor, #[MapFrom('updated_at')]
+    public TriggeringActor|null $triggeringActor, #[MapFrom('updated_at')]
     public string $updatedAt, public string $url, #[MapFrom('workflow_id')]
     public int $workflowId, #[MapFrom('workflow_url')]
     public string $workflowUrl, #[MapFrom('display_title')]

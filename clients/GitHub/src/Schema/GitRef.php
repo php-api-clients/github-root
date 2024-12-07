@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\GitRef\Object_;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class GitRef
+final readonly class GitRef implements \ApiClients\Client\GitHub\Contract\GitRef
 {
     public const SCHEMA_JSON         = '{
     "title": "Git Reference",
@@ -66,13 +66,13 @@ final readonly class GitRef
     "url": "https:\\/\\/example.com\\/",
     "object": {
         "type": "generated",
-        "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "sha": "generated",
         "url": "https:\\/\\/example.com\\/"
     }
 }';
 
     public function __construct(public string $ref, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, public Schema\GitRef\Object_ $object,)
+    public string $nodeId, public string $url, public Object_ $object,)
     {
     }
 }

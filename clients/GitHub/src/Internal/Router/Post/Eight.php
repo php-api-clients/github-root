@@ -21,7 +21,7 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Deployment> */
+    /** @return |Observable<Deployment> */
     public function call(string $call, array $params, array $pathChunks): Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|Ok|iterable|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Event\Payload;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Pages
+final readonly class Pages implements \ApiClients\Client\GitHub\Contract\Event\Payload\Pages
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

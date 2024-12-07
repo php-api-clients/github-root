@@ -4,8 +4,28 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ApproveWorkflowRun;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CancelWorkflowRun;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateEnvironmentVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateOrgVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateRegistrationTokenForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateRegistrationTokenForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateRemoveTokenForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateRemoveTokenForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateRepoVariable;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateSelfHostedRunnerGroupForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\CreateWorkflowDispatch;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ForceCancelWorkflowRun;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\GenerateRunnerJitconfigForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\GenerateRunnerJitconfigForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ReRunJobForWorkflowRun;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ReRunWorkflow;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ReRunWorkflowFailedJobs;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ReviewCustomGatesForRun;
+use ApiClients\Client\GitHub\Internal\Operator\Actions\ReviewPendingDeploymentsForRun;
 use ApiClients\Client\GitHub\Schema\AuthenticationToken;
 use ApiClients\Client\GitHub\Schema\EmptyObject;
 use ApiClients\Client\GitHub\Schema\Operations\Actions\GenerateRunnerJitconfigForOrg\Response\ApplicationJson\Created;
@@ -21,7 +41,7 @@ use function array_key_exists;
 
 final class Actions
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -35,7 +55,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\GenerateRunnerJitconfigForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀GenerateJitconfig());
+        $operator = new GenerateRunnerJitconfigForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀GenerateJitconfig());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -50,7 +70,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\CreateRegistrationTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RegistrationToken());
+        $operator = new CreateRegistrationTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RegistrationToken());
 
         return $operator->call($arguments['org']);
     }
@@ -65,7 +85,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\CreateRemoveTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RemoveToken());
+        $operator = new CreateRemoveTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RemoveToken());
 
         return $operator->call($arguments['org']);
     }
@@ -86,7 +106,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\CreateRepoVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Variables());
+        $operator = new CreateRepoVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Variables());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -101,7 +121,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\CreateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups());
+        $operator = new CreateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -116,7 +136,7 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Actions\CreateOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables());
+        $operator = new CreateOrgVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -137,7 +157,7 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operator = new Internal\Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
+        $operator = new AddCustomLabelsToSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
@@ -158,7 +178,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\GenerateRunnerJitconfigForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀GenerateJitconfig());
+        $operator = new GenerateRunnerJitconfigForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀GenerateJitconfig());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -179,7 +199,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\CreateRegistrationTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RegistrationToken());
+        $operator = new CreateRegistrationTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RegistrationToken());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -200,7 +220,7 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Actions\CreateRemoveTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RemoveToken());
+        $operator = new CreateRemoveTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RemoveToken());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -227,7 +247,7 @@ final class Actions
 
         $arguments['environment_name'] = $params['environment_name'];
         unset($params['environment_name']);
-        $operator = new Internal\Operator\Actions\CreateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Variables());
+        $operator = new CreateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Variables());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
@@ -254,7 +274,7 @@ final class Actions
 
         $arguments['job_id'] = $params['job_id'];
         unset($params['job_id']);
-        $operator = new Internal\Operator\Actions\ReRunJobForWorkflowRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId🌀Rerun());
+        $operator = new ReRunJobForWorkflowRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId🌀Rerun());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id'], $params);
     }
@@ -281,7 +301,7 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operator = new Internal\Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
+        $operator = new AddCustomLabelsToSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
@@ -308,7 +328,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ApproveWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Approve());
+        $operator = new ApproveWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Approve());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
@@ -335,7 +355,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\CancelWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Cancel());
+        $operator = new CancelWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Cancel());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
@@ -362,7 +382,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ReviewCustomGatesForRun($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new ReviewCustomGatesForRun($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
@@ -389,12 +409,12 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ForceCancelWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀ForceCancel());
+        $operator = new ForceCancelWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀ForceCancel());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return Observable<Schema\Deployment> */
+    /** @return Observable<Deployment> */
     public function reviewPendingDeploymentsForRun(array $params): iterable
     {
         $arguments = [];
@@ -416,7 +436,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ReviewPendingDeploymentsForRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments());
+        $operator = new ReviewPendingDeploymentsForRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
@@ -443,7 +463,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ReRunWorkflow($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Rerun());
+        $operator = new ReRunWorkflow($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Rerun());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
@@ -470,7 +490,7 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Internal\Operator\Actions\ReRunWorkflowFailedJobs($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀RerunFailedJobs());
+        $operator = new ReRunWorkflowFailedJobs($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀RerunFailedJobs());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
@@ -497,7 +517,7 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        $operator = new Internal\Operator\Actions\CreateWorkflowDispatch($this->browser, $this->authentication, $this->requestSchemaValidator);
+        $operator = new CreateWorkflowDispatch($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $params);
     }

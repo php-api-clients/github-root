@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Orgs;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org\Invitations\InvitationId\Teams;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +19,11 @@ final readonly class ListInvitationTeams
     public const OPERATION_ID    = 'orgs/list-invitation-teams';
     public const OPERATION_MATCH = 'GET /orgs/{org}/invitations/{invitation_id}/teams';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Orgs\Org\Invitations\InvitationId\Teams $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Teams $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function call(string $org, int $invitationId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHub\Internal\Operation\Orgs\ListInvitationTeams($this->responseSchemaValidator, $this->hydrator, $org, $invitationId, $perPage, $page);

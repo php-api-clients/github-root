@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAnalysisSarifId
+final readonly class CodeScanningAnalysisSarifId implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisSarifId
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

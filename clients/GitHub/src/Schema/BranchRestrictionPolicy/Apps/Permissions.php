@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy\Apps;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\BranchRestrictionPolicy\Apps\Permissions
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

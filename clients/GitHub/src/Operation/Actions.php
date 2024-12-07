@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\ActionsCacheList;
 use ApiClients\Client\GitHub\Schema\ActionsCacheUsageByRepository;
 use ApiClients\Client\GitHub\Schema\ActionsCacheUsageOrgEnterprise;
@@ -37,7 +36,7 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Actions
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
@@ -197,7 +196,7 @@ final class Actions
         return $this->operators->actions👷ListSelfHostedRunnersForOrg()->call($name, $org, $perPage, $page);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return Observable<RunnerApplication> */
     public function listRunnerApplicationsForOrg(string $org): iterable
     {
         return $this->operators->actions👷ListRunnerApplicationsForOrg()->call($org);
@@ -395,12 +394,6 @@ final class Actions
         return $this->operators->actions👷DownloadArtifact()->call($owner, $repo, $artifactId, $archiveFormat);
     }
 
-    /** @return Observable<string> */
-    public function downloadArtifactStreaming(string $owner, string $repo, int $artifactId, string $archiveFormat): iterable
-    {
-        return $this->operators->actions👷DownloadArtifactStreaming()->call($owner, $repo, $artifactId, $archiveFormat);
-    }
-
     /** @return */
     public function getActionsCacheUsage(string $owner, string $repo): ActionsCacheUsageByRepository
     {
@@ -435,12 +428,6 @@ final class Actions
     public function downloadJobLogsForWorkflowRun(string $owner, string $repo, int $jobId): WithoutBody
     {
         return $this->operators->actions👷DownloadJobLogsForWorkflowRun()->call($owner, $repo, $jobId);
-    }
-
-    /** @return Observable<string> */
-    public function downloadJobLogsForWorkflowRunStreaming(string $owner, string $repo, int $jobId): iterable
-    {
-        return $this->operators->actions👷DownloadJobLogsForWorkflowRunStreaming()->call($owner, $repo, $jobId);
     }
 
     /** @return */
@@ -527,7 +514,7 @@ final class Actions
         return $this->operators->actions👷ListSelfHostedRunnersForRepo()->call($name, $owner, $repo, $perPage, $page);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return Observable<RunnerApplication> */
     public function listRunnerApplicationsForRepo(string $owner, string $repo): iterable
     {
         return $this->operators->actions👷ListRunnerApplicationsForRepo()->call($owner, $repo);
@@ -611,7 +598,7 @@ final class Actions
         return $this->operators->actions👷DeleteWorkflowRun()->call($owner, $repo, $runId);
     }
 
-    /** @return Observable<Schema\EnvironmentApprovals> */
+    /** @return Observable<EnvironmentApprovals> */
     public function getReviewsForRun(string $owner, string $repo, int $runId): iterable
     {
         return $this->operators->actions👷GetReviewsForRun()->call($owner, $repo, $runId);
@@ -647,12 +634,6 @@ final class Actions
         return $this->operators->actions👷DownloadWorkflowRunAttemptLogs()->call($owner, $repo, $runId, $attemptNumber);
     }
 
-    /** @return Observable<string> */
-    public function downloadWorkflowRunAttemptLogsStreaming(string $owner, string $repo, int $runId, int $attemptNumber): iterable
-    {
-        return $this->operators->actions👷DownloadWorkflowRunAttemptLogsStreaming()->call($owner, $repo, $runId, $attemptNumber);
-    }
-
     /** @return */
     public function cancelWorkflowRun(string $owner, string $repo, int $runId): EmptyObject
     {
@@ -683,25 +664,19 @@ final class Actions
         return $this->operators->actions👷DownloadWorkflowRunLogs()->call($owner, $repo, $runId);
     }
 
-    /** @return Observable<string> */
-    public function downloadWorkflowRunLogsStreaming(string $owner, string $repo, int $runId): iterable
-    {
-        return $this->operators->actions👷DownloadWorkflowRunLogsStreaming()->call($owner, $repo, $runId);
-    }
-
     /** @return */
     public function deleteWorkflowRunLogs(string $owner, string $repo, int $runId): WithoutBody
     {
         return $this->operators->actions👷DeleteWorkflowRunLogs()->call($owner, $repo, $runId);
     }
 
-    /** @return Observable<Schema\PendingDeployment> */
+    /** @return Observable<PendingDeployment> */
     public function getPendingDeploymentsForRun(string $owner, string $repo, int $runId): iterable
     {
         return $this->operators->actions👷GetPendingDeploymentsForRun()->call($owner, $repo, $runId);
     }
 
-    /** @return Observable<Schema\Deployment> */
+    /** @return Observable<Deployment> */
     public function reviewPendingDeploymentsForRun(string $owner, string $repo, int $runId, array $params): iterable
     {
         return $this->operators->actions👷ReviewPendingDeploymentsForRun()->call($owner, $repo, $runId, $params);
@@ -792,37 +767,37 @@ final class Actions
     }
 
     /** @return */
-    public function getWorkflow(string $owner, string $repo, mixed $workflowId): Workflow
+    public function getWorkflow(string $owner, string $repo, int|string $workflowId): Workflow
     {
         return $this->operators->actions👷GetWorkflow()->call($owner, $repo, $workflowId);
     }
 
     /** @return */
-    public function disableWorkflow(string $owner, string $repo, mixed $workflowId): WithoutBody
+    public function disableWorkflow(string $owner, string $repo, int|string $workflowId): WithoutBody
     {
         return $this->operators->actions👷DisableWorkflow()->call($owner, $repo, $workflowId);
     }
 
     /** @return */
-    public function createWorkflowDispatch(string $owner, string $repo, mixed $workflowId, array $params): WithoutBody
+    public function createWorkflowDispatch(string $owner, string $repo, int|string $workflowId, array $params): WithoutBody
     {
         return $this->operators->actions👷CreateWorkflowDispatch()->call($owner, $repo, $workflowId, $params);
     }
 
     /** @return */
-    public function enableWorkflow(string $owner, string $repo, mixed $workflowId): WithoutBody
+    public function enableWorkflow(string $owner, string $repo, int|string $workflowId): WithoutBody
     {
         return $this->operators->actions👷EnableWorkflow()->call($owner, $repo, $workflowId);
     }
 
     /** @return */
-    public function listWorkflowRuns(string $owner, string $repo, mixed $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHub\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json
+    public function listWorkflowRuns(string $owner, string $repo, int|string $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHub\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷ListWorkflowRuns()->call($owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $headSha, $perPage, $page, $excludePullRequests);
     }
 
     /** @return */
-    public function getWorkflowUsage(string $owner, string $repo, mixed $workflowId): WorkflowUsage
+    public function getWorkflowUsage(string $owner, string $repo, int|string $workflowId): WorkflowUsage
     {
         return $this->operators->actions👷GetWorkflowUsage()->call($owner, $repo, $workflowId);
     }

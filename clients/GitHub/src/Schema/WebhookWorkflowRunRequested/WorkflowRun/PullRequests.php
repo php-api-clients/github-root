@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests\Base;
+use ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests\Head;
 
-final readonly class PullRequests
+final readonly class PullRequests implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowRunRequested\WorkflowRun\PullRequests
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -125,12 +126,12 @@ final readonly class PullRequests
         },
         "sha": "generated"
     },
-    "id": 0.2,
-    "number": 0.6,
+    "id": 2,
+    "number": 6,
     "url": "https:\\/\\/example.com\\/"
 }';
 
-    public function __construct(public Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests\Base $base, public Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests\Head $head, public int|float $id, public int|float $number, public string $url)
+    public function __construct(public Base $base, public Head $head, public int|float $id, public int|float $number, public string $url)
     {
     }
 }

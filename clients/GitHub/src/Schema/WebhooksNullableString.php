@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksNullableString
+final readonly class WebhooksNullableString implements \ApiClients\Client\GitHub\Contract\WebhooksNullableString
 {
     public const SCHEMA_JSON         = '{
     "type": [

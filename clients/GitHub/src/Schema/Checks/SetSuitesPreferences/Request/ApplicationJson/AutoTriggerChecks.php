@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Checks\SetSuitesPreferences\Request\Ap
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class AutoTriggerChecks
+final readonly class AutoTriggerChecks implements \ApiClients\Client\GitHub\Contract\Checks\SetSuitesPreferences\Request\ApplicationJson\AutoTriggerChecks
 {
     public const SCHEMA_JSON         = '{
     "required": [

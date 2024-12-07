@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningDefaultSetupUpdate
+final readonly class CodeScanningDefaultSetupUpdate implements \ApiClients\Client\GitHub\Contract\CodeScanningDefaultSetupUpdate
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ProtectedBranch;
 
-final readonly class RequiredConversationResolution
+final readonly class RequiredConversationResolution implements \ApiClients\Client\GitHub\Contract\ProtectedBranch\RequiredConversationResolution
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

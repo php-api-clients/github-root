@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationDiscussionTitle
+final readonly class SecretScanningLocationDiscussionTitle implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationDiscussionTitle
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -28,7 +28,7 @@ final readonly class SecretScanningLocationDiscussionTitle
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'discussion_title\' secret scanning location type. This location type shows that a secret was detected in the title of a discussion.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "discussion_title_url": "https:\\/\\/github.com\\/community\\/community\\/discussions\\/39082"
+    "discussion_title_url": "https:\\/\\/example.com\\/"
 }';
 
     /**

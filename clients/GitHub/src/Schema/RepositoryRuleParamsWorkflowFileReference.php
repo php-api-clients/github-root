@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRuleParamsWorkflowFileReference
+final readonly class RepositoryRuleParamsWorkflowFileReference implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsWorkflowFileReference
 {
     public const SCHEMA_JSON         = '{
     "title": "WorkflowFileReference",

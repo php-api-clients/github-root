@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCodeScanning\Parameters
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -62,12 +62,12 @@ final readonly class Parameters
     public const SCHEMA_EXAMPLE_DATA = '{
     "code_scanning_tools": [
         {
-            "alerts_threshold": "all",
+            "alerts_threshold": "none",
             "security_alerts_threshold": "none",
             "tool": "generated"
         },
         {
-            "alerts_threshold": "all",
+            "alerts_threshold": "none",
             "security_alerts_threshold": "none",
             "tool": "generated"
         }

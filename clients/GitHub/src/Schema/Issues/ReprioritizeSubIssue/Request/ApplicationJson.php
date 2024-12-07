@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Issues\ReprioritizeSubIssue\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Issues\ReprioritizeSubIssue\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

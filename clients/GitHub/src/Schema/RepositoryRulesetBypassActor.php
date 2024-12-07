@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRulesetBypassActor
+final readonly class RepositoryRulesetBypassActor implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetBypassActor
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository Ruleset Bypass Actor",
@@ -49,7 +49,7 @@ final readonly class RepositoryRulesetBypassActor
     public const SCHEMA_DESCRIPTION  = 'An actor that can bypass rules in a ruleset';
     public const SCHEMA_EXAMPLE_DATA = '{
     "actor_id": 8,
-    "actor_type": "DeployKey",
+    "actor_type": "Integration",
     "bypass_mode": "always"
 }';
 

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Authorization;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class App
+final readonly class App implements \ApiClients\Client\GitHub\Contract\Authorization\App
 {
     public const SCHEMA_JSON         = '{
     "required": [

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CheckRun;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Output
+final readonly class Output implements \ApiClients\Client\GitHub\Contract\CheckRun\Output
 {
     public const SCHEMA_JSON         = '{
     "required": [

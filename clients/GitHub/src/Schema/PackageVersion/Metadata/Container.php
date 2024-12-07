@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\PackageVersion\Metadata;
 
-final readonly class Container
+final readonly class Container implements \ApiClients\Client\GitHub\Contract\PackageVersion\Metadata\Container
 {
     public const SCHEMA_JSON         = '{
     "title": "Container Metadata",

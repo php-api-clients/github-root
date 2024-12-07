@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Checks\Update\Request;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Checks\Update\Request\ApplicationJson\Output;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Checks\Update\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -231,8 +231,8 @@ final readonly class ApplicationJson
     "details_url": "generated",
     "external_id": "generated",
     "started_at": "1970-01-01T00:00:00+00:00",
-    "status": "pending",
-    "conclusion": "timed_out",
+    "status": "queued",
+    "conclusion": "action_required",
     "completed_at": "1970-01-01T00:00:00+00:00",
     "output": {
         "title": "generated",
@@ -245,7 +245,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -256,7 +256,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -267,7 +267,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -278,7 +278,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -289,7 +289,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -300,7 +300,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -311,7 +311,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -322,7 +322,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -333,7 +333,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -344,7 +344,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -355,7 +355,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -366,7 +366,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -377,7 +377,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -388,7 +388,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -399,7 +399,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -410,7 +410,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -421,7 +421,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -432,7 +432,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -443,7 +443,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -454,7 +454,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -465,7 +465,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -476,7 +476,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -487,7 +487,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -498,7 +498,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -509,7 +509,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -520,7 +520,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -531,7 +531,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -542,7 +542,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -553,7 +553,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -564,7 +564,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -575,7 +575,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -586,7 +586,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -597,7 +597,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -608,7 +608,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -619,7 +619,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -630,7 +630,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -641,7 +641,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -652,7 +652,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -663,7 +663,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -674,7 +674,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -685,7 +685,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -696,7 +696,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -707,7 +707,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -718,7 +718,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -729,7 +729,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -740,7 +740,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -751,7 +751,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -762,7 +762,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -773,7 +773,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -784,7 +784,7 @@ final readonly class ApplicationJson
                 "end_line": 8,
                 "start_column": 12,
                 "end_column": 10,
-                "annotation_level": "failure",
+                "annotation_level": "notice",
                 "message": "generated",
                 "title": "generated",
                 "raw_details": "generated"
@@ -838,7 +838,7 @@ final readonly class ApplicationJson
     public string|null $detailsUrl, #[MapFrom('external_id')]
     public string|null $externalId, #[MapFrom('started_at')]
     public string|null $startedAt, public string|null $status, public string|null $conclusion, #[MapFrom('completed_at')]
-    public string|null $completedAt, public Schema\Checks\Update\Request\ApplicationJson\Output|null $output, public array|null $actions,)
+    public string|null $completedAt, public Output|null $output, public array|null $actions,)
     {
     }
 }

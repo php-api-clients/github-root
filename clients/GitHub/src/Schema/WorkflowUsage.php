@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable;
 
-final readonly class WorkflowUsage
+final readonly class WorkflowUsage implements \ApiClients\Client\GitHub\Contract\WorkflowUsage
 {
     public const SCHEMA_JSON         = '{
     "title": "Workflow Usage",
@@ -63,7 +63,7 @@ final readonly class WorkflowUsage
     }
 }';
 
-    public function __construct(public Schema\WorkflowUsage\Billable $billable)
+    public function __construct(public Billable $billable)
     {
     }
 }

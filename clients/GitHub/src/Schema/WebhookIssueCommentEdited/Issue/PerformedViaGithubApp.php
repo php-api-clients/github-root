@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssueCommentEdited\Issue;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\TDB3B0EA7\T7D168182\T903938E3\T5938F560;
 
-final readonly class PerformedViaGithubApp extends Schema\AliasAbstract\TietD1416622\Tiet1BB5CFF5\Tiet2C5338B3\TietBE7D38EA
+final readonly class PerformedViaGithubApp extends T5938F560
 {
 }

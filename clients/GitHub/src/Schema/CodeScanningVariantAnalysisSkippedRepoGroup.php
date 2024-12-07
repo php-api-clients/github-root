@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningVariantAnalysisSkippedRepoGroup
+final readonly class CodeScanningVariantAnalysisSkippedRepoGroup implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysisSkippedRepoGroup
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -87,23 +87,23 @@ final readonly class CodeScanningVariantAnalysisSkippedRepoGroup
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_count": 2,
+    "repository_count": 16,
     "repositories": [
         {
-            "id": 1296269,
-            "name": "Hello-World",
-            "full_name": "octocat\\/Hello-World",
+            "id": 2,
+            "name": "generated",
+            "full_name": "generated",
             "private": false,
-            "stargazers_count": 80,
-            "updated_at": "2011-01-26T19:14:43Z"
+            "stargazers_count": 16,
+            "updated_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "id": 1296269,
-            "name": "Hello-World",
-            "full_name": "octocat\\/Hello-World",
+            "id": 2,
+            "name": "generated",
+            "full_name": "generated",
             "private": false,
-            "stargazers_count": 80,
-            "updated_at": "2011-01-26T19:14:43Z"
+            "stargazers_count": 16,
+            "updated_at": "1970-01-01T00:00:00+00:00"
         }
     ]
 }';

@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\GetAlert;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\GetScanHistory;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\ListAlertsForEnterprise;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\ListAlertsForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\ListAlertsForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\SecretScanning\ListLocationsForAlert;
 use ApiClients\Client\GitHub\Schema\SecretScanningAlert;
 use ApiClients\Client\GitHub\Schema\SecretScanningScanHistory;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +23,11 @@ use function array_key_exists;
 
 final class SecretScanning
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -98,12 +103,12 @@ final class SecretScanning
 
         $arguments['is_multi_repo'] = $params['is_multi_repo'];
         unset($params['is_multi_repo']);
-        $operator = new Internal\Operator\SecretScanning\ListAlertsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀SecretScanning🌀Alerts());
+        $operator = new ListAlertsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀SecretScanning🌀Alerts());
 
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -185,12 +190,12 @@ final class SecretScanning
 
         $arguments['is_multi_repo'] = $params['is_multi_repo'];
         unset($params['is_multi_repo']);
-        $operator = new Internal\Operator\SecretScanning\ListAlertsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecretScanning🌀Alerts());
+        $operator = new ListAlertsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecretScanning🌀Alerts());
 
         return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
 
-    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -278,7 +283,7 @@ final class SecretScanning
 
         $arguments['is_multi_repo'] = $params['is_multi_repo'];
         unset($params['is_multi_repo']);
-        $operator = new Internal\Operator\SecretScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts());
+        $operator = new ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
@@ -299,7 +304,7 @@ final class SecretScanning
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\SecretScanning\GetScanHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀ScanHistory());
+        $operator = new GetScanHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀ScanHistory());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -326,12 +331,12 @@ final class SecretScanning
 
         $arguments['alert_number'] = $params['alert_number'];
         unset($params['alert_number']);
-        $operator = new Internal\Operator\SecretScanning\GetAlert($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber());
+        $operator = new GetAlert($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    /** @return Observable<Schema\SecretScanningLocation>|WithoutBody */
+    /** @return Observable<SecretScanningLocation>|WithoutBody */
     public function listLocationsForAlert(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -365,7 +370,7 @@ final class SecretScanning
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Internal\Operator\SecretScanning\ListLocationsForAlert($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber🌀Locations());
+        $operator = new ListLocationsForAlert($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber🌀Locations());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number'], $arguments['page'], $arguments['per_page']);
     }

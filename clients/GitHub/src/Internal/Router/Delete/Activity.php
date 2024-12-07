@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\DeleteRepoSubscription;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\DeleteThreadSubscription;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\MarkThreadAsDone;
+use ApiClients\Client\GitHub\Internal\Operator\Activity\UnstarRepoForAuthenticatedUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -15,7 +19,7 @@ use function array_key_exists;
 
 final class Activity
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -29,7 +33,7 @@ final class Activity
 
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        $operator = new Internal\Operator\Activity\MarkThreadAsDone($this->browser, $this->authentication);
+        $operator = new MarkThreadAsDone($this->browser, $this->authentication);
 
         return $operator->call($arguments['thread_id']);
     }
@@ -44,7 +48,7 @@ final class Activity
 
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        $operator = new Internal\Operator\Activity\DeleteThreadSubscription($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
+        $operator = new DeleteThreadSubscription($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId🌀Subscription());
 
         return $operator->call($arguments['thread_id']);
     }
@@ -65,7 +69,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\DeleteRepoSubscription($this->browser, $this->authentication);
+        $operator = new DeleteRepoSubscription($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -86,7 +90,7 @@ final class Activity
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Activity\UnstarRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
+        $operator = new UnstarRepoForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀Owner🌀Repo());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }

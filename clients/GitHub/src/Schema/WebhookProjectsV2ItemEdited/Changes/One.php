@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes\One\Body;
 
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemEdited\Changes\One
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -42,7 +42,7 @@ final readonly class One
     }
 }';
 
-    public function __construct(public Schema\WebhookProjectsV2ItemEdited\Changes\One\Body $body)
+    public function __construct(public Body $body)
     {
     }
 }

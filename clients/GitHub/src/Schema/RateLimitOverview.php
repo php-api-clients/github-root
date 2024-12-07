@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RateLimitOverview\Resources;
 
-final readonly class RateLimitOverview
+final readonly class RateLimitOverview implements \ApiClients\Client\GitHub\Contract\RateLimitOverview
 {
     public const SCHEMA_JSON         = '{
     "title": "Rate Limit Overview",
@@ -365,7 +365,7 @@ final readonly class RateLimitOverview
     }
 }';
 
-    public function __construct(public Schema\RateLimitOverview\Resources $resources, public Schema\RateLimit $rate)
+    public function __construct(public Resources $resources, public RateLimit $rate)
     {
     }
 }

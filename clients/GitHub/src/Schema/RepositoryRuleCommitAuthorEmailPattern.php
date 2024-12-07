@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern\Parameters;
 
-final readonly class RepositoryRuleCommitAuthorEmailPattern
+final readonly class RepositoryRuleCommitAuthorEmailPattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCommitAuthorEmailPattern
 {
     public const SCHEMA_JSON         = '{
     "title": "commit_author_email_pattern",
@@ -62,12 +62,12 @@ final readonly class RepositoryRuleCommitAuthorEmailPattern
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleCommitAuthorEmailPattern\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

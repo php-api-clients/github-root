@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\ContentTree;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ContentTree\Entries\Links;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Entries
+final readonly class Entries implements \ApiClients\Client\GitHub\Contract\ContentTree\Entries
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -117,7 +117,7 @@ final readonly class Entries
     public string|null $gitUrl, #[MapFrom('html_url')]
     public string|null $htmlUrl, #[MapFrom('download_url')]
     public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentTree\Entries\Links $links,)
+    public Links $links,)
     {
     }
 }

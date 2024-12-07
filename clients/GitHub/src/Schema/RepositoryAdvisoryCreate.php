@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryAdvisoryCreate
+final readonly class RepositoryAdvisoryCreate implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisoryCreate
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -194,8 +194,7 @@ final readonly class RepositoryAdvisoryCreate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         },
         {
             "package": {
@@ -203,13 +202,10 @@ final readonly class RepositoryAdvisoryCreate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         }
     ],
-    "cwe_ids": null,
-    "credits": null,
-    "severity": "low",
+    "severity": "critical",
     "cvss_vector_string": "generated",
     "start_private_fork": false
 }';

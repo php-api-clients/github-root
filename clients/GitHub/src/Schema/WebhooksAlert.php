@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhooksAlert\Dismisser;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhooksAlert
+final readonly class WebhooksAlert implements \ApiClients\Client\GitHub\Contract\WebhooksAlert
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository Vulnerability Alert Alert",
@@ -209,7 +209,7 @@ final readonly class WebhooksAlert
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "external_identifier": "generated",
@@ -230,7 +230,7 @@ final readonly class WebhooksAlert
     public string $affectedRange, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('dismiss_reason')]
     public string|null $dismissReason, #[MapFrom('dismissed_at')]
-    public string|null $dismissedAt, public Schema\WebhooksAlert\Dismisser|null $dismisser, #[MapFrom('external_identifier')]
+    public string|null $dismissedAt, public Dismisser|null $dismisser, #[MapFrom('external_identifier')]
     public string $externalIdentifier, #[MapFrom('external_reference')]
     public string|null $externalReference, #[MapFrom('fix_reason')]
     public string|null $fixReason, #[MapFrom('fixed_at')]

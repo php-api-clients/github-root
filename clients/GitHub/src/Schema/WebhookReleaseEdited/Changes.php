@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookReleaseEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\Body;
+use ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\MakeLatest;
+use ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\Name;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookReleaseEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -64,8 +66,8 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookReleaseEdited\Changes\Body|null $body, public Schema\WebhookReleaseEdited\Changes\Name|null $name, #[MapFrom('make_latest')]
-    public Schema\WebhookReleaseEdited\Changes\MakeLatest|null $makeLatest,)
+    public function __construct(public Body|null $body, public Name|null $name, #[MapFrom('make_latest')]
+    public MakeLatest|null $makeLatest,)
     {
     }
 }

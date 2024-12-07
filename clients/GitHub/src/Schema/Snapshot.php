@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Snapshot\Detector;
+use ApiClients\Client\GitHub\Schema\Snapshot\Job;
+use ApiClients\Client\GitHub\Schema\Snapshot\Manifests;
 
-final readonly class Snapshot
+final readonly class Snapshot implements \ApiClients\Client\GitHub\Contract\Snapshot
 {
     public const SCHEMA_JSON         = '{
     "title": "snapshot",
@@ -280,20 +282,20 @@ final readonly class Snapshot
     public const SCHEMA_EXAMPLE_DATA = '{
     "version": 7,
     "job": {
-        "id": "5622a2b0-63f6-4732-8c34-a1ab27e102a11",
-        "correlator": "yourworkflowname_yourjobname",
-        "html_url": "http:\\/\\/example.com\\/build"
+        "id": "generated",
+        "correlator": "generated",
+        "html_url": "generated"
     },
-    "sha": "ddc951f4b1293222421f2c8df679786153acf689",
-    "ref": "refs\\/heads\\/main",
+    "sha": "generated",
+    "ref": "refs\\/",
     "detector": {
-        "name": "docker buildtime detector",
-        "version": "1.0.0",
-        "url": "http:\\/\\/example.com\\/docker-buildtimer-detector"
+        "name": "generated",
+        "version": "generated",
+        "url": "generated"
     },
     "metadata": [],
     "manifests": [],
-    "scanned": "2020-06-13T14:52:50-05:00"
+    "scanned": "1970-01-01T00:00:00+00:00"
 }';
 
     /**
@@ -305,7 +307,7 @@ final readonly class Snapshot
      * manifests: A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.
      * scanned: The time at which the snapshot was scanned.
      */
-    public function __construct(public int $version, public Schema\Snapshot\Job $job, public string $sha, public string $ref, public Schema\Snapshot\Detector $detector, public Schema\Metadata|null $metadata, public Schema\Snapshot\Manifests|null $manifests, public string $scanned)
+    public function __construct(public int $version, public Job $job, public string $sha, public string $ref, public Detector $detector, public Metadata|null $metadata, public Manifests|null $manifests, public string $scanned)
     {
     }
 }

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub;
 
+use ApiClients\Client\GitHub\Internal\Operators;
+
 final readonly class Operations implements OperationsInterface
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 

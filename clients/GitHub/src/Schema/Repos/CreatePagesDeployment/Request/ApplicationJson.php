@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Repos\CreatePagesDeployment\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreatePagesDeployment\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -43,7 +43,7 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'The object used to create GitHub Pages deployment';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "artifact_id": 1.1,
+    "artifact_id": 11,
     "artifact_url": "generated",
     "environment": "generated",
     "pages_build_version": "generated",

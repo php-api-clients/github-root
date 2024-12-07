@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeownersErrors
+final readonly class CodeownersErrors implements \ApiClients\Client\GitHub\Contract\CodeownersErrors
 {
     public const SCHEMA_JSON         = '{
     "title": "CODEOWNERS errors",
@@ -88,22 +88,22 @@ final readonly class CodeownersErrors
     public const SCHEMA_EXAMPLE_DATA = '{
     "errors": [
         {
-            "line": 7,
-            "column": 3,
-            "source": "* user",
-            "kind": "Invalid owner",
-            "suggestion": "The pattern `\\/` will never match anything, did you mean `*` instead?",
-            "message": "Invalid owner on line 7:\\n\\n  * user\\n    ^",
-            "path": ".github\\/CODEOWNERS"
+            "line": 4,
+            "column": 6,
+            "source": "generated",
+            "kind": "generated",
+            "suggestion": "generated",
+            "message": "generated",
+            "path": "generated"
         },
         {
-            "line": 7,
-            "column": 3,
-            "source": "* user",
-            "kind": "Invalid owner",
-            "suggestion": "The pattern `\\/` will never match anything, did you mean `*` instead?",
-            "message": "Invalid owner on line 7:\\n\\n  * user\\n    ^",
-            "path": ".github\\/CODEOWNERS"
+            "line": 4,
+            "column": 6,
+            "source": "generated",
+            "kind": "generated",
+            "suggestion": "generated",
+            "message": "generated",
+            "path": "generated"
         }
     ]
 }';

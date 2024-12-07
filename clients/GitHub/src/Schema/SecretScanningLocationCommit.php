@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanningLocationCommit
+final readonly class SecretScanningLocationCommit implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationCommit
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -73,14 +73,14 @@ final readonly class SecretScanningLocationCommit
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Represents a \'commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "path": "\\/example\\/secrets.txt",
-    "start_line": 1,
-    "end_line": 0.8,
-    "start_column": 1.2,
-    "end_column": 1,
-    "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+    "path": "generated",
+    "start_line": 10,
+    "end_line": 8,
+    "start_column": 12,
+    "end_column": 10,
+    "blob_sha": "generated",
     "blob_url": "generated",
-    "commit_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+    "commit_sha": "generated",
     "commit_url": "generated"
 }';
 

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookPing\Hook;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Config
+final readonly class Config implements \ApiClients\Client\GitHub\Contract\WebhookPing\Hook\Config
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -52,10 +52,10 @@ final readonly class Config
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "content_type": "\\"json\\"",
-    "insecure_ssl": null,
-    "secret": "\\"********\\"",
-    "url": "https:\\/\\/example.com\\/webhook"
+    "content_type": "generated",
+    "insecure_ssl": 14,
+    "secret": "generated",
+    "url": "https:\\/\\/example.com\\/"
 }';
 
     /**

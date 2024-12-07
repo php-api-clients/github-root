@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\FileCommit\Content;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\FileCommit\Content\Links
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

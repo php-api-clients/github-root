@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class EnterpriseTeam
+final readonly class EnterpriseTeam implements \ApiClients\Client\GitHub\Contract\EnterpriseTeam
 {
     public const SCHEMA_JSON         = '{
     "title": "Enterprise Team",
@@ -80,9 +80,9 @@ final readonly class EnterpriseTeam
     "name": "generated",
     "slug": "generated",
     "url": "https:\\/\\/example.com\\/",
-    "sync_to_organizations": "disabled | all",
-    "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
-    "html_url": "https:\\/\\/github.com\\/enterprises\\/dc\\/teams\\/justice-league",
+    "sync_to_organizations": "generated",
+    "group_id": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
     "members_url": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"

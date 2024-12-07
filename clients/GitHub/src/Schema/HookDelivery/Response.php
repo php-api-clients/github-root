@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\HookDelivery;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\HookDelivery\Response\Headers;
 
-final readonly class Response
+final readonly class Response implements \ApiClients\Client\GitHub\Contract\HookDelivery\Response
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -44,7 +44,7 @@ final readonly class Response
      * headers: The response headers received when the delivery was made.
      * payload: The response payload received.
      */
-    public function __construct(public Schema\HookDelivery\Response\Headers|null $headers, public string|null $payload)
+    public function __construct(public Headers|null $headers, public string|null $payload)
     {
     }
 }

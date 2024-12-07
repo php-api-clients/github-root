@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Commits;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Commit\Author;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Commit\Committer;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Commit\Author;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Commit\Committer;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\Commit;
 use ApiClients\Client\GitHub\Schema\Commit\Commit\Tree;

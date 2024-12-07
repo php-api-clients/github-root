@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SimpleClassroom
+final readonly class SimpleClassroom implements \ApiClients\Client\GitHub\Contract\SimpleClassroom
 {
     public const SCHEMA_JSON         = '{
     "title": "Simple Classroom",
@@ -50,10 +50,10 @@ final readonly class SimpleClassroom
     public const SCHEMA_TITLE        = 'Simple Classroom';
     public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom classroom';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "name": "Programming Elixir",
+    "id": 2,
+    "name": "generated",
     "archived": false,
-    "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+    "url": "generated"
 }';
 
     /**

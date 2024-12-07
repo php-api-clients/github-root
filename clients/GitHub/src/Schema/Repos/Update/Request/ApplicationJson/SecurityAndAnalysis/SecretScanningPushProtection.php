@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis;
 
-final readonly class SecretScanningPushProtection
+final readonly class SecretScanningPushProtection implements \ApiClients\Client\GitHub\Contract\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis\SecretScanningPushProtection
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Activity;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Stargazers;
 use ApiClients\Client\GitHub\Schema\SimpleUser;
 use ApiClients\Client\GitHub\Schema\Stargazer;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +21,7 @@ final readonly class ListStargazersForRepo
     public const OPERATION_ID    = 'activity/list-stargazers-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/stargazers';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Stargazers $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Stargazers $hydrator)
     {
     }
 

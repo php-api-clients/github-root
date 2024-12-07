@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\DependencyGraph\CreateRepos
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Created
+final readonly class Created implements \ApiClients\Client\GitHub\Contract\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created
 {
     public const SCHEMA_JSON         = '{
     "required": [

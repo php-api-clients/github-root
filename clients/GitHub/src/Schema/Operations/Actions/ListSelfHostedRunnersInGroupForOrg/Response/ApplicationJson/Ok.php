@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListSelfHostedRunne
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -108,45 +108,45 @@ final readonly class Ok
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 1.1,
+    "total_count": 11,
     "runners": [
         {
-            "id": 5,
-            "runner_group_id": 1,
-            "name": "iMac",
-            "os": "macos",
-            "status": "online",
+            "id": 2,
+            "runner_group_id": 15,
+            "name": "generated",
+            "os": "generated",
+            "status": "generated",
             "busy": false,
             "labels": [
                 {
                     "id": 2,
                     "name": "generated",
-                    "type": "custom"
+                    "type": "read-only"
                 },
                 {
                     "id": 2,
                     "name": "generated",
-                    "type": "custom"
+                    "type": "read-only"
                 }
             ]
         },
         {
-            "id": 5,
-            "runner_group_id": 1,
-            "name": "iMac",
-            "os": "macos",
-            "status": "online",
+            "id": 2,
+            "runner_group_id": 15,
+            "name": "generated",
+            "os": "generated",
+            "status": "generated",
             "busy": false,
             "labels": [
                 {
                     "id": 2,
                     "name": "generated",
-                    "type": "custom"
+                    "type": "read-only"
                 },
                 {
                     "id": 2,
                     "name": "generated",
-                    "type": "custom"
+                    "type": "read-only"
                 }
             ]
         }

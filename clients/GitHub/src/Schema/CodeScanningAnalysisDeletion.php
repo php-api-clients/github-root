@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class CodeScanningAnalysisDeletion
+final readonly class CodeScanningAnalysisDeletion implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisDeletion
 {
     public const SCHEMA_JSON         = '{
     "title": "Analysis deletion",

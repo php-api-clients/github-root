@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\IssueSearchResultItem;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Labels
+final readonly class Labels implements \ApiClients\Client\GitHub\Contract\IssueSearchResultItem\Labels
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest\Parameters;
 
-final readonly class RepositoryRulePullRequest
+final readonly class RepositoryRulePullRequest implements \ApiClients\Client\GitHub\Contract\RepositoryRulePullRequest
 {
     public const SCHEMA_JSON         = '{
     "title": "pull_request",
@@ -71,7 +71,7 @@ final readonly class RepositoryRulePullRequest
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRulePullRequest\Parameters|null $parameters)
+    public function __construct(public string $type, public Parameters|null $parameters)
     {
     }
 }

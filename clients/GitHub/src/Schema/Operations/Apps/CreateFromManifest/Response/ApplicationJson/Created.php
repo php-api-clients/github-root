@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\Operations\Apps\CreateFromManifest\Response\ApplicationJson;
 
-final readonly class Created
+use ApiClients\Client\GitHub\Contract\Integration;
+use ApiClients\Client\GitHub\Schema\Integration\Permissions;
+use ApiClients\Client\GitHub\Schema\SimpleUser;
+use EventSauce\ObjectHydrator\MapFrom;
+
+final readonly class Created implements Integration, \ApiClients\Client\GitHub\Contract\Operations\Apps\CreateFromManifest\Response\ApplicationJson\Created
 {
     public const SCHEMA_JSON         = '{
     "allOf": [
@@ -374,9 +379,76 @@ final readonly class Created
 }';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "slug": "generated",
+    "node_id": "generated",
+    "client_id": "generated",
+    "owner": {
+        "name": "generated",
+        "email": "generated",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
+        "site_admin": false,
+        "starred_at": "generated",
+        "user_view_type": "generated"
+    },
+    "name": "generated",
+    "description": "generated",
+    "external_url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "permissions": {
+        "issues": "generated",
+        "checks": "generated",
+        "metadata": "generated",
+        "contents": "generated",
+        "deployments": "generated"
+    },
+    "events": [
+        "generated",
+        "generated"
+    ],
+    "installations_count": 19,
+    "client_secret": "generated",
+    "webhook_secret": "generated",
+    "pem": "generated"
+}';
 
-    public function __construct()
+    /**
+     * id: Unique identifier of the GitHub app
+     * slug: The slug name of the GitHub app
+     * name: The name of the GitHub app
+     * permissions: The set of permissions for the GitHub app
+     * events: The list of events for the GitHub app
+     * installationsCount: The number of installations associated with the GitHub app
+     */
+    public function __construct(public int $id, public string|null $slug, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('client_id')]
+    public string $clientId, public SimpleUser|null $owner, public string $name, public string|null $description, #[MapFrom('external_url')]
+    public string $externalUrl, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, public Permissions $permissions, public array $events, #[MapFrom('installations_count')]
+    public int|null $installationsCount, #[MapFrom('client_secret')]
+    public string $clientSecret, #[MapFrom('webhook_secret')]
+    public string|null $webhookSecret, public string $pem,)
     {
     }
 }

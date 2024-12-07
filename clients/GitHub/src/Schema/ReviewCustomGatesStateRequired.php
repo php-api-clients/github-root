@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ReviewCustomGatesStateRequired
+final readonly class ReviewCustomGatesStateRequired implements \ApiClients\Client\GitHub\Contract\ReviewCustomGatesStateRequired
 {
     public const SCHEMA_JSON         = '{
     "required": [

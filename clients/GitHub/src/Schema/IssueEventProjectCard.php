@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class IssueEventProjectCard
+final readonly class IssueEventProjectCard implements \ApiClients\Client\GitHub\Contract\IssueEventProjectCard
 {
     public const SCHEMA_JSON         = '{
     "title": "Issue Event Project Card",

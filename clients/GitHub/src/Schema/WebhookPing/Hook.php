@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPing;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\HookResponse;
+use ApiClients\Client\GitHub\Schema\WebhookPing\Hook\Config;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Hook
+final readonly class Hook implements \ApiClients\Client\GitHub\Contract\WebhookPing\Hook
 {
     public const SCHEMA_JSON         = '{
     "title": "Webhook",
@@ -155,10 +156,10 @@ final readonly class Hook
     "active": false,
     "app_id": 6,
     "config": {
-        "content_type": "\\"json\\"",
-        "insecure_ssl": null,
-        "secret": "\\"********\\"",
-        "url": "https:\\/\\/example.com\\/webhook"
+        "content_type": "generated",
+        "insecure_ssl": 14,
+        "secret": "generated",
+        "url": "https:\\/\\/example.com\\/"
     },
     "created_at": "1970-01-01T00:00:00+00:00",
     "deliveries_url": "https:\\/\\/example.com\\/",
@@ -188,10 +189,10 @@ final readonly class Hook
      * name: The type of webhook. The only valid value is 'web'.
      */
     public function __construct(public bool $active, #[MapFrom('app_id')]
-    public int|null $appId, public Schema\WebhookPing\Hook\Config $config, #[MapFrom('created_at')]
+    public int|null $appId, public Config $config, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('deliveries_url')]
     public string|null $deliveriesUrl, public array $events, public int $id, #[MapFrom('last_response')]
-    public Schema\HookResponse|null $lastResponse, public string $name, #[MapFrom('ping_url')]
+    public HookResponse|null $lastResponse, public string $name, #[MapFrom('ping_url')]
     public string|null $pingUrl, #[MapFrom('test_url')]
     public string|null $testUrl, public string $type, #[MapFrom('updated_at')]
     public string $updatedAt, public string|null $url,)

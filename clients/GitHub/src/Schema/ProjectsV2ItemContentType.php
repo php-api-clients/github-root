@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ProjectsV2ItemContentType
+final readonly class ProjectsV2ItemContentType implements \ApiClients\Client\GitHub\Contract\ProjectsV2ItemContentType
 {
     public const SCHEMA_JSON         = '{
     "title": "Projects v2 Item Content Type",

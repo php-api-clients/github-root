@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated\Comment\Reactions;
+use ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated\Comment\User;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Comment
+final readonly class Comment implements \ApiClients\Client\GitHub\Contract\WebhookCommitCommentCreated\Comment
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -248,7 +249,7 @@ final readonly class Comment
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'The [commit comment](${externalDocsUpapp/api/description/components/schemas/webhooks/issue-comment-created.yamlrl}/rest/commits/comments#get-a-commit-comment) resource.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "created_at": "generated",
@@ -292,7 +293,7 @@ final readonly class Comment
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
@@ -313,8 +314,8 @@ final readonly class Comment
     public string $commitId, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, public int|null $line, #[MapFrom('node_id')]
-    public string $nodeId, public string|null $path, public int|null $position, public Schema\WebhookCommitCommentCreated\Comment\Reactions|null $reactions, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookCommitCommentCreated\Comment\User|null $user,)
+    public string $nodeId, public string|null $path, public int|null $position, public Reactions|null $reactions, #[MapFrom('updated_at')]
+    public string $updatedAt, public string $url, public User|null $user,)
     {
     }
 }

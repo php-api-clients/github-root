@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\ActionsBillingUsage;
 use ApiClients\Client\GitHub\Schema\BillingUsageReport;
 use ApiClients\Client\GitHub\Schema\CombinedBillingUsage;
@@ -12,7 +12,7 @@ use ApiClients\Client\GitHub\Schema\PackagesBillingUsage;
 
 final class Billing
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 

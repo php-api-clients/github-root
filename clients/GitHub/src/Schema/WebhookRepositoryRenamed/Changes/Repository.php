@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRenamed\Changes;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRepositoryRenamed\Changes\Repository\Name;
 
-final readonly class Repository
+final readonly class Repository implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRenamed\Changes\Repository
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -35,7 +35,7 @@ final readonly class Repository
     }
 }';
 
-    public function __construct(public Schema\WebhookRepositoryRenamed\Changes\Repository\Name $name)
+    public function __construct(public Name $name)
     {
     }
 }

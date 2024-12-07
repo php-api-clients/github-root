@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class GitTree
+final readonly class GitTree implements \ApiClients\Client\GitHub\Contract\GitTree
 {
     public const SCHEMA_JSON         = '{
     "title": "Git Tree",
@@ -120,76 +120,20 @@ final readonly class GitTree
     "truncated": false,
     "tree": [
         {
-            "path": "file.rb",
-            "mode": "100644",
-            "type": "blob",
-            "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-            "size": 30,
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs\\/44b4fc6d56897b048c772eb4087f854f46256132",
-            "properties": {
-                "path": {
-                    "type": "string"
-                },
-                "mode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "sha": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "path",
-                "mode",
-                "type",
-                "sha",
-                "url",
-                "size"
-            ]
+            "path": "generated",
+            "mode": "generated",
+            "type": "generated",
+            "sha": "generated",
+            "size": 4,
+            "url": "generated"
         },
         {
-            "path": "file.rb",
-            "mode": "100644",
-            "type": "blob",
-            "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-            "size": 30,
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs\\/44b4fc6d56897b048c772eb4087f854f46256132",
-            "properties": {
-                "path": {
-                    "type": "string"
-                },
-                "mode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "sha": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "path",
-                "mode",
-                "type",
-                "sha",
-                "url",
-                "size"
-            ]
+            "path": "generated",
+            "mode": "generated",
+            "type": "generated",
+            "sha": "generated",
+            "size": 4,
+            "url": "generated"
         }
     ]
 }';

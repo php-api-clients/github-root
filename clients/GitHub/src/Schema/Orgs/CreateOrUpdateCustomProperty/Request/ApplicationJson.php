@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Orgs\CreateOrUpdateCustomProperty\Requ
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\CreateOrUpdateCustomProperty\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -74,11 +74,9 @@ final readonly class ApplicationJson
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "value_type": "single_select",
+    "value_type": "string",
     "required": false,
-    "default_value": null,
-    "description": "generated",
-    "allowed_values": null
+    "description": "generated"
 }';
 
     /**

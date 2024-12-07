@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Pulls\Create\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\Create\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -62,12 +62,12 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated",
     "head": "generated",
-    "head_repo": "octo-org\\/octo-repo",
+    "head_repo": "generated",
     "base": "generated",
     "body": "generated",
     "maintainer_can_modify": false,
     "draft": false,
-    "issue": 1
+    "issue": 5
 }';
 
     /**

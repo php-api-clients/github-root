@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Contributor
+final readonly class Contributor implements \ApiClients\Client\GitHub\Contract\Contributor
 {
     public const SCHEMA_JSON         = '{
     "title": "Contributor",

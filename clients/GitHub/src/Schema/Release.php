@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\Release
 {
     public const SCHEMA_JSON         = '{
     "title": "Release",
@@ -615,8 +614,8 @@ final readonly class Release
     "zipball_url": "https:\\/\\/example.com\\/",
     "id": 2,
     "node_id": "generated",
-    "tag_name": "v1.0.0",
-    "target_commitish": "master",
+    "tag_name": "generated",
+    "target_commitish": "generated",
     "name": "generated",
     "body": "generated",
     "draft": false,
@@ -626,26 +625,26 @@ final readonly class Release
     "author": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "assets": [
         {
@@ -653,7 +652,7 @@ final readonly class Release
             "browser_download_url": "https:\\/\\/example.com\\/",
             "id": 2,
             "node_id": "generated",
-            "name": "Team Environment",
+            "name": "generated",
             "label": "generated",
             "state": "uploaded",
             "content_type": "generated",
@@ -664,26 +663,26 @@ final readonly class Release
             "uploader": {
                 "name": "generated",
                 "email": "generated",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                "html_url": "https:\\/\\/github.com\\/octocat",
-                "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                "type": "User",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
                 "site_admin": false,
-                "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                "user_view_type": "public"
+                "starred_at": "generated",
+                "user_view_type": "generated"
             }
         },
         {
@@ -691,7 +690,7 @@ final readonly class Release
             "browser_download_url": "https:\\/\\/example.com\\/",
             "id": 2,
             "node_id": "generated",
-            "name": "Team Environment",
+            "name": "generated",
             "label": "generated",
             "state": "uploaded",
             "content_type": "generated",
@@ -702,26 +701,26 @@ final readonly class Release
             "uploader": {
                 "name": "generated",
                 "email": "generated",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                "html_url": "https:\\/\\/github.com\\/octocat",
-                "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                "type": "User",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
                 "site_admin": false,
-                "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                "user_view_type": "public"
+                "starred_at": "generated",
+                "user_view_type": "generated"
             }
         }
     ],
@@ -761,11 +760,11 @@ final readonly class Release
     public string $tagName, #[MapFrom('target_commitish')]
     public string $targetCommitish, public string|null $name, public string|null $body, public bool $draft, public bool $prerelease, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('published_at')]
-    public string|null $publishedAt, public Schema\SimpleUser $author, public array $assets, #[MapFrom('body_html')]
+    public string|null $publishedAt, public SimpleUser $author, public array $assets, #[MapFrom('body_html')]
     public string|null $bodyHtml, #[MapFrom('body_text')]
     public string|null $bodyText, #[MapFrom('mentions_count')]
     public int|null $mentionsCount, #[MapFrom('discussion_url')]
-    public string|null $discussionUrl, public Schema\ReactionRollup|null $reactions,)
+    public string|null $discussionUrl, public ReactionRollup|null $reactions,)
     {
     }
 }

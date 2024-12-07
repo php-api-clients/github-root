@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryWebhooks;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\RepositoryWebhooks\TemplateRepository\Owner;
+use ApiClients\Client\GitHub\Schema\RepositoryWebhooks\TemplateRepository\Permissions;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TemplateRepository
+final readonly class TemplateRepository implements \ApiClients\Client\GitHub\Contract\RepositoryWebhooks\TemplateRepository
 {
     public const SCHEMA_JSON         = '{
     "type": [
@@ -489,8 +490,8 @@ final readonly class TemplateRepository
     "use_squash_pr_title_as_default": false,
     "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
-    "merge_commit_title": "MERGE_MESSAGE",
-    "merge_commit_message": "BLANK",
+    "merge_commit_title": "PR_TITLE",
+    "merge_commit_message": "PR_BODY",
     "allow_merge_commit": false,
     "subscribers_count": 17,
     "network_count": 13
@@ -518,7 +519,7 @@ final readonly class TemplateRepository
      */
     public function __construct(public int|null $id, #[MapFrom('node_id')]
     public string|null $nodeId, public string|null $name, #[MapFrom('full_name')]
-    public string|null $fullName, public Schema\RepositoryWebhooks\TemplateRepository\Owner|null $owner, public bool|null $private, #[MapFrom('html_url')]
+    public string|null $fullName, public Owner|null $owner, public bool|null $private, #[MapFrom('html_url')]
     public string|null $htmlUrl, public string|null $description, public bool|null $fork, public string|null $url, #[MapFrom('archive_url')]
     public string|null $archiveUrl, #[MapFrom('assignees_url')]
     public string|null $assigneesUrl, #[MapFrom('blobs_url')]
@@ -574,7 +575,7 @@ final readonly class TemplateRepository
     public bool|null $hasDownloads, public bool|null $archived, public bool|null $disabled, public string|null $visibility, #[MapFrom('pushed_at')]
     public string|null $pushedAt, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\RepositoryWebhooks\TemplateRepository\Permissions|null $permissions, #[MapFrom('allow_rebase_merge')]
+    public string|null $updatedAt, public Permissions|null $permissions, #[MapFrom('allow_rebase_merge')]
     public bool|null $allowRebaseMerge, #[MapFrom('temp_clone_token')]
     public string|null $tempCloneToken, #[MapFrom('allow_squash_merge')]
     public bool|null $allowSquashMerge, #[MapFrom('allow_auto_merge')]

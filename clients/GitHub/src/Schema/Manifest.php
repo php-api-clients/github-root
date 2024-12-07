@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\Manifest\File;
+use ApiClients\Client\GitHub\Schema\Manifest\Resolved;
 
-final readonly class Manifest
+final readonly class Manifest implements \ApiClients\Client\GitHub\Contract\Manifest
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -140,9 +141,9 @@ final readonly class Manifest
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "package-lock.json",
+    "name": "generated",
     "file": {
-        "source_location": "\\/src\\/build\\/package-lock.json"
+        "source_location": "generated"
     },
     "metadata": [],
     "resolved": []
@@ -153,7 +154,7 @@ final readonly class Manifest
      * metadata: User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
      * resolved: A collection of resolved package dependencies.
      */
-    public function __construct(public string $name, public Schema\Manifest\File|null $file, public Schema\Metadata|null $metadata, public Schema\Manifest\Resolved|null $resolved)
+    public function __construct(public string $name, public File|null $file, public Metadata|null $metadata, public Resolved|null $resolved)
     {
     }
 }

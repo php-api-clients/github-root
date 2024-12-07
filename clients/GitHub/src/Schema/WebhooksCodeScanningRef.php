@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksCodeScanningRef
+final readonly class WebhooksCodeScanningRef implements \ApiClients\Client\GitHub\Contract\WebhooksCodeScanningRef
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

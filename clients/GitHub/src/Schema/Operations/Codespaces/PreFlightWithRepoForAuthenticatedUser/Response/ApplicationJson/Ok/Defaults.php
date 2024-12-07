@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Codespaces\PreFlightWithRep
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Defaults
+final readonly class Defaults implements \ApiClients\Client\GitHub\Contract\Operations\Codespaces\PreFlightWithRepoForAuthenticatedUser\Response\ApplicationJson\Ok\Defaults
 {
     public const SCHEMA_JSON         = '{
     "required": [

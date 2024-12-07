@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Reactions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteForRelease
 {
@@ -35,7 +34,7 @@ final class DeleteForRelease
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{release_id}', '{reaction_id}'], [$this->owner, $this->repo, $this->releaseId, $this->reactionId], '/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}'))->expand(['owner' => $this->owner, 'reaction_id' => $this->reactionId, 'release_id' => $this->releaseId, 'repo' => $this->repo]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\CheckRun;
 
-final readonly class CheckSuite
+final readonly class CheckSuite implements \ApiClients\Client\GitHub\Contract\CheckRun\CheckSuite
 {
     public const SCHEMA_JSON         = '{
     "required": [

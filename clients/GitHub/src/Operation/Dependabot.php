@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Operation;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Operators;
 use ApiClients\Client\GitHub\Schema\DependabotAlert;
 use ApiClients\Client\GitHub\Schema\DependabotPublicKey;
 use ApiClients\Client\GitHub\Schema\DependabotSecret;
@@ -17,17 +16,17 @@ use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Dependabot
 {
-    public function __construct(private Internal\Operators $operators)
+    public function __construct(public Operators $operators)
     {
     }
 
-    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return Observable<DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForEnterprise(string $enterprise, string $state, string $severity, string $ecosystem, string $package, string $scope, string $before, string $after, int $last, string $sort, string $direction, int $first, int $perPage): iterable|WithoutBody
     {
         return $this->operators->dependabot👷ListAlertsForEnterprise()->call($enterprise, $state, $severity, $ecosystem, $package, $scope, $before, $after, $last, $sort, $direction, $first, $perPage);
     }
 
-    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return Observable<DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForOrg(string $org, string $state, string $severity, string $ecosystem, string $package, string $scope, string $before, string $after, int $last, string $sort, string $direction, int $first, int $perPage): iterable|WithoutBody
     {
         return $this->operators->dependabot👷ListAlertsForOrg()->call($org, $state, $severity, $ecosystem, $package, $scope, $before, $after, $last, $sort, $direction, $first, $perPage);
@@ -87,16 +86,10 @@ final class Dependabot
         return $this->operators->dependabot👷RemoveSelectedRepoFromOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
-    /** @return Observable<Schema\DependabotAlert>|WithoutBody */
+    /** @return Observable<DependabotAlert>|WithoutBody */
     public function listAlertsForRepo(string $owner, string $repo, string $state, string $severity, string $ecosystem, string $package, string $manifest, string $scope, string $before, string $after, int $last, string $sort, string $direction, int $page, int $perPage, int $first): iterable|WithoutBody
     {
         return $this->operators->dependabot👷ListAlertsForRepo()->call($owner, $repo, $state, $severity, $ecosystem, $package, $manifest, $scope, $before, $after, $last, $sort, $direction, $page, $perPage, $first);
-    }
-
-    /** @return Observable<Schema\DependabotAlert>|WithoutBody */
-    public function listAlertsForRepoListing(string $owner, string $repo, string $state, string $severity, string $ecosystem, string $package, string $manifest, string $scope, string $before, string $after, int $last, string $sort, string $direction, int $page, int $perPage, int $first): iterable|WithoutBody
-    {
-        return $this->operators->dependabot👷ListAlertsForRepoListing()->call($owner, $repo, $state, $severity, $ecosystem, $package, $manifest, $scope, $before, $after, $last, $sort, $direction, $page, $perPage, $first);
     }
 
     /** @return */

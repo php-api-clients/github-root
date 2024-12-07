@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookPackageUpdated;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\Owner;
+use ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion;
+use ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\Registry;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Package
+final readonly class Package implements \ApiClients\Client\GitHub\Contract\WebhookPackageUpdated\Package
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -686,7 +688,7 @@ final readonly class Package
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -712,7 +714,7 @@ final readonly class Package
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -795,7 +797,7 @@ final readonly class Package
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
@@ -866,9 +868,9 @@ final readonly class Package
 
     public function __construct(#[MapFrom('created_at')]
     public string $createdAt, public string|null $description, public string $ecosystem, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Schema\WebhookPackageUpdated\Package\Owner|null $owner, #[MapFrom('package_type')]
+    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Owner|null $owner, #[MapFrom('package_type')]
     public string $packageType, #[MapFrom('package_version')]
-    public Schema\WebhookPackageUpdated\Package\PackageVersion $packageVersion, public Schema\WebhookPackageUpdated\Package\Registry|null $registry, #[MapFrom('updated_at')]
+    public PackageVersion $packageVersion, public Registry|null $registry, #[MapFrom('updated_at')]
     public string $updatedAt,)
     {
     }

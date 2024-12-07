@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Patch;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\SetSuitesPreferences;
+use ApiClients\Client\GitHub\Internal\Operator\Checks\Update;
 use ApiClients\Client\GitHub\Schema\CheckRun;
 use ApiClients\Client\GitHub\Schema\CheckSuitePreference;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -16,7 +18,7 @@ use function array_key_exists;
 
 final class Checks
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -42,7 +44,7 @@ final class Checks
 
         $arguments['check_run_id'] = $params['check_run_id'];
         unset($params['check_run_id']);
-        $operator = new Internal\Operator\Checks\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId());
+        $operator = new Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckRuns🌀CheckRunId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_run_id'], $params);
     }
@@ -63,7 +65,7 @@ final class Checks
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Checks\SetSuitesPreferences($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀Preferences());
+        $operator = new SetSuitesPreferences($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CheckSuites🌀Preferences());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }

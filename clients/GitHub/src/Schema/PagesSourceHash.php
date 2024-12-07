@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class PagesSourceHash
+final readonly class PagesSourceHash implements \ApiClients\Client\GitHub\Contract\PagesSourceHash
 {
     public const SCHEMA_JSON         = '{
     "title": "Pages Source Hash",

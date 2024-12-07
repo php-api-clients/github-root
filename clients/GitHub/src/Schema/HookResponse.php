@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class HookResponse
+final readonly class HookResponse implements \ApiClients\Client\GitHub\Contract\HookResponse
 {
     public const SCHEMA_JSON         = '{
     "title": "Hook Response",

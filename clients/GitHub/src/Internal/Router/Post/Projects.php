@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Post;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\CreateCard;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\CreateColumn;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\CreateForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\CreateForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\CreateForRepo;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\MoveCard;
+use ApiClients\Client\GitHub\Internal\Operator\Projects\MoveColumn;
 use ApiClients\Client\GitHub\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHub\Schema\Project;
 use ApiClients\Client\GitHub\Schema\ProjectCard;
@@ -19,7 +26,7 @@ use function array_key_exists;
 
 final class Projects
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -33,7 +40,7 @@ final class Projects
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Projects\CreateForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Projects());
+        $operator = new CreateForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Projects());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -48,7 +55,7 @@ final class Projects
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Projects\CreateColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Columns());
+        $operator = new CreateColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId🌀Columns());
 
         return $operator->call($arguments['project_id'], $params);
     }
@@ -63,7 +70,7 @@ final class Projects
 
         $arguments['card_id'] = $params['card_id'];
         unset($params['card_id']);
-        $operator = new Internal\Operator\Projects\MoveCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId🌀Moves());
+        $operator = new MoveCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId🌀Moves());
 
         return $operator->call($arguments['card_id'], $params);
     }
@@ -78,7 +85,7 @@ final class Projects
 
         $arguments['column_id'] = $params['column_id'];
         unset($params['column_id']);
-        $operator = new Internal\Operator\Projects\CreateCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Cards());
+        $operator = new CreateCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Cards());
 
         return $operator->call($arguments['column_id'], $params);
     }
@@ -93,7 +100,7 @@ final class Projects
 
         $arguments['column_id'] = $params['column_id'];
         unset($params['column_id']);
-        $operator = new Internal\Operator\Projects\MoveColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Moves());
+        $operator = new MoveColumn($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀ColumnId🌀Moves());
 
         return $operator->call($arguments['column_id'], $params);
     }
@@ -114,7 +121,7 @@ final class Projects
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Projects\CreateForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Projects());
+        $operator = new CreateForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Projects());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
@@ -122,7 +129,7 @@ final class Projects
     /** @return */
     public function createForAuthenticatedUser(array $params): Project|WithoutBody
     {
-        $operator = new Internal\Operator\Projects\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Projects());
+        $operator = new CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Projects());
 
         return $operator->call($params);
     }

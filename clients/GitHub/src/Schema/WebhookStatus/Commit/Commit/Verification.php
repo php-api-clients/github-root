@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Verification
+final readonly class Verification implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Commit\Commit\Verification
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -64,7 +64,7 @@ final readonly class Verification
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "payload": "generated",
-    "reason": "ocsp_pending",
+    "reason": "expired_key",
     "signature": "generated",
     "verified": false,
     "verified_at": "generated"

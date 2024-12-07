@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation\Orgs\Org;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\RepositoryRuleset\Conditions;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\RepositoryRuleset\Rules;
+use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\RepositoryRuleset\Conditions;
 use ApiClients\Client\GitHub\Schema\BasicError;
 use ApiClients\Client\GitHub\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links;
@@ -270,6 +271,19 @@ class Rulesets implements ObjectMapper
 
             if ($value === null) {
                 $properties['rules'] = null;
+                goto after_rules;
+            }
+
+            static $rulesCaster1;
+
+            if ($rulesCaster1 === null) {
+                $rulesCaster1 = new Rules(...[]);
+            }
+
+            $value = $rulesCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $properties['rules'] = null;
                 goto after_rules;
             }
 

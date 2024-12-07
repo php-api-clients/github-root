@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Orgs\Update\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\Update\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -176,13 +176,13 @@ final readonly class ApplicationJson
     "members_can_create_internal_repositories": false,
     "members_can_create_private_repositories": false,
     "members_can_create_public_repositories": false,
-    "members_allowed_repository_creation_type": "none",
+    "members_allowed_repository_creation_type": "all",
     "members_can_create_pages": false,
     "members_can_create_public_pages": false,
     "members_can_create_private_pages": false,
     "members_can_fork_private_repositories": false,
     "web_commit_signoff_required": false,
-    "blog": "\\"http:\\/\\/github.blog\\"",
+    "blog": "generated",
     "advanced_security_enabled_for_new_repositories": false,
     "dependabot_alerts_enabled_for_new_repositories": false,
     "dependabot_security_updates_enabled_for_new_repositories": false,

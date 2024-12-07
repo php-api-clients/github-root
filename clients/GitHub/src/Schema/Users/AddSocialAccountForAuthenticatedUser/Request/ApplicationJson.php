@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Users\AddSocialAccountForAuthenticated
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Users\AddSocialAccountForAuthenticatedUser\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [

@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ScopedInstallation
+final readonly class ScopedInstallation implements \ApiClients\Client\GitHub\Contract\ScopedInstallation
 {
     public const SCHEMA_JSON         = '{
     "title": "Scoped Installation",
@@ -630,85 +629,85 @@ final readonly class ScopedInstallation
     public const SCHEMA_EXAMPLE_DATA = '{
     "permissions": {
         "actions": "read",
-        "administration": "write",
-        "checks": "write",
-        "codespaces": "write",
+        "administration": "read",
+        "checks": "read",
+        "codespaces": "read",
         "contents": "read",
-        "dependabot_secrets": "write",
-        "deployments": "write",
-        "environments": "write",
+        "dependabot_secrets": "read",
+        "deployments": "read",
+        "environments": "read",
         "issues": "read",
-        "metadata": "write",
-        "packages": "write",
+        "metadata": "read",
+        "packages": "read",
         "pages": "read",
         "pull_requests": "read",
-        "repository_custom_properties": "write",
-        "repository_hooks": "write",
+        "repository_custom_properties": "read",
+        "repository_hooks": "read",
         "repository_projects": "read",
-        "secret_scanning_alerts": "write",
+        "secret_scanning_alerts": "read",
         "secrets": "read",
         "security_events": "read",
         "single_file": "read",
-        "statuses": "write",
-        "vulnerability_alerts": "write",
+        "statuses": "read",
+        "vulnerability_alerts": "read",
         "workflows": "write",
         "members": "read",
         "organization_administration": "read",
         "organization_custom_roles": "read",
         "organization_custom_org_roles": "read",
-        "organization_custom_properties": "admin",
+        "organization_custom_properties": "read",
         "organization_copilot_seat_management": "write",
         "organization_announcement_banners": "read",
         "organization_events": "read",
-        "organization_hooks": "write",
+        "organization_hooks": "read",
         "organization_personal_access_tokens": "read",
         "organization_personal_access_token_requests": "read",
         "organization_plan": "read",
         "organization_projects": "read",
         "organization_packages": "read",
-        "organization_secrets": "write",
-        "organization_self_hosted_runners": "write",
-        "organization_user_blocking": "write",
-        "team_discussions": "write",
+        "organization_secrets": "read",
+        "organization_self_hosted_runners": "read",
+        "organization_user_blocking": "read",
+        "team_discussions": "read",
         "email_addresses": "read",
         "followers": "read",
-        "git_ssh_keys": "write",
-        "gpg_keys": "write",
-        "interaction_limits": "write",
+        "git_ssh_keys": "read",
+        "gpg_keys": "read",
+        "interaction_limits": "read",
         "profile": "write",
-        "starring": "write"
+        "starring": "read"
     },
-    "repository_selection": "selected",
-    "single_file_name": "config.yaml",
-    "has_multiple_single_files": true,
+    "repository_selection": "all",
+    "single_file_name": "generated",
+    "has_multiple_single_files": false,
     "single_file_paths": [
-        "config.yml",
-        "config.yml"
+        "generated",
+        "generated"
     ],
-    "repositories_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
+    "repositories_url": "https:\\/\\/example.com\\/",
     "account": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     }
 }';
 
@@ -717,12 +716,12 @@ final readonly class ScopedInstallation
      * repositorySelection: Describe whether all repositories have been selected or there's a selection involved
      * account: A GitHub user.
      */
-    public function __construct(public Schema\AppPermissions $permissions, #[MapFrom('repository_selection')]
+    public function __construct(public AppPermissions $permissions, #[MapFrom('repository_selection')]
     public string $repositorySelection, #[MapFrom('single_file_name')]
     public string|null $singleFileName, #[MapFrom('has_multiple_single_files')]
     public bool|null $hasMultipleSingleFiles, #[MapFrom('single_file_paths')]
     public array|null $singleFilePaths, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public Schema\SimpleUser $account,)
+    public string $repositoriesUrl, public SimpleUser $account,)
     {
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ActionsEnabled
+final readonly class ActionsEnabled implements \ApiClients\Client\GitHub\Contract\ActionsEnabled
 {
     public const SCHEMA_JSON         = '{
     "type": "boolean",

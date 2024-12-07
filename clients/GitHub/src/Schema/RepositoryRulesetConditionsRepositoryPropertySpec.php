@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class RepositoryRulesetConditionsRepositoryPropertySpec
+final readonly class RepositoryRulesetConditionsRepositoryPropertySpec implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertySpec
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository ruleset property targeting definition",
@@ -46,7 +46,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertySpec
         "generated",
         "generated"
     ],
-    "source": "system"
+    "source": "custom"
 }';
 
     /**

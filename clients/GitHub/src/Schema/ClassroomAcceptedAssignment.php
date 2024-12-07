@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ClassroomAcceptedAssignment
+final readonly class ClassroomAcceptedAssignment implements \ApiClients\Client\GitHub\Contract\ClassroomAcceptedAssignment
 {
     public const SCHEMA_JSON         = '{
     "title": "Classroom Accepted Assignment",
@@ -360,56 +359,56 @@ final readonly class ClassroomAcceptedAssignment
     public const SCHEMA_TITLE        = 'Classroom Accepted Assignment';
     public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom accepted assignment';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "submitted": true,
-    "passing": true,
-    "commit_count": 5,
-    "grade": "10\\/10",
+    "id": 2,
+    "submitted": false,
+    "passing": false,
+    "commit_count": 12,
+    "grade": "generated",
     "students": [
         {
-            "id": 1,
-            "login": "octocat",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "html_url": "https:\\/\\/github.com\\/octocat"
+            "id": 2,
+            "login": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/"
         },
         {
-            "id": 1,
-            "login": "octocat",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "html_url": "https:\\/\\/github.com\\/octocat"
+            "id": 2,
+            "login": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/"
         }
     ],
     "repository": {
-        "id": 1296269,
-        "full_name": "octocat\\/Hello-World",
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-        "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+        "id": 2,
+        "full_name": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "node_id": "generated",
         "private": false,
-        "default_branch": "main"
+        "default_branch": "generated"
     },
     "assignment": {
-        "id": 42,
-        "public_repo": true,
-        "title": "Intro to Binaries",
+        "id": 2,
+        "public_repo": false,
+        "title": "generated",
         "type": "individual",
-        "invite_link": "https:\\/\\/classroom.github.com\\/a\\/Lx7jiUgx",
-        "invitations_enabled": true,
-        "slug": "intro-to-binaries",
-        "students_are_repo_admins": true,
-        "feedback_pull_requests_enabled": true,
-        "max_teams": 0,
-        "max_members": 0,
-        "editor": "codespaces",
-        "accepted": 25,
-        "submitted": 10,
-        "passing": 10,
-        "language": "elixir",
-        "deadline": "2011-01-26T19:06:43Z",
+        "invite_link": "generated",
+        "invitations_enabled": false,
+        "slug": "generated",
+        "students_are_repo_admins": false,
+        "feedback_pull_requests_enabled": false,
+        "max_teams": 9,
+        "max_members": 11,
+        "editor": "generated",
+        "accepted": 8,
+        "submitted": 9,
+        "passing": 7,
+        "language": "generated",
+        "deadline": "1970-01-01T00:00:00+00:00",
         "classroom": {
-            "id": 42,
-            "name": "Programming Elixir",
+            "id": 2,
+            "name": "generated",
             "archived": false,
-            "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+            "url": "generated"
         }
     }
 }';
@@ -424,7 +423,7 @@ final readonly class ClassroomAcceptedAssignment
      * assignment: A GitHub Classroom assignment
      */
     public function __construct(public int $id, public bool $submitted, public bool $passing, #[MapFrom('commit_count')]
-    public int $commitCount, public string $grade, public array $students, public Schema\SimpleClassroomRepository $repository, public Schema\SimpleClassroomAssignment $assignment,)
+    public int $commitCount, public string $grade, public array $students, public SimpleClassroomRepository $repository, public SimpleClassroomAssignment $assignment,)
     {
     }
 }

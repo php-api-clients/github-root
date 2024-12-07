@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class TeamMembership
+final readonly class TeamMembership implements \ApiClients\Client\GitHub\Contract\TeamMembership
 {
     public const SCHEMA_JSON         = '{
     "title": "Team Membership",

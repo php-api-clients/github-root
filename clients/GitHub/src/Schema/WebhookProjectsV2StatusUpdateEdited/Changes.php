@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\Body;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\StartDate;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\Status;
+use ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\TargetDate;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2StatusUpdateEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -110,8 +113,8 @@ final readonly class Changes
         "to": "generated"
     },
     "status": {
-        "from": "COMPLETE",
-        "to": "COMPLETE"
+        "from": "INACTIVE",
+        "to": "INACTIVE"
     },
     "start_date": {
         "from": "generated",
@@ -123,9 +126,9 @@ final readonly class Changes
     }
 }';
 
-    public function __construct(public Schema\WebhookProjectsV2StatusUpdateEdited\Changes\Body|null $body, public Schema\WebhookProjectsV2StatusUpdateEdited\Changes\Status|null $status, #[MapFrom('start_date')]
-    public Schema\WebhookProjectsV2StatusUpdateEdited\Changes\StartDate|null $startDate, #[MapFrom('target_date')]
-    public Schema\WebhookProjectsV2StatusUpdateEdited\Changes\TargetDate|null $targetDate,)
+    public function __construct(public Body|null $body, public Status|null $status, #[MapFrom('start_date')]
+    public StartDate|null $startDate, #[MapFrom('target_date')]
+    public TargetDate|null $targetDate,)
     {
     }
 }

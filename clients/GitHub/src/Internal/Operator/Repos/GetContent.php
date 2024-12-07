@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operator\Repos;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Repos\Owner\Repo\Contents\Path;
 use ApiClients\Client\GitHub\Schema\ContentDirectory;
 use ApiClients\Client\GitHub\Schema\ContentFile;
 use ApiClients\Client\GitHub\Schema\ContentSubmodule;
@@ -24,7 +24,7 @@ final readonly class GetContent
     public const OPERATION_ID    = 'repos/get-content';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/contents/{path}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Repos\Owner\Repo\Contents\Path $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Path $hydrator)
     {
     }
 

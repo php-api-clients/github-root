@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Actions;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteEnvironmentSecret
 {
@@ -35,7 +34,7 @@ final class DeleteEnvironmentSecret
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{environment_name}', '{secret_name}'], [$this->owner, $this->repo, $this->environmentName, $this->secretName], '/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}'));
+        return new Request('DELETE', (string) (new UriTemplate('/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}'))->expand(['environment_name' => $this->environmentName, 'owner' => $this->owner, 'repo' => $this->repo, 'secret_name' => $this->secretName]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

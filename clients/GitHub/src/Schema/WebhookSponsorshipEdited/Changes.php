@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookSponsorshipEdited;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookSponsorshipEdited\Changes
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -35,7 +35,7 @@ final readonly class Changes
 }';
 
     public function __construct(#[MapFrom('privacy_level')]
-    public Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel|null $privacyLevel,)
+    public PrivacyLevel|null $privacyLevel,)
     {
     }
 }

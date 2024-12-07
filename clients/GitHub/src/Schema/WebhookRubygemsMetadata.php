@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata\Metadata;
+use ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata\VersionInfo;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class WebhookRubygemsMetadata
+final readonly class WebhookRubygemsMetadata implements \ApiClients\Client\GitHub\Contract\WebhookRubygemsMetadata
 {
     public const SCHEMA_JSON         = '{
     "title": "Ruby Gems metadata",
@@ -80,7 +81,7 @@ final readonly class WebhookRubygemsMetadata
 }';
 
     public function __construct(public string|null $name, public string|null $description, public string|null $readme, public string|null $homepage, #[MapFrom('version_info')]
-    public Schema\WebhookRubygemsMetadata\VersionInfo|null $versionInfo, public string|null $platform, public Schema\WebhookRubygemsMetadata\Metadata|null $metadata, public string|null $repo, public array|null $dependencies, #[MapFrom('commit_oid')]
+    public VersionInfo|null $versionInfo, public string|null $platform, public Metadata|null $metadata, public string|null $repo, public array|null $dependencies, #[MapFrom('commit_oid')]
     public string|null $commitOid,)
     {
     }

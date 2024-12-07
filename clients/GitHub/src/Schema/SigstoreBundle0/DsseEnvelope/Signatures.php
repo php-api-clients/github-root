@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\DsseEnvelope;
 
-final readonly class Signatures
+final readonly class Signatures implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\DsseEnvelope\Signatures
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

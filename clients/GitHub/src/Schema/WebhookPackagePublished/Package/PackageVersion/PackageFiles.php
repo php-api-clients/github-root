@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\Packag
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class PackageFiles
+final readonly class PackageFiles implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\PackageFiles
 {
     public const SCHEMA_JSON         = '{
     "required": [

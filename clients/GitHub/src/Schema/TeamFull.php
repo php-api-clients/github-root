@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class TeamFull
+final readonly class TeamFull implements \ApiClients\Client\GitHub\Contract\TeamFull
 {
     public const SCHEMA_JSON         = '{
     "title": "Full Team",
@@ -658,72 +657,72 @@ final readonly class TeamFull
     public const SCHEMA_TITLE        = 'Full Team';
     public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "node_id": "MDQ6VGVhbTE=",
-    "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-    "name": "Developers",
-    "slug": "justice-league",
-    "description": "A great team.",
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "name": "generated",
+    "slug": "generated",
+    "description": "generated",
     "privacy": "closed",
     "notification_setting": "notifications_enabled",
-    "permission": "push",
-    "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-    "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
+    "permission": "generated",
+    "members_url": "generated",
+    "repositories_url": "https:\\/\\/example.com\\/",
     "parent": {
-        "id": 1,
-        "node_id": "MDQ6VGVhbTE=",
-        "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-        "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-        "name": "Justice League",
-        "description": "A great team.",
-        "permission": "admin",
-        "privacy": "closed",
-        "notification_setting": "notifications_enabled",
-        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-        "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-        "slug": "justice-league",
-        "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "members_url": "generated",
+        "name": "generated",
+        "description": "generated",
+        "permission": "generated",
+        "privacy": "generated",
+        "notification_setting": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "repositories_url": "https:\\/\\/example.com\\/",
+        "slug": "generated",
+        "ldap_dn": "generated"
     },
-    "members_count": 3,
-    "repos_count": 10,
-    "created_at": "2017-07-14T16:53:42Z",
-    "updated_at": "2017-08-17T12:37:15Z",
+    "members_count": 13,
+    "repos_count": 11,
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "organization": {
-        "login": "github",
-        "id": 1,
-        "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-        "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-        "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-        "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-        "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-        "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-        "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "description": "A great organization",
-        "name": "github",
-        "company": "GitHub",
-        "blog": "https:\\/\\/github.com\\/blog",
-        "location": "San Francisco",
-        "email": "octocat@github.com",
-        "twitter_username": "github",
-        "is_verified": true,
-        "has_organization_projects": true,
-        "has_repository_projects": true,
-        "public_repos": 2,
-        "public_gists": 1,
-        "followers": 20,
-        "following": 0,
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "created_at": "2008-01-14T04:33:35Z",
-        "type": "Organization",
-        "total_private_repos": 100,
-        "owned_private_repos": 100,
-        "private_gists": 81,
-        "disk_usage": 10000,
-        "collaborators": 8,
-        "billing_email": "org@example.com",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "hooks_url": "generated",
+        "issues_url": "generated",
+        "members_url": "generated",
+        "public_members_url": "generated",
+        "avatar_url": "generated",
+        "description": "generated",
+        "name": "generated",
+        "company": "generated",
+        "blog": "https:\\/\\/example.com\\/",
+        "location": "generated",
+        "email": "hi@example.com",
+        "twitter_username": "generated",
+        "is_verified": false,
+        "has_organization_projects": false,
+        "has_repository_projects": false,
+        "public_repos": 12,
+        "public_gists": 12,
+        "followers": 9,
+        "following": 9,
+        "html_url": "https:\\/\\/example.com\\/",
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "type": "generated",
+        "total_private_repos": 19,
+        "owned_private_repos": 19,
+        "private_gists": 13,
+        "disk_usage": 10,
+        "collaborators": 13,
+        "billing_email": "hi@example.com",
         "plan": {
             "name": "generated",
             "space": 5,
@@ -732,21 +731,21 @@ final readonly class TeamFull
             "seats": 5
         },
         "default_repository_permission": "generated",
-        "members_can_create_repositories": true,
-        "two_factor_requirement_enabled": true,
-        "members_allowed_repository_creation_type": "all",
-        "members_can_create_public_repositories": true,
-        "members_can_create_private_repositories": true,
-        "members_can_create_internal_repositories": true,
-        "members_can_create_pages": true,
-        "members_can_create_public_pages": true,
-        "members_can_create_private_pages": true,
+        "members_can_create_repositories": false,
+        "two_factor_requirement_enabled": false,
+        "members_allowed_repository_creation_type": "generated",
+        "members_can_create_public_repositories": false,
+        "members_can_create_private_repositories": false,
+        "members_can_create_internal_repositories": false,
+        "members_can_create_pages": false,
+        "members_can_create_public_pages": false,
+        "members_can_create_private_pages": false,
         "members_can_fork_private_repositories": false,
         "web_commit_signoff_required": false,
         "updated_at": "1970-01-01T00:00:00+00:00",
         "archived_at": "1970-01-01T00:00:00+00:00"
     },
-    "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+    "ldap_dn": "generated"
 }';
 
     /**
@@ -764,11 +763,11 @@ final readonly class TeamFull
     public string $htmlUrl, public string $name, public string $slug, public string|null $description, public string|null $privacy, #[MapFrom('notification_setting')]
     public string|null $notificationSetting, public string $permission, #[MapFrom('members_url')]
     public string $membersUrl, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public Schema\TeamSimple|null $parent, #[MapFrom('members_count')]
+    public string $repositoriesUrl, public TeamSimple|null $parent, #[MapFrom('members_count')]
     public int $membersCount, #[MapFrom('repos_count')]
     public int $reposCount, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\TeamOrganization $organization, #[MapFrom('ldap_dn')]
+    public string $updatedAt, public TeamOrganization $organization, #[MapFrom('ldap_dn')]
     public string|null $ldapDn,)
     {
     }

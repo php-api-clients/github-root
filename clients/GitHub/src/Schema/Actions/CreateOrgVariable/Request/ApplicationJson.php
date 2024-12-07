@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Actions\CreateOrgVariable\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateOrgVariable\Request\ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -47,7 +47,7 @@ final readonly class ApplicationJson
     public const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "value": "generated",
-    "visibility": "selected",
+    "visibility": "all",
     "selected_repository_ids": [
         24,
         25

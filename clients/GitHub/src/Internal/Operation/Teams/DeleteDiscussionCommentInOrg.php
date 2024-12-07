@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
-
-use function str_replace;
 
 final class DeleteDiscussionCommentInOrg
 {
@@ -35,7 +34,7 @@ final class DeleteDiscussionCommentInOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{org}', '{team_slug}', '{discussion_number}', '{comment_number}'], [$this->org, $this->teamSlug, $this->discussionNumber, $this->commentNumber], '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}'));
+        return new Request('DELETE', (string) (new UriTemplate('/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}'))->expand(['comment_number' => $this->commentNumber, 'discussion_number' => $this->discussionNumber, 'org' => $this->org, 'team_slug' => $this->teamSlug]));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

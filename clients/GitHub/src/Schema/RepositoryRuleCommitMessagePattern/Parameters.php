@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T64F93E7B\TEB03B140\T2B202B0B\T2C35EA3B;
 
-final readonly class Parameters extends Schema\AliasAbstract\Tiet64F93E7B\TietEB03B140\Tiet2B202B0B\Tiet2C35EA3B
+final readonly class Parameters extends T2C35EA3B
 {
 }

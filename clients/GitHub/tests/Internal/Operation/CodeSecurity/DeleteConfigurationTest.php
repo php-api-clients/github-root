@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHub\Internal\Operation\CodeSecurity;
 
 use ApiClients\Client\GitHub\Client;
-use ApiClients\Client\GitHub\Error as ErrorSchemas;
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Error\BasicError;
+use ApiClients\Client\GitHub\Error\ScimError;
+use ApiClients\Client\GitHub\Internal\Operation\CodeSecurity\DeleteConfiguration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
 use React\Http\Browser;
@@ -24,8 +24,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_400_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -33,7 +33,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 
@@ -44,8 +44,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_400_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -59,8 +59,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
-        self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ScimError::class);
+        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -68,7 +68,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 
@@ -79,8 +79,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
-        self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(ScimError::class);
+        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -94,8 +94,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -103,7 +103,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 
@@ -114,8 +114,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_403_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -129,8 +129,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -138,7 +138,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 
@@ -149,8 +149,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -164,8 +164,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_409_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -173,7 +173,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 
@@ -184,8 +184,8 @@ final class DeleteConfigurationTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_409_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
+        self::expectException(BasicError::class);
+        $response = new Response(409, ['Content-Type' => 'application/json'], json_encode(json_decode(\ApiClients\Client\GitHub\Schema\BasicError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -207,7 +207,7 @@ final class DeleteConfigurationTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/orgs/generated/code-security/configurations/16', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->call(Internal\Operation\CodeSecurity\DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
+        $result = $client->call(DeleteConfiguration::OPERATION_MATCH, (static function (array $data): array {
             $data['org']              = 'generated';
             $data['configuration_id'] = 16;
 

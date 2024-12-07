@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\AliasAbstract\T976A6376\T1CB19A6B\TE56A9693\T9C643BC5;
 
-final readonly class Macos extends Schema\AliasAbstract\Tiet976A6376\Tiet1CB19A6B\TietE56A9693\Tiet9C643BC5
+final readonly class Macos extends T9C643BC5
 {
 }

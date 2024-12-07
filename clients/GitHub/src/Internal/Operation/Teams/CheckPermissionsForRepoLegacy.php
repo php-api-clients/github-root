@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Teams;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo;
+use ApiClients\Client\GitHub\Schema\TeamRepository;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_decode;
-use function str_replace;
 
 final class CheckPermissionsForRepoLegacy
 {
@@ -29,19 +30,21 @@ final class CheckPermissionsForRepoLegacy
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator, int $teamId, string $owner, string $repo)
+    public function __construct(private SchemaValidator $responseSchemaValidator, private Repo $hydrator, int $teamId, string $owner, string $repo)
     {
-        $this->teamId = $teamId;
-        $this->owner  = $owner;
-        $this->repo   = $repo;
+        $this->teamId                  = $teamId;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{team_id}', '{owner}', '{repo}'], [$this->teamId, $this->owner, $this->repo], '/teams/{team_id}/repos/{owner}/{repo}'));
+        return new Request('GET', (string) (new UriTemplate('/teams/{team_id}/repos/{owner}/{repo}'))->expand(['owner' => $this->owner, 'repo' => $this->repo, 'team_id' => $this->teamId]));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamRepository|WithoutBody
+    public function createResponse(ResponseInterface $response): TeamRepository|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,9 +56,9 @@ final class CheckPermissionsForRepoLegacy
                      * Alternative response with extra repository information
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamRepository::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(TeamRepository::SCHEMA_JSON, Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\TeamRepository::class, $body);
+                        return $this->hydrator->hydrateObject(TeamRepository::class, $body);
                 }
 
                 break;

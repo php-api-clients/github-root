@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecretScanningPushProtectionBypassPlaceholderId
+final readonly class SecretScanningPushProtectionBypassPlaceholderId implements \ApiClients\Client\GitHub\Contract\SecretScanningPushProtectionBypassPlaceholderId
 {
     public const SCHEMA_JSON         = '{
     "type": "string",

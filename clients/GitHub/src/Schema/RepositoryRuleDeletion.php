@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleDeletion
+final readonly class RepositoryRuleDeletion implements \ApiClients\Client\GitHub\Contract\RepositoryRuleDeletion
 {
     public const SCHEMA_JSON         = '{
     "title": "deletion",

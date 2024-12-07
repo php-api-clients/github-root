@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class SecretScanning
+final readonly class SecretScanning implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError\Metadata\SecretScanning
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

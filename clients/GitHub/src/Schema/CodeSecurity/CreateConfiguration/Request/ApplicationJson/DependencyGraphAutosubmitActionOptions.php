@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\CodeSecurity\CreateConfiguration\Reque
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class DependencyGraphAutosubmitActionOptions
+final readonly class DependencyGraphAutosubmitActionOptions implements \ApiClients\Client\GitHub\Contract\CodeSecurity\CreateConfiguration\Request\ApplicationJson\DependencyGraphAutosubmitActionOptions
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\GistSimple;
 
-final readonly class Files
+final readonly class Files implements \ApiClients\Client\GitHub\Contract\GistSimple\Files
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

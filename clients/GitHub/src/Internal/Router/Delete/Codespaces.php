@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteCodespacesAccessUsers;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteFromOrganization;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteOrgSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteRepoSecret;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\DeleteSecretForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\RemoveRepositoryForSecretForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Codespaces\RemoveSelectedRepoFromOrgSecret;
 use ApiClients\Client\GitHub\Schema\Operations\Codespaces\DeleteForAuthenticatedUser\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -16,7 +24,7 @@ use function array_key_exists;
 
 final class Codespaces
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -30,7 +38,7 @@ final class Codespaces
 
         $arguments['codespace_name'] = $params['codespace_name'];
         unset($params['codespace_name']);
-        $operator = new Internal\Operator\Codespaces\DeleteForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName());
+        $operator = new DeleteForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀CodespaceName());
 
         return $operator->call($arguments['codespace_name']);
     }
@@ -45,7 +53,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\DeleteSecretForAuthenticatedUser($this->browser, $this->authentication);
+        $operator = new DeleteSecretForAuthenticatedUser($this->browser, $this->authentication);
 
         return $operator->call($arguments['secret_name']);
     }
@@ -72,7 +80,7 @@ final class Codespaces
 
         $arguments['codespace_name'] = $params['codespace_name'];
         unset($params['codespace_name']);
-        $operator = new Internal\Operator\Codespaces\DeleteFromOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username🌀Codespaces🌀CodespaceName());
+        $operator = new DeleteFromOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username🌀Codespaces🌀CodespaceName());
 
         return $operator->call($arguments['org'], $arguments['username'], $arguments['codespace_name']);
     }
@@ -99,7 +107,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\DeleteRepoSecret($this->browser, $this->authentication);
+        $operator = new DeleteRepoSecret($this->browser, $this->authentication);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
@@ -120,7 +128,7 @@ final class Codespaces
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Codespaces\RemoveRepositoryForSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
+        $operator = new RemoveRepositoryForSecretForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
 
         return $operator->call($arguments['secret_name'], $arguments['repository_id']);
     }
@@ -135,7 +143,7 @@ final class Codespaces
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Internal\Operator\Codespaces\DeleteCodespacesAccessUsers($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Access🌀SelectedUsers());
+        $operator = new DeleteCodespacesAccessUsers($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Access🌀SelectedUsers());
 
         return $operator->call($arguments['org'], $params);
     }
@@ -156,7 +164,7 @@ final class Codespaces
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operator = new Internal\Operator\Codespaces\DeleteOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName());
+        $operator = new DeleteOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName());
 
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
@@ -183,7 +191,7 @@ final class Codespaces
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operator = new Internal\Operator\Codespaces\RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
+        $operator = new RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
 
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }

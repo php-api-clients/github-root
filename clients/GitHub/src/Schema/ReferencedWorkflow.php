@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ReferencedWorkflow
+final readonly class ReferencedWorkflow implements \ApiClients\Client\GitHub\Contract\ReferencedWorkflow
 {
     public const SCHEMA_JSON         = '{
     "title": "Referenced workflow",

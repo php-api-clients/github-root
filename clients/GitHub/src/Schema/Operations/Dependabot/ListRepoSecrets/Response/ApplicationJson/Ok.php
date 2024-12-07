@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\Operations\Dependabot\ListRepoSecrets\
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -56,12 +56,12 @@ final readonly class Ok
     "total_count": 11,
     "secrets": [
         {
-            "name": "MY_ARTIFACTORY_PASSWORD",
+            "name": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
             "updated_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "name": "MY_ARTIFACTORY_PASSWORD",
+            "name": "generated",
             "created_at": "1970-01-01T00:00:00+00:00",
             "updated_at": "1970-01-01T00:00:00+00:00"
         }

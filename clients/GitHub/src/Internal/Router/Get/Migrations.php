@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\DownloadArchiveForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetArchiveForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetCommitAuthors;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetImportStatus;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetLargeFiles;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetStatusForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\GetStatusForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\ListForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\ListForOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\ListReposForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Migrations\ListReposForOrg;
 use ApiClients\Client\GitHub\Schema\Import;
 use ApiClients\Client\GitHub\Schema\Migration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -18,11 +28,11 @@ use function array_key_exists;
 
 final class Migrations
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\Migration>|WithoutBody */
+    /** @return Observable<Migration>|WithoutBody */
     public function listForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -38,12 +48,12 @@ final class Migrations
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Migrations\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
+        $operator = new ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Migration> */
+    /** @return Observable<Migration> */
     public function listForOrg(array $params): iterable
     {
         $arguments = [];
@@ -71,7 +81,7 @@ final class Migrations
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Migrations\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations());
+        $operator = new ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations());
 
         return $operator->call($arguments['org'], $arguments['exclude'], $arguments['per_page'], $arguments['page']);
     }
@@ -92,7 +102,7 @@ final class Migrations
 
         $arguments['exclude'] = $params['exclude'];
         unset($params['exclude']);
-        $operator = new Internal\Operator\Migrations\GetStatusForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId());
+        $operator = new GetStatusForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId());
 
         return $operator->call($arguments['migration_id'], $arguments['exclude']);
     }
@@ -119,7 +129,7 @@ final class Migrations
 
         $arguments['exclude'] = $params['exclude'];
         unset($params['exclude']);
-        $operator = new Internal\Operator\Migrations\GetStatusForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId());
+        $operator = new GetStatusForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId());
 
         return $operator->call($arguments['org'], $arguments['migration_id'], $arguments['exclude']);
     }
@@ -140,7 +150,7 @@ final class Migrations
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Migrations\GetImportStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import());
+        $operator = new GetImportStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
@@ -155,12 +165,12 @@ final class Migrations
 
         $arguments['migration_id'] = $params['migration_id'];
         unset($params['migration_id']);
-        $operator = new Internal\Operator\Migrations\GetArchiveForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Archive());
+        $operator = new GetArchiveForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Archive());
 
         return $operator->call($arguments['migration_id']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -182,7 +192,7 @@ final class Migrations
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Migrations\ListReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repositories());
+        $operator = new ListReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repositories());
 
         return $operator->call($arguments['migration_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -203,12 +213,12 @@ final class Migrations
 
         $arguments['migration_id'] = $params['migration_id'];
         unset($params['migration_id']);
-        $operator = new Internal\Operator\Migrations\DownloadArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
+        $operator = new DownloadArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
 
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposForOrg(array $params): iterable
     {
         $arguments = [];
@@ -236,12 +246,12 @@ final class Migrations
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Migrations\ListReposForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repositories());
+        $operator = new ListReposForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['migration_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\PorterAuthor> */
+    /** @return Observable<PorterAuthor> */
     public function getCommitAuthors(array $params): iterable
     {
         $arguments = [];
@@ -263,12 +273,12 @@ final class Migrations
 
         $arguments['since'] = $params['since'];
         unset($params['since']);
-        $operator = new Internal\Operator\Migrations\GetCommitAuthors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import🌀Authors());
+        $operator = new GetCommitAuthors($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import🌀Authors());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['since']);
     }
 
-    /** @return Observable<Schema\PorterLargeFile> */
+    /** @return Observable<PorterLargeFile> */
     public function getLargeFiles(array $params): iterable
     {
         $arguments = [];
@@ -284,7 +294,7 @@ final class Migrations
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Migrations\GetLargeFiles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import🌀LargeFiles());
+        $operator = new GetLargeFiles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Import🌀LargeFiles());
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }

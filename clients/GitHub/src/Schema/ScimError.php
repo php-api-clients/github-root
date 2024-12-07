@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ScimError
+final readonly class ScimError implements \ApiClients\Client\GitHub\Contract\ScimError
 {
     public const SCHEMA_JSON         = '{
     "title": "Scim Error",

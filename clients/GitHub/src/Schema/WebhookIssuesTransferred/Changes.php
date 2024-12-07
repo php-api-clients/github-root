@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesTransferred;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesTransferred\Changes\NewIssue;
+use ApiClients\Client\GitHub\Schema\WebhookIssuesTransferred\Changes\NewRepository;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookIssuesTransferred\Changes
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -1910,7 +1911,7 @@ final readonly class Changes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "new_issue": {
-        "active_lock_reason": "spam",
+        "active_lock_reason": "resolved",
         "assignee": {
             "avatar_url": "https:\\/\\/example.com\\/",
             "deleted": false,
@@ -1931,7 +1932,7 @@ final readonly class Changes
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1956,7 +1957,7 @@ final readonly class Changes
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
@@ -1980,12 +1981,12 @@ final readonly class Changes
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             }
         ],
-        "author_association": "OWNER",
+        "author_association": "COLLABORATOR",
         "body": "generated",
         "closed_at": "1970-01-01T00:00:00+00:00",
         "comments": 8,
@@ -2041,7 +2042,7 @@ final readonly class Changes
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
@@ -2092,45 +2093,45 @@ final readonly class Changes
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
             "permissions": {
                 "actions": "read",
-                "administration": "write",
-                "checks": "write",
-                "content_references": "write",
-                "contents": "write",
+                "administration": "read",
+                "checks": "read",
+                "content_references": "read",
+                "contents": "read",
                 "deployments": "read",
                 "discussions": "read",
-                "emails": "write",
-                "environments": "write",
-                "issues": "write",
-                "keys": "write",
+                "emails": "read",
+                "environments": "read",
+                "issues": "read",
+                "keys": "read",
                 "members": "read",
-                "metadata": "write",
+                "metadata": "read",
                 "organization_administration": "read",
-                "organization_hooks": "write",
+                "organization_hooks": "read",
                 "organization_packages": "read",
                 "organization_plan": "read",
                 "organization_projects": "read",
-                "organization_secrets": "write",
-                "organization_self_hosted_runners": "write",
-                "organization_user_blocking": "write",
-                "packages": "write",
+                "organization_secrets": "read",
+                "organization_self_hosted_runners": "read",
+                "organization_user_blocking": "read",
+                "packages": "read",
                 "pages": "read",
                 "pull_requests": "read",
-                "repository_hooks": "write",
+                "repository_hooks": "read",
                 "repository_projects": "read",
-                "secret_scanning_alerts": "write",
+                "secret_scanning_alerts": "read",
                 "secrets": "read",
                 "security_events": "read",
                 "security_scanning_alert": "read",
                 "single_file": "read",
-                "statuses": "write",
-                "team_discussions": "write",
-                "vulnerability_alerts": "write",
+                "statuses": "read",
+                "team_discussions": "read",
+                "vulnerability_alerts": "read",
                 "workflows": "read"
             },
             "slug": "generated",
@@ -2187,7 +2188,7 @@ final readonly class Changes
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         }
@@ -2211,7 +2212,7 @@ final readonly class Changes
         "compare_url": "generated",
         "contents_url": "generated",
         "contributors_url": "https:\\/\\/example.com\\/",
-        "created_at": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
         "custom_properties": [],
         "default_branch": "generated",
         "delete_branch_on_merge": false,
@@ -2284,7 +2285,7 @@ final readonly class Changes
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -2298,7 +2299,7 @@ final readonly class Changes
         "private": false,
         "public": false,
         "pulls_url": "generated",
-        "pushed_at": null,
+        "pushed_at": "1970-01-01T00:00:00+00:00",
         "releases_url": "generated",
         "role_name": "generated",
         "size": 4,
@@ -2319,7 +2320,7 @@ final readonly class Changes
         "trees_url": "generated",
         "updated_at": "1970-01-01T00:00:00+00:00",
         "url": "https:\\/\\/example.com\\/",
-        "visibility": "internal",
+        "visibility": "public",
         "watchers": 8,
         "watchers_count": 14,
         "web_commit_signoff_required": false
@@ -2331,8 +2332,8 @@ final readonly class Changes
      * newRepository: A git repository
      */
     public function __construct(#[MapFrom('new_issue')]
-    public Schema\WebhookIssuesTransferred\Changes\NewIssue $newIssue, #[MapFrom('new_repository')]
-    public Schema\WebhookIssuesTransferred\Changes\NewRepository $newRepository,)
+    public NewIssue $newIssue, #[MapFrom('new_repository')]
+    public NewRepository $newRepository,)
     {
     }
 }

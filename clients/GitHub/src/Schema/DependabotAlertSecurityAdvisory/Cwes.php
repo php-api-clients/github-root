@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class Cwes
+final readonly class Cwes implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Cwes
 {
     public const SCHEMA_JSON         = '{
     "required": [

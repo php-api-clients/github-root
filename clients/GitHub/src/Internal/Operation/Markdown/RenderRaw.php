@@ -4,34 +4,38 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Operation\Markdown;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrator\Operation\Markdown\Raw;
+use ApiClients\Client\GitHub\Schema\Markdown\RenderRaw\Request\TextPlain;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
+use cebe\openapi\spec\Schema;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use League\Uri\UriTemplate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use RingCentral\Psr7\Request;
+use React\Http\Message\Request;
 use RuntimeException;
 
 use function explode;
 use function json_encode;
-use function str_replace;
 
 final class RenderRaw
 {
     public const OPERATION_ID    = 'markdown/render-raw';
     public const OPERATION_MATCH = 'POST /markdown/raw';
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Markdown\Raw $hydrator)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Raw $hydrator)
     {
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Markdown\RenderRaw\Request\TextPlain::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(TextPlain::SCHEMA_JSON, Schema::class));
 
-        return new Request('POST', str_replace([], [], '/markdown/raw'), ['Content-Type' => 'text/plain'], json_encode($data));
+        return new Request('POST', (string) (new UriTemplate('/markdown/raw'))->expand([]), ['Content-Type' => 'text/plain'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): string|WithoutBody

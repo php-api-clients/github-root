@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Delete;
 
-use ApiClients\Client\GitHub\Internal;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\CodeScanning\DeleteAnalysis;
+use ApiClients\Client\GitHub\Internal\Operator\CodeScanning\DeleteCodeqlDatabase;
 use ApiClients\Client\GitHub\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -16,7 +18,7 @@ use function array_key_exists;
 
 final class CodeScanning
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -48,7 +50,7 @@ final class CodeScanning
 
         $arguments['confirm_delete'] = $params['confirm_delete'];
         unset($params['confirm_delete']);
-        $operator = new Internal\Operator\CodeScanning\DeleteAnalysis($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Analyses🌀AnalysisId());
+        $operator = new DeleteAnalysis($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Analyses🌀AnalysisId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['analysis_id'], $arguments['confirm_delete']);
     }
@@ -75,7 +77,7 @@ final class CodeScanning
 
         $arguments['language'] = $params['language'];
         unset($params['language']);
-        $operator = new Internal\Operator\CodeScanning\DeleteCodeqlDatabase($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Codeql🌀Databases🌀Language());
+        $operator = new DeleteCodeqlDatabase($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Codeql🌀Databases🌀Language());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['language']);
     }

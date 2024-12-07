@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Schema\ActionsBillingUsage\MinutesUsedBreakdown;
 use EventSauce\ObjectHydrator\MapFrom;
 
-final readonly class ActionsBillingUsage
+final readonly class ActionsBillingUsage implements \ApiClients\Client\GitHub\Contract\ActionsBillingUsage
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -131,7 +131,7 @@ final readonly class ActionsBillingUsage
     public int $totalMinutesUsed, #[MapFrom('total_paid_minutes_used')]
     public int $totalPaidMinutesUsed, #[MapFrom('included_minutes')]
     public int $includedMinutes, #[MapFrom('minutes_used_breakdown')]
-    public Schema\ActionsBillingUsage\MinutesUsedBreakdown $minutesUsedBreakdown,)
+    public MinutesUsedBreakdown $minutesUsedBreakdown,)
     {
     }
 }

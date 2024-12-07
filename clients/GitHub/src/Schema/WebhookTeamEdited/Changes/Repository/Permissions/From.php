@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository\Permissions;
 
-final readonly class From
+final readonly class From implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Repository\Permissions\From
 {
     public const SCHEMA_JSON         = '{
     "type": "object",

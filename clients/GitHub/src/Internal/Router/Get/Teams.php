@@ -4,8 +4,36 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHub\Internal\Router\Get;
 
-use ApiClients\Client\GitHub\Internal;
-use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\Internal\Hydrators;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\CheckPermissionsForProjectInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\CheckPermissionsForProjectLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\CheckPermissionsForRepoInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\CheckPermissionsForRepoLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetByName;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetDiscussionCommentInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetDiscussionCommentLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetDiscussionInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetDiscussionLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetMemberLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetMembershipForUserInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\GetMembershipForUserLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\List_;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListChildInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListChildLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListDiscussionCommentsInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListDiscussionCommentsLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListDiscussionsInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListDiscussionsLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListForAuthenticatedUser;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListMembersInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListMembersLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListPendingInvitationsInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListPendingInvitationsLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListProjectsInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListProjectsLegacy;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListReposInOrg;
+use ApiClients\Client\GitHub\Internal\Operator\Teams\ListReposLegacy;
 use ApiClients\Client\GitHub\Schema\TeamDiscussion;
 use ApiClients\Client\GitHub\Schema\TeamDiscussionComment;
 use ApiClients\Client\GitHub\Schema\TeamFull;
@@ -22,7 +50,7 @@ use function array_key_exists;
 
 final class Teams
 {
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
@@ -36,12 +64,12 @@ final class Teams
 
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
-        $operator = new Internal\Operator\Teams\GetLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
+        $operator = new GetLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
 
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return Observable<Schema\TeamFull>|WithoutBody */
+    /** @return Observable<TeamFull>|WithoutBody */
     public function listForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -57,12 +85,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Teams());
+        $operator = new ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Teams());
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function list(array $params): iterable
     {
         $arguments = [];
@@ -84,12 +112,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams());
+        $operator = new List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function listDiscussionsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -117,12 +145,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListDiscussionsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions());
+        $operator = new ListDiscussionsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions());
 
         return $operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listPendingInvitationsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -144,12 +172,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListPendingInvitationsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Invitations());
+        $operator = new ListPendingInvitationsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Invitations());
 
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listMembersLegacy(array $params): iterable
     {
         $arguments = [];
@@ -177,12 +205,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListMembersLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members());
+        $operator = new ListMembersLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members());
 
         return $operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return Observable<TeamProject> */
     public function listProjectsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -204,12 +232,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListProjectsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects());
+        $operator = new ListProjectsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects());
 
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposLegacy(array $params): iterable
     {
         $arguments = [];
@@ -231,12 +259,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListReposLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos());
+        $operator = new ListReposLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos());
 
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listChildLegacy(array $params): iterable
     {
         $arguments = [];
@@ -258,7 +286,7 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListChildLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams());
+        $operator = new ListChildLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams());
 
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
@@ -279,7 +307,7 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operator = new Internal\Operator\Teams\GetByName($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug());
+        $operator = new GetByName($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug());
 
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
@@ -300,7 +328,7 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Teams\GetDiscussionLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber());
+        $operator = new GetDiscussionLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number']);
     }
@@ -321,7 +349,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\GetMemberLegacy($this->browser, $this->authentication);
+        $operator = new GetMemberLegacy($this->browser, $this->authentication);
 
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
@@ -342,7 +370,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\GetMembershipForUserLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Memberships🌀Username());
+        $operator = new GetMembershipForUserLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Memberships🌀Username());
 
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
@@ -363,12 +391,12 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Teams\CheckPermissionsForProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId());
+        $operator = new CheckPermissionsForProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId());
 
         return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return Observable<TeamDiscussion> */
     public function listDiscussionsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -408,12 +436,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListDiscussionsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions());
+        $operator = new ListDiscussionsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\OrganizationInvitation> */
+    /** @return Observable<OrganizationInvitation> */
     public function listPendingInvitationsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -441,12 +469,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListPendingInvitationsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Invitations());
+        $operator = new ListPendingInvitationsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Invitations());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return Observable<SimpleUser> */
     public function listMembersInOrg(array $params): iterable
     {
         $arguments = [];
@@ -480,12 +508,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListMembersInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Members());
+        $operator = new ListMembersInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Members());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return Observable<TeamProject> */
     public function listProjectsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -513,12 +541,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListProjectsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects());
+        $operator = new ListProjectsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return Observable<MinimalRepository> */
     public function listReposInOrg(array $params): iterable
     {
         $arguments = [];
@@ -546,12 +574,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListReposInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos());
+        $operator = new ListReposInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return Observable<Team> */
     public function listChildInOrg(array $params): iterable
     {
         $arguments = [];
@@ -579,12 +607,12 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListChildInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Teams());
+        $operator = new ListChildInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Teams());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return Observable<TeamDiscussionComment> */
     public function listDiscussionCommentsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -618,7 +646,7 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListDiscussionCommentsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments());
+        $operator = new ListDiscussionCommentsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
@@ -645,7 +673,7 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Teams\CheckPermissionsForRepoLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos🌀Owner🌀Repo());
+        $operator = new CheckPermissionsForRepoLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos🌀Owner🌀Repo());
 
         return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
@@ -672,7 +700,7 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operator = new Internal\Operator\Teams\GetDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber());
+        $operator = new GetDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
     }
@@ -699,7 +727,7 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operator = new Internal\Operator\Teams\GetMembershipForUserInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Memberships🌀Username());
+        $operator = new GetMembershipForUserInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Memberships🌀Username());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['username']);
     }
@@ -726,7 +754,7 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operator = new Internal\Operator\Teams\CheckPermissionsForProjectInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects🌀ProjectId());
+        $operator = new CheckPermissionsForProjectInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects🌀ProjectId());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
@@ -753,12 +781,12 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Teams\GetDiscussionCommentLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber());
+        $operator = new GetDiscussionCommentLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber());
 
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return Observable<TeamDiscussionComment> */
     public function listDiscussionCommentsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -798,7 +826,7 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Internal\Operator\Teams\ListDiscussionCommentsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments());
+        $operator = new ListDiscussionCommentsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
@@ -831,7 +859,7 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Teams\CheckPermissionsForRepoInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos🌀Owner🌀Repo());
+        $operator = new CheckPermissionsForRepoInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos🌀Owner🌀Repo());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
@@ -864,7 +892,7 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operator = new Internal\Operator\Teams\GetDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber());
+        $operator = new GetDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
     }
