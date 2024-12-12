@@ -51,11 +51,11 @@ final class Routers
     private Internal\Router\Get\Oidc|null $internal🔀Router🔀Get🔀Oidc                                     = null;
     private Internal\Router\Get\Git|null $internal🔀Router🔀Get🔀Git                                       = null;
     private Internal\Router\Post\Apps|null $internal🔀Router🔀Post🔀Apps                                   = null;
+    private Internal\Router\Post\Repos|null $internal🔀Router🔀Post🔀Repos                                 = null;
     private Internal\Router\Post\Gists|null $internal🔀Router🔀Post🔀Gists                                 = null;
     private Internal\Router\Post\Orgs|null $internal🔀Router🔀Post🔀Orgs                                   = null;
     private Internal\Router\Post\Migrations|null $internal🔀Router🔀Post🔀Migrations                       = null;
     private Internal\Router\Post\Projects|null $internal🔀Router🔀Post🔀Projects                           = null;
-    private Internal\Router\Post\Repos|null $internal🔀Router🔀Post🔀Repos                                 = null;
     private Internal\Router\Post\Teams|null $internal🔀Router🔀Post🔀Teams                                 = null;
     private Internal\Router\Post\Actions|null $internal🔀Router🔀Post🔀Actions                             = null;
     private Internal\Router\Post\EnterpriseAdmin|null $internal🔀Router🔀Post🔀EnterpriseAdmin             = null;
@@ -148,11 +148,11 @@ final class Routers
     private Internal\Router\Delete\Reactions|null $internal🔀Router🔀Delete🔀Reactions                     = null;
     private Internal\Router\Put\Apps|null $internal🔀Router🔀Put🔀Apps                                     = null;
     private Internal\Router\Put\EnterpriseAdmin|null $internal🔀Router🔀Put🔀EnterpriseAdmin               = null;
+    private Internal\Router\Put\Repos|null $internal🔀Router🔀Put🔀Repos                                   = null;
     private Internal\Router\Put\Activity|null $internal🔀Router🔀Put🔀Activity                             = null;
     private Internal\Router\Put\Actions|null $internal🔀Router🔀Put🔀Actions                               = null;
     private Internal\Router\Put\Orgs|null $internal🔀Router🔀Put🔀Orgs                                     = null;
     private Internal\Router\Put\Codespaces|null $internal🔀Router🔀Put🔀Codespaces                         = null;
-    private Internal\Router\Put\Repos|null $internal🔀Router🔀Put🔀Repos                                   = null;
     private Internal\Router\Put\Projects|null $internal🔀Router🔀Put🔀Projects                             = null;
     private Internal\Router\Put\Migrations|null $internal🔀Router🔀Put🔀Migrations                         = null;
     private Internal\Router\Put\Interactions|null $internal🔀Router🔀Put🔀Interactions                     = null;
@@ -533,6 +533,15 @@ final class Routers
         return $this->internal🔀Router🔀Post🔀Apps;
     }
 
+    public function internal🔀Router🔀Post🔀Repos(): Internal\Router\Post\Repos
+    {
+        if ($this->internal🔀Router🔀Post🔀Repos instanceof Internal\Router\Post\Repos === false) {
+            $this->internal🔀Router🔀Post🔀Repos = new Internal\Router\Post\Repos(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Post🔀Repos;
+    }
+
     public function internal🔀Router🔀Post🔀Gists(): Internal\Router\Post\Gists
     {
         if ($this->internal🔀Router🔀Post🔀Gists instanceof Internal\Router\Post\Gists === false) {
@@ -567,15 +576,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Post🔀Projects;
-    }
-
-    public function internal🔀Router🔀Post🔀Repos(): Internal\Router\Post\Repos
-    {
-        if ($this->internal🔀Router🔀Post🔀Repos instanceof Internal\Router\Post\Repos === false) {
-            $this->internal🔀Router🔀Post🔀Repos = new Internal\Router\Post\Repos(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Post🔀Repos;
     }
 
     public function internal🔀Router🔀Post🔀Teams(): Internal\Router\Post\Teams
@@ -1406,6 +1406,15 @@ final class Routers
         return $this->internal🔀Router🔀Put🔀EnterpriseAdmin;
     }
 
+    public function internal🔀Router🔀Put🔀Repos(): Internal\Router\Put\Repos
+    {
+        if ($this->internal🔀Router🔀Put🔀Repos instanceof Internal\Router\Put\Repos === false) {
+            $this->internal🔀Router🔀Put🔀Repos = new Internal\Router\Put\Repos(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Put🔀Repos;
+    }
+
     public function internal🔀Router🔀Put🔀Activity(): Internal\Router\Put\Activity
     {
         if ($this->internal🔀Router🔀Put🔀Activity instanceof Internal\Router\Put\Activity === false) {
@@ -1440,15 +1449,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Put🔀Codespaces;
-    }
-
-    public function internal🔀Router🔀Put🔀Repos(): Internal\Router\Put\Repos
-    {
-        if ($this->internal🔀Router🔀Put🔀Repos instanceof Internal\Router\Put\Repos === false) {
-            $this->internal🔀Router🔀Put🔀Repos = new Internal\Router\Put\Repos(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Put🔀Repos;
     }
 
     public function internal🔀Router🔀Put🔀Projects(): Internal\Router\Put\Projects

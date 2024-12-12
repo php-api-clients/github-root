@@ -304,10 +304,9 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷GetEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
-    /** @return */
-    public function createOrUpdateEnterpriseCustomProperty(string $enterprise, string $customPropertyName): CustomProperty
+    public function createOrUpdateEnterpriseCustomProperty(string $enterprise, string $customPropertyName, array $params): CustomProperty
     {
-        return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
+        return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty()->call($enterprise, $customPropertyName, $params);
     }
 
     /** @return */

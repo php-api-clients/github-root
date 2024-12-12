@@ -309,6 +309,26 @@ final class Repos
         return $operator->call($arguments['username'], $arguments['direction'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
+    public function getEnterpriseRuleset(array $params): RepositoryRuleset
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('ruleset_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: ruleset_id');
+        }
+
+        $arguments['ruleset_id'] = $params['ruleset_id'];
+        unset($params['ruleset_id']);
+        $operator = new Internal\Operator\Repos\GetEnterpriseRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+
+        return $operator->call($arguments['enterprise'], $arguments['ruleset_id']);
+    }
+
     /** @return Observable<Schema\RuleSuites> */
     public function getOrgRuleSuites(array $params): iterable
     {

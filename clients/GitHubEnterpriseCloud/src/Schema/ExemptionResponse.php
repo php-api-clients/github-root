@@ -33,6 +33,13 @@ final readonly class ExemptionResponse
             "type": "string",
             "description": "The status of the exemption response."
         },
+        "reviewer_comment": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "The comment the reviewer provided when responding to the exemption request."
+        },
         "created_at": {
             "type": "string",
             "description": "The date and time the exemption request was created.",
@@ -48,6 +55,7 @@ final readonly class ExemptionResponse
     "reviewer_id": 11,
     "reviewer_login": "generated",
     "status": "dismissed",
+    "reviewer_comment": "generated",
     "created_at": "1970-01-01T00:00:00+00:00"
 }';
 
@@ -56,11 +64,13 @@ final readonly class ExemptionResponse
      * reviewerId: The ID of the user who reviewed the exemption request.
      * reviewerLogin: The login of the user who reviewed the exemption request.
      * status: The status of the exemption response.
+     * reviewerComment: The comment the reviewer provided when responding to the exemption request.
      * createdAt: The date and time the exemption request was created.
      */
     public function __construct(public int|null $id, #[MapFrom('reviewer_id')]
     public int|null $reviewerId, #[MapFrom('reviewer_login')]
-    public string|null $reviewerLogin, public string|null $status, #[MapFrom('created_at')]
+    public string|null $reviewerLogin, public string|null $status, #[MapFrom('reviewer_comment')]
+    public string|null $reviewerComment, #[MapFrom('created_at')]
     public string|null $createdAt,)
     {
     }

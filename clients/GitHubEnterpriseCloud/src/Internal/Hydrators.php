@@ -75,6 +75,8 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Enterprises\Enterprise\LicenseSyncStatus|null $operation🌀Enterprises🌀Enterprise🌀LicenseSyncStatus                                                                                                                           = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Properties\Schema|null $operation🌀Enterprises🌀Enterprise🌀Properties🌀Schema                                                                                                                           = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Properties\Schema\CustomPropertyName|null $operation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName                                                                                     = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets|null $operation🌀Enterprises🌀Enterprise🌀Rulesets                                                                                                                                             = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets\RulesetId|null $operation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId                                                                                                                         = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\SecretScanning\Alerts|null $operation🌀Enterprises🌀Enterprise🌀SecretScanning🌀Alerts                                                                                                                   = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Actions|null $operation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Actions                                                                                                             = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity|null $operation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀AdvancedSecurity                                                                                           = null;
@@ -847,6 +849,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\EnterpriseSecurityAnalysisSettings' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeSecurityAndAnalysis()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Copilot\\ListCopilotSeatsForEnterprise\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Billing🌀Seats()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CustomProperty' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ActionsBillingUsage', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ActionsBillingUsage\\MinutesUsedBreakdown' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Actions()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommitters' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀AdvancedSecurity()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetAllCostCenters' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters()->hydrateObject($className, $payload),
@@ -926,7 +929,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\UpdatePatAccesses\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Projects()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\LicenseSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodeOfConductSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository\\CustomProperties' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Repos()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RuleSuite' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀TeamSync🌀Groups()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamFull', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization\\Plan' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Teams()->hydrateObject($className, $payload),
@@ -1232,6 +1234,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\EnterpriseSecurityAnalysisSettings' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeSecurityAndAnalysis()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Copilot\\ListCopilotSeatsForEnterprise\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Billing🌀Seats()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CustomProperty' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ActionsBillingUsage', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ActionsBillingUsage\\MinutesUsedBreakdown' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Actions()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommitters' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀AdvancedSecurity()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetAllCostCenters' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters()->serializeObject($object),
@@ -1311,7 +1314,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\UpdatePatAccesses\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Projects()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\LicenseSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodeOfConductSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\FullRepository\\CustomProperties' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Repos()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RuleSuite' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀TeamSync🌀Groups()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamFull', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization\\Plan' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Teams()->serializeObject($object),
@@ -2149,6 +2151,24 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets(): Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀Rulesets instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀Rulesets = new Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀Rulesets;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId(): Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets\RulesetId
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets\RulesetId === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId = new Internal\Hydrator\Operation\Enterprises\Enterprise\Rulesets\RulesetId();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId;
     }
 
     public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀SecretScanning🌀Alerts(): Internal\Hydrator\Operation\Enterprises\Enterprise\SecretScanning\Alerts

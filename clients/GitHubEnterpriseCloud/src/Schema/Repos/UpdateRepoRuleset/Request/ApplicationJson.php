@@ -32,7 +32,7 @@ final readonly class ApplicationJson
                 "evaluate"
             ],
             "type": "string",
-            "description": "The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page."
+            "description": "The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page. `evaluate` is not available for the `repository` target."
         },
         "bypass_actors": {
             "type": "array",
@@ -331,6 +331,13 @@ final readonly class ApplicationJson
                                 ],
                                 "type": "object",
                                 "properties": {
+                                    "allowed_merge_methods": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled."
+                                    },
                                     "dismiss_stale_reviews_on_push": {
                                         "type": "boolean",
                                         "description": "New, reviewable commits pushed will dismiss previous pull request review approvals."
@@ -956,7 +963,7 @@ final readonly class ApplicationJson
     /**
      * name: The name of the ruleset.
      * target: The target of the ruleset
-     * enforcement: The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page.
+     * enforcement: The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page. `evaluate` is not available for the `repository` target.
      * bypassActors: The actors that can bypass the rules in this ruleset
      * conditions: Parameters for a repository ruleset ref name condition
      * rules: An array of rules within the ruleset.

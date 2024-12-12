@@ -25,7 +25,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|TeamMembership|EmptyObject
+    /** @return |Schema\RepositoryRuleset */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|RepositoryRuleset|ThreadSubscription|OrgMembership|Json|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|TeamMembership|EmptyObject
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -44,6 +45,12 @@ final class Five
                         if ($pathChunks[4] === 'permissions') {
                             if ($call === 'PUT /enterprises/{enterprise}/actions/permissions') {
                                 return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setGithubActionsPermissionsEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'rulesets') {
+                        if ($pathChunks[4] === '{ruleset_id}') {
+                            if ($call === 'PUT /enterprises/{enterprise}/rulesets/{ruleset_id}') {
+                                return $this->routers->internal🔀Router🔀Put🔀Repos()->updateEnterpriseRuleset($params);
                             }
                         }
                     }

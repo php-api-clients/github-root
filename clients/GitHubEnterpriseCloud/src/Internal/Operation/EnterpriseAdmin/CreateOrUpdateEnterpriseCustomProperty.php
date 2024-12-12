@@ -16,6 +16,7 @@ use RuntimeException;
 
 use function explode;
 use function json_decode;
+use function json_encode;
 use function str_replace;
 
 final class CreateOrUpdateEnterpriseCustomProperty
@@ -27,15 +28,17 @@ final class CreateOrUpdateEnterpriseCustomProperty
     /**The custom property name **/
     private string $customPropertyName;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprises\Enterprise\Properties\Schema\CustomPropertyName $hydrator, string $enterprise, string $customPropertyName)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprises\Enterprise\Properties\Schema\CustomPropertyName $hydrator, string $enterprise, string $customPropertyName)
     {
         $this->enterprise         = $enterprise;
         $this->customPropertyName = $customPropertyName;
     }
 
-    public function createRequest(): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        return new Request('PUT', str_replace(['{enterprise}', '{custom_property_name}'], [$this->enterprise, $this->customPropertyName], '/enterprises/{enterprise}/properties/schema/{custom_property_name}'));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\CustomPropertySetPayload::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+        return new Request('PUT', str_replace(['{enterprise}', '{custom_property_name}'], [$this->enterprise, $this->customPropertyName], '/enterprises/{enterprise}/properties/schema/{custom_property_name}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CustomProperty

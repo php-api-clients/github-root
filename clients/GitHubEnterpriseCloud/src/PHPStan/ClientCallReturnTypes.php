@@ -448,11 +448,27 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/properties/schema/{custom_property_name}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\CustomProperty');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/properties/schema/{custom_property_name}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'POST /enterprises/{enterprise}/rulesets') {
+            return $this->typeResolver->resolve('Schema\\RepositoryRuleset');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/rulesets/{ruleset_id}') {
+            return $this->typeResolver->resolve('Schema\\RepositoryRuleset');
+        }
+
+        if ($call === 'PUT /enterprises/{enterprise}/rulesets/{ruleset_id}') {
+            return $this->typeResolver->resolve('Schema\\RepositoryRuleset');
+        }
+
+        if ($call === 'DELETE /enterprises/{enterprise}/rulesets/{ruleset_id}') {
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
@@ -1736,7 +1752,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PUT /orgs/{org}/properties/schema/{custom_property_name}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\CustomProperty');
         }
 
         if ($call === 'DELETE /orgs/{org}/properties/schema/{custom_property_name}') {

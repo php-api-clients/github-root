@@ -58,6 +58,26 @@ final class Repos
         return $operator->call($arguments['invitation_id']);
     }
 
+    public function deleteEnterpriseRuleset(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('ruleset_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: ruleset_id');
+        }
+
+        $arguments['ruleset_id'] = $params['ruleset_id'];
+        unset($params['ruleset_id']);
+        $operator = new Internal\Operator\Repos\DeleteEnterpriseRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+
+        return $operator->call($arguments['enterprise'], $arguments['ruleset_id']);
+    }
+
     /** @return */
     public function deleteOrgRuleset(array $params): WithoutBody
     {

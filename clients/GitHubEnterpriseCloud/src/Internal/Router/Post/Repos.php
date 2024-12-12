@@ -45,6 +45,20 @@ final class Repos
     {
     }
 
+    public function createEnterpriseRuleset(array $params): RepositoryRuleset
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Repos\CreateEnterpriseRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets());
+
+        return $operator->call($arguments['enterprise'], $params);
+    }
+
     /** @return */
     public function createInOrg(array $params): FullRepository
     {

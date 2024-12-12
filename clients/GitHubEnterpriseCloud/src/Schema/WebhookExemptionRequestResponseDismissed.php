@@ -1944,6 +1944,13 @@ final readonly class WebhookExemptionRequestResponseDismissed
                                 "type": "string",
                                 "description": "The status of the exemption response."
                             },
+                            "reviewer_comment": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "description": "The comment the reviewer provided when responding to the exemption request."
+                            },
                             "created_at": {
                                 "type": "string",
                                 "description": "The date and time the exemption request was created.",
@@ -1989,6 +1996,13 @@ final readonly class WebhookExemptionRequestResponseDismissed
                     ],
                     "type": "string",
                     "description": "The status of the exemption response."
+                },
+                "reviewer_comment": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "The comment the reviewer provided when responding to the exemption request."
                 },
                 "created_at": {
                     "type": "string",
@@ -2504,6 +2518,7 @@ final readonly class WebhookExemptionRequestResponseDismissed
         "reviewer_id": 11,
         "reviewer_login": "generated",
         "status": "dismissed",
+        "reviewer_comment": "generated",
         "created_at": "1970-01-01T00:00:00+00:00"
     },
     "sender": {
