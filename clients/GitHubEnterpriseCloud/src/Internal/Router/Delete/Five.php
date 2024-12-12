@@ -14,6 +14,7 @@ final class Five
     {
     }
 
+    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody
     {
         if ($pathChunks[0] === '') {
@@ -23,6 +24,16 @@ final class Five
                         if ($pathChunks[4] === 'suspended') {
                             if ($call === 'DELETE /app/installations/{installation_id}/suspended') {
                                 return $this->routers->internal🔀Router🔀Delete🔀Apps()->unsuspendInstallation($params);
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'enterprises') {
+                if ($pathChunks[2] === '{enterprise}') {
+                    if ($pathChunks[3] === 'rulesets') {
+                        if ($pathChunks[4] === '{ruleset_id}') {
+                            if ($call === 'DELETE /enterprises/{enterprise}/rulesets/{ruleset_id}') {
+                                return $this->routers->internal🔀Router🔀Delete🔀Repos()->deleteEnterpriseRuleset($params);
                             }
                         }
                     }

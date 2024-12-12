@@ -114,6 +114,10 @@ final class Operators
     private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty|null $enterpriseAdmin👷GetEnterpriseCustomProperty                                                         = null;
     private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty                                   = null;
     private Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty|null $enterpriseAdmin👷RemoveEnterpriseCustomProperty                                                   = null;
+    private Internal\Operator\Repos\CreateEnterpriseRuleset|null $repos👷CreateEnterpriseRuleset                                                                                     = null;
+    private Internal\Operator\Repos\GetEnterpriseRuleset|null $repos👷GetEnterpriseRuleset                                                                                           = null;
+    private Internal\Operator\Repos\UpdateEnterpriseRuleset|null $repos👷UpdateEnterpriseRuleset                                                                                     = null;
+    private Internal\Operator\Repos\DeleteEnterpriseRuleset|null $repos👷DeleteEnterpriseRuleset                                                                                     = null;
     private Internal\Operator\SecretScanning\ListAlertsForEnterprise|null $secretScanning👷ListAlertsForEnterprise                                                                   = null;
     private Internal\Operator\Billing\GetGithubActionsBillingGhe|null $billing👷GetGithubActionsBillingGhe                                                                           = null;
     private Internal\Operator\Billing\GetGithubAdvancedSecurityBillingGhe|null $billing👷GetGithubAdvancedSecurityBillingGhe                                                         = null;
@@ -2220,7 +2224,7 @@ final class Operators
     public function enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty(): Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty
     {
         if ($this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty instanceof Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty === false) {
-            $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+            $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
         }
 
         return $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty;
@@ -2233,6 +2237,42 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷RemoveEnterpriseCustomProperty;
+    }
+
+    public function repos👷CreateEnterpriseRuleset(): Internal\Operator\Repos\CreateEnterpriseRuleset
+    {
+        if ($this->repos👷CreateEnterpriseRuleset instanceof Internal\Operator\Repos\CreateEnterpriseRuleset === false) {
+            $this->repos👷CreateEnterpriseRuleset = new Internal\Operator\Repos\CreateEnterpriseRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets());
+        }
+
+        return $this->repos👷CreateEnterpriseRuleset;
+    }
+
+    public function repos👷GetEnterpriseRuleset(): Internal\Operator\Repos\GetEnterpriseRuleset
+    {
+        if ($this->repos👷GetEnterpriseRuleset instanceof Internal\Operator\Repos\GetEnterpriseRuleset === false) {
+            $this->repos👷GetEnterpriseRuleset = new Internal\Operator\Repos\GetEnterpriseRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+        }
+
+        return $this->repos👷GetEnterpriseRuleset;
+    }
+
+    public function repos👷UpdateEnterpriseRuleset(): Internal\Operator\Repos\UpdateEnterpriseRuleset
+    {
+        if ($this->repos👷UpdateEnterpriseRuleset instanceof Internal\Operator\Repos\UpdateEnterpriseRuleset === false) {
+            $this->repos👷UpdateEnterpriseRuleset = new Internal\Operator\Repos\UpdateEnterpriseRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+        }
+
+        return $this->repos👷UpdateEnterpriseRuleset;
+    }
+
+    public function repos👷DeleteEnterpriseRuleset(): Internal\Operator\Repos\DeleteEnterpriseRuleset
+    {
+        if ($this->repos👷DeleteEnterpriseRuleset instanceof Internal\Operator\Repos\DeleteEnterpriseRuleset === false) {
+            $this->repos👷DeleteEnterpriseRuleset = new Internal\Operator\Repos\DeleteEnterpriseRuleset($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+        }
+
+        return $this->repos👷DeleteEnterpriseRuleset;
     }
 
     public function secretScanning👷ListAlertsForEnterprise(): Internal\Operator\SecretScanning\ListAlertsForEnterprise

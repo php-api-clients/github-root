@@ -216,7 +216,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['stream_id'], $params);
     }
 
-    /** @return */
     public function createOrUpdateEnterpriseCustomProperty(array $params): CustomProperty
     {
         $arguments = [];
@@ -232,9 +231,9 @@ final class EnterpriseAdmin
 
         $arguments['custom_property_name'] = $params['custom_property_name'];
         unset($params['custom_property_name']);
-        $operator = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+        $operator = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
 
-        return $operator->call($arguments['enterprise'], $arguments['custom_property_name']);
+        return $operator->call($arguments['enterprise'], $arguments['custom_property_name'], $params);
     }
 
     /** @return */

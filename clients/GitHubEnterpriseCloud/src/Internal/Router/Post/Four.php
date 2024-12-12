@@ -30,7 +30,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|TeamDiscussion
+    /** @return |Schema\RepositoryRuleset */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -46,6 +47,14 @@ final class Four
                     if ($pathChunks[3] === 'token') {
                         if ($call === 'POST /applications/{client_id}/token') {
                             return $this->routers->internal🔀Router🔀Post🔀Apps()->checkToken($params);
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'enterprises') {
+                if ($pathChunks[2] === '{enterprise}') {
+                    if ($pathChunks[3] === 'rulesets') {
+                        if ($call === 'POST /enterprises/{enterprise}/rulesets') {
+                            return $this->routers->internal🔀Router🔀Post🔀Repos()->createEnterpriseRuleset($params);
                         }
                     }
                 }

@@ -32,6 +32,8 @@ interface OperationsInterface
 
     public function dependabot(): Operation\Dependabot;
 
+    public function repos(): Operation\Repos;
+
     public function billing(): Operation\Billing;
 
     public function activity(): Operation\Activity;
@@ -65,8 +67,6 @@ interface OperationsInterface
     public function migrations(): Operation\Migrations;
 
     public function projects(): Operation\Projects;
-
-    public function repos(): Operation\Repos;
 
     public function reactions(): Operation\Reactions;
 

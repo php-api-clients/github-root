@@ -71,6 +71,26 @@ final class Repos
     {
     }
 
+    public function createEnterpriseRuleset(string $enterprise, array $params): RepositoryRuleset
+    {
+        return $this->operators->repos👷CreateEnterpriseRuleset()->call($enterprise, $params);
+    }
+
+    public function getEnterpriseRuleset(string $enterprise, int $rulesetId): RepositoryRuleset
+    {
+        return $this->operators->repos👷GetEnterpriseRuleset()->call($enterprise, $rulesetId);
+    }
+
+    public function updateEnterpriseRuleset(string $enterprise, int $rulesetId, array $params): RepositoryRuleset
+    {
+        return $this->operators->repos👷UpdateEnterpriseRuleset()->call($enterprise, $rulesetId, $params);
+    }
+
+    public function deleteEnterpriseRuleset(string $enterprise, int $rulesetId): WithoutBody
+    {
+        return $this->operators->repos👷DeleteEnterpriseRuleset()->call($enterprise, $rulesetId);
+    }
+
     /** @return Observable<Schema\MinimalRepository> */
     public function listForOrg(string $org, string $type, string $direction, string $sort, int $perPage, int $page): iterable
     {

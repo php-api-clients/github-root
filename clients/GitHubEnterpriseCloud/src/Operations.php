@@ -75,6 +75,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\Dependabot($this->operators);
     }
 
+    public function repos(): Operation\Repos
+    {
+        return new Operation\Repos($this->operators);
+    }
+
     public function billing(): Operation\Billing
     {
         return new Operation\Billing($this->operators);
@@ -158,11 +163,6 @@ final readonly class Operations implements OperationsInterface
     public function projects(): Operation\Projects
     {
         return new Operation\Projects($this->operators);
-    }
-
-    public function repos(): Operation\Repos
-    {
-        return new Operation\Repos($this->operators);
     }
 
     public function reactions(): Operation\Reactions

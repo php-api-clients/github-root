@@ -4170,6 +4170,17 @@ class ExemptionRequestPushRuleset implements ObjectMapper
 
             after_status:
 
+            $value = $payload['reviewer_comment'] ?? null;
+
+            if ($value === null) {
+                $properties['reviewerComment'] = null;
+                goto after_reviewerComment;
+            }
+
+            $properties['reviewerComment'] = $value;
+
+            after_reviewerComment:
+
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
@@ -6639,6 +6650,14 @@ class ExemptionRequestPushRuleset implements ObjectMapper
         }
 
         after_status:        $result['status'] = $status;
+
+        $reviewerComment = $object->reviewerComment;
+
+        if ($reviewerComment === null) {
+            goto after_reviewerComment;
+        }
+
+        after_reviewerComment:        $result['reviewer_comment'] = $reviewerComment;
 
         $createdAt = $object->createdAt;
 

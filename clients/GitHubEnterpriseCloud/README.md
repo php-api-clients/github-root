@@ -2368,6 +2368,92 @@ $client->operations()->enterpriseAdmin()->removeEnterpriseCustomProperty(       
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#remove-a-custom-property-for-an-enterprise).
 
 
+### repos/create-enterprise-ruleset
+
+Create an enterprise repository ruleset
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/rulesets', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->createEnterpriseRuleset(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/rules#create-an-enterprise-repository-ruleset).
+
+
+### repos/get-enterprise-ruleset
+
+Get an enterprise repository ruleset
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/rulesets/{ruleset_id}', [
+        'enterprise' => 'generated',
+        'ruleset_id' => 10,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->getEnterpriseRuleset(        enterprise: 'generated',
+        ruleset_id: 10,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/rules#get-an-enterprise-repository-ruleset).
+
+
+### repos/update-enterprise-ruleset
+
+Update an enterprise repository ruleset
+
+Using the `call` method:
+```php
+$client->call('PUT /enterprises/{enterprise}/rulesets/{ruleset_id}', [
+        'enterprise' => 'generated',
+        'ruleset_id' => 10,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->updateEnterpriseRuleset(        enterprise: 'generated',
+        ruleset_id: 10,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/rules#update-an-enterprise-repository-ruleset).
+
+
+### repos/delete-enterprise-ruleset
+
+Delete an enterprise repository ruleset
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/rulesets/{ruleset_id}', [
+        'enterprise' => 'generated',
+        'ruleset_id' => 10,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->deleteEnterpriseRuleset(        enterprise: 'generated',
+        ruleset_id: 10,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/rules#delete-an-enterprise-repository-ruleset).
+
+
 ### secret-scanning/list-alerts-for-enterprise
 
 List secret scanning alerts for an enterprise

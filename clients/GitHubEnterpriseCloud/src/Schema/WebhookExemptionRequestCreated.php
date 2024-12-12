@@ -1943,6 +1943,13 @@ final readonly class WebhookExemptionRequestCreated
                                 "type": "string",
                                 "description": "The status of the exemption response."
                             },
+                            "reviewer_comment": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "description": "The comment the reviewer provided when responding to the exemption request."
+                            },
                             "created_at": {
                                 "type": "string",
                                 "description": "The date and time the exemption request was created.",

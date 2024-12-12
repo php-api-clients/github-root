@@ -28,6 +28,26 @@ final class Repos
     {
     }
 
+    public function updateEnterpriseRuleset(array $params): RepositoryRuleset
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('ruleset_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: ruleset_id');
+        }
+
+        $arguments['ruleset_id'] = $params['ruleset_id'];
+        unset($params['ruleset_id']);
+        $operator = new Internal\Operator\Repos\UpdateEnterpriseRuleset($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId());
+
+        return $operator->call($arguments['enterprise'], $arguments['ruleset_id'], $params);
+    }
+
     /** @return */
     public function updateOrgRuleset(array $params): RepositoryRuleset
     {
