@@ -309,6 +309,7 @@ final class Repos
         return $operator->call($arguments['username'], $arguments['direction'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getEnterpriseRuleset(array $params): RepositoryRuleset
     {
         $arguments = [];

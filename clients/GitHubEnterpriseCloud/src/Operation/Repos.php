@@ -71,21 +71,25 @@ final class Repos
     {
     }
 
+    /** @return */
     public function createEnterpriseRuleset(string $enterprise, array $params): RepositoryRuleset
     {
         return $this->operators->repos👷CreateEnterpriseRuleset()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getEnterpriseRuleset(string $enterprise, int $rulesetId): RepositoryRuleset
     {
         return $this->operators->repos👷GetEnterpriseRuleset()->call($enterprise, $rulesetId);
     }
 
+    /** @return */
     public function updateEnterpriseRuleset(string $enterprise, int $rulesetId, array $params): RepositoryRuleset
     {
         return $this->operators->repos👷UpdateEnterpriseRuleset()->call($enterprise, $rulesetId, $params);
     }
 
+    /** @return */
     public function deleteEnterpriseRuleset(string $enterprise, int $rulesetId): WithoutBody
     {
         return $this->operators->repos👷DeleteEnterpriseRuleset()->call($enterprise, $rulesetId);

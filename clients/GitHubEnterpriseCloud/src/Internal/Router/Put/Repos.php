@@ -28,6 +28,7 @@ final class Repos
     {
     }
 
+    /** @return */
     public function updateEnterpriseRuleset(array $params): RepositoryRuleset
     {
         $arguments = [];

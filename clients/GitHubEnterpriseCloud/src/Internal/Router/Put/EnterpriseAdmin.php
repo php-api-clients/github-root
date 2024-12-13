@@ -216,6 +216,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['stream_id'], $params);
     }
 
+    /** @return */
     public function createOrUpdateEnterpriseCustomProperty(array $params): CustomProperty
     {
         $arguments = [];
