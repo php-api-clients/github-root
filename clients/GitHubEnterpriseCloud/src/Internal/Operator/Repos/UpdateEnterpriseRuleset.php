@@ -24,6 +24,7 @@ final readonly class UpdateEnterpriseRuleset
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $rulesetId, array $params): RepositoryRuleset
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\UpdateEnterpriseRuleset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $rulesetId);

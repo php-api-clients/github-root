@@ -24,6 +24,7 @@ final readonly class GetEnterpriseRuleset
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $rulesetId): RepositoryRuleset
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetEnterpriseRuleset($this->responseSchemaValidator, $this->hydrator, $enterprise, $rulesetId);

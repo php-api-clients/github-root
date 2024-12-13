@@ -58,6 +58,7 @@ final class Repos
         return $operator->call($arguments['invitation_id']);
     }
 
+    /** @return */
     public function deleteEnterpriseRuleset(array $params): WithoutBody
     {
         $arguments = [];

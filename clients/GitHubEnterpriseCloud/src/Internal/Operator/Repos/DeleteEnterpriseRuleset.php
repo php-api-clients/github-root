@@ -24,6 +24,7 @@ final readonly class DeleteEnterpriseRuleset
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $rulesetId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\DeleteEnterpriseRuleset($this->responseSchemaValidator, $this->hydrator, $enterprise, $rulesetId);
