@@ -1,0 +1,81 @@
+name: "Generate: GitHubEnterprise-3.15"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '13 10 * * *'
+jobs:
+  supported-versions-matrix:
+    name: Supported Versions Matrix GitHubEnterprise-3.15
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.supported-versions-matrix.outputs.lowest }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: supported-versions-matrix
+        uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
+        with:
+          workingDirectory: clients/GitHubEnterprise-3.15
+  generate-githubenterprise-3_15:
+    name: Generate GitHubEnterprise-3.15
+    runs-on: ubuntu-latest
+    needs:
+      - supported-versions-matrix
+    container:
+      image: wyrihaximusnet/php:${{ needs.supported-versions-matrix.outputs.version }}-nts-alpine-slim-dev-root
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ramsey/composer-install@v2
+      - uses: ramsey/composer-install@v2
+        with:
+          working-directory: "clients/GitHubEnterprise-3.15"
+      - name: Download current spec file
+        run: |
+          rm etc/specs/GitHubEnterprise-3.15/previous.spec.yaml || true
+          mv etc/specs/GitHubEnterprise-3.15/current.spec.yaml etc/specs/GitHubEnterprise-3.15/previous.spec.yaml
+          curl -o etc/specs/GitHubEnterprise-3.15/current.spec.yaml https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.15/ghes-3.15.yaml
+          php utils/patch-broken-spec-files.php etc/specs/GitHubEnterprise-3.15/current.spec.yaml
+      - name: Hash specs
+        id: spec-hash
+        run: |
+          php -r 'file_put_contents(getenv("GITHUB_OUTPUT"), "current=" . md5(file_get_contents("etc/specs/GitHubEnterprise-3.15/current.spec.yaml")) . "\n", FILE_APPEND);'
+          php -r 'file_put_contents(getenv("GITHUB_OUTPUT"), "previous=" . md5(file_get_contents("etc/specs/GitHubEnterprise-3.15/previous.spec.yaml")) . "\n", FILE_APPEND);'
+      - name: Look current up spec version
+        id: look-current-up-spec-version
+        uses: mikefarah/yq@v4.44.3
+        with:
+          cmd: yq '.info.version' 'etc/specs/GitHubEnterprise-3.15/current.spec.yaml'
+      - name: Look previous up spec version
+        id: look-previous-up-spec-version
+        uses: mikefarah/yq@v4.44.3
+        with:
+          cmd: yq '.info.version' 'etc/specs/GitHubEnterprise-3.15/previous.spec.yaml'
+      - name: Generate spec diff
+        id: spec-diff
+        run: |
+          curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
+          echo "Detected Schema changes:" >> "var/detected-schema-changes"
+          echo "$(openapi-changes summary --markdown --no-color --no-logo etc/specs/GitHubEnterprise-3.15/current.spec.yaml etc/specs/GitHubEnterprise-3.15/previous.spec.yaml)" >> "var/detected-schema-changes"
+          cat var/detected-schema-changes
+          delimiter="$(openssl rand -hex 8)"
+          echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
+          echo "$(cat var/detected-schema-changes)" >> "${GITHUB_OUTPUT}"
+          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
+      - name: Update Client to ${{ steps.look-current-up-spec-version.outputs.result }}
+        run: |
+          make generate-client GitHubEnterprise-3.15
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: "GitHubEnterprise-3.15/from-${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}"
+          token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
+          labels: |
+            Automated PR
+            New Version
+            automerge
+            Enhancement ✨
+            GitHubEnterprise-3.15
+          title: "[GitHubEnterprise-3.15] Update to ${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }} from ${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.previous }}"
+          body-path: "var/detected-schema-changes"
+          commit-message: |
+            [GitHubEnterprise-3.15] Update to ${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }} from ${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.previous }}
+            ${{ steps.spec-diff.outputs.diff }}
