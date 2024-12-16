@@ -22,6 +22,7 @@ final readonly class MarkThreadAsDone
     {
     }
 
+    /** @return */
     public function call(int $threadId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Activity\MarkThreadAsDone($threadId);

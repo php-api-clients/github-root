@@ -19,6 +19,7 @@ final class Migrations
     {
     }
 
+    /** @return */
     public function deleteArchiveForOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -39,6 +40,7 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 
+    /** @return */
     public function unlockRepoForOrg(array $params): WithoutBody
     {
         $arguments = [];

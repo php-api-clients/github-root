@@ -19,6 +19,7 @@ final class Users
     {
     }
 
+    /** @return */
     public function follow(array $params): WithoutBody
     {
         $arguments = [];

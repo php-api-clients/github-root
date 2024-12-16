@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterprise\Schema\FullRepository;
@@ -30,7 +29,7 @@ final class Four
     {
     }
 
-    /** @return Schema\Integration|Schema\Authorization|Schema\GistComment|WithoutBody|Schema\BaseGist|iterable<int,Schema\GhesSetMaintenanceResponse>|Schema\OrganizationCustomRepositoryRole|Schema\OrgHook|Schema\Migration|Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Schema\Project|Schema\FullRepository|Schema\RepositoryRuleset|Schema\TeamFull|Schema\ProjectColumn|Schema\MaintenanceStatus|Schema\TeamDiscussion */
+    /** @return |Observable<Schema\GhesSetMaintenanceResponse>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|iterable|OrganizationCustomRepositoryRole|OrgHook|Migration|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|MaintenanceStatus|TeamDiscussion
     {
         if ($pathChunks[0] === '') {

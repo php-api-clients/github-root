@@ -24,6 +24,7 @@ final readonly class GetGithubActionsPermissionsEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): ActionsEnterprisePermissions
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

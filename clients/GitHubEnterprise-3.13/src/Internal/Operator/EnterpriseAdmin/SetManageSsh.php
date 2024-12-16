@@ -25,7 +25,7 @@ final readonly class SetManageSsh
     {
     }
 
-    /** @return iterable<int,Schema\GhesSetSshResponse>|WithoutBody */
+    /** @return Observable<Schema\GhesSetSshResponse>|WithoutBody */
     public function call(array $params): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SetManageSsh($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

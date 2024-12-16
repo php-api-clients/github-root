@@ -25,6 +25,7 @@ final readonly class LicenseInfo
     {
     }
 
+    /** @return */
     public function call(): GhesLicenseInfo|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\LicenseInfo($this->responseSchemaValidator, $this->hydrator);

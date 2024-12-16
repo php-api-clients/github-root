@@ -25,6 +25,7 @@ final readonly class GetConfigNodes
     {
     }
 
+    /** @return */
     public function call(string $uuid, string $clusterRoles): GhesConfigNodes|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetConfigNodes($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);
