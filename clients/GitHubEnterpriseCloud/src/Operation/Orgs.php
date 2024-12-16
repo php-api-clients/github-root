@@ -97,6 +97,18 @@ final class Orgs
         return $this->operators->orgs👷UnblockUser()->call($org, $username);
     }
 
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listPushBypassRequests(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->orgs👷ListPushBypassRequests()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listPushBypassRequestsListing(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->orgs👷ListPushBypassRequestsListing()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
     /** @return Observable<Schema\CredentialAuthorization> */
     public function listSamlSsoAuthorizations(string $org, int $page, string $login, int $perPage): iterable
     {

@@ -56,7 +56,7 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\GetAuditLogStreamConfigs>|Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\CopilotUsageMetricsDay>|Observable<Schema\CopilotUsageMetrics>|Observable<Schema\DependabotAlertWithRepository>|WithoutBody|Observable<Schema\CustomProperty>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|Observable<Schema\CodeSecurityConfiguration>|Observable<Schema\Package>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\ProjectCard>|Observable<Schema\Activity>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\Tag>|Observable<Schema\Team> */
+    /** @return |Observable<Schema\GetAuditLogStreamConfigs>|Observable<Schema\CodeScanningOrganizationAlertItems>|iterable<int,Schema\CodeSecurityConfiguration>|Observable<Schema\CopilotUsageMetricsDay>|Observable<Schema\CopilotUsageMetrics>|Observable<Schema\DependabotAlertWithRepository>|WithoutBody|Observable<Schema\CustomProperty>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|iterable<int,Schema\PushRuleBypassRequest>|Observable<Schema\CodeSecurityConfiguration>|Observable<Schema\Package>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\ProjectCard>|Observable<Schema\Activity>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\Tag>|Observable<Schema\Team> */
     public function call(string $call, array $params, array $pathChunks): HookDelivery|ActionsEnterprisePermissions|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|AuditLogStreamKey|iterable|WithoutBody|RepositoryRuleset|GistComment|MarketplacePurchase|BasicError|ThreadSubscription|ActionsOrganizationPermissions|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListOrgSecrets\Response\ApplicationJson\Ok|CopilotOrganizationDetails|OrganizationCustomRepositoryRole|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|ExternalGroup|OrgHook|OrgMembership|Migration|OrganizationRole|GroupMapping|TeamFull|ProjectCard|CheckAutomatedSecurityFixes|CodeSecurityConfigurationForRepository|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|Import|Installation|InteractionLimitResponse|One|Language|LicenseContent|Page|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CheckPrivateVulnerabilityReporting\Response\ApplicationJson\Ok|ContentFile|SimpleUser|Stargazer|RepositorySubscription|Topic|TeamDiscussion|TeamMembership|TeamProject|CodespacesUserPublicKey|CodespacesSecret|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|Package|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok|EmptyObject
     {
         if ($pathChunks[0] === '') {
@@ -100,6 +100,12 @@ final class Five
                         if ($pathChunks[4] === 'alerts') {
                             if ($call === 'GET /enterprises/{enterprise}/code-scanning/alerts') {
                                 return $this->routers->internal🔀Router🔀Get🔀CodeScanning()->listAlertsForEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($call === 'GET /enterprises/{enterprise}/code-security/configurations') {
+                                return $this->routers->internal🔀Router🔀Get🔀CodeSecurity()->getConfigurationsForEnterprise($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'copilot') {
@@ -220,6 +226,12 @@ final class Five
                         if ($pathChunks[4] === '{username}') {
                             if ($call === 'GET /orgs/{org}/blocks/{username}') {
                                 return $this->routers->internal🔀Router🔀Get🔀Orgs()->checkBlockedUser($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'bypass-requests') {
+                        if ($pathChunks[4] === 'push-rules') {
+                            if ($call === 'GET /orgs/{org}/bypass-requests/push-rules') {
+                                return $this->routers->internal🔀Router🔀Get🔀Orgs()->listPushBypassRequests($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'code-scanning') {

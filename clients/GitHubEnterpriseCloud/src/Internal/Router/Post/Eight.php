@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAutofix;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Billing\AddResourceToCostCenter\Response\ApplicationJson\Ok;
@@ -21,8 +22,8 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Deployment> */
-    public function call(string $call, array $params, array $pathChunks): Ok|Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|iterable|ProtectedBranchAdminEnforced
+    /** @return |Observable<Schema\Deployment>|Schema\CodeScanningAutofix|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): Ok|Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|iterable|ProtectedBranchAdminEnforced|CodeScanningAutofix
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -156,6 +157,16 @@ final class Eight
                                     } elseif ($pathChunks[7] === 'required_signatures') {
                                         if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures') {
                                             return $this->routers->internal🔀Router🔀Post🔀Repos()->createCommitSignatureProtection($params);
+                                        }
+                                    }
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'code-scanning') {
+                            if ($pathChunks[5] === 'alerts') {
+                                if ($pathChunks[6] === '{alert_number}') {
+                                    if ($pathChunks[7] === 'autofix') {
+                                        if ($call === 'POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix') {
+                                            return $this->routers->internal🔀Router🔀Post🔀CodeScanning()->createAutofix($params);
                                         }
                                     }
                                 }

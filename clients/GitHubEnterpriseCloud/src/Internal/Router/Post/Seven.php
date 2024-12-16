@@ -19,7 +19,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\AttachConfiguration\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\AttachEnterpriseConfiguration\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReview;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReviewComment;
@@ -35,8 +35,8 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): Ok|Json|WithoutBody|Created|AuthenticationToken|BranchWithProtection|EmptyObject|CodeScanningVariantAnalysis|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|DeploymentProtectionRule|Issue|IssueComment|iterable|BasicError|Codespace|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest\Response\ApplicationJson\Accepted\Application\Json|FullRepository
+    /** @return |Schema\Operations\CodeSecurity\AttachEnterpriseConfiguration\Response\ApplicationJson\Accepted\Application\Json|Observable<Schema\Label>|Schema\BasicError */
+    public function call(string $call, array $params, array $pathChunks): Ok|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\AttachConfiguration\Response\ApplicationJson\Accepted\Application\Json|WithoutBody|Created|AuthenticationToken|BranchWithProtection|EmptyObject|CodeScanningVariantAnalysis|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|DeploymentProtectionRule|Issue|IssueComment|iterable|BasicError|Codespace|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest\Response\ApplicationJson\Accepted\Application\Json|FullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -47,6 +47,16 @@ final class Seven
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels') {
                                         return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($pathChunks[5] === '{configuration_id}') {
+                                if ($pathChunks[6] === 'attach') {
+                                    if ($call === 'POST /enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach') {
+                                        return $this->routers->internal🔀Router🔀Post🔀CodeSecurity()->attachEnterpriseConfiguration($params);
                                     }
                                 }
                             }

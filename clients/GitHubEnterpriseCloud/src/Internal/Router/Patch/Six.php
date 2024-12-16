@@ -34,7 +34,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WithoutBody|CodeSecurityConfiguration|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
+    /** @return |Schema\CodeSecurityConfiguration|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -44,6 +45,14 @@ final class Six
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'PATCH /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}') {
                                     return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateSelfHostedRunnerGroupForEnterprise($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($pathChunks[5] === '{configuration_id}') {
+                                if ($call === 'PATCH /enterprises/{enterprise}/code-security/configurations/{configuration_id}') {
+                                    return $this->routers->internal🔀Router🔀Patch🔀CodeSecurity()->updateEnterpriseConfiguration($params);
                                 }
                             }
                         }

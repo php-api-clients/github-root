@@ -26,6 +26,8 @@ interface OperationsInterface
 
     public function codeScanning(): Operation\CodeScanning;
 
+    public function codeSecurity(): Operation\CodeSecurity;
+
     public function secretScanning(): Operation\SecretScanning;
 
     public function copilot(): Operation\Copilot;
@@ -51,8 +53,6 @@ interface OperationsInterface
     public function orgs(): Operation\Orgs;
 
     public function oidc(): Operation\Oidc;
-
-    public function codeSecurity(): Operation\CodeSecurity;
 
     public function codespaces(): Operation\Codespaces;
 

@@ -37,10 +37,10 @@ final class Routers
     private Internal\Router\Get\AnnouncementBanners|null $internal🔀Router🔀Get🔀AnnouncementBanners       = null;
     private Internal\Router\Get\SecretScanning|null $internal🔀Router🔀Get🔀SecretScanning                 = null;
     private Internal\Router\Get\CodeScanning|null $internal🔀Router🔀Get🔀CodeScanning                     = null;
+    private Internal\Router\Get\CodeSecurity|null $internal🔀Router🔀Get🔀CodeSecurity                     = null;
     private Internal\Router\Get\Copilot|null $internal🔀Router🔀Get🔀Copilot                               = null;
     private Internal\Router\Get\Dependabot|null $internal🔀Router🔀Get🔀Dependabot                         = null;
     private Internal\Router\Get\Actions|null $internal🔀Router🔀Get🔀Actions                               = null;
-    private Internal\Router\Get\CodeSecurity|null $internal🔀Router🔀Get🔀CodeSecurity                     = null;
     private Internal\Router\Get\Pulls|null $internal🔀Router🔀Get🔀Pulls                                   = null;
     private Internal\Router\Get\Billing|null $internal🔀Router🔀Get🔀Billing                               = null;
     private Internal\Router\Get\ApiInsights|null $internal🔀Router🔀Get🔀ApiInsights                       = null;
@@ -85,8 +85,8 @@ final class Routers
     private Internal\Router\Patch\Codespaces|null $internal🔀Router🔀Patch🔀Codespaces                     = null;
     private Internal\Router\Patch\Users|null $internal🔀Router🔀Patch🔀Users                               = null;
     private Internal\Router\Patch\EnterpriseAdmin|null $internal🔀Router🔀Patch🔀EnterpriseAdmin           = null;
-    private Internal\Router\Patch\Actions|null $internal🔀Router🔀Patch🔀Actions                           = null;
     private Internal\Router\Patch\CodeSecurity|null $internal🔀Router🔀Patch🔀CodeSecurity                 = null;
+    private Internal\Router\Patch\Actions|null $internal🔀Router🔀Patch🔀Actions                           = null;
     private Internal\Router\Patch\Orgs|null $internal🔀Router🔀Patch🔀Orgs                                 = null;
     private Internal\Router\Patch\Teams|null $internal🔀Router🔀Patch🔀Teams                               = null;
     private Internal\Router\Patch\Checks|null $internal🔀Router🔀Patch🔀Checks                             = null;
@@ -157,8 +157,8 @@ final class Routers
     private Internal\Router\Put\Migrations|null $internal🔀Router🔀Put🔀Migrations                         = null;
     private Internal\Router\Put\Interactions|null $internal🔀Router🔀Put🔀Interactions                     = null;
     private Internal\Router\Put\Teams|null $internal🔀Router🔀Put🔀Teams                                   = null;
-    private Internal\Router\Put\Oidc|null $internal🔀Router🔀Put🔀Oidc                                     = null;
     private Internal\Router\Put\CodeSecurity|null $internal🔀Router🔀Put🔀CodeSecurity                     = null;
+    private Internal\Router\Put\Oidc|null $internal🔀Router🔀Put🔀Oidc                                     = null;
     private Internal\Router\Put\Dependabot|null $internal🔀Router🔀Put🔀Dependabot                         = null;
     private Internal\Router\Put\Issues|null $internal🔀Router🔀Put🔀Issues                                 = null;
     private Internal\Router\Put\Pulls|null $internal🔀Router🔀Put🔀Pulls                                   = null;
@@ -407,6 +407,15 @@ final class Routers
         return $this->internal🔀Router🔀Get🔀CodeScanning;
     }
 
+    public function internal🔀Router🔀Get🔀CodeSecurity(): Internal\Router\Get\CodeSecurity
+    {
+        if ($this->internal🔀Router🔀Get🔀CodeSecurity instanceof Internal\Router\Get\CodeSecurity === false) {
+            $this->internal🔀Router🔀Get🔀CodeSecurity = new Internal\Router\Get\CodeSecurity(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Get🔀CodeSecurity;
+    }
+
     public function internal🔀Router🔀Get🔀Copilot(): Internal\Router\Get\Copilot
     {
         if ($this->internal🔀Router🔀Get🔀Copilot instanceof Internal\Router\Get\Copilot === false) {
@@ -432,15 +441,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Get🔀Actions;
-    }
-
-    public function internal🔀Router🔀Get🔀CodeSecurity(): Internal\Router\Get\CodeSecurity
-    {
-        if ($this->internal🔀Router🔀Get🔀CodeSecurity instanceof Internal\Router\Get\CodeSecurity === false) {
-            $this->internal🔀Router🔀Get🔀CodeSecurity = new Internal\Router\Get\CodeSecurity(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Get🔀CodeSecurity;
     }
 
     public function internal🔀Router🔀Get🔀Pulls(): Internal\Router\Get\Pulls
@@ -839,15 +839,6 @@ final class Routers
         return $this->internal🔀Router🔀Patch🔀EnterpriseAdmin;
     }
 
-    public function internal🔀Router🔀Patch🔀Actions(): Internal\Router\Patch\Actions
-    {
-        if ($this->internal🔀Router🔀Patch🔀Actions instanceof Internal\Router\Patch\Actions === false) {
-            $this->internal🔀Router🔀Patch🔀Actions = new Internal\Router\Patch\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Patch🔀Actions;
-    }
-
     public function internal🔀Router🔀Patch🔀CodeSecurity(): Internal\Router\Patch\CodeSecurity
     {
         if ($this->internal🔀Router🔀Patch🔀CodeSecurity instanceof Internal\Router\Patch\CodeSecurity === false) {
@@ -855,6 +846,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Patch🔀CodeSecurity;
+    }
+
+    public function internal🔀Router🔀Patch🔀Actions(): Internal\Router\Patch\Actions
+    {
+        if ($this->internal🔀Router🔀Patch🔀Actions instanceof Internal\Router\Patch\Actions === false) {
+            $this->internal🔀Router🔀Patch🔀Actions = new Internal\Router\Patch\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Patch🔀Actions;
     }
 
     public function internal🔀Router🔀Patch🔀Orgs(): Internal\Router\Patch\Orgs
@@ -1487,15 +1487,6 @@ final class Routers
         return $this->internal🔀Router🔀Put🔀Teams;
     }
 
-    public function internal🔀Router🔀Put🔀Oidc(): Internal\Router\Put\Oidc
-    {
-        if ($this->internal🔀Router🔀Put🔀Oidc instanceof Internal\Router\Put\Oidc === false) {
-            $this->internal🔀Router🔀Put🔀Oidc = new Internal\Router\Put\Oidc(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Put🔀Oidc;
-    }
-
     public function internal🔀Router🔀Put🔀CodeSecurity(): Internal\Router\Put\CodeSecurity
     {
         if ($this->internal🔀Router🔀Put🔀CodeSecurity instanceof Internal\Router\Put\CodeSecurity === false) {
@@ -1503,6 +1494,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Put🔀CodeSecurity;
+    }
+
+    public function internal🔀Router🔀Put🔀Oidc(): Internal\Router\Put\Oidc
+    {
+        if ($this->internal🔀Router🔀Put🔀Oidc instanceof Internal\Router\Put\Oidc === false) {
+            $this->internal🔀Router🔀Put🔀Oidc = new Internal\Router\Put\Oidc(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Put🔀Oidc;
     }
 
     public function internal🔀Router🔀Put🔀Dependabot(): Internal\Router\Put\Dependabot

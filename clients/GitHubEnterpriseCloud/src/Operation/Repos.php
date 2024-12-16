@@ -50,6 +50,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ParticipationStats;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchPullRequestReview;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PushRuleBypassRequest;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Release;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseNotesContent;
@@ -465,6 +466,23 @@ final class Repos
     public function renameBranch(string $owner, string $repo, string $branch, array $params): BranchWithProtection
     {
         return $this->operators->repos👷RenameBranch()->call($owner, $repo, $branch, $params);
+    }
+
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listRepoPushBypassRequests(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷ListRepoPushBypassRequests()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listRepoPushBypassRequestsListing(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷ListRepoPushBypassRequestsListing()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    public function getRepoPushBypassRequest(string $owner, string $repo, int $bypassRequestNumber): PushRuleBypassRequest
+    {
+        return $this->operators->repos👷GetRepoPushBypassRequest()->call($owner, $repo, $bypassRequestNumber);
     }
 
     /** @return */
