@@ -25,6 +25,7 @@ final readonly class GetByUsername
     {
     }
 
+    /** @return */
     public function call(string $username): PrivateUser|PublicUser
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator, $username);

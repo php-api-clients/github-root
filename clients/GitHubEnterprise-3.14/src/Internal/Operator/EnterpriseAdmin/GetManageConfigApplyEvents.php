@@ -25,6 +25,7 @@ final readonly class GetManageConfigApplyEvents
     {
     }
 
+    /** @return */
     public function call(string $lastRequestId): Ok|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetManageConfigApplyEvents($this->responseSchemaValidator, $this->hydrator, $lastRequestId);

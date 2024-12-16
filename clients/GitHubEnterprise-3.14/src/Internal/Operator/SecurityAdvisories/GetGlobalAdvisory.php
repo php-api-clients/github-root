@@ -24,6 +24,7 @@ final readonly class GetGlobalAdvisory
     {
     }
 
+    /** @return */
     public function call(string $ghsaId): GlobalAdvisory
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\SecurityAdvisories\GetGlobalAdvisory($this->responseSchemaValidator, $this->hydrator, $ghsaId);

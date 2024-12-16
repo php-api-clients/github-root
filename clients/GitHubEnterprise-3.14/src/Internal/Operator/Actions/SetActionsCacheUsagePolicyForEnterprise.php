@@ -23,6 +23,7 @@ final readonly class SetActionsCacheUsagePolicyForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\SetActionsCacheUsagePolicyForEnterprise($this->requestSchemaValidator, $enterprise);

@@ -25,6 +25,7 @@ final readonly class GetClusterStatus
     {
     }
 
+    /** @return */
     public function call(): GhesClusterStatus|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetClusterStatus($this->responseSchemaValidator, $this->hydrator);

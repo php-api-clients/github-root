@@ -24,6 +24,7 @@ final readonly class GetSecurityProducts
     {
     }
 
+    /** @return */
     public function call(): EnterpriseSecurityProductsOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetSecurityProducts($this->responseSchemaValidator, $this->hydrator);

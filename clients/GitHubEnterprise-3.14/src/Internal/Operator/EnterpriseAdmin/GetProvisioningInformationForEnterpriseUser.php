@@ -25,6 +25,7 @@ final readonly class GetProvisioningInformationForEnterpriseUser
     {
     }
 
+    /** @return */
     public function call(string $scimUserId, string $enterprise): UserResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->responseSchemaValidator, $this->hydrator, $scimUserId, $enterprise);
