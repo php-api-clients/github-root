@@ -25,7 +25,7 @@ final readonly class DeleteManageSsh
     {
     }
 
-    /** @return iterable<int,Schema\GhesDeleteSshResponse>|WithoutBody */
+    /** @return Observable<Schema\GhesDeleteSshResponse>|WithoutBody */
     public function call(array $params): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeleteManageSsh($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

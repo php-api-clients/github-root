@@ -23,6 +23,7 @@ final class Activity
     {
     }
 
+    /** @return */
     public function setThreadSubscription(array $params): ThreadSubscription|WithoutBody
     {
         $arguments = [];
@@ -37,6 +38,7 @@ final class Activity
         return $operator->call($arguments['thread_id'], $params);
     }
 
+    /** @return */
     public function markRepoNotificationsAsRead(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -57,6 +59,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function setRepoSubscription(array $params): RepositorySubscription
     {
         $arguments = [];
@@ -77,6 +80,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function starRepoForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -97,6 +101,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function markNotificationsAsRead(array $params): Accepted|WithoutBody
     {
         $operator = new Internal\Operator\Activity\MarkNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());

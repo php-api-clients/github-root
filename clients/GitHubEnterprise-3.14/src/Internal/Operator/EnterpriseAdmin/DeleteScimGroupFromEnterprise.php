@@ -24,6 +24,7 @@ final readonly class DeleteScimGroupFromEnterprise
     {
     }
 
+    /** @return */
     public function call(string $scimGroupId, string $enterprise): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $enterprise);
