@@ -24,6 +24,7 @@ final readonly class CreateImpersonationOAuthToken
     {
     }
 
+    /** @return */
     public function call(string $username, array $params): Authorization
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $username);

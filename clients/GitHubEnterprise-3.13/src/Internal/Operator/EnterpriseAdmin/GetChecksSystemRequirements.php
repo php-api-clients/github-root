@@ -25,6 +25,7 @@ final readonly class GetChecksSystemRequirements
     {
     }
 
+    /** @return */
     public function call(): GhesChecksSystemRequirements|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetChecksSystemRequirements($this->responseSchemaValidator, $this->hydrator);

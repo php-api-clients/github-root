@@ -20,6 +20,7 @@ final class OauthAuthorizations
     {
     }
 
+    /** @return */
     public function getOrCreateAuthorizationForAppAndFingerprint(array $params): Authorization
     {
         $arguments = [];
@@ -40,6 +41,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['fingerprint'], $params);
     }
 
+    /** @return */
     public function getOrCreateAuthorizationForApp(array $params): Authorization|WithoutBody
     {
         $arguments = [];

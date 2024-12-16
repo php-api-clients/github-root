@@ -22,6 +22,7 @@ final readonly class AddSelectedRepoToOrgSecret
     {
     }
 
+    /** @return */
     public function call(string $org, string $secretName, int $repositoryId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Dependabot\AddSelectedRepoToOrgSecret($org, $secretName, $repositoryId);

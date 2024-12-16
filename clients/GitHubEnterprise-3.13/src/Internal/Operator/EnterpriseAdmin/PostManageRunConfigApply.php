@@ -25,6 +25,7 @@ final readonly class PostManageRunConfigApply
     {
     }
 
+    /** @return */
     public function call(array $params): Ok|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\PostManageRunConfigApply($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

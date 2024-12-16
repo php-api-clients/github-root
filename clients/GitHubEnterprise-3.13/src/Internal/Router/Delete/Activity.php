@@ -19,6 +19,7 @@ final class Activity
     {
     }
 
+    /** @return */
     public function markThreadAsDone(array $params): WithoutBody
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class Activity
         return $operator->call($arguments['thread_id']);
     }
 
+    /** @return */
     public function deleteThreadSubscription(array $params): WithoutBody
     {
         $arguments = [];
@@ -47,6 +49,7 @@ final class Activity
         return $operator->call($arguments['thread_id']);
     }
 
+    /** @return */
     public function deleteRepoSubscription(array $params): WithoutBody
     {
         $arguments = [];
@@ -67,6 +70,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function unstarRepoForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];

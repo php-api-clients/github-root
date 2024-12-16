@@ -24,6 +24,7 @@ final readonly class DeleteToken
     {
     }
 
+    /** @return */
     public function call(string $clientId, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\DeleteToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $clientId);

@@ -24,6 +24,7 @@ final readonly class ListLinkedExternalIdpGroupsToTeamForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug): ExternalGroups
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\ListLinkedExternalIdpGroupsToTeamForOrg($this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

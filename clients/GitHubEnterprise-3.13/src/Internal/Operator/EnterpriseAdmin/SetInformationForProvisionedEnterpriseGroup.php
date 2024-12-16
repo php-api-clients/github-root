@@ -25,6 +25,7 @@ final readonly class SetInformationForProvisionedEnterpriseGroup
     {
     }
 
+    /** @return */
     public function call(string $scimGroupId, string $enterprise, array $params): GroupResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId, $enterprise);
