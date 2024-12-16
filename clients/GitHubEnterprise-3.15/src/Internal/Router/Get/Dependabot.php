@@ -26,6 +26,7 @@ final class Dependabot
     {
     }
 
+    /** @return */
     public function getOrgPublicKey(array $params): DependabotPublicKey
     {
         $arguments = [];
@@ -40,6 +41,7 @@ final class Dependabot
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getOrgSecret(array $params): OrganizationDependabotSecret
     {
         $arguments = [];
@@ -60,7 +62,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return iterable<int,Schema\DependabotAlert>|WithoutBody */
+    /** @return Observable<Schema\DependabotAlert>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -165,6 +167,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['manifest'], $arguments['scope'], $arguments['before'], $arguments['after'], $arguments['last'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['first']);
     }
 
+    /** @return */
     public function listRepoSecrets(array $params): Ok
     {
         $arguments = [];
@@ -197,7 +200,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForEnterprise(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -284,7 +287,7 @@ final class Dependabot
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['scope'], $arguments['before'], $arguments['after'], $arguments['last'], $arguments['sort'], $arguments['direction'], $arguments['first'], $arguments['per_page']);
     }
 
-    /** @return iterable<int,Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForOrg(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -371,6 +374,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['scope'], $arguments['before'], $arguments['after'], $arguments['last'], $arguments['sort'], $arguments['direction'], $arguments['first'], $arguments['per_page']);
     }
 
+    /** @return */
     public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -397,6 +401,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listSelectedReposForOrgSecret(array $params): Json
     {
         $arguments = [];
@@ -429,6 +434,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function getAlert(array $params): DependabotAlert|WithoutBody
     {
         $arguments = [];
@@ -455,6 +461,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
+    /** @return */
     public function getRepoPublicKey(array $params): DependabotPublicKey
     {
         $arguments = [];
@@ -475,6 +482,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function getRepoSecret(array $params): DependabotSecret
     {
         $arguments = [];

@@ -24,6 +24,7 @@ final readonly class AddCustomLabelsToSelfHostedRunnerForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerId, array $params): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId);

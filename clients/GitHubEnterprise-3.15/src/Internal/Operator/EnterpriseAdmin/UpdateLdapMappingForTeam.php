@@ -24,6 +24,7 @@ final readonly class UpdateLdapMappingForTeam
     {
     }
 
+    /** @return */
     public function call(int $teamId, array $params): LdapMappingTeam
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateLdapMappingForTeam($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);

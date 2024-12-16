@@ -25,6 +25,7 @@ final readonly class GetManageConfigApplyStatus
     {
     }
 
+    /** @return */
     public function call(string $runId): Ok|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetManageConfigApplyStatus($this->responseSchemaValidator, $this->hydrator, $runId);

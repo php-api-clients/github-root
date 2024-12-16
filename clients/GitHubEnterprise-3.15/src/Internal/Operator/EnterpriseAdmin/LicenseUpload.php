@@ -23,6 +23,7 @@ final readonly class LicenseUpload
     {
     }
 
+    /** @return */
     public function call(bool $apply, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\LicenseUpload($this->requestSchemaValidator, $apply);

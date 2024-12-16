@@ -19,6 +19,7 @@ final class AnnouncementBanners
     {
     }
 
+    /** @return */
     public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner
     {
         $arguments = [];

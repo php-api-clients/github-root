@@ -34,6 +34,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function createGlobalWebhook(array $params): GlobalHook
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateGlobalWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
@@ -41,6 +42,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function createOrg(array $params): OrganizationSimple
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations());
@@ -48,6 +50,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
@@ -55,6 +58,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function createPreReceiveHook(array $params): PreReceiveHook
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveHook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks());
@@ -62,6 +66,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function createUser(array $params): SimpleUser
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Users());
@@ -69,6 +74,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function pingGlobalWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -83,6 +89,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
+    /** @return */
     public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
@@ -97,6 +104,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
+    /** @return */
     public function createImpersonationOAuthToken(array $params): Authorization
     {
         $arguments = [];
@@ -111,6 +119,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
+    /** @return */
     public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
@@ -125,7 +134,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return iterable<int,Schema\GhesSetSshResponse>|WithoutBody */
+    /** @return Observable<Schema\GhesSetSshResponse>|WithoutBody */
     public function setManageSsh(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetManageSsh($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Access🌀Ssh());
@@ -133,6 +142,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function postManageRunConfigApply(array $params): Ok|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\PostManageRunConfigApply($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Apply());
@@ -140,6 +150,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function initializeInstanceConfiguration(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\InitializeInstanceConfiguration($this->browser, $this->authentication, $this->requestSchemaValidator);
@@ -147,6 +158,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function syncLdapMappingForTeam(array $params): Created
     {
         $arguments = [];
@@ -161,6 +173,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id']);
     }
 
+    /** @return */
     public function syncLdapMappingForUser(array $params): Json
     {
         $arguments = [];
@@ -175,6 +188,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -189,6 +203,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function createRemoveTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -203,6 +218,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
@@ -217,6 +233,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];
@@ -231,7 +248,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return iterable<int,Schema\GhesSetMaintenanceResponse>|WithoutBody */
+    /** @return Observable<Schema\GhesSetMaintenanceResponse>|WithoutBody */
     public function setManageMaintenance(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetManageMaintenance($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Maintenance());
@@ -239,6 +256,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function addCustomLabelsToSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];

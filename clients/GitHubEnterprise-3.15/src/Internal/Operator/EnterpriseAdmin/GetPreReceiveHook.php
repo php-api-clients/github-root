@@ -24,6 +24,7 @@ final readonly class GetPreReceiveHook
     {
     }
 
+    /** @return */
     public function call(int $preReceiveHookId): PreReceiveHook
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetPreReceiveHook($this->responseSchemaValidator, $this->hydrator, $preReceiveHookId);
