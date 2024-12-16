@@ -8,8 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestMergeResult;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
@@ -24,8 +24,8 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|GroupResponse|UserResponse|ScimUser
+    /** @return |Schema\Operations\CodeSecurity\SetConfigurationAsDefaultForEnterprise\Response\ApplicationJson\Ok|Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\Label>|Schema\BasicError */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefaultForEnterprise\Response\ApplicationJson\Ok|EmptyObject|Json|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json|GroupResponse|UserResponse|ScimUser
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -64,6 +64,16 @@ final class Seven
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'PUT /enterprises/{enterprise}/actions/runners/{runner_id}/labels') {
                                         return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setCustomLabelsForSelfHostedRunnerForEnterprise($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($pathChunks[5] === '{configuration_id}') {
+                                if ($pathChunks[6] === 'defaults') {
+                                    if ($call === 'PUT /enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults') {
+                                        return $this->routers->internal🔀Router🔀Put🔀CodeSecurity()->setConfigurationAsDefaultForEnterprise($params);
                                     }
                                 }
                             }

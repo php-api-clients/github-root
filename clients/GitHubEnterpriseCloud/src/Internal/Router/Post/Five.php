@@ -46,7 +46,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|GetAuditLogStreamConfig|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
+    /** @return |Schema\CodeSecurityConfiguration */
+    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|GetAuditLogStreamConfig|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -81,6 +82,12 @@ final class Five
                         if ($pathChunks[4] === 'streams') {
                             if ($call === 'POST /enterprises/{enterprise}/audit-log/streams') {
                                 return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->createAuditLogStream($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($call === 'POST /enterprises/{enterprise}/code-security/configurations') {
+                                return $this->routers->internal🔀Router🔀Post🔀CodeSecurity()->createConfigurationForEnterprise($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{security_product}') {

@@ -60,6 +60,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\CodeScanning($this->operators);
     }
 
+    public function codeSecurity(): Operation\CodeSecurity
+    {
+        return new Operation\CodeSecurity($this->operators);
+    }
+
     public function secretScanning(): Operation\SecretScanning
     {
         return new Operation\SecretScanning($this->operators);
@@ -123,11 +128,6 @@ final readonly class Operations implements OperationsInterface
     public function oidc(): Operation\Oidc
     {
         return new Operation\Oidc($this->operators);
-    }
-
-    public function codeSecurity(): Operation\CodeSecurity
-    {
-        return new Operation\CodeSecurity($this->operators);
     }
 
     public function codespaces(): Operation\Codespaces

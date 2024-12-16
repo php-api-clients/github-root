@@ -1998,6 +1998,212 @@ $client->operations()->codeScanning()->listAlertsForEnterpriseListing(        en
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-scanning/code-scanning#list-code-scanning-alerts-for-an-enterprise).
 
 
+### code-security/get-configurations-for-enterprise
+
+Get code security configurations for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/code-security/configurations', [
+        'enterprise' => 'generated',
+        'before' => 'generated',
+        'after' => 'generated',
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->getConfigurationsForEnterprise(        enterprise: 'generated',
+        before: 'generated',
+        after: 'generated',
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#get-code-security-configurations-for-an-enterprise).
+
+
+### code-security/create-configuration-for-enterprise
+
+Create a code security configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/code-security/configurations', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->createConfigurationForEnterprise(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#create-a-code-security-configuration-for-an-enterprise).
+
+
+### code-security/get-default-configurations-for-enterprise
+
+Get default code security configurations for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/code-security/configurations/defaults', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->getDefaultConfigurationsForEnterprise(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#get-default-code-security-configurations-for-an-enterprise).
+
+
+### code-security/get-single-configuration-for-enterprise
+
+Retrieve a code security configuration of an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/code-security/configurations/{configuration_id}', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->getSingleConfigurationForEnterprise(        enterprise: 'generated',
+        configuration_id: 16,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#retrieve-a-code-security-configuration-of-an-enterprise).
+
+
+### code-security/delete-configuration-for-enterprise
+
+Delete a code security configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/code-security/configurations/{configuration_id}', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->deleteConfigurationForEnterprise(        enterprise: 'generated',
+        configuration_id: 16,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#delete-a-code-security-configuration-for-an-enterprise).
+
+
+### code-security/update-enterprise-configuration
+
+Update a custom code security configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('PATCH /enterprises/{enterprise}/code-security/configurations/{configuration_id}', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->updateEnterpriseConfiguration(        enterprise: 'generated',
+        configuration_id: 16,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#update-a-custom-code-security-configuration-for-an-enterprise).
+
+
+### code-security/attach-enterprise-configuration
+
+Attach an enterprise configuration to repositories
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->attachEnterpriseConfiguration(        enterprise: 'generated',
+        configuration_id: 16,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#attach-an-enterprise-configuration-to-repositories).
+
+
+### code-security/set-configuration-as-default-for-enterprise
+
+Set a code security configuration as a default for an enterprise
+
+Using the `call` method:
+```php
+$client->call('PUT /enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->setConfigurationAsDefaultForEnterprise(        enterprise: 'generated',
+        configuration_id: 16,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#set-a-code-security-configuration-as-a-default-for-an-enterprise).
+
+
+### code-security/get-repositories-for-enterprise-configuration
+
+Get repositories associated with an enterprise code security configuration
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories', [
+        'enterprise' => 'generated',
+        'configuration_id' => 16,
+        'before' => 'generated',
+        'after' => 'generated',
+        'per_page' => 8,
+        'status' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeSecurity()->getRepositoriesForEnterpriseConfiguration(        enterprise: 'generated',
+        configuration_id: 16,
+        before: 'generated',
+        after: 'generated',
+        per_page: 8,
+        status: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#get-repositories-associated-with-an-enterprise-code-security-configuration).
+
+
 ### secret-scanning/get-security-analysis-settings-for-enterprise
 
 Get code security and analysis features for an enterprise
@@ -5852,6 +6058,74 @@ $client->operations()->orgs()->unblockUser(        org: 'generated',
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/blocking#unblock-a-user-from-an-organization).
+
+
+### orgs/list-push-bypass-requests
+
+List push rule bypass requests within an organization
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/bypass-requests/push-rules', [
+        'org' => 'generated',
+        'repository_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPushBypassRequests(        org: 'generated',
+        repository_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/bypass-requests#list-push-rule-bypass-requests-within-an-organization).
+
+
+### orgs/list-push-bypass-requests
+
+List push rule bypass requests within an organization
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/bypass-requests/push-rules', [
+        'org' => 'generated',
+        'repository_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPushBypassRequestsListing(        org: 'generated',
+        repository_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/bypass-requests#list-push-rule-bypass-requests-within-an-organization).
 
 
 ### code-scanning/list-alerts-for-org
@@ -16021,6 +16295,98 @@ $client->operations()->repos()->renameBranch(        owner: 'generated',
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branches#rename-a-branch).
 
 
+### repos/list-repo-push-bypass-requests
+
+List repository push rule bypass requests
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/bypass-requests/push-rules', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listRepoPushBypassRequests(        owner: 'generated',
+        repo: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/bypass-requests#list-repository-push-rule-bypass-requests).
+
+
+### repos/list-repo-push-bypass-requests
+
+List repository push rule bypass requests
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/bypass-requests/push-rules', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listRepoPushBypassRequestsListing(        owner: 'generated',
+        repo: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/bypass-requests#list-repository-push-rule-bypass-requests).
+
+
+### repos/get-repo-push-bypass-request
+
+Get a repository push bypass request
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'bypass_request_number' => 21,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->getRepoPushBypassRequest(        owner: 'generated',
+        repo: 'generated',
+        bypass_request_number: 21,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/bypass-requests#get-a-repository-push-bypass-request).
+
+
 ### checks/create
 
 Create a check run
@@ -16435,6 +16801,78 @@ $client->operations()->codeScanning()->updateAlert(        owner: 'generated',
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-scanning/code-scanning#update-a-code-scanning-alert).
+
+
+### code-scanning/get-autofix
+
+Get the status of an autofix for a code scanning alert
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'alert_number' => 12,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->getAutofix(        owner: 'generated',
+        repo: 'generated',
+        alert_number: 12,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-scanning/code-scanning#get-the-status-of-an-autofix-for-a-code-scanning-alert).
+
+
+### code-scanning/create-autofix
+
+Create an autofix for a code scanning alert
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'alert_number' => 12,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->createAutofix(        owner: 'generated',
+        repo: 'generated',
+        alert_number: 12,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-scanning/code-scanning#create-an-autofix-for-a-code-scanning-alert).
+
+
+### code-scanning/commit-autofix
+
+Commit an autofix for a code scanning alert
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'alert_number' => 12,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->commitAutofix(        owner: 'generated',
+        repo: 'generated',
+        alert_number: 12,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/code-scanning/code-scanning#commit-an-autofix-for-a-code-scanning-alert).
 
 
 ### code-scanning/list-alert-instances

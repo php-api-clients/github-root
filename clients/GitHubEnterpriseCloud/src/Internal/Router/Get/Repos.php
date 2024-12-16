@@ -43,6 +43,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\PagesHealthCheck;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ParticipationStats;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchPullRequestReview;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PushRuleBypassRequest;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Release;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryCollaboratorPermission;
@@ -1380,6 +1381,63 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listRepoPushBypassRequests(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('owner', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: owner');
+        }
+
+        $arguments['owner'] = $params['owner'];
+        unset($params['owner']);
+        if (array_key_exists('repo', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: repo');
+        }
+
+        $arguments['repo'] = $params['repo'];
+        unset($params['repo']);
+        if (array_key_exists('reviewer', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: reviewer');
+        }
+
+        $arguments['reviewer'] = $params['reviewer'];
+        unset($params['reviewer']);
+        if (array_key_exists('requester', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: requester');
+        }
+
+        $arguments['requester'] = $params['requester'];
+        unset($params['requester']);
+        if (array_key_exists('time_period', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: time_period');
+        }
+
+        $arguments['time_period'] = $params['time_period'];
+        unset($params['time_period']);
+        if (array_key_exists('request_status', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: request_status');
+        }
+
+        $arguments['request_status'] = $params['request_status'];
+        unset($params['request_status']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Repos\ListRepoPushBypassRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀PushRules());
+
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['reviewer'], $arguments['requester'], $arguments['time_period'], $arguments['request_status'], $arguments['per_page'], $arguments['page']);
+    }
+
     /** @return */
     public function codeownersErrors(array $params): CodeownersErrors|WithoutBody
     {
@@ -2206,6 +2264,32 @@ final class Repos
         $operator = new Internal\Operator\Repos\GetBranchProtection($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Branches🌀Branch🌀Protection());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
+    }
+
+    public function getRepoPushBypassRequest(array $params): PushRuleBypassRequest
+    {
+        $arguments = [];
+        if (array_key_exists('owner', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: owner');
+        }
+
+        $arguments['owner'] = $params['owner'];
+        unset($params['owner']);
+        if (array_key_exists('repo', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: repo');
+        }
+
+        $arguments['repo'] = $params['repo'];
+        unset($params['repo']);
+        if (array_key_exists('bypass_request_number', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: bypass_request_number');
+        }
+
+        $arguments['bypass_request_number'] = $params['bypass_request_number'];
+        unset($params['bypass_request_number']);
+        $operator = new Internal\Operator\Repos\GetRepoPushBypassRequest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀PushRules🌀BypassRequestNumber());
+
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['bypass_request_number']);
     }
 
     /** @return */

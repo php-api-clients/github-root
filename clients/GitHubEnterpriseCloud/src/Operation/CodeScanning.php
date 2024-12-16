@@ -9,6 +9,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysis;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisDeletion;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAutofix;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAutofixCommitsResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningCodeqlDatabase;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse;
@@ -71,6 +73,21 @@ final class CodeScanning
     public function updateAlert(string $owner, string $repo, int $alertNumber, array $params): CodeScanningAlert
     {
         return $this->operators->codeScanning👷UpdateAlert()->call($owner, $repo, $alertNumber, $params);
+    }
+
+    public function getAutofix(string $owner, string $repo, int $alertNumber): CodeScanningAutofix
+    {
+        return $this->operators->codeScanning👷GetAutofix()->call($owner, $repo, $alertNumber);
+    }
+
+    public function createAutofix(string $owner, string $repo, int $alertNumber): CodeScanningAutofix|WithoutBody
+    {
+        return $this->operators->codeScanning👷CreateAutofix()->call($owner, $repo, $alertNumber);
+    }
+
+    public function commitAutofix(string $owner, string $repo, int $alertNumber, array $params): CodeScanningAutofixCommitsResponse|WithoutBody
+    {
+        return $this->operators->codeScanning👷CommitAutofix()->call($owner, $repo, $alertNumber, $params);
     }
 
     /** @return Observable<Schema\CodeScanningAlertInstance> */

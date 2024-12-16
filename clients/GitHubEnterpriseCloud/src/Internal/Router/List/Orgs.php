@@ -564,6 +564,69 @@ final class Orgs
         } while (count($items) > 0);
     }
 
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listPushBypassRequestsListing(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('repository_name', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: repository_name');
+        }
+
+        $arguments['repository_name'] = $params['repository_name'];
+        unset($params['repository_name']);
+        if (array_key_exists('reviewer', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: reviewer');
+        }
+
+        $arguments['reviewer'] = $params['reviewer'];
+        unset($params['reviewer']);
+        if (array_key_exists('requester', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: requester');
+        }
+
+        $arguments['requester'] = $params['requester'];
+        unset($params['requester']);
+        if (array_key_exists('time_period', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: time_period');
+        }
+
+        $arguments['time_period'] = $params['time_period'];
+        unset($params['time_period']);
+        if (array_key_exists('request_status', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: request_status');
+        }
+
+        $arguments['request_status'] = $params['request_status'];
+        unset($params['request_status']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $arguments['page'] = 1;
+        do {
+            $operator = new Internal\Operator\Orgs\ListPushBypassRequestsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀BypassRequests🌀PushRules());
+            $items    = [...$operator->call($arguments['org'], $arguments['repository_name'], $arguments['reviewer'], $arguments['requester'], $arguments['time_period'], $arguments['request_status'], $arguments['per_page'], $arguments['page'])];
+
+            yield from $items;
+
+            $arguments['page']++;
+        } while (count($items) > 0);
+    }
+
     /** @return Observable<Schema\OrgRepoCustomPropertyValues> */
     public function listCustomPropertiesValuesForReposListing(array $params): iterable
     {

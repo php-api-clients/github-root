@@ -9,7 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\CodeScanningDefaultSetupOptions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -45,7 +45,7 @@ class Defaults implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match ($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️DependencyGraphAutosubmitActionOptions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\CodeScanningDefaultSetupOptions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️CodeScanningDefaultSetupOptions($payload),
@@ -55,7 +55,7 @@ class Defaults implements ObjectMapper
         };
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok(array $payload): Ok
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json(array $payload): Json
     {
         $properties    = [];
         $missingFields = [];
@@ -91,17 +91,17 @@ class Defaults implements ObjectMapper
 
             after_configuration:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Ok::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Ok(...$properties);
+            return new Json(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -610,7 +610,7 @@ class Defaults implements ObjectMapper
                 'DateTime' => $this->serializeValueDateTime($object),
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️DependencyGraphAutosubmitActionOptions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\CodeScanningDefaultSetupOptions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️CodeScanningDefaultSetupOptions($object),
@@ -678,9 +678,9 @@ class Defaults implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️CodeSecurity⚡️SetConfigurationAsDefault⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json(mixed $object): mixed
     {
-        assert($object instanceof Ok);
+        assert($object instanceof Json);
         $result = [];
 
         $defaultForNewRepos = $object->defaultForNewRepos;
