@@ -14,16 +14,19 @@ final class AnnouncementBanners
     {
     }
 
+    /** @return */
     public function getAnnouncementBannerForOrg(string $org): AnnouncementBanner
     {
         return $this->operators->announcementBanners👷GetAnnouncementBannerForOrg()->call($org);
     }
 
+    /** @return */
     public function removeAnnouncementBannerForOrg(string $org): WithoutBody
     {
         return $this->operators->announcementBanners👷RemoveAnnouncementBannerForOrg()->call($org);
     }
 
+    /** @return */
     public function setAnnouncementBannerForOrg(string $org, array $params): AnnouncementBanner
     {
         return $this->operators->announcementBanners👷SetAnnouncementBannerForOrg()->call($org, $params);

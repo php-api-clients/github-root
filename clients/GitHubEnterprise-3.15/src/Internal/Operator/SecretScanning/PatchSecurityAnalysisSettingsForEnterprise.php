@@ -24,6 +24,7 @@ final readonly class PatchSecurityAnalysisSettingsForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -20,6 +20,7 @@ final class SecretScanning
     {
     }
 
+    /** @return */
     public function postSecurityProductEnablementForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -46,6 +47,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $arguments['security_product'], $arguments['enablement']);
     }
 
+    /** @return */
     public function createPushProtectionBypass(array $params): SecretScanningPushProtectionBypass|WithoutBody
     {
         $arguments = [];

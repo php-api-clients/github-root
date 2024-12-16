@@ -22,7 +22,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    /** @return Observable<Schema\ApplicationGrant>|WithoutBody */
     public function listGrants(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -49,6 +49,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getAuthorization(array $params): Authorization|WithoutBody
     {
         $arguments = [];
@@ -63,6 +64,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['authorization_id']);
     }
 
+    /** @return */
     public function getGrant(array $params): ApplicationGrant|WithoutBody
     {
         $arguments = [];
@@ -77,7 +79,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    /** @return Observable<Schema\Authorization>|WithoutBody */
     public function listAuthorizations(array $params): iterable|WithoutBody
     {
         $arguments = [];

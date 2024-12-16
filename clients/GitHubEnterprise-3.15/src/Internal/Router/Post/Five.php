@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\Autolink;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckRun;
@@ -43,7 +42,7 @@ final class Five
     {
     }
 
-    /** @return WithoutBody|Schema\PreReceiveEnvironmentDownloadStatus|Schema\Authorization|Schema\InstallationToken|Schema\RunnerGroupsEnterprise|iterable<int,Schema\GhesSetSshResponse>|Schema\Operations\EnterpriseAdmin\PostManageRunConfigApply\Response\ApplicationJson\Ok|Schema\RunnerGroupsOrg|Schema\EmptyObject|Schema\CodeSecurityConfiguration|Schema\ProjectCard|Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|Schema\Autolink|Schema\CheckRun|Schema\CheckSuite|Schema\Deployment|Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|Schema\FullRepository|Schema\Hook|Schema\Issue|Schema\DeployKey|Schema\Label|Schema\MergedUpstream|Schema\Commit|Schema\Milestone|Schema\Page|Schema\Project|Schema\PullRequest|Schema\Release|Schema\RepositoryRuleset|Schema\MinimalRepository */
+    /** @return |Observable<Schema\GhesSetSshResponse>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|iterable|Ok|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|MinimalRepository
     {
         if ($pathChunks[0] === '') {

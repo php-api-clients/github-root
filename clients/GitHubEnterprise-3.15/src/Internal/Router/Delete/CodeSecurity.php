@@ -19,6 +19,7 @@ final class CodeSecurity
     {
     }
 
+    /** @return */
     public function detachConfiguration(array $params): WithoutBody
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class CodeSecurity
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function deleteConfiguration(array $params): WithoutBody
     {
         $arguments = [];
