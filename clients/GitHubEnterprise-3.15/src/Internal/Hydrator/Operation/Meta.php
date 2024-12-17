@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\Operation;
 
 use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview;
 use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains;
+use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ActionsInbound;
 use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ArtifactAttestations;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -44,6 +45,7 @@ class Meta implements ObjectMapper
         return match ($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ActionsInbound' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ArtifactAttestations' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ArtifactAttestations($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -181,6 +183,26 @@ class Meta implements ObjectMapper
 
             after_actions:
 
+            $value = $payload['actions_inbound'] ?? null;
+
+            if ($value === null) {
+                $properties['actionsInbound'] = null;
+                goto after_actionsInbound;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'actionsInbound';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['actionsInbound'] = $value;
+
+            after_actionsInbound:
+
             $value = $payload['artifact_attestations'] ?? null;
 
             if ($value === null) {
@@ -212,6 +234,47 @@ class Meta implements ObjectMapper
             return new Domains(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound(array $payload): ActionsInbound
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['full_domains'] ?? null;
+
+            if ($value === null) {
+                $properties['fullDomains'] = null;
+                goto after_fullDomains;
+            }
+
+            $properties['fullDomains'] = $value;
+
+            after_fullDomains:
+
+            $value = $payload['wildcard_domains'] ?? null;
+
+            if ($value === null) {
+                $properties['wildcardDomains'] = null;
+                goto after_wildcardDomains;
+            }
+
+            $properties['wildcardDomains'] = $value;
+
+            after_wildcardDomains:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ActionsInbound', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(ActionsInbound::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new ActionsInbound(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ActionsInbound', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -289,6 +352,7 @@ class Meta implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ActionsInbound' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains\ArtifactAttestations' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ArtifactAttestations($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
@@ -475,6 +539,15 @@ class Meta implements ObjectMapper
         $actions                                 = $actionsSerializer0->serialize($actions, $this);
         after_actions:        $result['actions'] = $actions;
 
+        $actionsInbound = $object->actionsInbound;
+
+        if ($actionsInbound === null) {
+            goto after_actionsInbound;
+        }
+
+        $actionsInbound                                         = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound($actionsInbound);
+        after_actionsInbound:        $result['actions_inbound'] = $actionsInbound;
+
         $artifactAttestations = $object->artifactAttestations;
 
         if ($artifactAttestations === null) {
@@ -483,6 +556,44 @@ class Meta implements ObjectMapper
 
         $artifactAttestations                                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ArtifactAttestations($artifactAttestations);
         after_artifactAttestations:        $result['artifact_attestations'] = $artifactAttestations;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains⚡️ActionsInbound(mixed $object): mixed
+    {
+        assert($object instanceof ActionsInbound);
+        $result = [];
+
+        $fullDomains = $object->fullDomains;
+
+        if ($fullDomains === null) {
+            goto after_fullDomains;
+        }
+
+        static $fullDomainsSerializer0;
+
+        if ($fullDomainsSerializer0 === null) {
+            $fullDomainsSerializer0 = new SerializeArrayItems(...[]);
+        }
+
+        $fullDomains                                      = $fullDomainsSerializer0->serialize($fullDomains, $this);
+        after_fullDomains:        $result['full_domains'] = $fullDomains;
+
+        $wildcardDomains = $object->wildcardDomains;
+
+        if ($wildcardDomains === null) {
+            goto after_wildcardDomains;
+        }
+
+        static $wildcardDomainsSerializer0;
+
+        if ($wildcardDomainsSerializer0 === null) {
+            $wildcardDomainsSerializer0 = new SerializeArrayItems(...[]);
+        }
+
+        $wildcardDomains                                          = $wildcardDomainsSerializer0->serialize($wildcardDomains, $this);
+        after_wildcardDomains:        $result['wildcard_domains'] = $wildcardDomains;
 
         return $result;
     }
