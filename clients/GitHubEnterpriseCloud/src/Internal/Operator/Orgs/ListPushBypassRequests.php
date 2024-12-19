@@ -24,7 +24,7 @@ final readonly class ListPushBypassRequests
     {
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function call(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod = 'day', string $requestStatus = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\ListPushBypassRequests($this->responseSchemaValidator, $this->hydrator, $org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);

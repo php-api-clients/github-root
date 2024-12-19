@@ -774,7 +774,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listPushBypassRequests(array $params): iterable
     {
         $arguments = [];

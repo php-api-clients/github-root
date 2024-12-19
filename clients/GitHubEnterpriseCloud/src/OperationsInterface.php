@@ -66,6 +66,8 @@ interface OperationsInterface
 
     public function migrations(): Operation\Migrations;
 
+    public function privateRegistries(): Operation\PrivateRegistries;
+
     public function projects(): Operation\Projects;
 
     public function reactions(): Operation\Reactions;

@@ -24,6 +24,7 @@ final readonly class GetRepoPushBypassRequest
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $bypassRequestNumber): PushRuleBypassRequest
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetRepoPushBypassRequest($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $bypassRequestNumber);

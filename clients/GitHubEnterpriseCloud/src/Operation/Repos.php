@@ -468,18 +468,19 @@ final class Repos
         return $this->operators->repos👷RenameBranch()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listRepoPushBypassRequests(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListRepoPushBypassRequests()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listRepoPushBypassRequestsListing(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListRepoPushBypassRequestsListing()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
+    /** @return */
     public function getRepoPushBypassRequest(string $owner, string $repo, int $bypassRequestNumber): PushRuleBypassRequest
     {
         return $this->operators->repos👷GetRepoPushBypassRequest()->call($owner, $repo, $bypassRequestNumber);

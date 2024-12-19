@@ -1240,7 +1240,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listRepoPushBypassRequestsListing(array $params): iterable
     {
         $arguments = [];
