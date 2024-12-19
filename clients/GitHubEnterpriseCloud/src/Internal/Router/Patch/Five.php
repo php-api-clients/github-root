@@ -24,7 +24,7 @@ final class Five
     {
     }
 
-    /** @return Observable<Schema\CustomProperty>| */
+    /** @return Observable<Schema\CustomProperty>||\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): iterable|GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
@@ -72,6 +72,12 @@ final class Five
                         if ($pathChunks[4] === '{role_id}') {
                             if ($call === 'PATCH /orgs/{org}/organization-roles/{role_id}') {
                                 return $this->routers->internal🔀Router🔀Patch🔀Orgs()->patchCustomOrganizationRole($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'private-registries') {
+                        if ($pathChunks[4] === '{secret_name}') {
+                            if ($call === 'PATCH /orgs/{org}/private-registries/{secret_name}') {
+                                return $this->routers->internal🔀Router🔀Patch🔀PrivateRegistries()->updateOrgPrivateRegistry($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'properties') {

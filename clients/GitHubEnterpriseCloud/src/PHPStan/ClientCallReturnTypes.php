@@ -396,39 +396,39 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-security/configurations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeSecurityConfiguration>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeSecurityConfiguration>');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/code-security/configurations') {
-            return $this->typeResolver->resolve('Schema\\CodeSecurityConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-security/configurations/defaults') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeSecurityDefaultConfigurations>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeSecurityDefaultConfigurations>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-security/configurations/{configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\CodeSecurityConfiguration|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/code-security/configurations/{configuration_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /enterprises/{enterprise}/code-security/configurations/{configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\CodeSecurityConfiguration|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach') {
-            return $this->typeResolver->resolve('Schema\\Operations\\CodeSecurity\\AttachEnterpriseConfiguration\\Response\\ApplicationJson\\Accepted\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults') {
-            return $this->typeResolver->resolve('Schema\\Operations\\CodeSecurity\\SetConfigurationAsDefaultForEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeSecurityConfigurationRepositories>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeSecurityConfigurationRepositories>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code_security_and_analysis') {
@@ -1104,11 +1104,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/bypass-requests/push-rules') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\PushRuleBypassRequest>');
         }
 
         if ($call === 'LIST /orgs/{org}/bypass-requests/push-rules') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\PushRuleBypassRequest>');
         }
 
         if ($call === 'GET /orgs/{org}/code-scanning/alerts') {
@@ -1152,7 +1152,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PUT /orgs/{org}/code-security/configurations/{configuration_id}/defaults') {
-            return $this->typeResolver->resolve('Schema\\Operations\\CodeSecurity\\SetConfigurationAsDefault\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/code-security/configurations/{configuration_id}/repositories') {
@@ -1769,6 +1769,30 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /orgs/{org}/personal-access-tokens/{pat_id}/repositories') {
             return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
+        }
+
+        if ($call === 'GET /orgs/{org}/private-registries') {
+            return $this->typeResolver->resolve('Schema\\Operations\\PrivateRegistries\\ListOrgPrivateRegistries\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'POST /orgs/{org}/private-registries') {
+            return $this->typeResolver->resolve('Schema\\OrgPrivateRegistryConfigurationWithSelectedRepositories');
+        }
+
+        if ($call === 'GET /orgs/{org}/private-registries/public-key') {
+            return $this->typeResolver->resolve('Schema\\Operations\\PrivateRegistries\\GetOrgPublicKey\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'GET /orgs/{org}/private-registries/{secret_name}') {
+            return $this->typeResolver->resolve('Schema\\OrgPrivateRegistryConfiguration');
+        }
+
+        if ($call === 'DELETE /orgs/{org}/private-registries/{secret_name}') {
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+        }
+
+        if ($call === 'PATCH /orgs/{org}/private-registries/{secret_name}') {
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/projects') {
@@ -2760,15 +2784,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/bypass-requests/push-rules') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\PushRuleBypassRequest>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/bypass-requests/push-rules') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\PushRuleBypassRequest>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}') {
-            return $this->typeResolver->resolve('Schema\\PushRuleBypassRequest');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/check-runs') {
@@ -2832,15 +2856,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix') {
-            return $this->typeResolver->resolve('Schema\\CodeScanningAutofix');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix') {
-            return $this->typeResolver->resolve('Schema\\CodeScanningAutofix|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits') {
-            return $this->typeResolver->resolve('Schema\\CodeScanningAutofixCommitsResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances') {

@@ -1381,7 +1381,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listRepoPushBypassRequests(array $params): iterable
     {
         $arguments = [];
@@ -2266,6 +2266,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function getRepoPushBypassRequest(array $params): PushRuleBypassRequest
     {
         $arguments = [];

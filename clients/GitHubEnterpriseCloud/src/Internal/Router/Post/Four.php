@@ -16,6 +16,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryR
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgPrivateRegistryConfigurationWithSelectedRepositories;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Project;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectColumn;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
@@ -30,7 +31,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
+    /** @return |Schema\OrgPrivateRegistryConfigurationWithSelectedRepositories */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -102,6 +104,10 @@ final class Four
                     } elseif ($pathChunks[3] === 'personal-access-tokens') {
                         if ($call === 'POST /orgs/{org}/personal-access-tokens') {
                             return $this->routers->internal🔀Router🔀Post🔀Orgs()->updatePatAccesses($params);
+                        }
+                    } elseif ($pathChunks[3] === 'private-registries') {
+                        if ($call === 'POST /orgs/{org}/private-registries') {
+                            return $this->routers->internal🔀Router🔀Post🔀PrivateRegistries()->createOrgPrivateRegistry($params);
                         }
                     } elseif ($pathChunks[3] === 'projects') {
                         if ($call === 'POST /orgs/{org}/projects') {
