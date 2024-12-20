@@ -1,5 +1,5 @@
 {
-    "specHash": "461f97fcd984db4523b5ea3d4c13bdc9",
+    "specHash": "f49df43e53599bd6cc78c90ef4e8511d",
     "generatedFiles": {
         "files": [
             {
@@ -14700,11 +14700,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/CodeScanningDefaultSetup.php",
-                "hash": "1ba7bd43220cfa2954850a5e3782ff55"
+                "hash": "4f690e207f190627e39c7f359282a586"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/CodeScanningDefaultSetupUpdate.php",
-                "hash": "e527ea3485f737e8621f6ea44930a3ee"
+                "hash": "c914b75e603183fe261e16f7135c6f83"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/CodeScanningDefaultSetupUpdateResponse.php",
