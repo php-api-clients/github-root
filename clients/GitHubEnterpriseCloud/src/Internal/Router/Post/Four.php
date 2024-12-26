@@ -31,7 +31,6 @@ final class Four
     {
     }
 
-    /** @return |Schema\OrgPrivateRegistryConfigurationWithSelectedRepositories */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
