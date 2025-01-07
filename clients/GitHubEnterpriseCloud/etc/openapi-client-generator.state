@@ -1,5 +1,5 @@
 {
-    "specHash": "2fbd62855475472c85084c56b4a4c6c5",
+    "specHash": "96301d732a1a9fa2ec272adc08c795bd",
     "generatedFiles": {
         "files": [
             {
@@ -416,7 +416,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/BaseGist.php",
-                "hash": "9d636b124c21ad6980e59aedf9b43faf"
+                "hash": "115c320754394036b15ffbf2b7c0b3e7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PublicUser.php",
@@ -428,7 +428,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GistSimple.php",
-                "hash": "fdeb1df9a0109a2007fc2ac2f2ea6693"
+                "hash": "7d3c107dcdaa9f6f3ff0a9ebfa459fe5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GistComment.php",
@@ -2820,7 +2820,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GistSimple\/ForkOf.php",
-                "hash": "2952f75792119676cd5de5bb035d69c4"
+                "hash": "d0f646cd95a9cb930375cde8f59d5392"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GistSimple\/Files.php",
@@ -26940,7 +26940,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists.php",
-                "hash": "1ffec6db01bc1109f6e514e1ec788e9d"
+                "hash": "3705773d2720f55ec9a49299e14b28bd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/Public_.php",
@@ -26952,7 +26952,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/GistId.php",
-                "hash": "7a3aca4b3b262a6a65b84adabe9b7deb"
+                "hash": "4dd3c17b8551c8f05c67259bf0332d49"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/GistId\/Comments.php",
@@ -26968,7 +26968,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/GistId\/Forks.php",
-                "hash": "14b1cdc9e3ca85b54103070031a5e727"
+                "hash": "5e9955e82a204d84179ebc485d057cae"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/GistId\/Star.php",
@@ -26976,7 +26976,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gists\/GistId\/Sha.php",
-                "hash": "e4cf411e40e11eae7e57ed428ca465a6"
+                "hash": "d4ba8fd324847004504a74606a88079a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Gitignore\/Templates\/Name.php",
@@ -34184,7 +34184,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/PrivateRegistries.php",
-                "hash": "e7fa41e48b636fb72ffb9fc10b8422cb"
+                "hash": "602de4953cecb9eb083620b1a7f8ab73"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/PrivateRegistries.php",
