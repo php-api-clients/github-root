@@ -1,5 +1,5 @@
 {
-    "specHash": "19b385e40922afa73fdfab311c757a77",
+    "specHash": "0bd7f782eea440db3ac9e73f9be16daf",
     "generatedFiles": {
         "files": [
             {
@@ -26544,7 +26544,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/Repos\/ReplaceAllTopics\/Request\/ApplicationJson.php",
-                "hash": "7276ad55b5ae4ec63ec759a592ca22d3"
+                "hash": "0914827ba3f009dce24181a275a287cc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/Repos\/Transfer\/Request\/ApplicationJson.php",
