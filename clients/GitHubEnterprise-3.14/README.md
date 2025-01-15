@@ -13393,7 +13393,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### repos/check-automated-security-fixes
 
-Check if automated security fixes are enabled for a repository
+Check if Dependabot security updates are enabled for a repository
 
 Using the `call` method:
 ```php
@@ -13410,7 +13410,7 @@ $client->operations()->repos()->checkAutomatedSecurityFixes(        owner: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.14/rest/repos/repos#check-if-automated-security-fixes-are-enabled-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.14/rest/repos/repos#check-if-dependabot-security-updates-are-enabled-for-a-repository).
 
 
 ### repos/list-branches

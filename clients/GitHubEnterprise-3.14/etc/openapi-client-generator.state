@@ -1,5 +1,5 @@
 {
-    "specHash": "367f32bf494235e374bb29152728db12",
+    "specHash": "9e7e4db41342903bf3c77344139c3a4e",
     "generatedFiles": {
         "files": [
             {
@@ -14528,7 +14528,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/CheckAutomatedSecurityFixes.php",
-                "hash": "8b3e4e3b089e11c7a2a5c1af8fd12226"
+                "hash": "02e7a629d3aa691c6e924695c315f095"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/ProtectedBranchRequiredStatusCheck.php",
@@ -30304,7 +30304,7 @@
             },
             {
                 "name": "..\/..\/composer.lock",
-                "hash": "9968921f0959a081d8998c22c95e7f44"
+                "hash": "ba3412e727d85b330527d34ff8accb9e"
             }
         ]
     }
