@@ -1,5 +1,5 @@
 {
-    "specHash": "40e0c75c69db478191660393ee65bbd6",
+    "specHash": "072d2f6c7487ad40fc77b21845ea28e8",
     "generatedFiles": {
         "files": [
             {
@@ -5900,7 +5900,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "3f996f89d2d6176e728b16cc1f5301f4"
+                "hash": "adbc065773f39ab2ff7daa72dbb27fa8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
@@ -13312,11 +13312,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForEnterprise.php",
-                "hash": "229466b52764168f3d093e07bd8651e5"
+                "hash": "92099f193b95184782cc8d46dd030e9a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForEnterprise.php",
-                "hash": "0a11d1ff468c161ebbbc3a93bed15931"
+                "hash": "c12c89b964904afea3ee88343713a287"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForEnterpriseTest.php",
@@ -15252,11 +15252,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForOrg.php",
-                "hash": "837fd315b8d8cdc00c7afc9c44a9dc1c"
+                "hash": "0a8eb16b877407b757e4d210e9c10ee7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForOrg.php",
-                "hash": "c6c11e398394e4f12ff9100a6743e9f8"
+                "hash": "71f340171025a546b4b7ebd5c0edc72b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForOrgTest.php",
@@ -19760,11 +19760,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepo.php",
-                "hash": "e77c1858b12d45108b6c9e65cfc3205f"
+                "hash": "bc61656b6e7bf8f833dceb3035431c67"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForRepo.php",
-                "hash": "5c51e72cba7c4559d9a1b48fc1a7e4df"
+                "hash": "6b42798199a1032f390311fb8b86eb1a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoTest.php",
@@ -19772,11 +19772,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoListing.php",
-                "hash": "acb3c7f6f34c19569620896ece06b071"
+                "hash": "42f6c6941d77bae30d29d4e57b96dc2c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForRepoListing.php",
-                "hash": "052b06774467d8443d83183985da11e5"
+                "hash": "44f96dd77a2c73ac138b71e85acb7968"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoListingTest.php",
@@ -26044,7 +26044,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Dependabot.php",
-                "hash": "d64d814b88a4f75c0b68ad67f707cce7"
+                "hash": "ac7d7ee9d77c79c3047a6790a25ff0c7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Actions.php",
@@ -26336,7 +26336,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Dependabot.php",
-                "hash": "739fb9d50a6d7242f7cac9163a8a863b"
+                "hash": "fd306bedb488a8c37b50d129d0e45fc6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Reactions.php",
@@ -26540,11 +26540,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "3e894f0ae78fa6c16589d172deab983a"
+                "hash": "abf7dc9e500b68ac52b8a34305c629c7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "6d3f4d04e2a19f775567372eb677d1bd"
+                "hash": "5aba5364a9ba843237b9c4554a3ff8f6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -26648,7 +26648,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Six.php",
-                "hash": "17bd466826aff407b18576146bdb0aa7"
+                "hash": "e5e20eddc085a85ecb319ddaa548bbfd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Seven.php",
@@ -29716,11 +29716,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "8d9339ef38087c95bcabd7ab28f405be"
+                "hash": "7429ef0a76cc46931aff5aa6d4b1695c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "96f43895711a39635b41026b1c2f65bc"
+                "hash": "2190afd06afc94be57513b6466f0201d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -34216,7 +34216,7 @@
             },
             {
                 "name": "..\/..\/composer.lock",
-                "hash": "ba3412e727d85b330527d34ff8accb9e"
+                "hash": "2832b76b2c15745b362f2029f3d31cbf"
             }
         ]
     }
