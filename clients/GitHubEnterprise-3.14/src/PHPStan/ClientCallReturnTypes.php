@@ -604,7 +604,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
@@ -1200,7 +1200,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets') {
@@ -2740,11 +2740,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}') {
