@@ -10,6 +10,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheUsageByRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheUsageOrgEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsGetDefaultWorkflowPermissions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunner;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunnerLimits;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsOrganizationPermissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsPublicKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsRepositoryPermissions;
@@ -19,8 +21,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsWorkflowAccessToReposi
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Artifact;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Job;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OidcCustomSubRepo;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListHostedRunnersForEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListHostedRunnersForOrg\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsSecret;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner;
@@ -44,6 +46,58 @@ final class Actions
     {
     }
 
+    public function listHostedRunnersForEnterprise(array $params): Ok
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Actions\ListHostedRunnersForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners());
+
+        return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
+    }
+
+    public function listHostedRunnersForOrg(array $params): Json
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Actions\ListHostedRunnersForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners());
+
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
+    }
+
     /** @return */
     public function getGithubActionsPermissionsOrganization(array $params): ActionsOrganizationPermissions
     {
@@ -60,7 +114,7 @@ final class Actions
     }
 
     /** @return */
-    public function listSelfHostedRunnerGroupsForOrg(array $params): Ok
+    public function listSelfHostedRunnerGroupsForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -194,6 +248,68 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    public function getHostedRunnersLimitsForEnterprise(array $params): ActionsHostedRunnerLimits
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersLimitsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀Limits());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    public function getHostedRunnersMachineSpecsForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForEnterprise\Response\ApplicationJson\Ok
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersMachineSpecsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀MachineSizes());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    public function getHostedRunnersPlatformsForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForEnterprise\Response\ApplicationJson\Ok
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersPlatformsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀Platforms());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    public function getHostedRunnerForEnterprise(array $params): ActionsHostedRunner
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('hosted_runner_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hosted_runner_id');
+        }
+
+        $arguments['hosted_runner_id'] = $params['hosted_runner_id'];
+        unset($params['hosted_runner_id']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀HostedRunnerId());
+
+        return $operator->call($arguments['enterprise'], $arguments['hosted_runner_id']);
+    }
+
     /** @return */
     public function getGithubActionsDefaultWorkflowPermissionsEnterprise(array $params): ActionsGetDefaultWorkflowPermissions
     {
@@ -249,6 +365,68 @@ final class Actions
         $operator = new Internal\Operator\Actions\GetActionsCacheUsageByRepoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Cache🌀UsageByRepository());
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
+    }
+
+    public function getHostedRunnersLimitsForOrg(array $params): ActionsHostedRunnerLimits
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersLimitsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀Limits());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function getHostedRunnersMachineSpecsForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForOrg\Response\ApplicationJson\Ok\Application\Json
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersMachineSpecsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀MachineSizes());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function getHostedRunnersPlatformsForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForOrg\Response\ApplicationJson\Ok\Application\Json
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersPlatformsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀Platforms());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function getHostedRunnerForOrg(array $params): ActionsHostedRunner
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('hosted_runner_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hosted_runner_id');
+        }
+
+        $arguments['hosted_runner_id'] = $params['hosted_runner_id'];
+        unset($params['hosted_runner_id']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀HostedRunnerId());
+
+        return $operator->call($arguments['org'], $arguments['hosted_runner_id']);
     }
 
     /** @return */
@@ -606,7 +784,7 @@ final class Actions
     }
 
     /** @return */
-    public function listSelfHostedRunnersForRepo(array $params): Json
+    public function listSelfHostedRunnersForRepo(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
         if (array_key_exists('name', $params) === false) {
@@ -822,6 +1000,94 @@ final class Actions
         $operator = new Internal\Operator\Actions\ListRepoWorkflows($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
+    }
+
+    public function getHostedRunnersGithubOwnedImagesForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForEnterprise\Response\ApplicationJson\Ok
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersGithubOwnedImagesForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀Images🌀GithubOwned());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    public function getHostedRunnersPartnerImagesForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPartnerImagesForEnterprise\Response\ApplicationJson\Ok\Application\Json
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersPartnerImagesForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀Images🌀Partner());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    public function getHostedRunnersGithubOwnedImagesForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForOrg\Response\ApplicationJson\Ok\Application\Json
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersGithubOwnedImagesForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀Images🌀GithubOwned());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function getHostedRunnersPartnerImagesForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPartnerImagesForOrg\Response\ApplicationJson\Ok\Application\Json
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Actions\GetHostedRunnersPartnerImagesForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀Images🌀Partner());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function listGithubHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListGithubHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('runner_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: runner_group_id');
+        }
+
+        $arguments['runner_group_id'] = $params['runner_group_id'];
+        unset($params['runner_group_id']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Actions\ListGithubHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀HostedRunners());
+
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
     /** @return */

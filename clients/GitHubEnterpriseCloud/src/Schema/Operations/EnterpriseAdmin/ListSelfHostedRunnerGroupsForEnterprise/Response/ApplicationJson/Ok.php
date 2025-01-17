@@ -52,6 +52,10 @@ final readonly class Ok
                     "hosted_runners_url": {
                         "type": "string"
                     },
+                    "network_configuration_id": {
+                        "type": "string",
+                        "description": "The identifier of a hosted compute network configuration."
+                    },
                     "allows_public_repositories": {
                         "type": "boolean"
                     },
@@ -94,6 +98,7 @@ final readonly class Ok
             "selected_organizations_url": "generated",
             "runners_url": "generated",
             "hosted_runners_url": "generated",
+            "network_configuration_id": "generated",
             "allows_public_repositories": false,
             "workflow_restrictions_read_only": false,
             "restricted_to_workflows": false,
@@ -110,6 +115,7 @@ final readonly class Ok
             "selected_organizations_url": "generated",
             "runners_url": "generated",
             "hosted_runners_url": "generated",
+            "network_configuration_id": "generated",
             "allows_public_repositories": false,
             "workflow_restrictions_read_only": false,
             "restricted_to_workflows": false,

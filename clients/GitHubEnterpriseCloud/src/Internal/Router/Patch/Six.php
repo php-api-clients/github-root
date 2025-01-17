@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckSuitePreference;
@@ -34,13 +35,20 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
+    /** @return Schema\ActionsHostedRunner| */
+    public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($pathChunks[5] === '{hosted_runner_id}') {
+                                if ($call === 'PATCH /enterprises/{enterprise}/actions/hosted-runners/{hosted_runner_id}') {
+                                    return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateHostedRunnerForEnterprise($params);
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'PATCH /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}') {
                                     return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateSelfHostedRunnerGroupForEnterprise($params);
@@ -60,7 +68,13 @@ final class Six
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($pathChunks[5] === '{hosted_runner_id}') {
+                                if ($call === 'PATCH /orgs/{org}/actions/hosted-runners/{hosted_runner_id}') {
+                                    return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateHostedRunnerForOrg($params);
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}') {
                                     return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateSelfHostedRunnerGroupForOrg($params);
