@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -18,6 +19,46 @@ final class Actions
 {
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
+    }
+
+    public function updateHostedRunnerForEnterprise(array $params): ActionsHostedRunner
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('hosted_runner_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hosted_runner_id');
+        }
+
+        $arguments['hosted_runner_id'] = $params['hosted_runner_id'];
+        unset($params['hosted_runner_id']);
+        $operator = new Internal\Operator\Actions\UpdateHostedRunnerForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀HostedRunners🌀HostedRunnerId());
+
+        return $operator->call($arguments['enterprise'], $arguments['hosted_runner_id'], $params);
+    }
+
+    public function updateHostedRunnerForOrg(array $params): ActionsHostedRunner
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('hosted_runner_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hosted_runner_id');
+        }
+
+        $arguments['hosted_runner_id'] = $params['hosted_runner_id'];
+        unset($params['hosted_runner_id']);
+        $operator = new Internal\Operator\Actions\UpdateHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀HostedRunners🌀HostedRunnerId());
+
+        return $operator->call($arguments['org'], $arguments['hosted_runner_id'], $params);
     }
 
     /** @return */

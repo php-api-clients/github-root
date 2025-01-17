@@ -4024,17 +4024,21 @@ class WorkflowJob implements ObjectMapper
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
-                $properties['owner'] = null;
+                $missingFields[] = 'owner';
                 goto after_owner;
             }
 
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
+            static $ownerCaster1;
+
+            if ($ownerCaster1 === null) {
+                $ownerCaster1 = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\Integration\Owner(...[]);
+            }
+
+            $value = $ownerCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $missingFields[] = 'owner';
+                goto after_owner;
             }
 
             $properties['owner'] = $value;
@@ -7749,12 +7753,10 @@ class WorkflowJob implements ObjectMapper
         after_clientId:        $result['client_id'] = $clientId;
 
         $owner = $object->owner;
-
-        if ($owner === null) {
-            goto after_owner;
-        }
-
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner);
+        $owner = match ($owner::class) {
+                        'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($owner),
+        };
         after_owner:        $result['owner'] = $owner;
 
         $name                              = $object->name;

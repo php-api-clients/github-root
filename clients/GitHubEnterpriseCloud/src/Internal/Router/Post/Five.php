@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Autolink;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckRun;
@@ -46,7 +47,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|GetAuditLogStreamConfig|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
+    /** @return |Schema\ActionsHostedRunner */
+    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|ActionsHostedRunner|RunnerGroupsEnterprise|GetAuditLogStreamConfig|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -72,7 +74,11 @@ final class Five
             } elseif ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($call === 'POST /enterprises/{enterprise}/actions/hosted-runners') {
+                                return $this->routers->internal🔀Router🔀Post🔀Actions()->createHostedRunnerForEnterprise($params);
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'POST /enterprises/{enterprise}/actions/runner-groups') {
                                 return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->createSelfHostedRunnerGroupForEnterprise($params);
                             }
@@ -100,7 +106,11 @@ final class Five
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($call === 'POST /orgs/{org}/actions/hosted-runners') {
+                                return $this->routers->internal🔀Router🔀Post🔀Actions()->createHostedRunnerForOrg($params);
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'POST /orgs/{org}/actions/runner-groups') {
                                 return $this->routers->internal🔀Router🔀Post🔀Actions()->createSelfHostedRunnerGroupForOrg($params);
                             }

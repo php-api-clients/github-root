@@ -199,6 +199,46 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListHostedRunnersForEnterprise\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'POST /enterprises/{enterprise}/actions/hosted-runners') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/images/github-owned') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersGithubOwnedImagesForEnterprise\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/images/partner') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersPartnerImagesForEnterprise\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/limits') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunnerLimits');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/machine-sizes') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersMachineSpecsForEnterprise\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/platforms') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersPlatformsForEnterprise\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'DELETE /enterprises/{enterprise}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'PATCH /enterprises/{enterprise}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
         if ($call === 'PUT /enterprises/{enterprise}/actions/oidc/customization/issuer') {
             return $this->typeResolver->resolve('');
         }
@@ -464,7 +504,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/license-sync-status') {
@@ -843,6 +883,46 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListHostedRunnersForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'POST /orgs/{org}/actions/hosted-runners') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/images/github-owned') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersGithubOwnedImagesForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/images/partner') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersPartnerImagesForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/limits') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunnerLimits');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/machine-sizes') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersMachineSpecsForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/platforms') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetHostedRunnersPlatformsForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'DELETE /orgs/{org}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
+        if ($call === 'PATCH /orgs/{org}/actions/hosted-runners/{hosted_runner_id}') {
+            return $this->typeResolver->resolve('Schema\\ActionsHostedRunner');
+        }
+
         if ($call === 'GET /orgs/{org}/actions/oidc/customization/sub') {
             return $this->typeResolver->resolve('');
         }
@@ -909,6 +989,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListGithubHostedRunnersInGroupForOrg\\Response\\ApplicationJson\\Ok');
         }
 
         if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories') {
@@ -1300,7 +1384,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets') {
@@ -3128,11 +3212,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}') {

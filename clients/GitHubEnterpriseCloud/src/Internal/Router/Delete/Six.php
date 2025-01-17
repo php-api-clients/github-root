@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsHostedRunner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForTeams\Response\ApplicationJson\Ok;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -17,13 +18,20 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok|ActionsCacheList|FileCommit
+    /** @return Schema\ActionsHostedRunner| */
+    public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|WithoutBody|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok|ActionsCacheList|FileCommit
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($pathChunks[5] === '{hosted_runner_id}') {
+                                if ($call === 'DELETE /enterprises/{enterprise}/actions/hosted-runners/{hosted_runner_id}') {
+                                    return $this->routers->internal🔀Router🔀Delete🔀Actions()->deleteHostedRunnerForEnterprise($params);
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'DELETE /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}') {
                                     return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteSelfHostedRunnerGroupFromEnterprise($params);
@@ -65,7 +73,13 @@ final class Six
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'hosted-runners') {
+                            if ($pathChunks[5] === '{hosted_runner_id}') {
+                                if ($call === 'DELETE /orgs/{org}/actions/hosted-runners/{hosted_runner_id}') {
+                                    return $this->routers->internal🔀Router🔀Delete🔀Actions()->deleteHostedRunnerForOrg($params);
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}') {
                                     return $this->routers->internal🔀Router🔀Delete🔀Actions()->deleteSelfHostedRunnerGroupFromOrg($params);

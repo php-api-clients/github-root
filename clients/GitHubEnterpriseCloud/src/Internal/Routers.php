@@ -37,11 +37,11 @@ final class Routers
     private Internal\Router\Get\AnnouncementBanners|null $internal🔀Router🔀Get🔀AnnouncementBanners       = null;
     private Internal\Router\Get\SecretScanning|null $internal🔀Router🔀Get🔀SecretScanning                 = null;
     private Internal\Router\Get\PrivateRegistries|null $internal🔀Router🔀Get🔀PrivateRegistries           = null;
+    private Internal\Router\Get\Actions|null $internal🔀Router🔀Get🔀Actions                               = null;
     private Internal\Router\Get\CodeScanning|null $internal🔀Router🔀Get🔀CodeScanning                     = null;
     private Internal\Router\Get\CodeSecurity|null $internal🔀Router🔀Get🔀CodeSecurity                     = null;
     private Internal\Router\Get\Copilot|null $internal🔀Router🔀Get🔀Copilot                               = null;
     private Internal\Router\Get\Dependabot|null $internal🔀Router🔀Get🔀Dependabot                         = null;
-    private Internal\Router\Get\Actions|null $internal🔀Router🔀Get🔀Actions                               = null;
     private Internal\Router\Get\Pulls|null $internal🔀Router🔀Get🔀Pulls                                   = null;
     private Internal\Router\Get\Billing|null $internal🔀Router🔀Get🔀Billing                               = null;
     private Internal\Router\Get\ApiInsights|null $internal🔀Router🔀Get🔀ApiInsights                       = null;
@@ -86,9 +86,9 @@ final class Routers
     private Internal\Router\Patch\Repos|null $internal🔀Router🔀Patch🔀Repos                               = null;
     private Internal\Router\Patch\Codespaces|null $internal🔀Router🔀Patch🔀Codespaces                     = null;
     private Internal\Router\Patch\Users|null $internal🔀Router🔀Patch🔀Users                               = null;
+    private Internal\Router\Patch\Actions|null $internal🔀Router🔀Patch🔀Actions                           = null;
     private Internal\Router\Patch\EnterpriseAdmin|null $internal🔀Router🔀Patch🔀EnterpriseAdmin           = null;
     private Internal\Router\Patch\CodeSecurity|null $internal🔀Router🔀Patch🔀CodeSecurity                 = null;
-    private Internal\Router\Patch\Actions|null $internal🔀Router🔀Patch🔀Actions                           = null;
     private Internal\Router\Patch\Orgs|null $internal🔀Router🔀Patch🔀Orgs                                 = null;
     private Internal\Router\Patch\Teams|null $internal🔀Router🔀Patch🔀Teams                               = null;
     private Internal\Router\Patch\Checks|null $internal🔀Router🔀Patch🔀Checks                             = null;
@@ -138,16 +138,16 @@ final class Routers
     private Internal\Router\Delete\Teams|null $internal🔀Router🔀Delete🔀Teams                             = null;
     private Internal\Router\Delete\Migrations|null $internal🔀Router🔀Delete🔀Migrations                   = null;
     private Internal\Router\Delete\Packages|null $internal🔀Router🔀Delete🔀Packages                       = null;
-    private Internal\Router\Delete\EnterpriseAdmin|null $internal🔀Router🔀Delete🔀EnterpriseAdmin         = null;
     private Internal\Router\Delete\Actions|null $internal🔀Router🔀Delete🔀Actions                         = null;
-    private Internal\Router\Delete\CodeScanning|null $internal🔀Router🔀Delete🔀CodeScanning               = null;
-    private Internal\Router\Delete\Dependabot|null $internal🔀Router🔀Delete🔀Dependabot                   = null;
-    private Internal\Router\Delete\Git|null $internal🔀Router🔀Delete🔀Git                                 = null;
-    private Internal\Router\Delete\Issues|null $internal🔀Router🔀Delete🔀Issues                           = null;
-    private Internal\Router\Delete\Pulls|null $internal🔀Router🔀Delete🔀Pulls                             = null;
-    private Internal\Router\Delete\Scim|null $internal🔀Router🔀Delete🔀Scim                               = null;
+    private Internal\Router\Delete\EnterpriseAdmin|null $internal🔀Router🔀Delete🔀EnterpriseAdmin         = null;
     private Internal\Router\Delete\CodeSecurity|null $internal🔀Router🔀Delete🔀CodeSecurity               = null;
     private Internal\Router\Delete\Copilot|null $internal🔀Router🔀Delete🔀Copilot                         = null;
+    private Internal\Router\Delete\Dependabot|null $internal🔀Router🔀Delete🔀Dependabot                   = null;
+    private Internal\Router\Delete\Issues|null $internal🔀Router🔀Delete🔀Issues                           = null;
+    private Internal\Router\Delete\CodeScanning|null $internal🔀Router🔀Delete🔀CodeScanning               = null;
+    private Internal\Router\Delete\Git|null $internal🔀Router🔀Delete🔀Git                                 = null;
+    private Internal\Router\Delete\Pulls|null $internal🔀Router🔀Delete🔀Pulls                             = null;
+    private Internal\Router\Delete\Scim|null $internal🔀Router🔀Delete🔀Scim                               = null;
     private Internal\Router\Delete\Billing|null $internal🔀Router🔀Delete🔀Billing                         = null;
     private Internal\Router\Delete\Reactions|null $internal🔀Router🔀Delete🔀Reactions                     = null;
     private Internal\Router\Put\Apps|null $internal🔀Router🔀Put🔀Apps                                     = null;
@@ -411,6 +411,15 @@ final class Routers
         return $this->internal🔀Router🔀Get🔀PrivateRegistries;
     }
 
+    public function internal🔀Router🔀Get🔀Actions(): Internal\Router\Get\Actions
+    {
+        if ($this->internal🔀Router🔀Get🔀Actions instanceof Internal\Router\Get\Actions === false) {
+            $this->internal🔀Router🔀Get🔀Actions = new Internal\Router\Get\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Get🔀Actions;
+    }
+
     public function internal🔀Router🔀Get🔀CodeScanning(): Internal\Router\Get\CodeScanning
     {
         if ($this->internal🔀Router🔀Get🔀CodeScanning instanceof Internal\Router\Get\CodeScanning === false) {
@@ -445,15 +454,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Get🔀Dependabot;
-    }
-
-    public function internal🔀Router🔀Get🔀Actions(): Internal\Router\Get\Actions
-    {
-        if ($this->internal🔀Router🔀Get🔀Actions instanceof Internal\Router\Get\Actions === false) {
-            $this->internal🔀Router🔀Get🔀Actions = new Internal\Router\Get\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Get🔀Actions;
     }
 
     public function internal🔀Router🔀Get🔀Pulls(): Internal\Router\Get\Pulls
@@ -852,6 +852,15 @@ final class Routers
         return $this->internal🔀Router🔀Patch🔀Users;
     }
 
+    public function internal🔀Router🔀Patch🔀Actions(): Internal\Router\Patch\Actions
+    {
+        if ($this->internal🔀Router🔀Patch🔀Actions instanceof Internal\Router\Patch\Actions === false) {
+            $this->internal🔀Router🔀Patch🔀Actions = new Internal\Router\Patch\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Patch🔀Actions;
+    }
+
     public function internal🔀Router🔀Patch🔀EnterpriseAdmin(): Internal\Router\Patch\EnterpriseAdmin
     {
         if ($this->internal🔀Router🔀Patch🔀EnterpriseAdmin instanceof Internal\Router\Patch\EnterpriseAdmin === false) {
@@ -868,15 +877,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Patch🔀CodeSecurity;
-    }
-
-    public function internal🔀Router🔀Patch🔀Actions(): Internal\Router\Patch\Actions
-    {
-        if ($this->internal🔀Router🔀Patch🔀Actions instanceof Internal\Router\Patch\Actions === false) {
-            $this->internal🔀Router🔀Patch🔀Actions = new Internal\Router\Patch\Actions(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Patch🔀Actions;
     }
 
     public function internal🔀Router🔀Patch🔀Orgs(): Internal\Router\Patch\Orgs
@@ -1320,15 +1320,6 @@ final class Routers
         return $this->internal🔀Router🔀Delete🔀Packages;
     }
 
-    public function internal🔀Router🔀Delete🔀EnterpriseAdmin(): Internal\Router\Delete\EnterpriseAdmin
-    {
-        if ($this->internal🔀Router🔀Delete🔀EnterpriseAdmin instanceof Internal\Router\Delete\EnterpriseAdmin === false) {
-            $this->internal🔀Router🔀Delete🔀EnterpriseAdmin = new Internal\Router\Delete\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀EnterpriseAdmin;
-    }
-
     public function internal🔀Router🔀Delete🔀Actions(): Internal\Router\Delete\Actions
     {
         if ($this->internal🔀Router🔀Delete🔀Actions instanceof Internal\Router\Delete\Actions === false) {
@@ -1338,58 +1329,13 @@ final class Routers
         return $this->internal🔀Router🔀Delete🔀Actions;
     }
 
-    public function internal🔀Router🔀Delete🔀CodeScanning(): Internal\Router\Delete\CodeScanning
+    public function internal🔀Router🔀Delete🔀EnterpriseAdmin(): Internal\Router\Delete\EnterpriseAdmin
     {
-        if ($this->internal🔀Router🔀Delete🔀CodeScanning instanceof Internal\Router\Delete\CodeScanning === false) {
-            $this->internal🔀Router🔀Delete🔀CodeScanning = new Internal\Router\Delete\CodeScanning(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        if ($this->internal🔀Router🔀Delete🔀EnterpriseAdmin instanceof Internal\Router\Delete\EnterpriseAdmin === false) {
+            $this->internal🔀Router🔀Delete🔀EnterpriseAdmin = new Internal\Router\Delete\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
         }
 
-        return $this->internal🔀Router🔀Delete🔀CodeScanning;
-    }
-
-    public function internal🔀Router🔀Delete🔀Dependabot(): Internal\Router\Delete\Dependabot
-    {
-        if ($this->internal🔀Router🔀Delete🔀Dependabot instanceof Internal\Router\Delete\Dependabot === false) {
-            $this->internal🔀Router🔀Delete🔀Dependabot = new Internal\Router\Delete\Dependabot(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀Dependabot;
-    }
-
-    public function internal🔀Router🔀Delete🔀Git(): Internal\Router\Delete\Git
-    {
-        if ($this->internal🔀Router🔀Delete🔀Git instanceof Internal\Router\Delete\Git === false) {
-            $this->internal🔀Router🔀Delete🔀Git = new Internal\Router\Delete\Git(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀Git;
-    }
-
-    public function internal🔀Router🔀Delete🔀Issues(): Internal\Router\Delete\Issues
-    {
-        if ($this->internal🔀Router🔀Delete🔀Issues instanceof Internal\Router\Delete\Issues === false) {
-            $this->internal🔀Router🔀Delete🔀Issues = new Internal\Router\Delete\Issues(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀Issues;
-    }
-
-    public function internal🔀Router🔀Delete🔀Pulls(): Internal\Router\Delete\Pulls
-    {
-        if ($this->internal🔀Router🔀Delete🔀Pulls instanceof Internal\Router\Delete\Pulls === false) {
-            $this->internal🔀Router🔀Delete🔀Pulls = new Internal\Router\Delete\Pulls(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀Pulls;
-    }
-
-    public function internal🔀Router🔀Delete🔀Scim(): Internal\Router\Delete\Scim
-    {
-        if ($this->internal🔀Router🔀Delete🔀Scim instanceof Internal\Router\Delete\Scim === false) {
-            $this->internal🔀Router🔀Delete🔀Scim = new Internal\Router\Delete\Scim(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀Scim;
+        return $this->internal🔀Router🔀Delete🔀EnterpriseAdmin;
     }
 
     public function internal🔀Router🔀Delete🔀CodeSecurity(): Internal\Router\Delete\CodeSecurity
@@ -1408,6 +1354,60 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Delete🔀Copilot;
+    }
+
+    public function internal🔀Router🔀Delete🔀Dependabot(): Internal\Router\Delete\Dependabot
+    {
+        if ($this->internal🔀Router🔀Delete🔀Dependabot instanceof Internal\Router\Delete\Dependabot === false) {
+            $this->internal🔀Router🔀Delete🔀Dependabot = new Internal\Router\Delete\Dependabot(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Dependabot;
+    }
+
+    public function internal🔀Router🔀Delete🔀Issues(): Internal\Router\Delete\Issues
+    {
+        if ($this->internal🔀Router🔀Delete🔀Issues instanceof Internal\Router\Delete\Issues === false) {
+            $this->internal🔀Router🔀Delete🔀Issues = new Internal\Router\Delete\Issues(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Issues;
+    }
+
+    public function internal🔀Router🔀Delete🔀CodeScanning(): Internal\Router\Delete\CodeScanning
+    {
+        if ($this->internal🔀Router🔀Delete🔀CodeScanning instanceof Internal\Router\Delete\CodeScanning === false) {
+            $this->internal🔀Router🔀Delete🔀CodeScanning = new Internal\Router\Delete\CodeScanning(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀CodeScanning;
+    }
+
+    public function internal🔀Router🔀Delete🔀Git(): Internal\Router\Delete\Git
+    {
+        if ($this->internal🔀Router🔀Delete🔀Git instanceof Internal\Router\Delete\Git === false) {
+            $this->internal🔀Router🔀Delete🔀Git = new Internal\Router\Delete\Git(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Git;
+    }
+
+    public function internal🔀Router🔀Delete🔀Pulls(): Internal\Router\Delete\Pulls
+    {
+        if ($this->internal🔀Router🔀Delete🔀Pulls instanceof Internal\Router\Delete\Pulls === false) {
+            $this->internal🔀Router🔀Delete🔀Pulls = new Internal\Router\Delete\Pulls(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Pulls;
+    }
+
+    public function internal🔀Router🔀Delete🔀Scim(): Internal\Router\Delete\Scim
+    {
+        if ($this->internal🔀Router🔀Delete🔀Scim instanceof Internal\Router\Delete\Scim === false) {
+            $this->internal🔀Router🔀Delete🔀Scim = new Internal\Router\Delete\Scim(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Scim;
     }
 
     public function internal🔀Router🔀Delete🔀Billing(): Internal\Router\Delete\Billing

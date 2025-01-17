@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\WebHook;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\Integration\Owner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest;
@@ -16,7 +17,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary;
@@ -2604,17 +2604,21 @@ class SubIssues implements ObjectMapper
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
-                $properties['owner'] = null;
+                $missingFields[] = 'owner';
                 goto after_owner;
             }
 
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
+            static $ownerCaster1;
+
+            if ($ownerCaster1 === null) {
+                $ownerCaster1 = new Owner(...[]);
+            }
+
+            $value = $ownerCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $missingFields[] = 'owner';
+                goto after_owner;
             }
 
             $properties['owner'] = $value;
@@ -5464,7 +5468,7 @@ class SubIssues implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(array $payload): Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner
     {
         $properties    = [];
         $missingFields = [];
@@ -5671,11 +5675,11 @@ class SubIssues implements ObjectMapper
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Owner(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
@@ -7536,12 +7540,10 @@ class SubIssues implements ObjectMapper
         after_clientId:        $result['client_id'] = $clientId;
 
         $owner = $object->owner;
-
-        if ($owner === null) {
-            goto after_owner;
-        }
-
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner);
+        $owner = match ($owner::class) {
+                        'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($owner),
+        };
         after_owner:        $result['owner'] = $owner;
 
         $name                              = $object->name;
@@ -9026,7 +9028,7 @@ class SubIssues implements ObjectMapper
 
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        assert($object instanceof Owner);
+        assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
