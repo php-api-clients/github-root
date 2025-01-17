@@ -93,10 +93,7 @@ final readonly class WebhookCheckRunRequestedAction
                                     ]
                                 },
                                 "owner": {
-                                    "anyOf": [
-                                        {
-                                            "type": "null"
-                                        },
+                                    "oneOf": [
                                         {
                                             "title": "Simple User",
                                             "required": [
@@ -264,6 +261,96 @@ final readonly class WebhookCheckRunRequestedAction
                                                 }
                                             },
                                             "description": "A GitHub user."
+                                        },
+                                        {
+                                            "title": "Enterprise",
+                                            "required": [
+                                                "id",
+                                                "node_id",
+                                                "name",
+                                                "slug",
+                                                "html_url",
+                                                "created_at",
+                                                "updated_at",
+                                                "avatar_url"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "description": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "A short description of the enterprise."
+                                                },
+                                                "html_url": {
+                                                    "type": "string",
+                                                    "format": "uri",
+                                                    "examples": [
+                                                        "https:\\/\\/github.com\\/enterprises\\/octo-business"
+                                                    ]
+                                                },
+                                                "website_url": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The enterprise\'s website URL.",
+                                                    "format": "uri"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "description": "Unique identifier of the enterprise",
+                                                    "examples": [
+                                                        42
+                                                    ]
+                                                },
+                                                "node_id": {
+                                                    "type": "string",
+                                                    "examples": [
+                                                        "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "description": "The name of the enterprise.",
+                                                    "examples": [
+                                                        "Octo Business"
+                                                    ]
+                                                },
+                                                "slug": {
+                                                    "type": "string",
+                                                    "description": "The slug url identifier for the enterprise.",
+                                                    "examples": [
+                                                        "octo-business"
+                                                    ]
+                                                },
+                                                "created_at": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "format": "date-time",
+                                                    "examples": [
+                                                        "2019-01-26T19:01:12Z"
+                                                    ]
+                                                },
+                                                "updated_at": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "format": "date-time",
+                                                    "examples": [
+                                                        "2019-01-26T19:14:43Z"
+                                                    ]
+                                                },
+                                                "avatar_url": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                }
+                                            },
+                                            "description": "An enterprise on GitHub."
                                         }
                                     ]
                                 },
@@ -436,10 +523,7 @@ final readonly class WebhookCheckRunRequestedAction
                                     ]
                                 },
                                 "owner": {
-                                    "anyOf": [
-                                        {
-                                            "type": "null"
-                                        },
+                                    "oneOf": [
                                         {
                                             "title": "Simple User",
                                             "required": [
@@ -607,6 +691,96 @@ final readonly class WebhookCheckRunRequestedAction
                                                 }
                                             },
                                             "description": "A GitHub user."
+                                        },
+                                        {
+                                            "title": "Enterprise",
+                                            "required": [
+                                                "id",
+                                                "node_id",
+                                                "name",
+                                                "slug",
+                                                "html_url",
+                                                "created_at",
+                                                "updated_at",
+                                                "avatar_url"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "description": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "A short description of the enterprise."
+                                                },
+                                                "html_url": {
+                                                    "type": "string",
+                                                    "format": "uri",
+                                                    "examples": [
+                                                        "https:\\/\\/github.com\\/enterprises\\/octo-business"
+                                                    ]
+                                                },
+                                                "website_url": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "The enterprise\'s website URL.",
+                                                    "format": "uri"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "description": "Unique identifier of the enterprise",
+                                                    "examples": [
+                                                        42
+                                                    ]
+                                                },
+                                                "node_id": {
+                                                    "type": "string",
+                                                    "examples": [
+                                                        "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
+                                                    ]
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "description": "The name of the enterprise.",
+                                                    "examples": [
+                                                        "Octo Business"
+                                                    ]
+                                                },
+                                                "slug": {
+                                                    "type": "string",
+                                                    "description": "The slug url identifier for the enterprise.",
+                                                    "examples": [
+                                                        "octo-business"
+                                                    ]
+                                                },
+                                                "created_at": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "format": "date-time",
+                                                    "examples": [
+                                                        "2019-01-26T19:01:12Z"
+                                                    ]
+                                                },
+                                                "updated_at": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "format": "date-time",
+                                                    "examples": [
+                                                        "2019-01-26T19:14:43Z"
+                                                    ]
+                                                },
+                                                "avatar_url": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                }
+                                            },
+                                            "description": "An enterprise on GitHub."
                                         }
                                     ]
                                 },
@@ -1908,10 +2082,7 @@ final readonly class WebhookCheckRunRequestedAction
                                             ]
                                         },
                                         "owner": {
-                                            "anyOf": [
-                                                {
-                                                    "type": "null"
-                                                },
+                                            "oneOf": [
                                                 {
                                                     "title": "Simple User",
                                                     "required": [
@@ -2079,6 +2250,96 @@ final readonly class WebhookCheckRunRequestedAction
                                                         }
                                                     },
                                                     "description": "A GitHub user."
+                                                },
+                                                {
+                                                    "title": "Enterprise",
+                                                    "required": [
+                                                        "id",
+                                                        "node_id",
+                                                        "name",
+                                                        "slug",
+                                                        "html_url",
+                                                        "created_at",
+                                                        "updated_at",
+                                                        "avatar_url"
+                                                    ],
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "description": {
+                                                            "type": [
+                                                                "string",
+                                                                "null"
+                                                            ],
+                                                            "description": "A short description of the enterprise."
+                                                        },
+                                                        "html_url": {
+                                                            "type": "string",
+                                                            "format": "uri",
+                                                            "examples": [
+                                                                "https:\\/\\/github.com\\/enterprises\\/octo-business"
+                                                            ]
+                                                        },
+                                                        "website_url": {
+                                                            "type": [
+                                                                "string",
+                                                                "null"
+                                                            ],
+                                                            "description": "The enterprise\'s website URL.",
+                                                            "format": "uri"
+                                                        },
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "description": "Unique identifier of the enterprise",
+                                                            "examples": [
+                                                                42
+                                                            ]
+                                                        },
+                                                        "node_id": {
+                                                            "type": "string",
+                                                            "examples": [
+                                                                "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
+                                                            ]
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the enterprise.",
+                                                            "examples": [
+                                                                "Octo Business"
+                                                            ]
+                                                        },
+                                                        "slug": {
+                                                            "type": "string",
+                                                            "description": "The slug url identifier for the enterprise.",
+                                                            "examples": [
+                                                                "octo-business"
+                                                            ]
+                                                        },
+                                                        "created_at": {
+                                                            "type": [
+                                                                "string",
+                                                                "null"
+                                                            ],
+                                                            "format": "date-time",
+                                                            "examples": [
+                                                                "2019-01-26T19:01:12Z"
+                                                            ]
+                                                        },
+                                                        "updated_at": {
+                                                            "type": [
+                                                                "string",
+                                                                "null"
+                                                            ],
+                                                            "format": "date-time",
+                                                            "examples": [
+                                                                "2019-01-26T19:14:43Z"
+                                                            ]
+                                                        },
+                                                        "avatar_url": {
+                                                            "type": "string",
+                                                            "format": "uri"
+                                                        }
+                                                    },
+                                                    "description": "An enterprise on GitHub."
                                                 }
                                             ]
                                         },
@@ -4212,30 +4473,7 @@ final readonly class WebhookCheckRunRequestedAction
             "id": 37,
             "slug": "probot-owners",
             "node_id": "MDExOkludGVncmF0aW9uMQ==",
-            "owner": {
-                "name": "generated",
-                "email": "generated",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                "html_url": "https:\\/\\/github.com\\/octocat",
-                "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                "type": "User",
-                "site_admin": false,
-                "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                "user_view_type": "public"
-            },
+            "owner": null,
             "name": "Probot Owners",
             "description": "The description of the app.",
             "external_url": "https:\\/\\/example.com",
@@ -4264,30 +4502,7 @@ final readonly class WebhookCheckRunRequestedAction
                 "id": 37,
                 "slug": "probot-owners",
                 "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                "owner": {
-                    "name": "generated",
-                    "email": "generated",
-                    "login": "octocat",
-                    "id": 1,
-                    "node_id": "MDQ6VXNlcjE=",
-                    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                    "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                    "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                    "html_url": "https:\\/\\/github.com\\/octocat",
-                    "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                    "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                    "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                    "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                    "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                    "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                    "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                    "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                    "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                    "type": "User",
-                    "site_admin": false,
-                    "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                    "user_view_type": "public"
-                },
+                "owner": null,
                 "name": "Probot Owners",
                 "description": "The description of the app.",
                 "external_url": "https:\\/\\/example.com",
@@ -4535,30 +4750,7 @@ final readonly class WebhookCheckRunRequestedAction
                 "id": 37,
                 "slug": "probot-owners",
                 "node_id": "MDExOkludGVncmF0aW9uMQ==",
-                "owner": {
-                    "name": "generated",
-                    "email": "generated",
-                    "login": "octocat",
-                    "id": 1,
-                    "node_id": "MDQ6VXNlcjE=",
-                    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                    "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                    "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                    "html_url": "https:\\/\\/github.com\\/octocat",
-                    "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                    "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                    "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                    "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                    "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                    "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                    "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                    "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                    "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                    "type": "User",
-                    "site_admin": false,
-                    "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                    "user_view_type": "public"
-                },
+                "owner": null,
                 "name": "Probot Owners",
                 "description": "The description of the app.",
                 "external_url": "https:\\/\\/example.com",
