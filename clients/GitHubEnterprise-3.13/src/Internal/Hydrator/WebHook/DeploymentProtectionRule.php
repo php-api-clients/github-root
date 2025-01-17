@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\WebHook;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\Deployment\Payload;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\Integration\Owner;
 use ApiClients\Client\GitHubEnterprise\Schema\Deployment;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions;
@@ -13,7 +14,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository;
-use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookDeploymentProtectionRuleRequested;
@@ -795,17 +795,21 @@ class DeploymentProtectionRule implements ObjectMapper
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
-                $properties['owner'] = null;
+                $missingFields[] = 'owner';
                 goto after_owner;
             }
 
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
+            static $ownerCaster1;
+
+            if ($ownerCaster1 === null) {
+                $ownerCaster1 = new Owner(...[]);
+            }
+
+            $value = $ownerCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $missingFields[] = 'owner';
+                goto after_owner;
             }
 
             $properties['owner'] = $value;
@@ -3367,7 +3371,7 @@ class DeploymentProtectionRule implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(array $payload): Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner
     {
         $properties    = [];
         $missingFields = [];
@@ -3574,11 +3578,11 @@ class DeploymentProtectionRule implements ObjectMapper
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Owner(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
@@ -4293,12 +4297,10 @@ class DeploymentProtectionRule implements ObjectMapper
         after_nodeId:        $result['node_id'] = $nodeId;
 
         $owner = $object->owner;
-
-        if ($owner === null) {
-            goto after_owner;
-        }
-
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($owner);
+        $owner = match ($owner::class) {
+                        'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($owner),
+            'ApiClients\Client\GitHubEnterprise\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise($owner),
+        };
         after_owner:        $result['owner'] = $owner;
 
         $name                              = $object->name;
@@ -5706,7 +5708,7 @@ class DeploymentProtectionRule implements ObjectMapper
 
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        assert($object instanceof Owner);
+        assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
