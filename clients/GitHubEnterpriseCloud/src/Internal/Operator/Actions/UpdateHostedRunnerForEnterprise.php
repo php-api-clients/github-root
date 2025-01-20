@@ -24,6 +24,7 @@ final readonly class UpdateHostedRunnerForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $hostedRunnerId, array $params): ActionsHostedRunner
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\UpdateHostedRunnerForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $hostedRunnerId);

@@ -24,6 +24,7 @@ final readonly class ListHostedRunnersForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, int $perPage = 30, int $page = 1): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\ListHostedRunnersForOrg($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

@@ -49,51 +49,61 @@ final class Actions
         return $this->operators->actions👷GetActionsCacheUsageForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function listHostedRunnersForEnterprise(string $enterprise, int $perPage, int $page): Ok
     {
         return $this->operators->actions👷ListHostedRunnersForEnterprise()->call($enterprise, $perPage, $page);
     }
 
+    /** @return */
     public function createHostedRunnerForEnterprise(string $enterprise, array $params): ActionsHostedRunner
     {
         return $this->operators->actions👷CreateHostedRunnerForEnterprise()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getHostedRunnersGithubOwnedImagesForEnterprise(string $enterprise): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->actions👷GetHostedRunnersGithubOwnedImagesForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function getHostedRunnersPartnerImagesForEnterprise(string $enterprise): Json
     {
         return $this->operators->actions👷GetHostedRunnersPartnerImagesForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function getHostedRunnersLimitsForEnterprise(string $enterprise): ActionsHostedRunnerLimits
     {
         return $this->operators->actions👷GetHostedRunnersLimitsForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function getHostedRunnersMachineSpecsForEnterprise(string $enterprise): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->actions👷GetHostedRunnersMachineSpecsForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function getHostedRunnersPlatformsForEnterprise(string $enterprise): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->actions👷GetHostedRunnersPlatformsForEnterprise()->call($enterprise);
     }
 
+    /** @return */
     public function getHostedRunnerForEnterprise(string $enterprise, int $hostedRunnerId): ActionsHostedRunner
     {
         return $this->operators->actions👷GetHostedRunnerForEnterprise()->call($enterprise, $hostedRunnerId);
     }
 
+    /** @return */
     public function deleteHostedRunnerForEnterprise(string $enterprise, int $hostedRunnerId): ActionsHostedRunner
     {
         return $this->operators->actions👷DeleteHostedRunnerForEnterprise()->call($enterprise, $hostedRunnerId);
     }
 
+    /** @return */
     public function updateHostedRunnerForEnterprise(string $enterprise, int $hostedRunnerId, array $params): ActionsHostedRunner
     {
         return $this->operators->actions👷UpdateHostedRunnerForEnterprise()->call($enterprise, $hostedRunnerId, $params);
@@ -135,51 +145,61 @@ final class Actions
         return $this->operators->actions👷GetActionsCacheUsageByRepoForOrg()->call($org, $perPage, $page);
     }
 
+    /** @return */
     public function listHostedRunnersForOrg(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListHostedRunnersForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷ListHostedRunnersForOrg()->call($org, $perPage, $page);
     }
 
+    /** @return */
     public function createHostedRunnerForOrg(string $org, array $params): ActionsHostedRunner
     {
         return $this->operators->actions👷CreateHostedRunnerForOrg()->call($org, $params);
     }
 
+    /** @return */
     public function getHostedRunnersGithubOwnedImagesForOrg(string $org): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷GetHostedRunnersGithubOwnedImagesForOrg()->call($org);
     }
 
+    /** @return */
     public function getHostedRunnersPartnerImagesForOrg(string $org): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPartnerImagesForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷GetHostedRunnersPartnerImagesForOrg()->call($org);
     }
 
+    /** @return */
     public function getHostedRunnersLimitsForOrg(string $org): ActionsHostedRunnerLimits
     {
         return $this->operators->actions👷GetHostedRunnersLimitsForOrg()->call($org);
     }
 
+    /** @return */
     public function getHostedRunnersMachineSpecsForOrg(string $org): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷GetHostedRunnersMachineSpecsForOrg()->call($org);
     }
 
+    /** @return */
     public function getHostedRunnersPlatformsForOrg(string $org): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷GetHostedRunnersPlatformsForOrg()->call($org);
     }
 
+    /** @return */
     public function getHostedRunnerForOrg(string $org, int $hostedRunnerId): ActionsHostedRunner
     {
         return $this->operators->actions👷GetHostedRunnerForOrg()->call($org, $hostedRunnerId);
     }
 
+    /** @return */
     public function deleteHostedRunnerForOrg(string $org, int $hostedRunnerId): ActionsHostedRunner
     {
         return $this->operators->actions👷DeleteHostedRunnerForOrg()->call($org, $hostedRunnerId);
     }
 
+    /** @return */
     public function updateHostedRunnerForOrg(string $org, int $hostedRunnerId, array $params): ActionsHostedRunner
     {
         return $this->operators->actions👷UpdateHostedRunnerForOrg()->call($org, $hostedRunnerId, $params);
@@ -275,6 +295,7 @@ final class Actions
         return $this->operators->actions👷UpdateSelfHostedRunnerGroupForOrg()->call($org, $runnerGroupId, $params);
     }
 
+    /** @return */
     public function listGithubHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, int $perPage, int $page): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListGithubHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok
     {
         return $this->operators->actions👷ListGithubHostedRunnersInGroupForOrg()->call($org, $runnerGroupId, $perPage, $page);

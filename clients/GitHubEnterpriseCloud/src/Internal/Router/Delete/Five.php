@@ -14,6 +14,7 @@ final class Five
     {
     }
 
+    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody
     {
         if ($pathChunks[0] === '') {
@@ -29,7 +30,13 @@ final class Five
                 }
             } elseif ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
-                    if ($pathChunks[3] === 'rulesets') {
+                    if ($pathChunks[3] === 'network-configurations') {
+                        if ($pathChunks[4] === '{network_configuration_id}') {
+                            if ($call === 'DELETE /enterprises/{enterprise}/network-configurations/{network_configuration_id}') {
+                                return $this->routers->internal🔀Router🔀Delete🔀HostedCompute()->deleteNetworkConfigurationFromEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'rulesets') {
                         if ($pathChunks[4] === '{ruleset_id}') {
                             if ($call === 'DELETE /enterprises/{enterprise}/rulesets/{ruleset_id}') {
                                 return $this->routers->internal🔀Router🔀Delete🔀Repos()->deleteEnterpriseRuleset($params);

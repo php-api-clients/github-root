@@ -23,6 +23,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function deleteHostedRunnerForEnterprise(array $params): ActionsHostedRunner
     {
         $arguments = [];
@@ -43,6 +44,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $arguments['hosted_runner_id']);
     }
 
+    /** @return */
     public function deleteHostedRunnerForOrg(array $params): ActionsHostedRunner
     {
         $arguments = [];

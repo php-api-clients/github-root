@@ -107,6 +107,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createHostedRunnerForEnterprise(array $params): ActionsHostedRunner
     {
         $arguments = [];
@@ -121,6 +122,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function createHostedRunnerForOrg(array $params): ActionsHostedRunner
     {
         $arguments = [];

@@ -24,6 +24,7 @@ final readonly class CreateHostedRunnerForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, array $params): ActionsHostedRunner
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\CreateHostedRunnerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

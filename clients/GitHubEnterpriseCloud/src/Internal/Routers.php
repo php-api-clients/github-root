@@ -36,6 +36,7 @@ final class Routers
     private Internal\Router\Get\EnterpriseAdmin|null $internal🔀Router🔀Get🔀EnterpriseAdmin               = null;
     private Internal\Router\Get\AnnouncementBanners|null $internal🔀Router🔀Get🔀AnnouncementBanners       = null;
     private Internal\Router\Get\SecretScanning|null $internal🔀Router🔀Get🔀SecretScanning                 = null;
+    private Internal\Router\Get\HostedCompute|null $internal🔀Router🔀Get🔀HostedCompute                   = null;
     private Internal\Router\Get\PrivateRegistries|null $internal🔀Router🔀Get🔀PrivateRegistries           = null;
     private Internal\Router\Get\Actions|null $internal🔀Router🔀Get🔀Actions                               = null;
     private Internal\Router\Get\CodeScanning|null $internal🔀Router🔀Get🔀CodeScanning                     = null;
@@ -52,6 +53,7 @@ final class Routers
     private Internal\Router\Get\Oidc|null $internal🔀Router🔀Get🔀Oidc                                     = null;
     private Internal\Router\Get\Git|null $internal🔀Router🔀Get🔀Git                                       = null;
     private Internal\Router\Post\Apps|null $internal🔀Router🔀Post🔀Apps                                   = null;
+    private Internal\Router\Post\HostedCompute|null $internal🔀Router🔀Post🔀HostedCompute                 = null;
     private Internal\Router\Post\Repos|null $internal🔀Router🔀Post🔀Repos                                 = null;
     private Internal\Router\Post\Gists|null $internal🔀Router🔀Post🔀Gists                                 = null;
     private Internal\Router\Post\Orgs|null $internal🔀Router🔀Post🔀Orgs                                   = null;
@@ -90,6 +92,7 @@ final class Routers
     private Internal\Router\Patch\EnterpriseAdmin|null $internal🔀Router🔀Patch🔀EnterpriseAdmin           = null;
     private Internal\Router\Patch\CodeSecurity|null $internal🔀Router🔀Patch🔀CodeSecurity                 = null;
     private Internal\Router\Patch\Orgs|null $internal🔀Router🔀Patch🔀Orgs                                 = null;
+    private Internal\Router\Patch\HostedCompute|null $internal🔀Router🔀Patch🔀HostedCompute               = null;
     private Internal\Router\Patch\Teams|null $internal🔀Router🔀Patch🔀Teams                               = null;
     private Internal\Router\Patch\Checks|null $internal🔀Router🔀Patch🔀Checks                             = null;
     private Internal\Router\Patch\CodeScanning|null $internal🔀Router🔀Patch🔀CodeScanning                 = null;
@@ -133,6 +136,7 @@ final class Routers
     private Internal\Router\Delete\Repos|null $internal🔀Router🔀Delete🔀Repos                             = null;
     private Internal\Router\Delete\Users|null $internal🔀Router🔀Delete🔀Users                             = null;
     private Internal\Router\Delete\Codespaces|null $internal🔀Router🔀Delete🔀Codespaces                   = null;
+    private Internal\Router\Delete\HostedCompute|null $internal🔀Router🔀Delete🔀HostedCompute             = null;
     private Internal\Router\Delete\Orgs|null $internal🔀Router🔀Delete🔀Orgs                               = null;
     private Internal\Router\Delete\PrivateRegistries|null $internal🔀Router🔀Delete🔀PrivateRegistries     = null;
     private Internal\Router\Delete\Teams|null $internal🔀Router🔀Delete🔀Teams                             = null;
@@ -402,6 +406,15 @@ final class Routers
         return $this->internal🔀Router🔀Get🔀SecretScanning;
     }
 
+    public function internal🔀Router🔀Get🔀HostedCompute(): Internal\Router\Get\HostedCompute
+    {
+        if ($this->internal🔀Router🔀Get🔀HostedCompute instanceof Internal\Router\Get\HostedCompute === false) {
+            $this->internal🔀Router🔀Get🔀HostedCompute = new Internal\Router\Get\HostedCompute(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Get🔀HostedCompute;
+    }
+
     public function internal🔀Router🔀Get🔀PrivateRegistries(): Internal\Router\Get\PrivateRegistries
     {
         if ($this->internal🔀Router🔀Get🔀PrivateRegistries instanceof Internal\Router\Get\PrivateRegistries === false) {
@@ -544,6 +557,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Post🔀Apps;
+    }
+
+    public function internal🔀Router🔀Post🔀HostedCompute(): Internal\Router\Post\HostedCompute
+    {
+        if ($this->internal🔀Router🔀Post🔀HostedCompute instanceof Internal\Router\Post\HostedCompute === false) {
+            $this->internal🔀Router🔀Post🔀HostedCompute = new Internal\Router\Post\HostedCompute(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Post🔀HostedCompute;
     }
 
     public function internal🔀Router🔀Post🔀Repos(): Internal\Router\Post\Repos
@@ -886,6 +908,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Patch🔀Orgs;
+    }
+
+    public function internal🔀Router🔀Patch🔀HostedCompute(): Internal\Router\Patch\HostedCompute
+    {
+        if ($this->internal🔀Router🔀Patch🔀HostedCompute instanceof Internal\Router\Patch\HostedCompute === false) {
+            $this->internal🔀Router🔀Patch🔀HostedCompute = new Internal\Router\Patch\HostedCompute(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Patch🔀HostedCompute;
     }
 
     public function internal🔀Router🔀Patch🔀Teams(): Internal\Router\Patch\Teams
@@ -1273,6 +1304,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Delete🔀Codespaces;
+    }
+
+    public function internal🔀Router🔀Delete🔀HostedCompute(): Internal\Router\Delete\HostedCompute
+    {
+        if ($this->internal🔀Router🔀Delete🔀HostedCompute instanceof Internal\Router\Delete\HostedCompute === false) {
+            $this->internal🔀Router🔀Delete🔀HostedCompute = new Internal\Router\Delete\HostedCompute(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀HostedCompute;
     }
 
     public function internal🔀Router🔀Delete🔀Orgs(): Internal\Router\Delete\Orgs

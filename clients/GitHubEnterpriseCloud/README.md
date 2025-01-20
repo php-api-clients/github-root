@@ -2626,6 +2626,7 @@ $client->call('GET /enterprises/{enterprise}/dependabot/alerts', [
         'severity' => 'generated',
         'ecosystem' => 'generated',
         'package' => 'generated',
+        'epss_percentage' => 'generated',
         'scope' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
@@ -2644,6 +2645,7 @@ $client->operations()->dependabot()->listAlertsForEnterprise(        enterprise:
         severity: 'generated',
         ecosystem: 'generated',
         package: 'generated',
+        epss_percentage: 'generated',
         scope: 'generated',
         before: 'generated',
         after: 'generated',
@@ -2676,6 +2678,138 @@ $client->operations()->enterpriseAdmin()->getLicenseSyncStatus(        enterpris
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/license#get-a-license-sync-status).
+
+
+### hosted-compute/list-network-configurations-for-enterprise
+
+List hosted compute network configurations for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/network-configurations', [
+        'enterprise' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->listNetworkConfigurationsForEnterprise(        enterprise: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#list-hosted-compute-network-configurations-for-an-enterprise).
+
+
+### hosted-compute/create-network-configuration-for-enterprise
+
+Create a hosted compute network configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/network-configurations', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->createNetworkConfigurationForEnterprise(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#create-a-hosted-compute-network-configuration-for-an-enterprise).
+
+
+### hosted-compute/get-network-configuration-for-enterprise
+
+Get a hosted compute network configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/network-configurations/{network_configuration_id}', [
+        'enterprise' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->getNetworkConfigurationForEnterprise(        enterprise: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#get-a-hosted-compute-network-configuration-for-an-enterprise).
+
+
+### hosted-compute/delete-network-configuration-from-enterprise
+
+Delete a hosted compute network configuration from an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/network-configurations/{network_configuration_id}', [
+        'enterprise' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->deleteNetworkConfigurationFromEnterprise(        enterprise: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#delete-a-hosted-compute-network-configuration-from-an-enterprise).
+
+
+### hosted-compute/update-network-configuration-for-enterprise
+
+Update a hosted compute network configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('PATCH /enterprises/{enterprise}/network-configurations/{network_configuration_id}', [
+        'enterprise' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->updateNetworkConfigurationForEnterprise(        enterprise: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#update-a-hosted-compute-network-configuration-for-an-enterprise).
+
+
+### hosted-compute/get-network-settings-for-enterprise
+
+Get a hosted compute network settings resource for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/network-settings/{network_settings_id}', [
+        'enterprise' => 'generated',
+        'network_settings_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->getNetworkSettingsForEnterprise(        enterprise: 'generated',
+        network_settings_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/network-configurations#get-a-hosted-compute-network-settings-resource-for-an-enterprise).
 
 
 ### enterprise-admin/get-enterprise-custom-properties
@@ -7686,6 +7820,7 @@ $client->call('GET /orgs/{org}/dependabot/alerts', [
         'severity' => 'generated',
         'ecosystem' => 'generated',
         'package' => 'generated',
+        'epss_percentage' => 'generated',
         'scope' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
@@ -7704,6 +7839,7 @@ $client->operations()->dependabot()->listAlertsForOrg(        org: 'generated',
         severity: 'generated',
         ecosystem: 'generated',
         package: 'generated',
+        epss_percentage: 'generated',
         scope: 'generated',
         before: 'generated',
         after: 'generated',
@@ -11752,6 +11888,138 @@ $client->operations()->billing()->getSharedStorageBillingOrg(        org: 'gener
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/billing/billing#get-shared-storage-billing-for-an-organization).
+
+
+### hosted-compute/list-network-configurations-for-org
+
+List hosted compute network configurations for an organization
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/settings/network-configurations', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->listNetworkConfigurationsForOrg(        org: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#list-hosted-compute-network-configurations-for-an-organization).
+
+
+### hosted-compute/create-network-configuration-for-org
+
+Create a hosted compute network configuration for an organization
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/settings/network-configurations', [
+        'org' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->createNetworkConfigurationForOrg(        org: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#create-a-hosted-compute-network-configuration-for-an-organization).
+
+
+### hosted-compute/get-network-configuration-for-org
+
+Get a hosted compute network configuration for an organization
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/settings/network-configurations/{network_configuration_id}', [
+        'org' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->getNetworkConfigurationForOrg(        org: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#get-a-hosted-compute-network-configuration-for-an-organization).
+
+
+### hosted-compute/delete-network-configuration-from-org
+
+Delete a hosted compute network configuration from an organization
+
+Using the `call` method:
+```php
+$client->call('DELETE /orgs/{org}/settings/network-configurations/{network_configuration_id}', [
+        'org' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->deleteNetworkConfigurationFromOrg(        org: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#delete-a-hosted-compute-network-configuration-from-an-organization).
+
+
+### hosted-compute/update-network-configuration-for-org
+
+Update a hosted compute network configuration for an organization
+
+Using the `call` method:
+```php
+$client->call('PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id}', [
+        'org' => 'generated',
+        'network_configuration_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->updateNetworkConfigurationForOrg(        org: 'generated',
+        network_configuration_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#update-a-hosted-compute-network-configuration-for-an-organization).
+
+
+### hosted-compute/get-network-settings-for-org
+
+Get a hosted compute network settings resource for an organization
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/settings/network-settings/{network_settings_id}', [
+        'org' => 'generated',
+        'network_settings_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->hostedCompute()->getNetworkSettingsForOrg(        org: 'generated',
+        network_settings_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/settings/network-configurations#get-a-hosted-compute-network-settings-resource-for-an-organization).
 
 
 ### teams/list-idp-groups-for-org
@@ -19199,6 +19467,7 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/alerts', [
         'ecosystem' => 'generated',
         'package' => 'generated',
         'manifest' => 'generated',
+        'epss_percentage' => 'generated',
         'scope' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
@@ -19220,6 +19489,7 @@ $client->operations()->dependabot()->listAlertsForRepo(        owner: 'generated
         ecosystem: 'generated',
         package: 'generated',
         manifest: 'generated',
+        epss_percentage: 'generated',
         scope: 'generated',
         before: 'generated',
         after: 'generated',
@@ -19249,6 +19519,7 @@ $client->call('LIST /repos/{owner}/{repo}/dependabot/alerts', [
         'ecosystem' => 'generated',
         'package' => 'generated',
         'manifest' => 'generated',
+        'epss_percentage' => 'generated',
         'scope' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
@@ -19270,6 +19541,7 @@ $client->operations()->dependabot()->listAlertsForRepoListing(        owner: 'ge
         ecosystem: 'generated',
         package: 'generated',
         manifest: 'generated',
+        epss_percentage: 'generated',
         scope: 'generated',
         before: 'generated',
         after: 'generated',

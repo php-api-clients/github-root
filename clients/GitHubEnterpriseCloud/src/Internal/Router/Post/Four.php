@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Migration;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\NetworkConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
@@ -31,7 +32,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
+    /** @return |Schema\NetworkConfiguration */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|NetworkConfiguration|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -52,7 +54,11 @@ final class Four
                 }
             } elseif ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
-                    if ($pathChunks[3] === 'rulesets') {
+                    if ($pathChunks[3] === 'network-configurations') {
+                        if ($call === 'POST /enterprises/{enterprise}/network-configurations') {
+                            return $this->routers->internal🔀Router🔀Post🔀HostedCompute()->createNetworkConfigurationForEnterprise($params);
+                        }
+                    } elseif ($pathChunks[3] === 'rulesets') {
                         if ($call === 'POST /enterprises/{enterprise}/rulesets') {
                             return $this->routers->internal🔀Router🔀Post🔀Repos()->createEnterpriseRuleset($params);
                         }

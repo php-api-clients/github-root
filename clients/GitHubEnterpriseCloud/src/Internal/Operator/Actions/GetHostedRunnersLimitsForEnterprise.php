@@ -24,6 +24,7 @@ final readonly class GetHostedRunnersLimitsForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): ActionsHostedRunnerLimits
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\GetHostedRunnersLimitsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);
