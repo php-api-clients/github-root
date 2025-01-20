@@ -34,6 +34,8 @@ interface OperationsInterface
 
     public function dependabot(): Operation\Dependabot;
 
+    public function hostedCompute(): Operation\HostedCompute;
+
     public function repos(): Operation\Repos;
 
     public function billing(): Operation\Billing;

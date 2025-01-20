@@ -19,6 +19,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Label;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\NetworkConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequest;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Release;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryAdvisory;
@@ -35,8 +36,8 @@ final class Six
     {
     }
 
-    /** @return Schema\ActionsHostedRunner| */
-    public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
+    /** @return |Schema\NetworkConfiguration */
+    public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|NetworkConfiguration|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -100,6 +101,14 @@ final class Six
                             if ($pathChunks[5] === 'config') {
                                 if ($call === 'PATCH /orgs/{org}/hooks/{hook_id}/config') {
                                     return $this->routers->internal🔀Router🔀Patch🔀Orgs()->updateWebhookConfigForOrg($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'settings') {
+                        if ($pathChunks[4] === 'network-configurations') {
+                            if ($pathChunks[5] === '{network_configuration_id}') {
+                                if ($call === 'PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id}') {
+                                    return $this->routers->internal🔀Router🔀Patch🔀HostedCompute()->updateNetworkConfigurationForOrg($params);
                                 }
                             }
                         }

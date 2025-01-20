@@ -128,6 +128,12 @@ final class Operators
     private Internal\Operator\Copilot\UsageMetricsForEnterpriseListing|null $copilot👷UsageMetricsForEnterpriseListing                                                               = null;
     private Internal\Operator\Dependabot\ListAlertsForEnterprise|null $dependabot👷ListAlertsForEnterprise                                                                           = null;
     private Internal\Operator\EnterpriseAdmin\GetLicenseSyncStatus|null $enterpriseAdmin👷GetLicenseSyncStatus                                                                       = null;
+    private Internal\Operator\HostedCompute\ListNetworkConfigurationsForEnterprise|null $hostedCompute👷ListNetworkConfigurationsForEnterprise                                       = null;
+    private Internal\Operator\HostedCompute\CreateNetworkConfigurationForEnterprise|null $hostedCompute👷CreateNetworkConfigurationForEnterprise                                     = null;
+    private Internal\Operator\HostedCompute\GetNetworkConfigurationForEnterprise|null $hostedCompute👷GetNetworkConfigurationForEnterprise                                           = null;
+    private Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromEnterprise|null $hostedCompute👷DeleteNetworkConfigurationFromEnterprise                                   = null;
+    private Internal\Operator\HostedCompute\UpdateNetworkConfigurationForEnterprise|null $hostedCompute👷UpdateNetworkConfigurationForEnterprise                                     = null;
+    private Internal\Operator\HostedCompute\GetNetworkSettingsForEnterprise|null $hostedCompute👷GetNetworkSettingsForEnterprise                                                     = null;
     private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties|null $enterpriseAdmin👷GetEnterpriseCustomProperties                                                     = null;
     private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties                               = null;
     private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty|null $enterpriseAdmin👷GetEnterpriseCustomProperty                                                         = null;
@@ -509,6 +515,12 @@ final class Operators
     private Internal\Operator\Billing\GetGithubAdvancedSecurityBillingOrg|null $billing👷GetGithubAdvancedSecurityBillingOrg                                                         = null;
     private Internal\Operator\Billing\GetGithubPackagesBillingOrg|null $billing👷GetGithubPackagesBillingOrg                                                                         = null;
     private Internal\Operator\Billing\GetSharedStorageBillingOrg|null $billing👷GetSharedStorageBillingOrg                                                                           = null;
+    private Internal\Operator\HostedCompute\ListNetworkConfigurationsForOrg|null $hostedCompute👷ListNetworkConfigurationsForOrg                                                     = null;
+    private Internal\Operator\HostedCompute\CreateNetworkConfigurationForOrg|null $hostedCompute👷CreateNetworkConfigurationForOrg                                                   = null;
+    private Internal\Operator\HostedCompute\GetNetworkConfigurationForOrg|null $hostedCompute👷GetNetworkConfigurationForOrg                                                         = null;
+    private Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromOrg|null $hostedCompute👷DeleteNetworkConfigurationFromOrg                                                 = null;
+    private Internal\Operator\HostedCompute\UpdateNetworkConfigurationForOrg|null $hostedCompute👷UpdateNetworkConfigurationForOrg                                                   = null;
+    private Internal\Operator\HostedCompute\GetNetworkSettingsForOrg|null $hostedCompute👷GetNetworkSettingsForOrg                                                                   = null;
     private Internal\Operator\Teams\ListIdpGroupsForOrg|null $teams👷ListIdpGroupsForOrg                                                                                             = null;
     private Internal\Operator\Copilot\CopilotMetricsForTeam|null $copilot👷CopilotMetricsForTeam                                                                                     = null;
     private Internal\Operator\Copilot\CopilotMetricsForTeamListing|null $copilot👷CopilotMetricsForTeamListing                                                                       = null;
@@ -2407,6 +2419,60 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷GetLicenseSyncStatus;
+    }
+
+    public function hostedCompute👷ListNetworkConfigurationsForEnterprise(): Internal\Operator\HostedCompute\ListNetworkConfigurationsForEnterprise
+    {
+        if ($this->hostedCompute👷ListNetworkConfigurationsForEnterprise instanceof Internal\Operator\HostedCompute\ListNetworkConfigurationsForEnterprise === false) {
+            $this->hostedCompute👷ListNetworkConfigurationsForEnterprise = new Internal\Operator\HostedCompute\ListNetworkConfigurationsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀NetworkConfigurations());
+        }
+
+        return $this->hostedCompute👷ListNetworkConfigurationsForEnterprise;
+    }
+
+    public function hostedCompute👷CreateNetworkConfigurationForEnterprise(): Internal\Operator\HostedCompute\CreateNetworkConfigurationForEnterprise
+    {
+        if ($this->hostedCompute👷CreateNetworkConfigurationForEnterprise instanceof Internal\Operator\HostedCompute\CreateNetworkConfigurationForEnterprise === false) {
+            $this->hostedCompute👷CreateNetworkConfigurationForEnterprise = new Internal\Operator\HostedCompute\CreateNetworkConfigurationForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀NetworkConfigurations());
+        }
+
+        return $this->hostedCompute👷CreateNetworkConfigurationForEnterprise;
+    }
+
+    public function hostedCompute👷GetNetworkConfigurationForEnterprise(): Internal\Operator\HostedCompute\GetNetworkConfigurationForEnterprise
+    {
+        if ($this->hostedCompute👷GetNetworkConfigurationForEnterprise instanceof Internal\Operator\HostedCompute\GetNetworkConfigurationForEnterprise === false) {
+            $this->hostedCompute👷GetNetworkConfigurationForEnterprise = new Internal\Operator\HostedCompute\GetNetworkConfigurationForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀NetworkConfigurations🌀NetworkConfigurationId());
+        }
+
+        return $this->hostedCompute👷GetNetworkConfigurationForEnterprise;
+    }
+
+    public function hostedCompute👷DeleteNetworkConfigurationFromEnterprise(): Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromEnterprise
+    {
+        if ($this->hostedCompute👷DeleteNetworkConfigurationFromEnterprise instanceof Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromEnterprise === false) {
+            $this->hostedCompute👷DeleteNetworkConfigurationFromEnterprise = new Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromEnterprise($this->browser, $this->authentication);
+        }
+
+        return $this->hostedCompute👷DeleteNetworkConfigurationFromEnterprise;
+    }
+
+    public function hostedCompute👷UpdateNetworkConfigurationForEnterprise(): Internal\Operator\HostedCompute\UpdateNetworkConfigurationForEnterprise
+    {
+        if ($this->hostedCompute👷UpdateNetworkConfigurationForEnterprise instanceof Internal\Operator\HostedCompute\UpdateNetworkConfigurationForEnterprise === false) {
+            $this->hostedCompute👷UpdateNetworkConfigurationForEnterprise = new Internal\Operator\HostedCompute\UpdateNetworkConfigurationForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀NetworkConfigurations🌀NetworkConfigurationId());
+        }
+
+        return $this->hostedCompute👷UpdateNetworkConfigurationForEnterprise;
+    }
+
+    public function hostedCompute👷GetNetworkSettingsForEnterprise(): Internal\Operator\HostedCompute\GetNetworkSettingsForEnterprise
+    {
+        if ($this->hostedCompute👷GetNetworkSettingsForEnterprise instanceof Internal\Operator\HostedCompute\GetNetworkSettingsForEnterprise === false) {
+            $this->hostedCompute👷GetNetworkSettingsForEnterprise = new Internal\Operator\HostedCompute\GetNetworkSettingsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀NetworkSettings🌀NetworkSettingsId());
+        }
+
+        return $this->hostedCompute👷GetNetworkSettingsForEnterprise;
     }
 
     public function enterpriseAdmin👷GetEnterpriseCustomProperties(): Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties
@@ -5836,6 +5902,60 @@ final class Operators
         }
 
         return $this->billing👷GetSharedStorageBillingOrg;
+    }
+
+    public function hostedCompute👷ListNetworkConfigurationsForOrg(): Internal\Operator\HostedCompute\ListNetworkConfigurationsForOrg
+    {
+        if ($this->hostedCompute👷ListNetworkConfigurationsForOrg instanceof Internal\Operator\HostedCompute\ListNetworkConfigurationsForOrg === false) {
+            $this->hostedCompute👷ListNetworkConfigurationsForOrg = new Internal\Operator\HostedCompute\ListNetworkConfigurationsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀NetworkConfigurations());
+        }
+
+        return $this->hostedCompute👷ListNetworkConfigurationsForOrg;
+    }
+
+    public function hostedCompute👷CreateNetworkConfigurationForOrg(): Internal\Operator\HostedCompute\CreateNetworkConfigurationForOrg
+    {
+        if ($this->hostedCompute👷CreateNetworkConfigurationForOrg instanceof Internal\Operator\HostedCompute\CreateNetworkConfigurationForOrg === false) {
+            $this->hostedCompute👷CreateNetworkConfigurationForOrg = new Internal\Operator\HostedCompute\CreateNetworkConfigurationForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀NetworkConfigurations());
+        }
+
+        return $this->hostedCompute👷CreateNetworkConfigurationForOrg;
+    }
+
+    public function hostedCompute👷GetNetworkConfigurationForOrg(): Internal\Operator\HostedCompute\GetNetworkConfigurationForOrg
+    {
+        if ($this->hostedCompute👷GetNetworkConfigurationForOrg instanceof Internal\Operator\HostedCompute\GetNetworkConfigurationForOrg === false) {
+            $this->hostedCompute👷GetNetworkConfigurationForOrg = new Internal\Operator\HostedCompute\GetNetworkConfigurationForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀NetworkConfigurations🌀NetworkConfigurationId());
+        }
+
+        return $this->hostedCompute👷GetNetworkConfigurationForOrg;
+    }
+
+    public function hostedCompute👷DeleteNetworkConfigurationFromOrg(): Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromOrg
+    {
+        if ($this->hostedCompute👷DeleteNetworkConfigurationFromOrg instanceof Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromOrg === false) {
+            $this->hostedCompute👷DeleteNetworkConfigurationFromOrg = new Internal\Operator\HostedCompute\DeleteNetworkConfigurationFromOrg($this->browser, $this->authentication);
+        }
+
+        return $this->hostedCompute👷DeleteNetworkConfigurationFromOrg;
+    }
+
+    public function hostedCompute👷UpdateNetworkConfigurationForOrg(): Internal\Operator\HostedCompute\UpdateNetworkConfigurationForOrg
+    {
+        if ($this->hostedCompute👷UpdateNetworkConfigurationForOrg instanceof Internal\Operator\HostedCompute\UpdateNetworkConfigurationForOrg === false) {
+            $this->hostedCompute👷UpdateNetworkConfigurationForOrg = new Internal\Operator\HostedCompute\UpdateNetworkConfigurationForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀NetworkConfigurations🌀NetworkConfigurationId());
+        }
+
+        return $this->hostedCompute👷UpdateNetworkConfigurationForOrg;
+    }
+
+    public function hostedCompute👷GetNetworkSettingsForOrg(): Internal\Operator\HostedCompute\GetNetworkSettingsForOrg
+    {
+        if ($this->hostedCompute👷GetNetworkSettingsForOrg instanceof Internal\Operator\HostedCompute\GetNetworkSettingsForOrg === false) {
+            $this->hostedCompute👷GetNetworkSettingsForOrg = new Internal\Operator\HostedCompute\GetNetworkSettingsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀NetworkSettings🌀NetworkSettingsId());
+        }
+
+        return $this->hostedCompute👷GetNetworkSettingsForOrg;
     }
 
     public function teams👷ListIdpGroupsForOrg(): Internal\Operator\Teams\ListIdpGroupsForOrg

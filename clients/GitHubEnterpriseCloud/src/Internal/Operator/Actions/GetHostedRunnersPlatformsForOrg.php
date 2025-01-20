@@ -24,6 +24,7 @@ final readonly class GetHostedRunnersPlatformsForOrg
     {
     }
 
+    /** @return */
     public function call(string $org): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\GetHostedRunnersPlatformsForOrg($this->responseSchemaValidator, $this->hydrator, $org);

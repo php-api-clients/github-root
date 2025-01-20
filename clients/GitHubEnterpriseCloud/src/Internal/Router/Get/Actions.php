@@ -46,6 +46,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function listHostedRunnersForEnterprise(array $params): Ok
     {
         $arguments = [];
@@ -72,6 +73,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listHostedRunnersForOrg(array $params): Json
     {
         $arguments = [];
@@ -248,6 +250,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnersLimitsForEnterprise(array $params): ActionsHostedRunnerLimits
     {
         $arguments = [];
@@ -262,6 +265,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnersMachineSpecsForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -276,6 +280,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnersPlatformsForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -290,6 +295,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnerForEnterprise(array $params): ActionsHostedRunner
     {
         $arguments = [];
@@ -367,6 +373,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getHostedRunnersLimitsForOrg(array $params): ActionsHostedRunnerLimits
     {
         $arguments = [];
@@ -381,6 +388,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getHostedRunnersMachineSpecsForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersMachineSpecsForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -395,6 +403,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getHostedRunnersPlatformsForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPlatformsForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -409,6 +418,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getHostedRunnerForOrg(array $params): ActionsHostedRunner
     {
         $arguments = [];
@@ -1002,6 +1012,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getHostedRunnersGithubOwnedImagesForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -1016,6 +1027,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnersPartnerImagesForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPartnerImagesForEnterprise\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1030,6 +1042,7 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getHostedRunnersGithubOwnedImagesForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersGithubOwnedImagesForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1044,6 +1057,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getHostedRunnersPartnerImagesForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GetHostedRunnersPartnerImagesForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1058,6 +1072,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function listGithubHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListGithubHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok
     {
         $arguments = [];

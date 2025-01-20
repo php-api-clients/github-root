@@ -21,6 +21,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function updateHostedRunnerForEnterprise(array $params): ActionsHostedRunner
     {
         $arguments = [];
@@ -41,6 +42,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $arguments['hosted_runner_id'], $params);
     }
 
+    /** @return */
     public function updateHostedRunnerForOrg(array $params): ActionsHostedRunner
     {
         $arguments = [];

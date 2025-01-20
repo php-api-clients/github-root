@@ -24,6 +24,7 @@ final readonly class DeleteHostedRunnerForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $hostedRunnerId): ActionsHostedRunner
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\DeleteHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $hostedRunnerId);

@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\NetworkConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
@@ -24,13 +25,19 @@ final class Five
     {
     }
 
-    /** @return Observable<Schema\CustomProperty>| */
-    public function call(string $call, array $params, array $pathChunks): iterable|GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
+    /** @return Schema\NetworkConfiguration|Observable<Schema\CustomProperty>| */
+    public function call(string $call, array $params, array $pathChunks): NetworkConfiguration|iterable|GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
-                    if ($pathChunks[3] === 'properties') {
+                    if ($pathChunks[3] === 'network-configurations') {
+                        if ($pathChunks[4] === '{network_configuration_id}') {
+                            if ($call === 'PATCH /enterprises/{enterprise}/network-configurations/{network_configuration_id}') {
+                                return $this->routers->internal🔀Router🔀Patch🔀HostedCompute()->updateNetworkConfigurationForEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'properties') {
                         if ($pathChunks[4] === 'schema') {
                             if ($call === 'PATCH /enterprises/{enterprise}/properties/schema') {
                                 return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->createOrUpdateEnterpriseCustomProperties($params);

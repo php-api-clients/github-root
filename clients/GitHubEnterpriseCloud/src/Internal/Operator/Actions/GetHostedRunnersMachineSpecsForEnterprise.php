@@ -24,6 +24,7 @@ final readonly class GetHostedRunnersMachineSpecsForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\GetHostedRunnersMachineSpecsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -80,6 +80,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\Dependabot($this->operators);
     }
 
+    public function hostedCompute(): Operation\HostedCompute
+    {
+        return new Operation\HostedCompute($this->operators);
+    }
+
     public function repos(): Operation\Repos
     {
         return new Operation\Repos($this->operators);

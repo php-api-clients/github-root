@@ -27,6 +27,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Label;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\MergedUpstream;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\NetworkConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateAttestation\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Page;
@@ -47,8 +48,8 @@ final class Five
     {
     }
 
-    /** @return |Schema\ActionsHostedRunner */
-    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|ActionsHostedRunner|RunnerGroupsEnterprise|GetAuditLogStreamConfig|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
+    /** @return |Schema\NetworkConfiguration */
+    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|ActionsHostedRunner|RunnerGroupsEnterprise|GetAuditLogStreamConfig|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|EmptyObject|NetworkConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -135,6 +136,12 @@ final class Five
                         if ($pathChunks[4] === '{pat_id}') {
                             if ($call === 'POST /orgs/{org}/personal-access-tokens/{pat_id}') {
                                 return $this->routers->internal🔀Router🔀Post🔀Orgs()->updatePatAccess($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'settings') {
+                        if ($pathChunks[4] === 'network-configurations') {
+                            if ($call === 'POST /orgs/{org}/settings/network-configurations') {
+                                return $this->routers->internal🔀Router🔀Post🔀HostedCompute()->createNetworkConfigurationForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{security_product}') {
