@@ -48,31 +48,14 @@ final class ListAlertsForRepo
     private string $manifest;
     /**The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned. **/
     private string $scope;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.13/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.13/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
-    private string $before;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.13/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.13/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
-    private string $after;
-    /****Deprecated**. The number of results per page (max 100), starting from the last matching result.
-    This parameter must not be used in combination with `first`.
-    Instead, use `per_page` in combination with `before` to fetch the last page of results. **/
-    private int $last;
     /**The property by which to sort the results.
     `created` means when the alert was created.
-    `updated` means when the alert's state last changed.
-    `epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage. **/
+    `updated` means when the alert's state last changed. **/
     private string $sort;
     /**The direction to sort the results by. **/
     private string $direction;
-    /****Closing down notice**. Page number of the results to fetch. Use cursor-based pagination with `before` or `after` instead. **/
-    private int $page;
-    /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.13/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
-    private int $perPage;
-    /****Deprecated**. The number of results per page (max 100), starting from the first matching result.
-    This parameter must not be used in combination with `last`.
-    Instead, use `per_page` in combination with `after` to fetch the first page of results. **/
-    private int $first;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Dependabot\Alerts $hydrator, string $owner, string $repo, string $state, string $severity, string $ecosystem, string $package, string $manifest, string $scope, string $before, string $after, int $last, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30, int $first = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Dependabot\Alerts $hydrator, string $owner, string $repo, string $state, string $severity, string $ecosystem, string $package, string $manifest, string $scope, string $sort = 'created', string $direction = 'desc')
     {
         $this->owner     = $owner;
         $this->repo      = $repo;
@@ -82,19 +65,13 @@ final class ListAlertsForRepo
         $this->package   = $package;
         $this->manifest  = $manifest;
         $this->scope     = $scope;
-        $this->before    = $before;
-        $this->after     = $after;
-        $this->last      = $last;
         $this->sort      = $sort;
         $this->direction = $direction;
-        $this->page      = $page;
-        $this->perPage   = $perPage;
-        $this->first     = $first;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{owner}', '{repo}', '{state}', '{severity}', '{ecosystem}', '{package}', '{manifest}', '{scope}', '{before}', '{after}', '{last}', '{sort}', '{direction}', '{page}', '{per_page}', '{first}'], [$this->owner, $this->repo, $this->state, $this->severity, $this->ecosystem, $this->package, $this->manifest, $this->scope, $this->before, $this->after, $this->last, $this->sort, $this->direction, $this->page, $this->perPage, $this->first], '/repos/{owner}/{repo}/dependabot/alerts' . '?state={state}&severity={severity}&ecosystem={ecosystem}&package={package}&manifest={manifest}&scope={scope}&before={before}&after={after}&last={last}&sort={sort}&direction={direction}&page={page}&per_page={per_page}&first={first}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{state}', '{severity}', '{ecosystem}', '{package}', '{manifest}', '{scope}', '{sort}', '{direction}'], [$this->owner, $this->repo, $this->state, $this->severity, $this->ecosystem, $this->package, $this->manifest, $this->scope, $this->sort, $this->direction], '/repos/{owner}/{repo}/dependabot/alerts' . '?state={state}&severity={severity}&ecosystem={ecosystem}&package={package}&manifest={manifest}&scope={scope}&sort={sort}&direction={direction}'));
     }
 
     /** @return Observable<Schema\DependabotAlert>|WithoutBody */

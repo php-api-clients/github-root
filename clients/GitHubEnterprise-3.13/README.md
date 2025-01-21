@@ -15622,14 +15622,8 @@ $client->call('GET /repos/{owner}/{repo}/dependabot/alerts', [
         'package' => 'generated',
         'manifest' => 'generated',
         'scope' => 'generated',
-        'before' => 'generated',
-        'after' => 'generated',
-        'last' => 4,
         'sort' => 'generated',
         'direction' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'first' => 5,
 ]);
 ```
 
@@ -15643,64 +15637,8 @@ $client->operations()->dependabot()->listAlertsForRepo(        owner: 'generated
         package: 'generated',
         manifest: 'generated',
         scope: 'generated',
-        before: 'generated',
-        after: 'generated',
-        last: 4,
         sort: 'generated',
         direction: 'generated',
-        page: 1,
-        per_page: 8,
-        first: 5,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.13/rest/dependabot/alerts#list-dependabot-alerts-for-a-repository).
-
-
-### dependabot/list-alerts-for-repo
-
-List Dependabot alerts for a repository
-
-Using the `call` method:
-```php
-$client->call('LIST /repos/{owner}/{repo}/dependabot/alerts', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'state' => 'generated',
-        'severity' => 'generated',
-        'ecosystem' => 'generated',
-        'package' => 'generated',
-        'manifest' => 'generated',
-        'scope' => 'generated',
-        'before' => 'generated',
-        'after' => 'generated',
-        'last' => 4,
-        'sort' => 'generated',
-        'direction' => 'generated',
-        'page' => 1,
-        'per_page' => 8,
-        'first' => 5,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->dependabot()->listAlertsForRepoListing(        owner: 'generated',
-        repo: 'generated',
-        state: 'generated',
-        severity: 'generated',
-        ecosystem: 'generated',
-        package: 'generated',
-        manifest: 'generated',
-        scope: 'generated',
-        before: 'generated',
-        after: 'generated',
-        last: 4,
-        sort: 'generated',
-        direction: 'generated',
-        page: 1,
-        per_page: 8,
-        first: 5,
 );
 ```
 

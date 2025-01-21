@@ -15,7 +15,7 @@ final class Six
     {
     }
 
-    /** @return Observable<Schema\MinimalRepository>|Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\Team>|Observable<Schema\CodeScanningAlertItems>|WithoutBody|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\DependabotAlert>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|Observable<Schema\RuleSuites>|Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\PackageVersion>|Observable<Schema\Event> */
+    /** @return Observable<Schema\MinimalRepository>|Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\Team>|Observable<Schema\CodeScanningAlertItems>|WithoutBody|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|Observable<Schema\RuleSuites>|Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\PackageVersion>|Observable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
@@ -82,12 +82,6 @@ final class Six
                             } elseif ($pathChunks[5] === 'analyses') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/analyses') {
                                     return $this->routers->internal🔀Router🔀List🔀CodeScanning()->listRecentAnalysesListing($params);
-                                }
-                            }
-                        } elseif ($pathChunks[4] === 'dependabot') {
-                            if ($pathChunks[5] === 'alerts') {
-                                if ($call === 'LIST /repos/{owner}/{repo}/dependabot/alerts') {
-                                    return $this->routers->internal🔀Router🔀List🔀Dependabot()->listAlertsForRepoListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'issues') {
