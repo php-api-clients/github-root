@@ -697,7 +697,6 @@ final class Operators
     private Internal\Operator\Repos\ListContributors|null $repos👷ListContributors                                                                                                   = null;
     private Internal\Operator\Repos\ListContributorsListing|null $repos👷ListContributorsListing                                                                                     = null;
     private Internal\Operator\Dependabot\ListAlertsForRepo|null $dependabot👷ListAlertsForRepo                                                                                       = null;
-    private Internal\Operator\Dependabot\ListAlertsForRepoListing|null $dependabot👷ListAlertsForRepoListing                                                                         = null;
     private Internal\Operator\Dependabot\GetAlert|null $dependabot👷GetAlert                                                                                                         = null;
     private Internal\Operator\Dependabot\UpdateAlert|null $dependabot👷UpdateAlert                                                                                                   = null;
     private Internal\Operator\Dependabot\ListRepoSecrets|null $dependabot👷ListRepoSecrets                                                                                           = null;
@@ -7348,15 +7347,6 @@ final class Operators
         }
 
         return $this->dependabot👷ListAlertsForRepo;
-    }
-
-    public function dependabot👷ListAlertsForRepoListing(): Internal\Operator\Dependabot\ListAlertsForRepoListing
-    {
-        if ($this->dependabot👷ListAlertsForRepoListing instanceof Internal\Operator\Dependabot\ListAlertsForRepoListing === false) {
-            $this->dependabot👷ListAlertsForRepoListing = new Internal\Operator\Dependabot\ListAlertsForRepoListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Dependabot🌀Alerts());
-        }
-
-        return $this->dependabot👷ListAlertsForRepoListing;
     }
 
     public function dependabot👷GetAlert(): Internal\Operator\Dependabot\GetAlert
