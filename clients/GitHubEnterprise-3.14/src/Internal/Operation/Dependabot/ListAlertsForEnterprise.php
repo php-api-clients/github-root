@@ -54,8 +54,7 @@ final class ListAlertsForEnterprise
     private int $last;
     /**The property by which to sort the results.
     `created` means when the alert was created.
-    `updated` means when the alert's state last changed.
-    `epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage. **/
+    `updated` means when the alert's state last changed. **/
     private string $sort;
     /**The direction to sort the results by. **/
     private string $direction;
