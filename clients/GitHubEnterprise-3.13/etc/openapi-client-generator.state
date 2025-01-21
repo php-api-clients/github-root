@@ -1,5 +1,5 @@
 {
-    "specHash": "446a3cd1fdbd8dda94d848b89bd8f6e2",
+    "specHash": "8985016ac4b27cc23057fb31dee10264",
     "generatedFiles": {
         "files": [
             {
@@ -1592,11 +1592,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForEnterprise.php",
-                "hash": "2de3effb482080214a6d7ff3eeac0ab1"
+                "hash": "4ba8183f95b8c6643d8eb1d453c6348d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForEnterprise.php",
-                "hash": "1f68b2e0be822f1fe631c2ecbf33af29"
+                "hash": "f4d6f6268171e5bdac4c36bd524d933e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForEnterpriseTest.php",
@@ -3260,11 +3260,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForOrg.php",
-                "hash": "da393861d1742ff760808cebd5899d7c"
+                "hash": "1f0c1a2a5a3c2ec3e34cc6656e25ff92"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForOrg.php",
-                "hash": "eea752ff872e32ab676814f4711443ce"
+                "hash": "e19123d6c0aeecf27c8c9359cfa37d73"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForOrgTest.php",
@@ -7504,27 +7504,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepo.php",
-                "hash": "fa6d1539a600ead93d4a30a6ac794d34"
+                "hash": "e2a31798660ee93f5f79a31018642707"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForRepo.php",
-                "hash": "8e6d6c30b30952cbf0c0a1812a9a20af"
+                "hash": "e422d820f3a178650a8a21a39af7414f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoTest.php",
-                "hash": "28a8f67065b11264db95c4e0a47f27dd"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoListing.php",
-                "hash": "f6766a3eb85a4d529ded9d58f6f99787"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForRepoListing.php",
-                "hash": "ef770952171600f29eb947006685fe61"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoListingTest.php",
-                "hash": "03792a745ea0ae57a30c9e3f47679d23"
+                "hash": "32489b65c195edd0db74efe7a45fcce6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Dependabot\/GetAlert.php",
@@ -26516,7 +26504,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Dependabot.php",
-                "hash": "ca26062c508849ffeaf3e6115bd56cfd"
+                "hash": "111042e8c75e48fe50f41cf5f1bf5f32"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -26621,10 +26609,6 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/List\/Pulls.php",
                 "hash": "9dcbc6375bebce019b66df58dadb40e6"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/List\/Dependabot.php",
-                "hash": "a37ef0f86dd26e1735a1af6e096218d8"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/List\/Reactions.php",
@@ -26964,7 +26948,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "fb8d914498dc8ddad6eaa4249ed98e34"
+                "hash": "0fad69374da0792d6207a7cc43f16ccb"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -26972,7 +26956,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "944582af066e6fc6c831c4e7b872a838"
+                "hash": "6c162baaded82b4c6734e822b560ac43"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -27008,7 +26992,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/List\/Six.php",
-                "hash": "79161555a3f660bbecc50e90624d8d81"
+                "hash": "72b914055311790d0e492e242e7d304e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/List\/Seven.php",
@@ -27172,15 +27156,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Routers.php",
-                "hash": "fc876efb882b7740aed6d6a4452fd80d"
+                "hash": "e00ad38cc31869ef80a854e48dc8e9ee"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "39e16973e5fbac0a6d07c23b1696e407"
+                "hash": "b5ddf5ed50643698add8a2c384528e11"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "183651a423a8ed3f5bc2b06d21115acd"
+                "hash": "dbaa0cc35ad0b17f0e6f5565b7c7a283"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27232,7 +27216,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "d15ffa2ad0b303fb3a966cc261bb7493"
+                "hash": "08bd8e160023bd2237dee15bd8567253"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Billing.php",
@@ -27328,7 +27312,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operators.php",
-                "hash": "99cd99186e1bb47a2ece05d4292d02ce"
+                "hash": "d8b8faf8f4e158031ed0ed0680da278f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operations.php",

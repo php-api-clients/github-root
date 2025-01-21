@@ -62,7 +62,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return Observable<Schema\DependabotAlert>|WithoutBody */
+    /** @return iterable<int,Schema\DependabotAlert>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -114,24 +114,6 @@ final class Dependabot
 
         $arguments['scope'] = $params['scope'];
         unset($params['scope']);
-        if (array_key_exists('before', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: before');
-        }
-
-        $arguments['before'] = $params['before'];
-        unset($params['before']);
-        if (array_key_exists('after', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: after');
-        }
-
-        $arguments['after'] = $params['after'];
-        unset($params['after']);
-        if (array_key_exists('last', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: last');
-        }
-
-        $arguments['last'] = $params['last'];
-        unset($params['last']);
         if (array_key_exists('sort', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: sort');
         }
@@ -144,27 +126,9 @@ final class Dependabot
 
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        if (array_key_exists('first', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: first');
-        }
-
-        $arguments['first'] = $params['first'];
-        unset($params['first']);
         $operator = new Internal\Operator\Dependabot\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Dependabot🌀Alerts());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['manifest'], $arguments['scope'], $arguments['before'], $arguments['after'], $arguments['last'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['first']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['manifest'], $arguments['scope'], $arguments['sort'], $arguments['direction']);
     }
 
     /** @return */
@@ -200,7 +164,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return iterable<int,Schema\DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForEnterprise(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -287,7 +251,7 @@ final class Dependabot
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['severity'], $arguments['ecosystem'], $arguments['package'], $arguments['scope'], $arguments['before'], $arguments['after'], $arguments['last'], $arguments['sort'], $arguments['direction'], $arguments['first'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\DependabotAlertWithRepository>|WithoutBody */
+    /** @return iterable<int,Schema\DependabotAlertWithRepository>|WithoutBody */
     public function listAlertsForOrg(array $params): iterable|WithoutBody
     {
         $arguments = [];
