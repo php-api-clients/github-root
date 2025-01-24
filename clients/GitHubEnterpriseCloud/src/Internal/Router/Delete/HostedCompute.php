@@ -19,6 +19,7 @@ final class HostedCompute
     {
     }
 
+    /** @return */
     public function deleteNetworkConfigurationFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -39,6 +40,7 @@ final class HostedCompute
         return $operator->call($arguments['enterprise'], $arguments['network_configuration_id']);
     }
 
+    /** @return */
     public function deleteNetworkConfigurationFromOrg(array $params): WithoutBody
     {
         $arguments = [];

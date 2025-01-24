@@ -504,7 +504,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/license-sync-status') {
@@ -512,27 +512,27 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/network-configurations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\HostedCompute\\ListNetworkConfigurationsForEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/network-configurations') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /enterprises/{enterprise}/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/network-settings/{network_settings_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkSettings');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/properties/schema') {
@@ -1408,7 +1408,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets') {
@@ -2060,27 +2060,27 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/settings/network-configurations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\HostedCompute\\ListNetworkConfigurationsForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/settings/network-configurations') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/settings/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /orgs/{org}/settings/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkConfiguration');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/settings/network-settings/{network_settings_id}') {
-            return $this->typeResolver->resolve('Schema\\NetworkSettings');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/team-sync/groups') {
@@ -3260,11 +3260,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}') {
