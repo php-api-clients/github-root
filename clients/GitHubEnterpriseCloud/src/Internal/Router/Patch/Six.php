@@ -36,7 +36,6 @@ final class Six
     {
     }
 
-    /** @return |Schema\NetworkConfiguration */
     public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|RunnerGroupsEnterprise|CodeSecurityConfiguration|WithoutBody|RunnerGroupsOrg|WebhookConfig|NetworkConfiguration|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {

@@ -18,7 +18,6 @@ final class Six
     {
     }
 
-    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): ActionsHostedRunner|WithoutBody|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok|ActionsCacheList|FileCommit
     {
         if ($pathChunks[0] === '') {

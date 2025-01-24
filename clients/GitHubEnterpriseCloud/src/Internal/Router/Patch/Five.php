@@ -25,7 +25,7 @@ final class Five
     {
     }
 
-    /** @return Schema\NetworkConfiguration|Observable<Schema\CustomProperty>| */
+    /** @return |Observable<Schema\CustomProperty> */
     public function call(string $call, array $params, array $pathChunks): NetworkConfiguration|iterable|GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {

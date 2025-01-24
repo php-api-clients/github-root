@@ -24,6 +24,7 @@ final readonly class UpdateNetworkConfigurationForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $networkConfigurationId, array $params): NetworkConfiguration
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\HostedCompute\UpdateNetworkConfigurationForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $networkConfigurationId);

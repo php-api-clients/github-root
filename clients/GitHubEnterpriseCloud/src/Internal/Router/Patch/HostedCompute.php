@@ -19,6 +19,7 @@ final class HostedCompute
     {
     }
 
+    /** @return */
     public function updateNetworkConfigurationForOrg(array $params): NetworkConfiguration
     {
         $arguments = [];
@@ -39,6 +40,7 @@ final class HostedCompute
         return $operator->call($arguments['org'], $arguments['network_configuration_id'], $params);
     }
 
+    /** @return */
     public function updateNetworkConfigurationForEnterprise(array $params): NetworkConfiguration
     {
         $arguments = [];

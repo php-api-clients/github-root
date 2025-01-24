@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVFour;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVThree;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Cvss;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Epss;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAdvisoryEpss;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -51,7 +51,7 @@ class GhsaId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVThree' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities⚡️CvssVThree($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVFour' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities⚡️CvssVFour($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Epss' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAdvisoryEpss' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -300,17 +300,6 @@ class GhsaId implements ObjectMapper
 
             after_cvssSeverities:
 
-            $value = $payload['cwes'] ?? null;
-
-            if ($value === null) {
-                $properties['cwes'] = null;
-                goto after_cwes;
-            }
-
-            $properties['cwes'] = $value;
-
-            after_cwes:
-
             $value = $payload['epss'] ?? null;
 
             if ($value === null) {
@@ -321,7 +310,7 @@ class GhsaId implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'epss';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -330,6 +319,17 @@ class GhsaId implements ObjectMapper
             $properties['epss'] = $value;
 
             after_epss:
+
+            $value = $payload['cwes'] ?? null;
+
+            if ($value === null) {
+                $properties['cwes'] = null;
+                goto after_cwes;
+            }
+
+            $properties['cwes'] = $value;
+
+            after_cwes:
 
             $value = $payload['credits'] ?? null;
 
@@ -538,7 +538,7 @@ class GhsaId implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss(array $payload): Epss
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss(array $payload): SecurityAdvisoryEpss
     {
         $properties    = [];
         $missingFields = [];
@@ -565,17 +565,17 @@ class GhsaId implements ObjectMapper
 
             after_percentile:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Epss', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAdvisoryEpss', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Epss::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(SecurityAdvisoryEpss::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Epss(...$properties);
+            return new SecurityAdvisoryEpss(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Epss', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAdvisoryEpss', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -678,7 +678,7 @@ class GhsaId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVThree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities⚡️CvssVThree($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CvssSeverities\CvssVFour' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities⚡️CvssVFour($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GlobalAdvisory\Epss' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAdvisoryEpss' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
@@ -890,6 +890,15 @@ class GhsaId implements ObjectMapper
         $cvssSeverities                                         = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CvssSeverities($cvssSeverities);
         after_cvssSeverities:        $result['cvss_severities'] = $cvssSeverities;
 
+        $epss = $object->epss;
+
+        if ($epss === null) {
+            goto after_epss;
+        }
+
+        $epss                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss($epss);
+        after_epss:        $result['epss'] = $epss;
+
         $cwes = $object->cwes;
 
         if ($cwes === null) {
@@ -904,15 +913,6 @@ class GhsaId implements ObjectMapper
 
         $cwes                              = $cwesSerializer0->serialize($cwes, $this);
         after_cwes:        $result['cwes'] = $cwes;
-
-        $epss = $object->epss;
-
-        if ($epss === null) {
-            goto after_epss;
-        }
-
-        $epss                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss($epss);
-        after_epss:        $result['epss'] = $epss;
 
         $credits = $object->credits;
 
@@ -1030,9 +1030,9 @@ class GhsaId implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GlobalAdvisory⚡️Epss(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAdvisoryEpss(mixed $object): mixed
     {
-        assert($object instanceof Epss);
+        assert($object instanceof SecurityAdvisoryEpss);
         $result = [];
 
         $percentage = $object->percentage;
