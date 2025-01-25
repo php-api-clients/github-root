@@ -25,7 +25,7 @@ final readonly class ListAlertsForRepo
     {
     }
 
-    /** @return iterable<int,Schema\DependabotAlert>|WithoutBody */
+    /** @return Observable<Schema\DependabotAlert>|WithoutBody */
     public function call(string $owner, string $repo, string $state, string $severity, string $ecosystem, string $package, string $manifest, string $scope, string $sort = 'created', string $direction = 'desc'): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Dependabot\ListAlertsForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $state, $severity, $ecosystem, $package, $manifest, $scope, $sort, $direction);
