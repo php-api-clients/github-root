@@ -1,5 +1,5 @@
 {
-    "specHash": "64f3614e3a2420f2e1d792c6db1487f6",
+    "specHash": "2766a6279db0f2ed943b5c4abdd093c7",
     "generatedFiles": {
         "files": [
             {
@@ -1596,7 +1596,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForEnterprise.php",
-                "hash": "f4d6f6268171e5bdac4c36bd524d933e"
+                "hash": "1f68b2e0be822f1fe631c2ecbf33af29"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForEnterpriseTest.php",
@@ -3384,7 +3384,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForOrg.php",
-                "hash": "e19123d6c0aeecf27c8c9359cfa37d73"
+                "hash": "eea752ff872e32ab676814f4711443ce"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForOrgTest.php",
@@ -7804,7 +7804,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Dependabot\/ListAlertsForRepo.php",
-                "hash": "e422d820f3a178650a8a21a39af7414f"
+                "hash": "cef6f06a6686302752fdf3b6a631d9a4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Dependabot\/ListAlertsForRepoTest.php",
@@ -13428,7 +13428,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/GlobalAdvisory.php",
-                "hash": "86de612bb69214b911c9aae2aefd17fd"
+                "hash": "35029681934336b952a05480c07a0f3e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/BasicError.php",
@@ -17373,10 +17373,6 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/GlobalAdvisory\/Cwes.php",
                 "hash": "d9634fd912b4375b20de87e707e1c45e"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/GlobalAdvisory\/Epss.php",
-                "hash": "a0e029eb84b40bf890eb5cb6a6ca8c98"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/GlobalAdvisory\/Credits.php",
@@ -26764,7 +26760,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Dependabot.php",
-                "hash": "111042e8c75e48fe50f41cf5f1bf5f32"
+                "hash": "9cc2dd2fb16ad3ef0e657d9ca943f44f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -27224,7 +27220,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "45d90c7d0fa3045cfc0d85d4a0a768ca"
+                "hash": "03a78049cc14a10e8b8ad6bf8778c4ab"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -27232,7 +27228,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "29558896ef32876e1de67d9be253c61e"
+                "hash": "f44dd133d5a777f374149df2b549e928"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -27436,11 +27432,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "31b617af68d8c4f4f3e44fa808b51d74"
+                "hash": "057a0e66c0fac8be025f4333a6d16a9b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "c7324df2298799ac3a1c1f929239efe1"
+                "hash": "0afba759e55aef88b3e3a19ce1993b10"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27492,7 +27488,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "08bd8e160023bd2237dee15bd8567253"
+                "hash": "41f38bbe9a82db393bb4c578316bf591"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/Billing.php",
@@ -27952,7 +27948,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Advisories\/GhsaId.php",
-                "hash": "2c92e8991c2c9b8346d0136b96948f65"
+                "hash": "456a0b98504643ec116927b80d00d8cc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/App.php",
@@ -30268,7 +30264,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "7679f4d4a16985f2c7bc46c968262ca2"
+                "hash": "0fca55461f16de6f843e1abfddbf427c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/ApiOverview\/Domains\/ActionsInbound.php",
@@ -30281,6 +30277,10 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet67EF09F8\/Tiet8959F0C4\/Tiet45DBD47E\/Tiet2C497E99.php",
                 "hash": "c7758842144998b720421e79a0c42bfe"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/SecurityAdvisoryEpss.php",
+                "hash": "d40638f97574f7a84a0e52535948cc82"
             }
         ]
     },
