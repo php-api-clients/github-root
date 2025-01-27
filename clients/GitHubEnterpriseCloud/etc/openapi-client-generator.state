@@ -1,5 +1,5 @@
 {
-    "specHash": "6e57e5a946cc639968a53e5f4602f4f7",
+    "specHash": "a6db3e8c17ce7749767e24fcd8e8540a",
     "generatedFiles": {
         "files": [
             {
@@ -5900,7 +5900,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "14698f5b68d8204620d7f582526429c9"
+                "hash": "3225c6a7abd150f424b735a8d83e213a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
@@ -32876,7 +32876,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotDotcomChat.php",
-                "hash": "71e7966d40c3d0cd98ed1358e370b293"
+                "hash": "3062a79cd72653ae8cb779e40ea4d096"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotDotcomPullRequests.php",
@@ -32884,7 +32884,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotUsageMetricsDay.php",
-                "hash": "646e2396057ca665c75688824ba29f82"
+                "hash": "ea93e1418829ab8689d90d578b83f83e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotIdeCodeCompletions\/Languages.php",
@@ -34848,7 +34848,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/HostedCompute.php",
-                "hash": "de4ca562cdab21963f9b47b887e1826d"
+                "hash": "9dae0c6c6ab2b80254e91118e31ca283"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/NetworkConfigurations.php",
