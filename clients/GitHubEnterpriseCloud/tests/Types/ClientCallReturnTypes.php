@@ -157,7 +157,7 @@ assertType('', $client->call('POST /enterprises/{enterprise}/settings/billing/co
 assertType('', $client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
-assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
+assertType('Schema\\BillingUsageReport', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetrics>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage'));
@@ -227,7 +227,7 @@ assertType('', $client->call('DELETE /notifications/threads/{thread_id}/subscrip
 assertType('', $client->call('GET /octocat'));
 assertType('Observable<Schema\\OrganizationSimple>|WithoutBody', $client->call('GET /organizations'));
 assertType('', $client->call('GET /organizations/{organization_id}/custom_roles'));
-assertType('', $client->call('GET /organizations/{org}/settings/billing/usage'));
+assertType('Schema\\BillingUsageReport', $client->call('GET /organizations/{org}/settings/billing/usage'));
 assertType('', $client->call('GET /orgs/{org}'));
 assertType('', $client->call('DELETE /orgs/{org}'));
 assertType('', $client->call('PATCH /orgs/{org}'));

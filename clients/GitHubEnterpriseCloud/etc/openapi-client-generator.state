@@ -1,5 +1,5 @@
 {
-    "specHash": "9d96349c2889ab814e17092fa3c3cd46",
+    "specHash": "6310f3f2eedbd73069379065089ad197",
     "generatedFiles": {
         "files": [
             {
@@ -5904,7 +5904,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "19c24b508018b7205de85bf2b224f92a"
+                "hash": "0ea7085107dfe3e724f32c3802902939"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
@@ -26060,7 +26060,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Billing.php",
-                "hash": "11bb51c81b4504aceecc1e75ba097eae"
+                "hash": "faa3b1066ada9ba960eb7902d173784e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -26544,7 +26544,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "37e6aa6f38b79bbc91caa2834520f676"
+                "hash": "40f7ec26b9bdee3ecada75080d69d3d2"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -29716,11 +29716,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "67f2ab0ebdf064d15434b406777f1a73"
+                "hash": "48ee1e7a3baf5b590ace247c572e9949"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "a13d017e4eaf291980a72549ed6eaa6b"
+                "hash": "2989c553314b9b108526da295014532b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -31616,11 +31616,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGhe.php",
-                "hash": "650d79a2b42e5852190facaeef619649"
+                "hash": "ab47930a1adf8bbdfaca4755410505b7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubBillingUsageReportGhe.php",
-                "hash": "42e26155a339cbc53a66ef10cad95085"
+                "hash": "8d94f4d8a02b18862d0e35e7ea15e7fa"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGheTest.php",
@@ -33296,11 +33296,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportOrg.php",
-                "hash": "85f0c4cb36c4b4e926bd6c5fe624b227"
+                "hash": "ae7a63949261a1882b67aa9e8af1cb2e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubBillingUsageReportOrg.php",
-                "hash": "ecb3d55f31dda783769f34e1dce72c9b"
+                "hash": "0083986a636c8e2c2119d1ce95ea161f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportOrgTest.php",

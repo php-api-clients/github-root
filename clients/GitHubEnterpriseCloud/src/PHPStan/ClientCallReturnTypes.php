@@ -604,7 +604,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
@@ -884,7 +884,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /organizations/{org}/settings/billing/usage') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
         }
 
         if ($call === 'GET /orgs/{org}') {
