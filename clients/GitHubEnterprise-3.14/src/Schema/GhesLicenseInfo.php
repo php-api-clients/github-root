@@ -27,7 +27,7 @@ final readonly class GhesLicenseInfo
         },
         "croquetSupport": {
             "type": "boolean",
-            "description": "Whether the Github Connect feature is enabled."
+            "description": "Whether the GitHub Connect feature is enabled."
         },
         "customTerms": {
             "type": "boolean",
@@ -123,7 +123,7 @@ final readonly class GhesLicenseInfo
      * advancedSecuritySeats: If the GitHub Advanced Security feature is enabled, the seat count.
      * clusterSupport: Whether the cluster support feature is enabled.
      * company: The company under which the license is issued.
-     * croquetSupport: Whether the Github Connect feature is enabled.
+     * croquetSupport: Whether the GitHub Connect feature is enabled.
      * customTerms: Whether this license is issued under custom terms.
      * evaluation: Wheter this license is issued as an evaluation license.
      * expireAt: The expiration date of the license.
