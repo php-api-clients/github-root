@@ -1,5 +1,5 @@
 {
-    "specHash": "71747b16e45e0f2a54b8e1ca561b75d5",
+    "specHash": "1e4171c4fa0a2799e195f6bc1881cf84",
     "generatedFiles": {
         "files": [
             {
@@ -13816,7 +13816,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/GhesLicenseInfo.php",
-                "hash": "11f25056840082f928f2981476249d8f"
+                "hash": "77c68faa550ce195d57556a97655794f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/GhesUploadLicenseRequest.php",
@@ -24964,7 +24964,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/Actions\/CreateOrUpdateOrgSecret\/Request\/ApplicationJson.php",
-                "hash": "0a552931448e86ef390118859bb6dea5"
+                "hash": "e7d3d8a1cfe4be25e3e27b4d0db88ccc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietD6BA1ED7\/Tiet9B0C5C34\/TietD5FB7F6C\/Tiet8AB8BB18.php",
@@ -25540,7 +25540,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/Actions\/CreateOrUpdateRepoSecret\/Request\/ApplicationJson.php",
-                "hash": "639ecdb585ccdb4b155073cfcf86a555"
+                "hash": "de48413601fba051e9ef62c628a42e2f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietFE7865BF\/Tiet5F7F1DFF\/TietE50994AE\/TietB8600E0B.php",
@@ -27212,7 +27212,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "41f38bbe9a82db393bb4c578316bf591"
+                "hash": "edac74857f10a9a5ef2430a8051cd208"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Billing.php",
