@@ -107,6 +107,8 @@ final class Operators
     private Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream|null $enterpriseAdmin👷GetOneAuditLogStream                                                                       = null;
     private Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream|null $enterpriseAdmin👷UpdateAuditLogStream                                                                       = null;
     private Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream|null $enterpriseAdmin👷DeleteAuditLogStream                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\ListPushBypassRequests|null $enterpriseAdmin👷ListPushBypassRequests                                                                   = null;
+    private Internal\Operator\EnterpriseAdmin\ListPushBypassRequestsListing|null $enterpriseAdmin👷ListPushBypassRequestsListing                                                     = null;
     private Internal\Operator\CodeScanning\ListAlertsForEnterprise|null $codeScanning👷ListAlertsForEnterprise                                                                       = null;
     private Internal\Operator\CodeScanning\ListAlertsForEnterpriseListing|null $codeScanning👷ListAlertsForEnterpriseListing                                                         = null;
     private Internal\Operator\CodeSecurity\GetConfigurationsForEnterprise|null $codeSecurity👷GetConfigurationsForEnterprise                                                         = null;
@@ -2230,6 +2232,24 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷DeleteAuditLogStream;
+    }
+
+    public function enterpriseAdmin👷ListPushBypassRequests(): Internal\Operator\EnterpriseAdmin\ListPushBypassRequests
+    {
+        if ($this->enterpriseAdmin👷ListPushBypassRequests instanceof Internal\Operator\EnterpriseAdmin\ListPushBypassRequests === false) {
+            $this->enterpriseAdmin👷ListPushBypassRequests = new Internal\Operator\EnterpriseAdmin\ListPushBypassRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules());
+        }
+
+        return $this->enterpriseAdmin👷ListPushBypassRequests;
+    }
+
+    public function enterpriseAdmin👷ListPushBypassRequestsListing(): Internal\Operator\EnterpriseAdmin\ListPushBypassRequestsListing
+    {
+        if ($this->enterpriseAdmin👷ListPushBypassRequestsListing instanceof Internal\Operator\EnterpriseAdmin\ListPushBypassRequestsListing === false) {
+            $this->enterpriseAdmin👷ListPushBypassRequestsListing = new Internal\Operator\EnterpriseAdmin\ListPushBypassRequestsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules());
+        }
+
+        return $this->enterpriseAdmin👷ListPushBypassRequestsListing;
     }
 
     public function codeScanning👷ListAlertsForEnterprise(): Internal\Operator\CodeScanning\ListAlertsForEnterprise

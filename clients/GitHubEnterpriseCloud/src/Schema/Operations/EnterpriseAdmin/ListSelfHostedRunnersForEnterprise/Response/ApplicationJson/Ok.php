@@ -94,6 +94,9 @@ final readonly class Ok
                             },
                             "description": "A label for a self hosted runner"
                         }
+                    },
+                    "ephemeral": {
+                        "type": "boolean"
                     }
                 },
                 "description": "A self hosted runner"
@@ -124,7 +127,8 @@ final readonly class Ok
                     "name": "generated",
                     "type": "custom"
                 }
-            ]
+            ],
+            "ephemeral": false
         },
         {
             "id": 5,
@@ -144,7 +148,8 @@ final readonly class Ok
                     "name": "generated",
                     "type": "custom"
                 }
-            ]
+            ],
+            "ephemeral": false
         }
     ]
 }';

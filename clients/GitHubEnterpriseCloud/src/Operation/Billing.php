@@ -62,11 +62,13 @@ final class Billing
         return $this->operators->billing👷GetSharedStorageBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportGhe(string $enterprise, int $year, int $month, int $day, int $hour, string $costCenterId): BillingUsageReport
     {
         return $this->operators->billing👷GetGithubBillingUsageReportGhe()->call($enterprise, $year, $month, $day, $hour, $costCenterId);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportOrg(string $org, int $year, int $month, int $day, int $hour): BillingUsageReport
     {
         return $this->operators->billing👷GetGithubBillingUsageReportOrg()->call($org, $year, $month, $day, $hour);

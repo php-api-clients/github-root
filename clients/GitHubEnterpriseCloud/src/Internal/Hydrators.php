@@ -72,6 +72,7 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\StreamKey|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey                                                                                                                         = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams                                                                                                                             = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams\StreamId|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId                                                                                                           = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\BypassRequests\PushRules|null $operation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules                                                                                                             = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\CodeScanning\Alerts|null $operation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts                                                                                                                       = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\CodeSecurity\Configurations|null $operation🌀Enterprises🌀Enterprise🌀CodeSecurity🌀Configurations                                                                                                       = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\CodeSecurity\Configurations\Defaults|null $operation🌀Enterprises🌀Enterprise🌀CodeSecurity🌀Configurations🌀Defaults                                                                                     = null;
@@ -2208,6 +2209,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules(): Internal\Hydrator\Operation\Enterprises\Enterprise\BypassRequests\PushRules
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\BypassRequests\PushRules === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules = new Internal\Hydrator\Operation\Enterprises\Enterprise\BypassRequests\PushRules();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀BypassRequests🌀PushRules;
     }
 
     public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts(): Internal\Hydrator\Operation\Enterprises\Enterprise\CodeScanning\Alerts

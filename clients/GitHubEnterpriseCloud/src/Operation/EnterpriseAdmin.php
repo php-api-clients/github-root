@@ -274,6 +274,18 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteAuditLogStream()->call($enterprise, $streamId);
     }
 
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listPushBypassRequests(string $enterprise, string $organizationName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->enterpriseAdmin👷ListPushBypassRequests()->call($enterprise, $organizationName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    public function listPushBypassRequestsListing(string $enterprise, string $organizationName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->enterpriseAdmin👷ListPushBypassRequestsListing()->call($enterprise, $organizationName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
     /** @return */
     public function getConsumedLicenses(string $enterprise, int $perPage, int $page): string
     {

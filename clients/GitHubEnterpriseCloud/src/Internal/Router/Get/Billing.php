@@ -111,6 +111,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportGhe(array $params): BillingUsageReport
     {
         $arguments = [];
@@ -155,6 +156,7 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['year'], $arguments['month'], $arguments['day'], $arguments['hour'], $arguments['cost_center_id']);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportOrg(array $params): BillingUsageReport
     {
         $arguments = [];
