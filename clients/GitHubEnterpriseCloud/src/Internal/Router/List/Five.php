@@ -16,13 +16,19 @@ final class Five
     {
     }
 
-    /** @return Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\CopilotUsageMetricsDay>|Observable<Schema\CopilotUsageMetrics>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|WithoutBody|Observable<Schema\PushRuleBypassRequest>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\ProjectCard>|Observable<Schema\SimpleUser>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\Tag>|Observable<Schema\Team> */
+    /** @return iterable<int,Schema\PushRuleBypassRequest>|Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\CopilotUsageMetricsDay>|Observable<Schema\CopilotUsageMetrics>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|WithoutBody|Observable<Schema\PushRuleBypassRequest>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\ProjectCard>|Observable<Schema\SimpleUser>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\Tag>|Observable<Schema\Team> */
     public function call(string $call, array $params, array $pathChunks): iterable|BasicError|WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
-                    if ($pathChunks[3] === 'code-scanning') {
+                    if ($pathChunks[3] === 'bypass-requests') {
+                        if ($pathChunks[4] === 'push-rules') {
+                            if ($call === 'LIST /enterprises/{enterprise}/bypass-requests/push-rules') {
+                                return $this->routers->internal🔀Router🔀List🔀EnterpriseAdmin()->listPushBypassRequestsListing($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-scanning') {
                         if ($pathChunks[4] === 'alerts') {
                             if ($call === 'LIST /enterprises/{enterprise}/code-scanning/alerts') {
                                 return $this->routers->internal🔀Router🔀List🔀CodeScanning()->listAlertsForEnterpriseListing($params);

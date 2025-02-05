@@ -26,7 +26,6 @@ final class Actions
     {
     }
 
-    /** @return */
     public function generateRunnerJitconfigForEnterprise(array $params): Created
     {
         $arguments = [];
@@ -41,7 +40,6 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return */
     public function generateRunnerJitconfigForOrg(array $params): Created
     {
         $arguments = [];
@@ -188,7 +186,6 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
 
-    /** @return */
     public function generateRunnerJitconfigForRepo(array $params): Created
     {
         $arguments = [];

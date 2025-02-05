@@ -344,7 +344,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /enterprises/{enterprise}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/actions/runners/registration-token') {
@@ -425,6 +425,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'DELETE /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/bypass-requests/push-rules') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/bypass-requests/push-rules') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\PushRuleBypassRequest>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-scanning/alerts') {
@@ -604,7 +612,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
-            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
@@ -884,7 +892,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /organizations/{org}/settings/billing/usage') {
-            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}') {
@@ -1060,7 +1068,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
         }
 
         if ($call === 'POST /orgs/{org}/actions/runners/registration-token') {
@@ -2520,7 +2528,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/actions/runners/registration-token') {

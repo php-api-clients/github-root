@@ -92,7 +92,7 @@ assertType('', $client->call('PUT /enterprises/{enterprise}/actions/runner-group
 assertType('', $client->call('DELETE /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}'));
 assertType('', $client->call('GET /enterprises/{enterprise}/actions/runners'));
 assertType('Observable<Schema\\RunnerApplication>', $client->call('GET /enterprises/{enterprise}/actions/runners/downloads'));
-assertType('', $client->call('POST /enterprises/{enterprise}/actions/runners/generate-jitconfig'));
+assertType('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created', $client->call('POST /enterprises/{enterprise}/actions/runners/generate-jitconfig'));
 assertType('', $client->call('POST /enterprises/{enterprise}/actions/runners/registration-token'));
 assertType('', $client->call('POST /enterprises/{enterprise}/actions/runners/remove-token'));
 assertType('', $client->call('GET /enterprises/{enterprise}/actions/runners/{runner_id}'));
@@ -113,6 +113,8 @@ assertType('', $client->call('POST /enterprises/{enterprise}/audit-log/streams')
 assertType('', $client->call('GET /enterprises/{enterprise}/audit-log/streams/{stream_id}'));
 assertType('', $client->call('PUT /enterprises/{enterprise}/audit-log/streams/{stream_id}'));
 assertType('', $client->call('DELETE /enterprises/{enterprise}/audit-log/streams/{stream_id}'));
+assertType('iterable<int,Schema\\PushRuleBypassRequest>', $client->call('GET /enterprises/{enterprise}/bypass-requests/push-rules'));
+assertType('iterable<int,Schema\\PushRuleBypassRequest>', $client->call('LIST /enterprises/{enterprise}/bypass-requests/push-rules'));
 assertType('Observable<Schema\\CodeScanningOrganizationAlertItems>', $client->call('GET /enterprises/{enterprise}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeScanningOrganizationAlertItems>', $client->call('LIST /enterprises/{enterprise}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeSecurityConfiguration>', $client->call('GET /enterprises/{enterprise}/code-security/configurations'));
@@ -157,7 +159,7 @@ assertType('', $client->call('POST /enterprises/{enterprise}/settings/billing/co
 assertType('', $client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
-assertType('Schema\\BillingUsageReport', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
+assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetrics>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage'));
@@ -227,7 +229,7 @@ assertType('', $client->call('DELETE /notifications/threads/{thread_id}/subscrip
 assertType('', $client->call('GET /octocat'));
 assertType('Observable<Schema\\OrganizationSimple>|WithoutBody', $client->call('GET /organizations'));
 assertType('', $client->call('GET /organizations/{organization_id}/custom_roles'));
-assertType('Schema\\BillingUsageReport', $client->call('GET /organizations/{org}/settings/billing/usage'));
+assertType('', $client->call('GET /organizations/{org}/settings/billing/usage'));
 assertType('', $client->call('GET /orgs/{org}'));
 assertType('', $client->call('DELETE /orgs/{org}'));
 assertType('', $client->call('PATCH /orgs/{org}'));
@@ -271,7 +273,7 @@ assertType('', $client->call('PUT /orgs/{org}/actions/runner-groups/{runner_grou
 assertType('', $client->call('DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}'));
 assertType('', $client->call('GET /orgs/{org}/actions/runners'));
 assertType('Observable<Schema\\RunnerApplication>', $client->call('GET /orgs/{org}/actions/runners/downloads'));
-assertType('', $client->call('POST /orgs/{org}/actions/runners/generate-jitconfig'));
+assertType('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created', $client->call('POST /orgs/{org}/actions/runners/generate-jitconfig'));
 assertType('', $client->call('POST /orgs/{org}/actions/runners/registration-token'));
 assertType('', $client->call('POST /orgs/{org}/actions/runners/remove-token'));
 assertType('', $client->call('GET /orgs/{org}/actions/runners/{runner_id}'));
@@ -636,7 +638,7 @@ assertType('', $client->call('GET /repos/{owner}/{repo}/actions/permissions/work
 assertType('', $client->call('PUT /repos/{owner}/{repo}/actions/permissions/workflow'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/actions/runners'));
 assertType('Observable<Schema\\RunnerApplication>', $client->call('GET /repos/{owner}/{repo}/actions/runners/downloads'));
-assertType('', $client->call('POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig'));
+assertType('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created', $client->call('POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/actions/runners/registration-token'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/actions/runners/remove-token'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/actions/runners/{runner_id}'));

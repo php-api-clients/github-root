@@ -2132,6 +2132,74 @@ $client->operations()->enterpriseAdmin()->deleteAuditLogStream(        enterpris
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#delete-an-audit-log-streaming-configuration-for-an-enterprise).
 
 
+### enterprise-admin/list-push-bypass-requests
+
+List push rule bypass requests within an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/bypass-requests/push-rules', [
+        'enterprise' => 'generated',
+        'organization_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPushBypassRequests(        enterprise: 'generated',
+        organization_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/bypass-requests#list-push-rule-bypass-requests-within-an-enterprise).
+
+
+### enterprise-admin/list-push-bypass-requests
+
+List push rule bypass requests within an enterprise
+
+Using the `call` method:
+```php
+$client->call('LIST /enterprises/{enterprise}/bypass-requests/push-rules', [
+        'enterprise' => 'generated',
+        'organization_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPushBypassRequestsListing(        enterprise: 'generated',
+        organization_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/bypass-requests#list-push-rule-bypass-requests-within-an-enterprise).
+
+
 ### code-scanning/list-alerts-for-enterprise
 
 List code scanning alerts for an enterprise
