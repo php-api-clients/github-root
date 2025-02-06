@@ -83,7 +83,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listPushBypassRequestsListing(array $params): iterable
     {
         $arguments = [];

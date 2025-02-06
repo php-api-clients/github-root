@@ -127,6 +127,7 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsDefaultWorkflowPermissionsEnterprise()->call($enterprise, $params);
     }
 
+    /** @return */
     public function generateRunnerJitconfigForEnterprise(string $enterprise, array $params): Created
     {
         return $this->operators->actions👷GenerateRunnerJitconfigForEnterprise()->call($enterprise, $params);
@@ -360,6 +361,7 @@ final class Actions
         return $this->operators->actions👷ListRunnerApplicationsForOrg()->call($org);
     }
 
+    /** @return */
     public function generateRunnerJitconfigForOrg(string $org, array $params): Created
     {
         return $this->operators->actions👷GenerateRunnerJitconfigForOrg()->call($org, $params);
@@ -689,6 +691,7 @@ final class Actions
         return $this->operators->actions👷ListRunnerApplicationsForRepo()->call($owner, $repo);
     }
 
+    /** @return */
     public function generateRunnerJitconfigForRepo(string $owner, string $repo, array $params): Created
     {
         return $this->operators->actions👷GenerateRunnerJitconfigForRepo()->call($owner, $repo, $params);
