@@ -274,13 +274,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteAuditLogStream()->call($enterprise, $streamId);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listPushBypassRequests(string $enterprise, string $organizationName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPushBypassRequests()->call($enterprise, $organizationName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\PushRuleBypassRequest> */
+    /** @return Observable<Schema\PushRuleBypassRequest> */
     public function listPushBypassRequestsListing(string $enterprise, string $organizationName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPushBypassRequestsListing()->call($enterprise, $organizationName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
@@ -328,7 +328,6 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
-    /** @return */
     public function listProvisionedGroupsEnterprise(string $filter, string $excludedAttributes, string $enterprise, int $startIndex, int $count): ScimEnterpriseGroupList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedGroupsEnterprise()->call($filter, $excludedAttributes, $enterprise, $startIndex, $count);
@@ -364,7 +363,6 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup()->call($scimGroupId, $enterprise, $params);
     }
 
-    /** @return */
     public function listProvisionedIdentitiesEnterprise(string $filter, string $enterprise, int $startIndex, int $count): ScimEnterpriseUserList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise()->call($filter, $enterprise, $startIndex, $count);
