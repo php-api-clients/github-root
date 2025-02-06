@@ -24,7 +24,6 @@ final readonly class GenerateRunnerJitconfigForEnterprise
     {
     }
 
-    /** @return */
     public function call(string $enterprise, array $params): Created
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GenerateRunnerJitconfigForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);
