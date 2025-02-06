@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet64C370DE\Tiet030B21C9\Tiet0FE13F38;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietED690D6D\Tiet788B85F7\Tiet90BDCBBD;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet1E6A295D
+abstract readonly class Tiet6547B867
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -98,6 +98,9 @@ abstract readonly class Tiet1E6A295D
                             },
                             "description": "A label for a self hosted runner"
                         }
+                    },
+                    "ephemeral": {
+                        "type": "boolean"
                     }
                 },
                 "description": "A self hosted runner"
@@ -128,7 +131,8 @@ abstract readonly class Tiet1E6A295D
                     "name": "generated",
                     "type": "custom"
                 }
-            ]
+            ],
+            "ephemeral": false
         },
         {
             "id": 5,
@@ -148,7 +152,8 @@ abstract readonly class Tiet1E6A295D
                     "name": "generated",
                     "type": "custom"
                 }
-            ]
+            ],
+            "ephemeral": false
         }
     ]
 }';
