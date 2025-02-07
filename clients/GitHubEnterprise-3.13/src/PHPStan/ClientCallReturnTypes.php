@@ -540,7 +540,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /enterprises/{enterprise}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/actions/runners/registration-token') {
@@ -1040,7 +1040,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/actions/runners/registration-token') {
@@ -2064,7 +2064,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GenerateRunnerJitconfigForEnterprise\\Response\\ApplicationJson\\Created');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/actions/runners/registration-token') {
@@ -3792,7 +3792,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Groups') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\ScimEnterpriseGroupList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Groups') {
@@ -3816,7 +3816,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Users') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\ScimEnterpriseUserList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Users') {
