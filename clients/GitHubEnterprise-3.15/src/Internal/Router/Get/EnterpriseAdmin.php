@@ -663,6 +663,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
     }
 
+    /** @return */
     public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
     {
         $arguments = [];
@@ -701,6 +702,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['enterprise'], $arguments['startIndex'], $arguments['count']);
     }
 
+    /** @return */
     public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
     {
         $arguments = [];
