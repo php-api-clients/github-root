@@ -57,6 +57,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseNotesContent;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryCollaboratorPermission;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RulesetVersion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RuleSuite;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Status;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\StatusCheckPolicy;
@@ -1270,6 +1271,23 @@ final class Repos
     public function deleteRepoRuleset(string $owner, string $repo, int $rulesetId): WithoutBody
     {
         return $this->operators->repos👷DeleteRepoRuleset()->call($owner, $repo, $rulesetId);
+    }
+
+    /** @return iterable<int,Schema\RulesetVersion> */
+    public function getRepoRulesetHistory(string $owner, string $repo, int $rulesetId, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetRepoRulesetHistory()->call($owner, $repo, $rulesetId, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\RulesetVersion> */
+    public function getRepoRulesetHistoryListing(string $owner, string $repo, int $rulesetId, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetRepoRulesetHistoryListing()->call($owner, $repo, $rulesetId, $perPage, $page);
+    }
+
+    public function getRepoRulesetVersion(string $owner, string $repo, int $rulesetId, int $versionId): RulesetVersion
+    {
+        return $this->operators->repos👷GetRepoRulesetVersion()->call($owner, $repo, $rulesetId, $versionId);
     }
 
     /** @return Observable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json|WithoutBody */

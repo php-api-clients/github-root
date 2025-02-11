@@ -579,6 +579,18 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/rulesets/{ruleset_id}/history/{version_id}') {
+            return $this->typeResolver->resolve('Schema\\RulesetVersion');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
             return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
@@ -2025,6 +2037,18 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'DELETE /orgs/{org}/rulesets/{ruleset_id}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'GET /orgs/{org}/rulesets/{ruleset_id}/history/{version_id}') {
+            return $this->typeResolver->resolve('Schema\\RulesetVersion');
         }
 
         if ($call === 'GET /orgs/{org}/secret-scanning/alerts') {
@@ -4293,6 +4317,18 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'DELETE /repos/{owner}/{repo}/rulesets/{ruleset_id}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'LIST /repos/{owner}/{repo}/rulesets/{ruleset_id}/history') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\RulesetVersion>');
+        }
+
+        if ($call === 'GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}') {
+            return $this->typeResolver->resolve('Schema\\RulesetVersion');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts') {
