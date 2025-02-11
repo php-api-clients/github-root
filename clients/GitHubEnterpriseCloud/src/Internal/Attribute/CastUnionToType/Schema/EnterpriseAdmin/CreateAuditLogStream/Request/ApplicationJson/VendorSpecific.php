@@ -60,6 +60,13 @@ final class VendorSpecific implements PropertyCaster
                 }
             }
 
+            if ($signature === 'domain|encrypted_token|key_id|path|port|ssl_verify') {
+                try {
+                    return $hydrator->hydrateObject(Schema\HecConfig::class, $value);
+                } catch (Throwable) {
+                }
+            }
+
             if ($signature === 'bucket|encrypted_json_credentials|key_id') {
                 try {
                     return $hydrator->hydrateObject(Schema\GoogleCloudConfig::class, $value);

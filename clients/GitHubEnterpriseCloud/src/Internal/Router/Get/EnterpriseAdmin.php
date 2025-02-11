@@ -13,6 +13,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RulesetVersion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
@@ -483,6 +484,39 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['custom_property_name']);
     }
 
+    /** @return iterable<int,Schema\RulesetVersion> */
+    public function getEnterpriseRulesetHistory(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('ruleset_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: ruleset_id');
+        }
+
+        $arguments['ruleset_id'] = $params['ruleset_id'];
+        unset($params['ruleset_id']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId🌀History());
+
+        return $operator->call($arguments['enterprise'], $arguments['ruleset_id'], $arguments['per_page'], $arguments['page']);
+    }
+
     /** @return */
     public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
     {
@@ -640,6 +674,32 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
+    }
+
+    public function getEnterpriseRulesetVersion(array $params): RulesetVersion
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('ruleset_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: ruleset_id');
+        }
+
+        $arguments['ruleset_id'] = $params['ruleset_id'];
+        unset($params['ruleset_id']);
+        if (array_key_exists('version_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: version_id');
+        }
+
+        $arguments['version_id'] = $params['version_id'];
+        unset($params['version_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetVersion($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId🌀History🌀VersionId());
+
+        return $operator->call($arguments['enterprise'], $arguments['ruleset_id'], $arguments['version_id']);
     }
 
     /** @return */

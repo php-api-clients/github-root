@@ -1,5 +1,5 @@
 {
-    "specHash": "63ef624570accd0f3e37ef56d23bb40a",
+    "specHash": "aa7cf03b76111c81133ffd958eecbe23",
     "generatedFiles": {
         "files": [
             {
@@ -204,7 +204,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Announcement.php",
-                "hash": "efaecb5c5b3ec38734ea89d95492121e"
+                "hash": "d4218fb9b4cdbb5b5e23115706f22919"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AuditLogEvent.php",
@@ -5852,11 +5852,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "dd1187e844963f7dc6e2ff237a2ee24e"
+                "hash": "4196fa26958d45154b59aeb9bafa4e68"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "85ba99a45efbc3f1f58b061bb19a7604"
+                "hash": "08bd2378a36b3085fd510b6c26c8ba26"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -5880,7 +5880,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "1606abd736c262e06150d1aad462691c"
+                "hash": "9439b94c5b329f4b59be49182c584a19"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Actions.php",
@@ -5932,7 +5932,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "5c5e67b3c42ecf8f4660a9a30604c525"
+                "hash": "e30d55a00ecf3418c28e3c4f8573e21e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -5964,7 +5964,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "ba2aca6243340f28357532410e1cb82c"
+                "hash": "af1f9646b27b4d8c05e1e4bde589ccaf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -25972,7 +25972,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Orgs.php",
-                "hash": "33f44288734811d21c25cfff1e4c97b3"
+                "hash": "76f202baa3722a8d98d8f3b96e47ecad"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/RateLimit.php",
@@ -25980,7 +25980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "71dfcf1c67cbd6b2d9194089bebf4142"
+                "hash": "a5633d6f8d98716a9fc9794089ee4627"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Users.php",
@@ -26020,7 +26020,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/EnterpriseAdmin.php",
-                "hash": "9c280552a14f9c4373283bb608337caf"
+                "hash": "e395967ce8144ca7f655bb917a8526b1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/AnnouncementBanners.php",
@@ -26276,7 +26276,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Issues.php",
-                "hash": "f2b1e5a44ac822d00b2d5d90dc626f10"
+                "hash": "51b3b7fd2ce78144d3f76618568e2556"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Migrations.php",
@@ -26284,15 +26284,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Orgs.php",
-                "hash": "8054bb5b9d82cdad439c27e7ded9ef30"
+                "hash": "3474d47a17e72940bd51f34e31cd1dec"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Packages.php",
-                "hash": "c731e4e727a0e2886c8bb6ad3a674b0e"
+                "hash": "6245e00dd2250cc9949dfb86781f86d1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Repos.php",
-                "hash": "d75af581f6a6d1a7ae880866b0f7dd36"
+                "hash": "ef8d7e9b4a5cd7c6372a44186232ecf8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Activity.php",
@@ -26304,7 +26304,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/EnterpriseAdmin.php",
-                "hash": "a33857e3cc658707c536e0dfcebee90b"
+                "hash": "91cb5bda6625d6cfc25413c2bffefc10"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Projects.php",
@@ -26320,7 +26320,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Pulls.php",
-                "hash": "66a83d58c84c1a673ba9fa87a1d324d5"
+                "hash": "90c4796b796230da88aeef8647c45ab9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Licenses.php",
@@ -26332,7 +26332,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Reactions.php",
-                "hash": "44aaf19f54dc84d551ae1781b9d49647"
+                "hash": "e3ef38b636620cc8c64eabbf4a1d4bb4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Checks.php",
@@ -26536,15 +26536,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "37e6aa6f38b79bbc91caa2834520f676"
+                "hash": "61cfc2ae8df58dd76851b9b0fcbd451d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
-                "hash": "4d0e332d69872b02c7a23bbc6b0d2682"
+                "hash": "5e6504f7ca1e86c9bae01a8605191601"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Eight.php",
-                "hash": "e25a9226ca1be94961ad8f8827347e42"
+                "hash": "6d8342aed25b0c472d70740698d4b1ff"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Nine.php",
@@ -26640,11 +26640,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Six.php",
-                "hash": "17bd466826aff407b18576146bdb0aa7"
+                "hash": "e9821244fa503f6b16ab8da44962501e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Seven.php",
-                "hash": "89120109b1bc14b8060b0858ae50db7c"
+                "hash": "95074350ba1f8bf836c35dba3928b030"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Eight.php",
@@ -26736,11 +26736,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Routers.php",
-                "hash": "0ac353103da20ae8e3a8292e21c96202"
+                "hash": "a3f35c06c5b0328f6b977333de6af3d3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operators.php",
-                "hash": "68dcdd4539f81787222c909c848b488a"
+                "hash": "80a37ae90f2de53bc4cccaab801206fa"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Root.php",
@@ -28912,7 +28912,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "2cf42d8924a8b8ba65090a3f66dd5487"
+                "hash": "36fa5a0a8e0c746d719cce78f93ac079"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
@@ -29708,11 +29708,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "5272a82f89204a8ecdeeec090d0bbd10"
+                "hash": "d178036a4b092bb51d9e0cf6de9056f9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "857b1ed9ba87b95349b2eec1af0b0133"
+                "hash": "5ef7d6610ee97d570cf830e0bdd6d1d5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -33112,7 +33112,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/ApiInsights.php",
-                "hash": "0442859c7e8f3194cc088bcd14fab6a2"
+                "hash": "9da25a1f80a0aece3ef4f84535e6b4ad"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/ApiInsights.php",
@@ -33252,19 +33252,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/EnterpriseAdmin\/CreateAuditLogStream\/Request\/ApplicationJson\/VendorSpecific.php",
-                "hash": "9cba07bd9c742878ef10758171d43335"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietF9B3B90C\/Tiet9FAFCB8C\/Tiet9BB8257B\/Tiet9C71DD39.php",
-                "hash": "7dff3f7c457e5dd983ed017ba62db34c"
+                "hash": "f5c65216434a000bb59a056f475f86c9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/EnterpriseAdmin\/UpdateAuditLogStream\/Request\/ApplicationJson.php",
-                "hash": "189faf2d36d6e6d25179ed53b7a2514b"
+                "hash": "9014d458582dbd36784c0f09a51eee98"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/EnterpriseAdmin\/CreateAuditLogStream\/Request\/ApplicationJson.php",
-                "hash": "bb14525ce96dee14b392a80181193bba"
+                "hash": "aad0aa22aa7954b13a1465d83621ce0c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/EnterpriseAdmin\/UpdateAuditLogStream\/Response\/ApplicationJson\/UnprocessableEntity.php",
@@ -34905,6 +34901,158 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/BypassRequests\/PushRules.php",
                 "hash": "fc46c6840c4ca31bd3a6aba508f4cebe"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetHistory.php",
+                "hash": "9c459aa01901eb6e56484db7f5f3bc49"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/GetEnterpriseRulesetHistory.php",
+                "hash": "070adedf79d26b090e30916722096795"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetHistoryTest.php",
+                "hash": "14ddd4e9c18430c3cd99f456385b2820"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetHistoryListing.php",
+                "hash": "554d64c06ea94fe72b68524f9d0fc695"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/GetEnterpriseRulesetHistoryListing.php",
+                "hash": "cfa4a70396e3e19e03d01d4ee592e41c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetHistoryListingTest.php",
+                "hash": "6e5218d2ceb752c6703d6f400713fe28"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetVersion.php",
+                "hash": "d12ba5da42cb0b386a8f1d8d69638718"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/GetEnterpriseRulesetVersion.php",
+                "hash": "47c58d6abb699e7652852530e4727458"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/GetEnterpriseRulesetVersionTest.php",
+                "hash": "a724520061961e091a7d7b93e435436f"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Orgs\/GetOrgRulesetHistory.php",
+                "hash": "5dacd461e34d6477ef23d0b0c1771b7d"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetOrgRulesetHistory.php",
+                "hash": "5a67b9e47402aea14e1e003a988e350a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetOrgRulesetHistoryTest.php",
+                "hash": "2ff914749304ad600ffc5fc4d7e4f185"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Orgs\/GetOrgRulesetHistoryListing.php",
+                "hash": "50e10669d1feb9073d760f3585c88a0d"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetOrgRulesetHistoryListing.php",
+                "hash": "1bb06106627f4b901ac6264610f8d32a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetOrgRulesetHistoryListingTest.php",
+                "hash": "99e8e72c34be777ecf4b435183d55c6b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Orgs\/GetOrgRulesetVersion.php",
+                "hash": "35d2fa7e1268056ac105685274b6009d"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetOrgRulesetVersion.php",
+                "hash": "dd48723b8ce3afb0eb8ebefc9175108c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetOrgRulesetVersionTest.php",
+                "hash": "3bf03a4fb730caee6bf99464313dfa36"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetRepoRulesetHistory.php",
+                "hash": "12af638854ff9cc54197802876130dbb"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetRepoRulesetHistory.php",
+                "hash": "929465b120a42a2708b44ad800bdd2b4"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetRepoRulesetHistoryTest.php",
+                "hash": "e6722c44ccc9dd700121358b91cefc47"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetRepoRulesetHistoryListing.php",
+                "hash": "50a371972b74eb2923e7fb2f0c8e688b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetRepoRulesetHistoryListing.php",
+                "hash": "3a12fbf11cb18407de799f7ef24994da"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetRepoRulesetHistoryListingTest.php",
+                "hash": "0143bd0fc24103fdb3156765fe62d1c9"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetRepoRulesetVersion.php",
+                "hash": "f2c4d3dd5e1f9c1fb206fe2c18cc9d43"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetRepoRulesetVersion.php",
+                "hash": "06848a1768f95793f537c54263132904"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetRepoRulesetVersionTest.php",
+                "hash": "60f0b4768f3943d29545f08396b25e00"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/HecConfig.php",
+                "hash": "f3ed991b66a3bd44c56d7b56826ad893"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RulesetVersion.php",
+                "hash": "42b4da84a04c305f80aec0b0d35cf16e"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RulesetVersionWithState.php",
+                "hash": "511f7c571e8bf74e695d4aecb37d5970"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RulesetVersion\/Actor.php",
+                "hash": "a6605b22dd8ff0c969fffd070e6c6e2b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet1D6ADBA2\/TietF20C8288\/Tiet809F7414\/Tiet614FDCE8.php",
+                "hash": "db1c0bcd6fe6cd77fcee3e21c5a34f00"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Rulesets\/RulesetId\/History.php",
+                "hash": "8b23b3a19e98d2f4b7ab39eb605b5c5c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Rulesets\/RulesetId\/History\/VersionId.php",
+                "hash": "36daadbe238bb0c158d6eb8d3ccc493b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Rulesets\/RulesetId\/History.php",
+                "hash": "c8a26ca2d65948b53d5cbeabe56dcbc7"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Rulesets\/RulesetId\/History\/VersionId.php",
+                "hash": "5be8e706b5688a8ef5c5387ed5524ea6"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Rulesets\/RulesetId\/History.php",
+                "hash": "cda9898d7090beac2164d2fcb68469b4"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Rulesets\/RulesetId\/History\/VersionId.php",
+                "hash": "af337cbb5763008f0e2089d6a882bb29"
             }
         ]
     },

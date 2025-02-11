@@ -14,6 +14,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RulesetVersion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
@@ -326,6 +327,23 @@ final class EnterpriseAdmin
     public function removeEnterpriseCustomProperty(string $enterprise, string $customPropertyName): WithoutBody
     {
         return $this->operators->enterpriseAdmin👷RemoveEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
+    }
+
+    /** @return iterable<int,Schema\RulesetVersion> */
+    public function getEnterpriseRulesetHistory(string $enterprise, int $rulesetId, int $perPage, int $page): iterable
+    {
+        return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetHistory()->call($enterprise, $rulesetId, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\RulesetVersion> */
+    public function getEnterpriseRulesetHistoryListing(string $enterprise, int $rulesetId, int $perPage, int $page): iterable
+    {
+        return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetHistoryListing()->call($enterprise, $rulesetId, $perPage, $page);
+    }
+
+    public function getEnterpriseRulesetVersion(string $enterprise, int $rulesetId, int $versionId): RulesetVersion
+    {
+        return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetVersion()->call($enterprise, $rulesetId, $versionId);
     }
 
     /** @return */

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\TietF9B3B90C\Tiet9FAFCB8C\Tiet9BB8257B;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\Tiet1D6ADBA2\TietF20C8288\Tiet809F7414;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\EnterpriseAdmin\CreateAuditLogStream\Request\ApplicationJson\VendorSpecific;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet9C71DD39
+abstract readonly class Tiet614FDCE8
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -193,6 +193,45 @@ abstract readonly class Tiet9C71DD39
                     "description": "Splunk Config for Audit Log Stream Configuration"
                 },
                 {
+                    "title": "HecConfig",
+                    "required": [
+                        "domain",
+                        "encrypted_token",
+                        "path",
+                        "key_id",
+                        "port",
+                        "ssl_verify"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "domain": {
+                            "type": "string",
+                            "description": "Domain of Hec instance."
+                        },
+                        "port": {
+                            "type": "integer",
+                            "description": "The port number for connecting to HEC."
+                        },
+                        "key_id": {
+                            "type": "string",
+                            "description": "Key ID obtained from the audit log stream key endpoint used to encrypt secrets."
+                        },
+                        "encrypted_token": {
+                            "type": "string",
+                            "description": "Encrypted Token."
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "Path to send events to."
+                        },
+                        "ssl_verify": {
+                            "type": "boolean",
+                            "description": "SSL verification helps ensure your events are sent to your HEC endpoint securely."
+                        }
+                    },
+                    "description": "Hec Config for Audit Log Stream Configuration"
+                },
+                {
                     "title": "GoogleCloudConfig",
                     "required": [
                         "bucket",
@@ -266,7 +305,7 @@ abstract readonly class Tiet9C71DD39
     public function __construct(public bool $enabled, #[MapFrom('stream_type')]
     public string $streamType, #[MapFrom('vendor_specific')]
     #[VendorSpecific]
-    public Schema\AzureBlobConfig|Schema\AzureHubConfig|Schema\AmazonS3OidcConfig|Schema\AmazonS3AccessKeysConfig|Schema\SplunkConfig|Schema\GoogleCloudConfig|Schema\DatadogConfig $vendorSpecific,)
+    public Schema\AzureBlobConfig|Schema\AzureHubConfig|Schema\AmazonS3OidcConfig|Schema\AmazonS3AccessKeysConfig|Schema\SplunkConfig|Schema\HecConfig|Schema\GoogleCloudConfig|Schema\DatadogConfig $vendorSpecific,)
     {
     }
 }

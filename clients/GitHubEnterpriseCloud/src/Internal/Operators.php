@@ -145,6 +145,9 @@ final class Operators
     private Internal\Operator\Repos\GetEnterpriseRuleset|null $repos👷GetEnterpriseRuleset                                                                                           = null;
     private Internal\Operator\Repos\UpdateEnterpriseRuleset|null $repos👷UpdateEnterpriseRuleset                                                                                     = null;
     private Internal\Operator\Repos\DeleteEnterpriseRuleset|null $repos👷DeleteEnterpriseRuleset                                                                                     = null;
+    private Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistory|null $enterpriseAdmin👷GetEnterpriseRulesetHistory                                                         = null;
+    private Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistoryListing|null $enterpriseAdmin👷GetEnterpriseRulesetHistoryListing                                           = null;
+    private Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetVersion|null $enterpriseAdmin👷GetEnterpriseRulesetVersion                                                         = null;
     private Internal\Operator\SecretScanning\ListAlertsForEnterprise|null $secretScanning👷ListAlertsForEnterprise                                                                   = null;
     private Internal\Operator\Billing\GetGithubActionsBillingGhe|null $billing👷GetGithubActionsBillingGhe                                                                           = null;
     private Internal\Operator\Billing\GetGithubAdvancedSecurityBillingGhe|null $billing👷GetGithubAdvancedSecurityBillingGhe                                                         = null;
@@ -507,6 +510,9 @@ final class Operators
     private Internal\Operator\Repos\GetOrgRuleset|null $repos👷GetOrgRuleset                                                                                                         = null;
     private Internal\Operator\Repos\UpdateOrgRuleset|null $repos👷UpdateOrgRuleset                                                                                                   = null;
     private Internal\Operator\Repos\DeleteOrgRuleset|null $repos👷DeleteOrgRuleset                                                                                                   = null;
+    private Internal\Operator\Orgs\GetOrgRulesetHistory|null $orgs👷GetOrgRulesetHistory                                                                                             = null;
+    private Internal\Operator\Orgs\GetOrgRulesetHistoryListing|null $orgs👷GetOrgRulesetHistoryListing                                                                               = null;
+    private Internal\Operator\Orgs\GetOrgRulesetVersion|null $orgs👷GetOrgRulesetVersion                                                                                             = null;
     private Internal\Operator\SecretScanning\ListAlertsForOrg|null $secretScanning👷ListAlertsForOrg                                                                                 = null;
     private Internal\Operator\SecretScanning\ListAlertsForOrgListing|null $secretScanning👷ListAlertsForOrgListing                                                                   = null;
     private Internal\Operator\SecurityAdvisories\ListOrgRepositoryAdvisories|null $securityAdvisories👷ListOrgRepositoryAdvisories                                                   = null;
@@ -1074,6 +1080,9 @@ final class Operators
     private Internal\Operator\Repos\GetRepoRuleset|null $repos👷GetRepoRuleset                                                                                                       = null;
     private Internal\Operator\Repos\UpdateRepoRuleset|null $repos👷UpdateRepoRuleset                                                                                                 = null;
     private Internal\Operator\Repos\DeleteRepoRuleset|null $repos👷DeleteRepoRuleset                                                                                                 = null;
+    private Internal\Operator\Repos\GetRepoRulesetHistory|null $repos👷GetRepoRulesetHistory                                                                                         = null;
+    private Internal\Operator\Repos\GetRepoRulesetHistoryListing|null $repos👷GetRepoRulesetHistoryListing                                                                           = null;
+    private Internal\Operator\Repos\GetRepoRulesetVersion|null $repos👷GetRepoRulesetVersion                                                                                         = null;
     private Internal\Operator\SecretScanning\ListAlertsForRepo|null $secretScanning👷ListAlertsForRepo                                                                               = null;
     private Internal\Operator\SecretScanning\ListAlertsForRepoListing|null $secretScanning👷ListAlertsForRepoListing                                                                 = null;
     private Internal\Operator\SecretScanning\GetAlert|null $secretScanning👷GetAlert                                                                                                 = null;
@@ -2574,6 +2583,33 @@ final class Operators
         }
 
         return $this->repos👷DeleteEnterpriseRuleset;
+    }
+
+    public function enterpriseAdmin👷GetEnterpriseRulesetHistory(): Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistory
+    {
+        if ($this->enterpriseAdmin👷GetEnterpriseRulesetHistory instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistory === false) {
+            $this->enterpriseAdmin👷GetEnterpriseRulesetHistory = new Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->enterpriseAdmin👷GetEnterpriseRulesetHistory;
+    }
+
+    public function enterpriseAdmin👷GetEnterpriseRulesetHistoryListing(): Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistoryListing
+    {
+        if ($this->enterpriseAdmin👷GetEnterpriseRulesetHistoryListing instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistoryListing === false) {
+            $this->enterpriseAdmin👷GetEnterpriseRulesetHistoryListing = new Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetHistoryListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->enterpriseAdmin👷GetEnterpriseRulesetHistoryListing;
+    }
+
+    public function enterpriseAdmin👷GetEnterpriseRulesetVersion(): Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetVersion
+    {
+        if ($this->enterpriseAdmin👷GetEnterpriseRulesetVersion instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetVersion === false) {
+            $this->enterpriseAdmin👷GetEnterpriseRulesetVersion = new Internal\Operator\EnterpriseAdmin\GetEnterpriseRulesetVersion($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Rulesets🌀RulesetId🌀History🌀VersionId());
+        }
+
+        return $this->enterpriseAdmin👷GetEnterpriseRulesetVersion;
     }
 
     public function secretScanning👷ListAlertsForEnterprise(): Internal\Operator\SecretScanning\ListAlertsForEnterprise
@@ -5832,6 +5868,33 @@ final class Operators
         }
 
         return $this->repos👷DeleteOrgRuleset;
+    }
+
+    public function orgs👷GetOrgRulesetHistory(): Internal\Operator\Orgs\GetOrgRulesetHistory
+    {
+        if ($this->orgs👷GetOrgRulesetHistory instanceof Internal\Operator\Orgs\GetOrgRulesetHistory === false) {
+            $this->orgs👷GetOrgRulesetHistory = new Internal\Operator\Orgs\GetOrgRulesetHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->orgs👷GetOrgRulesetHistory;
+    }
+
+    public function orgs👷GetOrgRulesetHistoryListing(): Internal\Operator\Orgs\GetOrgRulesetHistoryListing
+    {
+        if ($this->orgs👷GetOrgRulesetHistoryListing instanceof Internal\Operator\Orgs\GetOrgRulesetHistoryListing === false) {
+            $this->orgs👷GetOrgRulesetHistoryListing = new Internal\Operator\Orgs\GetOrgRulesetHistoryListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->orgs👷GetOrgRulesetHistoryListing;
+    }
+
+    public function orgs👷GetOrgRulesetVersion(): Internal\Operator\Orgs\GetOrgRulesetVersion
+    {
+        if ($this->orgs👷GetOrgRulesetVersion instanceof Internal\Operator\Orgs\GetOrgRulesetVersion === false) {
+            $this->orgs👷GetOrgRulesetVersion = new Internal\Operator\Orgs\GetOrgRulesetVersion($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RulesetId🌀History🌀VersionId());
+        }
+
+        return $this->orgs👷GetOrgRulesetVersion;
     }
 
     public function secretScanning👷ListAlertsForOrg(): Internal\Operator\SecretScanning\ListAlertsForOrg
@@ -10935,6 +10998,33 @@ final class Operators
         }
 
         return $this->repos👷DeleteRepoRuleset;
+    }
+
+    public function repos👷GetRepoRulesetHistory(): Internal\Operator\Repos\GetRepoRulesetHistory
+    {
+        if ($this->repos👷GetRepoRulesetHistory instanceof Internal\Operator\Repos\GetRepoRulesetHistory === false) {
+            $this->repos👷GetRepoRulesetHistory = new Internal\Operator\Repos\GetRepoRulesetHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->repos👷GetRepoRulesetHistory;
+    }
+
+    public function repos👷GetRepoRulesetHistoryListing(): Internal\Operator\Repos\GetRepoRulesetHistoryListing
+    {
+        if ($this->repos👷GetRepoRulesetHistoryListing instanceof Internal\Operator\Repos\GetRepoRulesetHistoryListing === false) {
+            $this->repos👷GetRepoRulesetHistoryListing = new Internal\Operator\Repos\GetRepoRulesetHistoryListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId🌀History());
+        }
+
+        return $this->repos👷GetRepoRulesetHistoryListing;
+    }
+
+    public function repos👷GetRepoRulesetVersion(): Internal\Operator\Repos\GetRepoRulesetVersion
+    {
+        if ($this->repos👷GetRepoRulesetVersion instanceof Internal\Operator\Repos\GetRepoRulesetVersion === false) {
+            $this->repos👷GetRepoRulesetVersion = new Internal\Operator\Repos\GetRepoRulesetVersion($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Rulesets🌀RulesetId🌀History🌀VersionId());
+        }
+
+        return $this->repos👷GetRepoRulesetVersion;
     }
 
     public function secretScanning👷ListAlertsForRepo(): Internal\Operator\SecretScanning\ListAlertsForRepo
