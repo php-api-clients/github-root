@@ -23,7 +23,7 @@ final class ListProvisionedIdentitiesEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-identities-enterprise';
     public const OPERATION_MATCH = 'GET /scim/v2/enterprises/{enterprise}/Users';
-    /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `userName`, `externalId`, `id`, and `displayName`. For example, `?filter='externalId eq "9138790-10932-109120392-12321"'`. **/
+    /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `userName`, `externalId`, `id`, and `displayName`. For example, `?filter=externalId eq "9138790-10932-109120392-12321"`. **/
     private string $filter;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;

@@ -1282,7 +1282,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['custom_property_name']);
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function getOrgRulesetHistory(array $params): iterable
     {
         $arguments = [];
@@ -1342,6 +1342,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $arguments['delivery_id']);
     }
 
+    /** @return */
     public function getOrgRulesetVersion(array $params): RulesetVersion
     {
         $arguments = [];
