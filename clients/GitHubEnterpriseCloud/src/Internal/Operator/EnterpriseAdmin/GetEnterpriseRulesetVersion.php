@@ -24,6 +24,7 @@ final readonly class GetEnterpriseRulesetVersion
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $rulesetId, int $versionId): RulesetVersion
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetEnterpriseRulesetVersion($this->responseSchemaValidator, $this->hydrator, $enterprise, $rulesetId, $versionId);

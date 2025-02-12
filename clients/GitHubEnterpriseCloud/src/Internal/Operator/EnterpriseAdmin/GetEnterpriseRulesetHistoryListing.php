@@ -24,7 +24,7 @@ final readonly class GetEnterpriseRulesetHistoryListing
     {
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function call(string $enterprise, int $rulesetId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetEnterpriseRulesetHistoryListing($this->responseSchemaValidator, $this->hydrator, $enterprise, $rulesetId, $perPage, $page);

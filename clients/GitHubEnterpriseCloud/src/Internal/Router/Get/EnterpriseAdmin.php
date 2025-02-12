@@ -484,7 +484,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['custom_property_name']);
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function getEnterpriseRulesetHistory(array $params): iterable
     {
         $arguments = [];
@@ -517,7 +517,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['ruleset_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
     {
         $arguments = [];
@@ -556,7 +555,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['enterprise'], $arguments['startIndex'], $arguments['count']);
     }
 
-    /** @return */
     public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
     {
         $arguments = [];
@@ -676,6 +674,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function getEnterpriseRulesetVersion(array $params): RulesetVersion
     {
         $arguments = [];

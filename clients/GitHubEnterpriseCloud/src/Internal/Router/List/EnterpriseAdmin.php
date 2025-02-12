@@ -146,7 +146,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function getEnterpriseRulesetHistoryListing(array $params): iterable
     {
         $arguments = [];

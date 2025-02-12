@@ -329,24 +329,24 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function getEnterpriseRulesetHistory(string $enterprise, int $rulesetId, int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetHistory()->call($enterprise, $rulesetId, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RulesetVersion> */
+    /** @return Observable<Schema\RulesetVersion> */
     public function getEnterpriseRulesetHistoryListing(string $enterprise, int $rulesetId, int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetHistoryListing()->call($enterprise, $rulesetId, $perPage, $page);
     }
 
+    /** @return */
     public function getEnterpriseRulesetVersion(string $enterprise, int $rulesetId, int $versionId): RulesetVersion
     {
         return $this->operators->enterpriseAdmin👷GetEnterpriseRulesetVersion()->call($enterprise, $rulesetId, $versionId);
     }
 
-    /** @return */
     public function listProvisionedGroupsEnterprise(string $filter, string $excludedAttributes, string $enterprise, int $startIndex, int $count): ScimEnterpriseGroupList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedGroupsEnterprise()->call($filter, $excludedAttributes, $enterprise, $startIndex, $count);
@@ -382,7 +382,6 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup()->call($scimGroupId, $enterprise, $params);
     }
 
-    /** @return */
     public function listProvisionedIdentitiesEnterprise(string $filter, string $enterprise, int $startIndex, int $count): ScimEnterpriseUserList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise()->call($filter, $enterprise, $startIndex, $count);
