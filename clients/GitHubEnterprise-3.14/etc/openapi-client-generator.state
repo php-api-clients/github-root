@@ -1,5 +1,5 @@
 {
-    "specHash": "dc977c8003154234e7a787ec7b8ad5db",
+    "specHash": "f5ae341048327f8fa2b6a1ba017066cc",
     "generatedFiles": {
         "files": [
             {
@@ -13516,7 +13516,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Announcement.php",
-                "hash": "43d88c2fe6d9b323473405dbb6d7cbe7"
+                "hash": "fc94b9b02ef56f864c859e9d58d3ce45"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/LicenseInfo.php",
@@ -27464,7 +27464,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "8e5ed19636edd3f61c268f23d3dba92d"
+                "hash": "3969d0c96e854589ccfd64812d38dcba"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/SecurityAdvisories.php",
@@ -28048,7 +28048,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprise\/Announcement.php",
-                "hash": "2031eff3f5c8d7209048e852b5c84031"
+                "hash": "5e98612b79dbbc66f8c8e936476d0875"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprise\/Settings\/License.php",
