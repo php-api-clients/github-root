@@ -68,6 +68,17 @@ class Announcement implements ObjectMapper
             $properties['expiresAt'] = $value;
 
             after_expiresAt:
+
+            $value = $payload['user_dismissible'] ?? null;
+
+            if ($value === null) {
+                $properties['userDismissible'] = null;
+                goto after_userDismissible;
+            }
+
+            $properties['userDismissible'] = $value;
+
+            after_userDismissible:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Announcement', $exception, stack: $this->hydrationStack);
         }
@@ -197,6 +208,14 @@ class Announcement implements ObjectMapper
         }
 
         after_expiresAt:        $result['expires_at'] = $expiresAt;
+
+        $userDismissible = $object->userDismissible;
+
+        if ($userDismissible === null) {
+            goto after_userDismissible;
+        }
+
+        after_userDismissible:        $result['user_dismissible'] = $userDismissible;
 
         return $result;
     }
