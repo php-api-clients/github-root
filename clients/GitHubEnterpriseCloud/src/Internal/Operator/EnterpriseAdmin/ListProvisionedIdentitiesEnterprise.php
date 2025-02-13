@@ -25,6 +25,7 @@ final readonly class ListProvisionedIdentitiesEnterprise
     {
     }
 
+    /** @return */
     public function call(string $filter, string $enterprise, int $startIndex = 1, int $count = 30): ScimEnterpriseUserList|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $enterprise, $startIndex, $count);

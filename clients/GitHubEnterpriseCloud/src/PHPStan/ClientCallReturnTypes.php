@@ -4532,7 +4532,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Groups') {
-            return $this->typeResolver->resolve('Schema\\ScimEnterpriseGroupList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Groups') {
@@ -4556,7 +4556,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Users') {
-            return $this->typeResolver->resolve('Schema\\ScimEnterpriseUserList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Users') {
