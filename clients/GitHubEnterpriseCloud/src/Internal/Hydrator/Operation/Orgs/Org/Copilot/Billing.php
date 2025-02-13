@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\Operation\Or
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatBreakdown;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationSeatBreakdown;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -43,7 +43,7 @@ class Billing implements ObjectMapper
     {
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationDetails($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatBreakdown' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationSeatBreakdown' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -64,7 +64,7 @@ class Billing implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'seatBreakdown';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -154,7 +154,7 @@ class Billing implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown(array $payload): CopilotSeatBreakdown
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown(array $payload): CopilotOrganizationSeatBreakdown
     {
         $properties    = [];
         $missingFields = [];
@@ -225,17 +225,17 @@ class Billing implements ObjectMapper
 
             after_inactiveThisCycle:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatBreakdown', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationSeatBreakdown', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CopilotSeatBreakdown::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(CopilotOrganizationSeatBreakdown::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new CopilotSeatBreakdown(...$properties);
+            return new CopilotOrganizationSeatBreakdown(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatBreakdown', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationSeatBreakdown', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -334,7 +334,7 @@ class Billing implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationDetails($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatBreakdown' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationSeatBreakdown' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
@@ -404,7 +404,7 @@ class Billing implements ObjectMapper
         $result = [];
 
         $seatBreakdown                                        = $object->seatBreakdown;
-        $seatBreakdown                                        = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown($seatBreakdown);
+        $seatBreakdown                                        = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown($seatBreakdown);
         after_seatBreakdown:        $result['seat_breakdown'] = $seatBreakdown;
 
         $publicCodeSuggestions                                                 = $object->publicCodeSuggestions;
@@ -448,9 +448,9 @@ class Billing implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatBreakdown(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotOrganizationSeatBreakdown(mixed $object): mixed
     {
-        assert($object instanceof CopilotSeatBreakdown);
+        assert($object instanceof CopilotOrganizationSeatBreakdown);
         $result = [];
 
         $total = $object->total;
