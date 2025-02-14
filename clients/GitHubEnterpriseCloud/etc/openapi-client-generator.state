@@ -1,5 +1,5 @@
 {
-    "specHash": "e8e191683d6dfdf9b336e7b70932841c",
+    "specHash": "1a921a530f820efa033dc420e6e40c95",
     "generatedFiles": {
         "files": [
             {
@@ -5880,7 +5880,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "130042383c5aa05a52281022e90e3279"
+                "hash": "dc666d3a4680b3db77348bac1f3f48ca"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Actions.php",
@@ -33472,7 +33472,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Issues\/AddSubIssue\/Request\/ApplicationJson.php",
-                "hash": "27d4f7d7d669d46321575027e409efc6"
+                "hash": "3f52e6212540ed56857ae415ee3c7bac"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Issues\/ReprioritizeSubIssue\/Request\/ApplicationJson.php",
