@@ -1,5 +1,5 @@
 {
-    "specHash": "1a921a530f820efa033dc420e6e40c95",
+    "specHash": "16de2a81f1c35833bd49594dda36d269",
     "generatedFiles": {
         "files": [
             {
@@ -788,7 +788,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Artifact.php",
-                "hash": "b1ebe11cdce02325b812861ad423f569"
+                "hash": "0ae5e956f39d3359295027e0b1030f7a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ActionsCacheList.php",
@@ -5052,7 +5052,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListArtifactsForRepo\/Response\/ApplicationJson\/Ok.php",
-                "hash": "2f542021b8a055ce9cf0ce3bfa87b2ca"
+                "hash": "1a007cc9edb090f1efec8a2a43707b37"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Actions\/ReRunJobForWorkflowRun\/Request\/ApplicationJson.php",
@@ -11731,16 +11731,12 @@
                 "hash": "2aa45263671135fe8fdd8183d6d9c785"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet1A91B16F\/TietBF38476A\/Tiet7587BB22\/TietE0507C4B.php",
-                "hash": "a7de1c0500dc6b4509b2089361c75a2f"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListWorkflowRunArtifacts\/Response\/ApplicationJson\/Ok.php",
-                "hash": "4dd33c1b2998d67841406425f8cffb8d"
+                "hash": "70bfc1bb85d64fc09be7769e3c978f48"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListWorkflowRunArtifacts\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
-                "hash": "16db918de3600b04499127ad64de7d20"
+                "hash": "fc8a1bef3937dae377a263b645e55e2a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietD2A75913\/Tiet0388E4E1\/TietCC684AA9\/Tiet46754F39.php",
@@ -27560,7 +27556,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Actions\/Artifacts\/ArtifactId.php",
-                "hash": "f02fcb061692e8e679d309661c113ef3"
+                "hash": "0b68d75f06a35dcbe4445acee9828f78"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Actions\/Artifacts\/ArtifactId\/ArchiveFormat.php",
@@ -35057,6 +35053,10 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotOrganizationSeatBreakdown.php",
                 "hash": "ae9b75aa40c504807916598c96e7569a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietCF22D054\/Tiet02EB2DC0\/Tiet6BB5072C\/Tiet3B86314A.php",
+                "hash": "aa4e99cc47f789f858586329ecfca850"
             }
         ]
     },
