@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReview;
 use InvalidArgumentException;
 
@@ -14,11 +15,29 @@ final class Nine
     {
     }
 
-    /** @return Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
-    public function call(string $call, array $params, array $pathChunks): iterable|PullRequestReview
+    /** @return Schema\CustomProperty|Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
+    public function call(string $call, array $params, array $pathChunks): CustomProperty|iterable|PullRequestReview
     {
         if ($pathChunks[0] === '') {
-            if ($pathChunks[1] === 'repos') {
+            if ($pathChunks[1] === 'enterprises') {
+                if ($pathChunks[2] === '{enterprise}') {
+                    if ($pathChunks[3] === 'properties') {
+                        if ($pathChunks[4] === 'schema') {
+                            if ($pathChunks[5] === 'organizations') {
+                                if ($pathChunks[6] === '{org}') {
+                                    if ($pathChunks[7] === '{custom_property_name}') {
+                                        if ($pathChunks[8] === 'promote') {
+                                            if ($call === 'PUT /enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote') {
+                                                return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->promoteCustomPropertyToEnterprise($params);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'repos') {
                 if ($pathChunks[2] === '{owner}') {
                     if ($pathChunks[3] === '{repo}') {
                         if ($pathChunks[4] === 'branches') {

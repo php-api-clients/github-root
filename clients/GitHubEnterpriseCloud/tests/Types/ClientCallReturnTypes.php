@@ -144,6 +144,7 @@ assertType('', $client->call('PATCH /enterprises/{enterprise}/network-configurat
 assertType('', $client->call('GET /enterprises/{enterprise}/network-settings/{network_settings_id}'));
 assertType('Observable<Schema\\CustomProperty>', $client->call('GET /enterprises/{enterprise}/properties/schema'));
 assertType('Observable<Schema\\CustomProperty>', $client->call('PATCH /enterprises/{enterprise}/properties/schema'));
+assertType('Schema\\CustomProperty', $client->call('PUT /enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote'));
 assertType('', $client->call('GET /enterprises/{enterprise}/properties/schema/{custom_property_name}'));
 assertType('', $client->call('PUT /enterprises/{enterprise}/properties/schema/{custom_property_name}'));
 assertType('', $client->call('DELETE /enterprises/{enterprise}/properties/schema/{custom_property_name}'));
@@ -316,6 +317,8 @@ assertType('', $client->call('PUT /orgs/{org}/blocks/{username}'));
 assertType('', $client->call('DELETE /orgs/{org}/blocks/{username}'));
 assertType('Observable<Schema\\PushRuleBypassRequest>', $client->call('GET /orgs/{org}/bypass-requests/push-rules'));
 assertType('Observable<Schema\\PushRuleBypassRequest>', $client->call('LIST /orgs/{org}/bypass-requests/push-rules'));
+assertType('iterable<int,Schema\\SecretScanningBypassRequest>', $client->call('GET /orgs/{org}/bypass-requests/secret-scanning'));
+assertType('iterable<int,Schema\\SecretScanningBypassRequest>', $client->call('LIST /orgs/{org}/bypass-requests/secret-scanning'));
 assertType('Observable<Schema\\CodeScanningOrganizationAlertItems>', $client->call('GET /orgs/{org}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeScanningOrganizationAlertItems>', $client->call('LIST /orgs/{org}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeSecurityConfiguration>', $client->call('GET /orgs/{org}/code-security/configurations'));
@@ -746,6 +749,11 @@ assertType('', $client->call('POST /repos/{owner}/{repo}/branches/{branch}/renam
 assertType('Observable<Schema\\PushRuleBypassRequest>', $client->call('GET /repos/{owner}/{repo}/bypass-requests/push-rules'));
 assertType('Observable<Schema\\PushRuleBypassRequest>', $client->call('LIST /repos/{owner}/{repo}/bypass-requests/push-rules'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}'));
+assertType('iterable<int,Schema\\SecretScanningBypassRequest>', $client->call('GET /repos/{owner}/{repo}/bypass-requests/secret-scanning'));
+assertType('iterable<int,Schema\\SecretScanningBypassRequest>', $client->call('LIST /repos/{owner}/{repo}/bypass-requests/secret-scanning'));
+assertType('Schema\\SecretScanningBypassRequest', $client->call('GET /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}'));
+assertType('Schema\\Operations\\SecretScanning\\ReviewBypassRequest\\Response\\ApplicationJson\\Ok', $client->call('PATCH /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}'));
+assertType('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('DELETE /repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/check-runs'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/check-runs/{check_run_id}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}'));

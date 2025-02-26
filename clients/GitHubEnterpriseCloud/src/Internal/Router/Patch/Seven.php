@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitRef;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\SecretScanning\ReviewBypassRequest\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PorterAuthor;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReviewComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset;
@@ -29,7 +30,8 @@ final class Seven
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment
+    /** @return |Schema\Operations\SecretScanning\ReviewBypassRequest\Response\ApplicationJson\Ok */
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|Ok|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {
@@ -60,6 +62,14 @@ final class Seven
                                 if ($pathChunks[6] === '{name}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/actions/variables/{name}') {
                                         return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateRepoVariable($params);
+                                    }
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'bypass-requests') {
+                            if ($pathChunks[5] === 'secret-scanning') {
+                                if ($pathChunks[6] === '{bypass_request_number}') {
+                                    if ($call === 'PATCH /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}') {
+                                        return $this->routers->internal🔀Router🔀Patch🔀SecretScanning()->reviewBypassRequest($params);
                                     }
                                 }
                             }

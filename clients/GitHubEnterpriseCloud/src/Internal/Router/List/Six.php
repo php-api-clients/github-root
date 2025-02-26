@@ -15,7 +15,7 @@ final class Six
     {
     }
 
-    /** @return Observable<Schema\RulesetVersion>|Observable<Schema\MarketplacePurchase>|Observable<Schema\ApiInsightsSubjectStats>|Observable<Schema\Team>|Observable<Schema\MinimalRepository>|Observable<Schema\TeamRoleAssignment>|WithoutBody|Observable<Schema\UserRoleAssignment>|Observable<Schema\TeamDiscussion>|Observable<Schema\OrganizationInvitation>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\PushRuleBypassRequest>|Observable<Schema\CodeScanningAlertItems>|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\DependabotAlert>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\RuleSuites>|Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\PackageVersion>|Observable<Schema\Event> */
+    /** @return Observable<Schema\RulesetVersion>|Observable<Schema\MarketplacePurchase>|Observable<Schema\ApiInsightsSubjectStats>|Observable<Schema\Team>|Observable<Schema\MinimalRepository>|Observable<Schema\TeamRoleAssignment>|WithoutBody|Observable<Schema\UserRoleAssignment>|Observable<Schema\TeamDiscussion>|Observable<Schema\OrganizationInvitation>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\PushRuleBypassRequest>|iterable<int,Schema\SecretScanningBypassRequest>|Observable<Schema\CodeScanningAlertItems>|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\DependabotAlert>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\RuleSuites>|Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\PackageVersion>|Observable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
@@ -142,6 +142,10 @@ final class Six
                             if ($pathChunks[5] === 'push-rules') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/bypass-requests/push-rules') {
                                     return $this->routers->internal🔀Router🔀List🔀Repos()->listRepoPushBypassRequestsListing($params);
+                                }
+                            } elseif ($pathChunks[5] === 'secret-scanning') {
+                                if ($call === 'LIST /repos/{owner}/{repo}/bypass-requests/secret-scanning') {
+                                    return $this->routers->internal🔀Router🔀List🔀SecretScanning()->listRepoBypassRequestsListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'code-scanning') {
