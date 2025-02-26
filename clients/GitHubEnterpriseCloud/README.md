@@ -2920,6 +2920,30 @@ $client->operations()->enterpriseAdmin()->createOrUpdateEnterpriseCustomProperti
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#create-or-update-custom-properties-for-an-enterprise).
 
 
+### enterprise-admin/promote-custom-property-to-enterprise
+
+Promote a custom property to an enterprise
+
+Using the `call` method:
+```php
+$client->call('PUT /enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote', [
+        'enterprise' => 'generated',
+        'org' => 'generated',
+        'custom_property_name' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->promoteCustomPropertyToEnterprise(        enterprise: 'generated',
+        org: 'generated',
+        custom_property_name: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#promote-a-custom-property-to-an-enterprise).
+
+
 ### enterprise-admin/get-enterprise-custom-property
 
 Get a custom property for an enterprise
@@ -6850,6 +6874,74 @@ $client->operations()->orgs()->listPushBypassRequestsListing(        org: 'gener
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/bypass-requests#list-push-rule-bypass-requests-within-an-organization).
+
+
+### secret-scanning/list-org-bypass-requests
+
+List bypass requests for secret scanning for an org
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/bypass-requests/secret-scanning', [
+        'org' => 'generated',
+        'repository_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listOrgBypassRequests(        org: 'generated',
+        repository_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#list-bypass-requests-for-secret-scanning-for-an-org).
+
+
+### secret-scanning/list-org-bypass-requests
+
+List bypass requests for secret scanning for an org
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/bypass-requests/secret-scanning', [
+        'org' => 'generated',
+        'repository_name' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listOrgBypassRequestsListing(        org: 'generated',
+        repository_name: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#list-bypass-requests-for-secret-scanning-for-an-org).
 
 
 ### code-scanning/list-alerts-for-org
@@ -17449,6 +17541,146 @@ $client->operations()->repos()->getRepoPushBypassRequest(        owner: 'generat
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/bypass-requests#get-a-repository-push-bypass-request).
+
+
+### secret-scanning/list-repo-bypass-requests
+
+List bypass requests for secret scanning for a repository
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/bypass-requests/secret-scanning', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listRepoBypassRequests(        owner: 'generated',
+        repo: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#list-bypass-requests-for-secret-scanning-for-a-repository).
+
+
+### secret-scanning/list-repo-bypass-requests
+
+List bypass requests for secret scanning for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/bypass-requests/secret-scanning', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'reviewer' => 'generated',
+        'requester' => 'generated',
+        'time_period' => 'generated',
+        'request_status' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listRepoBypassRequestsListing(        owner: 'generated',
+        repo: 'generated',
+        reviewer: 'generated',
+        requester: 'generated',
+        time_period: 'generated',
+        request_status: 'generated',
+        per_page: 8,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#list-bypass-requests-for-secret-scanning-for-a-repository).
+
+
+### secret-scanning/get-bypass-request
+
+Get a bypass request for secret scanning
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'bypass_request_number' => 21,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->getBypassRequest(        owner: 'generated',
+        repo: 'generated',
+        bypass_request_number: 21,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#get-a-bypass-request-for-secret-scanning).
+
+
+### secret-scanning/review-bypass-request
+
+Review a bypass request for secret scanning
+
+Using the `call` method:
+```php
+$client->call('PATCH /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'bypass_request_number' => 21,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->reviewBypassRequest(        owner: 'generated',
+        repo: 'generated',
+        bypass_request_number: 21,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#review-a-bypass-request-for-secret-scanning).
+
+
+### secret-scanning/dismiss-bypass-response
+
+Dismiss a response on a bypass request for secret scanning
+
+Using the `call` method:
+```php
+$client->call('DELETE /repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'bypass_response_id' => 18,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->dismissBypassResponse(        owner: 'generated',
+        repo: 'generated',
+        bypass_response_id: 18,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/delegated-bypass#dismiss-a-response-on-a-bypass-request-for-secret-scanning).
 
 
 ### checks/create

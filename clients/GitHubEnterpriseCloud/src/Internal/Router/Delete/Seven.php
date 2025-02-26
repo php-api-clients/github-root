@@ -19,6 +19,7 @@ final class Seven
     {
     }
 
+    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
@@ -162,6 +163,14 @@ final class Seven
                                 if ($pathChunks[6] === 'protection') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection') {
                                         return $this->routers->internal🔀Router🔀Delete🔀Repos()->deleteBranchProtection($params);
+                                    }
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'bypass-responses') {
+                            if ($pathChunks[5] === 'secret-scanning') {
+                                if ($pathChunks[6] === '{bypass_response_id}') {
+                                    if ($call === 'DELETE /repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}') {
+                                        return $this->routers->internal🔀Router🔀Delete🔀SecretScanning()->dismissBypassResponse($params);
                                     }
                                 }
                             }

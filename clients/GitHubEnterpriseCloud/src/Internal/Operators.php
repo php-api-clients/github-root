@@ -138,6 +138,7 @@ final class Operators
     private Internal\Operator\HostedCompute\GetNetworkSettingsForEnterprise|null $hostedCompute👷GetNetworkSettingsForEnterprise                                                     = null;
     private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties|null $enterpriseAdmin👷GetEnterpriseCustomProperties                                                     = null;
     private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties                               = null;
+    private Internal\Operator\EnterpriseAdmin\PromoteCustomPropertyToEnterprise|null $enterpriseAdmin👷PromoteCustomPropertyToEnterprise                                             = null;
     private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty|null $enterpriseAdmin👷GetEnterpriseCustomProperty                                                         = null;
     private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty                                   = null;
     private Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty|null $enterpriseAdmin👷RemoveEnterpriseCustomProperty                                                   = null;
@@ -310,6 +311,8 @@ final class Operators
     private Internal\Operator\Orgs\UnblockUser|null $orgs👷UnblockUser                                                                                                               = null;
     private Internal\Operator\Orgs\ListPushBypassRequests|null $orgs👷ListPushBypassRequests                                                                                         = null;
     private Internal\Operator\Orgs\ListPushBypassRequestsListing|null $orgs👷ListPushBypassRequestsListing                                                                           = null;
+    private Internal\Operator\SecretScanning\ListOrgBypassRequests|null $secretScanning👷ListOrgBypassRequests                                                                       = null;
+    private Internal\Operator\SecretScanning\ListOrgBypassRequestsListing|null $secretScanning👷ListOrgBypassRequestsListing                                                         = null;
     private Internal\Operator\CodeScanning\ListAlertsForOrg|null $codeScanning👷ListAlertsForOrg                                                                                     = null;
     private Internal\Operator\CodeScanning\ListAlertsForOrgListing|null $codeScanning👷ListAlertsForOrgListing                                                                       = null;
     private Internal\Operator\CodeSecurity\GetConfigurationsForOrg|null $codeSecurity👷GetConfigurationsForOrg                                                                       = null;
@@ -740,6 +743,11 @@ final class Operators
     private Internal\Operator\Repos\ListRepoPushBypassRequests|null $repos👷ListRepoPushBypassRequests                                                                               = null;
     private Internal\Operator\Repos\ListRepoPushBypassRequestsListing|null $repos👷ListRepoPushBypassRequestsListing                                                                 = null;
     private Internal\Operator\Repos\GetRepoPushBypassRequest|null $repos👷GetRepoPushBypassRequest                                                                                   = null;
+    private Internal\Operator\SecretScanning\ListRepoBypassRequests|null $secretScanning👷ListRepoBypassRequests                                                                     = null;
+    private Internal\Operator\SecretScanning\ListRepoBypassRequestsListing|null $secretScanning👷ListRepoBypassRequestsListing                                                       = null;
+    private Internal\Operator\SecretScanning\GetBypassRequest|null $secretScanning👷GetBypassRequest                                                                                 = null;
+    private Internal\Operator\SecretScanning\ReviewBypassRequest|null $secretScanning👷ReviewBypassRequest                                                                           = null;
+    private Internal\Operator\SecretScanning\DismissBypassResponse|null $secretScanning👷DismissBypassResponse                                                                       = null;
     private Internal\Operator\Checks\Create|null $checks👷Create                                                                                                                     = null;
     private Internal\Operator\Checks\Get|null $checks👷Get                                                                                                                           = null;
     private Internal\Operator\Checks\Update|null $checks👷Update                                                                                                                     = null;
@@ -2522,6 +2530,15 @@ final class Operators
         return $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties;
     }
 
+    public function enterpriseAdmin👷PromoteCustomPropertyToEnterprise(): Internal\Operator\EnterpriseAdmin\PromoteCustomPropertyToEnterprise
+    {
+        if ($this->enterpriseAdmin👷PromoteCustomPropertyToEnterprise instanceof Internal\Operator\EnterpriseAdmin\PromoteCustomPropertyToEnterprise === false) {
+            $this->enterpriseAdmin👷PromoteCustomPropertyToEnterprise = new Internal\Operator\EnterpriseAdmin\PromoteCustomPropertyToEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀Organizations🌀Org🌀CustomPropertyName🌀Promote());
+        }
+
+        return $this->enterpriseAdmin👷PromoteCustomPropertyToEnterprise;
+    }
+
     public function enterpriseAdmin👷GetEnterpriseCustomProperty(): Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty
     {
         if ($this->enterpriseAdmin👷GetEnterpriseCustomProperty instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty === false) {
@@ -4068,6 +4085,24 @@ final class Operators
         }
 
         return $this->orgs👷ListPushBypassRequestsListing;
+    }
+
+    public function secretScanning👷ListOrgBypassRequests(): Internal\Operator\SecretScanning\ListOrgBypassRequests
+    {
+        if ($this->secretScanning👷ListOrgBypassRequests instanceof Internal\Operator\SecretScanning\ListOrgBypassRequests === false) {
+            $this->secretScanning👷ListOrgBypassRequests = new Internal\Operator\SecretScanning\ListOrgBypassRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀BypassRequests🌀SecretScanning());
+        }
+
+        return $this->secretScanning👷ListOrgBypassRequests;
+    }
+
+    public function secretScanning👷ListOrgBypassRequestsListing(): Internal\Operator\SecretScanning\ListOrgBypassRequestsListing
+    {
+        if ($this->secretScanning👷ListOrgBypassRequestsListing instanceof Internal\Operator\SecretScanning\ListOrgBypassRequestsListing === false) {
+            $this->secretScanning👷ListOrgBypassRequestsListing = new Internal\Operator\SecretScanning\ListOrgBypassRequestsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀BypassRequests🌀SecretScanning());
+        }
+
+        return $this->secretScanning👷ListOrgBypassRequestsListing;
     }
 
     public function codeScanning👷ListAlertsForOrg(): Internal\Operator\CodeScanning\ListAlertsForOrg
@@ -7938,6 +7973,51 @@ final class Operators
         }
 
         return $this->repos👷GetRepoPushBypassRequest;
+    }
+
+    public function secretScanning👷ListRepoBypassRequests(): Internal\Operator\SecretScanning\ListRepoBypassRequests
+    {
+        if ($this->secretScanning👷ListRepoBypassRequests instanceof Internal\Operator\SecretScanning\ListRepoBypassRequests === false) {
+            $this->secretScanning👷ListRepoBypassRequests = new Internal\Operator\SecretScanning\ListRepoBypassRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀SecretScanning());
+        }
+
+        return $this->secretScanning👷ListRepoBypassRequests;
+    }
+
+    public function secretScanning👷ListRepoBypassRequestsListing(): Internal\Operator\SecretScanning\ListRepoBypassRequestsListing
+    {
+        if ($this->secretScanning👷ListRepoBypassRequestsListing instanceof Internal\Operator\SecretScanning\ListRepoBypassRequestsListing === false) {
+            $this->secretScanning👷ListRepoBypassRequestsListing = new Internal\Operator\SecretScanning\ListRepoBypassRequestsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀SecretScanning());
+        }
+
+        return $this->secretScanning👷ListRepoBypassRequestsListing;
+    }
+
+    public function secretScanning👷GetBypassRequest(): Internal\Operator\SecretScanning\GetBypassRequest
+    {
+        if ($this->secretScanning👷GetBypassRequest instanceof Internal\Operator\SecretScanning\GetBypassRequest === false) {
+            $this->secretScanning👷GetBypassRequest = new Internal\Operator\SecretScanning\GetBypassRequest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀SecretScanning🌀BypassRequestNumber());
+        }
+
+        return $this->secretScanning👷GetBypassRequest;
+    }
+
+    public function secretScanning👷ReviewBypassRequest(): Internal\Operator\SecretScanning\ReviewBypassRequest
+    {
+        if ($this->secretScanning👷ReviewBypassRequest instanceof Internal\Operator\SecretScanning\ReviewBypassRequest === false) {
+            $this->secretScanning👷ReviewBypassRequest = new Internal\Operator\SecretScanning\ReviewBypassRequest($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassRequests🌀SecretScanning🌀BypassRequestNumber());
+        }
+
+        return $this->secretScanning👷ReviewBypassRequest;
+    }
+
+    public function secretScanning👷DismissBypassResponse(): Internal\Operator\SecretScanning\DismissBypassResponse
+    {
+        if ($this->secretScanning👷DismissBypassResponse instanceof Internal\Operator\SecretScanning\DismissBypassResponse === false) {
+            $this->secretScanning👷DismissBypassResponse = new Internal\Operator\SecretScanning\DismissBypassResponse($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀BypassResponses🌀SecretScanning🌀BypassResponseId());
+        }
+
+        return $this->secretScanning👷DismissBypassResponse;
     }
 
     public function checks👷Create(): Internal\Operator\Checks\Create

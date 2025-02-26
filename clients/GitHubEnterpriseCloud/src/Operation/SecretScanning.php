@@ -7,7 +7,9 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\SecretScanning\ReviewBypassRequest\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningBypassRequest;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningPushProtectionBypass;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningScanHistory;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -42,6 +44,18 @@ final class SecretScanning
         return $this->operators->secretScanning👷PostSecurityProductEnablementForEnterprise()->call($enterprise, $securityProduct, $enablement);
     }
 
+    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    public function listOrgBypassRequests(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->secretScanning👷ListOrgBypassRequests()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    public function listOrgBypassRequestsListing(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->secretScanning👷ListOrgBypassRequestsListing()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
     /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage, bool $isPubliclyLeaked, bool $isMultiRepo): iterable
     {
@@ -52,6 +66,33 @@ final class SecretScanning
     public function listAlertsForOrgListing(string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage, bool $isPubliclyLeaked, bool $isMultiRepo): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForOrgListing()->call($org, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage, $isPubliclyLeaked, $isMultiRepo);
+    }
+
+    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    public function listRepoBypassRequests(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->secretScanning👷ListRepoBypassRequests()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    public function listRepoBypassRequestsListing(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
+    {
+        return $this->operators->secretScanning👷ListRepoBypassRequestsListing()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
+    }
+
+    public function getBypassRequest(string $owner, string $repo, int $bypassRequestNumber): SecretScanningBypassRequest
+    {
+        return $this->operators->secretScanning👷GetBypassRequest()->call($owner, $repo, $bypassRequestNumber);
+    }
+
+    public function reviewBypassRequest(string $owner, string $repo, int $bypassRequestNumber, array $params): Ok
+    {
+        return $this->operators->secretScanning👷ReviewBypassRequest()->call($owner, $repo, $bypassRequestNumber, $params);
+    }
+
+    public function dismissBypassResponse(string $owner, string $repo, int $bypassResponseId): WithoutBody
+    {
+        return $this->operators->secretScanning👷DismissBypassResponse()->call($owner, $repo, $bypassResponseId);
     }
 
     /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */

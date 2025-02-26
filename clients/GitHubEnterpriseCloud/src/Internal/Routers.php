@@ -148,6 +148,7 @@ final class Routers
     private Internal\Router\Delete\Copilot|null $internal🔀Router🔀Delete🔀Copilot                         = null;
     private Internal\Router\Delete\Dependabot|null $internal🔀Router🔀Delete🔀Dependabot                   = null;
     private Internal\Router\Delete\Issues|null $internal🔀Router🔀Delete🔀Issues                           = null;
+    private Internal\Router\Delete\SecretScanning|null $internal🔀Router🔀Delete🔀SecretScanning           = null;
     private Internal\Router\Delete\CodeScanning|null $internal🔀Router🔀Delete🔀CodeScanning               = null;
     private Internal\Router\Delete\Git|null $internal🔀Router🔀Delete🔀Git                                 = null;
     private Internal\Router\Delete\Pulls|null $internal🔀Router🔀Delete🔀Pulls                             = null;
@@ -1412,6 +1413,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Delete🔀Issues;
+    }
+
+    public function internal🔀Router🔀Delete🔀SecretScanning(): Internal\Router\Delete\SecretScanning
+    {
+        if ($this->internal🔀Router🔀Delete🔀SecretScanning instanceof Internal\Router\Delete\SecretScanning === false) {
+            $this->internal🔀Router🔀Delete🔀SecretScanning = new Internal\Router\Delete\SecretScanning(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀SecretScanning;
     }
 
     public function internal🔀Router🔀Delete🔀CodeScanning(): Internal\Router\Delete\CodeScanning

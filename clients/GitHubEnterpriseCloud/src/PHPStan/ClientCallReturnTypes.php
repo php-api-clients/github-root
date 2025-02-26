@@ -551,6 +551,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('Observable<Schema\\CustomProperty>');
         }
 
+        if ($call === 'PUT /enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote') {
+            return $this->typeResolver->resolve('Schema\\CustomProperty');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/properties/schema/{custom_property_name}') {
             return $this->typeResolver->resolve('');
         }
@@ -1237,6 +1241,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /orgs/{org}/bypass-requests/push-rules') {
             return $this->typeResolver->resolve('Observable<Schema\\PushRuleBypassRequest>');
+        }
+
+        if ($call === 'GET /orgs/{org}/bypass-requests/secret-scanning') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningBypassRequest>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/bypass-requests/secret-scanning') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningBypassRequest>');
         }
 
         if ($call === 'GET /orgs/{org}/code-scanning/alerts') {
@@ -2957,6 +2969,26 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /repos/{owner}/{repo}/bypass-requests/secret-scanning') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningBypassRequest>');
+        }
+
+        if ($call === 'LIST /repos/{owner}/{repo}/bypass-requests/secret-scanning') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningBypassRequest>');
+        }
+
+        if ($call === 'GET /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}') {
+            return $this->typeResolver->resolve('Schema\\SecretScanningBypassRequest');
+        }
+
+        if ($call === 'PATCH /repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}') {
+            return $this->typeResolver->resolve('Schema\\Operations\\SecretScanning\\ReviewBypassRequest\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'DELETE /repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}') {
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/check-runs') {
