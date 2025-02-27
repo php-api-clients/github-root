@@ -1,5 +1,5 @@
 {
-    "specHash": "50b5f868629d9d1260dbd8cc8a0f7a02",
+    "specHash": "06fa59f66a2537626b799fec04db81b5",
     "generatedFiles": {
         "files": [
             {
@@ -10748,7 +10748,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
-                "hash": "5ebd59b377fa56da84093860b074238a"
+                "hash": "75b7740fb512adfb41a711553a784db0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterpriseTest.php",
@@ -10820,7 +10820,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/ListProvisionedIdentitiesEnterprise.php",
-                "hash": "612cab6a7bf4459cf097650381dd5e75"
+                "hash": "613713434ca904649774a4361befc2fc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedIdentitiesEnterpriseTest.php",
@@ -14088,7 +14088,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/RepositoryRuleParamsRequiredReviewerConfiguration.php",
-                "hash": "47e0a5cbb3905406509b518cd447e517"
+                "hash": "8b7146363355a95c07cbf18c8466fc6c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/RepositoryRulePullRequest.php",
@@ -26404,7 +26404,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/EnterpriseAdmin.php",
-                "hash": "e38ca79cf72a9ce8e17d8fd2b95704ca"
+                "hash": "801992ac075569c0e94b45dcad3b8b4e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/SecurityAdvisories.php",
@@ -26936,7 +26936,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "50d790ea7d404c399793f46285dec6a4"
+                "hash": "fb8d914498dc8ddad6eaa4249ed98e34"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -27148,11 +27148,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "f324c61f921af29dd138e579e680742d"
+                "hash": "2fb5474325448bccbcb22bb7d1158ea1"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "ca7adf5daf67b5004f0909656cca8349"
+                "hash": "54beea339c8099994a522e19c9c55b8c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27168,7 +27168,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "d0f6cc583f7b5b3c98ebbcc1a07a01b3"
+                "hash": "8e5ed19636edd3f61c268f23d3dba92d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/SecurityAdvisories.php",
@@ -29961,6 +29961,10 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/WebhookCodeScanningAlertClosedByUser\/Alert\/DismissalApprovedBy.php",
                 "hash": "b21a2b229d82f916d8ec095470db0021"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/RepositoryRuleParamsReviewer.php",
+                "hash": "9fb5f3613d9deee11da6ff5294c91b66"
             }
         ]
     },
