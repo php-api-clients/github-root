@@ -774,6 +774,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdatePreReceiveHookEnforcementForRepo()->call($owner, $repo, $preReceiveHookId, $params);
     }
 
+    /** @return */
     public function listProvisionedGroupsEnterprise(string $filter, string $excludedAttributes, string $enterprise, int $startIndex, int $count): ScimEnterpriseGroupList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedGroupsEnterprise()->call($filter, $excludedAttributes, $enterprise, $startIndex, $count);
@@ -809,6 +810,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup()->call($scimGroupId, $enterprise, $params);
     }
 
+    /** @return */
     public function listProvisionedIdentitiesEnterprise(string $filter, string $enterprise, int $startIndex, int $count): ScimEnterpriseUserList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise()->call($filter, $enterprise, $startIndex, $count);
