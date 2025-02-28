@@ -311,6 +311,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties()->call($enterprise, $params);
     }
 
+    /** @return */
     public function promoteCustomPropertyToEnterprise(string $enterprise, string $org, string $customPropertyName): CustomProperty
     {
         return $this->operators->enterpriseAdmin👷PromoteCustomPropertyToEnterprise()->call($enterprise, $org, $customPropertyName);

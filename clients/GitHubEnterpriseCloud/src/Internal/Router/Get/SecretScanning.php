@@ -120,7 +120,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listOrgBypassRequests(array $params): iterable
     {
         $arguments = [];
@@ -264,7 +264,7 @@ final class SecretScanning
         return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listRepoBypassRequests(array $params): iterable
     {
         $arguments = [];
@@ -435,6 +435,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function getBypassRequest(array $params): SecretScanningBypassRequest
     {
         $arguments = [];

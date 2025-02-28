@@ -24,6 +24,7 @@ final readonly class ReviewBypassRequest
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $bypassRequestNumber, array $params): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\ReviewBypassRequest($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $bypassRequestNumber);

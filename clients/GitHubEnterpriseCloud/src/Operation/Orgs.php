@@ -56,10 +56,9 @@ final class Orgs
         return $this->operators->orgs👷Update()->call($org, $params);
     }
 
-    /** @return */
-    public function listAttestations(string $before, string $after, string $org, string $subjectDigest, int $perPage): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok
+    public function listAttestations(string $before, string $after, string $org, string $subjectDigest, string $predicateType, int $perPage): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAttestations\Response\ApplicationJson\Ok
     {
-        return $this->operators->orgs👷ListAttestations()->call($before, $after, $org, $subjectDigest, $perPage);
+        return $this->operators->orgs👷ListAttestations()->call($before, $after, $org, $subjectDigest, $predicateType, $perPage);
     }
 
     /** @return Observable<Schema\AuditLogEvent> */

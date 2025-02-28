@@ -36,6 +36,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function reviewBypassRequest(array $params): Ok
     {
         $arguments = [];

@@ -30,7 +30,6 @@ final class Seven
     {
     }
 
-    /** @return |Schema\Operations\SecretScanning\ReviewBypassRequest\Response\ApplicationJson\Ok */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|Ok|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {

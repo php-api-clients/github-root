@@ -24,6 +24,7 @@ final readonly class DismissBypassResponse
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $bypassResponseId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\DismissBypassResponse($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $bypassResponseId);
