@@ -15,7 +15,7 @@ final class Nine
     {
     }
 
-    /** @return Schema\CustomProperty|Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
+    /** @return |Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): CustomProperty|iterable|PullRequestReview
     {
         if ($pathChunks[0] === '') {

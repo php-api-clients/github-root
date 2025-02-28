@@ -24,6 +24,7 @@ final readonly class GetBypassRequest
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $bypassRequestNumber): SecretScanningBypassRequest
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\GetBypassRequest($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $bypassRequestNumber);

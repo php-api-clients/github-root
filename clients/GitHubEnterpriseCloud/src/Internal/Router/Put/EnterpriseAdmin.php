@@ -291,6 +291,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function promoteCustomPropertyToEnterprise(array $params): CustomProperty
     {
         $arguments = [];

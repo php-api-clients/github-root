@@ -19,6 +19,7 @@ final class SecretScanning
     {
     }
 
+    /** @return */
     public function dismissBypassResponse(array $params): WithoutBody
     {
         $arguments = [];

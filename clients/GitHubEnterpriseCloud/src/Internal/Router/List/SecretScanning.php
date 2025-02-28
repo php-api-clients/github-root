@@ -21,7 +21,7 @@ final class SecretScanning
     {
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listOrgBypassRequestsListing(array $params): iterable
     {
         $arguments = [];
@@ -177,7 +177,7 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listRepoBypassRequestsListing(array $params): iterable
     {
         $arguments = [];

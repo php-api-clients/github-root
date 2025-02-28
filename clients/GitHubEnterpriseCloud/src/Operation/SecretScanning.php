@@ -44,13 +44,13 @@ final class SecretScanning
         return $this->operators->secretScanning👷PostSecurityProductEnablementForEnterprise()->call($enterprise, $securityProduct, $enablement);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listOrgBypassRequests(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->secretScanning👷ListOrgBypassRequests()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listOrgBypassRequestsListing(string $org, string $repositoryName, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->secretScanning👷ListOrgBypassRequestsListing()->call($org, $repositoryName, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
@@ -68,28 +68,31 @@ final class SecretScanning
         return $this->operators->secretScanning👷ListAlertsForOrgListing()->call($org, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage, $isPubliclyLeaked, $isMultiRepo);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listRepoBypassRequests(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->secretScanning👷ListRepoBypassRequests()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function listRepoBypassRequestsListing(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod, string $requestStatus, int $perPage, int $page): iterable
     {
         return $this->operators->secretScanning👷ListRepoBypassRequestsListing()->call($owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
     }
 
+    /** @return */
     public function getBypassRequest(string $owner, string $repo, int $bypassRequestNumber): SecretScanningBypassRequest
     {
         return $this->operators->secretScanning👷GetBypassRequest()->call($owner, $repo, $bypassRequestNumber);
     }
 
+    /** @return */
     public function reviewBypassRequest(string $owner, string $repo, int $bypassRequestNumber, array $params): Ok
     {
         return $this->operators->secretScanning👷ReviewBypassRequest()->call($owner, $repo, $bypassRequestNumber, $params);
     }
 
+    /** @return */
     public function dismissBypassResponse(string $owner, string $repo, int $bypassResponseId): WithoutBody
     {
         return $this->operators->secretScanning👷DismissBypassResponse()->call($owner, $repo, $bypassResponseId);

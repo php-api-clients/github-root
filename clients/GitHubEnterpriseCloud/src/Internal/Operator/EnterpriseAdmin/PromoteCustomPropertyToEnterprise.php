@@ -24,6 +24,7 @@ final readonly class PromoteCustomPropertyToEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $org, string $customPropertyName): CustomProperty
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\PromoteCustomPropertyToEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $org, $customPropertyName);

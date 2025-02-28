@@ -24,7 +24,7 @@ final readonly class ListRepoBypassRequestsListing
     {
     }
 
-    /** @return iterable<int,Schema\SecretScanningBypassRequest> */
+    /** @return Observable<Schema\SecretScanningBypassRequest> */
     public function call(string $owner, string $repo, string $reviewer, string $requester, string $timePeriod = 'day', string $requestStatus = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\ListRepoBypassRequestsListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $reviewer, $requester, $timePeriod, $requestStatus, $perPage, $page);
