@@ -2772,7 +2772,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}') {
-            return $this->typeResolver->resolve('Observable<Schema\\DependencyGraphDiff>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\DependencyGraphDiff>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependency-graph/sbom') {
@@ -3912,7 +3912,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /search/issues') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Search\\IssuesAndPullRequests\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /search/labels') {
@@ -4672,7 +4672,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /zen') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('string');
         }
 
         return null;
