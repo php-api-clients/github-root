@@ -23112,6 +23112,7 @@ Using the `call` method:
 $client->call('GET /search/issues', [
         'q' => 'generated',
         'sort' => 'generated',
+        'advanced_search' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
         'page' => 1,
@@ -23122,6 +23123,7 @@ Operations method:
 ```php
 $client->operations()->search()->issuesAndPullRequests(        q: 'generated',
         sort: 'generated',
+        advanced_search: 'generated',
         order: 'generated',
         per_page: 8,
         page: 1,

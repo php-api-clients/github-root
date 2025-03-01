@@ -1,5 +1,5 @@
 {
-    "specHash": "c3eeb28f55a8ddf476a0103d39889bfa",
+    "specHash": "65c7d90809c912f318fd98e5a759353c",
     "generatedFiles": {
         "files": [
             {
@@ -7596,11 +7596,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/DependencyGraph\/DiffRange.php",
-                "hash": "d50c1f44324af87bb22d31ace542bb70"
+                "hash": "347b0ead9e19a2f8957e4bfa079f4dfb"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/DependencyGraph\/DiffRange.php",
-                "hash": "075b6038151ce73c38ee1b662312e485"
+                "hash": "9bf7067713932c3221d92f2191b26a14"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/DependencyGraph\/DiffRangeTest.php",
@@ -10912,15 +10912,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Search\/IssuesAndPullRequests.php",
-                "hash": "8e4109819ce368907eff8eabd6341fe9"
+                "hash": "9b350aeb02ce7387ccde262fa14421ff"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Search\/IssuesAndPullRequests.php",
-                "hash": "5ff8601f42dfc6c2fcebe6ff0a8bdf32"
+                "hash": "7e529f8c1df4812ca8b2791054142b14"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Search\/IssuesAndPullRequestsTest.php",
-                "hash": "838dfcdbda0db4e8f1f8fdb2ea494207"
+                "hash": "921079bf356772290fa3078f78000ffd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Search\/Labels.php",
@@ -13132,11 +13132,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operation\/Meta\/GetZen.php",
-                "hash": "c7b9967d12f2ffe88bfe55261441fc6b"
+                "hash": "42e66180c21ac50cdae566f6ea6ab794"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Operator\/Meta\/GetZen.php",
-                "hash": "d9d04364b4b5d6c1dd1936d1c8c4e727"
+                "hash": "6e8ac5284c1f5b9ab767845a753174bb"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Internal\/Operation\/Meta\/GetZenTest.php",
@@ -24303,10 +24303,6 @@
                 "hash": "281c0d6c5c45750679ee8c124ce8f652"
             },
             {
-                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/Operations\/Meta\/GetZen\/Response\/ApplicationJson\/Ok.php",
-                "hash": "aa13406f9a90361b6de5c0ac5080ae24"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/EnterpriseAdmin\/CreateGlobalWebhook\/Request\/ApplicationJson.php",
                 "hash": "8af47db0edd99481c699b7bb40d6e9c1"
             },
@@ -26400,7 +26396,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Meta.php",
-                "hash": "4bfec77db1fdd948564bf8bbf8b4eb90"
+                "hash": "79885a9c2e3f9d127ab68bfef21f8105"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/EnterpriseAdmin.php",
@@ -26444,7 +26440,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Search.php",
-                "hash": "3b4d9cf7d3811a23ea5be7009c9efb8f"
+                "hash": "f68c75df4413a658e2644892d2437a91"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Teams.php",
@@ -26504,7 +26500,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/DependencyGraph.php",
-                "hash": "e7d96c4a23ed8784eb3e47de15dffff3"
+                "hash": "d8a9edd547aaed7e01f557f0e4d77687"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Pulls.php",
@@ -26928,7 +26924,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Three.php",
-                "hash": "1c3402598477978c2f259e7d66016c4b"
+                "hash": "dd3e03cc2bc5917a695d1bbf0dc65ec1"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Four.php",
@@ -26940,7 +26936,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
-                "hash": "d1905900da5b62fabb0b324a38bb7279"
+                "hash": "488418233581df4e8dc3dbce8f58b2db"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
@@ -26948,7 +26944,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
-                "hash": "7a1cd736b439ecd5b76ca92383196bd7"
+                "hash": "8db59ced98108bd223596f21e396627c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Eight.php",
@@ -27148,11 +27144,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "2fb5474325448bccbcb22bb7d1158ea1"
+                "hash": "5ffe1714380665bca421b5cbd1f206d4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "54beea339c8099994a522e19c9c55b8c"
+                "hash": "07b227f12fa2ae0cd157847ee21cd2a3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27164,7 +27160,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Meta.php",
-                "hash": "41cc72ff89d01e5b48be965d9a5b63fd"
+                "hash": "36de6758976b0a2ceb21d6074889a987"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
@@ -27280,7 +27276,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/DependencyGraph.php",
-                "hash": "a638452f9411a0fc738141835c32327d"
+                "hash": "1a842b54f0e563f4c8b82d145032d428"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Git.php",
@@ -27292,7 +27288,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Search.php",
-                "hash": "f575d503a83922ab6cd69e189613b87d"
+                "hash": "b3d46ba9c8468fc11c3405b1cf6997d6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Operation\/Users.php",
@@ -29965,6 +29961,10 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/RepositoryRuleParamsReviewer.php",
                 "hash": "9fb5f3613d9deee11da6ff5294c91b66"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.13\/etc\/..\/\/src\/\/Schema\/Operations\/Meta\/GetZen\/Response\/TextPlain\/Ok.php",
+                "hash": "d0ca0c14c2d902d47122181008e84185"
             }
         ]
     },
