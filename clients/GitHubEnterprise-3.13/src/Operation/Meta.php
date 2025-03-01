@@ -34,7 +34,6 @@ final class Meta
         return $this->operators->meta👷GetOctocat()->call($s);
     }
 
-    /** @return */
     public function getZen(): string
     {
         return $this->operators->meta👷GetZen()->call();
