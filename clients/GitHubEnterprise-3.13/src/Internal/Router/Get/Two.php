@@ -22,7 +22,7 @@ final class Two
     {
     }
 
-    /** @return Observable<Schema\GlobalAdvisory>||Observable<Schema\Authorization>|WithoutBody|Observable<Schema\CodeOfConduct>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Observable<Schema\MinimalRepository>|Observable<Schema\SimpleUser>|string */
+    /** @return Observable<Schema\GlobalAdvisory>||Observable<Schema\Authorization>|WithoutBody|Observable<Schema\CodeOfConduct>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Observable<Schema\MinimalRepository>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): iterable|Integration|WithoutBody|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {
