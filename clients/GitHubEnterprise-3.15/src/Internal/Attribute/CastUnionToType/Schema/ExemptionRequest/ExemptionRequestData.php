@@ -38,6 +38,13 @@ final class ExemptionRequestData implements PropertyCaster
                 } catch (Throwable) {
                 }
             }
+
+            if ($signature === 'data|type' && $value['type'] === 'secret_scanning_closure') {
+                try {
+                    return $hydrator->hydrateObject(Schema\ExemptionRequestSecretScanningClosure::class, $value);
+                } catch (Throwable) {
+                }
+            }
         }
 
         return $value;

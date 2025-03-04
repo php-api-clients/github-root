@@ -31,6 +31,13 @@ final class Metadata implements PropertyCaster
                 } catch (Throwable) {
                 }
             }
+
+            if ($signature === 'alert_title|reason' && ($value['reason'] === 'fixed_later' || $value['reason'] === 'false_positive' || $value['reason'] === 'tests' || $value['reason'] === 'revoked')) {
+                try {
+                    return $hydrator->hydrateObject(Schema\ExemptionRequestSecretScanningClosureMetadata::class, $value);
+                } catch (Throwable) {
+                }
+            }
         }
 
         return $value;
