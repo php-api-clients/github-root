@@ -1736,7 +1736,10 @@ final readonly class WebhookExemptionRequestCompleted
                     "description": "The ID of the exemption request."
                 },
                 "number": {
-                    "type": "integer",
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
                     "description": "The number uniquely identifying the exemption request within it\'s repository."
                 },
                 "repository_id": {
@@ -1754,7 +1757,8 @@ final readonly class WebhookExemptionRequestCompleted
                 "request_type": {
                     "enum": [
                         "push_ruleset_bypass",
-                        "secret_scanning"
+                        "secret_scanning",
+                        "secret_scanning_closure"
                     ],
                     "type": "string",
                     "description": "The type of request."
@@ -1847,6 +1851,37 @@ final readonly class WebhookExemptionRequestCompleted
                                 }
                             },
                             "description": "Secret scanning push protections that are being requested to be bypassed."
+                        },
+                        {
+                            "title": "Secret scanning alert dismissal request data",
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "secret_scanning_closure"
+                                    ],
+                                    "type": "string",
+                                    "description": "The type of request"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "secret_type": {
+                                                "type": "string",
+                                                "description": "The type of secret that was detected"
+                                            },
+                                            "alert_number": {
+                                                "type": "string",
+                                                "description": "The number of the alert that was detected"
+                                            }
+                                        }
+                                    },
+                                    "description": "The data related to the secret scanning alerts that have dismissal requests."
+                                }
+                            },
+                            "description": "Secret scanning alerts that have dismissal requests."
                         }
                     ]
                 },
@@ -1899,6 +1934,27 @@ final readonly class WebhookExemptionRequestCompleted
                                 }
                             },
                             "description": "Metadata for a secret scanning push protection exemption request."
+                        },
+                        {
+                            "title": "Secret scanning alert dismissal request metadata",
+                            "type": "object",
+                            "properties": {
+                                "alert_title": {
+                                    "type": "string",
+                                    "description": "The title of the secret alert"
+                                },
+                                "reason": {
+                                    "enum": [
+                                        "fixed_later",
+                                        "false_positive",
+                                        "tests",
+                                        "revoked"
+                                    ],
+                                    "type": "string",
+                                    "description": "The reason for the dismissal request"
+                                }
+                            },
+                            "description": "Metadata for a secret scanning alert dismissal request."
                         }
                     ],
                     "description": "Metadata about the exemption request."
@@ -2461,7 +2517,7 @@ final readonly class WebhookExemptionRequestCompleted
         "repository_id": 13,
         "requester_id": 12,
         "requester_login": "generated",
-        "request_type": "secret_scanning",
+        "request_type": "secret_scanning_closure",
         "exemption_request_data": null,
         "resource_identifier": "827efc6d56897b048c772eb4087f854f46256132",
         "status": "completed",

@@ -308,7 +308,7 @@ assertType('', $client->call('DELETE /orgs/{org}/actions/variables/{name}/reposi
 assertType('', $client->call('GET /orgs/{org}/announcement'));
 assertType('', $client->call('DELETE /orgs/{org}/announcement'));
 assertType('', $client->call('PATCH /orgs/{org}/announcement'));
-assertType('Schema\\Operations\\Orgs\\ListAttestations\\Response\\ApplicationJson\\Ok', $client->call('GET /orgs/{org}/attestations/{subject_digest}'));
+assertType('', $client->call('GET /orgs/{org}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\AuditLogEvent>', $client->call('GET /orgs/{org}/audit-log'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('GET /orgs/{org}/blocks'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('LIST /orgs/{org}/blocks'));
@@ -701,7 +701,7 @@ assertType('Observable<Schema\\SimpleUser>', $client->call('GET /repos/{owner}/{
 assertType('Observable<Schema\\SimpleUser>', $client->call('LIST /repos/{owner}/{repo}/assignees'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/assignees/{assignee}'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/attestations'));
-assertType('Schema\\Operations\\Repos\\ListAttestations\\Response\\ApplicationJson\\Ok\\Application\\Json', $client->call('GET /repos/{owner}/{repo}/attestations/{subject_digest}'));
+assertType('', $client->call('GET /repos/{owner}/{repo}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\Autolink>', $client->call('GET /repos/{owner}/{repo}/autolinks'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/autolinks'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/autolinks/{autolink_id}'));
@@ -846,7 +846,7 @@ assertType('', $client->call('GET /repos/{owner}/{repo}/dependabot/secrets/publi
 assertType('', $client->call('GET /repos/{owner}/{repo}/dependabot/secrets/{secret_name}'));
 assertType('', $client->call('PUT /repos/{owner}/{repo}/dependabot/secrets/{secret_name}'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/dependabot/secrets/{secret_name}'));
-assertType('iterable<int,Schema\\DependencyGraphDiff>', $client->call('GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}'));
+assertType('Observable<Schema\\DependencyGraphDiff>', $client->call('GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/dependency-graph/sbom'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/dependency-graph/snapshots'));
 assertType('Observable<Schema\\Deployment>', $client->call('GET /repos/{owner}/{repo}/deployments'));
@@ -1167,7 +1167,7 @@ assertType('', $client->call('DELETE /scim/v2/organizations/{org}/Users/{scim_us
 assertType('', $client->call('PATCH /scim/v2/organizations/{org}/Users/{scim_user_id}'));
 assertType('', $client->call('GET /search/code'));
 assertType('', $client->call('GET /search/commits'));
-assertType('Schema\\Operations\\Search\\IssuesAndPullRequests\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /search/issues'));
+assertType('', $client->call('GET /search/issues'));
 assertType('', $client->call('GET /search/labels'));
 assertType('', $client->call('GET /search/repositories'));
 assertType('', $client->call('GET /search/topics'));
@@ -1336,7 +1336,7 @@ assertType('Observable<Schema\\TeamFull>|WithoutBody', $client->call('LIST /user
 assertType('', $client->call('GET /user/{account_id}'));
 assertType('Observable<Schema\\SimpleUser>|WithoutBody', $client->call('GET /users'));
 assertType('', $client->call('GET /users/{username}'));
-assertType('Schema\\Operations\\Users\\ListAttestations\\Response\\ApplicationJson\\Ok\\Application\\Json|Schema\\EmptyObject|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /users/{username}/attestations/{subject_digest}'));
+assertType('', $client->call('GET /users/{username}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\Package>', $client->call('GET /users/{username}/docker/conflicts'));
 assertType('Observable<Schema\\Event>', $client->call('GET /users/{username}/events'));
 assertType('Observable<Schema\\Event>', $client->call('LIST /users/{username}/events'));
@@ -1387,4 +1387,4 @@ assertType('', $client->call('GET /users/{username}/starred'));
 assertType('Observable<Schema\\MinimalRepository>', $client->call('GET /users/{username}/subscriptions'));
 assertType('Observable<Schema\\MinimalRepository>', $client->call('LIST /users/{username}/subscriptions'));
 assertType('Observable<string>', $client->call('GET /versions'));
-assertType('string', $client->call('GET /zen'));
+assertType('', $client->call('GET /zen'));
