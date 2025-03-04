@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\S
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\ExemptionRequest\Metadata;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionRequest;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionRequestSecretScanningMetadata;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks;
@@ -78,7 +77,6 @@ class ExemptionRequestPushRuleset implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionResponse($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookExemptionRequestResponseSubmitted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookExemptionRequestResponseSubmitted($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionRequestSecretScanningMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionRequestSecretScanningMetadata($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -3580,15 +3578,6 @@ class ExemptionRequestPushRuleset implements ObjectMapper
                 goto after_metadata;
             }
 
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'metadata';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionRequestSecretScanningMetadata($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
             $properties['metadata'] = $value;
 
             after_metadata:
@@ -4393,47 +4382,6 @@ class ExemptionRequestPushRuleset implements ObjectMapper
             return new CustomProperties(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionRequestSecretScanningMetadata(array $payload): ExemptionRequestSecretScanningMetadata
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['label'] ?? null;
-
-            if ($value === null) {
-                $properties['label'] = null;
-                goto after_label;
-            }
-
-            $properties['label'] = $value;
-
-            after_label:
-
-            $value = $payload['reason'] ?? null;
-
-            if ($value === null) {
-                $properties['reason'] = null;
-                goto after_reason;
-            }
-
-            $properties['reason'] = $value;
-
-            after_reason:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionRequestSecretScanningMetadata', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(ExemptionRequestSecretScanningMetadata::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new ExemptionRequestSecretScanningMetadata(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionRequestSecretScanningMetadata', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -6400,7 +6348,10 @@ class ExemptionRequestPushRuleset implements ObjectMapper
             goto after_metadata;
         }
 
-        $metadata                                  = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionRequestSecretScanningMetadata($metadata);
+        if (is_object($metadata)) {
+            $metadata = $this->serializeObject($metadata);
+        }
+
         after_metadata:        $result['metadata'] = $metadata;
 
         $expiresAt = $object->expiresAt;
