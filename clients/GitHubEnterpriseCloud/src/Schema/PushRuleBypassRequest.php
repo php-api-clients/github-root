@@ -25,15 +25,24 @@ final readonly class PushRuleBypassRequest
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "integer",
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
                     "description": "The ID of the repository the bypass request is for."
                 },
                 "name": {
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "description": "The name of the repository the bypass request is for."
                 },
                 "full_name": {
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "description": "The full name of the repository the bypass request is for."
                 }
             },
@@ -43,11 +52,17 @@ final readonly class PushRuleBypassRequest
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "integer",
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
                     "description": "The ID of the organization."
                 },
                 "name": {
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "description": "The name of the organization."
                 }
             },
