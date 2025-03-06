@@ -164,15 +164,6 @@ final readonly class CodeSecurityDefaultConfigurations
                     "type": "string",
                     "description": "The enablement status of secret scanning non-provider patterns"
                 },
-                "secret_scanning_delegated_alert_dismissal": {
-                    "enum": [
-                        "enabled",
-                        "disabled",
-                        "not_set"
-                    ],
-                    "type": "string",
-                    "description": "The enablement status of secret scanning delegated alert dismissal"
-                },
                 "enforcement": {
                     "enum": [
                         "enforced",
@@ -235,7 +226,6 @@ final readonly class CodeSecurityDefaultConfigurations
         },
         "secret_scanning_validity_checks": "enabled",
         "secret_scanning_non_provider_patterns": "enabled",
-        "secret_scanning_delegated_alert_dismissal": "enabled",
         "enforcement": "enforced",
         "url": "https:\\/\\/example.com\\/",
         "html_url": "https:\\/\\/example.com\\/",
