@@ -279,17 +279,6 @@ class CodeSecurityConfiguration implements ObjectMapper
 
             after_secretScanningNonProviderPatterns:
 
-            $value = $payload['secret_scanning_delegated_alert_dismissal'] ?? null;
-
-            if ($value === null) {
-                $properties['secretScanningDelegatedAlertDismissal'] = null;
-                goto after_secretScanningDelegatedAlertDismissal;
-            }
-
-            $properties['secretScanningDelegatedAlertDismissal'] = $value;
-
-            after_secretScanningDelegatedAlertDismissal:
-
             $value = $payload['enforcement'] ?? null;
 
             if ($value === null) {
@@ -699,14 +688,6 @@ class CodeSecurityConfiguration implements ObjectMapper
         }
 
         after_secretScanningNonProviderPatterns:        $result['secret_scanning_non_provider_patterns'] = $secretScanningNonProviderPatterns;
-
-        $secretScanningDelegatedAlertDismissal = $object->secretScanningDelegatedAlertDismissal;
-
-        if ($secretScanningDelegatedAlertDismissal === null) {
-            goto after_secretScanningDelegatedAlertDismissal;
-        }
-
-        after_secretScanningDelegatedAlertDismissal:        $result['secret_scanning_delegated_alert_dismissal'] = $secretScanningDelegatedAlertDismissal;
 
         $enforcement = $object->enforcement;
 
