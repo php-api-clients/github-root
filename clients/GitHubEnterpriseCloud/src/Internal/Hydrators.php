@@ -789,7 +789,6 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\WebHook\ExemptionRequestSecretScanning|null $webHook🪝ExemptionRequestSecretScanning                                                                                                                                                   = null;
     private Internal\Hydrator\WebHook\CheckRun|null $webHook🪝CheckRun                                                                                                                                                                                               = null;
     private Internal\Hydrator\WebHook\CheckSuite|null $webHook🪝CheckSuite                                                                                                                                                                                           = null;
-    private Internal\Hydrator\WebHook\ExemptionRequestSecretScanningClosure|null $webHook🪝ExemptionRequestSecretScanningClosure                                                                                                                                     = null;
     private Internal\Hydrator\WebHook\CodeScanningAlert|null $webHook🪝CodeScanningAlert                                                                                                                                                                             = null;
     private Internal\Hydrator\WebHook\CommitComment|null $webHook🪝CommitComment                                                                                                                                                                                     = null;
     private Internal\Hydrator\WebHook\Create|null $webHook🪝Create                                                                                                                                                                                                   = null;
@@ -804,6 +803,7 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\WebHook\DeploymentStatus|null $webHook🪝DeploymentStatus                                                                                                                                                                               = null;
     private Internal\Hydrator\WebHook\Discussion|null $webHook🪝Discussion                                                                                                                                                                                           = null;
     private Internal\Hydrator\WebHook\DiscussionComment|null $webHook🪝DiscussionComment                                                                                                                                                                             = null;
+    private Internal\Hydrator\WebHook\DismissalRequestSecretScanning|null $webHook🪝DismissalRequestSecretScanning                                                                                                                                                   = null;
     private Internal\Hydrator\WebHook\Fork|null $webHook🪝Fork                                                                                                                                                                                                       = null;
     private Internal\Hydrator\WebHook\GithubAppAuthorization|null $webHook🪝GithubAppAuthorization                                                                                                                                                                   = null;
     private Internal\Hydrator\WebHook\Gollum|null $webHook🪝Gollum                                                                                                                                                                                                   = null;
@@ -8680,15 +8680,6 @@ final class Hydrators implements ObjectMapper
         return $this->webHook🪝CheckSuite;
     }
 
-    public function getObjectMapperWebHook🪝ExemptionRequestSecretScanningClosure(): Internal\Hydrator\WebHook\ExemptionRequestSecretScanningClosure
-    {
-        if ($this->webHook🪝ExemptionRequestSecretScanningClosure instanceof Internal\Hydrator\WebHook\ExemptionRequestSecretScanningClosure === false) {
-            $this->webHook🪝ExemptionRequestSecretScanningClosure = new Internal\Hydrator\WebHook\ExemptionRequestSecretScanningClosure();
-        }
-
-        return $this->webHook🪝ExemptionRequestSecretScanningClosure;
-    }
-
     public function getObjectMapperWebHook🪝CodeScanningAlert(): Internal\Hydrator\WebHook\CodeScanningAlert
     {
         if ($this->webHook🪝CodeScanningAlert instanceof Internal\Hydrator\WebHook\CodeScanningAlert === false) {
@@ -8813,6 +8804,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->webHook🪝DiscussionComment;
+    }
+
+    public function getObjectMapperWebHook🪝DismissalRequestSecretScanning(): Internal\Hydrator\WebHook\DismissalRequestSecretScanning
+    {
+        if ($this->webHook🪝DismissalRequestSecretScanning instanceof Internal\Hydrator\WebHook\DismissalRequestSecretScanning === false) {
+            $this->webHook🪝DismissalRequestSecretScanning = new Internal\Hydrator\WebHook\DismissalRequestSecretScanning();
+        }
+
+        return $this->webHook🪝DismissalRequestSecretScanning;
     }
 
     public function getObjectMapperWebHook🪝Fork(): Internal\Hydrator\WebHook\Fork

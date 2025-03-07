@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Actions\UpdateHostedRun
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet08F01699\Tiet5339BEAE\TietF9796515\Tiet7DE1877B
+final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet9C9CB9C3\TietFC6B2CE8\Tiet99DD3D28\TietDAA7F730
 {
 }

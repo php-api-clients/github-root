@@ -13,83 +13,83 @@ use function strtolower;
 
 final class WebHooks implements WebHooksInterface
 {
-    private Internal\WebHook\BranchProtectionConfiguration|null $branchProtectionConfiguration                 = null;
-    private Internal\WebHook\BranchProtectionRule|null $branchProtectionRule                                   = null;
-    private Internal\WebHook\ExemptionRequestPushRuleset|null $exemptionRequestPushRuleset                     = null;
-    private Internal\WebHook\ExemptionRequestSecretScanning|null $exemptionRequestSecretScanning               = null;
-    private Internal\WebHook\CheckRun|null $checkRun                                                           = null;
-    private Internal\WebHook\CheckSuite|null $checkSuite                                                       = null;
-    private Internal\WebHook\ExemptionRequestSecretScanningClosure|null $exemptionRequestSecretScanningClosure = null;
-    private Internal\WebHook\CodeScanningAlert|null $codeScanningAlert                                         = null;
-    private Internal\WebHook\CommitComment|null $commitComment                                                 = null;
-    private Internal\WebHook\Create|null $create                                                               = null;
-    private Internal\WebHook\CustomProperty|null $customProperty                                               = null;
-    private Internal\WebHook\CustomPropertyValues|null $customPropertyValues                                   = null;
-    private Internal\WebHook\Delete|null $delete                                                               = null;
-    private Internal\WebHook\DependabotAlert|null $dependabotAlert                                             = null;
-    private Internal\WebHook\DeployKey|null $deployKey                                                         = null;
-    private Internal\WebHook\Deployment|null $deployment                                                       = null;
-    private Internal\WebHook\DeploymentProtectionRule|null $deploymentProtectionRule                           = null;
-    private Internal\WebHook\DeploymentReview|null $deploymentReview                                           = null;
-    private Internal\WebHook\DeploymentStatus|null $deploymentStatus                                           = null;
-    private Internal\WebHook\Discussion|null $discussion                                                       = null;
-    private Internal\WebHook\DiscussionComment|null $discussionComment                                         = null;
-    private Internal\WebHook\Fork|null $fork                                                                   = null;
-    private Internal\WebHook\GithubAppAuthorization|null $githubAppAuthorization                               = null;
-    private Internal\WebHook\Gollum|null $gollum                                                               = null;
-    private Internal\WebHook\Installation|null $installation                                                   = null;
-    private Internal\WebHook\InstallationRepositories|null $installationRepositories                           = null;
-    private Internal\WebHook\InstallationTarget|null $installationTarget                                       = null;
-    private Internal\WebHook\IssueComment|null $issueComment                                                   = null;
-    private Internal\WebHook\Issues|null $issues                                                               = null;
-    private Internal\WebHook\Label|null $label                                                                 = null;
-    private Internal\WebHook\MarketplacePurchase|null $marketplacePurchase                                     = null;
-    private Internal\WebHook\Member|null $member                                                               = null;
-    private Internal\WebHook\Membership|null $membership                                                       = null;
-    private Internal\WebHook\MergeGroup|null $mergeGroup                                                       = null;
-    private Internal\WebHook\Meta|null $meta                                                                   = null;
-    private Internal\WebHook\Milestone|null $milestone                                                         = null;
-    private Internal\WebHook\OrgBlock|null $orgBlock                                                           = null;
-    private Internal\WebHook\Organization|null $organization                                                   = null;
-    private Internal\WebHook\Package|null $package                                                             = null;
-    private Internal\WebHook\PageBuild|null $pageBuild                                                         = null;
-    private Internal\WebHook\PersonalAccessTokenRequest|null $personalAccessTokenRequest                       = null;
-    private Internal\WebHook\Ping|null $ping                                                                   = null;
-    private Internal\WebHook\ProjectCard|null $projectCard                                                     = null;
-    private Internal\WebHook\Project|null $project                                                             = null;
-    private Internal\WebHook\ProjectColumn|null $projectColumn                                                 = null;
-    private Internal\WebHook\ProjectsV2|null $projectsV2                                                       = null;
-    private Internal\WebHook\ProjectsV2Item|null $projectsV2Item                                               = null;
-    private Internal\WebHook\ProjectsV2StatusUpdate|null $projectsV2StatusUpdate                               = null;
-    private Internal\WebHook\Public_|null $public                                                              = null;
-    private Internal\WebHook\PullRequest|null $pullRequest                                                     = null;
-    private Internal\WebHook\PullRequestReviewComment|null $pullRequestReviewComment                           = null;
-    private Internal\WebHook\PullRequestReview|null $pullRequestReview                                         = null;
-    private Internal\WebHook\PullRequestReviewThread|null $pullRequestReviewThread                             = null;
-    private Internal\WebHook\Push|null $push                                                                   = null;
-    private Internal\WebHook\RegistryPackage|null $registryPackage                                             = null;
-    private Internal\WebHook\Release|null $release                                                             = null;
-    private Internal\WebHook\RepositoryAdvisory|null $repositoryAdvisory                                       = null;
-    private Internal\WebHook\Repository|null $repository                                                       = null;
-    private Internal\WebHook\RepositoryDispatch|null $repositoryDispatch                                       = null;
-    private Internal\WebHook\RepositoryImport|null $repositoryImport                                           = null;
-    private Internal\WebHook\RepositoryRuleset|null $repositoryRuleset                                         = null;
-    private Internal\WebHook\RepositoryVulnerabilityAlert|null $repositoryVulnerabilityAlert                   = null;
-    private Internal\WebHook\SecretScanningAlert|null $secretScanningAlert                                     = null;
-    private Internal\WebHook\SecretScanningAlertLocation|null $secretScanningAlertLocation                     = null;
-    private Internal\WebHook\SecretScanningScan|null $secretScanningScan                                       = null;
-    private Internal\WebHook\SecurityAdvisory|null $securityAdvisory                                           = null;
-    private Internal\WebHook\SecurityAndAnalysis|null $securityAndAnalysis                                     = null;
-    private Internal\WebHook\Sponsorship|null $sponsorship                                                     = null;
-    private Internal\WebHook\Star|null $star                                                                   = null;
-    private Internal\WebHook\Status|null $status                                                               = null;
-    private Internal\WebHook\SubIssues|null $subIssues                                                         = null;
-    private Internal\WebHook\TeamAdd|null $teamAdd                                                             = null;
-    private Internal\WebHook\Team|null $team                                                                   = null;
-    private Internal\WebHook\Watch|null $watch                                                                 = null;
-    private Internal\WebHook\WorkflowDispatch|null $workflowDispatch                                           = null;
-    private Internal\WebHook\WorkflowJob|null $workflowJob                                                     = null;
-    private Internal\WebHook\WorkflowRun|null $workflowRun                                                     = null;
+    private Internal\WebHook\BranchProtectionConfiguration|null $branchProtectionConfiguration   = null;
+    private Internal\WebHook\BranchProtectionRule|null $branchProtectionRule                     = null;
+    private Internal\WebHook\ExemptionRequestPushRuleset|null $exemptionRequestPushRuleset       = null;
+    private Internal\WebHook\ExemptionRequestSecretScanning|null $exemptionRequestSecretScanning = null;
+    private Internal\WebHook\CheckRun|null $checkRun                                             = null;
+    private Internal\WebHook\CheckSuite|null $checkSuite                                         = null;
+    private Internal\WebHook\CodeScanningAlert|null $codeScanningAlert                           = null;
+    private Internal\WebHook\CommitComment|null $commitComment                                   = null;
+    private Internal\WebHook\Create|null $create                                                 = null;
+    private Internal\WebHook\CustomProperty|null $customProperty                                 = null;
+    private Internal\WebHook\CustomPropertyValues|null $customPropertyValues                     = null;
+    private Internal\WebHook\Delete|null $delete                                                 = null;
+    private Internal\WebHook\DependabotAlert|null $dependabotAlert                               = null;
+    private Internal\WebHook\DeployKey|null $deployKey                                           = null;
+    private Internal\WebHook\Deployment|null $deployment                                         = null;
+    private Internal\WebHook\DeploymentProtectionRule|null $deploymentProtectionRule             = null;
+    private Internal\WebHook\DeploymentReview|null $deploymentReview                             = null;
+    private Internal\WebHook\DeploymentStatus|null $deploymentStatus                             = null;
+    private Internal\WebHook\Discussion|null $discussion                                         = null;
+    private Internal\WebHook\DiscussionComment|null $discussionComment                           = null;
+    private Internal\WebHook\DismissalRequestSecretScanning|null $dismissalRequestSecretScanning = null;
+    private Internal\WebHook\Fork|null $fork                                                     = null;
+    private Internal\WebHook\GithubAppAuthorization|null $githubAppAuthorization                 = null;
+    private Internal\WebHook\Gollum|null $gollum                                                 = null;
+    private Internal\WebHook\Installation|null $installation                                     = null;
+    private Internal\WebHook\InstallationRepositories|null $installationRepositories             = null;
+    private Internal\WebHook\InstallationTarget|null $installationTarget                         = null;
+    private Internal\WebHook\IssueComment|null $issueComment                                     = null;
+    private Internal\WebHook\Issues|null $issues                                                 = null;
+    private Internal\WebHook\Label|null $label                                                   = null;
+    private Internal\WebHook\MarketplacePurchase|null $marketplacePurchase                       = null;
+    private Internal\WebHook\Member|null $member                                                 = null;
+    private Internal\WebHook\Membership|null $membership                                         = null;
+    private Internal\WebHook\MergeGroup|null $mergeGroup                                         = null;
+    private Internal\WebHook\Meta|null $meta                                                     = null;
+    private Internal\WebHook\Milestone|null $milestone                                           = null;
+    private Internal\WebHook\OrgBlock|null $orgBlock                                             = null;
+    private Internal\WebHook\Organization|null $organization                                     = null;
+    private Internal\WebHook\Package|null $package                                               = null;
+    private Internal\WebHook\PageBuild|null $pageBuild                                           = null;
+    private Internal\WebHook\PersonalAccessTokenRequest|null $personalAccessTokenRequest         = null;
+    private Internal\WebHook\Ping|null $ping                                                     = null;
+    private Internal\WebHook\ProjectCard|null $projectCard                                       = null;
+    private Internal\WebHook\Project|null $project                                               = null;
+    private Internal\WebHook\ProjectColumn|null $projectColumn                                   = null;
+    private Internal\WebHook\ProjectsV2|null $projectsV2                                         = null;
+    private Internal\WebHook\ProjectsV2Item|null $projectsV2Item                                 = null;
+    private Internal\WebHook\ProjectsV2StatusUpdate|null $projectsV2StatusUpdate                 = null;
+    private Internal\WebHook\Public_|null $public                                                = null;
+    private Internal\WebHook\PullRequest|null $pullRequest                                       = null;
+    private Internal\WebHook\PullRequestReviewComment|null $pullRequestReviewComment             = null;
+    private Internal\WebHook\PullRequestReview|null $pullRequestReview                           = null;
+    private Internal\WebHook\PullRequestReviewThread|null $pullRequestReviewThread               = null;
+    private Internal\WebHook\Push|null $push                                                     = null;
+    private Internal\WebHook\RegistryPackage|null $registryPackage                               = null;
+    private Internal\WebHook\Release|null $release                                               = null;
+    private Internal\WebHook\RepositoryAdvisory|null $repositoryAdvisory                         = null;
+    private Internal\WebHook\Repository|null $repository                                         = null;
+    private Internal\WebHook\RepositoryDispatch|null $repositoryDispatch                         = null;
+    private Internal\WebHook\RepositoryImport|null $repositoryImport                             = null;
+    private Internal\WebHook\RepositoryRuleset|null $repositoryRuleset                           = null;
+    private Internal\WebHook\RepositoryVulnerabilityAlert|null $repositoryVulnerabilityAlert     = null;
+    private Internal\WebHook\SecretScanningAlert|null $secretScanningAlert                       = null;
+    private Internal\WebHook\SecretScanningAlertLocation|null $secretScanningAlertLocation       = null;
+    private Internal\WebHook\SecretScanningScan|null $secretScanningScan                         = null;
+    private Internal\WebHook\SecurityAdvisory|null $securityAdvisory                             = null;
+    private Internal\WebHook\SecurityAndAnalysis|null $securityAndAnalysis                       = null;
+    private Internal\WebHook\Sponsorship|null $sponsorship                                       = null;
+    private Internal\WebHook\Star|null $star                                                     = null;
+    private Internal\WebHook\Status|null $status                                                 = null;
+    private Internal\WebHook\SubIssues|null $subIssues                                           = null;
+    private Internal\WebHook\TeamAdd|null $teamAdd                                               = null;
+    private Internal\WebHook\Team|null $team                                                     = null;
+    private Internal\WebHook\Watch|null $watch                                                   = null;
+    private Internal\WebHook\WorkflowDispatch|null $workflowDispatch                             = null;
+    private Internal\WebHook\WorkflowJob|null $workflowJob                                       = null;
+    private Internal\WebHook\WorkflowRun|null $workflowRun                                       = null;
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly Internal\Hydrators $hydrator)
     {
@@ -192,27 +192,16 @@ final class WebHooks implements WebHooksInterface
 
         webhooks_aaaaf:
         try {
-            if ($this->exemptionRequestSecretScanningClosure instanceof Internal\WebHook\ExemptionRequestSecretScanningClosure === false) {
-                $this->exemptionRequestSecretScanningClosure = new Internal\WebHook\ExemptionRequestSecretScanningClosure($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ExemptionRequestSecretScanningClosure());
-            }
-
-            return $this->exemptionRequestSecretScanningClosure->resolve($headers, $data);
-        } catch (Throwable $error) {
-            goto webhooks_aaaag;
-        }
-
-        webhooks_aaaag:
-        try {
             if ($this->codeScanningAlert instanceof Internal\WebHook\CodeScanningAlert === false) {
                 $this->codeScanningAlert = new Internal\WebHook\CodeScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CodeScanningAlert());
             }
 
             return $this->codeScanningAlert->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaah;
+            goto webhooks_aaaag;
         }
 
-        webhooks_aaaah:
+        webhooks_aaaag:
         try {
             if ($this->commitComment instanceof Internal\WebHook\CommitComment === false) {
                 $this->commitComment = new Internal\WebHook\CommitComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CommitComment());
@@ -220,10 +209,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->commitComment->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaai;
+            goto webhooks_aaaah;
         }
 
-        webhooks_aaaai:
+        webhooks_aaaah:
         try {
             if ($this->create instanceof Internal\WebHook\Create === false) {
                 $this->create = new Internal\WebHook\Create($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Create());
@@ -231,10 +220,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->create->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaaj;
+            goto webhooks_aaaai;
         }
 
-        webhooks_aaaaj:
+        webhooks_aaaai:
         try {
             if ($this->customProperty instanceof Internal\WebHook\CustomProperty === false) {
                 $this->customProperty = new Internal\WebHook\CustomProperty($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CustomProperty());
@@ -242,10 +231,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->customProperty->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaak;
+            goto webhooks_aaaaj;
         }
 
-        webhooks_aaaak:
+        webhooks_aaaaj:
         try {
             if ($this->customPropertyValues instanceof Internal\WebHook\CustomPropertyValues === false) {
                 $this->customPropertyValues = new Internal\WebHook\CustomPropertyValues($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CustomPropertyValues());
@@ -253,10 +242,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->customPropertyValues->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaal;
+            goto webhooks_aaaak;
         }
 
-        webhooks_aaaal:
+        webhooks_aaaak:
         try {
             if ($this->delete instanceof Internal\WebHook\Delete === false) {
                 $this->delete = new Internal\WebHook\Delete($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Delete());
@@ -264,10 +253,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->delete->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaam;
+            goto webhooks_aaaal;
         }
 
-        webhooks_aaaam:
+        webhooks_aaaal:
         try {
             if ($this->dependabotAlert instanceof Internal\WebHook\DependabotAlert === false) {
                 $this->dependabotAlert = new Internal\WebHook\DependabotAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DependabotAlert());
@@ -275,10 +264,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->dependabotAlert->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaan;
+            goto webhooks_aaaam;
         }
 
-        webhooks_aaaan:
+        webhooks_aaaam:
         try {
             if ($this->deployKey instanceof Internal\WebHook\DeployKey === false) {
                 $this->deployKey = new Internal\WebHook\DeployKey($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeployKey());
@@ -286,10 +275,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->deployKey->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaao;
+            goto webhooks_aaaan;
         }
 
-        webhooks_aaaao:
+        webhooks_aaaan:
         try {
             if ($this->deployment instanceof Internal\WebHook\Deployment === false) {
                 $this->deployment = new Internal\WebHook\Deployment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Deployment());
@@ -297,10 +286,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->deployment->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaap;
+            goto webhooks_aaaao;
         }
 
-        webhooks_aaaap:
+        webhooks_aaaao:
         try {
             if ($this->deploymentProtectionRule instanceof Internal\WebHook\DeploymentProtectionRule === false) {
                 $this->deploymentProtectionRule = new Internal\WebHook\DeploymentProtectionRule($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeploymentProtectionRule());
@@ -308,10 +297,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->deploymentProtectionRule->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaaq;
+            goto webhooks_aaaap;
         }
 
-        webhooks_aaaaq:
+        webhooks_aaaap:
         try {
             if ($this->deploymentReview instanceof Internal\WebHook\DeploymentReview === false) {
                 $this->deploymentReview = new Internal\WebHook\DeploymentReview($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeploymentReview());
@@ -319,10 +308,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->deploymentReview->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaar;
+            goto webhooks_aaaaq;
         }
 
-        webhooks_aaaar:
+        webhooks_aaaaq:
         try {
             if ($this->deploymentStatus instanceof Internal\WebHook\DeploymentStatus === false) {
                 $this->deploymentStatus = new Internal\WebHook\DeploymentStatus($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeploymentStatus());
@@ -330,10 +319,10 @@ final class WebHooks implements WebHooksInterface
 
             return $this->deploymentStatus->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaas;
+            goto webhooks_aaaar;
         }
 
-        webhooks_aaaas:
+        webhooks_aaaar:
         try {
             if ($this->discussion instanceof Internal\WebHook\Discussion === false) {
                 $this->discussion = new Internal\WebHook\Discussion($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Discussion());
@@ -341,16 +330,27 @@ final class WebHooks implements WebHooksInterface
 
             return $this->discussion->resolve($headers, $data);
         } catch (Throwable $error) {
-            goto webhooks_aaaat;
+            goto webhooks_aaaas;
         }
 
-        webhooks_aaaat:
+        webhooks_aaaas:
         try {
             if ($this->discussionComment instanceof Internal\WebHook\DiscussionComment === false) {
                 $this->discussionComment = new Internal\WebHook\DiscussionComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DiscussionComment());
             }
 
             return $this->discussionComment->resolve($headers, $data);
+        } catch (Throwable $error) {
+            goto webhooks_aaaat;
+        }
+
+        webhooks_aaaat:
+        try {
+            if ($this->dismissalRequestSecretScanning instanceof Internal\WebHook\DismissalRequestSecretScanning === false) {
+                $this->dismissalRequestSecretScanning = new Internal\WebHook\DismissalRequestSecretScanning($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DismissalRequestSecretScanning());
+            }
+
+            return $this->dismissalRequestSecretScanning->resolve($headers, $data);
         } catch (Throwable $error) {
             goto webhooks_aaaau;
         }
