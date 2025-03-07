@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Actions\CreateHostedRun
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Image extends Schema\AliasAbstract\Tiet6A9F8EDD\Tiet84CC82D0\TietED377AFE\Tiet13E5F6AB
+final readonly class Image extends Schema\AliasAbstract\TietD6DD26DF\Tiet588726FC\Tiet040FB387\TietF5075E50
 {
 }
