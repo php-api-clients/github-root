@@ -628,7 +628,7 @@ assertType('', $client->call('POST /repos/{owner}/{repo}/check-suites/{check_sui
 assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
-assertType('', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
+assertType('Schema\\CodeScanningAlert', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
 assertType('Observable<Schema\\CodeScanningAnalysis>', $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses'));
