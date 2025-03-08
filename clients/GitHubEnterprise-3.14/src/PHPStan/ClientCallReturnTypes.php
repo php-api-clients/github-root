@@ -2552,7 +2552,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\CodeScanningAlert');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances') {
