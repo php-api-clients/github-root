@@ -353,10 +353,10 @@ final readonly class ExemptionRequest
     public string|null $requesterLogin, #[MapFrom('request_type')]
     public string|null $requestType, #[MapFrom('exemption_request_data')]
     #[ExemptionRequestData]
-    public Schema\ExemptionRequestPushRulesetBypass|Schema\ExemptionRequestSecretScanning|Schema\ExemptionRequestSecretScanningClosure|null $exemptionRequestData, #[MapFrom('resource_identifier')]
+    public Schema\ExemptionRequestPushRulesetBypass|Schema\ExemptionRequestSecretScanning|Schema\DismissalRequestSecretScanning|null $exemptionRequestData, #[MapFrom('resource_identifier')]
     public string|null $resourceIdentifier, public string|null $status, #[MapFrom('requester_comment')]
     public string|null $requesterComment, #[Metadata]
-    public Schema\ExemptionRequestSecretScanningMetadata|Schema\ExemptionRequestSecretScanningClosureMetadata|null $metadata, #[MapFrom('expires_at')]
+    public Schema\ExemptionRequestSecretScanningMetadata|Schema\DismissalRequestSecretScanningMetadata|null $metadata, #[MapFrom('expires_at')]
     public string|null $expiresAt, #[MapFrom('created_at')]
     public string|null $createdAt, public array|null $responses, #[MapFrom('html_url')]
     public string|null $htmlUrl,)
