@@ -84,7 +84,7 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -240,7 +240,7 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepoListing(array $params): iterable|WithoutBody
     {
         $arguments = [];

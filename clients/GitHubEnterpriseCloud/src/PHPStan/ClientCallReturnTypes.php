@@ -596,7 +596,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/actions') {
@@ -1864,11 +1864,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-token-requests') {
@@ -1888,11 +1888,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-tokens') {
@@ -2064,11 +2064,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'LIST /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /orgs/{org}/security-advisories') {
@@ -3048,7 +3048,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
-            return $this->typeResolver->resolve('Schema\\CodeScanningAlert');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix') {
@@ -4364,11 +4364,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}') {

@@ -803,6 +803,7 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\WebHook\DeploymentStatus|null $webHook🪝DeploymentStatus                                                                                                                                                                               = null;
     private Internal\Hydrator\WebHook\Discussion|null $webHook🪝Discussion                                                                                                                                                                                           = null;
     private Internal\Hydrator\WebHook\DiscussionComment|null $webHook🪝DiscussionComment                                                                                                                                                                             = null;
+    private Internal\Hydrator\WebHook\DismissalRequestCodeScanning|null $webHook🪝DismissalRequestCodeScanning                                                                                                                                                       = null;
     private Internal\Hydrator\WebHook\DismissalRequestSecretScanning|null $webHook🪝DismissalRequestSecretScanning                                                                                                                                                   = null;
     private Internal\Hydrator\WebHook\Fork|null $webHook🪝Fork                                                                                                                                                                                                       = null;
     private Internal\Hydrator\WebHook\GithubAppAuthorization|null $webHook🪝GithubAppAuthorization                                                                                                                                                                   = null;
@@ -8804,6 +8805,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->webHook🪝DiscussionComment;
+    }
+
+    public function getObjectMapperWebHook🪝DismissalRequestCodeScanning(): Internal\Hydrator\WebHook\DismissalRequestCodeScanning
+    {
+        if ($this->webHook🪝DismissalRequestCodeScanning instanceof Internal\Hydrator\WebHook\DismissalRequestCodeScanning === false) {
+            $this->webHook🪝DismissalRequestCodeScanning = new Internal\Hydrator\WebHook\DismissalRequestCodeScanning();
+        }
+
+        return $this->webHook🪝DismissalRequestCodeScanning;
     }
 
     public function getObjectMapperWebHook🪝DismissalRequestSecretScanning(): Internal\Hydrator\WebHook\DismissalRequestSecretScanning

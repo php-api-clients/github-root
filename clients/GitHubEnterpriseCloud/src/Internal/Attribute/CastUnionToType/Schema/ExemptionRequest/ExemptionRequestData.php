@@ -45,6 +45,13 @@ final class ExemptionRequestData implements PropertyCaster
                 } catch (Throwable) {
                 }
             }
+
+            if ($signature === 'data|type' && $value['type'] === 'code_scanning_alert_dismissal') {
+                try {
+                    return $hydrator->hydrateObject(Schema\DismissalRequestCodeScanning::class, $value);
+                } catch (Throwable) {
+                }
+            }
         }
 
         return $value;
