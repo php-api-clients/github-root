@@ -26,7 +26,6 @@ final class Seven
     {
     }
 
-    /** @return |Schema\CodeScanningAlert */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {

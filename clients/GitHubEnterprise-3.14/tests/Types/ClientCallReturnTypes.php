@@ -384,14 +384,14 @@ assertType('Observable<Schema\\PackageVersion>', $client->call('LIST /orgs/{org}
 assertType('', $client->call('GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}'));
 assertType('', $client->call('DELETE /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}'));
 assertType('', $client->call('POST /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore'));
-assertType('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>', $client->call('GET /orgs/{org}/personal-access-token-requests'));
-assertType('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>', $client->call('LIST /orgs/{org}/personal-access-token-requests'));
+assertType('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>', $client->call('GET /orgs/{org}/personal-access-token-requests'));
+assertType('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>', $client->call('LIST /orgs/{org}/personal-access-token-requests'));
 assertType('', $client->call('POST /orgs/{org}/personal-access-token-requests'));
 assertType('', $client->call('POST /orgs/{org}/personal-access-token-requests/{pat_request_id}'));
 assertType('Observable<Schema\\MinimalRepository>', $client->call('GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories'));
 assertType('Observable<Schema\\MinimalRepository>', $client->call('LIST /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories'));
-assertType('Observable<Schema\\OrganizationProgrammaticAccessGrant>', $client->call('GET /orgs/{org}/personal-access-tokens'));
-assertType('Observable<Schema\\OrganizationProgrammaticAccessGrant>', $client->call('LIST /orgs/{org}/personal-access-tokens'));
+assertType('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>', $client->call('GET /orgs/{org}/personal-access-tokens'));
+assertType('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>', $client->call('LIST /orgs/{org}/personal-access-tokens'));
 assertType('', $client->call('POST /orgs/{org}/personal-access-tokens'));
 assertType('', $client->call('POST /orgs/{org}/personal-access-tokens/{pat_id}'));
 assertType('Observable<Schema\\MinimalRepository>', $client->call('GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories'));
@@ -644,7 +644,7 @@ assertType('', $client->call('POST /repos/{owner}/{repo}/check-suites/{check_sui
 assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
-assertType('Schema\\CodeScanningAlert', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
+assertType('', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
 assertType('Observable<Schema\\CodeScanningAnalysis>', $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses'));
