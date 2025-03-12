@@ -39,7 +39,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -177,7 +177,7 @@ final class SecretScanning
         return $operator->call($arguments['org'], $arguments['repository_name'], $arguments['reviewer'], $arguments['requester'], $arguments['time_period'], $arguments['request_status'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -321,7 +321,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['reviewer'], $arguments['requester'], $arguments['time_period'], $arguments['request_status'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
