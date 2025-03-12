@@ -1512,11 +1512,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-token-requests') {
@@ -1536,11 +1536,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-tokens') {
@@ -2552,7 +2552,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
-            return $this->typeResolver->resolve('Schema\\CodeScanningAlert');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances') {
