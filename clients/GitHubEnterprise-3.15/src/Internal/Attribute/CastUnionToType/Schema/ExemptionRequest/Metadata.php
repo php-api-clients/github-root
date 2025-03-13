@@ -38,6 +38,13 @@ final class Metadata implements PropertyCaster
                 } catch (Throwable) {
                 }
             }
+
+            if ($signature === 'alert_title|reason' && ($value['reason'] === 'false positive' || $value['reason'] === 'won\'t fix' || $value['reason'] === 'used in tests')) {
+                try {
+                    return $hydrator->hydrateObject(Schema\DismissalRequestCodeScanningMetadata::class, $value);
+                } catch (Throwable) {
+                }
+            }
         }
 
         return $value;
