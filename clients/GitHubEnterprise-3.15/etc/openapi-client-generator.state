@@ -1,5 +1,5 @@
 {
-    "specHash": "8ccdb4a501a9f3713872e86b010424b2",
+    "specHash": "677a17027c4f55b2f25358b32f865398",
     "generatedFiles": {
         "files": [
             {
@@ -4272,7 +4272,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/ListPatGrantRequests.php",
-                "hash": "4e67d9d6ce9a2cf0b6980f23c480b391"
+                "hash": "5f758e5c2b1fcdd006b97c25182a06a4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/ListPatGrantRequestsTest.php",
@@ -4284,7 +4284,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/ListPatGrantRequestsListing.php",
-                "hash": "36ff151ed2c5b36a2cc34e1b2a1281d5"
+                "hash": "533974ec95b08c70a8028ea0d25b242d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/ListPatGrantRequestsListingTest.php",
@@ -4344,7 +4344,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/ListPatGrants.php",
-                "hash": "497c0085cca27a6ec26b3f8379d09438"
+                "hash": "2b851bcecfb9547172ba6b0a1e7be9e8"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/ListPatGrantsTest.php",
@@ -4356,7 +4356,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/ListPatGrantsListing.php",
-                "hash": "61bd7a0b9ef00af7fa12baf5c0e9269b"
+                "hash": "534eefc97115d96604356db177f1ea60"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/ListPatGrantsListingTest.php",
@@ -15412,15 +15412,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/ExemptionRequest\/ExemptionRequestData.php",
-                "hash": "be43c3a32b264a082842b4342eeed775"
+                "hash": "630aaa7c462f1f8ac3b7dc762b0274f9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/ExemptionRequest\/Metadata.php",
-                "hash": "988efed4f7c1c3059ab0f63d472321a6"
+                "hash": "2db6608072013591833bb1eefee7f138"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/ExemptionRequest.php",
-                "hash": "bc1f73d90a1b2bbdf5c6f1ecdf0d6ce4"
+                "hash": "7f16f5ebd1e113037dfa8f60661ad196"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/SimpleCheckSuite.php",
@@ -16352,23 +16352,23 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookExemptionRequestCancelled.php",
-                "hash": "a5d270af8f199e394545787b17031809"
+                "hash": "07efa6c60cc59ceb932a8b227ccca457"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookExemptionRequestCompleted.php",
-                "hash": "7e6b984ee9b3db5f5947b78f88320dc3"
+                "hash": "a8932e208f88e46bb15d2eb41aae1299"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookExemptionRequestCreated.php",
-                "hash": "ee70bfc5bf34bcfd0b5896b52303a0e9"
+                "hash": "72f8cb106f6032260ea366280b8c0028"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookExemptionRequestResponseDismissed.php",
-                "hash": "8066599162870eca90dd7350767037da"
+                "hash": "46ca7d2591c92453bfec0a959b78941a"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookExemptionRequestResponseSubmitted.php",
-                "hash": "cb0534a40782bde7522118e3a44aa1c9"
+                "hash": "cb857458c0e67d8042764ba341fcc1f6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/WebhookCacheSync.php",
@@ -26688,7 +26688,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Orgs.php",
-                "hash": "c2103c417109e65daefb788d4d044b2b"
+                "hash": "061f675647976c6e46cdeac9dd170acf"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Projects.php",
@@ -26816,7 +26816,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/List\/Orgs.php",
-                "hash": "fe915073dd20ac9e0bd3af6896a8f2e1"
+                "hash": "9295541ad8dc82883d7446b5d0d8331d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/List\/Packages.php",
@@ -27204,7 +27204,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Four.php",
-                "hash": "77132d82de37d4a914871c73ed260ea6"
+                "hash": "0df2313d2ca2fc823fc59cd77bd702c0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
@@ -27244,7 +27244,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/List\/Four.php",
-                "hash": "c7fcf27978087b538f54168ae104169e"
+                "hash": "04d7bebd979765b12c9ded734740a97c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Internal\/Router\/List\/Five.php",
@@ -27420,11 +27420,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "cae8eedbfafb74504e2f97368eb06b8a"
+                "hash": "057a0e66c0fac8be025f4333a6d16a9b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "ca6c94753ea5e868309a31332ef5aa75"
+                "hash": "0afba759e55aef88b3e3a19ce1993b10"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27468,11 +27468,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "8d74cb0767902bc248a4b84f9db34c5a"
+                "hash": "035196723d9518e17e7f016fa71af9c8"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
-                "hash": "5630a64685366f3b537afb167d9b15fe"
+                "hash": "75160b9f5f6f722926af37274c9fa6a9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
@@ -27508,7 +27508,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "85f8bc406864c609810412e42770f9d6"
+                "hash": "4c37fe0f87641c8622f16e7d398ede54"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -30309,6 +30309,18 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/DismissalRequestSecretScanning\/Data.php",
                 "hash": "2a8bbc4780615e5e98d79b6596143aaf"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/DismissalRequestCodeScanning.php",
+                "hash": "9adb78f88e2982668c79bfbee9596494"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/DismissalRequestCodeScanningMetadata.php",
+                "hash": "ff675f73e5868c84fed18d108b627eab"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.15\/etc\/..\/\/src\/\/Schema\/DismissalRequestCodeScanning\/Data.php",
+                "hash": "c5256812e36ed09e4c61b38815996b3c"
             }
         ]
     },
