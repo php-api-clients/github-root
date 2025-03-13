@@ -42,7 +42,8 @@ final readonly class ExemptionRequest
             "enum": [
                 "push_ruleset_bypass",
                 "secret_scanning",
-                "secret_scanning_closure"
+                "secret_scanning_closure",
+                "code_scanning_alert_dismissal"
             ],
             "type": "string",
             "description": "The type of request."
@@ -166,6 +167,33 @@ final readonly class ExemptionRequest
                         }
                     },
                     "description": "Secret scanning alerts that have dismissal requests."
+                },
+                {
+                    "title": "Code scanning alert dismissal request data",
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "code_scanning_alert_dismissal"
+                            ],
+                            "type": "string",
+                            "description": "The type of request"
+                        },
+                        "data": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "alert_number": {
+                                        "type": "string",
+                                        "description": "The number of the alert to be dismissed"
+                                    }
+                                }
+                            },
+                            "description": "The data related to the code scanning alerts that have dismissal requests."
+                        }
+                    },
+                    "description": "Code scanning alerts that have dismissal requests."
                 }
             ]
         },
@@ -198,7 +226,7 @@ final readonly class ExemptionRequest
                 "object",
                 "null"
             ],
-            "oneOf": [
+            "anyOf": [
                 {
                     "title": "Secret Scanning Push Protection Exemption Request Metadata",
                     "type": "object",
@@ -239,6 +267,26 @@ final readonly class ExemptionRequest
                         }
                     },
                     "description": "Metadata for a secret scanning alert dismissal request."
+                },
+                {
+                    "title": "Code scanning alert dismissal request metadata",
+                    "type": "object",
+                    "properties": {
+                        "alert_title": {
+                            "type": "string",
+                            "description": "The title of the code scanning alert"
+                        },
+                        "reason": {
+                            "enum": [
+                                "false positive",
+                                "won\'t fix",
+                                "used in tests"
+                            ],
+                            "type": "string",
+                            "description": "The reason for the dismissal request"
+                        }
+                    },
+                    "description": "Metadata for a code scanning alert dismissal request."
                 }
             ],
             "description": "Metadata about the exemption request."
@@ -319,7 +367,7 @@ final readonly class ExemptionRequest
     "repository_id": 13,
     "requester_id": 12,
     "requester_login": "generated",
-    "request_type": "secret_scanning_closure",
+    "request_type": "code_scanning_alert_dismissal",
     "exemption_request_data": null,
     "resource_identifier": "827efc6d56897b048c772eb4087f854f46256132",
     "status": "completed",
@@ -353,10 +401,10 @@ final readonly class ExemptionRequest
     public string|null $requesterLogin, #[MapFrom('request_type')]
     public string|null $requestType, #[MapFrom('exemption_request_data')]
     #[ExemptionRequestData]
-    public Schema\ExemptionRequestPushRulesetBypass|Schema\ExemptionRequestSecretScanning|Schema\DismissalRequestSecretScanning|null $exemptionRequestData, #[MapFrom('resource_identifier')]
+    public Schema\ExemptionRequestPushRulesetBypass|Schema\ExemptionRequestSecretScanning|Schema\DismissalRequestSecretScanning|Schema\DismissalRequestCodeScanning|null $exemptionRequestData, #[MapFrom('resource_identifier')]
     public string|null $resourceIdentifier, public string|null $status, #[MapFrom('requester_comment')]
     public string|null $requesterComment, #[Metadata]
-    public Schema\ExemptionRequestSecretScanningMetadata|Schema\DismissalRequestSecretScanningMetadata|null $metadata, #[MapFrom('expires_at')]
+    public Schema\ExemptionRequestSecretScanningMetadata|Schema\DismissalRequestSecretScanningMetadata|Schema\DismissalRequestCodeScanningMetadata|null $metadata, #[MapFrom('expires_at')]
     public string|null $expiresAt, #[MapFrom('created_at')]
     public string|null $createdAt, public array|null $responses, #[MapFrom('html_url')]
     public string|null $htmlUrl,)
