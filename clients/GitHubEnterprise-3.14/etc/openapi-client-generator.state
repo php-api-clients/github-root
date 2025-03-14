@@ -1,5 +1,5 @@
 {
-    "specHash": "b1c711111d09784b5c8eea125320b49b",
+    "specHash": "d38aae92477e79392ec7b388fbc01e51",
     "generatedFiles": {
         "files": [
             {
@@ -13624,7 +13624,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Runner.php",
-                "hash": "2f4bed515d57bfe134f8006c9b0d8bae"
+                "hash": "ec7dc14a6dcb7cbcfa9f22fc37986b8d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/RunnerApplication.php",
@@ -24896,15 +24896,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListSelfHostedRunnersInGroupForOrg\/Response\/ApplicationJson\/Ok.php",
-                "hash": "b52b42afc85216da61adf5db4125d518"
+                "hash": "e25fe5d3296aebfca78f8c134fcfab17"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListSelfHostedRunnersInGroupForOrg\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
-                "hash": "c1b1abee2db6633ba9404898f4eed0a5"
+                "hash": "579388c634aa9679ee6faed0488b859c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/EnterpriseAdmin\/ListSelfHostedRunnersInGroupForEnterprise\/Response\/ApplicationJson\/Ok.php",
-                "hash": "0b041faee00db7e3fe93cfc1f107541e"
+                "hash": "91ba52c253523f2c98c6359621e6cf94"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietC1ED0A10\/Tiet2CE6A484\/Tiet45FE9908\/TietC65D2293.php",
@@ -24920,7 +24920,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/EnterpriseAdmin\/ListSelfHostedRunnersForEnterprise\/Response\/ApplicationJson\/Ok.php",
-                "hash": "8e2de84788846c36fc73647fbc66fe97"
+                "hash": "486e153368c9b5433530c5e6eb1f78e5"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietF690ED31\/TietD3330210\/Tiet500A0F49\/Tiet18AD180E.php",
@@ -24940,7 +24940,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/GenerateRunnerJitconfigForEnterprise\/Response\/ApplicationJson\/Created.php",
-                "hash": "6de95362f175b4f184556f6c7a9fff3f"
+                "hash": "694bef3dd0b2d3af767d69444859aff2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet465FFE22\/Tiet83692C35\/TietB7E35CD3\/TietF31B8C6B.php",
@@ -25228,15 +25228,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListSelfHostedRunnersForRepo\/Response\/ApplicationJson\/Ok.php",
-                "hash": "9478e6c54a9741cc463a7f83f6f13d97"
+                "hash": "d2c8077345c9bca04bcdd1d4e1865186"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListSelfHostedRunnersForRepo\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
-                "hash": "5c2d68f664a7dc769be0e4eee088aca4"
+                "hash": "0c5036f86013a1925fd42bcf8a6bb9e7"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListSelfHostedRunnersForOrg\/Response\/ApplicationJson\/Ok.php",
-                "hash": "7ad189d15ce0b4bd72f7fb86fefd7bad"
+                "hash": "90245965e5aeef1f7dea26c7492bea36"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Operations\/Actions\/ListOrgSecrets\/Response\/ApplicationJson\/Ok.php",
@@ -27528,7 +27528,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "4c37fe0f87641c8622f16e7d398ede54"
+                "hash": "56af8554e97dd9299b51cdf93b471663"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -30263,14 +30263,6 @@
                 "hash": "d40638f97574f7a84a0e52535948cc82"
             },
             {
-                "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietED690D6D\/Tiet788B85F7\/Tiet90BDCBBD\/Tiet6547B867.php",
-                "hash": "ff58fe753d363c5aaf8f3621b0726c2a"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietEAB1E353\/TietA691FF98\/TietCADB7922\/TietA4382CA1.php",
-                "hash": "c57517b93469a1558cb104c0b535b6c4"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/WebhookCodeScanningAlertClosedByUser\/Alert\/DismissalApprovedBy.php",
                 "hash": "b21a2b229d82f916d8ec095470db0021"
             },
@@ -30313,6 +30305,14 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/DismissalRequestCodeScanning\/Data.php",
                 "hash": "c5256812e36ed09e4c61b38815996b3c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietF71405B1\/Tiet858A5095\/Tiet77E03F50\/TietEFE21D34.php",
+                "hash": "df6969ddaed0d9174610c6a45bd05df8"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietE8D41C9A\/Tiet1255E585\/Tiet44FA9DEE\/Tiet93E2B36C.php",
+                "hash": "89f95f050fae650bab31b0847d250e79"
             }
         ]
     },
