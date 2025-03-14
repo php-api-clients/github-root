@@ -228,7 +228,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\OrganizationProgrammaticAccessGrantRequest> */
+    /** @return Observable<Schema\OrganizationProgrammaticAccessGrantRequest> */
     public function listPatGrantRequestsListing(array $params): iterable
     {
         $arguments = [];
@@ -309,7 +309,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\OrganizationProgrammaticAccessGrant> */
+    /** @return Observable<Schema\OrganizationProgrammaticAccessGrant> */
     public function listPatGrantsListing(array $params): iterable
     {
         $arguments = [];
