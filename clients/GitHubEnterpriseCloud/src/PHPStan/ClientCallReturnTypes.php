@@ -1864,11 +1864,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-token-requests') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrantRequest>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrantRequest>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-token-requests') {
@@ -1888,11 +1888,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'LIST /orgs/{org}/personal-access-tokens') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationProgrammaticAccessGrant>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationProgrammaticAccessGrant>');
         }
 
         if ($call === 'POST /orgs/{org}/personal-access-tokens') {

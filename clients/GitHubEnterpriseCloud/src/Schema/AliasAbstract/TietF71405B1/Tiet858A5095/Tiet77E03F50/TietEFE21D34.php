@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\TietED690D6D\Tiet788B85F7\Tiet90BDCBBD;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\TietF71405B1\Tiet858A5095\Tiet77E03F50;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet6547B867
+abstract readonly class TietEFE21D34
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -34,14 +34,14 @@ abstract readonly class Tiet6547B867
                 "properties": {
                     "id": {
                         "type": "integer",
-                        "description": "The id of the runner.",
+                        "description": "The ID of the runner.",
                         "examples": [
                             5
                         ]
                     },
                     "runner_group_id": {
                         "type": "integer",
-                        "description": "The id of the runner group.",
+                        "description": "The ID of the runner group.",
                         "examples": [
                             1
                         ]
