@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietED690D6D\Tiet788B85F7\Tiet90BDCBBD;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietE8D41C9A\Tiet1255E585\Tiet44FA9DEE;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet6547B867
+abstract readonly class Tiet93E2B36C
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -16,7 +16,7 @@ abstract readonly class Tiet6547B867
     "type": "object",
     "properties": {
         "total_count": {
-            "type": "number"
+            "type": "integer"
         },
         "runners": {
             "type": "array",
@@ -34,14 +34,14 @@ abstract readonly class Tiet6547B867
                 "properties": {
                     "id": {
                         "type": "integer",
-                        "description": "The id of the runner.",
+                        "description": "The ID of the runner.",
                         "examples": [
                             5
                         ]
                     },
                     "runner_group_id": {
                         "type": "integer",
-                        "description": "The id of the runner group.",
+                        "description": "The ID of the runner group.",
                         "examples": [
                             1
                         ]
@@ -111,7 +111,7 @@ abstract readonly class Tiet6547B867
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 1.1,
+    "total_count": 11,
     "runners": [
         {
             "id": 5,
@@ -159,7 +159,7 @@ abstract readonly class Tiet6547B867
 }';
 
     public function __construct(#[MapFrom('total_count')]
-    public int|float $totalCount, public array $runners,)
+    public int $totalCount, public array $runners,)
     {
     }
 }
