@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Migration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\NetworkConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
@@ -32,7 +33,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|NetworkConfiguration|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
+    /** @return |Schema\IssueType */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|NetworkConfiguration|RepositoryRuleset|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|IssueType|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|OrgPrivateRegistryConfigurationWithSelectedRepositories|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -92,6 +94,10 @@ final class Four
                     } elseif ($pathChunks[3] === 'invitations') {
                         if ($call === 'POST /orgs/{org}/invitations') {
                             return $this->routers->internal🔀Router🔀Post🔀Orgs()->createInvitation($params);
+                        }
+                    } elseif ($pathChunks[3] === 'issue-types') {
+                        if ($call === 'POST /orgs/{org}/issue-types') {
+                            return $this->routers->internal🔀Router🔀Post🔀Orgs()->createIssueType($params);
                         }
                     } elseif ($pathChunks[3] === 'migrations') {
                         if ($call === 'POST /orgs/{org}/migrations') {

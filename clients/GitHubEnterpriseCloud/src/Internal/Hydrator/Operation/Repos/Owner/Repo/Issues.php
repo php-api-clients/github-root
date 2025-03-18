@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable;
@@ -60,6 +61,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Milestone($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -567,6 +569,26 @@ class Issues implements ObjectMapper
             $properties['timelineUrl'] = $value;
 
             after_timelineUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'type';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
 
             $value = $payload['repository'] ?? null;
 
@@ -1209,6 +1231,113 @@ class Issues implements ObjectMapper
             return new PullRequest(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType(array $payload): IssueType
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['color'] ?? null;
+
+            if ($value === null) {
+                $properties['color'] = null;
+                goto after_color;
+            }
+
+            $properties['color'] = $value;
+
+            after_color:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $properties['createdAt'] = null;
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $properties['updatedAt'] = null;
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
+
+            $value = $payload['is_enabled'] ?? null;
+
+            if ($value === null) {
+                $properties['isEnabled'] = null;
+                goto after_isEnabled;
+            }
+
+            $properties['isEnabled'] = $value;
+
+            after_isEnabled:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(IssueType::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new IssueType(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -3119,6 +3248,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Milestone($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($object),
@@ -3443,6 +3573,15 @@ class Issues implements ObjectMapper
 
         after_timelineUrl:        $result['timeline_url'] = $timelineUrl;
 
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+
+        $type                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($type);
+        after_type:        $result['type'] = $type;
+
         $repository = $object->repository;
 
         if ($repository === null) {
@@ -3705,6 +3844,63 @@ class Issues implements ObjectMapper
         }
 
         after_url:        $result['url'] = $url;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType(mixed $object): mixed
+    {
+        assert($object instanceof IssueType);
+        $result = [];
+
+        $id                            = $object->id;
+        after_id:        $result['id'] = $id;
+
+        $nodeId                                 = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        $name                              = $object->name;
+        after_name:        $result['name'] = $name;
+
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+
+        after_description:        $result['description'] = $description;
+
+        $color = $object->color;
+
+        if ($color === null) {
+            goto after_color;
+        }
+
+        after_color:        $result['color'] = $color;
+
+        $createdAt = $object->createdAt;
+
+        if ($createdAt === null) {
+            goto after_createdAt;
+        }
+
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        $updatedAt = $object->updatedAt;
+
+        if ($updatedAt === null) {
+            goto after_updatedAt;
+        }
+
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+        $isEnabled = $object->isEnabled;
+
+        if ($isEnabled === null) {
+            goto after_isEnabled;
+        }
+
+        after_isEnabled:        $result['is_enabled'] = $isEnabled;
 
         return $result;
     }
