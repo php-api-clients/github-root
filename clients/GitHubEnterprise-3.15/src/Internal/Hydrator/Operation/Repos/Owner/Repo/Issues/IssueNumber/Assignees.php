@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest;
+use ApiClients\Client\GitHubEnterprise\Schema\IssueType;
 use ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\Milestone;
 use ApiClients\Client\GitHubEnterprise\Schema\ReactionRollup;
@@ -54,6 +55,7 @@ class Assignees implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Milestone($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\IssueType' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -444,6 +446,26 @@ class Assignees implements ObjectMapper
             $properties['timelineUrl'] = $value;
 
             after_timelineUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'type';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
 
             $value = $payload['repository'] ?? null;
 
@@ -1086,6 +1108,113 @@ class Assignees implements ObjectMapper
             return new PullRequest(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType(array $payload): IssueType
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['color'] ?? null;
+
+            if ($value === null) {
+                $properties['color'] = null;
+                goto after_color;
+            }
+
+            $properties['color'] = $value;
+
+            after_color:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $properties['createdAt'] = null;
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $properties['updatedAt'] = null;
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
+
+            $value = $payload['is_enabled'] ?? null;
+
+            if ($value === null) {
+                $properties['isEnabled'] = null;
+                goto after_isEnabled;
+            }
+
+            $properties['isEnabled'] = $value;
+
+            after_isEnabled:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\IssueType', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(IssueType::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new IssueType(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\IssueType', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2857,6 +2986,7 @@ class Assignees implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Milestone($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\IssueType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($object),
@@ -3109,6 +3239,15 @@ class Assignees implements ObjectMapper
         }
 
         after_timelineUrl:        $result['timeline_url'] = $timelineUrl;
+
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+
+        $type                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType($type);
+        after_type:        $result['type'] = $type;
 
         $repository = $object->repository;
 
@@ -3372,6 +3511,63 @@ class Assignees implements ObjectMapper
         }
 
         after_url:        $result['url'] = $url;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueType(mixed $object): mixed
+    {
+        assert($object instanceof IssueType);
+        $result = [];
+
+        $id                            = $object->id;
+        after_id:        $result['id'] = $id;
+
+        $nodeId                                 = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        $name                              = $object->name;
+        after_name:        $result['name'] = $name;
+
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+
+        after_description:        $result['description'] = $description;
+
+        $color = $object->color;
+
+        if ($color === null) {
+            goto after_color;
+        }
+
+        after_color:        $result['color'] = $color;
+
+        $createdAt = $object->createdAt;
+
+        if ($createdAt === null) {
+            goto after_createdAt;
+        }
+
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        $updatedAt = $object->updatedAt;
+
+        if ($updatedAt === null) {
+            goto after_updatedAt;
+        }
+
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+        $isEnabled = $object->isEnabled;
+
+        if ($isEnabled === null) {
+            goto after_isEnabled;
+        }
+
+        after_isEnabled:        $result['is_enabled'] = $isEnabled;
 
         return $result;
     }
