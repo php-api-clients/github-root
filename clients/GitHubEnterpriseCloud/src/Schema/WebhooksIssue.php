@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class WebhooksIssue extends Schema\AliasAbstract\Tiet1C2726FB\TietF6272968\Tiet3A73798C\Tiet25DBF1C9
+final readonly class WebhooksIssue extends Schema\AliasAbstract\TietB36AF9FB\Tiet084E90A3\TietC038C733\TietA4C8FBB4
 {
 }
