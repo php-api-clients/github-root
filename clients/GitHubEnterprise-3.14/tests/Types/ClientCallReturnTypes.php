@@ -335,8 +335,8 @@ assertType('', $client->call('POST /orgs/{org}/hooks/{hook_id}/deliveries/{deliv
 assertType('', $client->call('POST /orgs/{org}/hooks/{hook_id}/pings'));
 assertType('', $client->call('GET /orgs/{org}/installation'));
 assertType('', $client->call('GET /orgs/{org}/installations'));
-assertType('Observable<Schema\\Issue>', $client->call('GET /orgs/{org}/issues'));
-assertType('Observable<Schema\\Issue>', $client->call('LIST /orgs/{org}/issues'));
+assertType('iterable<int,Schema\\Issue>', $client->call('GET /orgs/{org}/issues'));
+assertType('iterable<int,Schema\\Issue>', $client->call('LIST /orgs/{org}/issues'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('GET /orgs/{org}/members'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('LIST /orgs/{org}/members'));
 assertType('', $client->call('GET /orgs/{org}/members/{username}'));
@@ -772,8 +772,8 @@ assertType('Observable<Schema\\RepositoryInvitation>', $client->call('GET /repos
 assertType('Observable<Schema\\RepositoryInvitation>', $client->call('LIST /repos/{owner}/{repo}/invitations'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/invitations/{invitation_id}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/invitations/{invitation_id}'));
-assertType('Observable<Schema\\Issue>|Schema\\BasicError', $client->call('GET /repos/{owner}/{repo}/issues'));
-assertType('Observable<Schema\\Issue>|Schema\\BasicError', $client->call('LIST /repos/{owner}/{repo}/issues'));
+assertType('iterable<int,Schema\\Issue>|Schema\\BasicError', $client->call('GET /repos/{owner}/{repo}/issues'));
+assertType('iterable<int,Schema\\Issue>|Schema\\BasicError', $client->call('LIST /repos/{owner}/{repo}/issues'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/issues'));
 assertType('Observable<Schema\\IssueComment>', $client->call('GET /repos/{owner}/{repo}/issues/comments'));
 assertType('Observable<Schema\\IssueComment>', $client->call('LIST /repos/{owner}/{repo}/issues/comments'));
