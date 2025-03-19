@@ -85,6 +85,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createIssueType(array $params): IssueType
     {
         $arguments = [];

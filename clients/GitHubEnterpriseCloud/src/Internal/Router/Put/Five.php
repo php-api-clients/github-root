@@ -26,7 +26,6 @@ final class Five
     {
     }
 
-    /** @return |Schema\IssueType */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|RepositoryRuleset|ThreadSubscription|IssueType|OrgMembership|Json|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|TeamMembership|EmptyObject
     {
         if ($pathChunks[0] === '') {

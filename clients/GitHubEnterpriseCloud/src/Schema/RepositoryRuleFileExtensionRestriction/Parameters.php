@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset\Rules\Seventeen;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleFileExtensionRestriction;
 
 use EventSauce\ObjectHydrator\MapFrom;
 

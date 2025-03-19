@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset\Rules\Fifteen;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleFilePathRestriction;
 
 use EventSauce\ObjectHydrator\MapFrom;
 

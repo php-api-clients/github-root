@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset\Rules\Sixteen;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleMaxFilePathLength;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
