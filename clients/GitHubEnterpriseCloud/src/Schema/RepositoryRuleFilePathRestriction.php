@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset\Rules;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Fifteen
+final readonly class RepositoryRuleFilePathRestriction
 {
     public const SCHEMA_JSON         = '{
     "title": "file_path_restriction",
@@ -51,7 +51,7 @@ final readonly class Fifteen
     }
 }';
 
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Fifteen\Parameters|null $parameters)
+    public function __construct(public string $type, public Schema\RepositoryRuleFilePathRestriction\Parameters|null $parameters)
     {
     }
 }
