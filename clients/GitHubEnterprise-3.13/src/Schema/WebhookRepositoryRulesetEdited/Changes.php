@@ -325,6 +325,11 @@ final readonly class Changes
                                             "allowed_merge_methods": {
                                                 "type": "array",
                                                 "items": {
+                                                    "enum": [
+                                                        "merge",
+                                                        "squash",
+                                                        "rebase"
+                                                    ],
                                                     "type": "string"
                                                 },
                                                 "description": "Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled."
@@ -880,6 +885,11 @@ final readonly class Changes
                                             "allowed_merge_methods": {
                                                 "type": "array",
                                                 "items": {
+                                                    "enum": [
+                                                        "merge",
+                                                        "squash",
+                                                        "rebase"
+                                                    ],
                                                     "type": "string"
                                                 },
                                                 "description": "Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled."
@@ -1438,6 +1448,11 @@ final readonly class Changes
                                                     "allowed_merge_methods": {
                                                         "type": "array",
                                                         "items": {
+                                                            "enum": [
+                                                                "merge",
+                                                                "squash",
+                                                                "rebase"
+                                                            ],
                                                             "type": "string"
                                                         },
                                                         "description": "Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled."
