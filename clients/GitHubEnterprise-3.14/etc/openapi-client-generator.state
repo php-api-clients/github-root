@@ -1,5 +1,5 @@
 {
-    "specHash": "8137cb0f7b4d2c9a7e11798086b95b2a",
+    "specHash": "17c2c7428f307a53f2d8a29fc0b52750",
     "generatedFiles": {
         "files": [
             {
@@ -26264,7 +26264,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Issues\/Create\/Request\/ApplicationJson.php",
-                "hash": "335cc418a5e348ab8d9aef4140dbd513"
+                "hash": "3de07eb2a6b048784a27635795fa683f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietC87B405D\/Tiet9B9DED8B\/Tiet852071AE\/Tiet1AF85D12.php",
@@ -26296,7 +26296,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Issues\/Update\/Request\/ApplicationJson.php",
-                "hash": "1244e5dcd3e4cb57a5e95343282e8b0f"
+                "hash": "58462d123a3e94dec71dec93af21fee2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Schema\/Issues\/AddAssignees\/Request\/ApplicationJson.php",
@@ -27504,7 +27504,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/Issues.php",
-                "hash": "2b1c01814ea22ab3511d57bfefb43f7f"
+                "hash": "943f6c18c2b153af47e046f85548c3d3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.14\/etc\/..\/\/src\/\/Operation\/Licenses.php",
