@@ -129,6 +129,7 @@ final readonly class PushRuleBypassRequest
                 "cancelled",
                 "completed",
                 "expired",
+                "deleted",
                 "open"
             ],
             "type": "string",
