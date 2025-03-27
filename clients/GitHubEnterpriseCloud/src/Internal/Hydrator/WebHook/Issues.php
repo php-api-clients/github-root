@@ -34,10 +34,12 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesReopened;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewIssue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTyped;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnassigned;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlabeled;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnpinned;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUntyped;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksIssue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksIssue\Assignee;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksIssue\Milestone;
@@ -272,6 +274,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTyped' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTyped($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnassigned' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnassigned($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUserMannequin' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUserMannequin($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlabeled($payload),
@@ -288,6 +291,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\SubIssuesSummary' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️SubIssuesSummary($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️User($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnpinned' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnpinned($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUntyped' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUntyped($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($payload),
@@ -42266,6 +42270,176 @@ class Issues implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTyped(array $payload): WebhookIssuesTyped
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['action'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'action';
+                goto after_action;
+            }
+
+            $properties['action'] = $value;
+
+            after_action:
+
+            $value = $payload['enterprise'] ?? null;
+
+            if ($value === null) {
+                $properties['enterprise'] = null;
+                goto after_enterprise;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'enterprise';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['enterprise'] = $value;
+
+            after_enterprise:
+
+            $value = $payload['installation'] ?? null;
+
+            if ($value === null) {
+                $properties['installation'] = null;
+                goto after_installation;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'installation';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['installation'] = $value;
+
+            after_installation:
+
+            $value = $payload['issue'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'issue';
+                goto after_issue;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'issue';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksIssue($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['issue'] = $value;
+
+            after_issue:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'type';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['organization'] ?? null;
+
+            if ($value === null) {
+                $properties['organization'] = null;
+                goto after_organization;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'organization';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['organization'] = $value;
+
+            after_organization:
+
+            $value = $payload['repository'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repository';
+                goto after_repository;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'repository';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['repository'] = $value;
+
+            after_repository:
+
+            $value = $payload['sender'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'sender';
+                goto after_sender;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'sender';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['sender'] = $value;
+
+            after_sender:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTyped', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(WebhookIssuesTyped::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new WebhookIssuesTyped(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTyped', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnassigned(array $payload): WebhookIssuesUnassigned
     {
         $properties    = [];
@@ -45686,6 +45860,176 @@ class Issues implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUntyped(array $payload): WebhookIssuesUntyped
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['action'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'action';
+                goto after_action;
+            }
+
+            $properties['action'] = $value;
+
+            after_action:
+
+            $value = $payload['enterprise'] ?? null;
+
+            if ($value === null) {
+                $properties['enterprise'] = null;
+                goto after_enterprise;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'enterprise';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['enterprise'] = $value;
+
+            after_enterprise:
+
+            $value = $payload['installation'] ?? null;
+
+            if ($value === null) {
+                $properties['installation'] = null;
+                goto after_installation;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'installation';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['installation'] = $value;
+
+            after_installation:
+
+            $value = $payload['issue'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'issue';
+                goto after_issue;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'issue';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksIssue($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['issue'] = $value;
+
+            after_issue:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'type';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['organization'] ?? null;
+
+            if ($value === null) {
+                $properties['organization'] = null;
+                goto after_organization;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'organization';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['organization'] = $value;
+
+            after_organization:
+
+            $value = $payload['repository'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repository';
+                goto after_repository;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'repository';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['repository'] = $value;
+
+            after_repository:
+
+            $value = $payload['sender'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'sender';
+                goto after_sender;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'sender';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['sender'] = $value;
+
+            after_sender:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUntyped', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(WebhookIssuesUntyped::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new WebhookIssuesUntyped(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUntyped', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): CustomProperties
     {
         $properties    = [];
@@ -45960,6 +46304,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTyped' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTyped($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnassigned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnassigned($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUserMannequin' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUserMannequin($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlabeled($object),
@@ -45976,6 +46321,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\SubIssuesSummary' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️SubIssuesSummary($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️User($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnpinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnpinned($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUntyped' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUntyped($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
@@ -69335,6 +69681,65 @@ class Issues implements ObjectMapper
         return $result;
     }
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTyped(mixed $object): mixed
+    {
+        assert($object instanceof WebhookIssuesTyped);
+        $result = [];
+
+        $action                                = $object->action;
+        after_action:        $result['action'] = $action;
+
+        $enterprise = $object->enterprise;
+
+        if ($enterprise === null) {
+            goto after_enterprise;
+        }
+
+        $enterprise                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($enterprise);
+        after_enterprise:        $result['enterprise'] = $enterprise;
+
+        $installation = $object->installation;
+
+        if ($installation === null) {
+            goto after_installation;
+        }
+
+        $installation                                      = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($installation);
+        after_installation:        $result['installation'] = $installation;
+
+        $issue                               = $object->issue;
+        $issue                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksIssue($issue);
+        after_issue:        $result['issue'] = $issue;
+
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+
+        $type                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($type);
+        after_type:        $result['type'] = $type;
+
+        $organization = $object->organization;
+
+        if ($organization === null) {
+            goto after_organization;
+        }
+
+        $organization                                      = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($organization);
+        after_organization:        $result['organization'] = $organization;
+
+        $repository                                    = $object->repository;
+        $repository                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks($repository);
+        after_repository:        $result['repository'] = $repository;
+
+        $sender                                = $object->sender;
+        $sender                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($sender);
+        after_sender:        $result['sender'] = $sender;
+
+        return $result;
+    }
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnassigned(mixed $object): mixed
     {
         assert($object instanceof WebhookIssuesUnassigned);
@@ -71169,6 +71574,65 @@ class Issues implements ObjectMapper
         $issue                               = $object->issue;
         $issue                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksIssue2($issue);
         after_issue:        $result['issue'] = $issue;
+
+        $organization = $object->organization;
+
+        if ($organization === null) {
+            goto after_organization;
+        }
+
+        $organization                                      = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($organization);
+        after_organization:        $result['organization'] = $organization;
+
+        $repository                                    = $object->repository;
+        $repository                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks($repository);
+        after_repository:        $result['repository'] = $repository;
+
+        $sender                                = $object->sender;
+        $sender                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($sender);
+        after_sender:        $result['sender'] = $sender;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUntyped(mixed $object): mixed
+    {
+        assert($object instanceof WebhookIssuesUntyped);
+        $result = [];
+
+        $action                                = $object->action;
+        after_action:        $result['action'] = $action;
+
+        $enterprise = $object->enterprise;
+
+        if ($enterprise === null) {
+            goto after_enterprise;
+        }
+
+        $enterprise                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($enterprise);
+        after_enterprise:        $result['enterprise'] = $enterprise;
+
+        $installation = $object->installation;
+
+        if ($installation === null) {
+            goto after_installation;
+        }
+
+        $installation                                      = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($installation);
+        after_installation:        $result['installation'] = $installation;
+
+        $issue                               = $object->issue;
+        $issue                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksIssue($issue);
+        after_issue:        $result['issue'] = $issue;
+
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+
+        $type                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueType($type);
+        after_type:        $result['type'] = $type;
 
         $organization = $object->organization;
 
