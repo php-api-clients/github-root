@@ -503,14 +503,6 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
-        if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
-        }
-
-        if ($call === 'LIST /enterprises/{enterprise}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
-        }
-
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
             return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
@@ -637,14 +629,6 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
-        }
-
-        if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
-        }
-
-        if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/{security_product}/{enablement}') {
@@ -1381,14 +1365,6 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /orgs/{org}/copilot/metrics') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
-        }
-
-        if ($call === 'GET /orgs/{org}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
-        }
-
-        if ($call === 'LIST /orgs/{org}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'GET /orgs/{org}/credential-authorizations') {
@@ -2153,14 +2129,6 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/metrics') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
-        }
-
-        if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
-        }
-
-        if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'GET /orgs/{org}/teams') {

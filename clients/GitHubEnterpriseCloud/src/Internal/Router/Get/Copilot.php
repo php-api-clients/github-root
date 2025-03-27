@@ -62,45 +62,6 @@ final class Copilot
         return $operator->call($arguments['enterprise'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterprise(array $params): iterable
-    {
-        $arguments = [];
-        if (array_key_exists('enterprise', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: enterprise');
-        }
-
-        $arguments['enterprise'] = $params['enterprise'];
-        unset($params['enterprise']);
-        if (array_key_exists('since', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: since');
-        }
-
-        $arguments['since'] = $params['since'];
-        unset($params['since']);
-        if (array_key_exists('until', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: until');
-        }
-
-        $arguments['until'] = $params['until'];
-        unset($params['until']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        $operator = new Internal\Operator\Copilot\UsageMetricsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Usage());
-
-        return $operator->call($arguments['enterprise'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
-    }
-
     /** @return */
     public function getCopilotOrganizationDetails(array $params): CopilotOrganizationDetails|WithoutBody
     {
@@ -151,45 +112,6 @@ final class Copilot
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         $operator = new Internal\Operator\Copilot\CopilotMetricsForOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Copilot🌀Metrics());
-
-        return $operator->call($arguments['org'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForOrg(array $params): iterable
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('since', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: since');
-        }
-
-        $arguments['since'] = $params['since'];
-        unset($params['since']);
-        if (array_key_exists('until', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: until');
-        }
-
-        $arguments['until'] = $params['until'];
-        unset($params['until']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        $operator = new Internal\Operator\Copilot\UsageMetricsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Copilot🌀Usage());
 
         return $operator->call($arguments['org'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
     }
@@ -314,51 +236,6 @@ final class Copilot
         return $operator->call($arguments['enterprise'], $arguments['team_slug'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseTeam(array $params): iterable
-    {
-        $arguments = [];
-        if (array_key_exists('enterprise', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: enterprise');
-        }
-
-        $arguments['enterprise'] = $params['enterprise'];
-        unset($params['enterprise']);
-        if (array_key_exists('team_slug', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: team_slug');
-        }
-
-        $arguments['team_slug'] = $params['team_slug'];
-        unset($params['team_slug']);
-        if (array_key_exists('since', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: since');
-        }
-
-        $arguments['since'] = $params['since'];
-        unset($params['since']);
-        if (array_key_exists('until', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: until');
-        }
-
-        $arguments['until'] = $params['until'];
-        unset($params['until']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        $operator = new Internal\Operator\Copilot\UsageMetricsForEnterpriseTeam($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Team🌀TeamSlug🌀Copilot🌀Usage());
-
-        return $operator->call($arguments['enterprise'], $arguments['team_slug'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
-    }
-
     /** @return Observable<Schema\CopilotUsageMetricsDay> */
     public function copilotMetricsForTeam(array $params): iterable
     {
@@ -400,51 +277,6 @@ final class Copilot
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         $operator = new Internal\Operator\Copilot\CopilotMetricsForTeam($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Team🌀TeamSlug🌀Copilot🌀Metrics());
-
-        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForTeam(array $params): iterable
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('team_slug', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: team_slug');
-        }
-
-        $arguments['team_slug'] = $params['team_slug'];
-        unset($params['team_slug']);
-        if (array_key_exists('since', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: since');
-        }
-
-        $arguments['since'] = $params['since'];
-        unset($params['since']);
-        if (array_key_exists('until', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: until');
-        }
-
-        $arguments['until'] = $params['until'];
-        unset($params['until']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        $operator = new Internal\Operator\Copilot\UsageMetricsForTeam($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Team🌀TeamSlug🌀Copilot🌀Usage());
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
     }

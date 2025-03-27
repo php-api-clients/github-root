@@ -36,18 +36,6 @@ final class Copilot
         return $this->operators->copilot👷CopilotMetricsForEnterpriseListing()->call($enterprise, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterprise(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterprise()->call($enterprise, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseListing(string $enterprise, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterpriseListing()->call($enterprise, $since, $until, $page, $perPage);
-    }
-
     /** @return Observable<Schema\CopilotUsageMetricsDay> */
     public function copilotMetricsForEnterpriseTeam(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
@@ -58,18 +46,6 @@ final class Copilot
     public function copilotMetricsForEnterpriseTeamListing(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForEnterpriseTeamListing()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseTeam(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterpriseTeam()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForEnterpriseTeamListing(string $enterprise, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForEnterpriseTeamListing()->call($enterprise, $teamSlug, $since, $until, $page, $perPage);
     }
 
     /** @return */
@@ -120,18 +96,6 @@ final class Copilot
         return $this->operators->copilot👷CopilotMetricsForOrganizationListing()->call($org, $since, $until, $page, $perPage);
     }
 
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForOrg(string $org, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForOrg()->call($org, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForOrgListing(string $org, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForOrgListing()->call($org, $since, $until, $page, $perPage);
-    }
-
     /** @return */
     public function getCopilotSeatDetailsForUser(string $org, string $username): CopilotSeatDetails|WithoutBody
     {
@@ -148,17 +112,5 @@ final class Copilot
     public function copilotMetricsForTeamListing(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
     {
         return $this->operators->copilot👷CopilotMetricsForTeamListing()->call($org, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForTeam(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForTeam()->call($org, $teamSlug, $since, $until, $page, $perPage);
-    }
-
-    /** @return Observable<Schema\CopilotUsageMetrics> */
-    public function usageMetricsForTeamListing(string $org, string $teamSlug, string $since, string $until, int $page, int $perPage): iterable
-    {
-        return $this->operators->copilot👷UsageMetricsForTeamListing()->call($org, $teamSlug, $since, $until, $page, $perPage);
     }
 }
