@@ -10,9 +10,9 @@ jobs:
     outputs:
       version: ${{ steps.supported-versions-matrix.outputs.lowest }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
       - id: supported-versions-matrix
-        uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
+        uses: WyriHaximus/github-action-composer-php-versions-in-range@ea3d54bf7909d5607c4f32bda9cd8d64e420ec99 # v1
   set-up-clients:
     name: Set up Clients
     runs-on: ubuntu-latest
@@ -22,16 +22,16 @@ jobs:
       image: wyrihaximusnet/php:${{ needs.supported-versions-matrix.outputs.version }}-nts-alpine-slim-dev-root
     steps:
       - name: Get current time
-        uses: josStorer/get-current-time@v2
+        uses: josStorer/get-current-time@060cae3fbd32c181c6841788189a601ac8df8389 # v2
         id: current-time
         with:
           format: "YYYY/MM/DD"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
       - uses: ramsey/composer-install@v2
       - name: Set up clients
         run: make setup-clients
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
         with:
           branch: "setup-clients/${{ steps.current-time.outputs.formattedTime }}"
           token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
