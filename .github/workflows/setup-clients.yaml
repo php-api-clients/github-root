@@ -10,7 +10,7 @@ jobs:
     outputs:
       version: ${{ steps.supported-versions-matrix.outputs.lowest }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - id: supported-versions-matrix
         uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
   set-up-clients:
@@ -26,7 +26,7 @@ jobs:
         id: current-time
         with:
           format: "YYYY/MM/DD"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - uses: ramsey/composer-install@v2
       - name: Set up clients
         run: make setup-clients
