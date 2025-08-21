@@ -10,7 +10,7 @@ jobs:
     outputs:
       version: {{ "${{ steps.supported-versions-matrix.outputs.lowest }}" }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - id: supported-versions-matrix
         uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
         with:
@@ -23,7 +23,7 @@ jobs:
     container:
       image: wyrihaximusnet/php:{{ "${{ needs.supported-versions-matrix.outputs.version }}" }}-nts-alpine-slim-dev-root
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ramsey/composer-install@v2
       - uses: ramsey/composer-install@v2
         with:
