@@ -24,8 +24,8 @@ jobs:
       image: wyrihaximusnet/php:${{ needs.supported-versions-matrix.outputs.version }}-nts-alpine-slim-dev-root
     steps:
       - uses: actions/checkout@v4
-      - uses: ramsey/composer-install@v2
-      - uses: ramsey/composer-install@v2
+      - uses: ramsey/composer-install@1919f6c305aea6ab10e6181a8ddf72317ad77e0e # 2.3.1
+      - uses: ramsey/composer-install@1919f6c305aea6ab10e6181a8ddf72317ad77e0e # 2.3.1
         with:
           working-directory: "clients/GitHubEnterprise-3.0"
       - name: Download current spec file
